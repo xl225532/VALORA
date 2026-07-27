@@ -1,38 +1,106 @@
-document.addEventListener("DOMContentLoaded", function(){
+// VALORA USER SYSTEM
 
-const form = document.getElementById("registerForm");
+// إنشاء حساب
+const registerForm = document.getElementById("registerForm");
 
+if(registerForm){
 
-if(form){
-
-form.addEventListener("submit", function(e){
+registerForm.addEventListener("submit", function(e){
 
 e.preventDefault();
 
 
-let password = document.getElementById("password").value;
+let user = {
 
-let confirmPassword = document.getElementById("confirmPassword").value;
+username: document.getElementById("username").value,
+
+email: document.getElementById("email").value,
+
+phone: document.getElementById("phone").value,
+
+password: document.getElementById("password").value,
+
+inviteCode: document.getElementById("inviteCode").value
+
+};
 
 
-if(password !== confirmPassword){
+// حفظ البيانات في المتصفح
 
-alert("كلمة المرور غير متطابقة");
+localStorage.setItem(
+"VALORA_USER",
+JSON.stringify(user)
+);
 
-return;
+
+
+alert("تم إنشاء الحساب بنجاح");
+
+
+// الانتقال لتسجيل الدخول
+
+window.location.href="login.html";
+
+
+});
+
 
 }
 
 
-localStorage.setItem("valoraUser",
-document.getElementById("username").value
-);
+
+
+
+
+// تسجيل الدخول
+
+const loginForm = document.getElementById("loginForm");
+
+
+if(loginForm){
+
+
+loginForm.addEventListener("submit",function(e){
+
+
+e.preventDefault();
+
+
+
+let savedUser =
+JSON.parse(localStorage.getItem("VALORA_USER"));
+
+
+
+let loginValue =
+document.getElementById("loginInput").value;
+
+
+let password =
+document.getElementById("loginPassword").value;
+
+
+
+
+if(
+savedUser &&
+(loginValue==savedUser.email ||
+loginValue==savedUser.phone ||
+loginValue==savedUser.username)
+&&
+password==savedUser.password
+){
 
 
 window.location.href="dashboard.html";
 
 
-});
+}
+
+else{
+
+
+alert("بيانات الدخول غير صحيحة");
 
 
 }
@@ -40,3 +108,6 @@ window.location.href="dashboard.html";
 
 
 });
+
+
+}
