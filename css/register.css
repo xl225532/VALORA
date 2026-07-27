@@ -23,26 +23,29 @@ align-items:center;
 
 color:white;
 
+padding:15px;
+
 }
+
 
 
 
 
 .auth-container{
 
-width:90%;
+width:92%;
 
-max-width:430px;
+max-width:380px;
 
 background:#0B1628;
 
-border-radius:22px;
+border-radius:18px;
 
-padding:35px;
+padding:25px;
 
 border:1px solid #17365c;
 
-box-shadow:0 0 35px rgba(0,140,255,.15);
+box-shadow:0 0 30px rgba(0,140,255,.15);
 
 }
 
@@ -53,13 +56,13 @@ box-shadow:0 0 35px rgba(0,140,255,.15);
 
 text-align:center;
 
-font-size:38px;
+font-size:32px;
 
 font-weight:700;
 
 color:#1687FF;
 
-margin-bottom:12px;
+margin-bottom:8px;
 
 }
 
@@ -73,20 +76,22 @@ text-align:center;
 
 color:#98A5B8;
 
-font-size:18px;
+font-size:16px;
 
-margin-bottom:30px;
+margin-bottom:22px;
 
 }
+
 
 
 
 
 .input-group{
 
-margin-bottom:16px;
+margin-bottom:13px;
 
 }
+
 
 
 
@@ -95,13 +100,14 @@ margin-bottom:16px;
 
 display:block;
 
-margin-bottom:8px;
+margin-bottom:6px;
 
 color:#C6D3E4;
 
-font-size:14px;
+font-size:13px;
 
 }
+
 
 
 
@@ -110,19 +116,22 @@ font-size:14px;
 
 width:100%;
 
-padding:14px;
+padding:12px;
 
 background:#071426;
 
 border:1px solid #20344F;
 
-border-radius:12px;
+border-radius:10px;
 
 color:white;
+
+font-size:14px;
 
 outline:none;
 
 }
+
 
 
 
@@ -136,19 +145,32 @@ border-color:#1687FF;
 
 
 
+
 .checkbox-group{
 
 display:flex;
 
-gap:8px;
+gap:7px;
 
 align-items:center;
 
-margin:15px 0;
+margin:13px 0;
 
 color:#98A5B8;
 
-font-size:13px;
+font-size:12px;
+
+}
+
+
+
+
+
+.checkbox-group input{
+
+width:15px;
+
+height:15px;
 
 }
 
@@ -160,23 +182,24 @@ font-size:13px;
 
 width:100%;
 
-padding:15px;
+padding:13px;
 
 background:#1687FF;
 
 border:none;
 
-border-radius:12px;
+border-radius:10px;
 
 color:white;
 
-font-size:17px;
+font-size:16px;
 
 font-weight:bold;
 
 cursor:pointer;
 
 }
+
 
 
 
@@ -195,11 +218,14 @@ background:#0B72DE;
 
 text-align:center;
 
-margin-top:22px;
+margin-top:18px;
 
 color:#98A5B8;
 
+font-size:13px;
+
 }
+
 
 
 
@@ -211,5 +237,26 @@ color:#1687FF;
 text-decoration:none;
 
 font-weight:bold;
+
+}
+
+
+
+
+
+@media(max-width:360px){
+
+.auth-container{
+
+padding:20px;
+
+}
+
+
+.logo{
+
+font-size:28px;
+
+}
 
 }
