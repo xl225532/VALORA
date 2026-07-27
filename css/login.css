@@ -1,1 +1,189 @@
+/* =========================
+   VALORA LOGIN STYLE
+========================= */
 
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Tahoma,sans-serif;
+}
+
+
+body{
+
+    background:
+    linear-gradient(
+    160deg,
+    #020611,
+    #071a33
+    );
+
+    min-height:100vh;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    color:white;
+
+}
+
+
+
+.login-container{
+
+    width:90%;
+
+    max-width:420px;
+
+    background:#081426;
+
+    border:1px solid #17365c;
+
+    border-radius:24px;
+
+    padding:35px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,.5);
+
+}
+
+
+
+.logo{
+
+    text-align:center;
+
+    color:#1687ff;
+
+    font-size:40px;
+
+    font-weight:bold;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.subtitle{
+
+    text-align:center;
+
+    color:#9eafc5;
+
+    margin-bottom:30px;
+
+}
+
+
+
+.input-group{
+
+    margin-bottom:18px;
+
+}
+
+
+
+.input-group label{
+
+    display:block;
+
+    color:#d4dfef;
+
+    margin-bottom:8px;
+
+    font-size:14px;
+
+}
+
+
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    background:#030914;
+
+    border:1px solid #203b5d;
+
+    border-radius:14px;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+
+.input-group input:focus{
+
+    border-color:#1687ff;
+
+}
+
+
+
+.login-btn{
+
+    width:100%;
+
+    padding:15px;
+
+    background:#1687ff;
+
+    border:none;
+
+    border-radius:14px;
+
+    color:white;
+
+    font-size:17px;
+
+    font-weight:bold;
+
+}
+
+
+
+.links{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:20px;
+
+}
+
+
+
+.links a,
+.register a{
+
+    color:#1687ff;
+
+    text-decoration:none;
+
+}
+
+
+
+.register{
+
+    text-align:center;
+
+    margin-top:25px;
+
+    color:#9eafc5;
+
+}
