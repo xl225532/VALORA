@@ -73,7 +73,6 @@ required>
 
 <button type="button" class="eye-btn" onclick="togglePassword('password', this)">
 
-
 <svg viewBox="0 0 24 24">
 
 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
@@ -81,7 +80,6 @@ required>
 <circle cx="12" cy="12" r="3"/>
 
 </svg>
-
 
 </button>
 
@@ -114,7 +112,6 @@ required>
 
 <button type="button" class="eye-btn" onclick="togglePassword('confirmPassword', this)">
 
-
 <svg viewBox="0 0 24 24">
 
 <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
@@ -122,7 +119,6 @@ required>
 <circle cx="12" cy="12" r="3"/>
 
 </svg>
-
 
 </button>
 
@@ -145,7 +141,7 @@ required>
 <input
 type="text"
 id="inviteCode"
-placeholder="أدخل كود الدعوة">
+placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
 
 </div>
 
@@ -155,15 +151,28 @@ placeholder="أدخل كود الدعوة">
 
 <div class="checkbox-group">
 
+
+<label class="circle-check">
+
+
 <input
 type="checkbox"
 id="agree"
 required>
 
 
-<label for="agree">
+<span></span>
 
-أوافق على الشروط والأحكام وسياسة الخصوصية
+
+</label>
+
+
+<label>
+
+أوافق على 
+<a href="terms.html" target="_blank">
+الشروط والأحكام وسياسة الخصوصية
+</a>
 
 </label>
 
