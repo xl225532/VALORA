@@ -1,3 +1,9 @@
+/* ===================================
+   VALORA GLOBAL STYLE
+   DARK BLUE + BLACK THEME
+=================================== */
+
+
 *{
     margin:0;
     padding:0;
@@ -5,30 +11,67 @@
     font-family:Arial,Tahoma,sans-serif;
 }
 
+
 body{
-    background:#050b16;
+
+    background:
+    linear-gradient(
+    160deg,
+    #020611,
+    #06152b
+    );
+
     min-height:100vh;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    color:white;
+
+    color:#ffffff;
+
 }
+
+
+
+a{
+
+    text-decoration:none;
+
+    color:inherit;
+
+}
+
+
+/* ===================================
+   LOGIN & REGISTER
+=================================== */
 
 
 .auth-container{
 
     width:90%;
+
     max-width:420px;
 
-    background:#0b1628;
+    background:
+
+    linear-gradient(
+    145deg,
+    #0b1a32,
+    #050b16
+    );
+
 
     padding:35px;
 
-    border-radius:20px;
+    border-radius:24px;
 
-    box-shadow:0 0 35px rgba(22,135,255,.15);
+    border:1px solid #173457;
+
+
+    box-shadow:
+
+    0 15px 45px rgba(0,0,0,.5);
+
 
 }
+
 
 
 .logo{
@@ -37,13 +80,20 @@ body{
 
     color:#1687ff;
 
-    font-size:38px;
+    font-size:40px;
 
-    font-weight:bold;
+    font-weight:800;
+
+    letter-spacing:1px;
 
     margin-bottom:15px;
 
+    text-shadow:
+
+    0 0 20px rgba(22,135,255,.5);
+
 }
+
 
 
 
@@ -51,13 +101,14 @@ body{
 
     text-align:center;
 
-    color:#b8c4d8;
-
-    margin-bottom:30px;
+    color:#b9c7db;
 
     font-size:18px;
 
+    margin-bottom:30px;
+
 }
+
 
 
 
@@ -68,13 +119,17 @@ body{
 }
 
 
+
+
 .input-group label{
 
     display:block;
 
     margin-bottom:8px;
 
-    color:#cbd6e6;
+    color:#d2dbea;
+
+    font-size:14px;
 
 }
 
@@ -82,19 +137,31 @@ body{
 
 .input-group input{
 
+
     width:100%;
 
-    padding:14px;
+    padding:15px;
 
-    border-radius:12px;
 
-    border:1px solid #22344d;
+    background:#030914;
 
-    background:#071426;
+
+    border:
+
+    1px solid #1d385c;
+
+
+    border-radius:14px;
+
 
     color:white;
 
+
     outline:none;
+
+
+    font-size:15px;
+
 
 }
 
@@ -102,27 +169,244 @@ body{
 
 .input-group input:focus{
 
+
     border-color:#1687ff;
+
+
+    box-shadow:
+
+    0 0 10px rgba(22,135,255,.3);
+
 
 }
 
 
 
-.btn-primary{
+
+.btn-primary,
+.login-btn{
+
 
     width:100%;
 
+
     padding:15px;
+
 
     border:none;
 
+
+    border-radius:14px;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #005bea,
+    #1687ff
+    );
+
+
+    color:white;
+
+
+    font-size:17px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+    margin-top:10px;
+
+
+}
+
+
+
+
+
+.btn-primary:hover,
+.login-btn:hover{
+
+
+    opacity:.9;
+
+
+}
+
+
+
+
+.checkbox-group{
+
+
+    display:flex;
+
+
+    gap:8px;
+
+
+    align-items:center;
+
+
+    margin:15px 0;
+
+
+    color:#aab8cc;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+
+.bottom-link,
+.register{
+
+
+    text-align:center;
+
+
+    margin-top:22px;
+
+
+    color:#9aaac0;
+
+
+}
+
+
+
+
+.bottom-link a,
+.register a{
+
+
+    color:#1687ff;
+
+
+    font-weight:bold;
+
+
+}
+/* ===================================
+   VALORA DASHBOARD
+=================================== */
+
+
+.dashboard{
+
+    width:100%;
+
+    max-width:480px;
+
+    min-height:100vh;
+
+    margin:auto;
+
+    padding:20px;
+
+    padding-bottom:100px;
+
+}
+
+
+
+/* HEADER */
+
+.header{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:25px;
+
+}
+
+
+
+.brand{
+
+    font-size:34px;
+
+    font-weight:800;
+
+    color:#1687ff;
+
+    letter-spacing:1px;
+
+}
+
+
+
+.user-area h3{
+
+    font-size:15px;
+
+    color:#c8d5e8;
+
+    margin-bottom:10px;
+
+}
+
+
+
+
+/* USER CODE */
+
+.code-box{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    background:#071426;
+
+    border:1px solid #193658;
+
     border-radius:12px;
+
+    padding:8px 12px;
+
+}
+
+
+
+.code-box span{
+
+    color:#1687ff;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+
+
+.code-box button{
+
+    border:none;
 
     background:#1687ff;
 
     color:white;
 
-    font-size:17px;
+    padding:6px 12px;
+
+    border-radius:8px;
 
     cursor:pointer;
 
@@ -130,17 +414,103 @@ body{
 
 
 
-.checkbox-group{
 
-    display:flex;
+/* BALANCE */
 
-    gap:8px;
+.balance-card{
 
-    align-items:center;
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #0d2342,
+    #050b16
+    );
+
+
+    border:1px solid #193658;
+
+
+    border-radius:25px;
+
+
+    padding:25px;
+
+
+    margin-bottom:25px;
+
+
+    box-shadow:
+
+    0 15px 35px rgba(0,0,0,.35);
+
+
+}
+
+
+
+.balance-title{
+
+    color:#9aaac0;
+
+    font-size:14px;
+
+}
+
+
+
+.balance-number{
+
 
     margin:15px 0;
 
-    color:#9daabd;
+
+    font-size:38px;
+
+
+    font-weight:800;
+
+
+}
+
+
+
+.balance-number span{
+
+    color:#22c55e;
+
+    font-size:18px;
+
+}
+
+
+
+.balance-info{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    background:#030914;
+
+
+    border-radius:15px;
+
+
+    padding:15px;
+
+
+}
+
+
+
+.balance-info div{
+
+    color:#9aaac0;
 
     font-size:13px;
 
@@ -148,22 +518,259 @@ body{
 
 
 
-.bottom-link{
+.balance-info strong{
 
-    text-align:center;
+    display:block;
 
-    margin-top:20px;
+    color:white;
 
-    color:#9daabd;
+    margin-top:6px;
 
 }
 
 
 
-.bottom-link a{
+.active{
+
+    color:#22c55e!important;
+
+}
+
+
+
+
+/* COINS */
+
+.coins-section h2{
+
+    font-size:20px;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.coin-card{
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:space-between;
+
+
+    background:#071426;
+
+
+    border:1px solid #193658;
+
+
+    padding:15px;
+
+
+    border-radius:18px;
+
+
+    margin-bottom:12px;
+
+
+}
+
+
+
+.coin-logo{
+
+
+    width:52px;
+
+
+    height:52px;
+
+
+    border-radius:50%;
+
+
+    display:flex;
+
+
+    align-items:center;
+
+
+    justify-content:center;
+
+
+    font-weight:bold;
+
+
+    color:white;
+
+
+}
+
+
+
+.bitcoin{
+
+    background:#f7931a;
+
+}
+
+
+
+.ethereum{
+
+    background:#627eea;
+
+}
+
+
+
+.usdt{
+
+    background:#26a17b;
+
+}
+
+
+
+.bnb{
+
+    background:#f3ba2f;
+
+    color:#111;
+
+}
+
+
+
+.sol{
+
+    background:#9945ff;
+
+}
+
+
+
+
+.coin-name h3{
+
+    font-size:16px;
+
+}
+
+
+
+.coin-name span{
+
+    color:#94a3b8;
+
+    font-size:13px;
+
+}
+
+
+
+.coin-price{
+
+    text-align:left;
+
+}
+
+
+
+.coin-price strong{
+
+    font-size:15px;
+
+}
+
+
+
+.up{
+
+    color:#22c55e;
+
+    margin-top:5px;
+
+}
+
+
+
+.down{
+
+    color:#ef4444;
+
+    margin-top:5px;
+
+}
+
+
+
+
+
+/* BOTTOM NAVIGATION */
+
+.bottom-nav{
+
+
+    position:fixed;
+
+
+    bottom:0;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    width:100%;
+
+
+    max-width:480px;
+
+
+    background:#050b16;
+
+
+    border-top:1px solid #193658;
+
+
+    display:flex;
+
+
+    justify-content:space-around;
+
+
+    padding:16px 5px;
+
+
+}
+
+
+
+.bottom-nav a{
+
+
+    color:#9aaac0;
+
+
+    font-size:13px;
+
+
+}
+
+
+
+.bottom-nav a:hover{
+
 
     color:#1687ff;
 
-    text-decoration:none;
 
 }
