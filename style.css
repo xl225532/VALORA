@@ -1,0 +1,169 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Tahoma,sans-serif;
+}
+
+body{
+    background:#050b16;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+}
+
+
+.auth-container{
+
+    width:90%;
+    max-width:420px;
+
+    background:#0b1628;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 0 35px rgba(22,135,255,.15);
+
+}
+
+
+.logo{
+
+    text-align:center;
+
+    color:#1687ff;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.auth-title{
+
+    text-align:center;
+
+    color:#b8c4d8;
+
+    margin-bottom:30px;
+
+    font-size:18px;
+
+}
+
+
+
+.input-group{
+
+    margin-bottom:18px;
+
+}
+
+
+.input-group label{
+
+    display:block;
+
+    margin-bottom:8px;
+
+    color:#cbd6e6;
+
+}
+
+
+
+.input-group input{
+
+    width:100%;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    border:1px solid #22344d;
+
+    background:#071426;
+
+    color:white;
+
+    outline:none;
+
+}
+
+
+
+.input-group input:focus{
+
+    border-color:#1687ff;
+
+}
+
+
+
+.btn-primary{
+
+    width:100%;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#1687ff;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+}
+
+
+
+.checkbox-group{
+
+    display:flex;
+
+    gap:8px;
+
+    align-items:center;
+
+    margin:15px 0;
+
+    color:#9daabd;
+
+    font-size:13px;
+
+}
+
+
+
+.bottom-link{
+
+    text-align:center;
+
+    margin-top:20px;
+
+    color:#9daabd;
+
+}
+
+
+
+.bottom-link a{
+
+    color:#1687ff;
+
+    text-decoration:none;
+
+}
