@@ -1,348 +1,165 @@
-/* =========================
-   VALORA WALLET STYLE
-========================= */
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
+<head>
 
-*{
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Tahoma,sans-serif;
+<title>VALORA | المحفظة</title>
 
-}
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="css/wallet.css">
 
+</head>
 
-body{
 
-    background:
-    linear-gradient(
-    160deg,
-    #020611,
-    #071a33
-    );
+<body>
 
-    min-height:100vh;
 
-    color:white;
+<div class="dashboard">
 
-}
 
+<header class="header">
 
+<div class="brand">
+VALORA
+</div>
 
+</header>
 
 
-.dashboard{
 
-    width:100%;
 
-    max-width:480px;
 
-    margin:auto;
+<section class="balance-card">
 
-    padding:20px;
 
-    padding-bottom:90px;
+<div class="balance-title">
 
-}
+الرصيد الإجمالي
 
+</div>
 
 
+<div class="balance-number">
 
+0.00
 
-/* HEADER */
+<span>
+USDT
+</span>
 
+</div>
 
-.header{
 
-    margin-bottom:25px;
+</section>
 
-}
 
 
 
-.brand{
 
-    color:#1687ff;
 
-    font-size:34px;
+<section class="wallet-box">
 
-    font-weight:bold;
 
-}
 
+<div class="wallet-item">
 
+<div>
+أرباح الدعوة
+</div>
 
+<strong>
+0.00 USDT
+</strong>
 
 
-/* MAIN BALANCE */
+</div>
 
 
-.balance-card{
 
 
-    background:
 
-    linear-gradient(
-    145deg,
-    #0c2342,
-    #050b16
-    );
+<div class="wallet-item">
 
+<div>
+أرباح الفريق
+</div>
 
-    border:1px solid #17365c;
+<strong>
+0.00 USDT
+</strong>
 
 
-    border-radius:24px;
+</div>
 
 
-    padding:25px;
 
+</section>
 
-    margin-bottom:25px;
 
 
-}
 
 
 
-.balance-title{
+<div class="wallet-actions">
 
-    color:#9eafc5;
 
-    font-size:15px;
+<button class="deposit-btn">
 
-}
+إيداع
 
+</button>
 
 
-.balance-number{
 
+<button class="withdraw-btn">
 
-    margin-top:15px;
+سحب
 
-    font-size:38px;
+</button>
 
-    font-weight:bold;
 
 
-}
+</div>
 
 
 
-.balance-number span{
 
 
-    color:#22c55e;
 
-    font-size:18px;
+<nav class="bottom-nav">
 
 
-}
+<a href="dashboard.html">
+الرئيسية
+</a>
 
 
+<a href="wallet.html">
+المحفظة
+</a>
 
 
+<a href="team.html">
+الفريق
+</a>
 
-/* PROFIT BOXES */
 
+<a href="settings.html">
+الإعدادات
+</a>
 
-.wallet-box{
 
-    margin-top:20px;
+</nav>
 
-}
 
 
+</div>
 
-.wallet-item{
 
+</body>
 
-    display:flex;
-
-    justify-content:space-between;
-
-    align-items:center;
-
-
-    background:#081426;
-
-
-    border:1px solid #17365c;
-
-
-    border-radius:18px;
-
-
-    padding:20px;
-
-
-    margin-bottom:15px;
-
-
-}
-
-
-
-.wallet-item div{
-
-    color:#9eafc5;
-
-    font-size:15px;
-
-}
-
-
-
-.wallet-item strong{
-
-    color:#1687ff;
-
-    font-size:17px;
-
-}
-
-
-
-
-
-/* BUTTONS */
-
-
-.wallet-actions{
-
-
-    display:flex;
-
-
-    gap:15px;
-
-
-    margin-top:30px;
-
-
-}
-
-
-
-.wallet-actions button{
-
-
-    flex:1;
-
-
-    padding:15px;
-
-
-    border-radius:14px;
-
-
-    font-size:16px;
-
-
-    font-weight:bold;
-
-
-    cursor:pointer;
-
-
-}
-
-
-
-.deposit-btn{
-
-
-    border:none;
-
-
-    color:white;
-
-
-    background:
-
-    linear-gradient(
-    90deg,
-    #005bea,
-    #1687ff
-    );
-
-
-}
-
-
-
-
-.withdraw-btn{
-
-
-    background:#081426;
-
-
-    border:1px solid #1687ff;
-
-
-    color:#1687ff;
-
-
-}
-
-
-
-
-
-
-/* BOTTOM MENU */
-
-
-.bottom-nav{
-
-
-    position:fixed;
-
-
-    bottom:0;
-
-
-    left:50%;
-
-
-    transform:translateX(-50%);
-
-
-    width:100%;
-
-
-    max-width:480px;
-
-
-    background:#050b16;
-
-
-    border-top:1px solid #17365c;
-
-
-    display:flex;
-
-
-    justify-content:space-around;
-
-
-    padding:15px;
-
-
-}
-
-
-
-.bottom-nav a{
-
-
-    color:#9eafc5;
-
-
-    font-size:13px;
-
-
-}
+</html>
