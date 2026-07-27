@@ -1,7 +1,39 @@
 // VALORA USER SYSTEM
 
 
+
+// قراءة كود الدعوة من الرابط
+
+function getReferralFromURL(){
+
+let params = new URLSearchParams(window.location.search);
+
+return params.get("ref") || "";
+
+}
+
+
+
+
+
+// إنشاء كود إحالة جديد
+
+function generateReferralCode(){
+
+let number = Math.floor(100000 + Math.random() * 900000);
+
+return "VAL-" + number;
+
+}
+
+
+
+
+
+
+
 // إنشاء حساب
+
 
 const registerForm = document.getElementById("registerForm");
 
@@ -9,10 +41,35 @@ const registerForm = document.getElementById("registerForm");
 if(registerForm){
 
 
+let referralInput = document.getElementById("referralCode");
+
+
+// تعبئة كود الدعوة من الرابط تلقائياً
+
+if(referralInput){
+
+let ref = getReferralFromURL();
+
+if(ref){
+
+referralInput.value = ref;
+
+referralInput.readOnly = true;
+
+}
+
+}
+
+
+
 registerForm.addEventListener("submit", function(e){
 
 
 e.preventDefault();
+
+
+
+let myReferralCode = generateReferralCode();
 
 
 
@@ -25,7 +82,11 @@ contact: document.getElementById("contact").value,
 password: document.getElementById("password").value,
 
 
-inviteCode: document.getElementById("inviteCode").value
+referralCode: myReferralCode,
+
+
+invitedBy: getReferralFromURL()
+
 
 
 };
@@ -45,8 +106,6 @@ alert("تم إنشاء الحساب بنجاح");
 
 
 
-// الانتقال لتسجيل الدخول
-
 window.location.href="login.html";
 
 
@@ -54,6 +113,7 @@ window.location.href="login.html";
 
 
 }
+
 
 
 
@@ -112,7 +172,10 @@ password == savedUser.password
 ){
 
 
+
 showSuccess();
+
+
 
 setTimeout(()=>{
 
@@ -129,9 +192,7 @@ window.location.href="dashboard.html";
 else{
 
 
-
 alert("بيانات الدخول غير صحيحة");
-
 
 
 }
@@ -141,7 +202,6 @@ alert("بيانات الدخول غير صحيحة");
 });
 
 
-
 }
 
 
@@ -150,7 +210,9 @@ alert("بيانات الدخول غير صحيحة");
 
 
 
+
 // رسالة نجاح حديثة
+
 
 function showSuccess(){
 
@@ -186,6 +248,44 @@ box.innerHTML=`
 
 document.body.appendChild(box);
 
+
+
+}
+
+
+
+
+
+
+// إظهار وإخفاء كلمة المرور
+
+
+function togglePassword(id, button){
+
+
+let input = document.getElementById(id);
+
+
+
+if(input.type === "password"){
+
+
+input.type = "text";
+
+button.classList.add("active");
+
+
+}
+
+else{
+
+
+input.type = "password";
+
+button.classList.remove("active");
+
+
+}
 
 
 }
