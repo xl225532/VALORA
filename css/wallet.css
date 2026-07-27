@@ -1,1 +1,348 @@
+/* =========================
+   VALORA WALLET STYLE
+========================= */
 
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Tahoma,sans-serif;
+
+}
+
+
+
+body{
+
+    background:
+    linear-gradient(
+    160deg,
+    #020611,
+    #071a33
+    );
+
+    min-height:100vh;
+
+    color:white;
+
+}
+
+
+
+
+
+.dashboard{
+
+    width:100%;
+
+    max-width:480px;
+
+    margin:auto;
+
+    padding:20px;
+
+    padding-bottom:90px;
+
+}
+
+
+
+
+
+/* HEADER */
+
+
+.header{
+
+    margin-bottom:25px;
+
+}
+
+
+
+.brand{
+
+    color:#1687ff;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* MAIN BALANCE */
+
+
+.balance-card{
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #0c2342,
+    #050b16
+    );
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:24px;
+
+
+    padding:25px;
+
+
+    margin-bottom:25px;
+
+
+}
+
+
+
+.balance-title{
+
+    color:#9eafc5;
+
+    font-size:15px;
+
+}
+
+
+
+.balance-number{
+
+
+    margin-top:15px;
+
+    font-size:38px;
+
+    font-weight:bold;
+
+
+}
+
+
+
+.balance-number span{
+
+
+    color:#22c55e;
+
+    font-size:18px;
+
+
+}
+
+
+
+
+
+/* PROFIT BOXES */
+
+
+.wallet-box{
+
+    margin-top:20px;
+
+}
+
+
+
+.wallet-item{
+
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+
+    background:#081426;
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:18px;
+
+
+    padding:20px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.wallet-item div{
+
+    color:#9eafc5;
+
+    font-size:15px;
+
+}
+
+
+
+.wallet-item strong{
+
+    color:#1687ff;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+/* BUTTONS */
+
+
+.wallet-actions{
+
+
+    display:flex;
+
+
+    gap:15px;
+
+
+    margin-top:30px;
+
+
+}
+
+
+
+.wallet-actions button{
+
+
+    flex:1;
+
+
+    padding:15px;
+
+
+    border-radius:14px;
+
+
+    font-size:16px;
+
+
+    font-weight:bold;
+
+
+    cursor:pointer;
+
+
+}
+
+
+
+.deposit-btn{
+
+
+    border:none;
+
+
+    color:white;
+
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #005bea,
+    #1687ff
+    );
+
+
+}
+
+
+
+
+.withdraw-btn{
+
+
+    background:#081426;
+
+
+    border:1px solid #1687ff;
+
+
+    color:#1687ff;
+
+
+}
+
+
+
+
+
+
+/* BOTTOM MENU */
+
+
+.bottom-nav{
+
+
+    position:fixed;
+
+
+    bottom:0;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    width:100%;
+
+
+    max-width:480px;
+
+
+    background:#050b16;
+
+
+    border-top:1px solid #17365c;
+
+
+    display:flex;
+
+
+    justify-content:space-around;
+
+
+    padding:15px;
+
+
+}
+
+
+
+.bottom-nav a{
+
+
+    color:#9eafc5;
+
+
+    font-size:13px;
+
+
+}
