@@ -130,6 +130,70 @@ border-color:#1687FF;
 
 
 
+/* كلمة المرور مع زر العين */
+
+.password-box{
+
+position:relative;
+
+}
+
+
+
+.password-box input{
+
+padding-left:45px;
+
+}
+
+
+
+.eye-btn{
+
+position:absolute;
+
+left:12px;
+
+top:50%;
+
+transform:translateY(-50%);
+
+background:none;
+
+border:none;
+
+cursor:pointer;
+
+padding:3px;
+
+}
+
+
+
+.eye-btn svg{
+
+width:21px;
+
+height:21px;
+
+fill:none;
+
+stroke:#98A5B8;
+
+stroke-width:2;
+
+}
+
+
+
+.eye-btn.active svg{
+
+stroke:#1687FF;
+
+}
+
+
+
 .login-btn{
 
 width:100%;
