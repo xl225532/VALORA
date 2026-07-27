@@ -32,18 +32,19 @@ VALORA
 
 
 
-<form>
+<form id="loginForm">
 
 
 <div class="input-group">
 
 <label>
-البريد الإلكتروني أو اسم المستخدم
+البريد الإلكتروني أو رقم الهاتف أو اسم المستخدم
 </label>
 
 <input 
 type="text"
-placeholder="أدخل البريد الإلكتروني أو اسم المستخدم"
+id="loginInput"
+placeholder="أدخل البريد أو رقم الهاتف أو اسم المستخدم"
 required>
 
 </div>
@@ -58,6 +59,7 @@ required>
 
 <input
 type="password"
+id="loginPassword"
 placeholder="أدخل كلمة المرور"
 required>
 
@@ -106,6 +108,9 @@ required>
 
 
 </div>
+
+
+<script src="app.js"></script>
 
 
 </body>
