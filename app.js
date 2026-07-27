@@ -112,8 +112,13 @@ password == savedUser.password
 ){
 
 
+showSuccess();
+
+setTimeout(()=>{
 
 window.location.href="dashboard.html";
+
+},1800);
 
 
 
@@ -144,34 +149,43 @@ alert("بيانات الدخول غير صحيحة");
 
 
 
-// إظهار وإخفاء كلمة المرور
 
-function togglePassword(id, button){
+// رسالة نجاح حديثة
 
-
-let input = document.getElementById(id);
+function showSuccess(){
 
 
-
-if(input.type === "password"){
-
-
-input.type = "text";
-
-button.classList.add("active");
+let box = document.createElement("div");
 
 
-}
-
-else{
+box.className="success-box";
 
 
-input.type = "password";
+box.innerHTML=`
 
-button.classList.remove("active");
+<div class="success-icon">
+
+<svg viewBox="0 0 52 52">
+
+<circle cx="26" cy="26" r="24"></circle>
+
+<path d="M14 27 L22 35 L38 18"></path>
+
+</svg>
+
+</div>
 
 
-}
+<h3>تم تسجيل الدخول بنجاح</h3>
+
+<p>جاري الدخول إلى الحساب</p>
+
+`;
+
+
+
+document.body.appendChild(box);
+
 
 
 }
