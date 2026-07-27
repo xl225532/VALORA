@@ -48,13 +48,17 @@ VALORA
 <div class="referral-code">
 
 
-<span>
-VAL583921
+<span id="referralLink">
+
+جاري تحميل الرابط...
+
 </span>
 
 
-<button>
+<button onclick="copyReferral()">
+
 نسخ
+
 </button>
 
 
@@ -63,6 +67,28 @@ VAL583921
 
 </section>
 
+
+
+
+
+
+
+<div class="team-card">
+
+
+<h3>
+كود الإحالة
+</h3>
+
+
+<div class="team-number" id="myReferralCode">
+
+---
+
+</div>
+
+
+</div>
 
 
 
@@ -359,6 +385,60 @@ VIP5
 
 
 </div>
+
+
+
+
+<script>
+
+
+let user = JSON.parse(localStorage.getItem("VALORA_USER"));
+
+
+
+if(user){
+
+
+let code = user.referralCode;
+
+
+
+document.getElementById("myReferralCode").innerText = code;
+
+
+
+let link = window.location.origin + "/register.html?ref=" + code;
+
+
+
+document.getElementById("referralLink").innerText = link;
+
+
+
+}
+
+
+
+
+
+
+function copyReferral(){
+
+
+let link = document.getElementById("referralLink").innerText;
+
+
+navigator.clipboard.writeText(link);
+
+
+alert("تم نسخ رابط الدعوة");
+
+
+}
+
+
+</script>
+
 
 
 </body>
