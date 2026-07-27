@@ -4,44 +4,40 @@
 
 
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Tahoma,sans-serif;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,Tahoma,sans-serif;
+
 }
 
 
 
 body{
 
-    background:
-    linear-gradient(
-    160deg,
-    #020611,
-    #071a33
-    );
+background:#050B16;
 
-    min-height:100vh;
+min-height:100vh;
 
-    color:white;
+color:white;
 
 }
 
 
 
 
-
 .dashboard{
 
-    width:100%;
+width:100%;
 
-    max-width:480px;
+max-width:480px;
 
-    margin:auto;
+margin:auto;
 
-    padding:20px;
+padding:20px;
 
-    padding-bottom:90px;
+padding-bottom:90px;
 
 }
 
@@ -50,16 +46,15 @@ body{
 
 /* HEADER */
 
-
 .header{
 
-    display:flex;
+display:flex;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    align-items:center;
+align-items:center;
 
-    margin-bottom:25px;
+margin-bottom:25px;
 
 }
 
@@ -67,11 +62,11 @@ body{
 
 .brand{
 
-    color:#1687ff;
+color:#1687FF;
 
-    font-size:34px;
+font-size:34px;
 
-    font-weight:bold;
+font-weight:700;
 
 }
 
@@ -79,35 +74,33 @@ body{
 
 .user-area h3{
 
-    color:#d4dfef;
+font-size:15px;
 
-    font-size:15px;
+color:#C6D3E4;
 
-    margin-bottom:10px;
+margin-bottom:10px;
 
 }
 
 
 
 
-/* CODE BOX */
-
 
 .code-box{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    gap:8px;
+gap:8px;
 
-    background:#081426;
+background:#0B1628;
 
-    border:1px solid #17365c;
+border:1px solid #20344F;
 
-    border-radius:12px;
+border-radius:12px;
 
-    padding:8px 12px;
+padding:8px 10px;
 
 }
 
@@ -115,9 +108,9 @@ body{
 
 .code-box span{
 
-    color:#1687ff;
+color:#1687FF;
 
-    font-size:13px;
+font-size:13px;
 
 }
 
@@ -125,15 +118,15 @@ body{
 
 .code-box button{
 
-    background:#1687ff;
+background:#1687FF;
 
-    border:none;
+border:none;
 
-    color:white;
+color:white;
 
-    border-radius:8px;
+padding:6px 12px;
 
-    padding:6px 10px;
+border-radius:8px;
 
 }
 
@@ -143,25 +136,17 @@ body{
 
 /* BALANCE */
 
-
 .balance-card{
 
-    background:
+background:#0B1628;
 
-    linear-gradient(
-    145deg,
-    #0c2342,
-    #050b16
-    );
+border:1px solid #17365C;
 
+border-radius:22px;
 
-    border:1px solid #17365c;
+padding:25px;
 
-    border-radius:24px;
-
-    padding:25px;
-
-    margin-bottom:25px;
+margin-bottom:25px;
 
 }
 
@@ -169,9 +154,9 @@ body{
 
 .balance-title{
 
-    color:#9eafc5;
+color:#98A5B8;
 
-    font-size:14px;
+font-size:14px;
 
 }
 
@@ -179,11 +164,11 @@ body{
 
 .balance-number{
 
-    font-size:38px;
+font-size:38px;
 
-    font-weight:bold;
+font-weight:bold;
 
-    margin:15px 0;
+margin:15px 0;
 
 }
 
@@ -191,9 +176,9 @@ body{
 
 .balance-number span{
 
-    color:#22c55e;
+color:#22C55E;
 
-    font-size:18px;
+font-size:18px;
 
 }
 
@@ -203,15 +188,15 @@ body{
 
 .balance-info{
 
-    display:flex;
+display:flex;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    background:#030914;
+background:#071426;
 
-    border-radius:15px;
+border-radius:15px;
 
-    padding:15px;
+padding:15px;
 
 }
 
@@ -219,7 +204,7 @@ body{
 
 .balance-info div{
 
-    color:#9eafc5;
+color:#98A5B8;
 
 }
 
@@ -227,11 +212,11 @@ body{
 
 .balance-info strong{
 
-    display:block;
+display:block;
 
-    color:white;
+color:white;
 
-    margin-top:5px;
+margin-top:5px;
 
 }
 
@@ -239,19 +224,19 @@ body{
 
 .active{
 
-    color:#22c55e!important;
+color:#22C55E!important;
 
 }
 
 
 
 
-/* COINS */
 
+/* COINS */
 
 .coins-section h2{
 
-    margin-bottom:15px;
+margin-bottom:15px;
 
 }
 
@@ -259,44 +244,45 @@ body{
 
 .coin-card{
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    background:#081426;
+background:#0B1628;
 
-    border:1px solid #17365c;
+border:1px solid #17365C;
 
-    border-radius:18px;
+border-radius:18px;
 
-    padding:15px;
+padding:15px;
 
-    margin-bottom:12px;
+margin-bottom:12px;
 
 }
 
 
 
-
 .coin-logo{
 
-    width:50px;
+width:50px;
 
-    height:50px;
+height:50px;
 
-    border-radius:50%;
+border-radius:50%;
 
-    display:flex;
+display:flex;
 
-    align-items:center;
+align-items:center;
 
-    justify-content:center;
+justify-content:center;
 
-    font-weight:bold;
+font-size:22px;
 
-    color:white;
+font-weight:bold;
+
+color:white;
 
 }
 
@@ -304,47 +290,50 @@ body{
 
 .bitcoin{
 
-    background:#f7931a;
+background:#F7931A;
 
 }
+
 
 
 .ethereum{
 
-    background:#627eea;
+background:#627EEA;
 
 }
+
 
 
 .usdt{
 
-    background:#26a17b;
+background:#26A17B;
 
 }
+
 
 
 .bnb{
 
-    background:#f3ba2f;
+background:#F3BA2F;
 
-    color:#111;
+color:#111;
 
 }
+
 
 
 .sol{
 
-    background:#9945ff;
+background:#9945FF;
 
 }
-
 
 
 
 
 .coin-name h3{
 
-    font-size:16px;
+font-size:16px;
 
 }
 
@@ -352,9 +341,9 @@ body{
 
 .coin-name span{
 
-    color:#9eafc5;
+color:#98A5B8;
 
-    font-size:13px;
+font-size:13px;
 
 }
 
@@ -362,7 +351,15 @@ body{
 
 .coin-price{
 
-    text-align:left;
+text-align:left;
+
+}
+
+
+
+.coin-price strong{
+
+font-size:15px;
 
 }
 
@@ -370,7 +367,7 @@ body{
 
 .up{
 
-    color:#22c55e;
+color:#22C55E;
 
 }
 
@@ -378,39 +375,39 @@ body{
 
 .down{
 
-    color:#ef4444;
+color:#EF4444;
 
 }
 
 
 
 
-/* BOTTOM MENU */
 
+/* BOTTOM MENU */
 
 .bottom-nav{
 
-    position:fixed;
+position:fixed;
 
-    bottom:0;
+bottom:0;
 
-    left:50%;
+left:50%;
 
-    transform:translateX(-50%);
+transform:translateX(-50%);
 
-    width:100%;
+width:100%;
 
-    max-width:480px;
+max-width:480px;
 
-    background:#050b16;
+background:#050B16;
 
-    border-top:1px solid #17365c;
+border-top:1px solid #17365C;
 
-    display:flex;
+display:flex;
 
-    justify-content:space-around;
+justify-content:space-around;
 
-    padding:15px;
+padding:15px;
 
 }
 
@@ -418,8 +415,10 @@ body{
 
 .bottom-nav a{
 
-    color:#9eafc5;
+color:#98A5B8;
 
-    font-size:13px;
+text-decoration:none;
+
+font-size:13px;
 
 }
