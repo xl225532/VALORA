@@ -19,10 +19,7 @@ e.preventDefault();
 let user = {
 
 
-email: document.getElementById("email").value,
-
-
-phone: document.getElementById("phone").value,
+contact: document.getElementById("contact").value,
 
 
 password: document.getElementById("password").value,
@@ -105,12 +102,7 @@ if(
 
 savedUser &&
 
-(
-loginValue == savedUser.email ||
-
-loginValue == savedUser.phone
-
-)
+loginValue == savedUser.contact
 
 &&
 
