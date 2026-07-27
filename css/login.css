@@ -1,34 +1,26 @@
-/* =========================
-   VALORA LOGIN STYLE
-========================= */
-
-
 *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Tahoma,sans-serif;
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,Tahoma,sans-serif;
+
 }
 
 
 body{
 
-    background:
-    linear-gradient(
-    160deg,
-    #020611,
-    #071a33
-    );
+background:#050B16;
 
-    min-height:100vh;
+display:flex;
 
-    display:flex;
+justify-content:center;
 
-    justify-content:center;
+align-items:center;
 
-    align-items:center;
+min-height:100vh;
 
-    color:white;
+color:white;
 
 }
 
@@ -36,20 +28,19 @@ body{
 
 .login-container{
 
-    width:90%;
+width:90%;
 
-    max-width:420px;
+max-width:420px;
 
-    background:#081426;
+background:#0B1628;
 
-    border:1px solid #17365c;
+border-radius:20px;
 
-    border-radius:24px;
+padding:35px;
 
-    padding:35px;
+box-shadow:0 0 35px rgba(0,140,255,.15);
 
-    box-shadow:
-    0 15px 40px rgba(0,0,0,.5);
+border:1px solid #17365c;
 
 }
 
@@ -57,15 +48,15 @@ body{
 
 .logo{
 
-    text-align:center;
+text-align:center;
 
-    color:#1687ff;
+font-size:38px;
 
-    font-size:40px;
+font-weight:700;
 
-    font-weight:bold;
+color:#1687FF;
 
-    margin-bottom:10px;
+margin-bottom:10px;
 
 }
 
@@ -73,11 +64,13 @@ body{
 
 .subtitle{
 
-    text-align:center;
+text-align:center;
 
-    color:#9eafc5;
+color:#98A5B8;
 
-    margin-bottom:30px;
+margin-bottom:30px;
+
+font-size:15px;
 
 }
 
@@ -85,7 +78,7 @@ body{
 
 .input-group{
 
-    margin-bottom:18px;
+margin-bottom:18px;
 
 }
 
@@ -93,13 +86,13 @@ body{
 
 .input-group label{
 
-    display:block;
+display:block;
 
-    color:#d4dfef;
+margin-bottom:8px;
 
-    margin-bottom:8px;
+font-size:14px;
 
-    font-size:14px;
+color:#C6D3E4;
 
 }
 
@@ -107,19 +100,21 @@ body{
 
 .input-group input{
 
-    width:100%;
+width:100%;
 
-    padding:14px;
+padding:14px;
 
-    background:#030914;
+background:#071426;
 
-    border:1px solid #203b5d;
+border:1px solid #20344F;
 
-    border-radius:14px;
+border-radius:12px;
 
-    color:white;
+color:white;
 
-    outline:none;
+font-size:15px;
+
+outline:none;
 
 }
 
@@ -127,7 +122,7 @@ body{
 
 .input-group input:focus{
 
-    border-color:#1687ff;
+border-color:#1687FF;
 
 }
 
@@ -135,21 +130,31 @@ body{
 
 .login-btn{
 
-    width:100%;
+width:100%;
 
-    padding:15px;
+padding:15px;
 
-    background:#1687ff;
+background:#1687FF;
 
-    border:none;
+border:none;
 
-    border-radius:14px;
+border-radius:12px;
 
-    color:white;
+color:white;
 
-    font-size:17px;
+font-size:17px;
 
-    font-weight:bold;
+font-weight:700;
+
+cursor:pointer;
+
+}
+
+
+
+.login-btn:hover{
+
+background:#0B72DE;
 
 }
 
@@ -157,22 +162,23 @@ body{
 
 .links{
 
-    display:flex;
+display:flex;
 
-    justify-content:space-between;
+justify-content:space-between;
 
-    margin-top:20px;
+margin-top:18px;
+
+font-size:14px;
 
 }
 
 
 
-.links a,
-.register a{
+.links a{
 
-    color:#1687ff;
+color:#1687FF;
 
-    text-decoration:none;
+text-decoration:none;
 
 }
 
@@ -180,10 +186,22 @@ body{
 
 .register{
 
-    text-align:center;
+margin-top:25px;
 
-    margin-top:25px;
+text-align:center;
 
-    color:#9eafc5;
+color:#9CA9BB;
+
+}
+
+
+
+.register a{
+
+color:#1687FF;
+
+text-decoration:none;
+
+font-weight:bold;
 
 }
