@@ -1,1 +1,369 @@
+/* =========================
+   VALORA TEAM STYLE
+========================= */
 
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Tahoma,sans-serif;
+
+}
+
+
+
+body{
+
+    background:
+
+    linear-gradient(
+    160deg,
+    #020611,
+    #071a33
+    );
+
+    min-height:100vh;
+
+    color:white;
+
+}
+
+
+
+
+
+.dashboard{
+
+    width:100%;
+
+    max-width:480px;
+
+    margin:auto;
+
+    padding:20px;
+
+    padding-bottom:90px;
+
+}
+
+
+
+
+
+/* HEADER */
+
+
+.header{
+
+    margin-bottom:25px;
+
+}
+
+
+
+.brand{
+
+    color:#1687ff;
+
+    font-size:34px;
+
+    font-weight:bold;
+
+}
+
+
+
+
+
+/* REFERRAL BOX */
+
+
+.referral-box{
+
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #0c2342,
+    #050b16
+    );
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:22px;
+
+
+    padding:22px;
+
+
+    margin-bottom:20px;
+
+
+}
+
+
+
+.referral-title{
+
+    color:#9eafc5;
+
+    margin-bottom:12px;
+
+}
+
+
+
+.referral-code{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    align-items:center;
+
+
+    background:#030914;
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:12px;
+
+
+    padding:12px;
+
+
+}
+
+
+
+.referral-code span{
+
+
+    color:#1687ff;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+.referral-code button{
+
+
+    background:#1687ff;
+
+
+    border:none;
+
+
+    color:white;
+
+
+    padding:7px 14px;
+
+
+    border-radius:8px;
+
+
+}
+
+
+
+
+
+/* TEAM STATS */
+
+
+.team-card{
+
+
+    background:#081426;
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:18px;
+
+
+    padding:18px;
+
+
+    margin-bottom:15px;
+
+
+}
+
+
+
+.team-card h3{
+
+
+    color:#d4dfef;
+
+
+    margin-bottom:10px;
+
+
+}
+
+
+
+.team-number{
+
+
+    font-size:28px;
+
+
+    color:#1687ff;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+/* TABLE */
+
+
+.team-table{
+
+
+    width:100%;
+
+
+    background:#081426;
+
+
+    border:1px solid #17365c;
+
+
+    border-radius:18px;
+
+
+    overflow:hidden;
+
+
+    margin-top:20px;
+
+
+}
+
+
+
+.table-row{
+
+
+    display:flex;
+
+
+    justify-content:space-between;
+
+
+    padding:15px;
+
+
+    border-bottom:1px solid #17365c;
+
+
+    color:#cbd6e6;
+
+
+}
+
+
+
+.table-row:last-child{
+
+
+    border-bottom:none;
+
+
+}
+
+
+
+.table-head{
+
+
+    color:#1687ff;
+
+
+    font-weight:bold;
+
+
+}
+
+
+
+
+
+/* BOTTOM MENU */
+
+
+.bottom-nav{
+
+
+    position:fixed;
+
+
+    bottom:0;
+
+
+    left:50%;
+
+
+    transform:translateX(-50%);
+
+
+    width:100%;
+
+
+    max-width:480px;
+
+
+    background:#050b16;
+
+
+    border-top:1px solid #17365c;
+
+
+    display:flex;
+
+
+    justify-content:space-around;
+
+
+    padding:15px;
+
+
+}
+
+
+
+.bottom-nav a{
+
+
+    color:#9eafc5;
+
+
+    font-size:13px;
+
+
+}
