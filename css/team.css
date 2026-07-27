@@ -5,10 +5,10 @@
 
 *{
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Arial,Tahoma,sans-serif;
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,Tahoma,sans-serif;
 
 }
 
@@ -16,35 +16,28 @@
 
 body{
 
-    background:
+background:#050B16;
 
-    linear-gradient(
-    160deg,
-    #020611,
-    #071a33
-    );
+min-height:100vh;
 
-    min-height:100vh;
-
-    color:white;
+color:white;
 
 }
 
 
 
 
-
 .dashboard{
 
-    width:100%;
+width:100%;
 
-    max-width:480px;
+max-width:480px;
 
-    margin:auto;
+margin:auto;
 
-    padding:20px;
+padding:20px;
 
-    padding-bottom:90px;
+padding-bottom:90px;
 
 }
 
@@ -57,7 +50,7 @@ body{
 
 .header{
 
-    margin-bottom:25px;
+margin-bottom:25px;
 
 }
 
@@ -65,11 +58,11 @@ body{
 
 .brand{
 
-    color:#1687ff;
+color:#1687FF;
 
-    font-size:34px;
+font-size:34px;
 
-    font-weight:bold;
+font-weight:700;
 
 }
 
@@ -77,32 +70,20 @@ body{
 
 
 
-/* REFERRAL BOX */
+/* REFERRAL */
 
 
 .referral-box{
 
+background:#0B1628;
 
-    background:
+border:1px solid #17365C;
 
-    linear-gradient(
-    145deg,
-    #0c2342,
-    #050b16
-    );
+border-radius:22px;
 
+padding:22px;
 
-    border:1px solid #17365c;
-
-
-    border-radius:22px;
-
-
-    padding:22px;
-
-
-    margin-bottom:20px;
-
+margin-bottom:20px;
 
 }
 
@@ -110,9 +91,9 @@ body{
 
 .referral-title{
 
-    color:#9eafc5;
+color:#98A5B8;
 
-    margin-bottom:12px;
+margin-bottom:12px;
 
 }
 
@@ -120,27 +101,19 @@ body{
 
 .referral-code{
 
+display:flex;
 
-    display:flex;
+align-items:center;
 
+justify-content:space-between;
 
-    justify-content:space-between;
+background:#071426;
 
+border:1px solid #20344F;
 
-    align-items:center;
+border-radius:12px;
 
-
-    background:#030914;
-
-
-    border:1px solid #17365c;
-
-
-    border-radius:12px;
-
-
-    padding:12px;
-
+padding:12px;
 
 }
 
@@ -148,12 +121,9 @@ body{
 
 .referral-code span{
 
+color:#1687FF;
 
-    color:#1687ff;
-
-
-    font-weight:bold;
-
+font-weight:bold;
 
 }
 
@@ -161,21 +131,15 @@ body{
 
 .referral-code button{
 
+background:#1687FF;
 
-    background:#1687ff;
+border:none;
 
+color:white;
 
-    border:none;
+padding:7px 14px;
 
-
-    color:white;
-
-
-    padding:7px 14px;
-
-
-    border-radius:8px;
-
+border-radius:8px;
 
 }
 
@@ -183,26 +147,20 @@ body{
 
 
 
-/* TEAM STATS */
+/* TEAM COUNT */
 
 
 .team-card{
 
+background:#0B1628;
 
-    background:#081426;
+border:1px solid #17365C;
 
+border-radius:18px;
 
-    border:1px solid #17365c;
+padding:20px;
 
-
-    border-radius:18px;
-
-
-    padding:18px;
-
-
-    margin-bottom:15px;
-
+margin-bottom:20px;
 
 }
 
@@ -210,12 +168,9 @@ body{
 
 .team-card h3{
 
+color:#C6D3E4;
 
-    color:#d4dfef;
-
-
-    margin-bottom:10px;
-
+font-size:16px;
 
 }
 
@@ -223,15 +178,13 @@ body{
 
 .team-number{
 
+font-size:32px;
 
-    font-size:28px;
+color:#1687FF;
 
+font-weight:bold;
 
-    color:#1687ff;
-
-
-    font-weight:bold;
-
+margin-top:10px;
 
 }
 
@@ -239,29 +192,20 @@ body{
 
 
 
-/* TABLE */
+/* TABLES */
 
 
 .team-table{
 
+background:#0B1628;
 
-    width:100%;
+border:1px solid #17365C;
 
+border-radius:18px;
 
-    background:#081426;
+overflow:hidden;
 
-
-    border:1px solid #17365c;
-
-
-    border-radius:18px;
-
-
-    overflow:hidden;
-
-
-    margin-top:20px;
-
+margin:15px 0 25px;
 
 }
 
@@ -269,21 +213,15 @@ body{
 
 .table-row{
 
+display:flex;
 
-    display:flex;
+justify-content:space-between;
 
+padding:15px;
 
-    justify-content:space-between;
+border-bottom:1px solid #17365C;
 
-
-    padding:15px;
-
-
-    border-bottom:1px solid #17365c;
-
-
-    color:#cbd6e6;
-
+color:#C6D3E4;
 
 }
 
@@ -291,9 +229,7 @@ body{
 
 .table-row:last-child{
 
-
-    border-bottom:none;
-
+border-bottom:none;
 
 }
 
@@ -301,12 +237,19 @@ body{
 
 .table-head{
 
+color:#1687FF;
 
-    color:#1687ff;
+font-weight:bold;
+
+background:#071426;
+
+}
 
 
-    font-weight:bold;
 
+.level-title{
+
+margin-top:20px;
 
 }
 
@@ -319,39 +262,27 @@ body{
 
 .bottom-nav{
 
+position:fixed;
 
-    position:fixed;
+bottom:0;
 
+left:50%;
 
-    bottom:0;
+transform:translateX(-50%);
 
+width:100%;
 
-    left:50%;
+max-width:480px;
 
+background:#050B16;
 
-    transform:translateX(-50%);
+border-top:1px solid #17365C;
 
+display:flex;
 
-    width:100%;
+justify-content:space-around;
 
-
-    max-width:480px;
-
-
-    background:#050b16;
-
-
-    border-top:1px solid #17365c;
-
-
-    display:flex;
-
-
-    justify-content:space-around;
-
-
-    padding:15px;
-
+padding:15px;
 
 }
 
@@ -359,11 +290,10 @@ body{
 
 .bottom-nav a{
 
+color:#98A5B8;
 
-    color:#9eafc5;
+text-decoration:none;
 
-
-    font-size:13px;
-
+font-size:13px;
 
 }
