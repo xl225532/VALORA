@@ -774,3 +774,132 @@ a{
 
 
 }
+/* =========================
+   VALORA WALLET STYLE
+========================= */
+
+
+/* صندوق الأرباح */
+
+.wallet-box{
+
+    margin-top:20px;
+
+}
+
+
+
+.wallet-item{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:
+
+    linear-gradient(
+    145deg,
+    #0b1b33,
+    #050b16
+    );
+
+    border:1px solid #193658;
+
+    border-radius:18px;
+
+    padding:20px;
+
+    margin-bottom:15px;
+
+    color:#b8c6d9;
+
+    font-size:15px;
+
+}
+
+
+
+.wallet-item strong{
+
+    color:#1687ff;
+
+    font-size:17px;
+
+}
+
+
+
+
+
+/* أزرار المحفظة */
+
+.wallet-actions{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:30px;
+
+}
+
+
+
+.wallet-actions button{
+
+    flex:1;
+
+    padding:15px;
+
+    border:none;
+
+    border-radius:15px;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+
+
+
+
+.deposit-btn{
+
+    background:
+
+    linear-gradient(
+    90deg,
+    #005bea,
+    #1687ff
+    );
+
+}
+
+
+
+
+.withdraw-btn{
+
+    background:#0b1628;
+
+    border:1px solid #1687ff!important;
+
+    color:#1687ff!important;
+
+}
+
+
+
+.wallet-actions button:hover{
+
+    opacity:.9;
+
+}
