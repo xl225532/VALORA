@@ -212,13 +212,15 @@ stroke:#1687FF;
 
 
 
+/* دائرة الموافقة */
+
 .checkbox-group{
 
 display:flex;
 
-gap:7px;
-
 align-items:center;
+
+gap:8px;
 
 margin:13px 0;
 
@@ -230,37 +232,11 @@ font-size:12px;
 
 
 
+.circle-check{
 
+display:flex;
 
-.checkbox-group input{
-
-width:15px;
-
-height:15px;
-
-}
-
-
-
-
-
-.btn-primary{
-
-width:100%;
-
-padding:13px;
-
-background:#1687FF;
-
-border:none;
-
-border-radius:10px;
-
-color:white;
-
-font-size:16px;
-
-font-weight:bold;
+align-items:center;
 
 cursor:pointer;
 
@@ -268,11 +244,63 @@ cursor:pointer;
 
 
 
+.circle-check input{
+
+display:none;
+
+}
 
 
-.btn-primary:hover{
 
-background:#0B72DE;
+.circle-check span{
+
+width:18px;
+
+height:18px;
+
+border:2px solid #20344F;
+
+border-radius:50%;
+
+display:block;
+
+position:relative;
+
+transition:.3s;
+
+}
+
+
+
+.circle-check input:checked + span{
+
+border-color:#1687FF;
+
+background:#1687FF;
+
+}
+
+
+
+.circle-check input:checked + span::after{
+
+content:"";
+
+position:absolute;
+
+width:6px;
+
+height:6px;
+
+background:white;
+
+border-radius:50%;
+
+top:50%;
+
+left:50%;
+
+transform:translate(-50%,-50%);
 
 }
 
@@ -280,142 +308,13 @@ background:#0B72DE;
 
 
 
-.bottom-link{
-
-text-align:center;
-
-margin-top:18px;
-
-color:#98A5B8;
-
-font-size:13px;
-
-}
-
-
-
-
-
-.bottom-link a{
+.checkbox-group a{
 
 color:#1687FF;
 
 text-decoration:none;
 
 font-weight:bold;
-
-}
-
-
-
-
-
-@media(max-width:360px){
-
-.auth-container{
-
-padding:20px;
-
-}
-
-
-.logo{
-
-font-size:28px;
-
-}
-
-}
-
-
-
-
-
-.input-group{
-
-margin-bottom:13px;
-
-}
-
-
-
-
-
-.input-group label{
-
-display:block;
-
-margin-bottom:6px;
-
-color:#C6D3E4;
-
-font-size:13px;
-
-}
-
-
-
-
-
-.input-group input{
-
-width:100%;
-
-padding:12px;
-
-background:#071426;
-
-border:1px solid #20344F;
-
-border-radius:10px;
-
-color:white;
-
-font-size:14px;
-
-outline:none;
-
-}
-
-
-
-
-
-.input-group input:focus{
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-.checkbox-group{
-
-display:flex;
-
-gap:7px;
-
-align-items:center;
-
-margin:13px 0;
-
-color:#98A5B8;
-
-font-size:12px;
-
-}
-
-
-
-
-
-.checkbox-group input{
-
-width:15px;
-
-height:15px;
 
 }
 
