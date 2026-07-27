@@ -138,3 +138,40 @@ alert("بيانات الدخول غير صحيحة");
 
 
 }
+
+
+
+
+
+
+// إظهار وإخفاء كلمة المرور
+
+function togglePassword(id, button){
+
+
+let input = document.getElementById(id);
+
+
+
+if(input.type === "password"){
+
+
+input.type = "text";
+
+button.classList.add("active");
+
+
+}
+
+else{
+
+
+input.type = "password";
+
+button.classList.remove("active");
+
+
+}
+
+
+}
