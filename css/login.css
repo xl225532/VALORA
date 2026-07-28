@@ -50,20 +50,13 @@ border:1px solid #17365c;
 
 
 
-/* VALORA LOGO */
+/* شعار VALORA */
 
+.logo{
 
-.brand-logo{
+text-align:center;
 
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-margin-bottom:8px;
+margin-bottom:10px;
 
 }
 
@@ -76,18 +69,6 @@ width:45px;
 height:45px;
 
 filter:drop-shadow(0 0 8px #1687FF);
-
-}
-
-
-
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
 
 }
 
@@ -139,6 +120,8 @@ font-size:14px;
 
 
 
+
+
 .input-group{
 
 margin-bottom:14px;
@@ -181,6 +164,8 @@ outline:none;
 
 }
 
+
+
 .input-group input:focus{
 
 border-color:#1687FF;
@@ -191,7 +176,7 @@ border-color:#1687FF;
 
 
 
-/* زر العين */
+/* كلمة المرور */
 
 .password-box{
 
@@ -245,8 +230,6 @@ stroke-width:2;
 
 }
 
-
-
 .eye-btn.active svg{
 
 stroke:#1687FF;
@@ -256,10 +239,6 @@ stroke:#1687FF;
 
 
 
-
-
-
-/* زر الدخول */
 
 
 .login-btn{
@@ -297,8 +276,6 @@ background:#0B72DE;
 
 
 
-/* الروابط */
-
 
 .links{
 
@@ -321,6 +298,8 @@ color:#1687FF;
 text-decoration:none;
 
 }
+
+
 
 
 
@@ -347,6 +326,7 @@ text-decoration:none;
 font-weight:bold;
 
 }
+
 
 
 
@@ -429,8 +409,6 @@ stroke-dashoffset:40;
 animation:check .5s .5s ease forwards;
 
 }
-
-
 
 
 
