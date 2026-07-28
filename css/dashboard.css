@@ -35,7 +35,7 @@ margin:auto;
 
 padding:15px;
 
-padding-bottom:90px;
+padding-bottom:85px;
 
 }
 
@@ -53,7 +53,7 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
@@ -61,32 +61,44 @@ margin-bottom:20px;
 
 .brand{
 
-color:#1687FF;
-
 font-size:32px;
 
 font-weight:700;
+
+color:#1687FF;
 
 }
 
 
 
+.user-box{
 
-.user-code{
+display:flex;
 
-background:#0B1628;
+flex-direction:column;
 
-border:1px solid #17365C;
+gap:7px;
 
-border-radius:12px;
+}
 
-padding:8px;
+
+
+.uid-box,
+.code-box{
 
 display:flex;
 
 align-items:center;
 
-gap:6px;
+gap:8px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:10px;
+
+padding:7px 10px;
 
 font-size:12px;
 
@@ -94,7 +106,7 @@ font-size:12px;
 
 
 
-.user-code span{
+.uid-box span{
 
 color:#98A5B8;
 
@@ -102,7 +114,15 @@ color:#98A5B8;
 
 
 
-.user-code strong{
+.uid-box strong{
+
+color:white;
+
+}
+
+
+
+.code-box span{
 
 color:#1687FF;
 
@@ -110,17 +130,17 @@ color:#1687FF;
 
 
 
-.user-code button{
+.code-box button{
 
-background:#1687FF;
+background:none;
 
-border:none;
+border:1px solid #1687FF;
 
-color:white;
+color:#1687FF;
 
-border-radius:7px;
+padding:3px 8px;
 
-padding:5px 9px;
+border-radius:6px;
 
 font-size:11px;
 
@@ -130,87 +150,25 @@ font-size:11px;
 
 
 
-/* ACCOUNT STATUS */
+/* ASSETS */
 
-.account-status{
-
-margin-top:8px;
-
-font-size:12px;
-
-color:#98A5B8;
-
-display:flex;
-
-align-items:center;
-
-gap:6px;
-
-}
-
-
-
-.status-dot{
-
-width:9px;
-
-height:9px;
-
-background:#22C55E;
-
-border-radius:50%;
-
-animation:pulse 1.5s infinite;
-
-}
-
-
-
-@keyframes pulse{
-
-0%{
-
-box-shadow:0 0 0 0 rgba(34,197,94,.7);
-
-}
-
-70%{
-
-box-shadow:0 0 0 10px rgba(34,197,94,0);
-
-}
-
-100%{
-
-box-shadow:0 0 0 0 rgba(34,197,94,0);
-
-}
-
-}
-
-
-
-
-
-/* BALANCE */
-
-.balance-card{
+.asset-card{
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:16px;
 
-padding:16px;
+padding:15px;
 
-margin-bottom:20px;
+margin-bottom:18px;
 
 }
 
 
 
-.balance-top{
+.asset-header{
 
 display:flex;
 
@@ -218,15 +176,9 @@ justify-content:space-between;
 
 align-items:center;
 
-}
-
-
-
-.balance-title{
-
 color:#98A5B8;
 
-font-size:13px;
+font-size:14px;
 
 }
 
@@ -238,17 +190,15 @@ background:none;
 
 border:none;
 
-cursor:pointer;
-
 }
 
 
 
 .eye-btn svg{
 
-width:22px;
+width:23px;
 
-height:22px;
+height:23px;
 
 fill:none;
 
@@ -260,22 +210,21 @@ stroke-width:2;
 
 
 
+.total-assets{
 
-.balance-number{
-
-font-size:30px;
+font-size:28px;
 
 font-weight:bold;
 
-margin:12px 0;
+margin:10px 0;
 
 }
 
 
 
-.balance-number span{
+.total-assets span{
 
-font-size:16px;
+font-size:15px;
 
 color:#22C55E;
 
@@ -285,33 +234,101 @@ color:#22C55E;
 
 
 
-.asset-mini{
+.asset-chart{
+
+height:45px;
 
 display:flex;
 
-justify-content:space-between;
+align-items:end;
+
+gap:8px;
 
 background:#071426;
 
 border-radius:12px;
 
-padding:10px;
-
-font-size:12px;
-
-color:#98A5B8;
+padding:8px;
 
 }
 
 
 
-.asset-mini strong{
+.asset-chart div{
 
-display:block;
+flex:1;
 
-color:white;
+height:100%;
 
-margin-top:4px;
+display:flex;
+
+align-items:end;
+
+}
+
+
+
+.asset-chart span{
+
+width:100%;
+
+height:40%;
+
+background:#1687FF;
+
+border-radius:5px;
+
+animation:move 2s infinite alternate;
+
+}
+
+
+
+.asset-chart div:nth-child(2) span{
+
+height:70%;
+
+}
+
+
+
+.asset-chart div:nth-child(3) span{
+
+height:50%;
+
+}
+
+
+
+.asset-chart div:nth-child(4) span{
+
+height:85%;
+
+}
+
+
+
+.asset-chart div:nth-child(5) span{
+
+height:60%;
+
+}
+
+
+
+@keyframes move{
+
+from{
+
+opacity:.5;
+
+}
+
+to{
+
+opacity:1;
+
+}
 
 }
 
@@ -343,7 +360,7 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:16px;
+border-radius:15px;
 
 padding:12px;
 
@@ -355,9 +372,9 @@ margin-bottom:10px;
 
 .coin-logo{
 
-width:45px;
+width:43px;
 
-height:45px;
+height:43px;
 
 border-radius:50%;
 
@@ -367,15 +384,15 @@ align-items:center;
 
 justify-content:center;
 
-font-size:20px;
-
 font-weight:bold;
+
+font-size:20px;
 
 }
 
 
 
-.bitcoin{
+.btc{
 
 background:#F7931A;
 
@@ -383,7 +400,7 @@ background:#F7931A;
 
 
 
-.ethereum{
+.eth{
 
 background:#627EEA;
 
@@ -399,19 +416,17 @@ background:#26A17B;
 
 
 
-.bnb{
+.sol{
 
-background:#F3BA2F;
-
-color:#111;
+background:#9945FF;
 
 }
 
 
 
-.sol{
+.ada{
 
-background:#9945FF;
+background:#0033AD;
 
 }
 
@@ -451,21 +466,11 @@ font-size:14px;
 
 
 
-.up{
+.coin-price p{
+
+font-size:12px;
 
 color:#22C55E;
-
-font-size:12px;
-
-}
-
-
-
-.down{
-
-color:#EF4444;
-
-font-size:12px;
 
 }
 
@@ -497,7 +502,7 @@ display:flex;
 
 justify-content:space-around;
 
-padding:10px;
+padding:9px;
 
 }
 
@@ -505,13 +510,31 @@ padding:10px;
 
 .bottom-nav a{
 
-color:#98A5B8;
-
 text-decoration:none;
+
+color:#98A5B8;
 
 font-size:12px;
 
-text-align:center;
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:3px;
+
+}
+
+
+
+.bottom-nav svg{
+
+width:22px;
+
+height:22px;
+
+fill:#1687FF;
 
 }
 
@@ -519,353 +542,8 @@ text-align:center;
 
 .bottom-nav span{
 
-display:block;
-
-font-size:22px;
+font-size:20px;
 
 color:#1687FF;
-
-margin-bottom:3px;
-
-}
-
-
-
-
-
-.code-box{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-background:#0B1628;
-
-border:1px solid #20344F;
-
-border-radius:12px;
-
-padding:8px 10px;
-
-}
-
-
-
-.code-box span{
-
-color:#1687FF;
-
-font-size:13px;
-
-}
-
-
-
-.code-box button{
-
-background:#1687FF;
-
-border:none;
-
-color:white;
-
-padding:6px 12px;
-
-border-radius:8px;
-
-}
-
-
-
-
-
-/* BALANCE */
-
-.balance-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:22px;
-
-padding:25px;
-
-margin-bottom:25px;
-
-}
-
-
-
-.balance-title{
-
-color:#98A5B8;
-
-font-size:14px;
-
-}
-
-
-
-.balance-number{
-
-font-size:38px;
-
-font-weight:bold;
-
-margin:15px 0;
-
-}
-
-
-
-.balance-number span{
-
-color:#22C55E;
-
-font-size:18px;
-
-}
-
-
-
-
-
-.balance-info{
-
-display:flex;
-
-justify-content:space-between;
-
-background:#071426;
-
-border-radius:15px;
-
-padding:15px;
-
-}
-
-
-
-.balance-info div{
-
-color:#98A5B8;
-
-}
-
-
-
-.balance-info strong{
-
-display:block;
-
-color:white;
-
-margin-top:5px;
-
-}
-
-
-
-.active{
-
-color:#22C55E!important;
-
-}
-
-
-
-
-
-/* COINS */
-
-.coins-section h2{
-
-margin-bottom:15px;
-
-}
-
-
-
-.coin-card{
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:15px;
-
-margin-bottom:12px;
-
-}
-
-
-
-.coin-logo{
-
-width:50px;
-
-height:50px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:22px;
-
-font-weight:bold;
-
-color:white;
-
-}
-
-
-
-.bitcoin{
-
-background:#F7931A;
-
-}
-
-
-
-.ethereum{
-
-background:#627EEA;
-
-}
-
-
-
-.usdt{
-
-background:#26A17B;
-
-}
-
-
-
-.bnb{
-
-background:#F3BA2F;
-
-color:#111;
-
-}
-
-
-
-.sol{
-
-background:#9945FF;
-
-}
-
-
-
-
-.coin-name h3{
-
-font-size:16px;
-
-}
-
-
-
-.coin-name span{
-
-color:#98A5B8;
-
-font-size:13px;
-
-}
-
-
-
-.coin-price{
-
-text-align:left;
-
-}
-
-
-
-.coin-price strong{
-
-font-size:15px;
-
-}
-
-
-
-.up{
-
-color:#22C55E;
-
-}
-
-
-
-.down{
-
-color:#EF4444;
-
-}
-
-
-
-
-
-/* BOTTOM MENU */
-
-.bottom-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:100%;
-
-max-width:480px;
-
-background:#050B16;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:15px;
-
-}
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:13px;
 
 }
