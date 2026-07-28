@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | سحب</title>
+<title>VALORA | السحب</title>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -26,17 +26,11 @@
 
 
 
-
-
 <header class="header">
 
-
 <div class="brand">
-
 VALORA
-
 </div>
-
 
 </header>
 
@@ -50,23 +44,17 @@ VALORA
 
 
 <div class="icon-box">
-
 ↑
-
 </div>
 
 
 <h2>
-
 سحب العملات
-
 </h2>
 
 
 <p>
-
 اختر العملة وأدخل بيانات السحب
-
 </p>
 
 
@@ -78,9 +66,8 @@ VALORA
 
 
 
+
 <section class="coin-list">
-
-
 
 
 
@@ -88,27 +75,19 @@ VALORA
 
 
 <div class="coin-icon usdt">
-
 ₮
-
 </div>
 
 
 <div>
 
 <strong>
-
 USDT
-
 </strong>
 
-
 <small>
-
-Tether
-
+TRC20
 </small>
-
 
 </div>
 
@@ -125,27 +104,19 @@ Tether
 
 
 <div class="coin-icon btc">
-
 ₿
-
 </div>
 
 
 <div>
 
 <strong>
-
 BTC
-
 </strong>
 
-
 <small>
-
 Bitcoin
-
 </small>
-
 
 </div>
 
@@ -162,33 +133,24 @@ Bitcoin
 
 
 <div class="coin-icon eth">
-
 ◆
-
 </div>
 
 
 <div>
 
 <strong>
-
 ETH
-
 </strong>
 
-
 <small>
-
 Ethereum
-
 </small>
-
 
 </div>
 
 
 </button>
-
 
 
 
@@ -200,19 +162,15 @@ Ethereum
 
 
 
+
 <section class="withdraw-box">
-
-
 
 
 
 <div class="input-group">
 
-
 <label>
-
 عنوان محفظة السحب
-
 </label>
 
 
@@ -232,14 +190,11 @@ placeholder="أدخل عنوان المحفظة">
 
 
 
-
 <div class="input-group">
 
 
 <label>
-
 المبلغ
-
 </label>
 
 
@@ -249,7 +204,7 @@ type="number"
 
 id="withdrawAmount"
 
-placeholder="أدخل مبلغ السحب">
+placeholder="أدخل المبلغ">
 
 
 </div>
@@ -263,18 +218,15 @@ placeholder="أدخل مبلغ السحب">
 <div class="info-box">
 
 
-
 <div>
 
 <span>
 الحد الأدنى للسحب
 </span>
 
-
 <strong>
 10 USDT
 </strong>
-
 
 </div>
 
@@ -288,11 +240,9 @@ placeholder="أدخل مبلغ السحب">
 العمولة
 </span>
 
-
 <strong>
 1 USDT
 </strong>
-
 
 </div>
 
@@ -306,17 +256,15 @@ placeholder="أدخل مبلغ السحب">
 المبلغ المستلم
 </span>
 
-
 <strong id="receiveAmount">
 0.00 USDT
 </strong>
 
-
 </div>
 
 
-
 </div>
+
 
 
 
@@ -340,23 +288,17 @@ placeholder="أدخل مبلغ السحب">
 
 
 <div class="status-icon">
-
 ✓
-
 </div>
 
 
 <h3>
-
-تم إرسال طلب السحب
-
+تم إرسال الطلب
 </h3>
 
 
 <p>
-
-طلبك قيد المعالجة
-
+السحب قيد المعالجة
 </p>
 
 
@@ -372,23 +314,17 @@ placeholder="أدخل مبلغ السحب">
 
 
 <div class="status-icon">
-
 ×
-
 </div>
 
 
 <h3>
-
-تم رفض السحب
-
+رفض السحب
 </h3>
 
 
 <p>
-
-يرجى إدخال جميع البيانات
-
+تأكد من إدخال البيانات
 </p>
 
 
@@ -400,13 +336,11 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-<a class="history-btn" href="withdraw-history.html">
+<a href="withdraw-history.html" class="history-btn">
 
 سجل السحوبات
 
 </a>
-
-
 
 
 
@@ -435,7 +369,6 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-
 <a href="wallet.html">
 
 ▣
@@ -448,7 +381,6 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-
 <a href="team.html">
 
 ♟
@@ -458,7 +390,6 @@ placeholder="أدخل مبلغ السحب">
 الفريق
 
 </a>
-
 
 
 
@@ -479,10 +410,7 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-
-
 </div>
-
 
 
 
@@ -494,17 +422,17 @@ placeholder="أدخل مبلغ السحب">
 <script>
 
 
-document
-.getElementById("withdrawAmount")
-.addEventListener("input",function(){
+let amountInput =
+document.getElementById("withdrawAmount");
+
+
+
+amountInput.addEventListener("input",function(){
 
 
 let amount = Number(this.value);
 
-
-
 let receive = amount - 1;
-
 
 
 if(receive < 0){
@@ -514,10 +442,8 @@ receive = 0;
 }
 
 
-
 document.getElementById("receiveAmount").innerHTML =
 receive.toFixed(2)+" USDT";
-
 
 
 });
@@ -541,6 +467,7 @@ document.getElementById("withdrawAmount").value;
 
 
 
+
 document.getElementById("successBox").style.display="none";
 
 document.getElementById("rejectBox").style.display="none";
@@ -549,11 +476,11 @@ document.getElementById("rejectBox").style.display="none";
 
 
 
-if(address==="" || amount===""){
-
+if(address === "" || amount === ""){
 
 
 document.getElementById("rejectBox").style.display="block";
+
 
 return;
 
@@ -565,8 +492,7 @@ return;
 
 
 
-
-let withdrawal = {
+let data = {
 
 
 coin:"USDT",
@@ -579,7 +505,6 @@ address:address,
 
 date:new Date().toLocaleString("ar-EG"),
 
-
 status:"pending"
 
 
@@ -590,23 +515,19 @@ status:"pending"
 
 
 
-
-let list =
+let withdrawals =
 JSON.parse(localStorage.getItem("withdrawals")) || [];
 
 
 
-
-list.push(withdrawal);
+withdrawals.push(data);
 
 
 
 localStorage.setItem(
 "withdrawals",
-JSON.stringify(list)
+JSON.stringify(withdrawals)
 );
-
-
 
 
 
@@ -620,10 +541,7 @@ document.getElementById("successBox").style.display="block";
 
 
 
-
-
 </script>
-
 
 
 
