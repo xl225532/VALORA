@@ -1,4 +1,122 @@
-.coin-list{
+.withdraw-page *{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,Tahoma,sans-serif;
+
+}
+
+
+.withdraw-page{
+
+background:#050B16;
+
+min-height:100vh;
+
+color:white;
+
+padding:15px;
+
+}
+
+
+
+.withdraw-page .dashboard{
+
+width:100%;
+
+max-width:420px;
+
+margin:auto;
+
+padding-bottom:100px;
+
+}
+
+
+
+/* الشعار */
+
+.withdraw-page .withdraw-brand{
+
+text-align:center;
+
+font-size:32px;
+
+font-weight:800;
+
+color:#EAF3FF;
+
+letter-spacing:3px;
+
+margin:15px;
+
+}
+
+
+
+
+
+/* العنوان */
+
+.withdraw-page .page-title{
+
+text-align:center;
+
+margin:20px 0;
+
+}
+
+
+.withdraw-page .icon-box{
+
+width:55px;
+
+height:55px;
+
+border-radius:50%;
+
+background:#22C55E;
+
+margin:auto;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:28px;
+
+}
+
+
+.withdraw-page .page-title h2{
+
+margin-top:12px;
+
+font-size:22px;
+
+}
+
+
+.withdraw-page .page-title p{
+
+color:#98A5B8;
+
+font-size:13px;
+
+}
+
+
+
+
+
+/* العملات */
+
+
+.withdraw-page .coin-list{
 
 display:flex;
 
@@ -6,51 +124,37 @@ flex-direction:column;
 
 gap:12px;
 
-margin-top:20px;
-
 }
 
 
 
-.coin{
+.withdraw-page .coin{
+
+height:70px;
 
 width:100%;
-
-height:75px;
 
 background:#0B1628;
 
 border:1px solid #17365c;
 
-border-radius:16px;
+border-radius:15px;
 
 display:flex;
 
 align-items:center;
 
-direction:ltr;
-
-padding:15px 18px;
+padding:12px;
 
 color:white;
 
-}
-
-
-
-.coin.active{
-
-border-color:#22C55E;
-
-box-shadow:0 0 20px rgba(34,197,94,.25);
+direction:ltr;
 
 }
 
 
 
-
-
-.coin-icon{
+.withdraw-page .coin-icon{
 
 width:45px;
 
@@ -66,7 +170,7 @@ justify-content:center;
 
 font-size:22px;
 
-font-weight:700;
+font-weight:bold;
 
 margin-right:15px;
 
@@ -74,31 +178,138 @@ margin-right:15px;
 
 
 
-.coin div:last-child{
+.withdraw-page .usdt{
 
-direction:rtl;
+background:#22C55E;
 
-text-align:right;
+}
+
+
+.withdraw-page .btc{
+
+background:#F7931A;
+
+}
+
+
+.withdraw-page .eth{
+
+background:#627EEA;
 
 }
 
 
 
-.coin strong{
-
-font-size:17px;
+.withdraw-page .coin strong{
 
 display:block;
 
-color:#fff;
+direction:rtl;
+
+}
+
+
+.withdraw-page .coin small{
+
+color:#98A5B8;
+
+direction:rtl;
 
 }
 
 
 
-.coin small{
+
+
+
+
+/* صندوق السحب */
+
+
+.withdraw-page .withdraw-box{
+
+margin-top:20px;
+
+background:#0B1628;
+
+border:1px solid #17365c;
+
+border-radius:18px;
+
+padding:18px;
+
+}
+
+
+
+.withdraw-page .input-group{
+
+margin-bottom:15px;
+
+}
+
+
+
+.withdraw-page label{
+
+display:block;
+
+color:#C6D3E4;
 
 font-size:13px;
+
+margin-bottom:7px;
+
+}
+
+
+
+.withdraw-page input{
+
+width:100%;
+
+padding:13px;
+
+background:#071426;
+
+border:1px solid #20344F;
+
+border-radius:10px;
+
+color:white;
+
+}
+
+
+
+
+
+
+.withdraw-page .info-box{
+
+background:#071426;
+
+border-radius:12px;
+
+padding:12px;
+
+}
+
+
+
+.withdraw-page .info-box div{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:8px 0;
+
+}
+
+
+
+.withdraw-page .info-box span{
 
 color:#98A5B8;
 
@@ -106,30 +317,120 @@ color:#98A5B8;
 
 
 
-.usdt{
+
+
+
+
+.withdraw-page .withdraw-confirm{
+
+width:100%;
+
+margin-top:15px;
+
+padding:14px;
+
+background:#1687FF;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+.withdraw-page .status-box{
+
+display:none;
+
+margin-top:15px;
+
+padding:15px;
+
+border-radius:12px;
+
+text-align:center;
+
+background:#071426;
+
+}
+
+
+
+
+
+.withdraw-page .history-btn{
+
+display:block;
+
+text-align:center;
+
+margin-top:15px;
+
+padding:13px;
 
 background:#22C55E;
 
+border-radius:12px;
+
 color:white;
+
+text-decoration:none;
 
 }
 
 
 
-.btc{
 
-background:#F7931A;
 
-color:white;
+
+
+.withdraw-page .withdraw-bottom-nav{
+
+position:fixed;
+
+bottom:15px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:92%;
+
+max-width:420px;
+
+background:#0B1628;
+
+border-radius:18px;
+
+padding:10px;
+
+display:flex;
+
+justify-content:space-around;
 
 }
 
 
 
-.eth{
+.withdraw-page .withdraw-bottom-nav a{
 
-background:#627EEA;
+color:#98A5B8;
 
-color:white;
+text-decoration:none;
+
+font-size:12px;
+
+text-align:center;
 
 }
