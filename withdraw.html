@@ -9,26 +9,23 @@
 
 <title>VALORA | السحب</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/withdraw.css">
 
 </head>
 
 
-
-<body>
-
-
-<div class="dashboard">
+<body class="valora-withdraw">
 
 
+<div class="withdraw-container">
 
-<header class="header">
 
-<div class="brand">
+
+<header class="withdraw-header">
+
+<div class="withdraw-logo">
 VALORA
 </div>
 
@@ -38,12 +35,10 @@ VALORA
 
 
 
+<section class="withdraw-title">
 
 
-<section class="page-title">
-
-
-<div class="icon-box">
+<div class="withdraw-icon">
 ↑
 </div>
 
@@ -66,21 +61,18 @@ VALORA
 
 
 
-
-<section class="coin-list">
-
+<section class="withdraw-coins">
 
 
-<button class="coin active">
 
+<button class="withdraw-coin active">
 
-<div class="coin-icon usdt">
+<div class="withdraw-coin-icon usdt">
 ₮
 </div>
 
 
 <div>
-
 <strong>
 USDT
 </strong>
@@ -91,25 +83,21 @@ TRC20
 
 </div>
 
-
 </button>
 
 
 
 
 
+<button class="withdraw-coin">
 
 
-<button class="coin">
-
-
-<div class="coin-icon btc">
+<div class="withdraw-coin-icon btc">
 ₿
 </div>
 
 
 <div>
-
 <strong>
 BTC
 </strong>
@@ -120,25 +108,21 @@ Bitcoin
 
 </div>
 
-
 </button>
 
 
 
 
 
+<button class="withdraw-coin">
 
 
-<button class="coin">
-
-
-<div class="coin-icon eth">
+<div class="withdraw-coin-icon eth">
 ◆
 </div>
 
 
 <div>
-
 <strong>
 ETH
 </strong>
@@ -148,7 +132,6 @@ Ethereum
 </small>
 
 </div>
-
 
 </button>
 
@@ -163,25 +146,22 @@ Ethereum
 
 
 
-<section class="withdraw-box">
+
+<section class="withdraw-card">
 
 
 
-<div class="input-group">
+<div class="withdraw-input">
+
 
 <label>
 عنوان محفظة السحب
 </label>
 
 
-<input
-
+<input id="withdrawAddress"
 type="text"
-
-id="withdrawAddress"
-
 placeholder="أدخل عنوان المحفظة">
-
 
 </div>
 
@@ -190,7 +170,8 @@ placeholder="أدخل عنوان المحفظة">
 
 
 
-<div class="input-group">
+
+<div class="withdraw-input">
 
 
 <label>
@@ -198,14 +179,9 @@ placeholder="أدخل عنوان المحفظة">
 </label>
 
 
-<input
-
+<input id="withdrawAmount"
 type="number"
-
-id="withdrawAmount"
-
 placeholder="أدخل المبلغ">
-
 
 </div>
 
@@ -215,13 +191,13 @@ placeholder="أدخل المبلغ">
 
 
 
-<div class="info-box">
+<div class="withdraw-info">
 
 
 <div>
 
 <span>
-الحد الأدنى للسحب
+الحد الأدنى
 </span>
 
 <strong>
@@ -229,7 +205,6 @@ placeholder="أدخل المبلغ">
 </strong>
 
 </div>
-
 
 
 
@@ -249,11 +224,10 @@ placeholder="أدخل المبلغ">
 
 
 
-
 <div>
 
 <span>
-المبلغ المستلم
+المستلم
 </span>
 
 <strong id="receiveAmount">
@@ -272,7 +246,7 @@ placeholder="أدخل المبلغ">
 
 
 
-<button class="withdraw-confirm" onclick="submitWithdraw()">
+<button class="withdraw-button" onclick="submitWithdraw()">
 
 تأكيد السحب
 
@@ -284,16 +258,13 @@ placeholder="أدخل المبلغ">
 
 
 
-<div id="successBox" class="status-box success">
 
 
-<div class="status-icon">
-✓
-</div>
+<div id="successBox" class="withdraw-status success">
 
 
 <h3>
-تم إرسال الطلب
+✓ تم إرسال طلب السحب
 </h3>
 
 
@@ -310,21 +281,17 @@ placeholder="أدخل المبلغ">
 
 
 
-<div id="rejectBox" class="status-box rejected">
 
-
-<div class="status-icon">
-×
-</div>
+<div id="rejectBox" class="withdraw-status reject">
 
 
 <h3>
-رفض السحب
+× رفض السحب
 </h3>
 
 
 <p>
-تأكد من إدخال البيانات
+يرجى إدخال البيانات كاملة
 </p>
 
 
@@ -336,7 +303,8 @@ placeholder="أدخل المبلغ">
 
 
 
-<a href="withdraw-history.html" class="history-btn">
+
+<a href="withdraw-history.html" class="withdraw-history">
 
 سجل السحوبات
 
@@ -354,15 +322,13 @@ placeholder="أدخل المبلغ">
 
 
 
-<nav class="bottom-nav">
+<nav class="withdraw-nav">
 
 
 <a href="dashboard.html">
 
 ⌂
-
 <br>
-
 الرئيسية
 
 </a>
@@ -372,9 +338,7 @@ placeholder="أدخل المبلغ">
 <a href="wallet.html">
 
 ▣
-
 <br>
-
 المحفظة
 
 </a>
@@ -384,9 +348,7 @@ placeholder="أدخل المبلغ">
 <a href="team.html">
 
 ♟
-
 <br>
-
 الفريق
 
 </a>
@@ -396,15 +358,16 @@ placeholder="أدخل المبلغ">
 <a href="settings.html">
 
 ⚙
-
 <br>
-
 الإعدادات
 
 </a>
 
 
+
 </nav>
+
+
 
 
 
@@ -419,18 +382,18 @@ placeholder="أدخل المبلغ">
 
 
 
+
+
 <script>
 
 
-let amountInput =
-document.getElementById("withdrawAmount");
-
-
-
-amountInput.addEventListener("input",function(){
+document
+.getElementById("withdrawAmount")
+.addEventListener("input",function(){
 
 
 let amount = Number(this.value);
+
 
 let receive = amount - 1;
 
@@ -447,6 +410,7 @@ receive.toFixed(2)+" USDT";
 
 
 });
+
 
 
 
@@ -476,7 +440,8 @@ document.getElementById("rejectBox").style.display="none";
 
 
 
-if(address === "" || amount === ""){
+
+if(address==="" || amount===""){
 
 
 document.getElementById("rejectBox").style.display="block";
@@ -484,16 +449,13 @@ document.getElementById("rejectBox").style.display="block";
 
 return;
 
-
 }
 
 
 
 
 
-
-let data = {
-
+let withdrawal={
 
 coin:"USDT",
 
@@ -507,26 +469,22 @@ date:new Date().toLocaleString("ar-EG"),
 
 status:"pending"
 
-
 };
 
 
 
 
 
-
-let withdrawals =
+let list =
 JSON.parse(localStorage.getItem("withdrawals")) || [];
 
 
-
-withdrawals.push(data);
-
+list.push(withdrawal);
 
 
 localStorage.setItem(
 "withdrawals",
-JSON.stringify(withdrawals)
+JSON.stringify(list)
 );
 
 
