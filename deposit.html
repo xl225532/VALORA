@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | إيداع</title>
+<title>VALORA | الإيداع</title>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
@@ -18,18 +18,17 @@
 </head>
 
 
-<body>
+
+<body class="valora-deposit">
 
 
-<div class="dashboard">
+<div class="deposit-container">
 
 
 
+<header class="deposit-header">
 
-
-<header class="header">
-
-<div class="brand">
+<div class="deposit-logo">
 
 VALORA
 
@@ -43,10 +42,11 @@ VALORA
 
 
 
-<section class="page-title">
+
+<section class="deposit-title">
 
 
-<div class="icon-box">
+<div class="deposit-icon">
 
 ↓
 
@@ -60,10 +60,9 @@ VALORA
 </h2>
 
 
-
 <p>
 
-اختر العملة التي تريد إيداعها
+اختر العملة والشبكة للإيداع
 
 </p>
 
@@ -77,16 +76,17 @@ VALORA
 
 
 
-<section class="coin-list">
+
+<section class="deposit-coins">
 
 
 
 
 
-<button class="coin active">
+<button class="deposit-coin active">
 
 
-<div class="coin-icon usdt">
+<div class="deposit-coin-icon usdt">
 
 ₮
 
@@ -108,8 +108,8 @@ Tether
 
 </small>
 
-</div>
 
+</div>
 
 
 </button>
@@ -120,10 +120,10 @@ Tether
 
 
 
-<button class="coin">
+<button class="deposit-coin">
 
 
-<div class="coin-icon btc">
+<div class="deposit-coin-icon btc">
 
 ₿
 
@@ -145,8 +145,8 @@ Bitcoin
 
 </small>
 
-</div>
 
+</div>
 
 
 </button>
@@ -157,10 +157,10 @@ Bitcoin
 
 
 
-<button class="coin">
+<button class="deposit-coin">
 
 
-<div class="coin-icon eth">
+<div class="deposit-coin-icon eth">
 
 ◆
 
@@ -182,8 +182,8 @@ Ethereum
 
 </small>
 
-</div>
 
+</div>
 
 
 </button>
@@ -194,10 +194,11 @@ Ethereum
 
 
 
-<button class="coin">
+
+<button class="deposit-coin">
 
 
-<div class="coin-icon bnb">
+<div class="deposit-coin-icon bnb">
 
 ◆
 
@@ -219,8 +220,8 @@ Binance
 
 </small>
 
-</div>
 
+</div>
 
 
 </button>
@@ -237,7 +238,11 @@ Binance
 
 
 
-<section class="deposit-box">
+
+
+<section class="deposit-card">
+
+
 
 
 
@@ -249,7 +254,9 @@ Binance
 
 
 
-<div class="network-list">
+
+
+<div class="network-buttons">
 
 
 <button class="network active">
@@ -259,7 +266,6 @@ TRC20
 </button>
 
 
-
 <button class="network">
 
 ERC20
@@ -267,7 +273,10 @@ ERC20
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -284,19 +293,21 @@ ERC20
 
 
 
-<div class="address-box">
 
 
-<input
 
+
+<div class="address-area">
+
+
+<input 
 type="text"
-
+id="depositAddress"
 value="TXXXXXXXXXXXXXXXXXXXXXXXX"
-
 readonly>
 
 
-<button onclick="copyAddress()">
+<button onclick="copyDeposit()">
 
 نسخ
 
@@ -312,13 +323,17 @@ readonly>
 
 
 
-<div class="notice">
+
+<div class="deposit-warning">
 
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل إرسال العملات.
 
 
 </div>
+
+
+
 
 
 
@@ -332,60 +347,54 @@ readonly>
 
 
 
-<nav class="bottom-nav">
+
+<nav class="deposit-nav">
 
 
 <a href="dashboard.html">
 
 ⌂
-
 <br>
-
 الرئيسية
 
 </a>
 
 
 
-
 <a href="wallet.html">
 
 ▣
-
 <br>
-
 المحفظة
 
 </a>
 
 
 
-
 <a href="team.html">
 
 ♟
-
 <br>
-
 الفريق
 
 </a>
 
 
 
-
 <a href="settings.html">
 
 ⚙
-
 <br>
-
 الإعدادات
 
 </a>
 
 
+
 </nav>
+
+
+
 
 
 
@@ -400,24 +409,31 @@ readonly>
 
 
 
+
+
+
 <script>
 
 
-function copyAddress(){
+function copyDeposit(){
 
 
-navigator.clipboard.writeText(
-"TXXXXXXXXXXXXXXXXXXXXXXXX"
-);
+let address =
+document.getElementById("depositAddress").value;
 
 
-alert("تم نسخ العنوان");
+navigator.clipboard.writeText(address);
+
+
+alert("تم نسخ عنوان الإيداع");
 
 
 }
 
 
 </script>
+
+
 
 
 
