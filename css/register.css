@@ -52,19 +52,80 @@ box-shadow:0 0 30px rgba(0,140,255,.15);
 
 
 
-.logo{
 
-text-align:center;
 
-font-size:32px;
 
-font-weight:700;
+/* VALORA LOGO */
 
-color:#1687FF;
+
+.brand-logo{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
 
 margin-bottom:8px;
 
 }
+
+
+
+.logo-icon svg{
+
+width:45px;
+
+height:45px;
+
+filter:drop-shadow(0 0 8px #1687FF);
+
+}
+
+
+
+.logo-text{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+
+.logo-name{
+
+font-size:30px;
+
+font-weight:700;
+
+letter-spacing:2px;
+
+color:#EAF3FF;
+
+text-shadow:0 0 8px #1687FF;
+
+}
+
+
+
+.logo-sub{
+
+font-size:9px;
+
+letter-spacing:3px;
+
+color:#22C55E;
+
+margin-top:2px;
+
+}
+
 
 
 
@@ -91,8 +152,6 @@ margin-bottom:22px;
 margin-bottom:13px;
 
 }
-
-
 
 
 
@@ -148,6 +207,7 @@ border-color:#1687FF;
 
 /* كلمة المرور مع زر العين */
 
+
 .password-box{
 
 position:relative;
@@ -184,8 +244,6 @@ padding:3px;
 
 }
 
-
-
 .eye-btn svg{
 
 width:21px;
@@ -212,7 +270,9 @@ stroke:#1687FF;
 
 
 
+
 /* دائرة الموافقة */
+
 
 .checkbox-group{
 
@@ -322,6 +382,10 @@ font-weight:bold;
 
 
 
+
+/* زر إنشاء الحساب */
+
+
 .btn-primary{
 
 width:100%;
@@ -346,8 +410,6 @@ cursor:pointer;
 
 
 
-
-
 .btn-primary:hover{
 
 background:#0B72DE;
@@ -356,6 +418,10 @@ background:#0B72DE;
 
 
 
+
+
+
+/* الرابط السفلي */
 
 
 .bottom-link{
@@ -369,8 +435,6 @@ color:#98A5B8;
 font-size:13px;
 
 }
-
-
 
 
 
@@ -390,6 +454,7 @@ font-weight:bold;
 
 @media(max-width:360px){
 
+
 .auth-container{
 
 padding:20px;
@@ -397,83 +462,12 @@ padding:20px;
 }
 
 
-.logo{
-
-font-size:28px;
-
-}
-
-}
-/* VALORA LOGO */
-
-.brand-logo{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-margin-bottom:20px;
-
-}
-
-
-
-.logo-icon svg{
-
-width:70px;
-
-height:70px;
-
-filter:drop-shadow(0 0 15px #1687FF);
-
-}
-
-
-
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-
 
 .logo-name{
 
-font-size:38px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:
-
-0 0 10px #1687FF,
-
-0 0 20px #1687FF;
+font-size:26px;
 
 }
 
-
-
-.logo-sub{
-
-font-size:12px;
-
-letter-spacing:5px;
-
-color:#22C55E;
-
-margin-top:5px;
 
 }
