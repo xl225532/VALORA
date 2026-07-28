@@ -2,7 +2,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,Tahoma,sans-serif;
+font-family:'Cairo',Arial,sans-serif;
 }
 
 
@@ -20,9 +20,9 @@ min-height:100vh;
 
 .dashboard{
 
-width:100%;
-
 max-width:480px;
+
+width:100%;
 
 margin:auto;
 
@@ -31,6 +31,7 @@ padding:15px;
 padding-bottom:90px;
 
 }
+
 
 
 
@@ -44,7 +45,7 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
@@ -52,7 +53,7 @@ margin-bottom:18px;
 
 .brand{
 
-font-size:32px;
+font-size:34px;
 
 font-weight:700;
 
@@ -62,27 +63,27 @@ color:#1687FF;
 
 
 
-.uid-box{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:14px;
-
-padding:8px 12px;
+.uid-card{
 
 display:flex;
 
 align-items:center;
 
-gap:6px;
+gap:7px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:12px;
+
+padding:8px 10px;
 
 }
 
 
 
-.uid-box span{
+.uid-card span{
 
 color:#98A5B8;
 
@@ -92,9 +93,7 @@ font-size:13px;
 
 
 
-.uid-box strong{
-
-color:white;
+.uid-card strong{
 
 font-size:15px;
 
@@ -102,23 +101,21 @@ font-size:15px;
 
 
 
-.uid-box button{
+.uid-card button{
 
 background:none;
 
-border:none;
-
-cursor:pointer;
+border:0;
 
 }
 
 
 
-.uid-box svg{
+.uid-card svg{
 
-width:20px;
+width:18px;
 
-height:20px;
+height:18px;
 
 stroke:#1687FF;
 
@@ -140,19 +137,17 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:20px;
+border-radius:18px;
 
 padding:16px;
 
-margin-bottom:20px;
-
-overflow:hidden;
+margin-bottom:22px;
 
 }
 
 
 
-.asset-title{
+.asset-header{
 
 display:flex;
 
@@ -162,187 +157,65 @@ align-items:center;
 
 color:#98A5B8;
 
-font-size:15px;
-
 }
 
 
 
-.asset-title button{
+.eye{
 
 background:none;
 
-border:none;
-
-font-size:22px;
-
-color:#1687FF;
-
-cursor:pointer;
+border:0;
 
 }
 
 
 
-.asset-number{
+.eye svg{
+
+width:26px;
+
+height:26px;
+
+stroke:#1687FF;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+.balance{
 
 font-size:32px;
 
 font-weight:bold;
 
-margin:15px 0;
+margin-top:15px;
 
 }
 
 
 
-.asset-number span{
+.balance small{
+
+font-size:16px;
 
 color:#22C55E;
 
-font-size:17px;
-
 }
 
 
 
 
 
-/* الرسم البياني */
-
-.market-chart{
-
-height:80px;
-
-background:#071426;
-
-border-radius:14px;
-
-position:relative;
-
-overflow:hidden;
-
-}
-
-
-
-.chart-line{
-
-position:absolute;
-
-width:130%;
-
-height:3px;
-
-background:#1687FF;
-
-top:45px;
-
-left:-20%;
-
-transform:rotate(-8deg);
-
-animation:moveChart 4s infinite linear;
-
-}
-
-
-
-@keyframes moveChart{
-
-from{
-
-left:-80%;
-
-}
-
-to{
-
-left:100%;
-
-}
-
-}
-
-
-
-.chart-point{
-
-width:10px;
-
-height:10px;
-
-border-radius:50%;
-
-background:#22C55E;
-
-position:absolute;
-
-animation:float 3s infinite;
-
-}
-
-
-
-.p1{
-
-left:25%;
-
-top:40px;
-
-}
-
-
-.p2{
-
-left:55%;
-
-top:25px;
-
-background:#1687FF;
-
-animation-delay:1s;
-
-}
-
-
-
-.p3{
-
-left:80%;
-
-top:45px;
-
-background:#EF4444;
-
-animation-delay:2s;
-
-}
-
-
-
-@keyframes float{
-
-50%{
-
-transform:translateY(-15px);
-
-}
-
-}
-
-
-
-
-
-
-
-/* الأسواق */
-
+/* MARKETS */
 
 .markets h2{
 
-font-size:22px;
+font-size:23px;
 
 margin-bottom:15px;
 
@@ -350,17 +223,17 @@ margin-bottom:15px;
 
 
 
-.market-head{
+.market-title{
 
 display:grid;
 
-grid-template-columns:2fr 1fr .8fr .8fr;
-
-padding:10px;
+grid-template-columns:2fr 1fr .8fr .5fr;
 
 color:#98A5B8;
 
 font-size:12px;
+
+padding:8px;
 
 }
 
@@ -372,7 +245,7 @@ font-size:12px;
 
 display:grid;
 
-grid-template-columns:2fr 1fr .8fr .8fr;
+grid-template-columns:2fr 1fr .8fr .5fr;
 
 align-items:center;
 
@@ -380,33 +253,34 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:14px;
+border-radius:15px;
 
-padding:10px;
+padding:12px;
 
-margin-bottom:8px;
+margin-bottom:10px;
 
-font-size:13px;
+direction:ltr;
 
 }
 
 
 
 
-
-.coin-name{
+.coin{
 
 display:flex;
 
 align-items:center;
 
-gap:8px;
+gap:10px;
+
+direction:rtl;
 
 }
 
 
 
-.coin-name strong{
+.coin b{
 
 display:block;
 
@@ -416,17 +290,19 @@ font-size:14px;
 
 
 
-.coin-name small{
+.coin small{
+
+display:block;
 
 color:#98A5B8;
+
+font-size:12px;
 
 }
 
 
 
-
-
-.icon{
+.logo{
 
 width:38px;
 
@@ -442,8 +318,6 @@ justify-content:center;
 
 font-weight:bold;
 
-font-size:16px;
-
 color:white;
 
 }
@@ -457,7 +331,6 @@ background:#F7931A;
 }
 
 
-
 .eth{
 
 background:#627EEA;
@@ -465,13 +338,11 @@ background:#627EEA;
 }
 
 
-
 .usdt{
 
 background:#26A17B;
 
 }
-
 
 
 .bnb{
@@ -483,7 +354,6 @@ color:#111;
 }
 
 
-
 .sol{
 
 background:#9945FF;
@@ -491,13 +361,11 @@ background:#9945FF;
 }
 
 
-
 .trx{
 
-background:#EF4444;
+background:#EF3340;
 
 }
-
 
 
 .xrp{
@@ -509,32 +377,35 @@ background:#2563EB;
 
 
 
-
-.green{
+.up{
 
 color:#22C55E;
 
 font-weight:bold;
 
+font-size:13px;
+
 }
 
 
 
-.red{
+.down{
 
 color:#EF4444;
 
 font-weight:bold;
 
+font-size:13px;
+
 }
 
 
 
 
 
-/* خطوط صغيرة */
+/* MINI CHART */
 
-.mini-chart{
+.chart{
 
 height:25px;
 
@@ -548,7 +419,7 @@ transform:skew(-25deg);
 
 
 
-.green-line{
+.up-chart{
 
 border-color:#22C55E;
 
@@ -556,6 +427,62 @@ border-color:#22C55E;
 
 
 
-.red-line{
+.down-chart{
 
-border-color:#EF4444
+border-color:#EF4444;
+
+}
+
+
+
+
+
+/* NAV */
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:100%;
+
+max-width:480px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+padding:10px;
+
+}
+
+
+
+.bottom-nav a{
+
+text-decoration:none;
+
+color:#98A5B8;
+
+font-size:12px;
+
+text-align:center;
+
+}
+
+
+
+.bottom-nav .active{
+
+color:#1687FF;
+
+}
