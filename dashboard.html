@@ -24,9 +24,11 @@
 
 <header class="header">
 
+
 <div class="brand">
-VALORA
+VΛLORA
 </div>
+
 
 
 <div class="uid-card">
@@ -45,11 +47,11 @@ VALORA
 
 </button>
 
-
 </div>
 
 
 </header>
+
 
 
 
@@ -60,13 +62,14 @@ VALORA
 
 <div class="asset-title">
 
+
 <span>
 إجمالي الأصول
 </span>
 
 
-<button onclick="hideBalance()" class="eye">
 
+<button onclick="hideBalance()" class="eye">
 
 <svg viewBox="0 0 24 24">
 
@@ -81,6 +84,8 @@ VALORA
 
 
 </div>
+
+
 
 
 <div id="balance" class="balance">
@@ -98,68 +103,47 @@ VALORA
 
 
 
+<!-- شريط رموز التداول -->
+
+
+<section class="trade-bar">
+
+
+<div class="trade-icons">
+
+
+<span class="btc-symbol">₿</span>
+
+<span class="eth-symbol">◆</span>
+
+<span class="usdt-symbol">₮</span>
+
+<span class="bnb-symbol">◆</span>
+
+<span class="sol-symbol">S</span>
+
+<span class="xrp-symbol">X</span>
+
+<span class="ada-symbol">₳</span>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
 <section class="markets">
 
 
-<h2>
-الأسواق
-</h2>
 
 
 
-<div class="market-head">
-
-<span>العملة</span>
-<span>السعر</span>
-<span>التغيير</span>
-
-
-</div>
-
-
-
-
-
-<!-- USDT -->
-
-<div class="coin-row">
-
-
-<div class="coin-logo usdt">
-₮
-</div>
-
-
-<div class="coin-name">
-
-<b>USDT</b>
-
-<small>Tether</small>
-
-</div>
-
-
-<div class="price">
-
-1.00$
-
-</div>
-
-
-<div class="up">
-
-▲ 0.05%
-
-</div>
-
-
-</div>
-
-
-
-
-
-<!-- BTC -->
 
 <div class="coin-row">
 
@@ -167,6 +151,7 @@ VALORA
 <div class="coin-logo btc">
 ₿
 </div>
+
 
 
 <div class="coin-name">
@@ -178,17 +163,15 @@ VALORA
 </div>
 
 
+
 <div class="price">
-
 67,500$
-
 </div>
+
 
 
 <div class="up">
-
 ▲ 2.45%
-
 </div>
 
 
@@ -198,8 +181,6 @@ VALORA
 
 
 
-
-<!-- ETH -->
 
 <div class="coin-row">
 
@@ -207,6 +188,7 @@ VALORA
 <div class="coin-logo eth">
 ◆
 </div>
+
 
 
 <div class="coin-name">
@@ -218,17 +200,15 @@ VALORA
 </div>
 
 
+
 <div class="price">
-
 3,450$
-
 </div>
+
 
 
 <div class="down">
-
 ▼ 1.20%
-
 </div>
 
 
@@ -239,7 +219,42 @@ VALORA
 
 
 
-<!-- BNB -->
+<div class="coin-row">
+
+
+<div class="coin-logo usdt">
+₮
+</div>
+
+
+
+<div class="coin-name">
+
+<b>USDT</b>
+
+<small>Tether</small>
+
+</div>
+
+
+
+<div class="price">
+1.00$
+</div>
+
+
+
+<div class="up">
+▲ 0.05%
+</div>
+
+
+</div>
+
+
+
+
+
 
 <div class="coin-row">
 
@@ -249,26 +264,25 @@ VALORA
 </div>
 
 
+
 <div class="coin-name">
 
 <b>BNB</b>
 
-<small>BNB</small>
+<small>Binance</small>
 
 </div>
+
 
 
 <div class="price">
-
 580$
-
 </div>
+
 
 
 <div class="up">
-
 ▲ 1.80%
-
 </div>
 
 
@@ -279,8 +293,6 @@ VALORA
 
 
 
-
-<!-- SOL -->
 
 <div class="coin-row">
 
@@ -288,6 +300,7 @@ VALORA
 <div class="coin-logo sol">
 S
 </div>
+
 
 
 <div class="coin-name">
@@ -299,97 +312,15 @@ S
 </div>
 
 
+
 <div class="price">
-
 170$
-
 </div>
+
 
 
 <div class="down">
-
 ▼ 0.70%
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- TRX -->
-
-<div class="coin-row">
-
-
-<div class="coin-logo trx">
-TRX
-</div>
-
-
-<div class="coin-name">
-
-<b>TRX</b>
-
-<small>Tron</small>
-
-</div>
-
-
-<div class="price">
-
-0.12$
-
-</div>
-
-
-<div class="up">
-
-▲ 1.10%
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<!-- XRP -->
-
-<div class="coin-row">
-
-
-<div class="coin-logo xrp">
-X
-</div>
-
-
-<div class="coin-name">
-
-<b>XRP</b>
-
-<small>Ripple</small>
-
-</div>
-
-
-<div class="price">
-
-0.60$
-
-</div>
-
-
-<div class="up">
-
-▲ 0.80%
-
 </div>
 
 
@@ -443,6 +374,7 @@ X
 
 
 
+
 <script>
 
 
@@ -452,8 +384,8 @@ let balanceHidden=false;
 
 function hideBalance(){
 
-let b=document.getElementById("balance");
 
+let b=document.getElementById("balance");
 
 if(balanceHidden){
 
@@ -477,6 +409,7 @@ balanceHidden=true;
 
 
 
+
 function copyUID(){
 
 navigator.clipboard.writeText("UID: 588887");
@@ -484,8 +417,8 @@ navigator.clipboard.writeText("UID: 588887");
 }
 
 
-
 </script>
+
 
 
 </body>
