@@ -31,16 +31,13 @@
 
 <header class="header">
 
-
 <div class="brand">
 
 VALORA
 
 </div>
 
-
 </header>
-
 
 
 
@@ -74,7 +71,6 @@ VALORA
 </p>
 
 
-
 </section>
 
 
@@ -84,333 +80,17 @@ VALORA
 
 
 
-<section class="history-list">
+<section class="history-list" id="historyList">
 
 
 
 
+<!-- تظهر عمليات السحب هنا تلقائياً -->
 
 
 
-<div class="history-card">
+</section>
 
-
-
-<div class="history-top">
-
-
-<div class="coin-mini usdt">
-
-₮
-
-</div>
-
-
-
-<div class="coin-info">
-
-
-<strong>
-
-USDT
-
-</strong>
-
-
-<small>
-
-TRC20
-
-</small>
-
-
-</div>
-
-
-
-<span class="status complete">
-
-مكتمل
-
-</span>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-data">
-
-
-<p>
-
-المبلغ
-
-<span>
-
-100 USDT
-
-</span>
-
-</p>
-
-
-
-<p>
-
-التاريخ
-
-<span>
-
-2026/07/28 - 12:30
-
-</span>
-
-</p>
-
-
-
-<p>
-
-العنوان
-
-<span>
-
-TXXXXXXXXXXXX
-
-</span>
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-card">
-
-
-
-<div class="history-top">
-
-
-<div class="coin-mini usdt">
-
-₮
-
-</div>
-
-
-
-<div class="coin-info">
-
-
-<strong>
-
-USDT
-
-</strong>
-
-
-<small>
-
-TRC20
-
-</small>
-
-
-</div>
-
-
-
-<span class="status rejected">
-
-رفض
-
-</span>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-data">
-
-
-<p>
-
-المبلغ
-
-<span>
-
-50 USDT
-
-</span>
-
-</p>
-
-
-
-<p>
-
-التاريخ
-
-<span>
-
-2026/07/27 - 18:20
-
-</span>
-
-</p>
-
-
-
-<p>
-
-العنوان
-
-<span>
-
-TYYYYYYYYYYY
-
-</span>
-
-</p>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-<div class="history-card">
-
-
-
-<div class="history-top">
-
-
-<div class="coin-mini usdt">
-
-₮
-
-</div>
-
-
-
-<div class="coin-info">
-
-
-<strong>
-
-USDT
-
-</strong>
-
-
-<small>
-
-TRC20
-
-</small>
-
-
-</div>
-
-
-
-<span class="status pending">
-
-قيد المعالجة
-
-</span>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-data">
-
-
-<p>
-
-المبلغ
-
-<span>
-
-25 USDT
-
-</span>
-
-</p>
-
-
-
-<p>
-
-التاريخ
-
-<span>
-
-2026/07/26 - 09:15
-
-</span>
-
-</p>
-
-
-
-<p>
-
-العنوان
-
-<span>
-
-TZZZZZZZZZZ
-
-</span>
-
-</p>
-
-
-</div>
-
-
-
-</div>
 
 
 
@@ -442,6 +122,7 @@ TZZZZZZZZZZ
 
 
 
+
 <a href="wallet.html">
 
 ▣
@@ -454,6 +135,7 @@ TZZZZZZZZZZ
 
 
 
+
 <a href="team.html">
 
 ♟
@@ -463,6 +145,7 @@ TZZZZZZZZZZ
 الفريق
 
 </a>
+
 
 
 
@@ -488,6 +171,208 @@ TZZZZZZZZZZ
 
 </div>
 
+
+
+
+
+
+
+
+<script>
+
+
+let historyList = document.getElementById("historyList");
+
+
+
+let withdrawals = JSON.parse(localStorage.getItem("withdrawals")) || [];
+
+
+
+
+
+if(withdrawals.length === 0){
+
+
+historyList.innerHTML = `
+
+<div class="history-card">
+
+
+<div class="history-data">
+
+
+<p>
+
+لا توجد عمليات سحب
+
+</p>
+
+
+</div>
+
+
+</div>
+
+`;
+
+
+}
+
+else{
+
+
+
+withdrawals.reverse().forEach(function(item){
+
+
+
+let statusClass = "pending";
+
+let statusText = "قيد المعالجة";
+
+
+
+if(item.status === "complete"){
+
+statusClass="complete";
+
+statusText="مكتمل";
+
+}
+
+
+if(item.status === "rejected"){
+
+statusClass="rejected";
+
+statusText="رفض";
+
+}
+
+
+
+
+historyList.innerHTML += `
+
+
+<div class="history-card">
+
+
+
+<div class="history-top">
+
+
+<div class="coin-mini usdt">
+
+₮
+
+</div>
+
+
+
+<div class="coin-info">
+
+
+<strong>
+
+${item.coin}
+
+</strong>
+
+
+<small>
+
+${item.network}
+
+</small>
+
+
+</div>
+
+
+
+<span class="status ${statusClass}">
+
+${statusText}
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="history-data">
+
+
+<p>
+
+المبلغ
+
+<span>
+
+${item.amount} USDT
+
+</span>
+
+</p>
+
+
+
+<p>
+
+التاريخ
+
+<span>
+
+${item.date}
+
+</span>
+
+</p>
+
+
+
+<p>
+
+العنوان
+
+<span>
+
+${item.address}
+
+</span>
+
+</p>
+
+
+
+</div>
+
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+</script>
 
 
 
