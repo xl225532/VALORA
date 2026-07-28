@@ -1,56 +1,65 @@
-.withdraw-page *{
+.valora-withdraw *{
 
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,Tahoma,sans-serif;
+font-family:'Cairo',Arial,sans-serif;
 
 }
 
 
-.withdraw-page{
+
+.valora-withdraw{
 
 background:#050B16;
 
-min-height:100vh;
-
 color:white;
 
-padding:15px;
+min-height:100vh;
 
 }
 
 
 
-.withdraw-page .dashboard{
+.withdraw-container{
 
-width:100%;
-
-max-width:420px;
+max-width:480px;
 
 margin:auto;
 
-padding-bottom:100px;
+padding:18px 15px 100px;
 
 }
 
 
 
-/* الشعار */
 
-.withdraw-page .withdraw-brand{
 
-text-align:center;
+
+
+.withdraw-header{
+
+display:flex;
+
+justify-content:center;
+
+margin-bottom:20px;
+
+}
+
+
+
+.withdraw-logo{
 
 font-size:32px;
 
 font-weight:800;
 
-color:#EAF3FF;
-
 letter-spacing:3px;
 
-margin:15px;
+color:#EAF3FF;
+
+text-shadow:0 0 10px #1687FF;
 
 }
 
@@ -58,28 +67,29 @@ margin:15px;
 
 
 
-/* العنوان */
 
-.withdraw-page .page-title{
+
+.withdraw-title{
 
 text-align:center;
 
-margin:20px 0;
+margin-bottom:20px;
 
 }
 
 
-.withdraw-page .icon-box{
+
+.withdraw-icon{
 
 width:55px;
 
 height:55px;
 
+margin:auto;
+
 border-radius:50%;
 
-background:#22C55E;
-
-margin:auto;
+background:#1687FF;
 
 display:flex;
 
@@ -92,7 +102,8 @@ font-size:28px;
 }
 
 
-.withdraw-page .page-title h2{
+
+.withdraw-title h2{
 
 margin-top:12px;
 
@@ -101,7 +112,8 @@ font-size:22px;
 }
 
 
-.withdraw-page .page-title p{
+
+.withdraw-title p{
 
 color:#98A5B8;
 
@@ -113,10 +125,9 @@ font-size:13px;
 
 
 
-/* العملات */
 
 
-.withdraw-page .coin-list{
+.withdraw-coins{
 
 display:flex;
 
@@ -128,17 +139,19 @@ gap:12px;
 
 
 
-.withdraw-page .coin{
 
-height:70px;
+
+.withdraw-coin{
 
 width:100%;
 
+height:70px;
+
 background:#0B1628;
 
-border:1px solid #17365c;
+border:1px solid #17365C;
 
-border-radius:15px;
+border-radius:16px;
 
 display:flex;
 
@@ -154,7 +167,7 @@ direction:ltr;
 
 
 
-.withdraw-page .coin-icon{
+.withdraw-coin-icon{
 
 width:45px;
 
@@ -172,27 +185,53 @@ font-size:22px;
 
 font-weight:bold;
 
-margin-right:15px;
+margin-left:12px;
 
 }
 
 
 
-.withdraw-page .usdt{
+.withdraw-coin strong{
 
-background:#22C55E;
+display:block;
+
+direction:rtl;
 
 }
 
 
-.withdraw-page .btc{
+
+.withdraw-coin small{
+
+display:block;
+
+direction:rtl;
+
+color:#98A5B8;
+
+}
+
+
+
+
+
+.usdt{
+
+background:#26A17B;
+
+}
+
+
+
+.btc{
 
 background:#F7931A;
 
 }
 
 
-.withdraw-page .eth{
+
+.eth{
 
 background:#627EEA;
 
@@ -200,41 +239,19 @@ background:#627EEA;
 
 
 
-.withdraw-page .coin strong{
-
-display:block;
-
-direction:rtl;
-
-}
-
-
-.withdraw-page .coin small{
-
-color:#98A5B8;
-
-direction:rtl;
-
-}
 
 
 
 
-
-
-
-/* صندوق السحب */
-
-
-.withdraw-page .withdraw-box{
+.withdraw-card{
 
 margin-top:20px;
 
 background:#0B1628;
 
-border:1px solid #17365c;
+border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:20px;
 
 padding:18px;
 
@@ -242,7 +259,9 @@ padding:18px;
 
 
 
-.withdraw-page .input-group{
+
+
+.withdraw-input{
 
 margin-bottom:15px;
 
@@ -250,13 +269,13 @@ margin-bottom:15px;
 
 
 
-.withdraw-page label{
+.withdraw-input label{
 
 display:block;
 
-color:#C6D3E4;
-
 font-size:13px;
+
+color:#C6D3E4;
 
 margin-bottom:7px;
 
@@ -264,19 +283,23 @@ margin-bottom:7px;
 
 
 
-.withdraw-page input{
+
+
+.withdraw-input input{
 
 width:100%;
 
 padding:13px;
 
-background:#071426;
+border-radius:12px;
 
 border:1px solid #20344F;
 
-border-radius:10px;
+background:#071426;
 
 color:white;
+
+font-size:15px;
 
 }
 
@@ -285,11 +308,12 @@ color:white;
 
 
 
-.withdraw-page .info-box{
+
+.withdraw-info{
 
 background:#071426;
 
-border-radius:12px;
+border-radius:14px;
 
 padding:12px;
 
@@ -297,7 +321,7 @@ padding:12px;
 
 
 
-.withdraw-page .info-box div{
+.withdraw-info div{
 
 display:flex;
 
@@ -309,7 +333,7 @@ padding:8px 0;
 
 
 
-.withdraw-page .info-box span{
+.withdraw-info span{
 
 color:#98A5B8;
 
@@ -321,19 +345,19 @@ color:#98A5B8;
 
 
 
-.withdraw-page .withdraw-confirm{
+.withdraw-button{
 
 width:100%;
 
-margin-top:15px;
+margin-top:18px;
 
 padding:14px;
 
-background:#1687FF;
-
-border:none;
+border:0;
 
 border-radius:12px;
+
+background:#1687FF;
 
 color:white;
 
@@ -349,7 +373,7 @@ font-weight:bold;
 
 
 
-.withdraw-page .status-box{
+.withdraw-status{
 
 display:none;
 
@@ -367,23 +391,41 @@ background:#071426;
 
 
 
+.withdraw-status.success{
+
+border:1px solid #22C55E;
+
+}
 
 
-.withdraw-page .history-btn{
+
+.withdraw-status.reject{
+
+border:1px solid #EF4444;
+
+}
+
+
+
+
+
+
+
+.withdraw-history{
 
 display:block;
-
-text-align:center;
 
 margin-top:15px;
 
 padding:13px;
 
+text-align:center;
+
 background:#22C55E;
 
-border-radius:12px;
-
 color:white;
+
+border-radius:12px;
 
 text-decoration:none;
 
@@ -395,35 +437,35 @@ text-decoration:none;
 
 
 
-.withdraw-page .withdraw-bottom-nav{
+.withdraw-nav{
 
 position:fixed;
 
-bottom:15px;
+bottom:0;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:92%;
+width:100%;
 
-max-width:420px;
+max-width:480px;
 
 background:#0B1628;
 
-border-radius:18px;
-
-padding:10px;
+border-top:1px solid #17365C;
 
 display:flex;
 
 justify-content:space-around;
 
+padding:12px;
+
 }
 
 
 
-.withdraw-page .withdraw-bottom-nav a{
+.withdraw-nav a{
 
 color:#98A5B8;
 
