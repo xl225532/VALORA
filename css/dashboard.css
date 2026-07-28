@@ -20,44 +20,32 @@ padding:18px 15px 90px;
 }
 
 
-
 /* HEADER */
 
 .header{
 
 display:flex;
-flex-direction:row;
-
 justify-content:space-between;
-
 align-items:center;
-
 margin-bottom:20px;
 
 }
 
 
-
 .brand{
 
 font-size:34px;
-
 font-weight:700;
-
 color:#1687FF;
 
 }
 
 
-
 .uid-card{
 
 display:flex;
-
 direction:ltr;
-
 align-items:center;
-
 gap:8px;
 
 background:#0B1628;
@@ -71,13 +59,11 @@ padding:10px 14px;
 }
 
 
-
 .uid-card span{
 
 color:#98A5B8;
 
 }
-
 
 
 .uid-card strong{
@@ -87,29 +73,22 @@ font-size:17px;
 }
 
 
-
 .uid-card button{
 
+background:none;
 border:0;
 
-background:none;
-
 }
-
 
 
 .uid-card svg{
 
 width:22px;
-
 stroke:#1687FF;
-
 fill:none;
-
 stroke-width:2;
 
 }
-
 
 
 
@@ -153,8 +132,6 @@ background:none;
 
 border:0;
 
-padding:0;
-
 cursor:pointer;
 
 display:flex;
@@ -167,9 +144,9 @@ align-items:center;
 
 .eye svg{
 
-width:27px;
+width:26px;
 
-height:27px;
+height:26px;
 
 fill:none;
 
@@ -183,7 +160,7 @@ stroke-width:2;
 
 .balance{
 
-font-size:44px;
+font-size:34px;
 
 font-weight:700;
 
@@ -201,7 +178,7 @@ text-align:right;
 
 .balance small{
 
-font-size:18px;
+font-size:16px;
 
 color:#22C55E;
 
@@ -239,8 +216,6 @@ padding:0 12px 12px;
 
 
 
-
-
 .coin-row{
 
 display:grid;
@@ -265,7 +240,6 @@ direction:ltr;
 
 
 
-
 .coin-name{
 
 display:flex;
@@ -276,8 +250,6 @@ gap:10px;
 
 direction:rtl;
 
-justify-content:flex-start;
-
 }
 
 
@@ -287,7 +259,6 @@ justify-content:flex-start;
 font-size:15px;
 
 }
-
 
 
 .coin-name small{
@@ -316,9 +287,9 @@ justify-content:center;
 
 font-weight:bold;
 
-color:white;
-
 font-size:18px;
+
+color:white;
 
 }
 
@@ -340,12 +311,9 @@ font-size:18px;
 
 
 
-
-
 .up{
 
 color:#22C55E;
-
 font-weight:bold;
 
 }
@@ -355,15 +323,13 @@ font-weight:bold;
 .down{
 
 color:#EF4444;
-
 font-weight:bold;
 
 }
 
 
 
-
-/* MINI GRAPH */
+/* GRAPH */
 
 .chart{
 
@@ -374,7 +340,6 @@ height:25px;
 position:relative;
 
 }
-
 
 
 .chart:before{
@@ -391,12 +356,9 @@ width:50px;
 
 height:3px;
 
-transform:rotate(-8deg);
-
 animation:trade 1.5s infinite;
 
 }
-
 
 
 .chart.green:before{
@@ -404,7 +366,6 @@ animation:trade 1.5s infinite;
 background:#22C55E;
 
 }
-
 
 
 .chart.red:before{
@@ -419,12 +380,11 @@ background:#EF4444;
 
 50%{
 
-transform:rotate(8deg);
+transform:rotate(10deg);
 
 }
 
 }
-
 
 
 
