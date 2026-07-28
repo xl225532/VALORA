@@ -1,8 +1,10 @@
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Cairo',Arial,sans-serif;
+
 }
 
 
@@ -19,34 +21,100 @@ min-height:100vh;
 
 max-width:480px;
 margin:auto;
+
 padding:18px 15px 90px;
 
 }
 
 
 
+
+
 /* HEADER */
+
 
 .header{
 
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 margin-bottom:20px;
 
 }
 
 
-.brand{
 
-font-size:34px;
+
+
+/* LOGO */
+
+
+.brand-logo{
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
+direction:ltr;
+
+}
+
+
+
+.logo-icon svg{
+
+width:48px;
+
+height:48px;
+
+filter:drop-shadow(0 0 10px #1687FF);
+
+}
+
+
+
+.logo-text{
+
+display:flex;
+
+flex-direction:column;
+
+line-height:1;
+
+}
+
+
+
+.logo-name{
+
+font-size:30px;
+
 font-weight:800;
-letter-spacing:1px;
-color:#1687FF;
+
+letter-spacing:2px;
+
+color:#EAF3FF;
 
 text-shadow:
-0 0 10px #1687FF,
-0 0 20px #1687FF;
+
+0 0 10px #1687FF;
+
+}
+
+
+
+.logo-sub{
+
+font-size:11px;
+
+color:#22C55E;
+
+letter-spacing:3px;
 
 }
 
@@ -54,11 +122,17 @@ text-shadow:
 
 
 
+/* UID */
+
+
 .uid-card{
 
 display:flex;
+
 direction:ltr;
+
 align-items:center;
+
 gap:8px;
 
 background:#0B1628;
@@ -67,16 +141,20 @@ border:1px solid #17365C;
 
 border-radius:16px;
 
-padding:10px 14px;
+padding:10px 12px;
 
 }
+
 
 
 .uid-card span{
 
 color:#98A5B8;
 
+font-size:13px;
+
 }
+
 
 
 .uid-card strong{
@@ -86,23 +164,28 @@ font-size:16px;
 }
 
 
+
 .uid-card button{
 
 background:none;
+
 border:0;
 
 }
 
 
+
 .uid-card svg{
 
 width:21px;
+
 stroke:#1687FF;
+
 fill:none;
+
 stroke-width:2;
 
 }
-
 
 
 
@@ -137,8 +220,6 @@ align-items:center;
 
 color:#AAB5C5;
 
-font-size:16px;
-
 }
 
 
@@ -146,7 +227,10 @@ font-size:16px;
 .eye{
 
 background:none;
+
 border:0;
+
+cursor:pointer;
 
 }
 
@@ -154,10 +238,12 @@ border:0;
 
 .eye svg{
 
-width:27px;
-height:27px;
+width:26px;
+
+height:26px;
 
 stroke:#1687FF;
+
 fill:none;
 
 stroke-width:2;
@@ -188,11 +274,6 @@ text-align:right;
 font-size:17px;
 
 }
-
-
-
-
-
 /* TRADE BAR */
 
 
@@ -204,7 +285,7 @@ border:1px solid #17365C;
 
 border-radius:18px;
 
-height:62px;
+height:65px;
 
 display:flex;
 
@@ -212,7 +293,7 @@ align-items:center;
 
 overflow:hidden;
 
-margin-bottom:22px;
+margin-bottom:20px;
 
 }
 
@@ -222,13 +303,13 @@ margin-bottom:22px;
 
 display:flex;
 
-gap:25px;
-
 align-items:center;
 
-padding:0 20px;
+gap:22px;
 
-animation:moveIcons 8s linear infinite;
+padding:0 18px;
+
+animation:tradeMove 8s linear infinite;
 
 }
 
@@ -236,9 +317,9 @@ animation:moveIcons 8s linear infinite;
 
 .trade-icons span{
 
-width:32px;
+width:34px;
 
-height:32px;
+height:34px;
 
 border-radius:50%;
 
@@ -257,7 +338,6 @@ color:white;
 box-shadow:0 0 12px rgba(22,135,255,.5);
 
 }
-
 
 
 
@@ -285,6 +365,7 @@ background:#26A17B;
 .bnb-symbol{
 
 background:#F3BA2F;
+
 color:#111!important;
 
 }
@@ -306,13 +387,27 @@ background:#2563EB;
 
 .ada-symbol{
 
-background:#2563EB;
+background:#0EA5E9;
+
+}
+
+
+.doge-symbol{
+
+background:#C2A633;
+
+}
+
+
+.trx-symbol{
+
+background:#EF3340;
 
 }
 
 
 
-@keyframes moveIcons{
+@keyframes tradeMove{
 
 0%{
 
@@ -323,7 +418,7 @@ transform:translateX(0);
 
 50%{
 
-transform:translateX(-35px);
+transform:translateX(-40px);
 
 }
 
@@ -335,7 +430,6 @@ transform:translateX(0);
 }
 
 }
-
 
 
 
@@ -361,13 +455,11 @@ border:1px solid #17365C;
 
 border-radius:16px;
 
-padding:12px;
+padding:11px;
 
 margin-bottom:10px;
 
 }
-
-
 
 
 
@@ -381,9 +473,11 @@ border-radius:50%;
 
 display:flex;
 
+align-items:center;
+
 justify-content:center;
 
-align-items:center;
+font-size:17px;
 
 font-weight:bold;
 
@@ -417,6 +511,7 @@ background:#26A17B;
 .bnb{
 
 background:#F3BA2F;
+
 color:#111;
 
 }
@@ -429,6 +524,18 @@ background:#9945FF;
 }
 
 
+.trx{
+
+background:#EF3340;
+
+}
+
+
+.xrp{
+
+background:#2563EB;
+
+}
 
 
 
@@ -439,6 +546,7 @@ direction:rtl;
 text-align:right;
 
 }
+
 
 
 .coin-name b{
@@ -453,15 +561,18 @@ font-size:15px;
 
 display:block;
 
-color:#98A5B8;
-
 font-size:12px;
+
+color:#98A5B8;
 
 }
 
 
 
+
 .price{
+
+font-size:14px;
 
 font-weight:bold;
 
@@ -473,10 +584,11 @@ text-align:center;
 
 
 
-
 .up{
 
 color:#22C55E;
+
+font-size:13px;
 
 font-weight:bold;
 
@@ -490,6 +602,8 @@ text-align:center;
 
 color:#EF4444;
 
+font-size:13px;
+
 font-weight:bold;
 
 text-align:center;
@@ -500,9 +614,7 @@ text-align:center;
 
 
 
-
-
-/* NAV */
+/* BOTTOM NAV */
 
 
 .bottom-nav{
@@ -551,4 +663,4 @@ text-align:center;
 
 color:#1687FF;
 
-}
+  }
