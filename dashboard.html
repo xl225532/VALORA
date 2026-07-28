@@ -61,13 +61,21 @@ VALORA
 <div class="asset-title">
 
 <span>
-الأصول الإجمالي
+إجمالي الأصول
 </span>
 
 
 <button onclick="hideBalance()" class="eye">
 
-👁
+
+<svg viewBox="0 0 24 24">
+
+<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"></path>
+
+<circle cx="12" cy="12" r="3"></circle>
+
+</svg>
+
 
 </button>
 
@@ -298,70 +306,18 @@ VALORA
 </a>
 
 
-<a>
+<a href="wallet.html">
 ▣
 <br>
 المحفظة
 </a>
 
 
-<a>
+<a href="team.html">
 ♟
 <br>
 الفريق
 </a>
 
 
-<a>
-⚙
-<br>
-الإعدادات
-</a>
-
-
-</nav>
-
-
-
-</div>
-
-
-
-
-
-
-<script>
-
-function hideBalance(){
-
-let b=document.getElementById("balance");
-
-if(b.innerText.includes("*")){
-
-b.innerHTML='0.00 <small>USDT</small>';
-
-}else{
-
-b.innerHTML='***** <small>USDT</small>';
-
-}
-
-}
-
-
-
-function copyUID(){
-
-navigator.clipboard.writeText("UID: 588887");
-
-}
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
+<a href="settings
