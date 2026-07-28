@@ -1,7 +1,3 @@
-/* =========================
-   VALORA DASHBOARD STYLE
-========================= */
-
 *{
 margin:0;
 padding:0;
@@ -19,6 +15,7 @@ min-height:100vh;
 color:white;
 
 }
+
 
 
 .dashboard{
@@ -47,16 +44,17 @@ justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
+
 
 
 .brand{
 
 color:#1687FF;
 
-font-size:32px;
+font-size:34px;
 
 font-weight:700;
 
@@ -64,21 +62,28 @@ font-weight:700;
 
 
 
-.uid-box{
+.uid-card{
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:12px;
+border-radius:14px;
 
-padding:8px 12px;
+padding:8px 10px;
 
 display:flex;
 
 align-items:center;
 
-gap:7px;
+gap:8px;
+
+}
+
+
+.uid-card span{
+
+color:#98A5B8;
 
 font-size:13px;
 
@@ -86,15 +91,9 @@ font-size:13px;
 
 
 
-.uid-box span{
+.uid-card strong{
 
-color:#98A5B8;
-
-}
-
-
-
-.uid-box strong{
+font-size:15px;
 
 color:white;
 
@@ -102,15 +101,33 @@ color:white;
 
 
 
-.uid-box button{
+.uid-card button{
 
-background:none;
+background:#071426;
 
 border:none;
 
+border-radius:8px;
+
+padding:5px;
+
 cursor:pointer;
 
-font-size:15px;
+}
+
+
+
+.uid-card svg{
+
+width:18px;
+
+height:18px;
+
+fill:none;
+
+stroke:#1687FF;
+
+stroke-width:2;
 
 }
 
@@ -126,17 +143,19 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:22px;
 
-padding:15px;
+padding:18px;
 
-margin-bottom:18px;
+overflow:hidden;
+
+position:relative;
 
 }
 
 
 
-.asset-header{
+.asset-top{
 
 display:flex;
 
@@ -146,7 +165,7 @@ align-items:center;
 
 color:#98A5B8;
 
-font-size:14px;
+font-size:16px;
 
 }
 
@@ -166,9 +185,9 @@ cursor:pointer;
 
 .eye-btn svg{
 
-width:24px;
+width:28px;
 
-height:24px;
+height:28px;
 
 fill:none;
 
@@ -182,11 +201,15 @@ stroke-width:2;
 
 .total-assets{
 
-font-size:28px;
+font-size:34px;
 
 font-weight:bold;
 
-margin-top:10px;
+margin:25px 0;
+
+position:relative;
+
+z-index:2;
 
 }
 
@@ -194,7 +217,7 @@ margin-top:10px;
 
 .total-assets span{
 
-font-size:15px;
+font-size:17px;
 
 color:#22C55E;
 
@@ -204,17 +227,15 @@ color:#22C55E;
 
 
 
-/* حركة التداول */
+/* حركة التداول بالخلفية */
 
-.market-animation{
+.chart-bg{
 
-height:65px;
+height:100px;
 
 background:#071426;
 
-border-radius:12px;
-
-margin-top:15px;
+border-radius:15px;
 
 position:relative;
 
@@ -224,29 +245,29 @@ overflow:hidden;
 
 
 
-.trade-line{
+.line-chart{
 
 position:absolute;
 
-width:160%;
+width:150%;
 
-height:2px;
+height:3px;
 
 background:#1687FF;
 
-top:35px;
+top:55px;
 
 left:-50%;
 
-transform:rotate(-8deg);
+transform:rotate(-10deg);
 
-animation:trade 3s infinite linear;
+animation:chartMove 4s infinite linear;
 
 }
 
 
 
-@keyframes trade{
+@keyframes chartMove{
 
 from{
 
@@ -265,30 +286,39 @@ left:100%;
 
 
 
-
-.floating-coin{
+.moving-coin{
 
 position:absolute;
 
-color:#22C55E;
+font-size:25px;
 
-font-size:22px;
+opacity:.8;
 
-animation:float 4s infinite;
-
-left:20%;
-
-top:20px;
+animation:coinMove 5s infinite;
 
 }
 
 
 
-.coin-two{
+.coin1{
+
+left:20%;
+
+top:45px;
+
+color:#F7931A;
+
+}
+
+
+
+.coin2{
 
 left:55%;
 
-color:#1687FF;
+top:20px;
+
+color:#627EEA;
 
 animation-delay:1s;
 
@@ -296,11 +326,13 @@ animation-delay:1s;
 
 
 
-.coin-three{
+.coin3{
 
-left:80%;
+left:75%;
 
-color:#F7931A;
+top:55px;
+
+color:#26A17B;
 
 animation-delay:2s;
 
@@ -308,11 +340,11 @@ animation-delay:2s;
 
 
 
-@keyframes float{
+@keyframes coinMove{
 
 0%{
 
-transform:translateY(30px);
+transform:translateY(40px);
 
 opacity:0;
 
@@ -338,13 +370,14 @@ opacity:0;
 
 
 
-/* COINS */
+
+/* العملات */
 
 .coins-section h2{
 
-font-size:20px;
+font-size:22px;
 
-margin-bottom:12px;
+margin:22px 0 15px;
 
 }
 
@@ -356,17 +389,17 @@ display:flex;
 
 align-items:center;
 
-justify-content:space-between;
-
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:15px;
+border-radius:18px;
 
-padding:12px;
+padding:14px;
 
-margin-bottom:10px;
+margin-bottom:12px;
+
+direction:ltr;
 
 }
 
@@ -374,19 +407,79 @@ margin-bottom:10px;
 
 .coin-logo{
 
-width:44px;
+width:48px;
 
-height:44px;
+height:48px;
 
 border-radius:50%;
 
 display:flex;
 
-align-items:center;
-
 justify-content:center;
 
-font-size:17px;
+align-items:center;
+
+font-weight:bold;
+
+font-size:18px;
+
+margin-right:15px;
+
+color:white;
+
+}
+
+
+
+.coin-info{
+
+flex:1;
+
+direction:rtl;
+
+}
+
+
+
+.coin-info h3{
+
+font-size:16px;
+
+}
+
+
+
+.coin-info span{
+
+color:#98A5B8;
+
+font-size:13px;
+
+}
+
+
+
+.coin-data{
+
+text-align:left;
+
+direction:ltr;
+
+}
+
+
+
+.coin-data strong{
+
+font-size:15px;
+
+}
+
+
+
+.coin-data p{
+
+font-size:13px;
 
 font-weight:bold;
 
@@ -394,17 +487,29 @@ font-weight:bold;
 
 
 
-.usdt{
+.up{
 
-background:#26A17B;
+color:#22C55E;
 
 }
 
 
 
-.tron{
+.down{
 
-background:#EF4444;
+color:#EF4444;
+
+}
+
+
+
+
+
+/* شعارات العملات */
+
+.btc{
+
+background:#F7931A;
 
 }
 
@@ -418,43 +523,35 @@ background:#627EEA;
 
 
 
-.pepe{
+.usdt{
 
-background:#65A30D;
-
-}
-
-
-
-.btc{
-
-background:#F7931A;
+background:#26A17B;
 
 }
 
 
 
-.coin-name h3{
+.bnb{
 
-font-size:15px;
+background:#F3BA2F;
 
-}
-
-
-
-.coin-name span{
-
-font-size:12px;
-
-color:#98A5B8;
+color:#111;
 
 }
 
 
 
-.coin-price strong{
+.sol{
 
-font-size:14px;
+background:#9945FF;
+
+}
+
+
+
+.trx{
+
+background:#EF4444;
 
 }
 
@@ -462,7 +559,8 @@ font-size:14px;
 
 
 
-/* NAV */
+
+/* القائمة السفلية */
 
 .bottom-nav{
 
@@ -494,9 +592,9 @@ padding:10px;
 
 .bottom-nav a{
 
-color:#98A5B8;
-
 text-decoration:none;
+
+color:#98A5B8;
 
 font-size:12px;
 
@@ -506,28 +604,16 @@ flex-direction:column;
 
 align-items:center;
 
-gap:3px;
+gap:4px;
 
 }
 
 
 
-.bottom-nav svg{
-
-width:22px;
-
-height:22px;
-
-fill:#1687FF;
-
-}
-
-
-
-.bottom-nav span{
-
-font-size:20px;
+.bottom-nav a:first-child{
 
 color:#1687FF;
+
+font-weight:bold;
 
 }
