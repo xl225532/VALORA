@@ -404,3 +404,76 @@ font-size:28px;
 }
 
 }
+/* VALORA LOGO */
+
+.brand-logo{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+margin-bottom:20px;
+
+}
+
+
+
+.logo-icon svg{
+
+width:70px;
+
+height:70px;
+
+filter:drop-shadow(0 0 15px #1687FF);
+
+}
+
+
+
+.logo-text{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+
+.logo-name{
+
+font-size:38px;
+
+font-weight:800;
+
+letter-spacing:3px;
+
+color:#EAF3FF;
+
+text-shadow:
+
+0 0 10px #1687FF,
+
+0 0 20px #1687FF;
+
+}
+
+
+
+.logo-sub{
+
+font-size:12px;
+
+letter-spacing:5px;
+
+color:#22C55E;
+
+margin-top:5px;
+
+}
