@@ -24,30 +24,31 @@
 
 <header class="header">
 
-
 <div class="brand">
 VALORA
 </div>
 
 
 
-<div class="uid-box">
+<div class="uid-card">
 
-
-<span>
-UID:
-</span>
-
+<span>UID</span>
 
 <strong>
 588887
 </strong>
 
 
-
 <button onclick="copyUID()">
 
-📋
+<svg viewBox="0 0 24 24">
+
+<rect x="9" y="9" width="11" height="11" rx="2"></rect>
+
+<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"></path>
+
+</svg>
+
 
 </button>
 
@@ -66,7 +67,8 @@ UID:
 <section class="asset-card">
 
 
-<div class="asset-header">
+
+<div class="asset-top">
 
 
 <span>
@@ -96,6 +98,7 @@ UID:
 
 
 
+
 <div class="total-assets" id="balance">
 
 0.00
@@ -110,19 +113,32 @@ USDT
 
 
 
-<div class="market-animation">
 
 
-<div class="trade-line"></div>
+<div class="chart-bg">
 
-<div class="floating-coin">₮</div>
 
-<div class="floating-coin coin-two">◆</div>
+<div class="line-chart"></div>
 
-<div class="floating-coin coin-three">₿</div>
+
+<div class="moving-coin coin1">
+₿
+</div>
+
+
+<div class="moving-coin coin2">
+◆
+</div>
+
+
+<div class="moving-coin coin3">
+₮
+</div>
 
 
 </div>
+
+
 
 
 
@@ -147,158 +163,17 @@ USDT
 
 
 
-<div class="coin-card">
-
-<div class="coin-logo usdt">
-₮
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Tether
-</h3>
-
-<span>
-USDT
-</span>
-
-</div>
-
-
-<div class="coin-price">
-
-<strong>
-1.00$
-</strong>
-
-</div>
-
-</div>
-
-
-
-
-
-
 
 <div class="coin-card">
 
-<div class="coin-logo tron">
-TRX
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Tron
-</h3>
-
-<span>
-TRX
-</span>
-
-</div>
-
-
-<div class="coin-price">
-
-<strong>
-0.12$
-</strong>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="coin-card">
-
-<div class="coin-logo eth">
-◆
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Ethereum
-</h3>
-
-<span>
-ETH
-</span>
-
-</div>
-
-
-<div class="coin-price">
-
-<strong>
-3,450$
-</strong>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="coin-card">
-
-<div class="coin-logo pepe">
-🐸
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Pepe
-</h3>
-
-<span>
-PEPE
-</span>
-
-</div>
-
-
-<div class="coin-price">
-
-<strong>
-0.00001$
-</strong>
-
-</div>
-
-</div>
-
-
-
-
-
-
-
-<div class="coin-card">
 
 <div class="coin-logo btc">
 ₿
 </div>
 
 
-<div class="coin-name">
+
+<div class="coin-info">
 
 <h3>
 Bitcoin
@@ -308,17 +183,27 @@ Bitcoin
 BTC
 </span>
 
+
 </div>
 
 
-<div class="coin-price">
+
+<div class="coin-data">
 
 <strong>
 67,500$
 </strong>
 
+
+<p class="up">
+▲ 2.45%
+</p>
+
+
 </div>
 
+
+
 </div>
 
 
@@ -327,9 +212,244 @@ BTC
 
 
 
-</section>
+
+<div class="coin-card">
 
 
+<div class="coin-logo eth">
+◆
+</div>
+
+
+
+<div class="coin-info">
+
+<h3>
+Ethereum
+</h3>
+
+<span>
+ETH
+</span>
+
+
+</div>
+
+
+
+<div class="coin-data">
+
+<strong>
+3,450$
+</strong>
+
+
+<p class="down">
+▼ 1.20%
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="coin-card">
+
+
+<div class="coin-logo usdt">
+₮
+</div>
+
+
+
+<div class="coin-info">
+
+<h3>
+Tether
+</h3>
+
+<span>
+USDT
+</span>
+
+
+</div>
+
+
+
+<div class="coin-data">
+
+<strong>
+1.00$
+</strong>
+
+
+<p class="up">
+▲ 0.05%
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="coin-card">
+
+
+<div class="coin-logo bnb">
+◆
+</div>
+
+
+
+<div class="coin-info">
+
+<h3>
+BNB
+</h3>
+
+<span>
+BNB
+</span>
+
+
+</div>
+
+
+
+<div class="coin-data">
+
+<strong>
+580$
+</strong>
+
+
+<p class="down">
+▼ 0.80%
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="coin-card">
+
+
+<div class="coin-logo sol">
+S
+</div>
+
+
+
+<div class="coin-info">
+
+<h3>
+Solana
+</h3>
+
+<span>
+SOL
+</span>
+
+
+</div>
+
+
+
+<div class="coin-data">
+
+<strong>
+170$
+</strong>
+
+
+<p class="up">
+▲ 1.60%
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="coin-card">
+
+
+<div class="coin-logo trx">
+TRX
+</div>
+
+
+
+<div class="coin-info">
+
+<h3>
+Tron
+</h3>
+
+<span>
+TRX
+</span>
+
+
+</div>
+
+
+
+<div class="coin-data">
+
+<strong>
+0.12$
+</strong>
+
+
+<p class="down">
+▼ 0.30%
+</p>
+
+
+</div>
+
+
+
+</div>
 
 
 
@@ -342,59 +462,38 @@ BTC
 
 <a href="dashboard.html">
 
-
-<svg viewBox="0 0 24 24">
-
-<path d="M3 11L12 3l9 8v10h-6v-6H9v6H3z"/>
-
-</svg>
-
+⌂
 
 الرئيسية
-
 
 </a>
 
 
-
-
-
 <a href="wallet.html">
 
-<span>
 ▣
-</span>
 
 المحفظة
 
 </a>
 
 
-
-
 <a href="team.html">
 
-<span>
 ♟
-</span>
 
 الفريق
 
 </a>
 
 
-
-
 <a href="settings.html">
 
-<span>
 ⚙
-</span>
 
 الإعدادات
 
 </a>
-
 
 
 </nav>
@@ -407,30 +506,29 @@ BTC
 
 
 
+
+
+
 <script>
 
 
 function toggleBalance(){
 
-let balance = document.getElementById("balance");
+let b=document.getElementById("balance");
 
 
-if(balance.dataset.hidden === "true"){
+if(b.dataset.hide==="yes"){
+
+b.innerHTML='0.00 <span>USDT</span>';
+
+b.dataset.hide="no";
+
+}else{
 
 
-balance.innerHTML='0.00 <span>USDT</span>';
+b.innerHTML='***** <span>USDT</span>';
 
-balance.dataset.hidden="false";
-
-
-}
-
-else{
-
-
-balance.innerHTML='***** <span>USDT</span>';
-
-balance.dataset.hidden="true";
+b.dataset.hide="yes";
 
 
 }
@@ -443,12 +541,9 @@ balance.dataset.hidden="true";
 
 function copyUID(){
 
-
 navigator.clipboard.writeText("UID: 588887");
 
-
 alert("تم نسخ UID");
-
 
 }
 
