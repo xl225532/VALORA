@@ -3,45 +3,123 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
+font-family:'Cairo',Arial,Tahoma,sans-serif;
 
 }
+
 
 
 body{
 
 background:#050B16;
-color:white;
+
 min-height:100vh;
 
+color:white;
+
+padding:15px;
+
 }
+
 
 
 .dashboard{
 
-max-width:480px;
+width:100%;
+
+max-width:420px;
+
 margin:auto;
 
-padding:18px 15px 90px;
+padding-bottom:100px;
 
 }
 
 
 
-
-
-/* HEADER */
 
 
 .header{
 
-display:flex;
+text-align:center;
 
-justify-content:space-between;
+padding:15px 0;
+
+}
+
+
+
+.brand{
+
+font-size:32px;
+
+font-weight:800;
+
+letter-spacing:3px;
+
+color:#EAF3FF;
+
+text-shadow:0 0 15px #1687FF;
+
+}
+
+
+
+
+
+
+
+.page-title{
+
+text-align:center;
+
+margin:20px 0;
+
+}
+
+
+
+.icon-box{
+
+width:60px;
+
+height:60px;
+
+margin:auto;
+
+border-radius:50%;
+
+background:#22C55E;
+
+display:flex;
 
 align-items:center;
 
-margin-bottom:20px;
+justify-content:center;
+
+font-size:32px;
+
+box-shadow:0 0 25px rgba(34,197,94,.4);
+
+}
+
+
+
+.page-title h2{
+
+font-size:24px;
+
+margin-top:15px;
+
+}
+
+
+
+.page-title p{
+
+color:#98A5B8;
+
+font-size:14px;
 
 }
 
@@ -49,277 +127,69 @@ margin-bottom:20px;
 
 
 
-/* LOGO */
-
-
-.brand-logo{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-direction:ltr;
-
-}
 
 
 
-.logo-icon svg{
-
-width:48px;
-
-height:48px;
-
-filter:drop-shadow(0 0 10px #1687FF);
-
-}
+/* العملات */
 
 
-
-.logo-text{
+.coin-list{
 
 display:flex;
 
 flex-direction:column;
 
-line-height:1;
+gap:12px;
+
+margin-top:20px;
 
 }
 
 
 
-.logo-name{
+.coin{
 
-font-size:30px;
+width:100%;
 
-font-weight:800;
-
-letter-spacing:2px;
-
-color:#EAF3FF;
-
-text-shadow:
-
-0 0 10px #1687FF;
-
-}
-
-
-
-.logo-sub{
-
-font-size:11px;
-
-color:#22C55E;
-
-letter-spacing:3px;
-
-}
-
-
-
-
-
-/* UID */
-
-
-.uid-card{
-
-display:flex;
-
-direction:ltr;
-
-align-items:center;
-
-gap:8px;
+height:75px;
 
 background:#0B1628;
 
-border:1px solid #17365C;
+border:1px solid #17365c;
 
 border-radius:16px;
 
-padding:10px 12px;
-
-}
-
-
-
-.uid-card span{
-
-color:#98A5B8;
-
-font-size:13px;
-
-}
-
-
-
-.uid-card strong{
-
-font-size:16px;
-
-}
-
-
-
-.uid-card button{
-
-background:none;
-
-border:0;
-
-}
-
-
-
-.uid-card svg{
-
-width:21px;
-
-stroke:#1687FF;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-
-
-/* ASSETS */
-
-
-.asset-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:20px;
-
-padding:18px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.asset-title{
-
 display:flex;
 
-justify-content:space-between;
-
 align-items:center;
-
-color:#AAB5C5;
-
-}
-
-
-
-.eye{
-
-background:none;
-
-border:0;
-
-cursor:pointer;
-
-}
-
-
-
-.eye svg{
-
-width:26px;
-
-height:26px;
-
-stroke:#1687FF;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-.balance{
-
-font-size:36px;
-
-font-weight:700;
-
-color:#22C55E;
-
-margin-top:12px;
 
 direction:ltr;
 
-text-align:right;
+padding:15px;
 
-}
-
-
-.balance small{
-
-font-size:17px;
-
-}
-/* TRADE BAR */
-
-
-.trade-bar{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-height:65px;
-
-display:flex;
-
-align-items:center;
-
-overflow:hidden;
-
-margin-bottom:20px;
+color:white;
 
 }
 
 
 
-.trade-icons{
+.coin.active{
 
-display:flex;
+border-color:#22C55E;
 
-align-items:center;
-
-gap:22px;
-
-padding:0 18px;
-
-animation:tradeMove 8s linear infinite;
+box-shadow:0 0 20px rgba(34,197,94,.25);
 
 }
 
 
 
-.trade-icons span{
 
-width:34px;
 
-height:34px;
+.coin-icon{
+
+width:45px;
+
+height:45px;
 
 border-radius:50%;
 
@@ -329,159 +199,19 @@ align-items:center;
 
 justify-content:center;
 
-font-size:18px;
+font-size:22px;
 
 font-weight:bold;
 
-color:white;
-
-box-shadow:0 0 12px rgba(22,135,255,.5);
+margin-right:15px;
 
 }
 
 
 
-.btc-symbol{
+.usdt{
 
-background:#F7931A;
-
-}
-
-
-.eth-symbol{
-
-background:#627EEA;
-
-}
-
-
-.usdt-symbol{
-
-background:#26A17B;
-
-}
-
-
-.bnb-symbol{
-
-background:#F3BA2F;
-
-color:#111!important;
-
-}
-
-
-.sol-symbol{
-
-background:#9945FF;
-
-}
-
-
-.xrp-symbol{
-
-background:#2563EB;
-
-}
-
-
-.ada-symbol{
-
-background:#0EA5E9;
-
-}
-
-
-.doge-symbol{
-
-background:#C2A633;
-
-}
-
-
-.trx-symbol{
-
-background:#EF3340;
-
-}
-
-
-
-@keyframes tradeMove{
-
-0%{
-
-transform:translateX(0);
-
-}
-
-
-50%{
-
-transform:translateX(-40px);
-
-}
-
-
-100%{
-
-transform:translateX(0);
-
-}
-
-}
-
-
-
-
-
-
-/* COINS */
-
-
-.coin-row{
-
-display:grid;
-
-grid-template-columns:45px 1fr 90px 80px;
-
-direction:ltr;
-
-align-items:center;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:16px;
-
-padding:11px;
-
-margin-bottom:10px;
-
-}
-
-
-
-.coin-logo{
-
-width:40px;
-
-height:40px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:17px;
-
-font-weight:bold;
-
-color:white;
+background:#22C55E;
 
 }
 
@@ -494,6 +224,7 @@ background:#F7931A;
 }
 
 
+
 .eth{
 
 background:#627EEA;
@@ -501,45 +232,8 @@ background:#627EEA;
 }
 
 
-.usdt{
 
-background:#26A17B;
-
-}
-
-
-.bnb{
-
-background:#F3BA2F;
-
-color:#111;
-
-}
-
-
-.sol{
-
-background:#9945FF;
-
-}
-
-
-.trx{
-
-background:#EF3340;
-
-}
-
-
-.xrp{
-
-background:#2563EB;
-
-}
-
-
-
-.coin-name{
+.coin div:last-child{
 
 direction:rtl;
 
@@ -549,19 +243,19 @@ text-align:right;
 
 
 
-.coin-name b{
+.coin strong{
 
-font-size:15px;
+font-size:17px;
 
 }
 
 
 
-.coin-name small{
+.coin small{
 
 display:block;
 
-font-size:12px;
+font-size:13px;
 
 color:#98A5B8;
 
@@ -570,43 +264,236 @@ color:#98A5B8;
 
 
 
-.price{
+
+
+
+
+
+/* صندوق السحب */
+
+
+.withdraw-box{
+
+margin-top:20px;
+
+background:#0B1628;
+
+border:1px solid #17365c;
+
+border-radius:18px;
+
+padding:18px;
+
+}
+
+
+
+.input-group{
+
+margin-bottom:15px;
+
+}
+
+
+
+.input-group label{
+
+display:block;
+
+font-size:13px;
+
+color:#C6D3E4;
+
+margin-bottom:7px;
+
+}
+
+
+
+.input-group input{
+
+width:100%;
+
+padding:13px;
+
+background:#071426;
+
+border:1px solid #20344F;
+
+border-radius:10px;
+
+color:white;
 
 font-size:14px;
 
-font-weight:bold;
-
-direction:ltr;
-
-text-align:center;
+outline:none;
 
 }
 
 
 
-.up{
+.input-group input:focus{
+
+border-color:#1687FF;
+
+}
+
+
+
+
+
+
+
+
+.info-box{
+
+background:#071426;
+
+border-radius:12px;
+
+padding:12px;
+
+}
+
+
+
+.info-box div{
+
+display:flex;
+
+justify-content:space-between;
+
+padding:10px 0;
+
+border-bottom:1px solid #17365c;
+
+}
+
+
+
+.info-box div:last-child{
+
+border:none;
+
+}
+
+
+
+.info-box span{
+
+color:#98A5B8;
+
+font-size:13px;
+
+}
+
+
+
+.info-box strong{
+
+font-size:14px;
+
+}
+
+
+
+
+
+
+
+.withdraw-confirm{
+
+width:100%;
+
+margin-top:15px;
+
+height:52px;
+
+background:#1687FF;
+
+border:none;
+
+border-radius:12px;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+.status-box{
+
+display:none;
+
+margin-top:15px;
+
+padding:15px;
+
+border-radius:12px;
+
+text-align:center;
+
+background:#071426;
+
+}
+
+
+
+.status-icon{
+
+font-size:30px;
+
+}
+
+
+
+
+
+.success .status-icon{
 
 color:#22C55E;
 
-font-size:13px;
-
-font-weight:bold;
-
-text-align:center;
-
 }
 
 
 
-.down{
+.rejected .status-icon{
 
 color:#EF4444;
 
-font-size:13px;
+}
 
-font-weight:bold;
+
+
+
+
+.history-btn{
+
+display:block;
+
+margin-top:15px;
 
 text-align:center;
+
+padding:13px;
+
+background:#22C55E;
+
+border-radius:12px;
+
+color:white;
+
+text-decoration:none;
+
+font-weight:bold;
 
 }
 
@@ -614,26 +501,28 @@ text-align:center;
 
 
 
-/* BOTTOM NAV */
+
 
 
 .bottom-nav{
 
 position:fixed;
 
-bottom:0;
+bottom:15px;
 
 left:50%;
 
 transform:translateX(-50%);
 
-max-width:480px;
+width:92%;
 
-width:100%;
+max-width:420px;
 
 background:#0B1628;
 
-border-top:1px solid #17365C;
+border:1px solid #17365c;
+
+border-radius:18px;
 
 display:flex;
 
@@ -659,7 +548,7 @@ text-align:center;
 
 
 
-.bottom-nav .active{
+.bottom-nav a:hover{
 
 color:#1687FF;
 
