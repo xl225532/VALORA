@@ -7,17 +7,23 @@ font-family:'Cairo',Arial,sans-serif;
 
 
 body{
+
 background:#050B16;
 color:white;
 min-height:100vh;
+
 }
+
 
 
 .dashboard{
+
 max-width:480px;
 margin:auto;
 padding:18px 15px 90px;
+
 }
+
 
 
 /* HEADER */
@@ -41,6 +47,7 @@ color:#1687FF;
 }
 
 
+
 .uid-card{
 
 display:flex;
@@ -59,6 +66,7 @@ padding:10px 14px;
 }
 
 
+
 .uid-card span{
 
 color:#98A5B8;
@@ -71,6 +79,7 @@ color:#98A5B8;
 font-size:17px;
 
 }
+
 
 
 .uid-card button{
@@ -89,6 +98,8 @@ fill:none;
 stroke-width:2;
 
 }
+
+
 
 
 
@@ -113,9 +124,7 @@ margin-bottom:25px;
 .asset-title{
 
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
 
 color:#AAB5C5;
@@ -129,14 +138,8 @@ font-size:16px;
 .eye{
 
 background:none;
-
 border:0;
-
 cursor:pointer;
-
-display:flex;
-
-align-items:center;
 
 }
 
@@ -145,13 +148,10 @@ align-items:center;
 .eye svg{
 
 width:26px;
-
 height:26px;
 
 fill:none;
-
 stroke:#1687FF;
-
 stroke-width:2;
 
 }
@@ -188,13 +188,14 @@ color:#22C55E;
 
 
 
-/* MARKET */
+/* MARKETS */
+
 
 .markets h2{
 
-font-size:27px;
+font-size:25px;
 
-margin-bottom:18px;
+margin-bottom:15px;
 
 }
 
@@ -204,15 +205,19 @@ margin-bottom:18px;
 
 display:grid;
 
-grid-template-columns:2fr 1fr 1fr 55px;
+grid-template-columns:45px 1fr 90px 80px;
+
+direction:ltr;
 
 color:#98A5B8;
 
-font-size:13px;
+font-size:12px;
 
-padding:0 12px 12px;
+padding:0 12px 10px;
 
 }
+
+
 
 
 
@@ -220,7 +225,9 @@ padding:0 12px 12px;
 
 display:grid;
 
-grid-template-columns:2fr 1fr 1fr 55px;
+grid-template-columns:45px 1fr 90px 80px;
+
+direction:ltr;
 
 align-items:center;
 
@@ -228,54 +235,25 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:16px;
+border-radius:15px;
 
-padding:12px;
+padding:10px;
 
 margin-bottom:10px;
 
-direction:ltr;
-
 }
 
 
 
-.coin-name{
-
-display:flex;
-
-align-items:center;
-
-gap:10px;
-
-direction:rtl;
-
-}
 
 
+/* COIN ICON LEFT */
 
-.coin-name b{
+.coin-logo{
 
-font-size:15px;
+width:38px;
 
-}
-
-
-.coin-name small{
-
-display:block;
-
-color:#98A5B8;
-
-}
-
-
-
-.icon{
-
-width:42px;
-
-height:42px;
+height:38px;
 
 border-radius:50%;
 
@@ -287,7 +265,7 @@ justify-content:center;
 
 font-weight:bold;
 
-font-size:18px;
+font-size:15px;
 
 color:white;
 
@@ -295,26 +273,117 @@ color:white;
 
 
 
-.btc{background:#F7931A;}
+.usdt{
 
-.eth{background:#627EEA;}
+background:#26A17B;
 
-.usdt{background:#26A17B;}
+}
 
-.bnb{background:#F3BA2F;color:#111;}
 
-.sol{background:#9945FF;}
+.btc{
 
-.trx{background:#EF3340;}
+background:#F7931A;
 
-.xrp{background:#2563EB;}
+}
+
+
+.eth{
+
+background:#627EEA;
+
+}
+
+
+.bnb{
+
+background:#F3BA2F;
+
+color:#111;
+
+}
+
+
+.sol{
+
+background:#9945FF;
+
+}
+
+
+.trx{
+
+background:#EF3340;
+
+}
+
+
+.xrp{
+
+background:#2563EB;
+
+}
+
+
+
+
+
+.coin-name{
+
+direction:rtl;
+
+text-align:right;
+
+}
+
+
+
+.coin-name b{
+
+display:block;
+
+font-size:15px;
+
+}
+
+
+
+.coin-name small{
+
+color:#98A5B8;
+
+font-size:12px;
+
+}
+
+
+
+
+
+.price{
+
+font-size:14px;
+
+font-weight:bold;
+
+text-align:center;
+
+direction:ltr;
+
+}
+
+
 
 
 
 .up{
 
 color:#22C55E;
+
+font-size:13px;
+
 font-weight:bold;
+
+text-align:center;
 
 }
 
@@ -323,73 +392,21 @@ font-weight:bold;
 .down{
 
 color:#EF4444;
+
+font-size:13px;
+
 font-weight:bold;
 
-}
-
-
-
-/* GRAPH */
-
-.chart{
-
-width:50px;
-
-height:25px;
-
-position:relative;
+text-align:center;
 
 }
 
-
-.chart:before{
-
-content:"";
-
-position:absolute;
-
-left:0;
-
-top:12px;
-
-width:50px;
-
-height:3px;
-
-animation:trade 1.5s infinite;
-
-}
-
-
-.chart.green:before{
-
-background:#22C55E;
-
-}
-
-
-.chart.red:before{
-
-background:#EF4444;
-
-}
-
-
-
-@keyframes trade{
-
-50%{
-
-transform:rotate(10deg);
-
-}
-
-}
 
 
 
 
 /* NAV */
+
 
 .bottom-nav{
 
