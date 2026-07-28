@@ -23,7 +23,6 @@
 
 <header class="header">
 
-
 <div class="brand">
 VALORA
 </div>
@@ -48,9 +47,7 @@ VALORA
 
 </div>
 
-
 </header>
-
 
 
 
@@ -70,9 +67,9 @@ VALORA
 
 <svg viewBox="0 0 24 24">
 
-<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"></path>
+<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
 
-<circle cx="12" cy="12" r="3"></circle>
+<circle cx="12" cy="12" r="3"/>
 
 </svg>
 
@@ -96,16 +93,11 @@ VALORA
 
 
 
-
-
-
 <section class="markets">
-
 
 <h2>
 📊 الأسواق
 </h2>
-
 
 
 <div class="market-head">
@@ -118,29 +110,18 @@ VALORA
 </div>
 
 
-
-
-
 <div class="coin-row">
-
 <div class="coin-name">
-
 <div class="icon btc">₿</div>
-
 <div>
 <b>Bitcoin</b>
 <small>BTC</small>
 </div>
-
 </div>
-
 
 <strong>67,500$</strong>
 
-<span class="up">
-▲ 2.45%
-</span>
-
+<span class="up">▲ 2.45%</span>
 
 <div class="chart green"></div>
 
@@ -148,12 +129,9 @@ VALORA
 
 
 
-
-
 <div class="coin-row">
 
 <div class="coin-name">
-
 <div class="icon eth">◆</div>
 
 <div>
@@ -163,13 +141,9 @@ VALORA
 
 </div>
 
-
 <strong>3,450$</strong>
 
-<span class="down">
-▼ 1.20%
-</span>
-
+<span class="down">▼ 1.20%</span>
 
 <div class="chart red"></div>
 
@@ -178,11 +152,9 @@ VALORA
 
 
 
-
 <div class="coin-row">
 
 <div class="coin-name">
-
 <div class="icon usdt">₮</div>
 
 <div>
@@ -192,13 +164,9 @@ VALORA
 
 </div>
 
-
 <strong>1.00$</strong>
 
-<span class="up">
-▲ 0.05%
-</span>
-
+<span class="up">▲ 0.05%</span>
 
 <div class="chart green"></div>
 
@@ -211,7 +179,6 @@ VALORA
 <div class="coin-row">
 
 <div class="coin-name">
-
 <div class="icon bnb">◆</div>
 
 <div>
@@ -221,13 +188,9 @@ VALORA
 
 </div>
 
-
 <strong>580$</strong>
 
-<span class="up">
-▲ 1.80%
-</span>
-
+<span class="up">▲ 1.80%</span>
 
 <div class="chart green"></div>
 
@@ -240,7 +203,6 @@ VALORA
 <div class="coin-row">
 
 <div class="coin-name">
-
 <div class="icon sol">S</div>
 
 <div>
@@ -250,47 +212,13 @@ VALORA
 
 </div>
 
-
 <strong>170$</strong>
 
-<span class="down">
-▼ 0.70%
-</span>
-
+<span class="down">▼ 0.70%</span>
 
 <div class="chart red"></div>
 
 </div>
-
-
-
-
-
-<div class="coin-row">
-
-<div class="coin-name">
-
-<div class="icon trx">TRX</div>
-
-<div>
-<b>Tron</b>
-<small>TRX</small>
-</div>
-
-</div>
-
-
-<strong>0.12$</strong>
-
-<span class="up">
-▲ 1.10%
-</span>
-
-
-<div class="chart green"></div>
-
-</div>
-
 
 
 
@@ -320,4 +248,71 @@ VALORA
 </a>
 
 
-<a href="settings
+<a href="settings.html">
+⚙
+<br>
+الإعدادات
+</a>
+
+
+</nav>
+
+
+</div>
+
+
+
+
+
+<script>
+
+
+let balanceHidden = false;
+
+
+
+function hideBalance(){
+
+
+let balance = document.getElementById("balance");
+
+
+
+if(balanceHidden){
+
+
+balance.innerHTML = "0.00 <small>USDT</small>";
+
+balanceHidden = false;
+
+
+}else{
+
+
+balance.innerHTML = "***** <small>USDT</small>";
+
+balanceHidden = true;
+
+
+}
+
+
+}
+
+
+
+
+function copyUID(){
+
+navigator.clipboard.writeText("UID: 588887");
+
+}
+
+
+
+</script>
+
+
+</body>
+
+</html>
