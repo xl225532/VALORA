@@ -53,6 +53,8 @@ box-shadow:0 0 30px rgba(0,140,255,.15);
 
 
 
+
+
 /* شعار VALORA */
 
 
@@ -138,8 +140,6 @@ margin-bottom:13px;
 
 
 
-
-
 .input-group label{
 
 display:block;
@@ -151,8 +151,6 @@ color:#C6D3E4;
 font-size:13px;
 
 }
-
-
 
 
 
@@ -178,8 +176,6 @@ outline:none;
 
 
 
-
-
 .input-group input:focus{
 
 border-color:#1687FF;
@@ -192,7 +188,7 @@ border-color:#1687FF;
 
 
 
-/* كلمة المرور */
+/* كلمة المرور والعين */
 
 
 .password-box{
@@ -411,9 +407,6 @@ background:#0B72DE;
 
 
 
-
-
-/* الرابط السفلي */
 
 
 .bottom-link{
