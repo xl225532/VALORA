@@ -21,14 +21,12 @@
 <div class="dashboard">
 
 
-
 <header class="header">
 
 
 <div class="brand">
 VALORA
 </div>
-
 
 
 <div class="uid-card">
@@ -41,11 +39,8 @@ VALORA
 <button onclick="copyUID()">
 
 <svg viewBox="0 0 24 24">
-
-<rect x="9" y="9" width="11" height="11" rx="2"/>
-
-<path d="M5 15H4a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h9a2 2 0 0 1 2 2v1"/>
-
+<rect x="8" y="8" width="12" height="12" rx="2"/>
+<path d="M4 16V4a2 2 0 0 1 2-2h10"/>
 </svg>
 
 </button>
@@ -60,28 +55,19 @@ VALORA
 
 
 
-
-
-
 <section class="asset-card">
 
 
-<div class="asset-header">
+<div class="asset-title">
 
 <span>
 الأصول الإجمالي
 </span>
 
 
-<button onclick="toggleBalance()" class="eye">
+<button onclick="hideBalance()" class="eye">
 
-<svg viewBox="0 0 24 24">
-
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
-
-<circle cx="12" cy="12" r="3"/>
-
-</svg>
+👁
 
 </button>
 
@@ -90,7 +76,7 @@ VALORA
 
 
 
-<div class="balance" id="balance">
+<div id="balance" class="balance">
 
 0.00 <small>USDT</small>
 
@@ -98,7 +84,6 @@ VALORA
 
 
 </section>
-
 
 
 
@@ -115,12 +100,12 @@ VALORA
 
 
 
-<div class="market-title">
+<div class="market-head">
 
 <span>العملة</span>
 <span>السعر</span>
 <span>24H</span>
-<span></span>
+<span>الرسم</span>
 
 </div>
 
@@ -128,12 +113,11 @@ VALORA
 
 
 
-
 <div class="coin-row">
 
-<div class="coin">
+<div class="coin-name">
 
-<div class="logo btc">₿</div>
+<div class="icon btc">₿</div>
 
 <div>
 <b>Bitcoin</b>
@@ -143,18 +127,14 @@ VALORA
 </div>
 
 
-<strong>
-67,500$
-</strong>
-
+<strong>67,500$</strong>
 
 <span class="up">
 ▲ 2.45%
 </span>
 
 
-<div class="chart up-chart"></div>
-
+<div class="chart green"></div>
 
 </div>
 
@@ -162,14 +142,11 @@ VALORA
 
 
 
-
-
-
 <div class="coin-row">
 
-<div class="coin">
+<div class="coin-name">
 
-<div class="logo eth">◆</div>
+<div class="icon eth">◆</div>
 
 <div>
 <b>Ethereum</b>
@@ -179,23 +156,16 @@ VALORA
 </div>
 
 
-<strong>
-3,450$
-</strong>
-
+<strong>3,450$</strong>
 
 <span class="down">
 ▼ 1.20%
 </span>
 
 
-<div class="chart down-chart"></div>
-
+<div class="chart red"></div>
 
 </div>
-
-
-
 
 
 
@@ -203,28 +173,26 @@ VALORA
 
 <div class="coin-row">
 
-<div class="logo usdt">₮</div>
+<div class="coin-name">
 
-<div class="coin">
+<div class="icon usdt">₮</div>
+
 <div>
 <b>Tether</b>
 <small>USDT</small>
 </div>
+
 </div>
 
 
-<strong>
-1.00$
-</strong>
-
+<strong>1.00$</strong>
 
 <span class="up">
 ▲ 0.05%
 </span>
 
 
-<div class="chart up-chart"></div>
-
+<div class="chart green"></div>
 
 </div>
 
@@ -232,14 +200,11 @@ VALORA
 
 
 
-
-
-
 <div class="coin-row">
 
-<div class="coin">
+<div class="coin-name">
 
-<div class="logo bnb">◆</div>
+<div class="icon bnb">◆</div>
 
 <div>
 <b>BNB</b>
@@ -249,18 +214,14 @@ VALORA
 </div>
 
 
-<strong>
-580$
-</strong>
-
+<strong>580$</strong>
 
 <span class="up">
 ▲ 1.80%
 </span>
 
 
-<div class="chart up-chart"></div>
-
+<div class="chart green"></div>
 
 </div>
 
@@ -268,14 +229,11 @@ VALORA
 
 
 
-
-
-
 <div class="coin-row">
 
-<div class="coin">
+<div class="coin-name">
 
-<div class="logo sol">S</div>
+<div class="icon sol">S</div>
 
 <div>
 <b>Solana</b>
@@ -285,18 +243,14 @@ VALORA
 </div>
 
 
-<strong>
-170$
-</strong>
-
+<strong>170$</strong>
 
 <span class="down">
 ▼ 0.70%
 </span>
 
 
-<div class="chart down-chart"></div>
-
+<div class="chart red"></div>
 
 </div>
 
@@ -304,14 +258,11 @@ VALORA
 
 
 
-
-
-
 <div class="coin-row">
 
-<div class="coin">
+<div class="coin-name">
 
-<div class="logo trx">TRX</div>
+<div class="icon trx">TRX</div>
 
 <div>
 <b>Tron</b>
@@ -321,57 +272,16 @@ VALORA
 </div>
 
 
-<strong>
-0.12$
-</strong>
-
+<strong>0.12$</strong>
 
 <span class="up">
 ▲ 1.10%
 </span>
 
 
-<div class="chart up-chart"></div>
-
-
-</div>
-
-
-
-
-
-
-
-
-<div class="coin-row">
-
-<div class="coin">
-
-<div class="logo xrp">X</div>
-
-<div>
-<b>XRP</b>
-<small>XRP</small>
-</div>
+<div class="chart green"></div>
 
 </div>
-
-
-<strong>
-0.62$
-</strong>
-
-
-<span class="down">
-▼ 0.50%
-</span>
-
-
-<div class="chart down-chart"></div>
-
-
-</div>
-
 
 
 
@@ -381,23 +291,30 @@ VALORA
 
 <nav class="bottom-nav">
 
-<a class="active" href="dashboard.html">
-⌂<br>
+<a class="active">
+⌂
+<br>
 الرئيسية
 </a>
 
-<a href="wallet.html">
-▣<br>
+
+<a>
+▣
+<br>
 المحفظة
 </a>
 
-<a href="team.html">
-♟<br>
+
+<a>
+♟
+<br>
 الفريق
 </a>
 
-<a href="settings.html">
-⚙<br>
+
+<a>
+⚙
+<br>
 الإعدادات
 </a>
 
@@ -412,30 +329,22 @@ VALORA
 
 
 
+
 <script>
 
-
-function toggleBalance(){
+function hideBalance(){
 
 let b=document.getElementById("balance");
 
+if(b.innerText.includes("*")){
 
-if(b.dataset.hide){
+b.innerHTML='0.00 <small>USDT</small>';
 
-b.innerHTML="0.00 <small>USDT</small>";
+}else{
 
-b.dataset.hide="";
-
-}
-
-else{
-
-b.innerHTML="***** <small>USDT</small>";
-
-b.dataset.hide="yes";
+b.innerHTML='***** <small>USDT</small>';
 
 }
-
 
 }
 
@@ -448,7 +357,9 @@ navigator.clipboard.writeText("UID: 588887");
 }
 
 
+
 </script>
+
 
 
 </body>
