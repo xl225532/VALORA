@@ -4,13 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | المحفظة</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/wallet.css">
+
 
 </head>
 
@@ -18,14 +22,22 @@
 <body>
 
 
+
 <div class="dashboard">
+
+
+
 
 
 <header class="header">
 
+
 <div class="brand">
+
 VALORA
+
 </div>
+
 
 </header>
 
@@ -33,14 +45,74 @@ VALORA
 
 
 
+
+
+
+<!-- شعار المحفظة -->
+
+
+<section class="wallet-logo">
+
+
+
+<div class="wallet-icon">
+
+
+<svg viewBox="0 0 100 100">
+
+
+<path d="M20 35H75C84 35 90 42 90 50V75C90 84 84 90 75 90H25C16 90 10 84 10 75V45C10 39 14 35 20 35Z"
+fill="#1687FF"/>
+
+
+
+<path d="M70 55H90V75H70C64 75 60 71 60 65C60 59 64 55 70 55Z"
+fill="#22C55E"/>
+
+
+
+<circle cx="75" cy="65" r="4" fill="white"/>
+
+
+
+</svg>
+
+
+</div>
+
+
+
+
+
+<h2>
+
+محفظة جيب
+
+</h2>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- الرصيد -->
+
+
 <section class="balance-card">
 
 
 <div class="balance-title">
 
-الرصيد الإجمالي
+إجمالي الأصول
 
 </div>
+
 
 
 <div class="balance-number">
@@ -48,8 +120,28 @@ VALORA
 0.00
 
 <span>
+
 USDT
+
 </span>
+
+
+</div>
+
+
+
+
+
+<div class="profit-today">
+
+أرباح اليوم
+
+<strong>
+
++0.00 USDT
+
+</strong>
+
 
 </div>
 
@@ -59,20 +151,30 @@ USDT
 
 
 
+
+
+
+
+<!-- الأرباح -->
 
 
 <section class="wallet-box">
 
 
-
 <div class="wallet-item">
 
+
 <div>
+
 أرباح الدعوة
+
 </div>
 
+
 <strong>
+
 0.00 USDT
+
 </strong>
 
 
@@ -84,12 +186,18 @@ USDT
 
 <div class="wallet-item">
 
+
 <div>
+
 أرباح الفريق
+
 </div>
 
+
 <strong>
+
 0.00 USDT
+
 </strong>
 
 
@@ -104,20 +212,48 @@ USDT
 
 
 
+
+<!-- أزرار العمليات -->
+
+
 <div class="wallet-actions">
 
 
-<button class="deposit-btn">
+
+<button class="deposit-btn" onclick="location.href='deposit.html'">
+
+
+<span class="action-icon">
+
+↓
+
+
+</span>
+
 
 إيداع
+
 
 </button>
 
 
 
-<button class="withdraw-btn">
+
+
+
+<button class="withdraw-btn" onclick="location.href='withdraw.html'">
+
+
+<span class="action-icon">
+
+↑
+
+
+</span>
+
 
 سحب
+
 
 </button>
 
@@ -128,38 +264,89 @@ USDT
 
 
 
+
+
+
+
+
+<!-- القائمة السفلية -->
 
 
 <nav class="bottom-nav">
 
 
 <a href="dashboard.html">
+
+
+⌂
+
+<br>
+
 الرئيسية
+
+
 </a>
 
 
-<a href="wallet.html">
+
+
+<a class="active" href="wallet.html">
+
+
+▣
+
+<br>
+
 المحفظة
+
+
 </a>
+
+
 
 
 <a href="team.html">
+
+
+♟
+
+<br>
+
 الفريق
+
+
 </a>
+
+
 
 
 <a href="settings.html">
+
+
+⚙
+
+<br>
+
 الإعدادات
+
+
 </a>
+
 
 
 </nav>
 
 
 
+
+
+
 </div>
 
 
+
+
 </body>
+
 
 </html>
