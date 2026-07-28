@@ -14,29 +14,59 @@
 
 </head>
 
-
 <body>
-
 
 <div class="dashboard">
 
-
-
 <header class="header">
 
+<div class="brand-logo">
 
-<div class="brand">
-VΛLORA
+<div class="logo-icon">
+
+<svg viewBox="0 0 64 64">
+
+<defs>
+
+<linearGradient id="logoBlue" x1="0" y1="0" x2="1" y2="1">
+
+<stop offset="0%" stop-color="#39B6FF"/>
+
+<stop offset="100%" stop-color="#166CFF"/>
+
+</linearGradient>
+
+</defs>
+
+<path d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+fill="url(#logoBlue)"/>
+
+<path d="M22 24 L32 44 L42 24"
+stroke="#fff"
+stroke-width="4"
+fill="none"
+stroke-linecap="round"
+stroke-linejoin="round"/>
+
+</svg>
+
 </div>
 
+<div class="logo-text">
 
+<span class="logo-name">VALORA</span>
+
+<span class="logo-sub">Exchange</span>
+
+</div>
+
+</div>
 
 <div class="uid-card">
 
 <span>UID:</span>
 
 <strong>588887</strong>
-
 
 <button onclick="copyUID()">
 
@@ -49,25 +79,13 @@ VΛLORA
 
 </div>
 
-
 </header>
-
-
-
-
-
 
 <section class="asset-card">
 
-
 <div class="asset-title">
 
-
-<span>
-إجمالي الأصول
-</span>
-
-
+<span>إجمالي الأصول</span>
 
 <button onclick="hideBalance()" class="eye">
 
@@ -79,14 +97,9 @@ VΛLORA
 
 </svg>
 
-
 </button>
 
-
 </div>
-
-
-
 
 <div id="balance" class="balance">
 
@@ -94,23 +107,11 @@ VΛLORA
 
 </div>
 
-
 </section>
-
-
-
-
-
-
-
-<!-- شريط رموز التداول -->
-
 
 <section class="trade-bar">
 
-
 <div class="trade-icons">
-
 
 <span class="btc-symbol">₿</span>
 
@@ -126,33 +127,22 @@ VΛLORA
 
 <span class="ada-symbol">₳</span>
 
+<span class="doge-symbol">Ð</span>
+
+<span class="trx-symbol">T</span>
 
 </div>
 
-
 </section>
 
-
-
-
-
-
-
 <section class="markets">
-
-
-
-
-
+  <!-- BTC -->
 
 <div class="coin-row">
-
 
 <div class="coin-logo btc">
 ₿
 </div>
-
-
 
 <div class="coin-name">
 
@@ -163,11 +153,9 @@ VΛLORA
 </div>
 
 
-
 <div class="price">
 67,500$
 </div>
-
 
 
 <div class="up">
@@ -180,15 +168,13 @@ VΛLORA
 
 
 
-
+<!-- ETH -->
 
 <div class="coin-row">
-
 
 <div class="coin-logo eth">
 ◆
 </div>
-
 
 
 <div class="coin-name">
@@ -200,11 +186,9 @@ VΛLORA
 </div>
 
 
-
 <div class="price">
 3,450$
 </div>
-
 
 
 <div class="down">
@@ -218,14 +202,13 @@ VΛLORA
 
 
 
+<!-- USDT -->
 
 <div class="coin-row">
-
 
 <div class="coin-logo usdt">
 ₮
 </div>
-
 
 
 <div class="coin-name">
@@ -237,11 +220,9 @@ VΛLORA
 </div>
 
 
-
 <div class="price">
 1.00$
 </div>
-
 
 
 <div class="up">
@@ -255,14 +236,13 @@ VΛLORA
 
 
 
+<!-- BNB -->
 
 <div class="coin-row">
-
 
 <div class="coin-logo bnb">
 ◆
 </div>
-
 
 
 <div class="coin-name">
@@ -274,11 +254,9 @@ VΛLORA
 </div>
 
 
-
 <div class="price">
 580$
 </div>
-
 
 
 <div class="up">
@@ -293,14 +271,13 @@ VΛLORA
 
 
 
+<!-- SOL -->
 
 <div class="coin-row">
-
 
 <div class="coin-logo sol">
 S
 </div>
-
 
 
 <div class="coin-name">
@@ -312,11 +289,9 @@ S
 </div>
 
 
-
 <div class="price">
 170$
 </div>
-
 
 
 <div class="down">
@@ -331,34 +306,127 @@ S
 
 
 
+<!-- TRX -->
+
+<div class="coin-row">
+
+<div class="coin-logo trx">
+T
+</div>
+
+
+<div class="coin-name">
+
+<b>TRX</b>
+
+<small>Tron</small>
+
+</div>
+
+
+<div class="price">
+0.12$
+</div>
+
+
+<div class="up">
+▲ 1.10%
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- XRP -->
+
+<div class="coin-row">
+
+<div class="coin-logo xrp">
+X
+</div>
+
+
+<div class="coin-name">
+
+<b>XRP</b>
+
+<small>Ripple</small>
+
+</div>
+
+
+<div class="price">
+0.60$
+</div>
+
+
+<div class="up">
+▲ 0.80%
+</div>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
 <nav class="bottom-nav">
 
 
 <a class="active">
+
 ⌂
+
 <br>
+
 الرئيسية
+
 </a>
+
 
 
 <a href="wallet.html">
+
 ▣
+
 <br>
+
 المحفظة
+
 </a>
+
 
 
 <a href="team.html">
+
 ♟
+
 <br>
+
 الفريق
+
 </a>
 
 
+
 <a href="settings.html">
+
 ⚙
+
 <br>
+
 الإعدادات
+
 </a>
 
 
@@ -373,21 +441,22 @@ S
 
 
 
-
-
 <script>
 
 
-let balanceHidden=false;
+let balanceHidden = false;
 
 
 
 function hideBalance(){
 
 
-let b=document.getElementById("balance");
+let b = document.getElementById("balance");
+
+
 
 if(balanceHidden){
+
 
 b.innerHTML="0.00 <small>USDT</small>";
 
@@ -404,7 +473,6 @@ balanceHidden=true;
 
 }
 
-
 }
 
 
@@ -412,7 +480,9 @@ balanceHidden=true;
 
 function copyUID(){
 
+
 navigator.clipboard.writeText("UID: 588887");
+
 
 }
 
