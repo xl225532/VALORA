@@ -7,26 +7,16 @@ font-family:'Cairo',Arial,sans-serif;
 
 
 body{
-
 background:#050B16;
-
 color:white;
-
 min-height:100vh;
-
 }
 
 
 .dashboard{
-
 max-width:480px;
-
 margin:auto;
-
-padding:15px;
-
-padding-bottom:90px;
-
+padding:18px 15px 90px;
 }
 
 
@@ -36,12 +26,13 @@ padding-bottom:90px;
 .header{
 
 display:flex;
+flex-direction:row;
 
 justify-content:space-between;
 
 align-items:center;
 
-margin-bottom:22px;
+margin-bottom:20px;
 
 }
 
@@ -61,19 +52,21 @@ color:#1687FF;
 
 .uid-card{
 
+display:flex;
+
+direction:ltr;
+
+align-items:center;
+
+gap:8px;
+
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:14px;
+border-radius:16px;
 
-padding:9px 12px;
-
-display:flex;
-
-align-items:center;
-
-gap:7px;
+padding:10px 14px;
 
 }
 
@@ -83,14 +76,13 @@ gap:7px;
 
 color:#98A5B8;
 
-font-size:13px;
-
 }
+
 
 
 .uid-card strong{
 
-font-size:15px;
+font-size:17px;
 
 }
 
@@ -98,11 +90,9 @@ font-size:15px;
 
 .uid-card button{
 
-background:none;
-
 border:0;
 
-display:flex;
+background:none;
 
 }
 
@@ -110,9 +100,7 @@ display:flex;
 
 .uid-card svg{
 
-width:20px;
-
-height:20px;
+width:22px;
 
 stroke:#1687FF;
 
@@ -121,7 +109,6 @@ fill:none;
 stroke-width:2;
 
 }
-
 
 
 
@@ -136,9 +123,9 @@ border:1px solid #17365C;
 
 border-radius:20px;
 
-padding:20px;
+padding:18px;
 
-margin-bottom:22px;
+margin-bottom:25px;
 
 }
 
@@ -152,7 +139,7 @@ justify-content:space-between;
 
 align-items:center;
 
-color:#98A5B8;
+color:#AAB5C5;
 
 font-size:16px;
 
@@ -166,9 +153,7 @@ background:none;
 
 border:0;
 
-font-size:22px;
-
-cursor:pointer;
+font-size:25px;
 
 }
 
@@ -176,13 +161,17 @@ cursor:pointer;
 
 .balance{
 
-margin-top:15px;
-
-font-size:38px;
+font-size:42px;
 
 font-weight:700;
 
 color:#22C55E;
+
+margin-top:15px;
+
+direction:ltr;
+
+text-align:right;
 
 }
 
@@ -192,21 +181,18 @@ color:#22C55E;
 
 font-size:18px;
 
-color:#22C55E;
-
 }
 
 
 
 
-
-/* MARKETS */
+/* MARKET */
 
 .markets h2{
 
-font-size:25px;
+font-size:27px;
 
-margin-bottom:15px;
+margin-bottom:18px;
 
 }
 
@@ -216,15 +202,17 @@ margin-bottom:15px;
 
 display:grid;
 
-grid-template-columns:2fr 1fr .8fr .7fr;
+grid-template-columns:2fr 1fr 1fr 55px;
 
 color:#98A5B8;
 
-font-size:12px;
+font-size:13px;
 
-padding:10px;
+padding:0 12px 12px;
 
 }
+
+
 
 
 
@@ -232,11 +220,9 @@ padding:10px;
 
 display:grid;
 
-grid-template-columns:2fr 1fr .8fr .7fr;
+grid-template-columns:2fr 1fr 1fr 55px;
 
 align-items:center;
-
-direction:ltr;
 
 background:#0B1628;
 
@@ -248,7 +234,10 @@ padding:12px;
 
 margin-bottom:10px;
 
+direction:ltr;
+
 }
+
 
 
 
@@ -262,13 +251,15 @@ gap:10px;
 
 direction:rtl;
 
+justify-content:flex-start;
+
 }
 
 
 
 .coin-name b{
 
-font-size:14px;
+font-size:15px;
 
 }
 
@@ -278,8 +269,6 @@ font-size:14px;
 
 display:block;
 
-font-size:12px;
-
 color:#98A5B8;
 
 }
@@ -288,9 +277,9 @@ color:#98A5B8;
 
 .icon{
 
-width:38px;
+width:42px;
 
-height:38px;
+height:42px;
 
 border-radius:50%;
 
@@ -304,47 +293,25 @@ font-weight:bold;
 
 color:white;
 
-}
-
-
-
-.btc{
-
-background:#F7931A;
+font-size:18px;
 
 }
 
-.eth{
 
-background:#627EEA;
 
-}
+.btc{background:#F7931A;}
 
-.usdt{
+.eth{background:#627EEA;}
 
-background:#26A17B;
+.usdt{background:#26A17B;}
 
-}
+.bnb{background:#F3BA2F;color:#111;}
 
-.bnb{
+.sol{background:#9945FF;}
 
-background:#F3BA2F;
+.trx{background:#EF3340;}
 
-color:#111;
-
-}
-
-.sol{
-
-background:#9945FF;
-
-}
-
-.trx{
-
-background:#EF3340;
-
-}
+.xrp{background:#2563EB;}
 
 
 
@@ -356,8 +323,6 @@ color:#22C55E;
 
 font-weight:bold;
 
-font-size:13px;
-
 }
 
 
@@ -368,20 +333,18 @@ color:#EF4444;
 
 font-weight:bold;
 
-font-size:13px;
-
 }
 
 
 
 
-/* تداول صغير */
+/* MINI GRAPH */
 
 .chart{
 
-width:45px;
+width:50px;
 
-height:20px;
+height:25px;
 
 position:relative;
 
@@ -389,29 +352,29 @@ position:relative;
 
 
 
-.chart:after{
+.chart:before{
 
 content:"";
 
 position:absolute;
 
-width:100%;
-
-height:2px;
-
-top:10px;
-
 left:0;
 
-transform:rotate(-10deg);
+top:12px;
 
-animation:move 2s infinite;
+width:50px;
+
+height:3px;
+
+transform:rotate(-8deg);
+
+animation:trade 1.5s infinite;
 
 }
 
 
 
-.green:after{
+.chart.green:before{
 
 background:#22C55E;
 
@@ -419,7 +382,7 @@ background:#22C55E;
 
 
 
-.red:after{
+.chart.red:before{
 
 background:#EF4444;
 
@@ -427,11 +390,11 @@ background:#EF4444;
 
 
 
-@keyframes move{
+@keyframes trade{
 
 50%{
 
-transform:rotate(10deg);
+transform:rotate(8deg);
 
 }
 
@@ -453,9 +416,9 @@ left:50%;
 
 transform:translateX(-50%);
 
-width:100%;
-
 max-width:480px;
+
+width:100%;
 
 background:#0B1628;
 
@@ -473,9 +436,9 @@ padding:12px;
 
 .bottom-nav a{
 
-color:#98A5B8;
-
 text-decoration:none;
+
+color:#98A5B8;
 
 font-size:12px;
 
