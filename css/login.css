@@ -8,6 +8,7 @@ font-family:'Cairo',Arial,Tahoma,sans-serif;
 }
 
 
+
 body{
 
 background:#050B16;
@@ -28,6 +29,8 @@ padding:15px;
 
 
 
+
+
 .login-container{
 
 width:92%;
@@ -40,9 +43,9 @@ border-radius:18px;
 
 padding:25px;
 
-box-shadow:0 0 30px rgba(0,140,255,.15);
-
 border:1px solid #17365c;
+
+box-shadow:0 0 30px rgba(0,140,255,.15);
 
 }
 
@@ -50,7 +53,9 @@ border:1px solid #17365c;
 
 
 
+
 /* شعار VALORA */
+
 
 .logo{
 
@@ -106,17 +111,19 @@ margin-top:2px;
 
 
 
+
 .subtitle{
 
 text-align:center;
 
 color:#98A5B8;
 
-margin-bottom:22px;
-
 font-size:14px;
 
+margin-bottom:22px;
+
 }
+
 
 
 
@@ -171,75 +178,6 @@ outline:none;
 border-color:#1687FF;
 
 }
-
-
-
-
-
-/* كلمة المرور */
-
-.password-box{
-
-position:relative;
-
-}
-
-
-
-.password-box input{
-
-padding-left:45px;
-
-}
-
-
-
-.eye-btn{
-
-position:absolute;
-
-left:12px;
-
-top:50%;
-
-transform:translateY(-50%);
-
-background:none;
-
-border:none;
-
-cursor:pointer;
-
-padding:3px;
-
-}
-
-
-
-.eye-btn svg{
-
-width:21px;
-
-height:21px;
-
-fill:none;
-
-stroke:#98A5B8;
-
-stroke-width:2;
-
-}
-
-.eye-btn.active svg{
-
-stroke:#1687FF;
-
-}
-
-
-
-
-
 
 .login-btn{
 
@@ -309,7 +247,7 @@ margin-top:20px;
 
 text-align:center;
 
-color:#9CA9BB;
+color:#98A5B8;
 
 font-size:14px;
 
@@ -434,7 +372,6 @@ color:#98A5B8;
 
 
 
-
 @keyframes successShow{
 
 to{
@@ -491,4 +428,4 @@ font-size:26px;
 }
 
 
-}
+  }
