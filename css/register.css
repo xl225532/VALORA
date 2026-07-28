@@ -53,22 +53,14 @@ box-shadow:0 0 30px rgba(0,140,255,.15);
 
 
 
+/* شعار VALORA */
 
 
-/* VALORA LOGO */
+.logo{
 
+text-align:center;
 
-.brand-logo{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-margin-bottom:8px;
+margin-bottom:10px;
 
 }
 
@@ -81,18 +73,6 @@ width:45px;
 height:45px;
 
 filter:drop-shadow(0 0 8px #1687FF);
-
-}
-
-
-
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
 
 }
 
@@ -131,6 +111,7 @@ margin-top:2px;
 
 
 
+
 .auth-title{
 
 text-align:center;
@@ -147,11 +128,15 @@ margin-bottom:22px;
 
 
 
+
+
 .input-group{
 
 margin-bottom:13px;
 
 }
+
+
 
 
 
@@ -205,7 +190,9 @@ border-color:#1687FF;
 
 
 
-/* كلمة المرور مع زر العين */
+
+
+/* كلمة المرور */
 
 
 .password-box{
@@ -244,6 +231,8 @@ padding:3px;
 
 }
 
+
+
 .eye-btn svg{
 
 width:21px;
@@ -271,7 +260,8 @@ stroke:#1687FF;
 
 
 
-/* دائرة الموافقة */
+
+/* الموافقة */
 
 
 .checkbox-group{
@@ -383,6 +373,7 @@ font-weight:bold;
 
 
 
+
 /* زر إنشاء الحساب */
 
 
@@ -421,6 +412,7 @@ background:#0B72DE;
 
 
 
+
 /* الرابط السفلي */
 
 
@@ -447,6 +439,8 @@ text-decoration:none;
 font-weight:bold;
 
 }
+
+
 
 
 
