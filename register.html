@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | إنشاء حساب</title>
@@ -21,18 +22,63 @@
 <div class="auth-container">
 
 
-<div class="logo">
-VALORA
+
+<div class="brand-logo">
+
+
+<div class="logo-icon">
+
+<svg viewBox="0 0 64 64">
+
+<path d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+fill="#1687FF"/>
+
+<path d="M22 24 L32 44 L42 24"
+stroke="#fff"
+stroke-width="4"
+fill="none"
+stroke-linecap="round"/>
+
+</svg>
+
 </div>
+
+
+
+<div class="logo-text">
+
+<span class="logo-name">
+VALORA
+</span>
+
+
+<span class="logo-sub">
+EXCHANGE
+</span>
+
+
+</div>
+
+
+</div>
+
+
+
 
 
 <div class="auth-title">
+
 إنشاء حساب جديد
+
 </div>
+
+
 
 
 
 <form id="registerForm">
+
+
 
 
 
@@ -42,11 +88,13 @@ VALORA
 البريد الإلكتروني أو رقم الهاتف
 </label>
 
+
 <input
 type="text"
 id="contact"
 placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
 required>
+
 
 </div>
 
@@ -71,46 +119,9 @@ placeholder="********"
 required>
 
 
+
 <button type="button" class="eye-btn" onclick="togglePassword('password', this)">
 
-<svg viewBox="0 0 24 24">
-
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
-
-<circle cx="12" cy="12" r="3"/>
-
-</svg>
-
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="input-group">
-
-<label>
-تأكيد كلمة المرور
-</label>
-
-
-<div class="password-box">
-
-
-<input
-type="password"
-id="confirmPassword"
-placeholder="********"
-required>
-
-
-<button type="button" class="eye-btn" onclick="togglePassword('confirmPassword', this)">
 
 <svg viewBox="0 0 24 24">
 
@@ -120,106 +131,11 @@ required>
 
 </svg>
 
-</button>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="input-group">
-
-<label>
-كود الدعوة
-</label>
-
-<input
-type="text"
-id="inviteCode"
-placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
-
-</div>
-
-
-
-
-
-<div class="checkbox-group">
-
-
-<label class="circle-check">
-
-
-<input
-type="checkbox"
-id="agree"
-required>
-
-
-<span></span>
-
-
-</label>
-
-
-<label>
-
-أوافق على 
-<a href="terms.html" target="_blank">
-الشروط والأحكام وسياسة الخصوصية
-</a>
-
-</label>
-
-
-</div>
-
-
-
-
-
-<button
-type="submit"
-class="btn-primary">
-
-إنشاء الحساب
 
 </button>
 
 
-
-</form>
-
-
-
-
-
-<div class="bottom-link">
-
-لديك حساب بالفعل؟
-
-<a href="login.html">
-تسجيل الدخول
-</a>
-
-
 </div>
 
 
-
 </div>
-
-
-
-
-<script src="app.js"></script>
-
-
-</body>
-
-</html>
