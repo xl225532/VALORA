@@ -48,19 +48,80 @@ border:1px solid #17365c;
 
 
 
-.logo{
 
-text-align:center;
 
-font-size:32px;
+/* VALORA LOGO */
+
+
+.brand-logo{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+margin-bottom:8px;
+
+}
+
+
+
+.logo-icon svg{
+
+width:45px;
+
+height:45px;
+
+filter:drop-shadow(0 0 8px #1687FF);
+
+}
+
+
+
+.logo-text{
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+}
+
+
+
+.logo-name{
+
+font-size:30px;
 
 font-weight:700;
 
-color:#1687FF;
+letter-spacing:2px;
 
-margin-bottom:6px;
+color:#EAF3FF;
+
+text-shadow:0 0 8px #1687FF;
 
 }
+
+
+
+.logo-sub{
+
+font-size:9px;
+
+letter-spacing:3px;
+
+color:#22C55E;
+
+margin-top:2px;
+
+}
+
+
 
 
 
@@ -120,13 +181,13 @@ outline:none;
 
 }
 
-
-
 .input-group input:focus{
 
 border-color:#1687FF;
 
 }
+
+
 
 
 
@@ -139,11 +200,13 @@ position:relative;
 }
 
 
+
 .password-box input{
 
 padding-left:45px;
 
 }
+
 
 
 .eye-btn{
@@ -167,6 +230,7 @@ padding:3px;
 }
 
 
+
 .eye-btn svg{
 
 width:21px;
@@ -182,12 +246,20 @@ stroke-width:2;
 }
 
 
+
 .eye-btn.active svg{
 
 stroke:#1687FF;
 
 }
 
+
+
+
+
+
+
+/* زر الدخول */
 
 
 .login-btn{
@@ -220,6 +292,12 @@ background:#0B72DE;
 
 }
 
+
+
+
+
+
+/* الروابط */
 
 
 .links{
@@ -274,7 +352,9 @@ font-weight:bold;
 
 
 
+
 /* رسالة نجاح الدخول */
+
 
 .success-box{
 
@@ -352,6 +432,8 @@ animation:check .5s .5s ease forwards;
 
 
 
+
+
 .success-box h3{
 
 font-size:18px;
@@ -369,6 +451,9 @@ font-size:14px;
 color:#98A5B8;
 
 }
+
+
+
 
 
 
@@ -410,9 +495,8 @@ stroke-dashoffset:0;
 
 
 
-/* شاشات الجوال الصغيرة */
-
 @media(max-width:360px){
+
 
 .login-container{
 
@@ -421,83 +505,12 @@ padding:20px;
 }
 
 
-.logo{
-
-font-size:28px;
-
-}
-
-}
-/* VALORA LOGO */
-
-.brand-logo{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-margin-bottom:20px;
-
-}
-
-
-
-.logo-icon svg{
-
-width:70px;
-
-height:70px;
-
-filter:drop-shadow(0 0 15px #1687FF);
-
-}
-
-
-
-.logo-text{
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-}
-
-
 
 .logo-name{
 
-font-size:38px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:
-
-0 0 10px #1687FF,
-
-0 0 20px #1687FF;
+font-size:26px;
 
 }
 
-
-
-.logo-sub{
-
-font-size:12px;
-
-letter-spacing:5px;
-
-color:#22C55E;
-
-margin-top:5px;
 
 }
