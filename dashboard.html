@@ -31,36 +31,25 @@ VALORA
 
 
 
-<div class="user-box">
-
-
 <div class="uid-box">
-
-<span>UID</span>
-
-<strong>
-583921
-</strong>
-
-
-</div>
-
-
-
-<div class="code-box">
 
 
 <span>
-VAL583921
+UID:
 </span>
 
 
-<button>
-نسخ
+<strong>
+588887
+</strong>
+
+
+
+<button onclick="copyUID()">
+
+📋
+
 </button>
-
-
-</div>
 
 
 </div>
@@ -86,7 +75,7 @@ VAL583921
 
 
 
-<button class="eye-btn">
+<button class="eye-btn" onclick="toggleBalance()">
 
 
 <svg viewBox="0 0 24 24">
@@ -107,60 +96,34 @@ VAL583921
 
 
 
-<div class="total-assets">
+<div class="total-assets" id="balance">
 
-10,000.00
+0.00
 
 <span>
 USDT
 </span>
 
-
 </div>
 
 
 
 
 
-<div class="asset-chart">
+<div class="market-animation">
 
 
-<div>
+<div class="trade-line"></div>
 
-<span></span>
+<div class="floating-coin">₮</div>
 
-</div>
+<div class="floating-coin coin-two">◆</div>
 
-
-<div>
-
-<span></span>
-
-</div>
-
-
-<div>
-
-<span></span>
-
-</div>
-
-
-<div>
-
-<span></span>
-
-</div>
-
-
-<div>
-
-<span></span>
-
-</div>
+<div class="floating-coin coin-three">₿</div>
 
 
 </div>
+
 
 
 </section>
@@ -183,96 +146,8 @@ USDT
 
 
 
-<div class="coin-card">
-
-
-<div class="coin-logo btc">
-₿
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Bitcoin
-</h3>
-
-<span>
-BTC
-</span>
-
-</div>
-
-
-
-<div class="coin-price">
-
-<strong>
-67,500$
-</strong>
-
-<p>
-+2.45%
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
 
 <div class="coin-card">
-
-
-<div class="coin-logo eth">
-◆
-</div>
-
-
-<div class="coin-name">
-
-<h3>
-Ethereum
-</h3>
-
-<span>
-ETH
-</span>
-
-</div>
-
-
-
-<div class="coin-price">
-
-<strong>
-3,450$
-</strong>
-
-<p>
-+1.20%
-</p>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="coin-card">
-
 
 <div class="coin-logo usdt">
 ₮
@@ -292,20 +167,13 @@ USDT
 </div>
 
 
-
 <div class="coin-price">
 
 <strong>
 1.00$
 </strong>
 
-<p>
-+0.05%
-</p>
-
-
 </div>
-
 
 </div>
 
@@ -317,39 +185,31 @@ USDT
 
 <div class="coin-card">
 
-
-<div class="coin-logo sol">
-S
+<div class="coin-logo tron">
+TRX
 </div>
 
 
 <div class="coin-name">
 
 <h3>
-Solana
+Tron
 </h3>
 
 <span>
-SOL
+TRX
 </span>
 
 </div>
 
 
-
 <div class="coin-price">
 
 <strong>
-170$
+0.12$
 </strong>
 
-<p>
-+1.80%
-</p>
-
-
 </div>
-
 
 </div>
 
@@ -361,41 +221,107 @@ SOL
 
 <div class="coin-card">
 
-
-<div class="coin-logo ada">
-A
+<div class="coin-logo eth">
+◆
 </div>
 
 
 <div class="coin-name">
 
 <h3>
-Cardano
+Ethereum
 </h3>
 
 <span>
-ADA
+ETH
 </span>
 
 </div>
 
 
+<div class="coin-price">
+
+<strong>
+3,450$
+</strong>
+
+</div>
+
+</div>
+
+
+
+
+
+
+
+<div class="coin-card">
+
+<div class="coin-logo pepe">
+🐸
+</div>
+
+
+<div class="coin-name">
+
+<h3>
+Pepe
+</h3>
+
+<span>
+PEPE
+</span>
+
+</div>
+
 
 <div class="coin-price">
 
 <strong>
-0.45$
+0.00001$
 </strong>
 
-<p>
--0.70%
-</p>
-
+</div>
 
 </div>
 
 
+
+
+
+
+
+<div class="coin-card">
+
+<div class="coin-logo btc">
+₿
 </div>
+
+
+<div class="coin-name">
+
+<h3>
+Bitcoin
+</h3>
+
+<span>
+BTC
+</span>
+
+</div>
+
+
+<div class="coin-price">
+
+<strong>
+67,500$
+</strong>
+
+</div>
+
+</div>
+
+
 
 
 
@@ -416,22 +342,28 @@ ADA
 
 <a href="dashboard.html">
 
+
 <svg viewBox="0 0 24 24">
 
 <path d="M3 11L12 3l9 8v10h-6v-6H9v6H3z"/>
 
 </svg>
 
+
 الرئيسية
+
 
 </a>
 
 
 
 
+
 <a href="wallet.html">
 
-<span>▣</span>
+<span>
+▣
+</span>
 
 المحفظة
 
@@ -442,7 +374,9 @@ ADA
 
 <a href="team.html">
 
-<span>♟</span>
+<span>
+♟
+</span>
 
 الفريق
 
@@ -453,7 +387,9 @@ ADA
 
 <a href="settings.html">
 
-<span>⚙</span>
+<span>
+⚙
+</span>
 
 الإعدادات
 
@@ -467,6 +403,57 @@ ADA
 
 
 </div>
+
+
+
+
+<script>
+
+
+function toggleBalance(){
+
+let balance = document.getElementById("balance");
+
+
+if(balance.dataset.hidden === "true"){
+
+
+balance.innerHTML='0.00 <span>USDT</span>';
+
+balance.dataset.hidden="false";
+
+
+}
+
+else{
+
+
+balance.innerHTML='***** <span>USDT</span>';
+
+balance.dataset.hidden="true";
+
+
+}
+
+}
+
+
+
+
+
+function copyUID(){
+
+
+navigator.clipboard.writeText("UID: 588887");
+
+
+alert("تم نسخ UID");
+
+
+}
+
+
+</script>
 
 
 
