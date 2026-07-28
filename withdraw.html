@@ -30,12 +30,15 @@
 
 <header class="header">
 
+
 <div class="brand">
+
 VALORA
+
 </div>
 
-</header>
 
+</header>
 
 
 
@@ -75,8 +78,9 @@ VALORA
 
 
 
-
 <section class="coin-list">
+
+
 
 
 
@@ -104,6 +108,7 @@ USDT
 Tether
 
 </small>
+
 
 </div>
 
@@ -141,6 +146,7 @@ Bitcoin
 
 </small>
 
+
 </div>
 
 
@@ -177,6 +183,7 @@ Ethereum
 
 </small>
 
+
 </div>
 
 
@@ -186,8 +193,6 @@ Ethereum
 
 
 </section>
-
-
 
 
 
@@ -228,7 +233,6 @@ placeholder="أدخل عنوان المحفظة">
 
 
 
-
 <div class="input-group">
 
 
@@ -256,7 +260,6 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-
 <div class="info-box">
 
 
@@ -264,17 +267,14 @@ placeholder="أدخل مبلغ السحب">
 <div>
 
 <span>
-
 الحد الأدنى للسحب
-
 </span>
 
 
 <strong>
-
 10 USDT
-
 </strong>
+
 
 </div>
 
@@ -285,17 +285,14 @@ placeholder="أدخل مبلغ السحب">
 <div>
 
 <span>
-
 العمولة
-
 </span>
 
 
 <strong>
-
 1 USDT
-
 </strong>
+
 
 </div>
 
@@ -306,25 +303,20 @@ placeholder="أدخل مبلغ السحب">
 <div>
 
 <span>
-
 المبلغ المستلم
-
 </span>
 
 
-<strong>
-
+<strong id="receiveAmount">
 0.00 USDT
-
 </strong>
 
-</div>
-
-
 
 </div>
 
 
+
+</div>
 
 
 
@@ -344,8 +336,6 @@ placeholder="أدخل مبلغ السحب">
 
 
 
-
-
 <div id="successBox" class="status-box success">
 
 
@@ -358,21 +348,19 @@ placeholder="أدخل مبلغ السحب">
 
 <h3>
 
-تم السحب بنجاح
+تم إرسال طلب السحب
 
 </h3>
 
 
 <p>
 
-طلب السحب قيد المعالجة
+طلبك قيد المعالجة
 
 </p>
 
 
 </div>
-
-
 
 
 
@@ -399,13 +387,12 @@ placeholder="أدخل مبلغ السحب">
 
 <p>
 
-يرجى التأكد من البيانات
+يرجى إدخال جميع البيانات
 
 </p>
 
 
 </div>
-
 
 
 
@@ -486,7 +473,6 @@ placeholder="أدخل مبلغ السحب">
 </a>
 
 
-
 </nav>
 
 
@@ -504,7 +490,42 @@ placeholder="أدخل مبلغ السحب">
 
 
 
+
 <script>
+
+
+document
+.getElementById("withdrawAmount")
+.addEventListener("input",function(){
+
+
+let amount = Number(this.value);
+
+
+
+let receive = amount - 1;
+
+
+
+if(receive < 0){
+
+receive = 0;
+
+}
+
+
+
+document.getElementById("receiveAmount").innerHTML =
+receive.toFixed(2)+" USDT";
+
+
+
+});
+
+
+
+
+
 
 
 function submitWithdraw(){
@@ -519,34 +540,90 @@ document.getElementById("withdrawAmount").value;
 
 
 
+
 document.getElementById("successBox").style.display="none";
 
 document.getElementById("rejectBox").style.display="none";
 
 
 
-if(address === "" || amount === ""){
+
+
+if(address==="" || amount===""){
+
 
 
 document.getElementById("rejectBox").style.display="block";
 
+return;
+
 
 }
 
-else{
+
+
+
+
+
+
+let withdrawal = {
+
+
+coin:"USDT",
+
+network:"TRC20",
+
+amount:amount,
+
+address:address,
+
+date:new Date().toLocaleString("ar-EG"),
+
+
+status:"pending"
+
+
+};
+
+
+
+
+
+
+
+let list =
+JSON.parse(localStorage.getItem("withdrawals")) || [];
+
+
+
+
+list.push(withdrawal);
+
+
+
+localStorage.setItem(
+"withdrawals",
+JSON.stringify(list)
+);
+
+
+
+
+
 
 
 document.getElementById("successBox").style.display="block";
 
 
-}
-
-
 
 }
+
+
+
 
 
 </script>
+
 
 
 
