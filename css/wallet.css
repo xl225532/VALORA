@@ -1,15 +1,15 @@
-*{
+.wallet-page *{
 
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,Tahoma,sans-serif;
+font-family:'Cairo',Arial,sans-serif;
 
 }
 
 
 
-body{
+.wallet-page{
 
 background:#050B16;
 
@@ -17,7 +17,7 @@ min-height:100vh;
 
 color:white;
 
-padding:15px;
+padding:18px 15px 100px;
 
 }
 
@@ -25,43 +25,21 @@ padding:15px;
 
 
 
-.dashboard{
-
-width:100%;
-
-max-width:420px;
-
-margin:auto;
-
-padding-bottom:90px;
-
-}
-
-
-
-
-
-
-/* الهيدر */
-
-
-.header{
+.wallet-header{
 
 display:flex;
 
 justify-content:center;
 
-align-items:center;
-
-padding:15px 0;
+margin-bottom:15px;
 
 }
 
 
 
-.brand{
+.wallet-brand{
 
-font-size:30px;
+font-size:32px;
 
 font-weight:800;
 
@@ -79,41 +57,13 @@ text-shadow:0 0 10px #1687FF;
 
 
 
-
-/* شعار المحفظة */
-
-
-.wallet-logo{
+.wallet-title{
 
 text-align:center;
 
-margin:10px 0 20px;
+font-size:22px;
 
-}
-
-
-
-.wallet-icon svg{
-
-width:85px;
-
-height:85px;
-
-filter:drop-shadow(0 0 15px #1687FF);
-
-}
-
-
-
-.wallet-logo h2{
-
-margin-top:8px;
-
-font-size:20px;
-
-color:#EAF3FF;
-
-font-weight:700;
+margin:15px 0 20px;
 
 }
 
@@ -123,20 +73,18 @@ font-weight:700;
 
 
 
-/* بطاقة الرصيد */
 
+.wallet-balance{
 
-.balance-card{
+background:#0B1628;
 
-background:linear-gradient(145deg,#0B1628,#071426);
+border:1px solid #17365C;
 
-border:1px solid #17365c;
+border-radius:18px;
 
-border-radius:20px;
+padding:15px;
 
-padding:25px;
-
-box-shadow:0 0 25px rgba(0,140,255,.15);
+text-align:center;
 
 margin-bottom:15px;
 
@@ -144,64 +92,36 @@ margin-bottom:15px;
 
 
 
-.balance-title{
+
+
+.balance-label{
 
 color:#98A5B8;
 
 font-size:14px;
 
-margin-bottom:10px;
-
 }
 
 
 
-.balance-number{
+.balance-value{
 
-font-size:34px;
+font-size:30px;
 
 font-weight:700;
 
+color:#22C55E;
+
+margin-top:8px;
+
 }
 
 
 
-.balance-number span{
+.balance-value span{
 
 font-size:16px;
 
-color:#22C55E;
-
-}
-
-
-
-.profit-today{
-
-margin-top:18px;
-
-background:#071426;
-
-padding:12px;
-
-border-radius:12px;
-
-display:flex;
-
-justify-content:space-between;
-
-font-size:13px;
-
-color:#98A5B8;
-
-}
-
-
-
-.profit-today strong{
-
-color:#22C55E;
-
 }
 
 
@@ -211,54 +131,56 @@ color:#22C55E;
 
 
 
-/* الأرباح */
+
+.profit-grid{
+
+display:grid;
+
+grid-template-columns:1fr 1fr;
+
+gap:12px;
+
+}
 
 
-.wallet-box{
+
+
+
+.profit-card{
 
 background:#0B1628;
 
-border:1px solid #17365c;
+border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:16px;
 
-overflow:hidden;
+padding:16px 10px;
 
-margin-bottom:20px;
-
-}
-
-
-
-.wallet-item{
-
-display:flex;
-
-justify-content:space-between;
-
-padding:16px;
-
-border-bottom:1px solid #17365c;
-
-color:#C6D3E4;
-
-font-size:14px;
+text-align:center;
 
 }
 
 
 
-.wallet-item:last-child{
+.profit-card span{
 
-border-bottom:none;
+display:block;
+
+color:#98A5B8;
+
+font-size:13px;
+
+margin-bottom:8px;
 
 }
 
 
 
-.wallet-item strong{
+.profit-card strong{
 
-color:#fff;
+font-size:15px;
+
+color:#22C55E;
 
 }
 
@@ -268,8 +190,6 @@ color:#fff;
 
 
 
-
-/* أزرار العمليات */
 
 
 .wallet-actions{
@@ -278,9 +198,11 @@ display:flex;
 
 gap:12px;
 
-margin-bottom:25px;
+margin-top:20px;
 
 }
+
+
 
 
 
@@ -288,19 +210,17 @@ margin-bottom:25px;
 
 flex:1;
 
-height:55px;
+padding:14px;
 
-border:none;
+border:0;
 
-border-radius:15px;
-
-font-size:16px;
-
-font-weight:700;
+border-radius:14px;
 
 color:white;
 
-cursor:pointer;
+font-size:16px;
+
+font-weight:bold;
 
 display:flex;
 
@@ -314,27 +234,25 @@ gap:8px;
 
 
 
-.deposit-btn{
+.deposit-action{
 
 background:#1687FF;
 
-box-shadow:0 0 15px rgba(22,135,255,.35);
-
 }
 
 
 
-.withdraw-btn{
+.withdraw-action{
 
 background:#22C55E;
 
-box-shadow:0 0 15px rgba(34,197,94,.35);
-
 }
 
 
 
-.action-icon{
+
+
+.wallet-actions span{
 
 font-size:22px;
 
@@ -347,46 +265,42 @@ font-size:22px;
 
 
 
-/* القائمة السفلية */
 
-
-.bottom-nav{
+.wallet-nav{
 
 position:fixed;
 
-bottom:15px;
+bottom:0;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:92%;
+width:100%;
 
-max-width:420px;
+max-width:480px;
 
 background:#0B1628;
 
-border:1px solid #17365c;
-
-border-radius:18px;
+border-top:1px solid #17365C;
 
 display:flex;
 
 justify-content:space-around;
 
-padding:10px;
-
-box-shadow:0 0 25px rgba(0,0,0,.4);
+padding:12px;
 
 }
 
 
 
-.bottom-nav a{
 
-text-decoration:none;
+
+.wallet-nav a{
 
 color:#98A5B8;
+
+text-decoration:none;
 
 font-size:12px;
 
@@ -396,29 +310,8 @@ text-align:center;
 
 
 
-.bottom-nav a.active{
+.wallet-nav .active{
 
 color:#1687FF;
-
-}
-
-
-
-@media(max-width:360px){
-
-
-.balance-number{
-
-font-size:28px;
-
-}
-
-
-.wallet-logo h2{
-
-font-size:18px;
-
-}
-
 
 }
