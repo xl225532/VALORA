@@ -9,12 +9,9 @@
 
 <title>VALORA | المحفظة</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/wallet.css">
-
 
 </head>
 
@@ -22,22 +19,15 @@
 <body>
 
 
-
-<div class="dashboard">
-
+<div class="wallet-page">
 
 
 
+<header class="wallet-header">
 
-<header class="header">
-
-
-<div class="brand">
-
+<div class="wallet-brand">
 VALORA
-
 </div>
-
 
 </header>
 
@@ -48,66 +38,23 @@ VALORA
 
 
 
-<!-- شعار المحفظة -->
-
-
-<section class="wallet-logo">
-
-
-
-<div class="wallet-icon">
-
-
-<svg viewBox="0 0 100 100">
-
-
-<path d="M20 35H75C84 35 90 42 90 50V75C90 84 84 90 75 90H25C16 90 10 84 10 75V45C10 39 14 35 20 35Z"
-fill="#1687FF"/>
-
-
-
-<path d="M70 55H90V75H70C64 75 60 71 60 65C60 59 64 55 70 55Z"
-fill="#22C55E"/>
-
-
-
-<circle cx="75" cy="65" r="4" fill="white"/>
-
-
-
-</svg>
-
-
-</div>
-
-
-
-
-
-<h2>
-
+<h2 class="wallet-title">
 محفظة جيب
-
 </h2>
 
 
 
-</section>
 
 
 
 
 
 
+<section class="wallet-balance">
 
 
-<!-- الرصيد -->
 
-
-<section class="balance-card">
-
-
-<div class="balance-title">
+<div class="balance-label">
 
 إجمالي الأصول
 
@@ -115,66 +62,64 @@ fill="#22C55E"/>
 
 
 
-<div class="balance-number">
+<div class="balance-value">
 
 0.00
 
 <span>
-
 USDT
+</span>
 
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="profit-grid">
+
+
+
+
+
+<div class="profit-card">
+
+
+<span>
+أرباح اليوم
 </span>
 
 
-</div>
-
-
-
-
-
-<div class="profit-today">
-
-أرباح اليوم
-
 <strong>
-
 +0.00 USDT
-
 </strong>
 
 
 </div>
 
 
-</section>
 
 
 
 
 
+<div class="profit-card">
 
 
-
-<!-- الأرباح -->
-
-
-<section class="wallet-box">
-
-
-<div class="wallet-item">
-
-
-<div>
-
+<span>
 أرباح الدعوة
-
-</div>
+</span>
 
 
 <strong>
-
 0.00 USDT
-
 </strong>
 
 
@@ -184,24 +129,45 @@ USDT
 
 
 
-<div class="wallet-item">
 
 
-<div>
+<div class="profit-card">
 
+
+<span>
 أرباح الفريق
-
-</div>
+</span>
 
 
 <strong>
-
 0.00 USDT
-
 </strong>
 
 
 </div>
+
+
+
+
+
+
+
+<div class="profit-card">
+
+
+<span>
+أرباح المكافآت
+</span>
+
+
+<strong>
+0.00 USDT
+</strong>
+
+
+</div>
+
+
 
 
 
@@ -213,21 +179,17 @@ USDT
 
 
 
-<!-- أزرار العمليات -->
 
 
-<div class="wallet-actions">
+<section class="wallet-actions">
 
 
 
-<button class="deposit-btn" onclick="location.href='deposit.html'">
+<button class="deposit-action" onclick="location.href='deposit.html'">
 
 
-<span class="action-icon">
-
+<span>
 ↓
-
-
 </span>
 
 
@@ -241,14 +203,11 @@ USDT
 
 
 
-<button class="withdraw-btn" onclick="location.href='withdraw.html'">
+<button class="withdraw-action" onclick="location.href='withdraw.html'">
 
 
-<span class="action-icon">
-
+<span>
 ↑
-
-
 </span>
 
 
@@ -259,7 +218,8 @@ USDT
 
 
 
-</div>
+
+</section>
 
 
 
@@ -269,21 +229,16 @@ USDT
 
 
 
-<!-- القائمة السفلية -->
-
-
-<nav class="bottom-nav">
+<nav class="wallet-nav">
 
 
 <a href="dashboard.html">
-
 
 ⌂
 
 <br>
 
 الرئيسية
-
 
 </a>
 
@@ -292,13 +247,11 @@ USDT
 
 <a class="active" href="wallet.html">
 
-
 ▣
 
 <br>
 
 المحفظة
-
 
 </a>
 
@@ -307,13 +260,11 @@ USDT
 
 <a href="team.html">
 
-
 ♟
 
 <br>
 
 الفريق
-
 
 </a>
 
@@ -322,15 +273,14 @@ USDT
 
 <a href="settings.html">
 
-
 ⚙
 
 <br>
 
 الإعدادات
 
-
 </a>
+
 
 
 
@@ -346,7 +296,7 @@ USDT
 
 
 
-</body>
 
+</body>
 
 </html>
