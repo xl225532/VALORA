@@ -61,7 +61,7 @@ VALORA
 
 
 
-<button class="deposit-coin active" onclick="selectCoin('USDT')">
+<button class="deposit-coin active" onclick="selectCoin('USDT',this)">
 
 <div class="deposit-coin-icon usdt">
 ₮
@@ -78,7 +78,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('BTC')">
+<button class="deposit-coin" onclick="selectCoin('BTC',this)">
 
 <div class="deposit-coin-icon btc">
 ₿
@@ -95,7 +95,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('ETH')">
+<button class="deposit-coin" onclick="selectCoin('ETH',this)">
 
 <div class="deposit-coin-icon eth">
 ◆
@@ -112,7 +112,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('BNB')">
+<button class="deposit-coin" onclick="selectCoin('BNB',this)">
 
 <div class="deposit-coin-icon bnb">
 ◆
@@ -199,10 +199,13 @@ readonly>
 
 
 
-
 <div class="deposit-warning">
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل إرسال العملات.
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع. إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
+
+<br><br>
+
+الحد الأدنى للإيداع: 100 USDT
 
 </div>
 
@@ -211,45 +214,6 @@ readonly>
 </section>
 
 
-
-
-
-
-
-
-
-<nav class="deposit-nav">
-
-
-<a href="dashboard.html">
-⌂
-<br>
-الرئيسية
-</a>
-
-
-<a href="wallet.html">
-▣
-<br>
-المحفظة
-</a>
-
-
-<a href="team.html">
-♟
-<br>
-الفريق
-</a>
-
-
-<a href="settings.html">
-⚙
-<br>
-الإعدادات
-</a>
-
-
-</nav>
 
 
 
@@ -268,6 +232,7 @@ readonly>
 
 
 let currentCoin="USDT";
+
 let currentNetwork="TRC20";
 
 
@@ -300,7 +265,8 @@ ERC20:"0xBNBXXXXXXXXXXXXXXXX"
 
 
 
-function selectCoin(coin){
+
+function selectCoin(coin,button){
 
 
 currentCoin=coin;
@@ -310,13 +276,14 @@ document.querySelectorAll(".deposit-coin")
 .forEach(btn=>btn.classList.remove("active"));
 
 
-event.currentTarget.classList.add("active");
+button.classList.add("active");
 
 
 updateAddress();
 
 
 }
+
 
 
 
@@ -340,6 +307,7 @@ updateAddress();
 
 
 }
+
 
 
 
@@ -370,15 +338,3 @@ navigator.clipboard.writeText(address);
 
 
 alert("تم نسخ عنوان الإيداع");
-
-
-}
-
-
-</script>
-
-
-
-</body>
-
-</html>
