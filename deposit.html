@@ -41,9 +41,11 @@ VALORA
 ↓
 </div>
 
+
 <h2>
 إيداع العملات
 </h2>
+
 
 <p>
 اختر العملة والشبكة للإيداع
@@ -61,7 +63,7 @@ VALORA
 
 
 
-<button class="deposit-coin active" onclick="selectCoin('USDT',this)">
+<button class="deposit-coin active" onclick="selectCoin('USDT')">
 
 <div class="deposit-coin-icon usdt">
 ₮
@@ -78,7 +80,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('BTC',this)">
+<button class="deposit-coin" onclick="selectCoin('BTC')">
 
 <div class="deposit-coin-icon btc">
 ₿
@@ -95,7 +97,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('ETH',this)">
+<button class="deposit-coin" onclick="selectCoin('ETH')">
 
 <div class="deposit-coin-icon eth">
 ◆
@@ -112,7 +114,7 @@ VALORA
 
 
 
-<button class="deposit-coin" onclick="selectCoin('BNB',this)">
+<button class="deposit-coin" onclick="selectCoin('BNB')">
 
 <div class="deposit-coin-icon bnb">
 ◆
@@ -149,12 +151,16 @@ VALORA
 
 
 <button class="network active" onclick="selectNetwork(this,'TRC20')">
+
 TRC20
+
 </button>
 
 
 <button class="network" onclick="selectNetwork(this,'ERC20')">
+
 ERC20
+
 </button>
 
 
@@ -187,21 +193,18 @@ readonly>
 
 
 <button onclick="copyDeposit()">
+
 نسخ
+
 </button>
 
 
 
 </div>
-
-
-
-
-
-
 <div class="deposit-warning">
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع. إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.  
+إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
 
 <br><br>
 
@@ -210,17 +213,11 @@ readonly>
 </div>
 
 
-
 </section>
 
 
 
-
-
-
-
 </div>
-
 
 
 
@@ -231,13 +228,13 @@ readonly>
 <script>
 
 
-let currentCoin="USDT";
+let currentCoin = "USDT";
 
-let currentNetwork="TRC20";
+let currentNetwork = "TRC20";
 
 
 
-let addresses={
+let addresses = {
 
 USDT:{
 TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
@@ -265,21 +262,24 @@ ERC20:"0xBNBXXXXXXXXXXXXXXXX"
 
 
 
+function selectCoin(coin){
 
-function selectCoin(coin,button){
 
+currentCoin = coin;
 
-currentCoin=coin;
 
 
 document.querySelectorAll(".deposit-coin")
 .forEach(btn=>btn.classList.remove("active"));
 
 
-button.classList.add("active");
+
+event.currentTarget.classList.add("active");
+
 
 
 updateAddress();
+
 
 
 }
@@ -289,21 +289,24 @@ updateAddress();
 
 
 
-
 function selectNetwork(button,network){
 
 
-currentNetwork=network;
+currentNetwork = network;
+
 
 
 document.querySelectorAll(".network")
 .forEach(btn=>btn.classList.remove("active"));
 
 
+
 button.classList.add("active");
 
 
+
 updateAddress();
+
 
 
 }
@@ -327,6 +330,7 @@ addresses[currentCoin][currentNetwork];
 
 
 
+
 function copyDeposit(){
 
 
@@ -334,14 +338,21 @@ let address =
 document.getElementById("depositAddress").value;
 
 
+
 navigator.clipboard.writeText(address);
 
 
+
 alert("تم نسخ عنوان الإيداع");
+
+
 }
+
+
 
 </script>
 
+
 </body>
 
-</html> 
+</html>
