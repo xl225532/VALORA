@@ -153,13 +153,12 @@ font-size:20px;
 
 
 
-/* ازرار السحب والايداع */
-
+/* ازرار السحب والايداع الجديدة */
 
 .wallet-actions{
 
 display:flex;
-gap:18px;
+gap:15px;
 margin-top:10px;
 
 }
@@ -169,17 +168,17 @@ margin-top:10px;
 .wallet-actions button{
 
 flex:1;
-height:120px;
+height:75px;
 border:0;
-border-radius:22px;
+border-radius:18px;
 color:white;
-font-size:20px;
+font-size:18px;
 font-weight:bold;
 display:flex;
-flex-direction:column;
+flex-direction:row;
 align-items:center;
 justify-content:center;
-gap:12px;
+gap:10px;
 cursor:pointer;
 
 }
@@ -189,13 +188,13 @@ cursor:pointer;
 
 .wallet-actions button span{
 
-width:45px;
-height:45px;
+width:38px;
+height:38px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
+font-size:22px;
 border:2px solid white;
 
 }
@@ -213,7 +212,7 @@ background:#1687FF;
 
 .withdraw-action span{
 
-background:#1687FF;
+background:transparent;
 
 }
 
@@ -232,7 +231,7 @@ background:#22C55E;
 
 .deposit-action span{
 
-background:#22C55E;
+background:transparent;
 
 }
 
@@ -248,24 +247,24 @@ background:#22C55E;
 
 .wallet-history{
 
-margin-top:25px;
+margin-top:20px;
 
 }
 
 
 .wallet-history a{
 
-height:70px;
+height:65px;
 background:#0B1628;
 border:1px solid #17365C;
 border-radius:18px;
 display:flex;
 align-items:center;
 justify-content:center;
-gap:15px;
+gap:12px;
 text-decoration:none;
 color:white;
-font-size:22px;
+font-size:20px;
 
 }
 
@@ -273,8 +272,8 @@ font-size:22px;
 
 .wallet-history svg{
 
-width:30px;
-height:30px;
+width:28px;
+height:28px;
 stroke:#1687FF;
 fill:none;
 stroke-width:2;
