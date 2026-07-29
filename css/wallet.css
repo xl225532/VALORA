@@ -57,22 +57,6 @@ text-shadow:0 0 10px #1687FF;
 
 
 
-.wallet-title{
-
-text-align:center;
-
-font-size:22px;
-
-margin:15px 0 20px;
-
-}
-
-
-
-
-
-
-
 
 .wallet-balance{
 
@@ -82,7 +66,7 @@ border:1px solid #17365C;
 
 border-radius:18px;
 
-padding:15px;
+padding:14px;
 
 text-align:center;
 
@@ -288,7 +272,7 @@ display:flex;
 
 justify-content:space-around;
 
-padding:12px;
+padding:10px;
 
 }
 
@@ -313,5 +297,21 @@ text-align:center;
 .wallet-nav .active{
 
 color:#1687FF;
+
+}
+
+
+
+
+
+.nav-wallet-icon{
+
+width:26px;
+
+height:26px;
+
+display:inline-block;
+
+vertical-align:middle;
 
 }
