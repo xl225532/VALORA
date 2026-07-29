@@ -8,7 +8,6 @@ font-family:'Cairo',Arial,sans-serif;
 }
 
 
-
 .wallet-page{
 
 background:#050B16;
@@ -20,7 +19,6 @@ color:white;
 padding:18px 15px 100px;
 
 }
-
 
 
 
@@ -47,10 +45,9 @@ letter-spacing:3px;
 
 color:#EAF3FF;
 
-text-shadow:0 0 10px #1687FF;
+text-shadow:0 0 12px #1687FF;
 
 }
-
 
 
 
@@ -64,17 +61,15 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:20px;
 
-padding:14px;
+padding:15px;
 
 text-align:center;
 
 margin-bottom:15px;
 
 }
-
-
 
 
 
@@ -90,13 +85,13 @@ font-size:14px;
 
 .balance-value{
 
-font-size:30px;
+margin-top:8px;
+
+font-size:32px;
 
 font-weight:700;
 
 color:#22C55E;
-
-margin-top:8px;
 
 }
 
@@ -107,7 +102,6 @@ margin-top:8px;
 font-size:16px;
 
 }
-
 
 
 
@@ -128,17 +122,15 @@ gap:12px;
 
 
 
-
-
 .profit-card{
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:16px;
+border-radius:18px;
 
-padding:16px 10px;
+padding:15px 8px;
 
 text-align:center;
 
@@ -150,9 +142,9 @@ text-align:center;
 
 display:block;
 
-color:#98A5B8;
-
 font-size:13px;
+
+color:#98A5B8;
 
 margin-bottom:8px;
 
@@ -175,7 +167,6 @@ color:#22C55E;
 
 
 
-
 .wallet-actions{
 
 display:flex;
@@ -188,29 +179,27 @@ margin-top:20px;
 
 
 
-
-
 .wallet-actions button{
 
 flex:1;
 
-padding:14px;
-
 border:0;
 
-border-radius:14px;
+border-radius:15px;
 
-color:white;
+padding:14px;
 
 font-size:16px;
 
 font-weight:bold;
 
+color:white;
+
 display:flex;
 
-justify-content:center;
-
 align-items:center;
+
+justify-content:center;
 
 gap:8px;
 
@@ -218,7 +207,15 @@ gap:8px;
 
 
 
-.deposit-action{
+.wallet-actions span{
+
+font-size:24px;
+
+}
+
+
+
+.withdraw-action{
 
 background:#1687FF;
 
@@ -226,7 +223,7 @@ background:#1687FF;
 
 
 
-.withdraw-action{
+.deposit-action{
 
 background:#22C55E;
 
@@ -236,13 +233,58 @@ background:#22C55E;
 
 
 
-.wallet-actions span{
 
-font-size:22px;
+
+
+.wallet-history{
+
+margin-top:15px;
 
 }
 
 
+
+.wallet-history a{
+
+height:55px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+color:white;
+
+text-decoration:none;
+
+font-size:15px;
+
+}
+
+
+
+.wallet-history svg{
+
+width:24px;
+
+height:24px;
+
+stroke:#1687FF;
+
+fill:none;
+
+stroke-width:2;
+
+}
 
 
 
@@ -278,8 +320,6 @@ padding:10px;
 
 
 
-
-
 .wallet-nav a{
 
 color:#98A5B8;
@@ -303,15 +343,10 @@ color:#1687FF;
 
 
 
-
 .nav-wallet-icon{
 
-width:26px;
+width:27px;
 
-height:26px;
-
-display:inline-block;
-
-vertical-align:middle;
+height:27px;
 
 }
