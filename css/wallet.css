@@ -1,26 +1,204 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,sans-serif;
+}
+
+
+html,body{
+
+width:100%;
+min-height:100%;
+background:#050B16;
+color:white;
+
+}
+
+
+
+.wallet-page{
+
+width:100%;
+min-height:100vh;
+background:#050B16;
+padding:18px 15px 100px;
+
+}
+
+
+
+
+/* HEADER */
+
+.wallet-header{
+
+text-align:center;
+margin-bottom:20px;
+
+}
+
+
+.wallet-brand{
+
+font-size:32px;
+font-weight:800;
+letter-spacing:3px;
+color:#EAF3FF;
+text-shadow:0 0 12px #1687FF;
+
+}
+
+
+
+
+
+/* الرصيد */
+
+.wallet-balance{
+
+background:#0B1628;
+border:1px solid #17365C;
+border-radius:20px;
+padding:18px;
+text-align:center;
+margin-bottom:18px;
+
+}
+
+
+
+.balance-label{
+
+color:#98A5B8;
+font-size:16px;
+
+}
+
+
+
+.balance-value{
+
+margin-top:10px;
+font-size:38px;
+font-weight:bold;
+color:#22C55E;
+direction:ltr;
+
+}
+
+
+
+.balance-value span{
+
+font-size:18px;
+
+}
+
+
+
+
+
+
+
+/* الارباح */
+
+.profit-grid{
+
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:12px;
+margin-bottom:20px;
+
+}
+
+
+
+.profit-card{
+
+height:110px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+justify-content:center;
+
+}
+
+
+
+.profit-card span{
+
+color:#98A5B8;
+
+font-size:14px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.profit-card strong{
+
+font-size:17px;
+
+color:#22C55E;
+
+}
+
+
+
+
+
+
+
+/* السحب والايداع */
+
 .wallet-actions{
 
 display:flex;
-gap:14px;
-margin-top:20px;
+
+gap:12px;
+
+margin-top:5px;
 
 }
+
 
 
 .wallet-actions button{
 
 flex:1;
-height:70px;
+
+height:65px;
+
 border:none;
-border-radius:18px;
+
+border-radius:16px;
+
 color:white;
-font-size:18px;
-font-weight:700;
+
+font-size:17px;
+
+font-weight:bold;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
-gap:10px;
+
+gap:8px;
 
 cursor:pointer;
 
@@ -31,17 +209,20 @@ cursor:pointer;
 .wallet-actions button span{
 
 width:34px;
+
 height:34px;
 
 border-radius:50%;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 font-size:22px;
 
-border:2px solid rgba(255,255,255,.8);
+border:2px solid rgba(255,255,255,.7);
 
 }
 
@@ -63,16 +244,133 @@ background:#22C55E;
 
 
 
-.withdraw-action span{
 
-background:rgba(255,255,255,.08);
+
+.withdraw-action span,
+.deposit-action span{
+
+background:rgba(255,255,255,.10);
 
 }
 
 
 
-.deposit-action span{
 
-background:rgba(255,255,255,.08);
+
+
+
+/* السجل */
+
+.wallet-history{
+
+margin-top:18px;
+
+}
+
+
+
+.wallet-history a{
+
+height:60px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:16px;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+gap:10px;
+
+text-decoration:none;
+
+color:white;
+
+font-size:18px;
+
+}
+
+
+
+.wallet-history svg{
+
+width:26px;
+
+height:26px;
+
+stroke:#1687FF;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+
+
+
+
+/* الشريط السفلي */
+
+.wallet-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:75px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+}
+
+
+
+.wallet-nav a{
+
+color:#98A5B8;
+
+text-decoration:none;
+
+font-size:13px;
+
+text-align:center;
+
+}
+
+
+
+.wallet-nav .active{
+
+color:#1687FF;
+
+}
+
+
+
+.nav-wallet-icon{
+
+width:30px;
+
+height:30px;
 
 }
