@@ -9,14 +9,11 @@
 
 <title>VALORA | الإيداع</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/deposit.css">
 
 </head>
-
 
 
 <body class="valora-deposit">
@@ -29,9 +26,7 @@
 <header class="deposit-header">
 
 <div class="deposit-logo">
-
 VALORA
-
 </div>
 
 </header>
@@ -40,36 +35,21 @@ VALORA
 
 
 
-
-
-
 <section class="deposit-title">
 
-
 <div class="deposit-icon">
-
 ↓
-
 </div>
 
-
 <h2>
-
 إيداع العملات
-
 </h2>
 
-
 <p>
-
 اختر العملة والشبكة للإيداع
-
 </p>
 
-
 </section>
-
-
 
 
 
@@ -81,36 +61,16 @@ VALORA
 
 
 
-
-
-<button class="deposit-coin active">
-
+<button class="deposit-coin active" onclick="selectCoin('USDT')">
 
 <div class="deposit-coin-icon usdt">
-
 ₮
-
 </div>
-
 
 <div>
-
-<strong>
-
-USDT
-
-</strong>
-
-
-<small>
-
-Tether
-
-</small>
-
-
+<strong>USDT</strong>
+<small>Tether</small>
 </div>
-
 
 </button>
 
@@ -118,36 +78,16 @@ Tether
 
 
 
-
-
-<button class="deposit-coin">
-
+<button class="deposit-coin" onclick="selectCoin('BTC')">
 
 <div class="deposit-coin-icon btc">
-
 ₿
-
 </div>
-
 
 <div>
-
-<strong>
-
-BTC
-
-</strong>
-
-
-<small>
-
-Bitcoin
-
-</small>
-
-
+<strong>BTC</strong>
+<small>Bitcoin</small>
 </div>
-
 
 </button>
 
@@ -155,36 +95,16 @@ Bitcoin
 
 
 
-
-
-<button class="deposit-coin">
-
+<button class="deposit-coin" onclick="selectCoin('ETH')">
 
 <div class="deposit-coin-icon eth">
-
 ◆
-
 </div>
-
 
 <div>
-
-<strong>
-
-ETH
-
-</strong>
-
-
-<small>
-
-Ethereum
-
-</small>
-
-
+<strong>ETH</strong>
+<small>Ethereum</small>
 </div>
-
 
 </button>
 
@@ -192,41 +112,18 @@ Ethereum
 
 
 
-
-
-
-<button class="deposit-coin">
-
+<button class="deposit-coin" onclick="selectCoin('BNB')">
 
 <div class="deposit-coin-icon bnb">
-
 ◆
-
 </div>
-
 
 <div>
-
-<strong>
-
-BNB
-
-</strong>
-
-
-<small>
-
-Binance
-
-</small>
-
-
+<strong>BNB</strong>
+<small>Binance</small>
 </div>
 
-
 </button>
-
-
 
 
 
@@ -239,39 +136,26 @@ Binance
 
 
 
-
 <section class="deposit-card">
 
 
-
-
-
 <h3>
-
 شبكة الإيداع
-
 </h3>
-
-
 
 
 
 <div class="network-buttons">
 
 
-<button class="network active">
-
+<button class="network active" onclick="selectNetwork(this,'TRC20')">
 TRC20
-
 </button>
 
 
-<button class="network">
-
+<button class="network" onclick="selectNetwork(this,'ERC20')">
 ERC20
-
 </button>
-
 
 
 </div>
@@ -283,15 +167,9 @@ ERC20
 
 
 
-
 <h3>
-
 عنوان الإيداع
-
 </h3>
-
-
-
 
 
 
@@ -307,16 +185,14 @@ value="TXXXXXXXXXXXXXXXXXXXXXXXX"
 readonly>
 
 
+
 <button onclick="copyDeposit()">
-
 نسخ
-
 </button>
 
 
+
 </div>
-
-
 
 
 
@@ -326,15 +202,9 @@ readonly>
 
 <div class="deposit-warning">
 
-
 ⚠️ تأكد من اختيار الشبكة الصحيحة قبل إرسال العملات.
 
-
 </div>
-
-
-
-
 
 
 
@@ -352,51 +222,34 @@ readonly>
 
 
 <a href="dashboard.html">
-
 ⌂
 <br>
 الرئيسية
-
 </a>
-
 
 
 <a href="wallet.html">
-
 ▣
 <br>
 المحفظة
-
 </a>
-
 
 
 <a href="team.html">
-
 ♟
 <br>
 الفريق
-
 </a>
-
 
 
 <a href="settings.html">
-
 ⚙
 <br>
 الإعدادات
-
 </a>
 
 
-
 </nav>
-
-
-
-
-
 
 
 
@@ -411,8 +264,99 @@ readonly>
 
 
 
-
 <script>
+
+
+let currentCoin="USDT";
+let currentNetwork="TRC20";
+
+
+
+let addresses={
+
+USDT:{
+TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
+ERC20:"0xUSDTXXXXXXXXXXXXXXXX"
+},
+
+BTC:{
+TRC20:"bc1BTCXXXXXXXXXXXXXXXX",
+ERC20:"bc1BTCERCXXXXXXXXXXXXXXXX"
+},
+
+ETH:{
+TRC20:"0xETHXXXXXXXXXXXXXXXX",
+ERC20:"0xETHERCXXXXXXXXXXXXXXXX"
+},
+
+BNB:{
+TRC20:"bnbXXXXXXXXXXXXXXXX",
+ERC20:"0xBNBXXXXXXXXXXXXXXXX"
+}
+
+};
+
+
+
+
+
+function selectCoin(coin){
+
+
+currentCoin=coin;
+
+
+document.querySelectorAll(".deposit-coin")
+.forEach(btn=>btn.classList.remove("active"));
+
+
+event.currentTarget.classList.add("active");
+
+
+updateAddress();
+
+
+}
+
+
+
+
+
+
+function selectNetwork(button,network){
+
+
+currentNetwork=network;
+
+
+document.querySelectorAll(".network")
+.forEach(btn=>btn.classList.remove("active"));
+
+
+button.classList.add("active");
+
+
+updateAddress();
+
+
+}
+
+
+
+
+
+function updateAddress(){
+
+
+document.getElementById("depositAddress").value =
+addresses[currentCoin][currentNetwork];
+
+
+}
+
+
+
+
 
 
 function copyDeposit(){
@@ -432,11 +376,6 @@ alert("تم نسخ عنوان الإيداع");
 
 
 </script>
-
-
-
-
-
 
 
 
