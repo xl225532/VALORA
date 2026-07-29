@@ -1,340 +1,320 @@
-.valora-deposit *{
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
+<head>
 
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | الإيداع</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/deposit.css">
+
+</head>
+
+
+<body class="valora-deposit">
+
+
+<div class="deposit-container">
+
+
+
+<header class="deposit-header">
+
+<div class="deposit-logo">
+VALORA
+</div>
+
+</header>
+
+
+
+
+
+<section class="deposit-title">
+
+<div class="deposit-icon">
+↓
+</div>
+
+<h2>
+إيداع العملات
+</h2>
+
+<p>
+اختر العملة والشبكة للإيداع
+</p>
+
+</section>
+
+
+
+
+
+
+
+<section class="deposit-coins">
+
+
+
+<button class="deposit-coin active" onclick="selectCoin('USDT')">
+
+<div class="deposit-coin-icon usdt">
+₮
+</div>
+
+<div>
+<strong>USDT</strong>
+<small>Tether</small>
+</div>
+
+</button>
+
+
+
+
+
+<button class="deposit-coin" onclick="selectCoin('BTC')">
+
+<div class="deposit-coin-icon btc">
+₿
+</div>
+
+<div>
+<strong>BTC</strong>
+<small>Bitcoin</small>
+</div>
+
+</button>
+
+
+
+
+
+<button class="deposit-coin" onclick="selectCoin('ETH')">
+
+<div class="deposit-coin-icon eth">
+◆
+</div>
+
+<div>
+<strong>ETH</strong>
+<small>Ethereum</small>
+</div>
+
+</button>
+
+
+
+
+
+<button class="deposit-coin" onclick="selectCoin('BNB')">
+
+<div class="deposit-coin-icon bnb">
+◆
+</div>
+
+<div>
+<strong>BNB</strong>
+<small>Binance</small>
+</div>
+
+</button>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="deposit-card">
+
+
+<h3>
+شبكة الإيداع
+</h3>
+
+
+
+<div class="network-buttons">
+
+
+<button class="network active" onclick="selectNetwork(this,'TRC20')">
+TRC20
+</button>
+
+
+<button class="network" onclick="selectNetwork(this,'ERC20')">
+ERC20
+</button>
+
+
+</div>
+
+
+
+
+
+
+
+
+<h3>
+عنوان الإيداع
+</h3>
+
+
+
+
+
+<div class="address-area">
+
+
+<input 
+type="text"
+id="depositAddress"
+value="TXXXXXXXXXXXXXXXXXXXXXXXX"
+readonly>
+
+
+
+<button onclick="copyDeposit()">
+نسخ
+</button>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="deposit-warning">
+
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل إرسال العملات.
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<nav class="deposit-nav">
+
+
+<a href="dashboard.html">
+⌂
+<br>
+الرئيسية
+</a>
+
+
+<a href="wallet.html">
+▣
+<br>
+المحفظة
+</a>
+
+
+<a href="team.html">
+♟
+<br>
+الفريق
+</a>
+
+
+<a href="settings.html">
+⚙
+<br>
+الإعدادات
+</a>
+
+
+</nav>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+let currentCoin="USDT";
+let currentNetwork="TRC20";
+
+
+
+let addresses={
+
+USDT:{
+TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
+ERC20:"0xUSDTXXXXXXXXXXXXXXXX"
+},
+
+BTC:{
+TRC20:"bc1BTCXXXXXXXXXXXXXXXX",
+ERC20:"bc1BTCERCXXXXXXXXXXXXXXXX"
+},
+
+ETH:{
+TRC20:"0xETHXXXXXXXXXXXXXXXX",
+ERC20:"0xETHERCXXXXXXXXXXXXXXXX"
+},
+
+BNB:{
+TRC20:"bnbXXXXXXXXXXXXXXXX",
+ERC20:"0xBNBXXXXXXXXXXXXXXXX"
 }
 
+};
 
 
-.valora-deposit{
 
-background:#050B16;
 
-color:white;
 
-min-height:100vh;
+function selectCoin(coin){
 
-}
 
+currentCoin=coin;
 
 
+document.querySelectorAll(".deposit-coin")
+.forEach(btn=>btn.classList.remove("active"));
 
 
-.deposit-container{
+event.currentTarget.classList.add("active");
 
-max-width:480px;
 
-margin:auto;
+updateAddress();
 
-padding:18px 15px 100px;
-
-}
-
-
-
-
-
-
-
-.deposit-header{
-
-display:flex;
-
-justify-content:center;
-
-margin-bottom:20px;
-
-}
-
-
-
-.deposit-logo{
-
-font-size:32px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:0 0 10px #1687FF;
-
-}
-
-
-
-
-
-
-
-
-.deposit-title{
-
-text-align:center;
-
-margin-bottom:20px;
-
-}
-
-
-
-.deposit-icon{
-
-width:55px;
-
-height:55px;
-
-border-radius:50%;
-
-background:#22C55E;
-
-margin:auto;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:28px;
-
-}
-
-
-
-.deposit-title h2{
-
-margin-top:12px;
-
-font-size:22px;
-
-}
-
-
-
-.deposit-title p{
-
-font-size:13px;
-
-color:#98A5B8;
-
-}
-
-
-
-
-
-
-
-
-
-.deposit-coins{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
-
-}
-
-
-
-
-
-
-.deposit-coin{
-
-height:70px;
-
-width:100%;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:16px;
-
-display:flex;
-
-align-items:center;
-
-padding:12px;
-
-color:white;
-
-direction:ltr;
-
-}
-
-
-
-
-.deposit-coin-icon{
-
-width:45px;
-
-height:45px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:22px;
-
-font-weight:bold;
-
-margin-left:12px;
-
-}
-
-
-
-.deposit-coin strong{
-
-display:block;
-
-direction:rtl;
-
-}
-
-
-
-.deposit-coin small{
-
-display:block;
-
-direction:rtl;
-
-color:#98A5B8;
-
-}
-
-
-
-
-
-.usdt{
-
-background:#26A17B;
-
-}
-
-
-
-.btc{
-
-background:#F7931A;
-
-}
-
-
-
-.eth{
-
-background:#627EEA;
-
-}
-
-
-
-.bnb{
-
-background:#F3BA2F;
-
-color:#111;
-
-}
-
-
-
-
-
-
-
-
-
-.deposit-card{
-
-margin-top:20px;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:20px;
-
-padding:18px;
-
-}
-
-
-
-
-
-.deposit-card h3{
-
-font-size:15px;
-
-margin-bottom:12px;
-
-color:#EAF3FF;
-
-}
-
-
-
-
-
-
-
-.network-buttons{
-
-display:flex;
-
-gap:10px;
-
-margin-bottom:20px;
-
-}
-
-
-
-
-
-.network{
-
-flex:1;
-
-padding:12px;
-
-border-radius:12px;
-
-border:1px solid #17365C;
-
-background:#071426;
-
-color:white;
-
-font-weight:bold;
-
-}
-
-
-
-.network.active{
-
-background:#1687FF;
-
-border-color:#1687FF;
 
 }
 
@@ -343,14 +323,21 @@ border-color:#1687FF;
 
 
 
+function selectNetwork(button,network){
 
 
+currentNetwork=network;
 
-.address-area{
 
-display:flex;
+document.querySelectorAll(".network")
+.forEach(btn=>btn.classList.remove("active"));
 
-gap:8px;
+
+button.classList.add("active");
+
+
+updateAddress();
+
 
 }
 
@@ -358,44 +345,12 @@ gap:8px;
 
 
 
-.address-area input{
-
-flex:1;
-
-padding:12px;
-
-background:#071426;
-
-border:1px solid #20344F;
-
-border-radius:10px;
-
-color:white;
-
-font-size:13px;
-
-direction:ltr;
-
-}
+function updateAddress(){
 
 
+document.getElementById("depositAddress").value =
+addresses[currentCoin][currentNetwork];
 
-
-
-
-.address-area button{
-
-width:70px;
-
-border:0;
-
-border-radius:10px;
-
-background:#22C55E;
-
-color:white;
-
-font-weight:bold;
 
 }
 
@@ -404,68 +359,26 @@ font-weight:bold;
 
 
 
+function copyDeposit(){
 
-.deposit-warning{
 
-margin-top:18px;
+let address =
+document.getElementById("depositAddress").value;
 
-padding:14px;
 
-border-radius:12px;
+navigator.clipboard.writeText(address);
 
-background:#071426;
 
-color:#FACC15;
+alert("تم نسخ عنوان الإيداع");
 
-font-size:13px;
-
-text-align:center;
 
 }
 
 
+</script>
 
 
 
+</body>
 
-
-
-.deposit-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:100%;
-
-max-width:480px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:12px;
-
-}
-
-
-
-.deposit-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-}
+</html>
