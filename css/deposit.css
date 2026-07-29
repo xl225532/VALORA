@@ -28,7 +28,7 @@ background:#050B16;
 width:100%;
 min-height:100vh;
 
-padding:18px 15px 30px;
+padding:12px 12px 25px;
 
 overflow-x:hidden;
 
@@ -41,14 +41,14 @@ overflow-x:hidden;
 .deposit-header{
 
 text-align:center;
-margin-bottom:20px;
+margin-bottom:12px;
 
 }
 
 
 .deposit-logo{
 
-font-size:32px;
+font-size:28px;
 font-weight:800;
 letter-spacing:3px;
 
@@ -68,15 +68,15 @@ text-shadow:0 0 12px #1687FF;
 
 text-align:center;
 
-margin-bottom:20px;
+margin-bottom:14px;
 
 }
 
 
 .deposit-icon{
 
-width:45px;
-height:45px;
+width:38px;
+height:38px;
 
 margin:auto;
 
@@ -90,16 +90,16 @@ align-items:center;
 
 justify-content:center;
 
-font-size:28px;
+font-size:23px;
 
 }
 
 
 .deposit-title h2{
 
-margin-top:12px;
+margin-top:8px;
 
-font-size:24px;
+font-size:21px;
 
 }
 
@@ -108,7 +108,7 @@ font-size:24px;
 
 color:#98A5B8;
 
-font-size:15px;
+font-size:13px;
 
 }
 
@@ -124,30 +124,30 @@ display:grid;
 
 grid-template-columns:1fr 1fr;
 
-gap:12px;
+gap:10px;
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 }
 
 
 .deposit-coin{
 
-height:75px;
+height:62px;
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:18px;
+border-radius:15px;
 
 display:flex;
 
 align-items:center;
 
-gap:12px;
+gap:9px;
 
-padding:12px;
+padding:9px;
 
 color:white;
 
@@ -166,9 +166,9 @@ border:2px solid #1687FF;
 
 .deposit-coin-icon{
 
-width:42px;
+width:34px;
 
-height:42px;
+height:34px;
 
 border-radius:50%;
 
@@ -178,7 +178,7 @@ align-items:center;
 
 justify-content:center;
 
-font-size:24px;
+font-size:16px;
 
 font-weight:bold;
 
@@ -206,9 +206,18 @@ background:#6366F1;
 }
 
 
-.bnb{
+.trx{
 
-background:#EAB308;
+background:#EF4444;
+
+font-size:12px;
+
+}
+
+
+.deposit-coin strong{
+
+font-size:14px;
 
 }
 
@@ -219,12 +228,9 @@ display:block;
 
 color:#98A5B8;
 
+font-size:11px;
+
 }
-
-
-
-
-
 /* بطاقة الإيداع */
 
 .deposit-card{
@@ -233,18 +239,18 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:20px;
+border-radius:18px;
 
-padding:18px;
+padding:14px;
 
 }
 
 
 .deposit-card h3{
 
-font-size:18px;
+font-size:16px;
 
-margin-bottom:12px;
+margin-bottom:10px;
 
 }
 
@@ -258,9 +264,9 @@ margin-bottom:12px;
 
 display:flex;
 
-gap:10px;
+gap:8px;
 
-margin-bottom:20px;
+margin-bottom:15px;
 
 }
 
@@ -269,15 +275,17 @@ margin-bottom:20px;
 
 flex:1;
 
-height:45px;
+height:40px;
 
 background:#111D32;
 
 border:1px solid #17365C;
 
-border-radius:12px;
+border-radius:10px;
 
 color:white;
+
+font-size:14px;
 
 font-weight:bold;
 
@@ -304,9 +312,9 @@ border-color:#1687FF;
 
 display:flex;
 
-gap:8px;
+gap:6px;
 
-margin-bottom:15px;
+margin-bottom:12px;
 
 }
 
@@ -315,19 +323,19 @@ margin-bottom:15px;
 
 flex:1;
 
-height:45px;
+height:40px;
 
 background:#050B16;
 
 border:1px solid #17365C;
 
-border-radius:12px;
+border-radius:10px;
 
 color:white;
 
-padding:10px;
+padding:8px;
 
-font-size:13px;
+font-size:12px;
 
 }
 
@@ -335,17 +343,19 @@ font-size:13px;
 
 .address-area button{
 
-width:70px;
+width:60px;
 
-height:45px;
+height:40px;
 
 border:0;
 
-border-radius:12px;
+border-radius:10px;
 
 background:#22C55E;
 
 color:white;
+
+font-size:13px;
 
 font-weight:bold;
 
@@ -364,15 +374,15 @@ background:#111D32;
 
 border:1px solid #17365C;
 
-border-radius:14px;
+border-radius:12px;
 
-padding:14px;
+padding:11px;
 
 color:#FACC15;
 
-font-size:14px;
+font-size:12px;
 
-line-height:1.8;
+line-height:1.7;
 
 text-align:center;
 
