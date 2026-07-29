@@ -1,390 +1,52 @@
-.wallet-page *{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
-
-}
-
-
-.wallet-page{
-
-background:#050B16;
-
-min-height:100vh;
-
-color:white;
-
-padding:18px 15px 100px;
-
-}
-
-
-
-
-.wallet-header{
-
-display:flex;
-
-justify-content:center;
-
-margin-bottom:15px;
-
-}
-
-
-
-.wallet-brand{
-
-font-size:32px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:0 0 12px #1687FF;
-
-}
-
-
-
-
-
-
-.wallet-balance{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:20px;
-
-padding:15px;
-
-text-align:center;
-
-margin-bottom:15px;
-
-}
-
-
-
-.balance-label{
-
-color:#98A5B8;
-
-font-size:14px;
-
-}
-
-
-
-.balance-value{
-
-margin-top:8px;
-
-font-size:32px;
-
-font-weight:700;
-
-color:#22C55E;
-
-}
-
-
-
-.balance-value span{
-
-font-size:16px;
-
-}
-
-
-
-
-
-
-
-.profit-grid{
-
-display:grid;
-
-grid-template-columns:1fr 1fr;
-
-gap:12px;
-
-}
-
-
-
-.profit-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:15px 8px;
-
-text-align:center;
-
-}
-
-
-
-.profit-card span{
-
-display:block;
-
-font-size:13px;
-
-color:#98A5B8;
-
-margin-bottom:8px;
-
-}
-
-
-
-.profit-card strong{
-
-font-size:15px;
-
-color:#22C55E;
-
-}
-
-
-
-
-
-
-
-/* أزرار السحب والإيداع */
-
 .wallet-actions{
-
-display:flex;
-
-gap:15px;
-
-margin-top:20px;
-
+    display:flex;
+    gap:15px;
+    margin-top:20px;
 }
-
-
 
 .wallet-actions button{
+    flex:1;
+    height:90px;
+    border-radius:20px;
+    border:1px solid #17365C;
+    background:#0B1628;
+    color:white;
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    font-size:16px;
+    font-weight:700;
+}
 
-height:85px;
+.wallet-actions button span{
+    width:40px;
+    height:40px;
+    border-radius:50%;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:25px;
+}
 
-flex:1;
 
-border-radius:20px;
+.wallet-actions .withdraw-action{
+    box-shadow:0 0 15px rgba(22,135,255,.35);
+}
 
-border:1px solid #17365C;
 
-background:#0B1628;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-justify-content:center;
-
-gap:6px;
-
-color:white;
-
-font-size:15px;
-
-font-weight:700;
-
+.wallet-actions .withdraw-action span{
+    background:#1687FF;
 }
 
 
 
-.wallet-actions span{
-
-width:38px;
-
-height:38px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:24px;
-
-color:white;
-
+.wallet-actions .deposit-action{
+    box-shadow:0 0 15px rgba(34,197,94,.35);
 }
 
 
-
-.withdraw-action{
-
-box-shadow:0 0 15px rgba(22,135,255,.25);
-
-}
-
-
-
-.withdraw-action span{
-
-background:#1687FF;
-
-}
-
-
-
-.deposit-action{
-
-box-shadow:0 0 15px rgba(34,197,94,.25);
-
-}
-
-
-
-.deposit-action span{
-
-background:#22C55E;
-
-}
-
-
-
-
-
-
-
-
-/* السجل */
-
-.wallet-history{
-
-margin-top:15px;
-
-}
-
-
-
-.wallet-history a{
-
-height:65px;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-gap:12px;
-
-color:#EAF3FF;
-
-text-decoration:none;
-
-font-size:16px;
-
-font-weight:600;
-
-}
-
-
-
-.wallet-history svg{
-
-width:28px;
-
-height:28px;
-
-stroke:#1687FF;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-
-
-
-
-/* الشريط السفلي */
-
-.wallet-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:100%;
-
-max-width:480px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:10px;
-
-}
-
-
-
-.wallet-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-}
-
-
-
-.wallet-nav .active{
-
-color:#1687FF;
-
-}
-
-
-
-.nav-wallet-icon{
-
-width:27px;
-
-height:27px;
-
+.wallet-actions .deposit-action span{
+    background:#22C55E;
 }
