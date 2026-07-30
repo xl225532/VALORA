@@ -3,7 +3,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,Tahoma,sans-serif;
+font-family:'Cairo',Arial,sans-serif;
 
 }
 
@@ -13,27 +13,21 @@ body{
 
 background:#050B16;
 
-min-height:100vh;
-
 color:white;
 
-padding:15px;
+min-height:100vh;
 
 }
 
 
 
+.password-page{
 
-
-.dashboard{
-
-width:100%;
-
-max-width:420px;
+max-width:480px;
 
 margin:auto;
 
-padding-bottom:90px;
+padding:18px 15px 90px;
 
 }
 
@@ -41,257 +35,126 @@ padding-bottom:90px;
 
 
 
+/* HEADER */
 
-
-/* الهيدر */
-
-
-.header{
-
-display:flex;
-
-justify-content:center;
-
-padding:15px 0;
-
-}
-
-
-
-.brand{
-
-font-size:30px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:0 0 10px #1687FF;
-
-}
-
-
-
-
-
-
-
-/* عنوان الصفحة */
-
-
-.page-title{
-
-text-align:center;
-
-margin:15px 0 25px;
-
-}
-
-
-
-.icon-box{
-
-width:55px;
-
-height:55px;
-
-margin:auto;
-
-border-radius:50%;
-
-background:#1687FF;
+.page-header{
 
 display:flex;
 
 align-items:center;
 
-justify-content:center;
+gap:15px;
 
-font-size:25px;
-
-box-shadow:0 0 20px rgba(22,135,255,.35);
+margin-bottom:22px;
 
 }
 
 
 
-.page-title h2{
+.page-header a{
 
-margin-top:12px;
+color:white;
 
-font-size:22px;
+font-size:38px;
+
+text-decoration:none;
 
 }
 
 
 
-.page-title p{
+.page-header h2{
+
+font-size:20px;
+
+}
+
+
+
+
+
+
+/* TOP CARD */
+
+
+.password-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:20px;
+
+padding:20px;
+
+text-align:center;
+
+margin-bottom:18px;
+
+}
+
+
+
+.icon{
+
+font-size:45px;
+
+margin-bottom:10px;
+
+}
+
+
+
+.password-card h3{
+
+font-size:18px;
+
+}
+
+
+
+.password-card p{
 
 color:#98A5B8;
 
 font-size:13px;
 
-}
-
-
-
-
-
-
-
-/* السجل */
-
-
-.history-list{
-
-display:flex;
-
-flex-direction:column;
-
-gap:15px;
+margin-top:8px;
 
 }
 
 
 
-.history-card{
+
+
+
+
+/* FORM */
+
+
+.form-card{
 
 background:#0B1628;
 
-border:1px solid #17365c;
-
-border-radius:18px;
-
-padding:16px;
-
-box-shadow:0 0 20px rgba(0,0,0,.2);
-
-}
-
-
-
-
-
-
-
-.history-top{
-
-display:flex;
-
-align-items:center;
-
-gap:12px;
-
-}
-
-
-
-.coin-mini{
-
-width:42px;
-
-height:42px;
-
-border-radius:50%;
-
-display:flex;
-
-align-items:center;
-
-justify-content:center;
-
-font-size:22px;
-
-font-weight:bold;
-
-}
-
-
-
-.usdt{
-
-background:#22C55E;
-
-}
-
-
-
-.coin-info{
-
-flex:1;
-
-}
-
-
-
-.coin-info strong{
-
-display:block;
-
-font-size:16px;
-
-}
-
-
-
-.coin-info small{
-
-color:#98A5B8;
-
-font-size:12px;
-
-}
-
-
-
-
-
-
-
-/* الحالات */
-
-
-.status{
-
-padding:5px 12px;
+border:1px solid #17365C;
 
 border-radius:20px;
 
-font-size:12px;
-
-font-weight:bold;
+padding:20px;
 
 }
 
 
 
-.complete{
+.form-card label{
 
-background:#22C55E;
+display:block;
 
-color:white;
+color:#AAB5C5;
 
-}
+font-size:14px;
 
-
-
-.rejected{
-
-background:#EF4444;
-
-color:white;
-
-}
-
-
-
-.pending{
-
-background:#F59E0B;
-
-color:white;
+margin:12px 0 8px;
 
 }
 
@@ -299,55 +162,104 @@ color:white;
 
 
 
-
-
-/* البيانات */
-
-
-.history-data{
-
-margin-top:15px;
-
-background:#071426;
-
-border-radius:12px;
-
-padding:10px;
-
-}
-
-
-
-.history-data p{
+.method-box{
 
 display:flex;
 
-justify-content:space-between;
-
-padding:7px 0;
-
-font-size:12px;
-
-border-bottom:1px solid #17365c;
-
-color:#98A5B8;
+gap:10px;
 
 }
 
 
 
-.history-data p:last-child{
+.method-box button{
 
-border:none;
+flex:1;
 
-}
+background:#071426;
 
-
-
-.history-data span{
+border:1px solid #17365C;
 
 color:white;
 
+border-radius:14px;
+
+padding:12px;
+
+font-size:13px;
+
+cursor:pointer;
+
+}
+
+
+
+.method-box button:hover{
+
+border-color:#1687FF;
+
+}
+
+
+
+
+
+
+.form-card input{
+
+
+width:100%;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:14px;
+
+padding:14px;
+
+color:white;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+
+
+.form-card input:focus{
+
+border-color:#1687FF;
+
+}
+
+
+
+
+
+.save-btn{
+
+width:100%;
+
+margin-top:25px;
+
+background:#1687FF;
+
+border:0;
+
+border-radius:15px;
+
+padding:15px;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+cursor:pointer;
+
 }
 
 
@@ -356,29 +268,26 @@ color:white;
 
 
 
-
-/* القائمة السفلية */
+/* BOTTOM NAV */
 
 
 .bottom-nav{
 
 position:fixed;
 
-bottom:15px;
+bottom:0;
 
 left:50%;
 
 transform:translateX(-50%);
 
-width:92%;
+max-width:480px;
 
-max-width:420px;
+width:100%;
 
 background:#0B1628;
 
-border:1px solid #17365c;
-
-border-radius:18px;
+border-top:1px solid #17365C;
 
 display:flex;
 
@@ -392,9 +301,9 @@ padding:10px;
 
 .bottom-nav a{
 
-text-decoration:none;
-
 color:#98A5B8;
+
+text-decoration:none;
 
 font-size:12px;
 
@@ -407,23 +316,5 @@ text-align:center;
 .bottom-nav a:hover{
 
 color:#1687FF;
-
-}
-
-
-
-
-
-
-
-@media(max-width:360px){
-
-
-.page-title h2{
-
-font-size:19px;
-
-}
-
 
 }
