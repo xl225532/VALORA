@@ -71,21 +71,12 @@ VALORA
 ₮
 </div>
 
-
 <div>
-
-<strong>
-USDT
-</strong>
-
-<small>
-TRC20
-</small>
-
+<strong>USDT</strong>
+<small>TRC20</small>
 </div>
 
 </button>
-
 
 
 
@@ -97,21 +88,12 @@ TRC20
 ₿
 </div>
 
-
 <div>
-
-<strong>
-BTC
-</strong>
-
-<small>
-Bitcoin
-</small>
-
+<strong>BTC</strong>
+<small>Bitcoin</small>
 </div>
 
 </button>
-
 
 
 
@@ -123,21 +105,12 @@ Bitcoin
 ◆
 </div>
 
-
 <div>
-
-<strong>
-ETH
-</strong>
-
-<small>
-Ethereum
-</small>
-
+<strong>ETH</strong>
+<small>Ethereum</small>
 </div>
 
 </button>
-
 
 
 
@@ -149,17 +122,9 @@ Ethereum
 TRX
 </div>
 
-
 <div>
-
-<strong>
-TRX
-</strong>
-
-<small>
-TRON
-</small>
-
+<strong>TRX</strong>
+<small>TRON</small>
 </div>
 
 </button>
@@ -191,7 +156,6 @@ placeholder="أدخل عنوان المحفظة">
 
 
 
-
 <div class="withdraw-input">
 
 
@@ -209,7 +173,7 @@ placeholder="أدخل المبلغ">
 
 <div class="fee-note">
 
-رسوم السحب:
+رسوم السحب
 
 <br>
 
@@ -263,7 +227,6 @@ placeholder="أدخل المبلغ">
 
 
 
-
 <div>
 
 <span>
@@ -277,7 +240,9 @@ placeholder="أدخل المبلغ">
 </div>
 
 
+
 </div>
+
 
 
 
@@ -317,7 +282,6 @@ placeholder="أدخل المبلغ">
 
 
 
-
 <div id="rejectBox" class="withdraw-status reject">
 
 
@@ -347,7 +311,6 @@ placeholder="أدخل المبلغ">
 
 
 </section>
-
 
 
 
@@ -405,15 +368,12 @@ placeholder="أدخل المبلغ">
 
 
 
-
-
 <script>
 
 
 let currentCoin = "USDT";
 
 let feePercent = 20;
-
 
 
 
@@ -441,7 +401,6 @@ button.classList.add("active");
 
 document.getElementById("receiveAmount").innerHTML =
 "0.00 " + currentCoin;
-
 
 
 }
@@ -479,7 +438,7 @@ receive = 0;
 
 
 document.getElementById("feeAmount").innerHTML =
-feePercent + "%";
+feePercent+"%";
 
 
 
@@ -500,7 +459,6 @@ receive.toFixed(2)+" "+currentCoin;
 function submitWithdraw(){
 
 
-
 let address =
 document.getElementById("withdrawAddress").value;
 
@@ -511,13 +469,9 @@ document.getElementById("withdrawAmount").value;
 
 
 
-
-
 document.getElementById("successBox").style.display="none";
 
 document.getElementById("rejectBox").style.display="none";
-
-
 
 
 
@@ -531,7 +485,6 @@ document.getElementById("rejectBox").style.display="block";
 return;
 
 }
-
 
 
 
@@ -584,8 +537,6 @@ document.getElementById("successBox").style.display="block";
 
 
 </script>
-
-
 
 
 
