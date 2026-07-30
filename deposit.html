@@ -22,6 +22,7 @@
 <div class="deposit-container">
 
 
+
 <header class="deposit-header">
 
 <div class="deposit-logo">
@@ -29,6 +30,8 @@ VALORA
 </div>
 
 </header>
+
+
 
 
 
@@ -54,7 +57,11 @@ VALORA
 
 
 
+
+
+
 <section class="deposit-coins">
+
 
 
 <button class="deposit-coin active" onclick="selectCoin('USDT',this)">
@@ -69,6 +76,8 @@ VALORA
 </div>
 
 </button>
+
+
 
 
 
@@ -89,6 +98,8 @@ VALORA
 
 
 
+
+
 <button class="deposit-coin" onclick="selectCoin('ETH',this)">
 
 <div class="deposit-coin-icon eth">
@@ -101,6 +112,8 @@ VALORA
 </div>
 
 </button>
+
+
 
 
 
@@ -119,8 +132,8 @@ TRX
 </button>
 
 
-</section>
 
+</section>
 <section class="deposit-card">
 
 
@@ -130,16 +143,6 @@ TRX
 
 
 <div class="network-buttons" id="networkBox">
-
-
-<button class="network active">
-TRC20
-</button>
-
-
-<button class="network">
-ERC20
-</button>
 
 
 </div>
@@ -162,13 +165,15 @@ ERC20
 <input 
 type="text"
 id="depositAddress"
-value="TXXXXXXXXXXXXXXXXXXXXXXXX"
+value=""
 readonly>
 
 
 
 <button onclick="copyDeposit()">
+
 نسخ
+
 </button>
 
 
@@ -182,7 +187,7 @@ readonly>
 
 <div class="deposit-warning">
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.  
 إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
 
 <br><br>
@@ -190,6 +195,7 @@ readonly>
 الحد الأدنى للإيداع: 100 USDT
 
 </div>
+
 
 
 </section>
@@ -204,16 +210,19 @@ readonly>
 
 
 
+
 <script>
 
 
-let currentCoin = "USDT";
+let currentCoin="USDT";
 
-let currentNetwork = "TRC20";
+let currentNetwork="TRC20";
 
 
 
-let coinNetworks = {
+
+
+let coinNetworks={
 
 
 USDT:[
@@ -243,7 +252,9 @@ TRX:[
 
 
 
-let addresses = {
+
+
+let addresses={
 
 
 USDT:{
@@ -282,10 +293,13 @@ TRC20:"TXTRONXXXXXXXXXXXXXXXX"
 
 
 
+
+
+
 function selectCoin(coin,button){
 
 
-currentCoin = coin;
+currentCoin=coin;
 
 
 
@@ -311,10 +325,11 @@ updateAddress();
 
 
 
+
 function loadNetworks(){
 
 
-let box = document.getElementById("networkBox");
+let box=document.getElementById("networkBox");
 
 
 box.innerHTML="";
@@ -327,18 +342,23 @@ coinNetworks[currentCoin].forEach((network,index)=>{
 let btn=document.createElement("button");
 
 
+
 btn.className="network";
 
 
-btn.innerHTML=network;
+
+btn.innerText=network;
 
 
 
 if(index===0){
 
+
 btn.classList.add("active");
 
+
 currentNetwork=network;
+
 
 }
 
@@ -346,7 +366,9 @@ currentNetwork=network;
 
 btn.onclick=function(){
 
+
 selectNetwork(this,network);
+
 
 };
 
@@ -360,6 +382,7 @@ box.appendChild(btn);
 
 
 }
+
 
 
 
@@ -385,7 +408,9 @@ button.classList.add("active");
 updateAddress();
 
 
+
 }
+
 
 
 
@@ -406,6 +431,7 @@ addresses[currentCoin][currentNetwork];
 
 
 
+
 function copyDeposit(){
 
 
@@ -413,13 +439,25 @@ let address =
 document.getElementById("depositAddress").value;
 
 
+
 navigator.clipboard.writeText(address);
+
 
 
 alert("تم نسخ عنوان الإيداع");
 
 
 }
+
+
+
+
+
+
+
+loadNetworks();
+
+updateAddress();
 
 
 </script>
