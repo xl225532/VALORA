@@ -15,12 +15,10 @@
 
 <link rel="stylesheet" href="css/dashboard.css">
 
-
 </head>
 
 
 <body>
-
 
 
 <div class="dashboard">
@@ -43,11 +41,11 @@ VALORA
 </h3>
 
 
-
 <button onclick="closeMenu()">
-×
-</button>
 
+×
+
+</button>
 
 
 </div>
@@ -61,25 +59,34 @@ VALORA
 <div class="side-links">
 
 
+
 <a href="security.html">
 
-🔐 رمز أمان السحب
+🔐
+
+رمز أمان السحب
 
 </a>
+
 
 
 
 <a href="verify.html">
 
-🪪 التحقق من الهوية
+🪪
+
+التحقق من الهوية
 
 </a>
 
 
 
+
 <a href="change-password.html">
 
-🔑 تغيير كلمة المرور
+🔑
+
+تغيير كلمة المرور
 
 </a>
 
@@ -88,7 +95,9 @@ VALORA
 
 <a href="support.html">
 
-💬 مراسلة العملاء
+💬
+
+مراسلة العملاء
 
 </a>
 
@@ -97,7 +106,9 @@ VALORA
 
 <a href="terms.html">
 
-📄 الشروط والأحكام
+📄
+
+الشروط والأحكام
 
 </a>
 
@@ -106,7 +117,9 @@ VALORA
 
 <a href="notifications.html">
 
-🔔 الإشعارات
+🔔
+
+الإشعارات
 
 </a>
 
@@ -119,8 +132,8 @@ VALORA
 
 
 
-
 <div class="logout" onclick="logout()">
+
 
 🚪 تسجيل الخروج
 
@@ -234,8 +247,8 @@ UID:
 
 
 
-
 <button onclick="copyUID()">
+
 
 
 <svg viewBox="0 0 24 24">
@@ -253,8 +266,8 @@ UID:
 </button>
 
 
-</div>
 
+</div>
 
 
 
@@ -265,13 +278,11 @@ UID:
 
 
 
-
 <section class="asset-card">
 
 
 
 <div class="asset-title">
-
 
 
 <span>
@@ -313,9 +324,7 @@ UID:
 
 <div id="balance" class="balance">
 
-
 0.00 <small>USDT</small>
-
 
 </div>
 
@@ -342,6 +351,7 @@ UID:
 ₿
 
 </span>
+
 
 
 
@@ -409,7 +419,6 @@ X
 
 
 
-
 <div class="coin-row" onclick="openTrade('BTC')">
 
 
@@ -418,6 +427,7 @@ X
 ₿
 
 </div>
+
 
 
 
@@ -451,6 +461,7 @@ Bitcoin
 
 
 
+
 <div class="up">
 
 ▲ 2.45%
@@ -468,6 +479,7 @@ Bitcoin
 
 
 
+
 <div class="coin-row" onclick="openTrade('ETH')">
 
 
@@ -476,6 +488,7 @@ Bitcoin
 ◆
 
 </div>
+
 
 
 
@@ -509,6 +522,7 @@ Ethereum
 
 
 
+
 <div class="down">
 
 ▼ 1.20%
@@ -526,7 +540,6 @@ Ethereum
 
 
 
-
 <div class="coin-row" onclick="openTrade('USDT')">
 
 
@@ -535,6 +548,7 @@ Ethereum
 ₮
 
 </div>
+
 
 
 
@@ -568,6 +582,7 @@ Tether
 
 
 
+
 <div class="up">
 
 ▲ 0.05%
@@ -594,6 +609,7 @@ Tether
 TRX
 
 </div>
+
 
 
 
@@ -627,6 +643,7 @@ TRON
 
 
 
+
 <div class="up">
 
 ▲ 1.20%
@@ -655,6 +672,7 @@ TRON
 <a class="active" href="dashboard.html">
 
 ⌂
+
 <br>
 
 الرئيسية
@@ -668,6 +686,7 @@ TRON
 <a href="wallet.html">
 
 ▣
+
 <br>
 
 المحفظة
@@ -681,6 +700,7 @@ TRON
 <a href="team.html">
 
 ♟
+
 <br>
 
 الفريق
@@ -688,6 +708,18 @@ TRON
 </a>
 
 
+
+
+
+<a href="settings.html">
+
+⚙
+
+<br>
+
+الإعدادات
+
+</a>
 
 
 
@@ -702,7 +734,6 @@ TRON
 
 
 <script>
-
 
 
 
@@ -743,7 +774,9 @@ function logout(){
 
 
 localStorage.removeItem(
+
 "VALORA_USER"
+
 );
 
 
@@ -778,9 +811,11 @@ let b=document.getElementById("balance");
 if(balanceHidden){
 
 
+
 b.innerHTML="0.00 <small>USDT</small>";
 
 balanceHidden=false;
+
 
 
 }
@@ -788,12 +823,15 @@ balanceHidden=false;
 else{
 
 
+
 b.innerHTML="***** <small>USDT</small>";
 
 balanceHidden=true;
 
 
+
 }
+
 
 
 }
@@ -816,6 +854,7 @@ navigator.clipboard.writeText(
 );
 
 
+
 }
 
 
@@ -828,9 +867,11 @@ navigator.clipboard.writeText(
 function openTrade(coin){
 
 
+
 window.location.href=
 
 "trade.html?coin="+coin;
+
 
 
 }
