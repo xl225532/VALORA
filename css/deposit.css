@@ -5,385 +5,272 @@ box-sizing:border-box;
 font-family:'Cairo',Arial,sans-serif;
 }
 
-
 html,body{
-
 width:100%;
 min-height:100%;
 background:#050B16;
-color:white;
-
+color:#fff;
 }
-
 
 .valora-deposit{
-
 background:#050B16;
-
 }
-
 
 .deposit-container{
-
 width:100%;
 min-height:100vh;
-
-padding:12px 12px 25px;
-
+padding:10px 12px 20px;
 overflow-x:hidden;
-
 }
-
-
 
 /* الرأس */
 
 .deposit-header{
-
 text-align:center;
-margin-bottom:12px;
-
+margin-bottom:10px;
 }
-
 
 .deposit-logo{
-
-font-size:28px;
+font-size:26px;
 font-weight:800;
-letter-spacing:3px;
-
+letter-spacing:2px;
 color:#EAF3FF;
-
-text-shadow:0 0 12px #1687FF;
-
+text-shadow:0 0 10px #1687FF;
 }
-
-
-
-
 
 /* العنوان */
 
 .deposit-title{
-
 text-align:center;
-
-margin-bottom:14px;
-
+margin-bottom:12px;
 }
-
 
 .deposit-icon{
-
-width:38px;
-height:38px;
-
+width:36px;
+height:36px;
 margin:auto;
-
 border-radius:50%;
-
 background:#22C55E;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
-font-size:23px;
-
+font-size:20px;
+font-weight:bold;
 }
-
 
 .deposit-title h2{
-
 margin-top:8px;
-
-font-size:21px;
-
+font-size:20px;
 }
-
 
 .deposit-title p{
-
-color:#98A5B8;
-
+margin-top:4px;
 font-size:13px;
-
+color:#98A5B8;
 }
-
-
-
-
 
 /* العملات */
 
 .deposit-coins{
-
 display:grid;
-
 grid-template-columns:1fr 1fr;
-
-gap:10px;
-
-margin-bottom:15px;
-
+gap:8px;
+margin-bottom:14px;
 }
-
 
 .deposit-coin{
-
-height:62px;
-
+height:58px;
 background:#0B1628;
-
 border:1px solid #17365C;
-
-border-radius:15px;
-
+border-radius:14px;
 display:flex;
-
 align-items:center;
-
-gap:9px;
-
-padding:9px;
-
-color:white;
-
+gap:8px;
+padding:8px;
+color:#fff;
 cursor:pointer;
-
+transition:.25s;
 }
-
 
 .deposit-coin.active{
-
 border:2px solid #1687FF;
-
+box-shadow:0 0 10px rgba(22,135,255,.25);
 }
-
-
 
 .deposit-coin-icon{
-
-width:34px;
-
-height:34px;
-
+width:32px;
+height:32px;
 border-radius:50%;
-
 display:flex;
-
 align-items:center;
-
 justify-content:center;
-
-font-size:16px;
-
-font-weight:bold;
-
+font-size:15px;
+font-weight:700;
+color:#fff;
+flex-shrink:0;
 }
-
 
 .usdt{
-
-background:#22C55E;
-
+background:#26A17B;
 }
-
 
 .btc{
-
-background:#F59E0B;
-
+background:#F7931A;
 }
-
 
 .eth{
-
-background:#6366F1;
-
+background:#627EEA;
 }
-
 
 .trx{
-
-background:#EF4444;
-
-font-size:12px;
-
+background:#EF0027;
 }
-
 
 .deposit-coin strong{
-
-font-size:14px;
-
+font-size:13px;
+display:block;
 }
-
 
 .deposit-coin small{
-
 display:block;
-
-color:#98A5B8;
-
-font-size:11px;
-
+font-size:10px;
+color:#9CA3AF;
 }
-/* بطاقة الإيداع */
-
-.deposit-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:14px;
-
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,sans-serif;
 }
 
+html,body{
+width:100%;
+min-height:100%;
+background:#050B16;
+color:#fff;
+}
 
-.deposit-card h3{
+.valora-deposit{
+background:#050B16;
+}
 
-font-size:16px;
+.deposit-container{
+width:100%;
+min-height:100vh;
+padding:10px 12px 20px;
+overflow-x:hidden;
+}
 
+/* الرأس */
+
+.deposit-header{
+text-align:center;
 margin-bottom:10px;
-
 }
 
-
-
-
-
-/* الشبكات */
-
-.network-buttons{
-
-display:flex;
-
-gap:8px;
-
-margin-bottom:15px;
-
+.deposit-logo{
+font-size:26px;
+font-weight:800;
+letter-spacing:2px;
+color:#EAF3FF;
+text-shadow:0 0 10px #1687FF;
 }
-
-
-.network{
-
-flex:1;
-
-height:40px;
-
-background:#111D32;
-
-border:1px solid #17365C;
-
-border-radius:10px;
-
-color:white;
-
-font-size:14px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-.network.active{
-
-background:#1687FF;
-
-border-color:#1687FF;
-
-}
-
-
-
-
 
 /* العنوان */
 
-.address-area{
-
-display:flex;
-
-gap:6px;
-
-margin-bottom:12px;
-
-}
-
-
-.address-area input{
-
-flex:1;
-
-height:40px;
-
-background:#050B16;
-
-border:1px solid #17365C;
-
-border-radius:10px;
-
-color:white;
-
-padding:8px;
-
-font-size:12px;
-
-}
-
-
-
-.address-area button{
-
-width:60px;
-
-height:40px;
-
-border:0;
-
-border-radius:10px;
-
-background:#22C55E;
-
-color:white;
-
-font-size:13px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-
-/* الملاحظة */
-
-.deposit-warning{
-
-background:#111D32;
-
-border:1px solid #17365C;
-
-border-radius:12px;
-
-padding:11px;
-
-color:#FACC15;
-
-font-size:12px;
-
-line-height:1.7;
-
+.deposit-title{
 text-align:center;
+margin-bottom:12px;
+}
 
+.deposit-icon{
+width:36px;
+height:36px;
+margin:auto;
+border-radius:50%;
+background:#22C55E;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:20px;
+font-weight:bold;
+}
+
+.deposit-title h2{
+margin-top:8px;
+font-size:20px;
+}
+
+.deposit-title p{
+margin-top:4px;
+font-size:13px;
+color:#98A5B8;
+}
+
+/* العملات */
+
+.deposit-coins{
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:8px;
+margin-bottom:14px;
+}
+
+.deposit-coin{
+height:58px;
+background:#0B1628;
+border:1px solid #17365C;
+border-radius:14px;
+display:flex;
+align-items:center;
+gap:8px;
+padding:8px;
+color:#fff;
+cursor:pointer;
+transition:.25s;
+}
+
+.deposit-coin.active{
+border:2px solid #1687FF;
+box-shadow:0 0 10px rgba(22,135,255,.25);
+}
+
+.deposit-coin-icon{
+width:32px;
+height:32px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:15px;
+font-weight:700;
+color:#fff;
+flex-shrink:0;
+}
+
+.usdt{
+background:#26A17B;
+}
+
+.btc{
+background:#F7931A;
+}
+
+.eth{
+background:#627EEA;
+}
+
+.trx{
+background:#EF0027;
+}
+
+.deposit-coin strong{
+font-size:13px;
+display:block;
+}
+
+.deposit-coin small{
+display:block;
+font-size:10px;
+color:#9CA3AF;
 }
