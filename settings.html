@@ -18,11 +18,11 @@
 <body>
 
 
-<div class="dashboard">
+<div class="settings-page">
 
 
 
-<header class="header">
+<header class="settings-header">
 
 <div class="brand">
 VALORA
@@ -34,20 +34,31 @@ VALORA
 
 
 
-
 <section class="profile-card">
 
 
-<div class="profile-name">
+<div class="avatar">
 
-Ahmed
+👤
 
 </div>
 
 
-<div class="profile-id">
 
-ID: VAL583921
+<div>
+
+<h3 id="userName">
+
+المستخدم
+
+</h3>
+
+
+<p id="userContact">
+
+---
+
+</p>
 
 </div>
 
@@ -60,88 +71,157 @@ ID: VAL583921
 
 
 
-
-<div class="settings-box">
-
+<section class="settings-list">
 
 
-<div class="settings-item">
+
+<a href="security.html" class="settings-item">
+
+<div>
+
+🔐
 
 <span>
-الاسم المستخدم
+رمز أمان السحب
 </span>
-
-<strong>
-Ahmed
-</strong>
 
 </div>
 
+<b>
+›
+</b>
+
+</a>
 
 
 
 
-<div class="settings-item">
+
+<a href="verify.html" class="settings-item">
+
+<div>
+
+🪪
 
 <span>
-البريد الإلكتروني
+التحقق من الهوية
 </span>
-
-<strong>
-example@email.com
-</strong>
 
 </div>
 
+<b>
+›
+</b>
+
+</a>
 
 
 
 
-<div class="settings-item">
+
+
+<a href="change-password.html" class="settings-item">
+
+<div>
+
+🔑
 
 <span>
-رقم الهاتف
+تغيير كلمة المرور
 </span>
-
-<strong>
-+964000000000
-</strong>
 
 </div>
 
+<b>
+›
+</b>
+
+</a>
 
 
 
 
-<div class="settings-item">
+
+
+<a href="notifications.html" class="settings-item">
+
+<div>
+
+🔔
+
+<span>
+الإشعارات
+</span>
+
+</div>
+
+<b>
+›
+</b>
+
+</a>
+
+
+
+
+
+
+<a href="support.html" class="settings-item">
+
+<div>
+
+💬
+
+<span>
+مراسلة العملاء
+</span>
+
+</div>
+
+<b>
+›
+</b>
+
+</a>
+
+
+
+
+
+
+<a href="terms.html" class="settings-item">
+
+<div>
+
+📄
 
 <span>
 الشروط والأحكام
 </span>
 
-<a href="#">
-عرض
+</div>
+
+<b>
+›
+</b>
+
 </a>
 
-</div>
 
 
 
-
-
-</div>
+</section>
 
 
 
 
 
 
-<button class="logout-btn">
+<button class="logout-btn" onclick="logout()">
 
-تسجيل الخروج
+🚪 تسجيل الخروج
 
 </button>
-
 
 
 
@@ -153,22 +233,46 @@ example@email.com
 
 
 <a href="dashboard.html">
+
+⌂
+
+<br>
+
 الرئيسية
+
 </a>
 
 
 <a href="wallet.html">
+
+▣
+
+<br>
+
 المحفظة
+
 </a>
 
 
 <a href="team.html">
+
+♟
+
+<br>
+
 الفريق
+
 </a>
 
 
-<a href="settings.html">
+<a class="active" href="settings.html">
+
+⚙
+
+<br>
+
 الإعدادات
+
 </a>
 
 
@@ -176,7 +280,54 @@ example@email.com
 
 
 
+
+
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+let user = JSON.parse(localStorage.getItem("VALORA_USER"));
+
+
+if(user){
+
+
+document.getElementById("userName").innerText =
+user.contact;
+
+
+document.getElementById("userContact").innerText =
+"UID: " + (user.referralCode || "---");
+
+
+}
+
+
+
+
+
+function logout(){
+
+
+localStorage.removeItem("VALORA_USER");
+
+
+window.location.href="login.html";
+
+
+}
+
+
+</script>
+
+
 
 
 </body>
