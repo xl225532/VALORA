@@ -1,18 +1,22 @@
 *{
 
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 font-family:'Cairo',Arial,sans-serif;
 
 }
 
 
-html,body{
 
-background:#050B16 !important;
+body{
 
-color:white !important;
+background:#050B16;
+
+color:white;
 
 min-height:100vh;
 
@@ -32,6 +36,7 @@ padding:18px 15px 90px;
 
 
 
+/* HEADER */
 
 .page-header{
 
@@ -41,7 +46,7 @@ align-items:center;
 
 gap:15px;
 
-margin-bottom:25px;
+margin-bottom:18px;
 
 }
 
@@ -49,9 +54,9 @@ margin-bottom:25px;
 
 .page-header a{
 
-color:white;
-
 font-size:38px;
+
+color:white;
 
 text-decoration:none;
 
@@ -68,6 +73,9 @@ font-size:20px;
 
 
 
+
+/* MAIN CARD */
+
 .verify-card{
 
 background:#0B1628;
@@ -76,11 +84,11 @@ border:1px solid #17365C;
 
 border-radius:20px;
 
-padding:22px;
+padding:18px;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:12px;
 
 }
 
@@ -88,9 +96,9 @@ margin-bottom:18px;
 
 .verify-icon{
 
-font-size:50px;
+font-size:45px;
 
-margin-bottom:10px;
+margin-bottom:8px;
 
 }
 
@@ -102,33 +110,83 @@ color:#98A5B8;
 
 font-size:13px;
 
-margin-top:8px;
-
 }
 
 
 
 
 
-.form-card{
+/* RULES */
+
+.rules-card{
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:20px;
+border-radius:18px;
 
-padding:20px;
+padding:15px;
+
+margin-bottom:12px;
 
 }
 
 
 
-.form-card h3{
+.rules-card h3{
 
-font-size:16px;
+font-size:17px;
 
-margin:15px 0 10px;
+margin-bottom:10px;
+
+}
+
+
+
+.rules-card ul{
+
+padding-right:18px;
+
+}
+
+
+
+.rules-card li{
+
+color:#CBD5E1;
+
+font-size:13px;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+/* UPLOAD */
+
+.upload-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:15px;
+
+}
+
+
+
+.upload-card h4{
+
+font-size:14px;
+
+margin:12px 0;
 
 }
 
@@ -136,13 +194,11 @@ margin:15px 0 10px;
 
 .upload-box{
 
-height:120px;
+height:90px;
 
-border:2px dashed #1687FF;
+border:1px dashed #1687FF;
 
-border-radius:16px;
-
-background:#071426;
+border-radius:15px;
 
 display:flex;
 
@@ -152,9 +208,13 @@ justify-content:center;
 
 text-align:center;
 
-color:#AAB5C5;
+background:#071426;
+
+color:#98A5B8;
 
 cursor:pointer;
+
+margin-bottom:12px;
 
 }
 
@@ -168,33 +228,25 @@ display:none;
 
 
 
-.upload-box span{
-
-font-size:15px;
-
-}
-
-
-
-.form-card button{
+.submit-btn{
 
 width:100%;
 
-margin-top:25px;
-
-padding:15px;
+background:#1687FF;
 
 border:0;
 
-border-radius:15px;
-
-background:#1687FF;
-
 color:white;
 
-font-size:16px;
+padding:14px;
+
+border-radius:14px;
 
 font-weight:bold;
+
+font-size:15px;
+
+margin-top:10px;
 
 }
 
@@ -202,7 +254,7 @@ font-weight:bold;
 
 
 
-
+/* BOTTOM */
 
 .bottom-nav{
 
@@ -226,7 +278,7 @@ display:flex;
 
 justify-content:space-around;
 
-padding:10px;
+padding:12px;
 
 }
 
