@@ -5,65 +5,39 @@ box-sizing:border-box;
 font-family:'Cairo',Arial,sans-serif;
 }
 
-
 html,body{
-
-background:#050B16 !important;
-
+background:#050B16;
 color:white;
-
 min-height:100vh;
-
 }
-
-
 
 .dashboard{
-
 max-width:480px;
-
 margin:auto;
-
 padding:18px 15px 90px;
-
 }
-
 
 
 /* HEADER */
 
 .header{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 margin-bottom:20px;
-
 }
 
 
-
-/* MENU BUTTON */
+/* زر القائمة */
 
 .menu-btn{
-
 background:none;
-
 border:0;
-
 color:white;
-
 font-size:28px;
-
-cursor:pointer;
-
 width:40px;
-
 height:40px;
-
+cursor:pointer;
 }
 
 
@@ -71,227 +45,125 @@ height:40px;
 /* LOGO */
 
 .brand-logo{
-
 display:flex;
-
 align-items:center;
-
 gap:8px;
-
 direction:ltr;
-
 }
-
-
 
 .logo-icon svg{
-
 width:48px;
-
 height:48px;
-
 filter:drop-shadow(0 0 12px #1687FF);
-
 }
-
-
 
 .logo-text{
-
 display:flex;
-
 flex-direction:column;
-
 line-height:1;
-
 }
-
-
 
 .logo-name{
-
 font-size:30px;
-
 font-weight:800;
-
 letter-spacing:2px;
-
 color:#EAF3FF;
-
 text-shadow:0 0 12px #1687FF;
-
 }
-
-
 
 .logo-sub{
-
 font-size:11px;
-
 color:#22C55E;
-
 letter-spacing:3px;
-
 }
-
-
 
 
 
 /* UID */
 
 .uid-card{
-
 display:flex;
-
 direction:ltr;
-
 align-items:center;
-
 gap:8px;
-
 background:#0B1628;
-
 border:1px solid #17365C;
-
 border-radius:16px;
-
 padding:10px 12px;
-
 }
-
-
 
 .uid-card span{
-
 color:#98A5B8;
-
 font-size:13px;
-
 }
-
-
 
 .uid-card strong{
-
 font-size:16px;
-
 }
-
-
 
 .uid-card button{
-
 background:none;
-
 border:0;
-
+cursor:pointer;
 }
-
-
 
 .uid-card svg{
-
 width:21px;
-
 stroke:#1687FF;
-
 fill:none;
-
 stroke-width:2;
-
 }
 
 
 
-
-
-/* ASSET */
+/* ASSETS */
 
 .asset-card{
-
 background:#0B1628;
-
 border:1px solid #17365C;
-
 border-radius:20px;
-
 padding:18px;
-
 margin-bottom:15px;
-
 }
-
 
 
 .asset-title{
-
 display:flex;
-
 justify-content:space-between;
-
 align-items:center;
-
 color:#AAB5C5;
-
 }
-
 
 
 .eye{
-
 background:none;
-
 border:0;
-
+cursor:pointer;
 }
-
 
 
 .eye svg{
-
 width:26px;
-
 height:26px;
-
 stroke:#1687FF;
-
 fill:none;
-
 stroke-width:2;
-
 }
-
 
 
 .balance{
-
 font-size:36px;
-
 font-weight:700;
-
 color:#22C55E;
-
 margin-top:12px;
-
 direction:ltr;
-
 text-align:right;
-
 }
-
 
 
 .balance small{
-
 font-size:17px;
-
 }
-
-
-
-
-
 /* TRADE BAR */
 
 .trade-bar{
@@ -320,6 +192,8 @@ margin-bottom:20px;
 
 display:flex;
 
+align-items:center;
+
 gap:22px;
 
 padding:0 18px;
@@ -346,76 +220,31 @@ justify-content:center;
 
 font-weight:bold;
 
-box-shadow:0 0 12px rgba(22,135,255,.5);
-
 }
 
 
 
-.btc-symbol{
-
-background:#F7931A;
-
-}
-
-
-.eth-symbol{
-
-background:#627EEA;
-
-}
-
-
-.usdt-symbol{
-
-background:#26A17B;
-
-}
-
-
-.trx-symbol{
-
-background:#EF3340;
-
-}
-
-
-.sol-symbol{
-
-background:#9945FF;
-
-}
-
-
-.xrp-symbol{
-
-background:#2563EB;
-
-}
+.btc-symbol{background:#F7931A;}
+.eth-symbol{background:#627EEA;}
+.usdt-symbol{background:#26A17B;}
+.trx-symbol{background:#EF3340;}
+.sol-symbol{background:#9945FF;}
+.xrp-symbol{background:#2563EB;}
 
 
 
 @keyframes tradeMove{
 
-0%{
-
-transform:translateX(0);
-
-}
-
-50%{
-
-transform:translateX(-40px);
+0%{transform:translateX(0);}
+50%{transform:translateX(-40px);}
+100%{transform:translateX(0);}
 
 }
 
-100%{
 
-transform:translateX(0);
 
-}
 
-}
+
 /* COINS */
 
 .coin-row{
@@ -456,54 +285,18 @@ align-items:center;
 
 justify-content:center;
 
-font-size:17px;
-
 font-weight:bold;
 
 }
 
 
 
-.btc{
-
-background:#F7931A;
-
-}
-
-
-.eth{
-
-background:#627EEA;
-
-}
-
-
-.usdt{
-
-background:#26A17B;
-
-}
-
-
-.trx{
-
-background:#EF3340;
-
-}
-
-
-.sol{
-
-background:#9945FF;
-
-}
-
-
-.xrp{
-
-background:#2563EB;
-
-}
+.btc{background:#F7931A;}
+.eth{background:#627EEA;}
+.usdt{background:#26A17B;}
+.trx{background:#EF3340;}
+.sol{background:#9945FF;}
+.xrp{background:#2563EB;}
 
 
 
@@ -517,21 +310,13 @@ text-align:right;
 
 
 
-.coin-name b{
-
-font-size:15px;
-
-}
-
-
-
 .coin-name small{
 
 display:block;
 
-font-size:12px;
-
 color:#98A5B8;
+
+font-size:12px;
 
 }
 
@@ -539,13 +324,9 @@ color:#98A5B8;
 
 .price{
 
-direction:ltr;
-
 text-align:center;
 
-font-size:14px;
-
-font-weight:bold;
+direction:ltr;
 
 }
 
@@ -554,8 +335,6 @@ font-weight:bold;
 .up{
 
 color:#22C55E;
-
-font-size:13px;
 
 text-align:center;
 
@@ -567,8 +346,6 @@ text-align:center;
 
 color:#EF4444;
 
-font-size:13px;
-
 text-align:center;
 
 }
@@ -578,8 +355,8 @@ text-align:center;
 
 
 
-/* SIDE MENU */
 
+/* SIDE MENU */
 
 .side-menu{
 
@@ -595,19 +372,17 @@ height:100vh;
 
 background:#0B1628;
 
-border-left:1px solid #17365C;
-
 z-index:9999;
 
 padding:18px;
 
-transition:.3s ease;
+transition:.3s;
 
 display:flex;
 
 flex-direction:column;
 
-overflow:hidden;
+pointer-events:none;
 
 }
 
@@ -617,8 +392,9 @@ overflow:hidden;
 
 right:0;
 
-}
+pointer-events:auto;
 
+}
 
 
 
@@ -629,16 +405,6 @@ display:flex;
 justify-content:space-between;
 
 align-items:center;
-
-margin-bottom:20px;
-
-}
-
-
-
-.side-header h3{
-
-font-size:22px;
 
 }
 
@@ -658,7 +424,6 @@ font-size:30px;
 
 
 
-
 .side-links{
 
 display:flex;
@@ -667,7 +432,9 @@ flex-direction:column;
 
 gap:10px;
 
-overflow-y:auto;
+margin-top:20px;
+
+overflow:auto;
 
 }
 
@@ -687,19 +454,7 @@ color:white;
 
 text-decoration:none;
 
-font-size:14px;
-
 }
-
-
-
-.side-links a:hover{
-
-border-color:#1687FF;
-
-}
-
-
 
 
 
@@ -715,10 +470,6 @@ border-radius:14px;
 
 text-align:center;
 
-color:white;
-
-font-weight:bold;
-
 cursor:pointer;
 
 }
@@ -727,34 +478,8 @@ cursor:pointer;
 
 
 
-.side-menu:before{
-
-content:"";
-
-position:fixed;
-
-top:0;
-
-left:0;
-
-width:100vw;
-
-height:100vh;
-
-background:rgba(0,0,0,.45);
-
-z-index:-1;
-
-}
-
-
-
-
-
-
 
 /* BOTTOM NAV */
-
 
 .bottom-nav{
 
@@ -804,4 +529,4 @@ text-align:center;
 
 color:#1687FF;
 
-}
+  }
