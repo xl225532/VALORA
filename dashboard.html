@@ -22,7 +22,118 @@
 
 
 
+<!-- القائمة الجانبية -->
+
+<div id="sideMenu" class="side-menu">
+
+
+<div class="side-header">
+
+<h3>
+VALORA
+</h3>
+
+
+<button onclick="closeMenu()">
+×
+</button>
+
+
+</div>
+
+
+
+
+<div class="side-links">
+
+
+<a href="security.html">
+
+🔐
+رمز أمان السحب
+
+</a>
+
+
+
+<a href="verify.html">
+
+🪪
+التحقق من الهوية
+
+</a>
+
+
+
+
+<a href="change-password.html">
+
+🔑
+تغيير كلمة المرور
+
+</a>
+
+
+
+
+<a href="support.html">
+
+💬
+مراسلة العملاء
+
+</a>
+
+
+
+
+<a href="terms.html">
+
+📄
+الشروط والأحكام
+
+</a>
+
+
+
+<a href="notifications.html">
+
+🔔
+الإشعارات
+
+</a>
+
+
+
+</div>
+
+
+
+
+<a class="logout" onclick="logout()">
+
+🚪 تسجيل الخروج
+
+</a>
+
+
+</div>
+
+
+
+
+
 <header class="header">
+
+
+
+<button class="menu-btn" onclick="openMenu()">
+
+☰
+
+</button>
+
+
+
 
 
 <div class="brand-logo">
@@ -51,13 +162,16 @@ stroke-linecap="round"/>
 VALORA
 </span>
 
+
 <span class="logo-sub">
 EXCHANGE
 </span>
 
+
 </div>
 
 </div>
+
 
 
 
@@ -86,13 +200,27 @@ EXCHANGE
 
 
 </header>
+  
 
 
 
 
 
+function openTrade(coin){
+
+window.location.href="trade.html?coin="+coin;
+
+}
 
 
+</script>
+
+
+
+
+</body>
+
+</html>  
 <section class="asset-card">
 
 
@@ -151,13 +279,11 @@ EXCHANGE
 
 <span class="usdt-symbol">₮</span>
 
-<span class="bnb-symbol">◆</span>
+<span class="trx-symbol">TRX</span>
 
 <span class="sol-symbol">S</span>
 
 <span class="xrp-symbol">X</span>
-
-<span class="ada-symbol">₳</span>
 
 
 </div>
@@ -170,9 +296,10 @@ EXCHANGE
 
 
 
+
 <section class="markets">
 
-<!-- BTC -->
+
 
 <div class="coin-row" onclick="openTrade('BTC')">
 
@@ -207,7 +334,7 @@ EXCHANGE
 
 
 
-<!-- ETH -->
+
 
 <div class="coin-row" onclick="openTrade('ETH')">
 
@@ -242,7 +369,7 @@ EXCHANGE
 
 
 
-<!-- USDT -->
+
 
 <div class="coin-row" onclick="openTrade('USDT')">
 
@@ -277,79 +404,44 @@ EXCHANGE
 
 
 
-<!-- BNB -->
-
-<div class="coin-row" onclick="openTrade('BNB')">
 
 
-<div class="coin-logo bnb">
-◆
+
+<div class="coin-row" onclick="openTrade('TRX')">
+
+
+<div class="coin-logo trx">
+TRX
 </div>
 
 
 <div class="coin-name">
 
-<b>BNB</b>
+<b>TRX</b>
 
-<small>Binance</small>
+<small>TRON</small>
 
 </div>
 
 
 <div class="price">
-580$
+0.12$
 </div>
 
 
 <div class="up">
-▲ 1.80%
+▲ 1.20%
 </div>
 
 
 </div>
-
-
-
-
-
-
-<!-- SOL -->
-
-<div class="coin-row" onclick="openTrade('SOL')">
-
-
-<div class="coin-logo sol">
-S
-</div>
-
-
-<div class="coin-name">
-
-<b>SOL</b>
-
-<small>Solana</small>
-
-</div>
-
-
-<div class="price">
-170$
-</div>
-
-
-<div class="down">
-▼ 0.70%
-</div>
-
-
-</div>
-
 
 
 
 
 
 </section>
+
 
 
 
@@ -387,86 +479,4 @@ S
 </a>
 
 
-
-<a href="settings.html">
-
-⚙
-<br>
-الإعدادات
-
-</a>
-
-
 </nav>
-
-
-
-</div>
-
-
-
-
-
-
-
-<script>
-
-
-let balanceHidden=false;
-
-
-
-function hideBalance(){
-
-
-let b=document.getElementById("balance");
-
-
-if(balanceHidden){
-
-b.innerHTML="0.00 <small>USDT</small>";
-
-balanceHidden=false;
-
-
-}else{
-
-
-b.innerHTML="***** <small>USDT</small>";
-
-balanceHidden=true;
-
-
-}
-
-}
-
-
-
-
-
-function copyUID(){
-
-navigator.clipboard.writeText("UID: 588887");
-
-}
-
-
-
-
-
-function openTrade(coin){
-
-window.location.href="trade.html?coin="+coin;
-
-}
-
-
-</script>
-
-
-
-
-</body>
-
-</html>  
