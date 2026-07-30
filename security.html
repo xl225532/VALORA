@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | رمز الأمان</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/security.css">
+
+</head>
+
+
+<body class="security-page">
+
+
+
+<div class="security-container">
+
+
+
+<header class="security-header">
+
+<a href="dashboard.html">
+‹
+</a>
+
+
+<h2>
+رمز أمان السحب
+</h2>
+
+
+</header>
+
+
+
+
+
+
+<div class="security-card">
+
+
+<div class="security-icon">
+
+🔐
+
+</div>
+
+
+
+<h3>
+إنشاء رمز أمان
+</h3>
+
+
+
+<p>
+يستخدم هذا الرمز لتأكيد عمليات السحب
+</p>
+
+
+
+
+<div class="input-box">
+
+
+<label>
+رمز الأمان
+</label>
+
+
+<input 
+id="securityPin"
+type="password"
+maxlength="6"
+placeholder="أدخل 6 أرقام">
+
+
+</div>
+
+
+
+
+
+<div class="input-box">
+
+
+<label>
+تأكيد رمز الأمان
+</label>
+
+
+<input 
+id="confirmPin"
+type="password"
+maxlength="6"
+placeholder="أعد كتابة الرمز">
+
+
+</div>
+
+<button class="save-button" onclick="saveSecurityPin()">
+
+حفظ رمز الأمان
+
+</button>
+
+
+
+
+
+<div id="successBox" class="security-message success">
+
+✓ تم حفظ رمز الأمان بنجاح
+
+</div>
+
+
+
+
+<div id="errorBox" class="security-message error">
+
+× الرموز غير متطابقة
+
+</div>
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+function saveSecurityPin(){
+
+
+
+let pin =
+document.getElementById("securityPin").value;
+
+
+
+let confirm =
+document.getElementById("confirmPin").value;
+
+
+
+
+
+document.getElementById("successBox").style.display="none";
+
+document.getElementById("errorBox").style.display="none";
+
+
+
+
+
+
+if(pin==="" || confirm===""){
+
+
+document.getElementById("errorBox").innerHTML =
+"يرجى إدخال رمز الأمان";
+
+
+document.getElementById("errorBox").style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+if(pin.length < 6){
+
+
+document.getElementById("errorBox").innerHTML =
+"يجب أن يكون الرمز 6 أرقام";
+
+
+document.getElementById("errorBox").style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+
+if(pin !== confirm){
+
+
+document.getElementById("errorBox").style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+
+localStorage.setItem(
+"VALORA_SECURITY_PIN",
+pin
+);
+
+
+
+
+
+
+document.getElementById("successBox").style.display="block";
+
+
+
+}
+
+
+
+
+</script>
+
+
+
+
+</body>
+
+</html>
