@@ -3,7 +3,7 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
-font-family:'Cairo',Arial,Tahoma,sans-serif;
+font-family:'Cairo',Arial,sans-serif;
 
 }
 
@@ -11,19 +11,17 @@ font-family:'Cairo',Arial,Tahoma,sans-serif;
 
 body{
 
+min-height:100vh;
+
 background:#050B16;
 
-min-height:100vh;
+color:white;
 
 display:flex;
 
 justify-content:center;
 
 align-items:center;
-
-color:white;
-
-padding:15px;
 
 }
 
@@ -33,19 +31,19 @@ padding:15px;
 
 .auth-container{
 
-width:92%;
+width:100%;
 
-max-width:380px;
+max-width:390px;
 
 background:#0B1628;
 
-border-radius:18px;
+border:1px solid #17365C;
 
-padding:25px;
+border-radius:22px;
 
-border:1px solid #17365c;
+padding:20px 18px;
 
-box-shadow:0 0 30px rgba(0,140,255,.15);
+margin:15px;
 
 }
 
@@ -53,16 +51,14 @@ box-shadow:0 0 30px rgba(0,140,255,.15);
 
 
 
-
-
-/* شعار VALORA */
+/* الشعار */
 
 
 .logo{
 
 text-align:center;
 
-margin-bottom:10px;
+margin-bottom:15px;
 
 }
 
@@ -74,23 +70,21 @@ width:45px;
 
 height:45px;
 
-filter:drop-shadow(0 0 8px #1687FF);
-
 }
 
 
 
 .logo-name{
 
-font-size:30px;
+font-size:27px;
 
-font-weight:700;
+font-weight:800;
 
-letter-spacing:2px;
+letter-spacing:3px;
 
 color:#EAF3FF;
 
-text-shadow:0 0 8px #1687FF;
+text-shadow:0 0 10px #1687FF;
 
 }
 
@@ -98,13 +92,11 @@ text-shadow:0 0 8px #1687FF;
 
 .logo-sub{
 
-font-size:9px;
+font-size:11px;
+
+color:#98A5B8;
 
 letter-spacing:3px;
-
-color:#22C55E;
-
-margin-top:2px;
 
 }
 
@@ -112,17 +104,18 @@ margin-top:2px;
 
 
 
+/* العنوان */
 
 
 .auth-title{
 
 text-align:center;
 
-color:#98A5B8;
+font-size:21px;
 
-font-size:16px;
+font-weight:bold;
 
-margin-bottom:22px;
+margin-bottom:18px;
 
 }
 
@@ -130,11 +123,12 @@ margin-bottom:22px;
 
 
 
+/* الحقول */
 
 
 .input-group{
 
-margin-bottom:13px;
+margin-bottom:12px;
 
 }
 
@@ -144,13 +138,15 @@ margin-bottom:13px;
 
 display:block;
 
-margin-bottom:6px;
+font-size:13px;
 
 color:#C6D3E4;
 
-font-size:13px;
+margin-bottom:5px;
 
 }
+
+
 
 
 
@@ -158,17 +154,19 @@ font-size:13px;
 
 width:100%;
 
-padding:12px;
+height:42px;
 
-background:#071426;
+background:#050B16;
 
-border:1px solid #20344F;
+border:1px solid #17365C;
 
-border-radius:10px;
+border-radius:11px;
+
+padding:10px;
 
 color:white;
 
-font-size:14px;
+font-size:13px;
 
 outline:none;
 
@@ -181,15 +179,7 @@ outline:none;
 border-color:#1687FF;
 
 }
-
-
-
-
-
-
-
-/* كلمة المرور والعين */
-
+/* كلمة المرور */
 
 .password-box{
 
@@ -207,23 +197,27 @@ padding-left:45px;
 
 
 
+
+
 .eye-btn{
 
 position:absolute;
 
-left:12px;
+left:10px;
 
 top:50%;
 
 transform:translateY(-50%);
 
+width:28px;
+
+height:28px;
+
 background:none;
 
-border:none;
+border:0;
 
 cursor:pointer;
-
-padding:3px;
 
 }
 
@@ -231,9 +225,9 @@ padding:3px;
 
 .eye-btn svg{
 
-width:21px;
+width:18px;
 
-height:21px;
+height:18px;
 
 fill:none;
 
@@ -245,19 +239,10 @@ stroke-width:2;
 
 
 
-.eye-btn.active svg{
-
-stroke:#1687FF;
-
-}
 
 
 
-
-
-
-
-/* الموافقة */
+/* الشروط */
 
 
 .checkbox-group{
@@ -268,23 +253,21 @@ align-items:center;
 
 gap:8px;
 
-margin:13px 0;
+font-size:12px;
 
 color:#98A5B8;
 
-font-size:12px;
+margin:12px 0;
 
 }
 
 
 
-.circle-check{
+.checkbox-group a{
 
-display:flex;
+color:#1687FF;
 
-align-items:center;
-
-cursor:pointer;
+text-decoration:none;
 
 }
 
@@ -304,63 +287,23 @@ width:18px;
 
 height:18px;
 
-border:2px solid #20344F;
+border:1px solid #17365C;
 
 border-radius:50%;
 
 display:block;
 
-position:relative;
-
-transition:.3s;
-
 }
+
+
 
 
 
 .circle-check input:checked + span{
 
-border-color:#1687FF;
-
 background:#1687FF;
 
-}
-
-
-
-.circle-check input:checked + span::after{
-
-content:"";
-
-position:absolute;
-
-width:6px;
-
-height:6px;
-
-background:white;
-
-border-radius:50%;
-
-top:50%;
-
-left:50%;
-
-transform:translate(-50%,-50%);
-
-}
-
-
-
-
-
-.checkbox-group a{
-
-color:#1687FF;
-
-text-decoration:none;
-
-font-weight:bold;
+border-color:#1687FF;
 
 }
 
@@ -370,36 +313,30 @@ font-weight:bold;
 
 
 
-/* زر إنشاء الحساب */
+/* زر التسجيل */
 
 
 .btn-primary{
 
 width:100%;
 
-padding:13px;
+height:45px;
+
+border:0;
+
+border-radius:12px;
 
 background:#1687FF;
 
-border:none;
-
-border-radius:10px;
-
 color:white;
 
-font-size:16px;
+font-size:15px;
 
 font-weight:bold;
 
 cursor:pointer;
 
-}
-
-
-
-.btn-primary:hover{
-
-background:#0B72DE;
+margin-top:8px;
 
 }
 
@@ -407,17 +344,30 @@ background:#0B72DE;
 
 
 
+.btn-primary:active{
+
+transform:scale(.98);
+
+}
+
+
+
+
+
+
+
+/* الرابط السفلي */
 
 
 .bottom-link{
 
 text-align:center;
 
-margin-top:18px;
-
-color:#98A5B8;
+margin-top:15px;
 
 font-size:13px;
+
+color:#98A5B8;
 
 }
 
@@ -425,7 +375,7 @@ font-size:13px;
 
 .bottom-link a{
 
-color:#1687FF;
+color:#22C55E;
 
 text-decoration:none;
 
@@ -438,13 +388,22 @@ font-weight:bold;
 
 
 
-
-@media(max-width:360px){
+@media(max-height:700px){
 
 
 .auth-container{
 
-padding:20px;
+padding:15px;
+
+}
+
+
+
+.logo-icon svg{
+
+width:38px;
+
+height:38px;
 
 }
 
@@ -452,7 +411,25 @@ padding:20px;
 
 .logo-name{
 
-font-size:26px;
+font-size:24px;
+
+}
+
+
+
+.auth-title{
+
+font-size:19px;
+
+margin-bottom:12px;
+
+}
+
+
+
+.input-group{
+
+margin-bottom:9px;
 
 }
 
