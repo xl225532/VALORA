@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | الإعدادات</title>
@@ -22,13 +23,26 @@
 
 
 
-<header class="settings-header">
+<header class="page-header">
 
-<div class="brand">
-VALORA
-</div>
+
+<a href="dashboard.html">
+
+‹
+
+</a>
+
+
+<h2>
+
+الإعدادات
+
+</h2>
+
 
 </header>
+
+
 
 
 
@@ -37,26 +51,25 @@ VALORA
 <section class="profile-card">
 
 
-<div class="avatar">
+<div class="profile-icon">
 
 👤
 
 </div>
 
 
-
 <div>
 
-<h3 id="userName">
+<h3>
 
-المستخدم
+Ahmed
 
 </h3>
 
 
-<p id="userContact">
+<p>
 
----
+ID: VAL583921
 
 </p>
 
@@ -71,141 +84,123 @@ VALORA
 
 
 
-<section class="settings-list">
+
+<section class="settings-box">
 
 
 
-<a href="security.html" class="settings-item">
 
-<div>
 
-🔐
+<div class="settings-item">
 
 <span>
-رمز أمان السحب
+
+👤 اسم المستخدم
+
 </span>
+
+
+<strong>
+
+Ahmed
+
+</strong>
 
 </div>
 
-<b>
-›
-</b>
-
-</a>
 
 
 
 
 
-<a href="verify.html" class="settings-item">
 
-<div>
-
-🪪
+<div class="settings-item">
 
 <span>
-التحقق من الهوية
+
+📧 البريد الإلكتروني
+
 </span>
+
+
+<strong>
+
+example@email.com
+
+</strong>
 
 </div>
 
-<b>
-›
-</b>
-
-</a>
 
 
 
 
 
 
-<a href="change-password.html" class="settings-item">
-
-<div>
-
-🔑
+<div class="settings-item">
 
 <span>
-تغيير كلمة المرور
+
+📱 رقم الهاتف
+
 </span>
+
+
+<strong>
+
++964000000000
+
+</strong>
 
 </div>
 
-<b>
-›
-</b>
-
-</a>
 
 
 
 
 
 
-<a href="notifications.html" class="settings-item">
-
-<div>
-
-🔔
+<div class="settings-item">
 
 <span>
-الإشعارات
+
+🌐 اللغة
+
 </span>
+
+
+<a href="language.html">
+
+🇸🇦 العربية
+
+</a>
 
 </div>
 
-<b>
-›
-</b>
-
-</a>
 
 
 
 
 
 
-<a href="support.html" class="settings-item">
-
-<div>
-
-💬
+<div class="settings-item">
 
 <span>
-مراسلة العملاء
+
+📄 الشروط والأحكام
+
 </span>
+
+
+<a href="terms.html">
+
+عرض
+
+</a>
 
 </div>
 
-<b>
-›
-</b>
 
-</a>
-
-
-
-
-
-
-<a href="terms.html" class="settings-item">
-
-<div>
-
-📄
-
-<span>
-الشروط والأحكام
-</span>
-
-</div>
-
-<b>
-›
-</b>
-
-</a>
 
 
 
@@ -217,11 +212,14 @@ VALORA
 
 
 
+
 <button class="logout-btn" onclick="logout()">
 
 🚪 تسجيل الخروج
 
 </button>
+
+
 
 
 
@@ -243,6 +241,7 @@ VALORA
 </a>
 
 
+
 <a href="wallet.html">
 
 ▣
@@ -252,6 +251,7 @@ VALORA
 المحفظة
 
 </a>
+
 
 
 <a href="team.html">
@@ -265,18 +265,10 @@ VALORA
 </a>
 
 
-<a class="active" href="settings.html">
-
-⚙
-
-<br>
-
-الإعدادات
-
-</a>
-
 
 </nav>
+
+
 
 
 
@@ -292,41 +284,15 @@ VALORA
 
 <script>
 
-
-let user = JSON.parse(localStorage.getItem("VALORA_USER"));
-
-
-if(user){
-
-
-document.getElementById("userName").innerText =
-user.contact;
-
-
-document.getElementById("userContact").innerText =
-"UID: " + (user.referralCode || "---");
-
-
-}
-
-
-
-
-
 function logout(){
-
 
 localStorage.removeItem("VALORA_USER");
 
-
 window.location.href="login.html";
-
 
 }
 
-
 </script>
-
 
 
 
