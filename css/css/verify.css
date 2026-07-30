@@ -1,124 +1,245 @@
 *{
+
 margin:0;
 padding:0;
 box-sizing:border-box;
 font-family:'Cairo',Arial,sans-serif;
+
 }
+
 
 html,body{
+
 background:#050B16 !important;
-color:#fff !important;
-min-height:100%;
+
+color:white !important;
+
+min-height:100vh;
+
 }
+
+
 
 .verify-page{
+
 max-width:480px;
+
 margin:auto;
+
 padding:18px 15px 90px;
+
 }
+
+
+
 
 .page-header{
+
 display:flex;
+
 align-items:center;
+
 gap:15px;
-margin-bottom:20px;
+
+margin-bottom:25px;
+
 }
+
+
 
 .page-header a{
+
+color:white;
+
 font-size:38px;
-color:#fff;
+
 text-decoration:none;
+
 }
+
+
 
 .page-header h2{
+
 font-size:20px;
-font-weight:700;
+
 }
 
-.notice-card{
+
+
+
+.verify-card{
+
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:20px;
+
 padding:22px;
+
 text-align:center;
+
 margin-bottom:18px;
+
 }
+
+
 
 .verify-icon{
+
 font-size:50px;
+
 margin-bottom:10px;
+
 }
 
-.notice-card h3{
-margin-bottom:8px;
-}
 
-.notice-card p{
+
+.verify-card p{
+
 color:#98A5B8;
+
 font-size:13px;
-line-height:1.7;
+
+margin-top:8px;
+
 }
 
-.upload-card{
+
+
+
+
+.form-card{
+
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:20px;
+
 padding:20px;
+
 }
 
-.upload-card h3{
-margin:16px 0 10px;
-font-size:15px;
+
+
+.form-card h3{
+
+font-size:16px;
+
+margin:15px 0 10px;
+
 }
+
+
 
 .upload-box{
-display:flex;
-justify-content:center;
-align-items:center;
+
 height:120px;
+
 border:2px dashed #1687FF;
+
 border-radius:16px;
+
 background:#071426;
-cursor:pointer;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
 text-align:center;
-color:#98A5B8;
+
+color:#AAB5C5;
+
+cursor:pointer;
+
 }
+
+
 
 .upload-box input{
+
 display:none;
+
 }
 
-.upload-card button{
-width:100%;
-margin-top:20px;
-padding:15px;
-border:none;
-border-radius:14px;
-background:#1687FF;
-color:#fff;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
+
+
+.upload-box span{
+
+font-size:15px;
+
 }
+
+
+
+.form-card button{
+
+width:100%;
+
+margin-top:25px;
+
+padding:15px;
+
+border:0;
+
+border-radius:15px;
+
+background:#1687FF;
+
+color:white;
+
+font-size:16px;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
 
 .bottom-nav{
+
 position:fixed;
+
 bottom:0;
+
 left:50%;
+
 transform:translateX(-50%);
-width:100%;
+
 max-width:480px;
+
+width:100%;
+
 background:#0B1628;
+
 border-top:1px solid #17365C;
+
 display:flex;
+
 justify-content:space-around;
+
 padding:10px;
-z-index:50;
+
 }
 
+
+
 .bottom-nav a{
+
 color:#98A5B8;
+
 text-decoration:none;
+
 font-size:12px;
+
 text-align:center;
+
 }
