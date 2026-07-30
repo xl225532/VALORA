@@ -9,39 +9,31 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/verify.css">
-
 
 </head>
 
 
-
 <body>
-
 
 
 <div class="verify-page">
 
 
 
-
-
 <header class="page-header">
 
-
 <a href="settings.html">
-‹
-</a>
 
+‹
+
+</a>
 
 <h2>
 التحقق من الهوية
 </h2>
-
 
 </header>
 
@@ -50,9 +42,7 @@
 
 
 
-
-
-<section class="notice-card">
+<section class="verify-card">
 
 
 <div class="verify-icon">
@@ -63,13 +53,15 @@
 
 
 <h3>
-إكمال التحقق مطلوب
+
+تأكيد الهوية
+
 </h3>
 
 
 <p>
 
-لن تتمكن من تنفيذ عمليات السحب قبل تأكيد الهوية
+يجب إكمال التحقق قبل تنفيذ عمليات السحب
 
 </p>
 
@@ -83,26 +75,18 @@
 
 
 
-<section class="upload-card">
-
+<section class="form-card">
 
 
 <h3>
-
 صورة الهوية الأمامية
-
 </h3>
-
 
 
 <label class="upload-box">
 
 
-<input 
-type="file"
-id="idImage"
-accept="image/*">
-
+<input type="file" accept="image/*">
 
 
 <span>
@@ -116,8 +100,8 @@ accept="image/*">
 </span>
 
 
-
 </label>
+
 
 
 
@@ -131,15 +115,10 @@ accept="image/*">
 </h3>
 
 
-
 <label class="upload-box">
 
 
-<input 
-type="file"
-id="faceImage"
-accept="image/*">
-
+<input type="file" accept="image/*">
 
 
 <span>
@@ -153,7 +132,6 @@ accept="image/*">
 </span>
 
 
-
 </label>
 
 
@@ -161,8 +139,7 @@ accept="image/*">
 
 
 
-
-<button onclick="sendVerify()">
+<button>
 
 إرسال للتحقق
 
@@ -178,29 +155,22 @@ accept="image/*">
 
 
 
-
-
 <nav class="bottom-nav">
 
 
 <a href="dashboard.html">
 
 ⌂
-
 <br>
-
 الرئيسية
 
 </a>
 
 
-
 <a href="wallet.html">
 
 ▣
-
 <br>
-
 المحفظة
 
 </a>
@@ -210,22 +180,8 @@ accept="image/*">
 <a href="team.html">
 
 ♟
-
 <br>
-
 الفريق
-
-</a>
-
-
-
-<a href="settings.html">
-
-⚙
-
-<br>
-
-الإعدادات
 
 </a>
 
@@ -236,63 +192,7 @@ accept="image/*">
 
 
 
-
-
 </div>
-
-
-
-
-
-
-
-<script>
-
-
-function sendVerify(){
-
-
-let id =
-document.getElementById("idImage").files.length;
-
-
-let face =
-document.getElementById("faceImage").files.length;
-
-
-
-
-if(!id || !face){
-
-
-alert("يرجى رفع صورة الهوية وصورة الوجه");
-
-return;
-
-}
-
-
-
-
-localStorage.setItem(
-"VALORA_VERIFY",
-"pending"
-);
-
-
-
-alert("تم إرسال طلب التحقق");
-
-
-}
-
-
-
-</script>
-
-
-
-
 
 
 </body>
