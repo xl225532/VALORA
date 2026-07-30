@@ -429,3 +429,115 @@ font-size:26px;
 
 
   }
+/* إشعار تسجيل الدخول الصغير */
+
+.success-toast{
+
+position:fixed;
+
+bottom:25px;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:280px;
+
+background:#0B1628;
+
+border:1px solid #22C55E;
+
+border-radius:14px;
+
+padding:12px 15px;
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+z-index:9999;
+
+box-shadow:0 0 20px rgba(0,0,0,.4);
+
+animation:toastShow .3s ease;
+
+}
+
+
+
+
+.toast-icon{
+
+width:32px;
+
+height:32px;
+
+border-radius:50%;
+
+background:#22C55E;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:20px;
+
+font-weight:bold;
+
+color:white;
+
+}
+
+
+
+
+.success-toast strong{
+
+font-size:14px;
+
+display:block;
+
+}
+
+
+
+.success-toast p{
+
+font-size:12px;
+
+color:#98A5B8;
+
+margin-top:3px;
+
+}
+
+
+
+
+
+@keyframes toastShow{
+
+
+from{
+
+opacity:0;
+
+transform:translate(-50%,20px);
+
+}
+
+
+to{
+
+opacity:1;
+
+transform:translate(-50%,0);
+
+}
+
+
+}
