@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | التحقق من الهوية</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/verify.css">
+
+</head>
+
+
+<body class="verify-page">
+
+
+
+<div class="verify-container">
+
+
+
+<header class="verify-header">
+
+<a href="dashboard.html">
+‹
+</a>
+
+
+<h2>
+التحقق من الهوية
+</h2>
+
+
+</header>
+
+
+
+
+
+
+<div class="verify-card">
+
+
+
+<div class="verify-icon">
+
+🪪
+
+</div>
+
+
+
+<h3>
+تأكيد الهوية
+</h3>
+
+
+
+<p>
+يرجى رفع المستندات المطلوبة لإكمال التحقق والسماح بالسحب
+</p>
+
+
+
+
+
+
+
+<div class="upload-box">
+
+
+<label>
+صورة الهوية الأمامية
+</label>
+
+
+<input 
+type="file"
+id="idImage"
+accept="image/*">
+
+
+
+<div id="idPreview" class="preview">
+
+لم يتم اختيار صورة
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="upload-box">
+
+
+<label>
+صورة الهوية مع الوجه
+</label>
+
+
+<input 
+type="file"
+id="faceImage"
+accept="image/*">
+
+
+
+<div id="facePreview" class="preview">
+
+لم يتم اختيار صورة
+
+</div>
+
+
+</div>
+
+
+
+
+
+<button class="verify-button" onclick="submitVerify()">
+
+إرسال للتحقق
+
+</button>
+
+
+
+
+
+
+
+<div id="successBox" class="verify-message success">
+
+✓ تم إرسال طلب التحقق
+
+<br>
+
+بانتظار المراجعة
+
+</div>
+
+
+
+
+
+
+<div id="errorBox" class="verify-message error">
+
+× يرجى رفع جميع الصور المطلوبة
+
+</div>
+
+
+
+
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<script>
+
+
+
+
+
+function previewImage(input,id){
+
+
+let file=input.files[0];
+
+
+if(file){
+
+
+let reader=new FileReader();
+
+
+
+reader.onload=function(e){
+
+
+document.getElementById(id).innerHTML =
+
+'<img src="'+e.target.result+'">';
+
+
+
+}
+
+
+
+reader.readAsDataURL(file);
+
+
+
+}
+
+
+}
+
+
+
+
+
+document
+.getElementById("idImage")
+.addEventListener("change",function(){
+
+
+previewImage(this,"idPreview");
+
+
+});
+
+
+
+
+
+
+document
+.getElementById("faceImage")
+.addEventListener("change",function(){
+
+
+previewImage(this,"facePreview");
+
+
+});
+
+
+
+
+
+
+
+
+
+function submitVerify(){
+
+
+
+let idImage =
+document.getElementById("idImage").files.length;
+
+
+
+let faceImage =
+document.getElementById("faceImage").files.length;
+
+
+
+
+
+
+document.getElementById("successBox").style.display="none";
+
+document.getElementById("errorBox").style.display="none";
+
+
+
+
+
+
+
+if(idImage===0 || faceImage===0){
+
+
+document.getElementById("errorBox").style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_VERIFY_STATUS",
+
+"pending"
+
+);
+
+
+
+
+
+
+document.getElementById("successBox").style.display="block";
+
+
+
+}
+
+
+
+</script>
+
+
+
+
+</body>
+
+  </html>
