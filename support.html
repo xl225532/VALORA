@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>VALORA | الدعم</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/support.css">
+
+
+</head>
+
+
+
+
+<body class="support-page">
+
+
+
+<div class="support-container">
+
+
+
+
+
+<header class="support-header">
+
+
+<a href="dashboard.html">
+‹
+</a>
+
+
+
+<h2>
+مراسلة العملاء
+</h2>
+
+
+
+</header>
+
+
+
+
+
+
+
+
+<div class="support-card">
+
+
+
+<div class="support-avatar">
+
+💬
+
+</div>
+
+
+
+
+<h3>
+دعم VALORA
+</h3>
+
+
+
+<p>
+مرحباً بك، كيف يمكننا مساعدتك؟
+</p>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div id="chatBox" class="chat-box">
+
+
+
+<div class="message admin">
+
+أهلاً بك في دعم VALORA، نحن هنا لمساعدتك.
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="send-area">
+
+
+<input
+
+id="messageInput"
+
+type="text"
+
+placeholder="اكتب رسالتك...">
+
+
+
+
+
+<button onclick="sendMessage()">
+
+إرسال
+
+</button>
+
+
+</div>
+
+
+
+
+
+
+<script>
+
+
+
+
+function sendMessage(){
+
+
+
+let input = document.getElementById("messageInput");
+
+
+let text = input.value.trim();
+
+
+
+
+if(text===""){
+
+return;
+
+}
+
+
+
+
+
+
+let chat = document.getElementById("chatBox");
+
+
+
+
+
+
+let message = document.createElement("div");
+
+
+message.className="message user";
+
+
+message.innerHTML=text;
+
+
+
+chat.appendChild(message);
+
+
+
+
+
+let messages = JSON.parse(
+
+localStorage.getItem("VALORA_SUPPORT")
+
+) || [];
+
+
+
+
+messages.push({
+
+text:text,
+
+date:new Date().toLocaleString("ar-EG"),
+
+sender:"user"
+
+});
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_SUPPORT",
+
+JSON.stringify(messages)
+
+);
+
+
+
+
+
+input.value="";
+
+
+
+
+
+chat.scrollTop = chat.scrollHeight;
+
+
+
+
+}
+
+
+
+
+
+
+// تحميل الرسائل السابقة
+
+
+window.onload=function(){
+
+
+
+let messages = JSON.parse(
+
+localStorage.getItem("VALORA_SUPPORT")
+
+) || [];
+
+
+
+let chat=document.getElementById("chatBox");
+
+
+
+
+
+messages.forEach(function(msg){
+
+
+
+let div=document.createElement("div");
+
+
+
+div.className="message user";
+
+
+
+div.innerHTML=msg.text;
+
+
+
+chat.appendChild(div);
+
+
+
+});
+
+
+
+};
+
+
+
+
+
+</script>
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>
