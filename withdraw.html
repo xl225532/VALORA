@@ -22,7 +22,6 @@
 <div class="withdraw-container">
 
 
-
 <header class="withdraw-header">
 
 <div class="withdraw-logo">
@@ -73,10 +72,15 @@ VALORA
 
 <div>
 <strong>USDT</strong>
-<small>TRC20</small>
+
+<small>
+TRC20
+</small>
+
 </div>
 
 </button>
+
 
 
 
@@ -90,10 +94,15 @@ VALORA
 
 <div>
 <strong>BTC</strong>
-<small>Bitcoin</small>
+
+<small>
+Bitcoin
+</small>
+
 </div>
 
 </button>
+
 
 
 
@@ -107,10 +116,15 @@ VALORA
 
 <div>
 <strong>ETH</strong>
-<small>Ethereum</small>
+
+<small>
+Ethereum
+</small>
+
 </div>
 
 </button>
+
 
 
 
@@ -124,19 +138,32 @@ TRX
 
 <div>
 <strong>TRX</strong>
-<small>TRON</small>
+
+<small>
+TRON
+</small>
+
 </div>
 
 </button>
 
 
 
+
 </section>
+
+
+
+
+
+
+
 <section class="withdraw-card">
 
 
 
 <div class="withdraw-input">
+
 
 <label>
 عنوان محفظة السحب
@@ -150,6 +177,7 @@ placeholder="أدخل عنوان المحفظة">
 
 
 </div>
+
 
 
 
@@ -173,8 +201,7 @@ placeholder="أدخل المبلغ">
 
 <div class="fee-note">
 
-رسوم السحب
-
+رسوم السحب:
 <br>
 
 قبل تحقيق شرط التضعيف: 20%
@@ -193,6 +220,29 @@ placeholder="أدخل المبلغ">
 
 
 
+<div class="withdraw-input">
+
+
+<label>
+🔐 رمز أمان السحب
+</label>
+
+
+<input 
+id="withdrawPin"
+type="password"
+placeholder="أدخل رمز الأمان">
+
+
+
+<div class="fee-note">
+
+استخدم رمز الأمان لتأكيد عملية السحب
+
+</div>
+
+
+</div>
 
 <div class="withdraw-info">
 
@@ -212,6 +262,7 @@ placeholder="أدخل المبلغ">
 
 
 
+
 <div>
 
 <span>
@@ -223,6 +274,8 @@ placeholder="أدخل المبلغ">
 </strong>
 
 </div>
+
+
 
 
 
@@ -282,6 +335,7 @@ placeholder="أدخل المبلغ">
 
 
 
+
 <div id="rejectBox" class="withdraw-status reject">
 
 
@@ -296,6 +350,7 @@ placeholder="أدخل المبلغ">
 
 
 </div>
+
 
 
 
@@ -317,51 +372,45 @@ placeholder="أدخل المبلغ">
 
 
 
+
 <nav class="withdraw-nav">
 
 
 <a href="dashboard.html">
-
 ⌂
 <br>
 الرئيسية
-
 </a>
-
 
 
 <a href="wallet.html">
-
 ▣
 <br>
 المحفظة
-
 </a>
-
 
 
 <a href="team.html">
-
 ♟
 <br>
 الفريق
-
 </a>
-
 
 
 <a href="settings.html">
-
 ⚙
 <br>
 الإعدادات
-
 </a>
-
 
 
 </nav>
 
+
+
+
+
+</div>
 
 
 
@@ -371,41 +420,7 @@ placeholder="أدخل المبلغ">
 <script>
 
 
-let currentCoin = "USDT";
-
-let feePercent = 20;
-
-
-
-
-
-function selectCoin(coin,button){
-
-
-currentCoin = coin;
-
-
-
-document.querySelectorAll(".withdraw-coin")
-.forEach(function(btn){
-
-btn.classList.remove("active");
-
-});
-
-
-
-button.classList.add("active");
-
-
-
-document.getElementById("receiveAmount").innerHTML =
-"0.00 " + currentCoin;
-
-
-}
-
-
+let currentCoin="USDT";
 
 
 
@@ -416,12 +431,11 @@ document
 .addEventListener("input",function(){
 
 
-
 let amount = Number(this.value);
 
 
 
-let fee = amount * (feePercent / 100);
+let fee = amount * 0.20;
 
 
 
@@ -437,12 +451,8 @@ receive = 0;
 
 
 
-document.getElementById("feeAmount").innerHTML =
-feePercent+"%";
-
-
-
 document.getElementById("receiveAmount").innerHTML =
+
 receive.toFixed(2)+" "+currentCoin;
 
 
@@ -456,7 +466,29 @@ receive.toFixed(2)+" "+currentCoin;
 
 
 
+function selectCoin(coin,button){
+
+
+currentCoin = coin;
+
+
+
+document.querySelectorAll(".withdraw-coin")
+
+.forEach(btn=>btn.classList.remove("active"));
+
+
+
+button.classList.add("active");
+
+
+
+}
+
+
+
 function submitWithdraw(){
+
 
 
 let address =
@@ -469,6 +501,14 @@ document.getElementById("withdrawAmount").value;
 
 
 
+let pin =
+document.getElementById("withdrawPin").value;
+
+
+
+
+
+
 document.getElementById("successBox").style.display="none";
 
 document.getElementById("rejectBox").style.display="none";
@@ -476,15 +516,26 @@ document.getElementById("rejectBox").style.display="none";
 
 
 
-if(address==="" || amount===""){
+
+
+if(address==="" || amount==="" || pin===""){
+
 
 
 document.getElementById("rejectBox").style.display="block";
 
 
+document.querySelector("#rejectBox p").innerHTML =
+"يرجى إدخال العنوان والمبلغ ورمز الأمان";
+
+
 return;
 
+
 }
+
+
+
 
 
 
@@ -494,13 +545,18 @@ let withdrawal={
 
 coin:currentCoin,
 
+
 amount:amount,
 
-fee:feePercent+"%",
+
+pin:pin,
+
 
 address:address,
 
+
 date:new Date().toLocaleString("ar-EG"),
+
 
 status:"pending"
 
@@ -511,8 +567,13 @@ status:"pending"
 
 
 
+
+
 let list =
+
 JSON.parse(localStorage.getItem("withdrawals")) || [];
+
+
 
 
 
@@ -520,10 +581,16 @@ list.push(withdrawal);
 
 
 
+
+
 localStorage.setItem(
+
 "withdrawals",
+
 JSON.stringify(list)
+
 );
+
 
 
 
@@ -532,15 +599,15 @@ JSON.stringify(list)
 document.getElementById("successBox").style.display="block";
 
 
+
 }
+
+
 
 
 
 </script>
 
-
-
-</div>
 
 
 </body>
