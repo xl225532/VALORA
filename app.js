@@ -2,8 +2,6 @@
 
 
 
-// قراءة كود الدعوة من الرابط
-
 function getReferralFromURL(){
 
 let params = new URLSearchParams(window.location.search);
@@ -16,13 +14,16 @@ return params.get("ref") || "";
 
 
 
-// إنشاء كود إحالة جديد
 
 function generateReferralCode(){
 
-let number = Math.floor(100000 + Math.random() * 900000);
+let code = Math.random()
+.toString(36)
+.substring(2,8)
+.toUpperCase();
 
-return "VAL-" + number;
+
+return "VALORA-" + code;
 
 }
 
@@ -32,60 +33,107 @@ return "VAL-" + number;
 
 
 
-// إنشاء حساب
+const registerForm =
+document.getElementById("registerForm");
 
-
-const registerForm = document.getElementById("registerForm");
 
 
 if(registerForm){
 
 
-let referralInput = document.getElementById("referralCode");
+
+let referralInput =
+document.getElementById("inviteCode");
 
 
-// تعبئة كود الدعوة من الرابط تلقائياً
+
+
 
 if(referralInput){
 
+
 let ref = getReferralFromURL();
 
+
 if(ref){
+
 
 referralInput.value = ref;
 
 referralInput.readOnly = true;
 
-}
 
 }
 
 
 
-registerForm.addEventListener("submit", function(e){
+}
+
+
+
+
+
+
+
+registerForm.addEventListener("submit",function(e){
 
 
 e.preventDefault();
 
 
 
-let myReferralCode = generateReferralCode();
+
+let password =
+document.getElementById("password").value;
+
+
+
+let confirm =
+document.getElementById("confirmPassword").value;
+
+
+
+
+
+if(password !== confirm){
+
+
+alert("كلمة المرور غير متطابقة");
+
+return;
+
+
+}
+
+
+
+
+
+
+let myCode =
+generateReferralCode();
+
+
+
 
 
 
 let user = {
 
 
-contact: document.getElementById("contact").value,
+contact:
+document.getElementById("contact").value,
 
 
-password: document.getElementById("password").value,
+password:password,
 
 
-referralCode: myReferralCode,
+referralCode:myCode,
 
 
-invitedBy: getReferralFromURL()
+
+invitedBy:
+getReferralFromURL()
 
 
 
@@ -93,12 +141,17 @@ invitedBy: getReferralFromURL()
 
 
 
-// حفظ بيانات المستخدم
+
 
 localStorage.setItem(
+
 "VALORA_USER",
+
 JSON.stringify(user)
+
 );
+
+
 
 
 
@@ -109,22 +162,17 @@ alert("تم إنشاء الحساب بنجاح");
 window.location.href="login.html";
 
 
+
 });
 
 
 }
 
-
-
-
-
-
-
-
 // تسجيل الدخول
 
 
-const loginForm = document.getElementById("loginForm");
+const loginForm =
+document.getElementById("loginForm");
 
 
 
@@ -135,14 +183,18 @@ if(loginForm){
 loginForm.addEventListener("submit",function(e){
 
 
-
 e.preventDefault();
 
 
 
-let savedUser = JSON.parse(
+
+
+let savedUser =
+JSON.parse(
 localStorage.getItem("VALORA_USER")
 );
+
+
 
 
 
@@ -158,15 +210,15 @@ document.getElementById("loginPassword").value;
 
 
 
+
+
 if(
 
 savedUser &&
 
-loginValue == savedUser.contact
+loginValue === savedUser.contact &&
 
-&&
-
-password == savedUser.password
+password === savedUser.password
 
 
 ){
@@ -177,11 +229,14 @@ showSuccess();
 
 
 
-setTimeout(()=>{
+setTimeout(function(){
+
 
 window.location.href="dashboard.html";
 
-},1800);
+
+},1500);
+
 
 
 
@@ -211,36 +266,45 @@ alert("بيانات الدخول غير صحيحة");
 
 
 
-// رسالة نجاح حديثة
+
+// إشعار نجاح صغير
 
 
 function showSuccess(){
 
 
-let box = document.createElement("div");
+
+let box =
+document.createElement("div");
 
 
-box.className="success-box";
+
+box.className="success-toast";
 
 
-box.innerHTML=`
 
-<div class="success-icon">
+box.innerHTML = `
 
-<svg viewBox="0 0 52 52">
+<div class="toast-icon">
 
-<circle cx="26" cy="26" r="24"></circle>
-
-<path d="M14 27 L22 35 L38 18"></path>
-
-</svg>
+✓
 
 </div>
 
 
-<h3>تم تسجيل الدخول بنجاح</h3>
+<div>
 
-<p>جاري الدخول إلى الحساب</p>
+<strong>
+تم تسجيل الدخول
+</strong>
+
+
+<p>
+جاري الدخول للحساب
+</p>
+
+
+</div>
 
 `;
 
@@ -250,7 +314,23 @@ document.body.appendChild(box);
 
 
 
+
+
+
+setTimeout(function(){
+
+
+box.remove();
+
+
+},1800);
+
+
+
 }
+
+
+
 
 
 
@@ -260,17 +340,21 @@ document.body.appendChild(box);
 // إظهار وإخفاء كلمة المرور
 
 
-function togglePassword(id, button){
-
-
-let input = document.getElementById(id);
+function togglePassword(id,button){
 
 
 
-if(input.type === "password"){
+let input =
+document.getElementById(id);
 
 
-input.type = "text";
+
+
+if(input.type==="password"){
+
+
+input.type="text";
+
 
 button.classList.add("active");
 
@@ -280,12 +364,14 @@ button.classList.add("active");
 else{
 
 
-input.type = "password";
+input.type="password";
+
 
 button.classList.remove("active");
 
 
 }
+
 
 
 }
