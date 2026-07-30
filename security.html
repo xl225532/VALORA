@@ -4,10 +4,9 @@
 <head>
 
 <meta charset="UTF-8">
-
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | رمز الأمان</title>
+<title>VALORA | رمز أمان السحب</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
@@ -16,17 +15,17 @@
 </head>
 
 
-<body class="security-page">
+<body>
+
+
+<div class="security-page">
 
 
 
-<div class="security-container">
+<header class="page-header">
 
 
-
-<header class="security-header">
-
-<a href="dashboard.html">
+<a href="settings.html">
 ‹
 </a>
 
@@ -43,10 +42,11 @@
 
 
 
-<div class="security-card">
+
+<section class="security-card">
 
 
-<div class="security-icon">
+<div class="icon">
 
 🔐
 
@@ -55,86 +55,147 @@
 
 
 <h3>
-إنشاء رمز أمان
+إنشاء رمز أمان للسحب
 </h3>
 
 
 
 <p>
-يستخدم هذا الرمز لتأكيد عمليات السحب
+
+يستخدم هذا الرمز لحماية عمليات السحب من الحساب
+
 </p>
 
 
 
+</section>
 
-<div class="input-box">
+
+
+
+
+
+
+<div class="form-card">
+
 
 
 <label>
+
 رمز الأمان
+
 </label>
 
 
-<input 
-id="securityPin"
+<input
+
 type="password"
+
+id="securityCode"
+
 maxlength="6"
-placeholder="أدخل 6 أرقام">
 
-
-</div>
-
+placeholder="أدخل رمز من 6 أرقام">
 
 
 
 
-<div class="input-box">
 
 
 <label>
+
 تأكيد رمز الأمان
+
 </label>
 
 
-<input 
-id="confirmPin"
+<input
+
 type="password"
+
+id="confirmCode"
+
 maxlength="6"
-placeholder="أعد كتابة الرمز">
+
+placeholder="أعد إدخال الرمز">
 
 
-</div>
 
-<button class="save-button" onclick="saveSecurityPin()">
 
-حفظ رمز الأمان
+
+
+<button onclick="saveSecurity()">
+
+حفظ الرمز
 
 </button>
 
 
 
-
-
-<div id="successBox" class="security-message success">
-
-✓ تم حفظ رمز الأمان بنجاح
-
-</div>
-
-
-
-
-<div id="errorBox" class="security-message error">
-
-× الرموز غير متطابقة
-
 </div>
 
 
 
 
 
-</div>
+
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+⌂
+
+<br>
+
+الرئيسية
+
+</a>
+
+
+
+<a href="wallet.html">
+
+▣
+
+<br>
+
+المحفظة
+
+</a>
+
+
+
+<a href="team.html">
+
+♟
+
+<br>
+
+الفريق
+
+</a>
+
+
+
+<a href="settings.html">
+
+⚙
+
+<br>
+
+الإعدادات
+
+</a>
+
+
+</nav>
+
+
+
+
+
 
 
 </div>
@@ -148,98 +209,46 @@ placeholder="أعد كتابة الرمز">
 <script>
 
 
-function saveSecurityPin(){
+function saveSecurity(){
 
 
-
-let pin =
-document.getElementById("securityPin").value;
-
+let code =
+document.getElementById("securityCode").value;
 
 
 let confirm =
-document.getElementById("confirmPin").value;
+document.getElementById("confirmCode").value;
 
 
 
+if(code.length !== 6){
 
-
-document.getElementById("successBox").style.display="none";
-
-document.getElementById("errorBox").style.display="none";
-
-
-
-
-
-
-if(pin==="" || confirm===""){
-
-
-document.getElementById("errorBox").innerHTML =
-"يرجى إدخال رمز الأمان";
-
-
-document.getElementById("errorBox").style.display="block";
-
+alert("أدخل رمز من 6 أرقام");
 
 return;
-
 
 }
 
 
 
+if(code !== confirm){
 
-
-if(pin.length < 6){
-
-
-document.getElementById("errorBox").innerHTML =
-"يجب أن يكون الرمز 6 أرقام";
-
-
-document.getElementById("errorBox").style.display="block";
-
+alert("الرمز غير متطابق");
 
 return;
 
-
 }
-
-
-
-
-
-
-if(pin !== confirm){
-
-
-document.getElementById("errorBox").style.display="block";
-
-
-return;
-
-
-}
-
-
-
 
 
 
 localStorage.setItem(
-"VALORA_SECURITY_PIN",
-pin
+"VALORA_SECURITY",
+code
 );
 
 
 
-
-
-
-document.getElementById("successBox").style.display="block";
-
+alert("تم حفظ رمز الأمان");
 
 
 }
