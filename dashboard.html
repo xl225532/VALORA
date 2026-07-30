@@ -4,13 +4,17 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | الرئيسية</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/dashboard.css">
+
 
 </head>
 
@@ -18,7 +22,10 @@
 <body>
 
 
+
 <div class="dashboard">
+
+
 
 
 
@@ -27,11 +34,14 @@
 <div id="sideMenu" class="side-menu">
 
 
+
 <div class="side-header">
+
 
 <h3>
 VALORA
 </h3>
+
 
 
 <button onclick="closeMenu()">
@@ -39,7 +49,11 @@ VALORA
 </button>
 
 
+
 </div>
+
+
+
 
 
 
@@ -49,8 +63,7 @@ VALORA
 
 <a href="security.html">
 
-🔐
-رمز أمان السحب
+🔐 رمز أمان السحب
 
 </a>
 
@@ -58,18 +71,15 @@ VALORA
 
 <a href="verify.html">
 
-🪪
-التحقق من الهوية
+🪪 التحقق من الهوية
 
 </a>
 
 
 
-
 <a href="change-password.html">
 
-🔑
-تغيير كلمة المرور
+🔑 تغيير كلمة المرور
 
 </a>
 
@@ -78,8 +88,7 @@ VALORA
 
 <a href="support.html">
 
-💬
-مراسلة العملاء
+💬 مراسلة العملاء
 
 </a>
 
@@ -88,17 +97,16 @@ VALORA
 
 <a href="terms.html">
 
-📄
-الشروط والأحكام
+📄 الشروط والأحكام
 
 </a>
+
 
 
 
 <a href="notifications.html">
 
-🔔
-الإشعارات
+🔔 الإشعارات
 
 </a>
 
@@ -109,14 +117,23 @@ VALORA
 
 
 
-<a class="logout" onclick="logout()">
+
+
+
+<div class="logout" onclick="logout()">
 
 🚪 تسجيل الخروج
 
-</a>
+
+</div>
+
 
 
 </div>
+
+
+
+
 
 
 
@@ -136,14 +153,21 @@ VALORA
 
 
 
+
+
 <div class="brand-logo">
+
 
 <div class="logo-icon">
 
+
 <svg viewBox="0 0 64 64">
+
 
 <path d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
 fill="#1687FF"/>
+
+
 
 <path d="M22 24 L32 44 L42 24"
 stroke="#fff"
@@ -151,26 +175,42 @@ stroke-width="4"
 fill="none"
 stroke-linecap="round"/>
 
+
 </svg>
 
+
 </div>
+
+
+
 
 
 <div class="logo-text">
 
+
 <span class="logo-name">
+
 VALORA
+
 </span>
+
 
 
 <span class="logo-sub">
+
 EXCHANGE
+
 </span>
 
 
-</div>
 
 </div>
+
+
+
+</div>
+
+
 
 
 
@@ -178,20 +218,37 @@ EXCHANGE
 
 <div class="uid-card">
 
-<span>UID:</span>
 
-<strong>588887</strong>
+<span>
+
+UID:
+
+</span>
+
+
+<strong>
+
+588887
+
+</strong>
+
+
 
 
 <button onclick="copyUID()">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <rect x="8" y="8" width="12" height="12" rx="2"/>
 
+
 <path d="M4 16V4a2 2 0 0 1 2-2h10"/>
 
+
 </svg>
+
 
 </button>
 
@@ -199,37 +256,31 @@ EXCHANGE
 </div>
 
 
+
+
+
 </header>
-  
 
 
 
 
 
-function openTrade(coin){
 
-window.location.href="trade.html?coin="+coin;
-
-}
-
-
-</script>
-
-
-
-
-</body>
-
-</html>  
 <section class="asset-card">
+
 
 
 <div class="asset-title">
 
 
+
 <span>
+
 إجمالي الأصول
+
 </span>
+
+
 
 
 
@@ -238,9 +289,12 @@ window.location.href="trade.html?coin="+coin;
 
 <svg viewBox="0 0 24 24">
 
+
 <path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
 
+
 <circle cx="12" cy="12" r="3"/>
+
 
 </svg>
 
@@ -248,19 +302,28 @@ window.location.href="trade.html?coin="+coin;
 </button>
 
 
+
+
 </div>
+
+
 
 
 
 
 <div id="balance" class="balance">
 
+
 0.00 <small>USDT</small>
+
 
 </div>
 
 
+
 </section>
+
+
 
 
 
@@ -273,17 +336,57 @@ window.location.href="trade.html?coin="+coin;
 <div class="trade-icons">
 
 
-<span class="btc-symbol">₿</span>
 
-<span class="eth-symbol">◆</span>
+<span class="btc-symbol">
 
-<span class="usdt-symbol">₮</span>
+₿
 
-<span class="trx-symbol">TRX</span>
+</span>
 
-<span class="sol-symbol">S</span>
 
-<span class="xrp-symbol">X</span>
+
+<span class="eth-symbol">
+
+◆
+
+</span>
+
+
+
+
+<span class="usdt-symbol">
+
+₮
+
+</span>
+
+
+
+
+<span class="trx-symbol">
+
+TRX
+
+</span>
+
+
+
+
+<span class="sol-symbol">
+
+S
+
+</span>
+
+
+
+
+<span class="xrp-symbol">
+
+X
+
+</span>
+
 
 
 </div>
@@ -297,7 +400,13 @@ window.location.href="trade.html?coin="+coin;
 
 
 
+
+
 <section class="markets">
+
+
+
+
 
 
 
@@ -305,30 +414,53 @@ window.location.href="trade.html?coin="+coin;
 
 
 <div class="coin-logo btc">
+
 ₿
+
 </div>
+
 
 
 <div class="coin-name">
 
-<b>BTC</b>
 
-<small>Bitcoin</small>
+<b>
+
+BTC
+
+</b>
+
+
+<small>
+
+Bitcoin
+
+</small>
+
 
 </div>
+
+
 
 
 <div class="price">
+
 67,500$
+
 </div>
+
 
 
 <div class="up">
+
 ▲ 2.45%
+
 </div>
 
 
+
 </div>
+
 
 
 
@@ -340,30 +472,54 @@ window.location.href="trade.html?coin="+coin;
 
 
 <div class="coin-logo eth">
+
 ◆
+
 </div>
+
 
 
 <div class="coin-name">
 
-<b>ETH</b>
 
-<small>Ethereum</small>
+<b>
+
+ETH
+
+</b>
+
+
+<small>
+
+Ethereum
+
+</small>
+
 
 </div>
+
+
 
 
 <div class="price">
+
 3,450$
+
 </div>
+
 
 
 <div class="down">
+
 ▼ 1.20%
+
 </div>
 
 
+
 </div>
+
+
 
 
 
@@ -375,30 +531,53 @@ window.location.href="trade.html?coin="+coin;
 
 
 <div class="coin-logo usdt">
+
 ₮
+
 </div>
+
 
 
 <div class="coin-name">
 
-<b>USDT</b>
 
-<small>Tether</small>
+<b>
+
+USDT
+
+</b>
+
+
+<small>
+
+Tether
+
+</small>
+
 
 </div>
+
+
 
 
 <div class="price">
+
 1.00$
+
 </div>
+
 
 
 <div class="up">
+
 ▲ 0.05%
+
 </div>
 
 
+
 </div>
+
 
 
 
@@ -411,72 +590,56 @@ window.location.href="trade.html?coin="+coin;
 
 
 <div class="coin-logo trx">
+
 TRX
+
 </div>
+
 
 
 <div class="coin-name">
 
-<b>TRX</b>
 
-<small>TRON</small>
+<b>
+
+TRX
+
+</b>
+
+
+<small>
+
+TRON
+
+</small>
+
 
 </div>
+
+
 
 
 <div class="price">
+
 0.12$
+
 </div>
+
 
 
 <div class="up">
+
 ▲ 1.20%
+
 </div>
 
 
+
 </div>
+
 
 
 
 
 
 </section>
-
-
-
-
-
-
-<nav class="bottom-nav">
-
-
-<a class="active">
-
-⌂
-<br>
-الرئيسية
-
-</a>
-
-
-
-<a href="wallet.html">
-
-▣
-<br>
-المحفظة
-
-</a>
-
-
-
-<a href="team.html">
-
-♟
-<br>
-الفريق
-
-</a>
-
-
-</nav>
