@@ -22,7 +22,6 @@
 <div class="deposit-container">
 
 
-
 <header class="deposit-header">
 
 <div class="deposit-logo">
@@ -30,8 +29,6 @@ VALORA
 </div>
 
 </header>
-
-
 
 
 
@@ -57,16 +54,13 @@ VALORA
 
 
 
-
-
 <section class="deposit-coins">
 
 
-
-<button class="deposit-coin active" onclick="selectCoin('USDT')">
+<button class="deposit-coin active" onclick="selectCoin('USDT',this)">
 
 <div class="deposit-coin-icon usdt">
-T
+₮
 </div>
 
 <div>
@@ -79,8 +73,7 @@ T
 
 
 
-
-<button class="deposit-coin" onclick="selectCoin('BTC')">
+<button class="deposit-coin" onclick="selectCoin('BTC',this)">
 
 <div class="deposit-coin-icon btc">
 ₿
@@ -96,8 +89,7 @@ T
 
 
 
-
-<button class="deposit-coin" onclick="selectCoin('ETH')">
+<button class="deposit-coin" onclick="selectCoin('ETH',this)">
 
 <div class="deposit-coin-icon eth">
 ◆
@@ -113,8 +105,7 @@ T
 
 
 
-
-<button class="deposit-coin" onclick="selectCoin('TRX')">
+<button class="deposit-coin" onclick="selectCoin('TRX',this)">
 
 <div class="deposit-coin-icon trx">
 TRX
@@ -128,15 +119,7 @@ TRX
 </button>
 
 
-
 </section>
-
-
-
-
-
-
-
 
 <section class="deposit-card">
 
@@ -146,21 +129,16 @@ TRX
 </h3>
 
 
+<div class="network-buttons" id="networkBox">
 
-<div class="network-buttons">
 
-
-<button class="network active" onclick="selectNetwork(this,'TRC20')">
-
+<button class="network active">
 TRC20
-
 </button>
 
 
-<button class="network" onclick="selectNetwork(this,'ERC20')">
-
+<button class="network">
 ERC20
-
 </button>
 
 
@@ -171,12 +149,9 @@ ERC20
 
 
 
-
-
 <h3>
 عنوان الإيداع
 </h3>
-
 
 
 
@@ -193,17 +168,21 @@ readonly>
 
 
 <button onclick="copyDeposit()">
-
 نسخ
-
 </button>
 
 
 
 </div>
+
+
+
+
+
+
 <div class="deposit-warning">
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.  
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
 إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
 
 <br><br>
@@ -234,27 +213,29 @@ let currentNetwork = "TRC20";
 
 
 
-let addresses = {
+let coinNetworks = {
 
-USDT:{
-TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
-ERC20:"0xUSDTXXXXXXXXXXXXXXXX"
-},
 
-BTC:{
-TRC20:"bc1BTCXXXXXXXXXXXXXXXX",
-ERC20:"bc1BTCERCXXXXXXXXXXXXXXXX"
-},
+USDT:[
+"TRC20",
+"ERC20"
+],
 
-ETH:{
-TRC20:"0xETHXXXXXXXXXXXXXXXX",
-ERC20:"0xETHERCXXXXXXXXXXXXXXXX"
-},
 
-TRX:{
-TRC20:"TXTRONXXXXXXXXXXXXXXXX",
-ERC20:"ERC20TRXXXXXXXXXXXXXXXXX"
-}
+BTC:[
+"Bitcoin"
+],
+
+
+ETH:[
+"ERC20"
+],
+
+
+TRX:[
+"TRC20"
+]
+
 
 };
 
@@ -262,7 +243,46 @@ ERC20:"ERC20TRXXXXXXXXXXXXXXXXX"
 
 
 
-function selectCoin(coin){
+let addresses = {
+
+
+USDT:{
+
+TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
+
+ERC20:"0xUSDTXXXXXXXXXXXXXXXX"
+
+},
+
+
+BTC:{
+
+Bitcoin:"bc1BTCXXXXXXXXXXXXXXXX"
+
+},
+
+
+ETH:{
+
+ERC20:"0xETHXXXXXXXXXXXXXXXX"
+
+},
+
+
+TRX:{
+
+TRC20:"TXTRONXXXXXXXXXXXXXXXX"
+
+}
+
+
+};
+
+
+
+
+
+function selectCoin(coin,button){
 
 
 currentCoin = coin;
@@ -274,8 +294,11 @@ document.querySelectorAll(".deposit-coin")
 
 
 
-event.currentTarget.classList.add("active");
+button.classList.add("active");
 
+
+
+loadNetworks();
 
 
 updateAddress();
@@ -288,10 +311,65 @@ updateAddress();
 
 
 
+function loadNetworks(){
+
+
+let box = document.getElementById("networkBox");
+
+
+box.innerHTML="";
+
+
+
+coinNetworks[currentCoin].forEach((network,index)=>{
+
+
+let btn=document.createElement("button");
+
+
+btn.className="network";
+
+
+btn.innerHTML=network;
+
+
+
+if(index===0){
+
+btn.classList.add("active");
+
+currentNetwork=network;
+
+}
+
+
+
+btn.onclick=function(){
+
+selectNetwork(this,network);
+
+};
+
+
+
+box.appendChild(btn);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
 function selectNetwork(button,network){
 
 
-currentNetwork = network;
+currentNetwork=network;
 
 
 
@@ -328,7 +406,6 @@ addresses[currentCoin][currentNetwork];
 
 
 
-
 function copyDeposit(){
 
 
@@ -336,16 +413,13 @@ let address =
 document.getElementById("depositAddress").value;
 
 
-
 navigator.clipboard.writeText(address);
-
 
 
 alert("تم نسخ عنوان الإيداع");
 
 
 }
-
 
 
 </script>
