@@ -28,7 +28,7 @@ margin-bottom:20px;
 }
 
 
-/* زر القائمة */
+/* MENU BUTTON */
 
 .menu-btn{
 background:none;
@@ -51,118 +51,214 @@ gap:8px;
 direction:ltr;
 }
 
+
 .logo-icon svg{
+
 width:48px;
 height:48px;
+
 filter:drop-shadow(0 0 12px #1687FF);
+
 }
 
+
+
 .logo-text{
+
 display:flex;
 flex-direction:column;
 line-height:1;
+
 }
+
+
 
 .logo-name{
+
 font-size:30px;
+
 font-weight:800;
+
 letter-spacing:2px;
+
 color:#EAF3FF;
+
 text-shadow:0 0 12px #1687FF;
+
 }
 
+
+
 .logo-sub{
+
 font-size:11px;
+
 color:#22C55E;
+
 letter-spacing:3px;
+
 }
+
+
+
+
 
 
 
 /* UID */
 
 .uid-card{
+
 display:flex;
+
 direction:ltr;
+
 align-items:center;
+
 gap:8px;
+
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:16px;
+
 padding:10px 12px;
+
 }
+
+
 
 .uid-card span{
+
 color:#98A5B8;
+
 font-size:13px;
+
 }
+
+
 
 .uid-card strong{
+
 font-size:16px;
+
 }
+
+
 
 .uid-card button{
+
 background:none;
+
 border:0;
+
 cursor:pointer;
+
 }
+
+
 
 .uid-card svg{
+
 width:21px;
+
 stroke:#1687FF;
+
 fill:none;
+
 stroke-width:2;
+
 }
 
 
 
-/* ASSETS */
+
+
+
+
+/* ASSET */
 
 .asset-card{
+
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:20px;
+
 padding:18px;
+
 margin-bottom:15px;
+
 }
+
 
 
 .asset-title{
+
 display:flex;
+
 justify-content:space-between;
+
 align-items:center;
+
 color:#AAB5C5;
+
 }
+
 
 
 .eye{
+
 background:none;
+
 border:0;
+
 cursor:pointer;
+
 }
+
 
 
 .eye svg{
+
 width:26px;
+
 height:26px;
+
 stroke:#1687FF;
+
 fill:none;
+
 stroke-width:2;
+
 }
+
 
 
 .balance{
+
 font-size:36px;
+
 font-weight:700;
+
 color:#22C55E;
+
 margin-top:12px;
+
 direction:ltr;
+
 text-align:right;
+
 }
 
 
+
 .balance small{
+
 font-size:17px;
+
 }
 /* TRADE BAR */
 
@@ -235,11 +331,20 @@ font-weight:bold;
 
 @keyframes tradeMove{
 
-0%{transform:translateX(0);}
-50%{transform:translateX(-40px);}
-100%{transform:translateX(0);}
+0%{
+transform:translateX(0);
+}
+
+50%{
+transform:translateX(-40px);
+}
+
+100%{
+transform:translateX(0);
+}
 
 }
+
 
 
 
@@ -300,6 +405,7 @@ font-weight:bold;
 
 
 
+
 .coin-name{
 
 direction:rtl;
@@ -310,13 +416,21 @@ text-align:right;
 
 
 
+.coin-name b{
+
+font-size:15px;
+
+}
+
+
+
 .coin-name small{
 
 display:block;
 
-color:#98A5B8;
-
 font-size:12px;
+
+color:#98A5B8;
 
 }
 
@@ -324,9 +438,11 @@ font-size:12px;
 
 .price{
 
+direction:ltr;
+
 text-align:center;
 
-direction:ltr;
+font-size:14px;
 
 }
 
@@ -338,6 +454,8 @@ color:#22C55E;
 
 text-align:center;
 
+font-size:13px;
+
 }
 
 
@@ -348,6 +466,8 @@ color:#EF4444;
 
 text-align:center;
 
+font-size:13px;
+
 }
 
 
@@ -356,7 +476,7 @@ text-align:center;
 
 
 
-/* SIDE MENU */
+/* SIDE MENU - FIX TOUCH */
 
 .side-menu{
 
@@ -372,17 +492,21 @@ height:100vh;
 
 background:#0B1628;
 
+border-left:1px solid #17365C;
+
 z-index:9999;
 
 padding:18px;
 
-transition:.3s;
+transition:.3s ease;
 
 display:flex;
 
 flex-direction:column;
 
-pointer-events:none;
+overflow:hidden;
+
+visibility:hidden;
 
 }
 
@@ -392,7 +516,7 @@ pointer-events:none;
 
 right:0;
 
-pointer-events:auto;
+visibility:visible;
 
 }
 
@@ -405,6 +529,8 @@ display:flex;
 justify-content:space-between;
 
 align-items:center;
+
+margin-bottom:20px;
 
 }
 
@@ -432,9 +558,7 @@ flex-direction:column;
 
 gap:10px;
 
-margin-top:20px;
-
-overflow:auto;
+overflow-y:auto;
 
 }
 
@@ -454,6 +578,8 @@ color:white;
 
 text-decoration:none;
 
+font-size:14px;
+
 }
 
 
@@ -470,63 +596,10 @@ border-radius:14px;
 
 text-align:center;
 
+color:white;
+
+font-weight:bold;
+
 cursor:pointer;
 
 }
-
-
-
-
-
-
-/* BOTTOM NAV */
-
-.bottom-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
-
-width:100%;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-padding:12px;
-
-z-index:100;
-
-}
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-}
-
-
-
-.bottom-nav .active{
-
-color:#1687FF;
-
-  }
