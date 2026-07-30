@@ -1,51 +1,42 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 
-
 <head>
 
 <meta charset="UTF-8">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
-<title>VALORA | الدعم</title>
-
+<title>VALORA | خدمة العملاء</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/support.css">
-
 
 </head>
 
 
+<body>
 
 
-<body class="support-page">
-
-
-
-<div class="support-container">
+<div class="support-page">
 
 
 
+<header class="page-header">
 
+<a href="settings.html">
 
-<header class="support-header">
-
-
-<a href="dashboard.html">
 ‹
+
 </a>
 
 
-
 <h2>
-مراسلة العملاء
-</h2>
 
+خدمة العملاء
+
+</h2>
 
 
 </header>
@@ -56,53 +47,55 @@
 
 
 
-
-<div class="support-card">
-
+<section class="support-card">
 
 
-<div class="support-avatar">
+<div class="support-icon">
 
 💬
 
 </div>
 
 
-
-
 <h3>
-دعم VALORA
+
+مراسلة العملاء
+
 </h3>
 
 
-
 <p>
-مرحباً بك، كيف يمكننا مساعدتك؟
+
+تواصل مع فريق الدعم في حال وجود أي مشكلة
+
 </p>
 
 
+</section>
+
+
+
+
+
+
+
+
+<section class="chat-box">
+
+
+<div class="message">
+
+مرحباً بك في دعم VALORA
+
+<br>
+
+كيف يمكننا مساعدتك؟
 
 </div>
 
 
 
-
-
-
-
-<div id="chatBox" class="chat-box">
-
-
-
-<div class="message admin">
-
-أهلاً بك في دعم VALORA، نحن هنا لمساعدتك.
-
-</div>
-
-
-
-</div>
+</section>
 
 
 
@@ -110,12 +103,10 @@
 
 
 
-<div class="send-area">
+<div class="send-box">
 
 
 <input
-
-id="messageInput"
 
 type="text"
 
@@ -123,9 +114,7 @@ placeholder="اكتب رسالتك...">
 
 
 
-
-
-<button onclick="sendMessage()">
+<button>
 
 إرسال
 
@@ -139,163 +128,48 @@ placeholder="اكتب رسالتك...">
 
 
 
-<script>
 
 
+<nav class="bottom-nav">
 
 
-function sendMessage(){
+<a href="dashboard.html">
 
+⌂
 
+<br>
 
-let input = document.getElementById("messageInput");
+الرئيسية
 
+</a>
 
-let text = input.value.trim();
 
 
+<a href="wallet.html">
 
+▣
 
-if(text===""){
+<br>
 
-return;
+المحفظة
 
-}
+</a>
 
 
 
+<a href="team.html">
 
+♟
 
+<br>
 
-let chat = document.getElementById("chatBox");
+الفريق
 
+</a>
 
 
 
-
-
-let message = document.createElement("div");
-
-
-message.className="message user";
-
-
-message.innerHTML=text;
-
-
-
-chat.appendChild(message);
-
-
-
-
-
-let messages = JSON.parse(
-
-localStorage.getItem("VALORA_SUPPORT")
-
-) || [];
-
-
-
-
-messages.push({
-
-text:text,
-
-date:new Date().toLocaleString("ar-EG"),
-
-sender:"user"
-
-});
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_SUPPORT",
-
-JSON.stringify(messages)
-
-);
-
-
-
-
-
-input.value="";
-
-
-
-
-
-chat.scrollTop = chat.scrollHeight;
-
-
-
-
-}
-
-
-
-
-
-
-// تحميل الرسائل السابقة
-
-
-window.onload=function(){
-
-
-
-let messages = JSON.parse(
-
-localStorage.getItem("VALORA_SUPPORT")
-
-) || [];
-
-
-
-let chat=document.getElementById("chatBox");
-
-
-
-
-
-messages.forEach(function(msg){
-
-
-
-let div=document.createElement("div");
-
-
-
-div.className="message user";
-
-
-
-div.innerHTML=msg.text;
-
-
-
-chat.appendChild(div);
-
-
-
-});
-
-
-
-};
-
-
-
-
-
-</script>
-
+</nav>
 
 
 
@@ -304,7 +178,7 @@ chat.appendChild(div);
 </div>
 
 
-</body>
 
+</body>
 
 </html>
