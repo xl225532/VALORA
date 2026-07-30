@@ -55,11 +55,7 @@ VALORA
 </span>
 
 
-<button onclick="copyReferral()">
-
-نسخ
-
-</button>
+<button class="copy-icon" onclick="copyReferral()"></button>
 
 
 </div>
@@ -81,9 +77,13 @@ VALORA
 </h3>
 
 
-<div class="team-number" id="myReferralCode">
+<div class="code-copy-box">
 
+<span id="myReferralCode">
 ---
+</span>
+
+<button class="copy-icon" onclick="copyCode()"></button>
 
 </div>
 
@@ -115,9 +115,32 @@ VALORA
 
 
 
+<div class="reward-card">
 
 
+<h3>
+🎁 مكافأة الدعوة
+</h3>
 
+
+<p>
+ادعُ 10 أشخاص نشطين واحصل على
+</p>
+
+
+<strong>
+iPhone 17 Pro Max
+</strong>
+
+
+<div class="reward-progress">
+
+0 / 10 أشخاص
+
+</div>
+
+
+</div>
 <h3>
 أرباح الدعوة
 </h3>
@@ -215,6 +238,7 @@ VALORA
 </div>
 
 
+
 </div>
 
 
@@ -251,6 +275,7 @@ VALORA
 </span>
 
 </div>
+
 
 
 
@@ -384,7 +409,14 @@ VIP5
 
 
 
+
+
+
 </div>
+
+
+
+
 
 
 
@@ -414,8 +446,8 @@ let link = window.location.origin + "/register.html?ref=" + code;
 document.getElementById("referralLink").innerText = link;
 
 
-
 }
+
 
 
 
@@ -425,10 +457,13 @@ document.getElementById("referralLink").innerText = link;
 function copyReferral(){
 
 
-let link = document.getElementById("referralLink").innerText;
+let link =
+document.getElementById("referralLink").innerText;
+
 
 
 navigator.clipboard.writeText(link);
+
 
 
 alert("تم نسخ رابط الدعوة");
@@ -437,7 +472,33 @@ alert("تم نسخ رابط الدعوة");
 }
 
 
+
+
+
+
+
+function copyCode(){
+
+
+let code =
+document.getElementById("myReferralCode").innerText;
+
+
+
+navigator.clipboard.writeText(code);
+
+
+
+alert("تم نسخ كود الإحالة");
+
+
+}
+
+
+
 </script>
+
+
 
 
 
