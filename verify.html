@@ -9,24 +9,31 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/verify.css">
+
 
 </head>
 
 
-<body class="verify-page">
+
+<body>
 
 
 
-<div class="verify-container">
+<div class="verify-page">
 
 
 
-<header class="verify-header">
 
-<a href="dashboard.html">
+
+<header class="page-header">
+
+
+<a href="settings.html">
 ‹
 </a>
 
@@ -43,8 +50,9 @@
 
 
 
-<div class="verify-card">
 
+
+<section class="notice-card">
 
 
 <div class="verify-icon">
@@ -54,29 +62,40 @@
 </div>
 
 
+<h3>
+إكمال التحقق مطلوب
+</h3>
+
+
+<p>
+
+لن تتمكن من تنفيذ عمليات السحب قبل تأكيد الهوية
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+<section class="upload-card">
+
+
 
 <h3>
-تأكيد الهوية
+
+صورة الهوية الأمامية
+
 </h3>
 
 
 
-<p>
-يرجى رفع المستندات المطلوبة لإكمال التحقق والسماح بالسحب
-</p>
-
-
-
-
-
-
-
-<div class="upload-box">
-
-
-<label>
-صورة الهوية الأمامية
-</label>
+<label class="upload-box">
 
 
 <input 
@@ -86,27 +105,34 @@ accept="image/*">
 
 
 
-<div id="idPreview" class="preview">
+<span>
 
-لم يتم اختيار صورة
+📷
 
-</div>
+<br>
 
+رفع صورة الهوية
 
-</div>
-
-
-
+</span>
 
 
 
-
-<div class="upload-box">
-
-
-<label>
-صورة الهوية مع الوجه
 </label>
+
+
+
+
+
+
+<h3>
+
+صورة الوجه مع الهوية
+
+</h3>
+
+
+
+<label class="upload-box">
 
 
 <input 
@@ -116,20 +142,27 @@ accept="image/*">
 
 
 
-<div id="facePreview" class="preview">
+<span>
 
-لم يتم اختيار صورة
+🤳
 
-</div>
+<br>
 
+رفع صورة الوجه
 
-</div>
-
-
-
+</span>
 
 
-<button class="verify-button" onclick="submitVerify()">
+
+</label>
+
+
+
+
+
+
+
+<button onclick="sendVerify()">
 
 إرسال للتحقق
 
@@ -137,42 +170,75 @@ accept="image/*">
 
 
 
+</section>
 
 
 
 
-<div id="successBox" class="verify-message success">
 
-✓ تم إرسال طلب التحقق
+
+
+
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+⌂
 
 <br>
 
-بانتظار المراجعة
+الرئيسية
+
+</a>
+
+
+
+<a href="wallet.html">
+
+▣
+
+<br>
+
+المحفظة
+
+</a>
+
+
+
+<a href="team.html">
+
+♟
+
+<br>
+
+الفريق
+
+</a>
+
+
+
+<a href="settings.html">
+
+⚙
+
+<br>
+
+الإعدادات
+
+</a>
+
+
+</nav>
+
+
+
+
+
+
 
 </div>
-
-
-
-
-
-
-<div id="errorBox" class="verify-message error">
-
-× يرجى رفع جميع الصور المطلوبة
-
-</div>
-
-
-
-
-
-
-
-</div>
-
-
-</div>
-
 
 
 
@@ -183,139 +249,39 @@ accept="image/*">
 <script>
 
 
+function sendVerify(){
 
 
-
-function previewImage(input,id){
-
-
-let file=input.files[0];
-
-
-if(file){
-
-
-let reader=new FileReader();
-
-
-
-reader.onload=function(e){
-
-
-document.getElementById(id).innerHTML =
-
-'<img src="'+e.target.result+'">';
-
-
-
-}
-
-
-
-reader.readAsDataURL(file);
-
-
-
-}
-
-
-}
-
-
-
-
-
-document
-.getElementById("idImage")
-.addEventListener("change",function(){
-
-
-previewImage(this,"idPreview");
-
-
-});
-
-
-
-
-
-
-document
-.getElementById("faceImage")
-.addEventListener("change",function(){
-
-
-previewImage(this,"facePreview");
-
-
-});
-
-
-
-
-
-
-
-
-
-function submitVerify(){
-
-
-
-let idImage =
+let id =
 document.getElementById("idImage").files.length;
 
 
-
-let faceImage =
+let face =
 document.getElementById("faceImage").files.length;
 
 
 
 
+if(!id || !face){
 
 
-document.getElementById("successBox").style.display="none";
-
-document.getElementById("errorBox").style.display="none";
-
-
-
-
-
-
-
-if(idImage===0 || faceImage===0){
-
-
-document.getElementById("errorBox").style.display="block";
-
+alert("يرجى رفع صورة الهوية وصورة الوجه");
 
 return;
-
 
 }
 
 
 
 
-
-
 localStorage.setItem(
-
-"VALORA_VERIFY_STATUS",
-
+"VALORA_VERIFY",
 "pending"
-
 );
 
 
 
-
-
-
-document.getElementById("successBox").style.display="block";
-
+alert("تم إرسال طلب التحقق");
 
 
 }
@@ -327,6 +293,8 @@ document.getElementById("successBox").style.display="block";
 
 
 
+
+
 </body>
 
-  </html>
+</html>
