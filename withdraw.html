@@ -22,7 +22,6 @@
 <div class="withdraw-container">
 
 
-
 <header class="withdraw-header">
 
 <div class="withdraw-logo">
@@ -30,7 +29,6 @@ VALORA
 </div>
 
 </header>
-
 
 
 
@@ -65,7 +63,7 @@ VALORA
 
 
 
-<button class="withdraw-coin active">
+<button class="withdraw-coin active" onclick="selectCoin('USDT',this)">
 
 <div class="withdraw-coin-icon usdt">
 ₮
@@ -73,6 +71,7 @@ VALORA
 
 
 <div>
+
 <strong>
 USDT
 </strong>
@@ -89,8 +88,9 @@ TRC20
 
 
 
-<button class="withdraw-coin">
 
+
+<button class="withdraw-coin" onclick="selectCoin('BTC',this)">
 
 <div class="withdraw-coin-icon btc">
 ₿
@@ -98,6 +98,7 @@ TRC20
 
 
 <div>
+
 <strong>
 BTC
 </strong>
@@ -114,8 +115,9 @@ Bitcoin
 
 
 
-<button class="withdraw-coin">
 
+
+<button class="withdraw-coin" onclick="selectCoin('ETH',this)">
 
 <div class="withdraw-coin-icon eth">
 ◆
@@ -123,6 +125,7 @@ Bitcoin
 
 
 <div>
+
 <strong>
 ETH
 </strong>
@@ -137,16 +140,35 @@ Ethereum
 
 
 
+
+
+
+
+<button class="withdraw-coin" onclick="selectCoin('TRX',this)">
+
+<div class="withdraw-coin-icon trx">
+TRX
+</div>
+
+
+<div>
+
+<strong>
+TRX
+</strong>
+
+<small>
+TRON
+</small>
+
+</div>
+
+</button>
+
+
+
+
 </section>
-
-
-
-
-
-
-
-
-
 <section class="withdraw-card">
 
 
@@ -159,9 +181,11 @@ Ethereum
 </label>
 
 
-<input id="withdrawAddress"
+<input 
+id="withdrawAddress"
 type="text"
 placeholder="أدخل عنوان المحفظة">
+
 
 </div>
 
@@ -179,9 +203,25 @@ placeholder="أدخل عنوان المحفظة">
 </label>
 
 
-<input id="withdrawAmount"
+<input 
+id="withdrawAmount"
 type="number"
 placeholder="أدخل المبلغ">
+
+
+<div class="fee-note">
+
+رسوم السحب:
+<br>
+
+قبل تحقيق شرط التضعيف: 20%
+
+<br>
+
+بعد تحقيق شرط التضعيف: 5%
+
+</div>
+
 
 </div>
 
@@ -201,10 +241,11 @@ placeholder="أدخل المبلغ">
 </span>
 
 <strong>
-10 USDT
+50 USDT
 </strong>
 
 </div>
+
 
 
 
@@ -215,11 +256,13 @@ placeholder="أدخل المبلغ">
 العمولة
 </span>
 
-<strong>
-1 USDT
+<strong id="feeAmount">
+20%
 </strong>
 
 </div>
+
+
 
 
 
@@ -237,6 +280,7 @@ placeholder="أدخل المبلغ">
 </div>
 
 
+
 </div>
 
 
@@ -251,8 +295,6 @@ placeholder="أدخل المبلغ">
 تأكيد السحب
 
 </button>
-
-
 
 
 
@@ -281,7 +323,6 @@ placeholder="أدخل المبلغ">
 
 
 
-
 <div id="rejectBox" class="withdraw-status reject">
 
 
@@ -303,7 +344,6 @@ placeholder="أدخل المبلغ">
 
 
 
-
 <a href="withdraw-history.html" class="withdraw-history">
 
 سجل السحوبات
@@ -312,9 +352,7 @@ placeholder="أدخل المبلغ">
 
 
 
-
 </section>
-
 
 
 
@@ -336,176 +374,3 @@ placeholder="أدخل المبلغ">
 
 
 <a href="wallet.html">
-
-▣
-<br>
-المحفظة
-
-</a>
-
-
-
-<a href="team.html">
-
-♟
-<br>
-الفريق
-
-</a>
-
-
-
-<a href="settings.html">
-
-⚙
-<br>
-الإعدادات
-
-</a>
-
-
-
-</nav>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
-
-<script>
-
-
-document
-.getElementById("withdrawAmount")
-.addEventListener("input",function(){
-
-
-let amount = Number(this.value);
-
-
-let receive = amount - 1;
-
-
-if(receive < 0){
-
-receive = 0;
-
-}
-
-
-document.getElementById("receiveAmount").innerHTML =
-receive.toFixed(2)+" USDT";
-
-
-});
-
-
-
-
-
-
-
-
-function submitWithdraw(){
-
-
-let address =
-document.getElementById("withdrawAddress").value;
-
-
-let amount =
-document.getElementById("withdrawAmount").value;
-
-
-
-
-
-document.getElementById("successBox").style.display="none";
-
-document.getElementById("rejectBox").style.display="none";
-
-
-
-
-
-
-if(address==="" || amount===""){
-
-
-document.getElementById("rejectBox").style.display="block";
-
-
-return;
-
-}
-
-
-
-
-
-let withdrawal={
-
-coin:"USDT",
-
-network:"TRC20",
-
-amount:amount,
-
-address:address,
-
-date:new Date().toLocaleString("ar-EG"),
-
-status:"pending"
-
-};
-
-
-
-
-
-let list =
-JSON.parse(localStorage.getItem("withdrawals")) || [];
-
-
-list.push(withdrawal);
-
-
-localStorage.setItem(
-"withdrawals",
-JSON.stringify(list)
-);
-
-
-
-
-
-document.getElementById("successBox").style.display="block";
-
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-</body>
-
-</html>
