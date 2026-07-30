@@ -1,24 +1,25 @@
 *{
 
 margin:0;
+
 padding:0;
+
 box-sizing:border-box;
+
 font-family:'Cairo',Arial,sans-serif;
 
 }
 
 
+body{
 
-html,body{
+background:#050B16;
 
-background:#050B16 !important;
-
-color:white !important;
+color:white;
 
 min-height:100vh;
 
 }
-
 
 
 
@@ -35,9 +36,7 @@ padding:18px 15px 90px;
 
 
 
-
 /* HEADER */
-
 
 .page-header{
 
@@ -47,7 +46,7 @@ align-items:center;
 
 gap:15px;
 
-margin-bottom:25px;
+margin-bottom:20px;
 
 }
 
@@ -76,9 +75,7 @@ font-size:20px;
 
 
 
-
 /* SUPPORT CARD */
-
 
 .support-card{
 
@@ -88,11 +85,11 @@ border:1px solid #17365C;
 
 border-radius:20px;
 
-padding:22px;
+padding:18px;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:15px;
 
 }
 
@@ -100,9 +97,9 @@ margin-bottom:18px;
 
 .support-icon{
 
-font-size:50px;
+font-size:45px;
 
-margin-bottom:10px;
+margin-bottom:8px;
 
 }
 
@@ -114,12 +111,7 @@ color:#98A5B8;
 
 font-size:13px;
 
-margin-top:8px;
-
 }
-
-
-
 
 
 
@@ -127,22 +119,19 @@ margin-top:8px;
 
 /* CHAT */
 
-
 .chat-box{
 
 background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:20px;
-
-height:300px;
+border-radius:18px;
 
 padding:15px;
 
-display:flex;
+min-height:150px;
 
-align-items:flex-start;
+margin-bottom:15px;
 
 }
 
@@ -168,18 +157,13 @@ line-height:1.7;
 
 
 
-
-
 /* SEND */
-
 
 .send-box{
 
 display:flex;
 
-gap:10px;
-
-margin-top:15px;
+gap:8px;
 
 }
 
@@ -195,7 +179,7 @@ border:1px solid #17365C;
 
 border-radius:14px;
 
-padding:13px;
+padding:12px;
 
 color:white;
 
@@ -207,15 +191,15 @@ outline:none;
 
 .send-box button{
 
-width:90px;
-
 background:#1687FF;
 
 border:0;
 
+color:white;
+
 border-radius:14px;
 
-color:white;
+padding:12px 18px;
 
 font-weight:bold;
 
@@ -228,7 +212,6 @@ font-weight:bold;
 
 
 /* BOTTOM NAV */
-
 
 .bottom-nav{
 
@@ -252,9 +235,7 @@ display:flex;
 
 justify-content:space-around;
 
-padding:10px;
-
-z-index:50;
+padding:12px;
 
 }
 
