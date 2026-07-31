@@ -42,7 +42,13 @@ invited:"عدد المدعوين",
 inviteReward:"🎁 مكافأة الدعوة",
 rewardCondition:"ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر واحصل على",
 inviteProfitTitle:"أرباح الدعوة",
-teamLevels:"مستويات الفريق"
+teamLevels:"مستويات الفريق",
+
+depositAmount:"الإيداع",
+profit:"الربح",
+level:"المستوى",
+members:"الأعضاء",
+percentage:"النسبة"
 
 },
 
@@ -90,7 +96,13 @@ invited:"Invited Members",
 inviteReward:"🎁 Referral Reward",
 rewardCondition:"Invite 10 people with deposits of 500 USDT or more and get",
 inviteProfitTitle:"Referral Earnings",
-teamLevels:"Team Levels"
+teamLevels:"Team Levels",
+
+depositAmount:"Deposit",
+profit:"Profit",
+level:"Level",
+members:"Members",
+percentage:"Percentage"
 
 }
 
@@ -107,6 +119,7 @@ let lang = localStorage.getItem("VALORA_LANG") || "ar";
 
 
 document.documentElement.lang = lang;
+
 
 
 if(lang === "ar"){
@@ -129,7 +142,9 @@ let key = el.dataset.lang;
 
 if(translations[lang] && translations[lang][key]){
 
+
 el.innerText = translations[lang][key];
+
 
 }
 
@@ -138,7 +153,6 @@ el.innerText = translations[lang][key];
 
 
 }
-
 
 
 
@@ -162,9 +176,10 @@ applyLanguage();
 
 
 
-
 document.addEventListener("DOMContentLoaded",function(){
 
+
 applyLanguage();
+
 
 });
