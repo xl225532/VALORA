@@ -12,7 +12,9 @@ verify:"التحقق من الهوية",
 support:"مراسلة العملاء",
 notifications:"الإشعارات",
 terms:"الشروط والأحكام",
-logout:"تسجيل الخروج"
+logout:"تسجيل الخروج",
+assets:"إجمالي الأصول",
+password:"تغيير كلمة المرور"
 
 },
 
@@ -29,11 +31,14 @@ verify:"Identity Verification",
 support:"Customer Support",
 notifications:"Notifications",
 terms:"Terms & Conditions",
-logout:"Logout"
+logout:"Logout",
+assets:"Total Assets",
+password:"Change Password"
 
 }
 
 };
+
 
 
 
@@ -50,7 +55,7 @@ document.documentElement.lang = lang;
 
 
 
-if(lang=="ar"){
+if(lang === "ar"){
 
 document.documentElement.dir="rtl";
 
@@ -68,14 +73,14 @@ document.querySelectorAll("[data-lang]").forEach(function(el){
 
 
 
-let key=el.dataset.lang;
+let key = el.dataset.lang;
 
 
 
-if(translations[lang][key]){
+if(translations[lang] && translations[lang][key]){
 
 
-el.innerText=translations[lang][key];
+el.innerText = translations[lang][key];
 
 
 }
@@ -85,13 +90,17 @@ el.innerText=translations[lang][key];
 });
 
 
+
 }
 
 
 
 
 
+
+
 function setLanguage(lang){
+
 
 
 localStorage.setItem(
@@ -104,4 +113,19 @@ lang
 applyLanguage();
 
 
+
 }
+
+
+
+
+
+
+
+document.addEventListener("DOMContentLoaded",function(){
+
+
+applyLanguage();
+
+
+});
