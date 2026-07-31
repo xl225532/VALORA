@@ -14,42 +14,27 @@
 
 </head>
 
-
 <body>
 
-
 <div class="dashboard">
-
-
 
 <header class="header">
 
 <div class="brand">
-
 VALORA
-
 </div>
 
 </header>
 
-
-
-
-
-
 <section class="referral-box">
 
-
-<div class="referral-title">
+<div class="referral-title" data-lang="referralTitle">
 
 رابط الدعوة الخاص بك
 
 </div>
 
-
-
 <div class="referral-code">
-
 
 <span id="referralLink">
 
@@ -57,30 +42,19 @@ VALORA
 
 </span>
 
-
 <button class="copy-icon" onclick="copyReferral()"></button>
-
 
 </div>
 
-
 </section>
-
-
-
-
-
-
 
 <div class="team-card">
 
-
-<h3>
+<h3 data-lang="referralCode">
 
 كود الإحالة
 
 </h3>
-
 
 <div class="code-copy-box">
 
@@ -94,24 +68,15 @@ VALORA
 
 </div>
 
-
 </div>
-
-
-
-
-
-
 
 <div class="team-card">
 
-
-<h3>
+<h3 data-lang="invited">
 
 عدد المدعوين
 
 </h3>
-
 
 <div class="team-number">
 
@@ -119,31 +84,21 @@ VALORA
 
 </div>
 
-
 </div>
-
-
-
-
-
-
 
 <div class="reward-card">
 
-
-<h3>
+<h3 data-lang="inviteReward">
 
 🎁 مكافأة الدعوة
 
 </h3>
 
-
-<p>
+<p data-lang="rewardCondition">
 
 ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر واحصل على
 
 </p>
-
 
 <strong>
 
@@ -151,148 +106,76 @@ iPhone 17 Pro Max
 
 </strong>
 
-
 <div class="reward-progress">
 
 0 / 10 أشخاص
 
 </div>
 
-
 </div>
 
-
-
-
-
-
-<h3>
+<h3 data-lang="inviteProfitTitle">
 
 أرباح الدعوة
 
 </h3>
 
-
-
 <div class="team-table">
-
-
 
 <div class="table-row table-head">
 
-<span>
+<span>الإيداع</span>
 
-الإيداع
-
-</span>
-
-<span>
-
-الربح
-
-</span>
+<span>الربح</span>
 
 </div>
-
-
 
 <div class="table-row">
 
-<span>
+<span>100 USDT</span>
 
-100 USDT
-
-</span>
-
-<span>
-
-10 USDT
-
-</span>
+<span>10 USDT</span>
 
 </div>
-
-
-
 
 <div class="table-row">
 
-<span>
+<span>200 USDT</span>
 
-200 USDT
-
-</span>
-
-<span>
-
-20 USDT
-
-</span>
+<span>20 USDT</span>
 
 </div>
-
-
-
 
 <div class="table-row">
 
-<span>
+<span>300 USDT</span>
 
-300 USDT
-
-</span>
-
-<span>
-
-30 USDT
-
-</span>
+<span>30 USDT</span>
 
 </div>
-
-
-
 
 <div class="table-row">
 
-<span>
+<span>400 USDT</span>
 
-400 USDT
-
-</span>
-
-<span>
-
-40 USDT
-
-</span>
+<span>40 USDT</span>
 
 </div>
-
-
-
 
 <div class="table-row">
 
-<span>
+<span>500 USDT</span>
 
-500 USDT
-
-</span>
-
-<span>
-
-50 USDT
-
-</span>
+<span>50 USDT</span>
 
 </div>
-<h3 class="level-title">
+
+</div>
+<h3 class="level-title" data-lang="teamLevels">
 
 مستويات الفريق
 
 </h3>
-
 
 
 
@@ -315,7 +198,6 @@ iPhone 17 Pro Max
 </span>
 
 </div>
-
 
 
 
@@ -413,9 +295,7 @@ VIP5
 </div>
 
 
-
 </div>
-
 
 
 
@@ -431,9 +311,12 @@ VIP5
 
 <br>
 
+<span data-lang="home">
 الرئيسية
+</span>
 
 </a>
+
 
 
 
@@ -443,9 +326,12 @@ VIP5
 
 <br>
 
+<span data-lang="wallet">
 المحفظة
+</span>
 
 </a>
+
 
 
 
@@ -455,9 +341,12 @@ VIP5
 
 <br>
 
+<span data-lang="team">
 الفريق
+</span>
 
 </a>
+
 
 
 
@@ -467,18 +356,15 @@ VIP5
 
 <br>
 
+<span data-lang="settings">
 الإعدادات
+</span>
 
 </a>
 
 
+
 </nav>
-
-
-
-
-
-
 </div>
 
 
@@ -487,8 +373,15 @@ VIP5
 
 
 
+<script src="js/language.js"></script>
+
 
 <script>
+
+
+applyLanguage();
+
+
 
 
 let user = JSON.parse(localStorage.getItem("VALORA_USER"));
