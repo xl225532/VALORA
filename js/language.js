@@ -9,7 +9,10 @@ settings: "الإعدادات",
 language: "اللغة",
 security: "رمز أمان السحب",
 verify: "التحقق من الهوية",
-support: "مراسلة العملاء"
+support: "مراسلة العملاء",
+notifications: "الإشعارات",
+terms: "الشروط والأحكام",
+logout: "تسجيل الخروج"
 
 },
 
@@ -23,7 +26,10 @@ settings: "Settings",
 language: "Language",
 security: "Withdrawal Security",
 verify: "Identity Verification",
-support: "Customer Support"
+support: "Customer Support",
+notifications: "Notifications",
+terms: "Terms & Conditions",
+logout: "Logout"
 
 }
 
@@ -31,21 +37,20 @@ support: "Customer Support"
 
 
 
+
+
 function applyLanguage(){
 
 
-let lang = localStorage.getItem("VALORA_LANGUAGE");
+let current = localStorage.getItem("VALORA_LANG");
 
 
-if(!lang){
 
-lang="العربية";
+if(!current){
+
+current = "ar";
 
 }
-
-
-
-let current = lang.includes("English") ? "en" : "ar";
 
 
 
@@ -55,10 +60,35 @@ document.querySelectorAll("[data-lang]").forEach(function(el){
 let key = el.getAttribute("data-lang");
 
 
+if(translations[current][key]){
+
+
 el.innerText = translations[current][key];
 
 
+}
+
+
+
 });
+
+
+
+}
+
+
+
+
+
+
+function changeLanguage(lang){
+
+
+localStorage.setItem("VALORA_LANG",lang);
+
+
+
+location.reload();
 
 
 }
