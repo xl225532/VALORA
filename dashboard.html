@@ -9,9 +9,7 @@
 
 <title>VALORA | الرئيسية</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/dashboard.css">
 
@@ -22,7 +20,6 @@
 
 
 <div class="dashboard">
-
 
 
 <div id="sideMenu" class="side-menu">
@@ -43,7 +40,6 @@ VALORA
 </div>
 
 
-
 <div class="side-links">
 
 
@@ -55,14 +51,12 @@ VALORA
 </a>
 
 
-
 <a href="verify.html">
 🪪
 <span data-lang="verify">
 التحقق من الهوية
 </span>
 </a>
-
 
 
 <a href="change-password.html">
@@ -73,14 +67,12 @@ VALORA
 </a>
 
 
-
 <a href="support.html">
 💬
 <span data-lang="support">
 مراسلة العملاء
 </span>
 </a>
-
 
 
 <a href="terms.html">
@@ -91,14 +83,12 @@ VALORA
 </a>
 
 
-
 <a href="notifications.html">
 🔔
 <span data-lang="notifications">
 الإشعارات
 </span>
 </a>
-
 
 
 <a href="language.html">
@@ -110,7 +100,6 @@ VALORA
 
 
 </div>
-
 
 
 <div class="logout" onclick="logout()">
@@ -125,11 +114,6 @@ VALORA
 
 
 </div>
-
-
-
-
-
 <header class="header">
 
 
@@ -182,6 +166,11 @@ EXCHANGE
 
 
 </div>
+
+
+
+
+
 <div class="uid-card">
 
 
@@ -267,12 +256,6 @@ UID:
 
 
 </section>
-
-
-
-
-
-
 <section class="trade-bar">
 
 
@@ -367,6 +350,7 @@ Bitcoin
 
 
 
+
 <div class="coin-row" onclick="openTrade('ETH')">
 
 
@@ -405,6 +389,13 @@ Ethereum
 
 
 </div>
+
+
+
+
+
+
+
 <div class="coin-row" onclick="openTrade('USDT')">
 
 
@@ -413,7 +404,6 @@ Ethereum
 ₮
 
 </div>
-
 
 
 <div class="coin-name">
@@ -431,7 +421,6 @@ Tether
 </div>
 
 
-
 <div class="price">
 
 1.00$
@@ -439,13 +428,11 @@ Tether
 </div>
 
 
-
 <div class="up">
 
 ▲ 0.05%
 
 </div>
-
 
 
 </div>
@@ -466,7 +453,6 @@ TRX
 </div>
 
 
-
 <div class="coin-name">
 
 <b>
@@ -482,13 +468,11 @@ TRON
 </div>
 
 
-
 <div class="price">
 
 0.12$
 
 </div>
-
 
 
 <div class="up">
@@ -498,24 +482,11 @@ TRON
 </div>
 
 
-
 </div>
 
 
-
-
-
 </section>
-
-
-
-
-
-
-
-
 <nav class="bottom-nav">
-
 
 
 <a class="active" href="dashboard.html">
@@ -530,7 +501,6 @@ TRON
 <path d="M9 21V14H15V21"></path>
 
 </svg>
-
 
 
 <span data-lang="home">
@@ -560,7 +530,6 @@ TRON
 <circle cx="16" cy="13" r="1"></circle>
 
 </svg>
-
 
 
 <span data-lang="wallet">
@@ -596,7 +565,6 @@ TRON
 </svg>
 
 
-
 <span>
 
 التزامن بالصفقة
@@ -618,11 +586,12 @@ TRON
 <svg viewBox="0 0 24 24">
 
 
-<path d="M12 3L14.8 8.5L21 9.3L16.5 13.5L17.5 19.5L12 16.5L6.5 19.5L7.5 13.5L3 9.3L9.2 8.5Z"></path>
+<path d="M12 4L14 8L18 8.5L15 12L16 17L12 14.5L8 17L9 12L5 8.5L10 8Z"></path>
+
+<path d="M7 19H17"></path>
 
 
 </svg>
-
 
 
 <span data-lang="team">
@@ -637,151 +606,3 @@ TRON
 
 
 </nav>
-<script src="js/language.js"></script>
-
-
-<script>
-
-
-applyLanguage();
-
-
-
-
-function openMenu(){
-
-
-document
-.getElementById("sideMenu")
-.classList.add("open");
-
-
-}
-
-
-
-
-
-
-function closeMenu(){
-
-
-document
-.getElementById("sideMenu")
-.classList.remove("open");
-
-
-}
-
-
-
-
-
-
-
-function logout(){
-
-
-localStorage.removeItem(
-"VALORA_USER"
-);
-
-
-window.location.href="login.html";
-
-
-}
-
-
-
-
-
-
-
-
-let balanceHidden=false;
-
-
-
-
-
-function hideBalance(){
-
-
-let b=document.getElementById("balance");
-
-
-
-if(balanceHidden){
-
-
-b.innerHTML="0.00 <small>USDT</small>";
-
-balanceHidden=false;
-
-
-}
-
-else{
-
-
-b.innerHTML="***** <small>USDT</small>";
-
-balanceHidden=true;
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-function copyUID(){
-
-
-navigator.clipboard.writeText(
-
-"UID: 588887"
-
-);
-
-
-}
-
-
-
-
-
-
-
-function openTrade(coin){
-
-
-window.location.href=
-
-"trade.html?coin="+coin;
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-
-</div>
-
-
-</body>
-
-</html>
