@@ -279,7 +279,93 @@ Português
 
 
 
+
 </div>
+
+
+
+
+
+
+
+<script>
+
+
+let languages = document.querySelectorAll(".language-item");
+
+
+
+languages.forEach(function(item){
+
+
+
+item.onclick = function(){
+
+
+
+languages.forEach(function(lang){
+
+
+lang.classList.remove("active");
+
+
+
+let check = lang.querySelector("b");
+
+
+if(check){
+
+check.remove();
+
+}
+
+
+});
+
+
+
+
+
+item.classList.add("active");
+
+
+
+
+
+let mark = document.createElement("b");
+
+
+mark.innerHTML="✓";
+
+
+item.appendChild(mark);
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_LANGUAGE",
+
+item.innerText.trim()
+
+);
+
+
+
+};
+
+
+
+});
+
+
+
+</script>
+
+
+
 
 
 </body>
