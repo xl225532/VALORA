@@ -25,7 +25,16 @@ loginCode:"رمز الدخول",
 withdrawSecurity:"رمز أمان السحب",
 change:"تغيير",
 view:"عرض",
-open:"فتح"
+open:"فتح",
+
+totalAssets:"إجمالي الأصول",
+todayProfit:"أرباح اليوم",
+inviteProfit:"أرباح الدعوة",
+teamProfit:"أرباح الفريق",
+rewardProfit:"أرباح المكافآت",
+withdraw:"سحب",
+deposit:"إيداع",
+history:"السجل"
 
 },
 
@@ -56,7 +65,16 @@ loginCode:"Login Code",
 withdrawSecurity:"Withdrawal Security",
 change:"Change",
 view:"View",
-open:"Open"
+open:"Open",
+
+totalAssets:"Total Assets",
+todayProfit:"Today's Profit",
+inviteProfit:"Invite Profit",
+teamProfit:"Team Profit",
+rewardProfit:"Reward Profit",
+withdraw:"Withdraw",
+deposit:"Deposit",
+history:"History"
 
 }
 
@@ -95,9 +113,7 @@ document.documentElement.dir="ltr";
 document.querySelectorAll("[data-lang]").forEach(function(el){
 
 
-
 let key = el.dataset.lang;
-
 
 
 if(translations[lang] && translations[lang][key]){
@@ -109,9 +125,7 @@ el.innerText = translations[lang][key];
 }
 
 
-
 });
-
 
 
 }
@@ -125,16 +139,13 @@ el.innerText = translations[lang][key];
 function setLanguage(lang){
 
 
-
 localStorage.setItem(
 "VALORA_LANG",
 lang
 );
 
 
-
 applyLanguage();
-
 
 
 }
