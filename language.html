@@ -9,9 +9,7 @@
 
 <title>VALORA | اللغة</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/css/language.css">
 
@@ -24,24 +22,17 @@
 <div class="language-page">
 
 
-
 <header class="page-header">
 
 <a href="settings.html">
-
 ‹
-
 </a>
-
 
 <h2>
 اختيار اللغة
 </h2>
 
-
 </header>
-
-
 
 
 
@@ -51,20 +42,13 @@
 
 
 
-<div class="language-item active" data-lang-code="ar">
+<div class="language-item" data-lang-code="ar">
 
 <span>
-
 🇸🇦 العربية
-
 </span>
 
-
-<b>✓</b>
-
-
 </div>
-
 
 
 
@@ -72,14 +56,10 @@
 <div class="language-item" data-lang-code="en">
 
 <span>
-
 🇺🇸 English
-
 </span>
 
-
 </div>
-
 
 
 
@@ -88,156 +68,106 @@
 <div class="language-item">
 
 <span>
-
 🇪🇸 Español
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇫🇷 Français
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇩🇪 Deutsch
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇹🇷 Türkçe
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇷🇺 Русский
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇨🇳 中文
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇯🇵 日本語
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇰🇷 한국어
-
 </span>
 
 </div>
 
 
 
-
-
 <div class="language-item">
 
 <span>
-
 🇮🇹 Italiano
-
 </span>
 
 </div>
-
-
 
 
 
 <div class="language-item">
 
 <span>
-
 🇵🇹 Português
-
 </span>
 
 </div>
-
-
-
 
 
 
 </section>
 
-
-
-
-
-
-
-
 </div>
-
-
 
 
 
@@ -251,7 +181,6 @@
 <script>
 
 
-
 let selectedLanguage =
 localStorage.getItem("VALORA_LANG") || "ar";
 
@@ -259,43 +188,32 @@ localStorage.getItem("VALORA_LANG") || "ar";
 
 
 
-document.querySelectorAll(".language-item").forEach(function(item){
-
-
-
-item.onclick=function(){
-
+function loadSelectedLanguage(){
 
 
 document.querySelectorAll(".language-item")
-.forEach(function(lang){
+.forEach(function(item){
 
 
-
-lang.classList.remove("active");
-
+item.classList.remove("active");
 
 
-let oldCheck =
-lang.querySelector("b");
+let old =
+item.querySelector("b");
 
 
+if(old){
 
-if(oldCheck){
-
-oldCheck.remove();
+old.remove();
 
 }
 
 
-});
 
-
-
+if(item.dataset.langCode == selectedLanguage){
 
 
 item.classList.add("active");
-
 
 
 let check=document.createElement("b");
@@ -307,9 +225,38 @@ item.appendChild(check);
 
 
 
+}
 
 
-if(item.dataset.langCode){
+
+});
+
+}
+
+
+
+loadSelectedLanguage();
+
+
+
+
+
+
+
+document.querySelectorAll(".language-item")
+.forEach(function(item){
+
+
+
+item.onclick=function(){
+
+
+
+if(!item.dataset.langCode){
+
+return;
+
+}
 
 
 
@@ -317,11 +264,29 @@ selectedLanguage=item.dataset.langCode;
 
 
 
-changeLanguage(selectedLanguage);
+localStorage.setItem(
+"VALORA_LANG",
+selectedLanguage
+);
 
 
+
+
+loadSelectedLanguage();
+
+
+
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
 
 }
+
+
+
+
+showMessage("✓ تم تغيير اللغة");
 
 
 
@@ -331,38 +296,6 @@ changeLanguage(selectedLanguage);
 
 });
 
-
-
-
-
-
-
-function changeLanguage(lang){
-
-
-
-localStorage.setItem(
-"VALORA_LANG",
-lang
-);
-
-
-
-showMessage("✓ تم تغيير اللغة");
-
-
-
-if(typeof applyLanguage === "function"){
-
-
-applyLanguage();
-
-
-}
-
-
-
-}
 
 
 
@@ -422,11 +355,7 @@ msg.remove();
 
 
 
-
-
-
 </script>
-
 
 
 
