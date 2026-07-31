@@ -183,7 +183,9 @@ cursor:pointer;
 
 
 
-.wallet-actions button span{
+/* فقط السهم */
+
+.wallet-actions .action-icon{
 
 width:30px;
 height:30px;
@@ -201,6 +203,21 @@ font-weight:bold;
 
 
 
+/* نص الزر */
+
+.wallet-actions button span:not(.action-icon){
+
+width:auto;
+height:auto;
+background:none;
+border-radius:0;
+
+}
+
+
+
+
+
 .withdraw-action{
 
 background:#1687FF;
@@ -208,7 +225,7 @@ background:#1687FF;
 }
 
 
-.withdraw-action span{
+.withdraw-action .action-icon{
 
 background:#0B5FCC;
 color:white;
@@ -225,7 +242,7 @@ background:#22C55E;
 }
 
 
-.deposit-action span{
+.deposit-action .action-icon{
 
 background:#138A43;
 color:white;
