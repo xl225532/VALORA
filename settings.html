@@ -9,7 +9,9 @@
 
 <title>VALORA | الإعدادات</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/settings.css">
 
@@ -25,18 +27,18 @@
 
 <header class="page-header">
 
+
 <a href="dashboard.html">
 ‹
 </a>
 
 
-<h2>
+<h2 data-lang="settings">
 الإعدادات
 </h2>
 
 
 </header>
-
 
 
 
@@ -77,14 +79,13 @@ ID: VAL583921
 
 
 
-
 <section class="settings-box">
 
 
 
 <div class="settings-item">
 
-<span>
+<span data-lang="username">
 
 👤 اسم المستخدم
 
@@ -105,7 +106,7 @@ Ahmed
 
 <div class="settings-item">
 
-<span>
+<span data-lang="email">
 
 📧 البريد الإلكتروني
 
@@ -128,7 +129,7 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="phone">
 
 📱 رقم الهاتف
 
@@ -151,14 +152,14 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="loginCode">
 
 🔑 رمز الدخول
 
 </span>
 
 
-<a href="login-pin.html">
+<a href="login-pin.html" data-lang="change">
 
 تغيير
 
@@ -176,14 +177,14 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="withdrawSecurity">
 
 🛡️ رمز أمان السحب
 
 </span>
 
 
-<a href="withdraw-pin.html">
+<a href="withdraw-pin.html" data-lang="change">
 
 تغيير
 
@@ -201,7 +202,7 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="language">
 
 🌐 اللغة
 
@@ -210,7 +211,7 @@ example@email.com
 
 <a href="language.html">
 
-🇸🇦 العربية
+🌐 VALORA_LANG
 
 </a>
 
@@ -226,14 +227,14 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="terms">
 
 📄 الشروط والأحكام
 
 </span>
 
 
-<a href="terms.html">
+<a href="terms.html" data-lang="view">
 
 عرض
 
@@ -251,14 +252,14 @@ example@email.com
 
 <div class="settings-item">
 
-<span>
+<span data-lang="notifications">
 
 🔔 الإشعارات
 
 </span>
 
 
-<a href="notifications.html">
+<a href="notifications.html" data-lang="open">
 
 فتح
 
@@ -282,7 +283,7 @@ example@email.com
 
 
 
-<button class="logout-btn" onclick="logout()">
+<button class="logout-btn" onclick="logout()" data-lang="logout">
 
 🚪 تسجيل الخروج
 
@@ -305,7 +306,9 @@ example@email.com
 
 <br>
 
+<span data-lang="home">
 الرئيسية
+</span>
 
 </a>
 
@@ -317,7 +320,9 @@ example@email.com
 
 <br>
 
+<span data-lang="wallet">
 المحفظة
+</span>
 
 </a>
 
@@ -329,7 +334,9 @@ example@email.com
 
 <br>
 
+<span data-lang="team">
 الفريق
+</span>
 
 </a>
 
@@ -341,7 +348,9 @@ example@email.com
 
 <br>
 
+<span data-lang="settings">
 الإعدادات
+</span>
 
 </a>
 
@@ -359,18 +368,30 @@ example@email.com
 
 
 
+<script src="js/language.js"></script>
+
 
 <script>
 
+
+applyLanguage();
+
+
+
 function logout(){
+
 
 localStorage.removeItem("VALORA_USER");
 
+
 window.location.href="login.html";
+
 
 }
 
+
 </script>
+
 
 
 
