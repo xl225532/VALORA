@@ -10,7 +10,9 @@ html,body{
 
 width:100%;
 min-height:100%;
+
 background:#050B16;
+
 color:white;
 
 }
@@ -21,11 +23,16 @@ color:white;
 
 width:100%;
 min-height:100vh;
+
 background:#050B16;
+
 padding:18px 15px 100px;
+
 overflow-x:hidden;
 
 }
+
+
 
 
 
@@ -34,20 +41,28 @@ overflow-x:hidden;
 .wallet-header{
 
 text-align:center;
+
 margin-bottom:20px;
 
 }
 
 
+
 .wallet-brand{
 
 font-size:32px;
+
 font-weight:800;
+
 letter-spacing:3px;
+
 color:#EAF3FF;
+
 text-shadow:0 0 12px #1687FF;
 
 }
+
+
 
 
 
@@ -59,32 +74,45 @@ text-shadow:0 0 12px #1687FF;
 .wallet-balance{
 
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:20px;
+
 padding:18px;
+
 text-align:center;
+
 margin-bottom:15px;
 
 }
 
 
+
 .balance-label{
 
 color:#98A5B8;
+
 font-size:16px;
 
 }
 
 
+
 .balance-value{
 
 margin-top:10px;
+
 font-size:36px;
+
 font-weight:bold;
+
 color:#22C55E;
+
 direction:ltr;
 
 }
+
 
 
 .balance-value span{
@@ -92,19 +120,17 @@ direction:ltr;
 font-size:18px;
 
 }
-
-
-
-
-
 /* الأرباح */
 
 
 .profit-grid{
 
 display:grid;
+
 grid-template-columns:1fr 1fr;
+
 gap:12px;
+
 margin-bottom:18px;
 
 }
@@ -114,13 +140,19 @@ margin-bottom:18px;
 .profit-card{
 
 height:115px;
+
 background:#0B1628;
+
 border:1px solid #17365C;
+
 border-radius:18px;
 
 display:flex;
+
 flex-direction:column;
+
 justify-content:center;
+
 align-items:center;
 
 }
@@ -130,7 +162,9 @@ align-items:center;
 .profit-card span{
 
 color:#98A5B8;
+
 font-size:15px;
+
 margin-bottom:10px;
 
 }
@@ -140,9 +174,12 @@ margin-bottom:10px;
 .profit-card strong{
 
 color:#22C55E;
+
 font-size:17px;
 
 }
+
+
 
 
 
@@ -154,7 +191,9 @@ font-size:17px;
 .wallet-actions{
 
 display:flex;
+
 gap:12px;
+
 margin-top:10px;
 
 }
@@ -164,57 +203,66 @@ margin-top:10px;
 .wallet-actions button{
 
 flex:1;
+
 height:60px;
+
 border:0;
+
 border-radius:16px;
 
 color:white;
+
 font-size:16px;
+
 font-weight:700;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 gap:10px;
+
 cursor:pointer;
 
 }
 
 
 
-/* فقط السهم */
-
 .wallet-actions .action-icon{
 
 width:30px;
+
 height:30px;
 
 border-radius:50%;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 font-size:20px;
+
 font-weight:bold;
 
 }
 
 
 
-/* نص الزر */
-
 .wallet-actions button span:not(.action-icon){
 
 width:auto;
+
 height:auto;
+
 background:none;
+
 border-radius:0;
 
 }
-
-
 
 
 
@@ -225,13 +273,14 @@ background:#1687FF;
 }
 
 
+
 .withdraw-action .action-icon{
 
 background:#0B5FCC;
+
 color:white;
 
 }
-
 
 
 
@@ -242,12 +291,15 @@ background:#22C55E;
 }
 
 
+
 .deposit-action .action-icon{
 
 background:#138A43;
+
 color:white;
 
 }
+
 
 
 
@@ -275,7 +327,9 @@ border:1px solid #17365C;
 border-radius:15px;
 
 display:flex;
+
 align-items:center;
+
 justify-content:center;
 
 gap:10px;
@@ -293,6 +347,7 @@ font-size:17px;
 .wallet-history svg{
 
 width:24px;
+
 height:24px;
 
 stroke:#22C55E;
@@ -302,23 +357,24 @@ fill:none;
 stroke-width:2;
 
 }
+/* الشريط السفلي الموحد */
 
 
-
-
-
-/* الشريط السفلي */
-
-
-.wallet-nav{
+.bottom-nav{
 
 position:fixed;
+
 bottom:0;
-left:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+max-width:480px;
 
 width:100%;
 
-height:75px;
+height:72px;
 
 background:#0B1628;
 
@@ -330,25 +386,51 @@ justify-content:space-around;
 
 align-items:center;
 
+z-index:100;
+
 }
 
 
 
-.wallet-nav a{
-
-text-decoration:none;
+.bottom-nav a{
 
 color:#98A5B8;
 
-font-size:13px;
+text-decoration:none;
+
+font-size:12px;
 
 text-align:center;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:5px;
 
 }
 
 
 
-.wallet-nav .active{
+.bottom-nav a svg{
+
+width:27px;
+
+height:27px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+.bottom-nav a.active{
 
 color:#1687FF;
 
@@ -356,9 +438,44 @@ color:#1687FF;
 
 
 
-.nav-wallet-icon{
+.bottom-nav a.active svg{
 
-width:28px;
-height:28px;
+stroke:#1687FF;
+
+}
+
+
+
+
+a{
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+
+
+
+@media(max-width:400px){
+
+.wallet-page{
+
+padding:14px 12px 100px;
+
+}
+
+
+.wallet-brand{
+
+font-size:28px;
+
+}
+
+
+.profit-card{
+
+height:105px;
+
+}
 
 }
