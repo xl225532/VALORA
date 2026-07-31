@@ -9,7 +9,9 @@
 
 <title>VALORA | اللغة</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/css/language.css">
 
@@ -57,9 +59,12 @@
 
 </span>
 
+
 <b>✓</b>
 
+
 </div>
+
 
 
 
@@ -72,7 +77,10 @@
 
 </span>
 
+
 </div>
+
+
 
 
 
@@ -80,111 +88,141 @@
 <div class="language-item">
 
 <span>
+
 🇪🇸 Español
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇫🇷 Français
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇩🇪 Deutsch
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇹🇷 Türkçe
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇷🇺 Русский
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇨🇳 中文
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇯🇵 日本語
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇰🇷 한국어
+
 </span>
 
 </div>
 
 
 
+
+
 <div class="language-item">
 
 <span>
+
 🇮🇹 Italiano
+
 </span>
 
 </div>
+
+
 
 
 
 <div class="language-item">
 
 <span>
+
 🇵🇹 Português
+
 </span>
 
 </div>
 
 
 
-
-
-
-<button class="confirm-language" onclick="showConfirm()">
-
-✓ تأكيد اللغة
-
-</button>
 
 
 
@@ -204,84 +242,55 @@
 
 
 
-<!-- نافذة التأكيد -->
-
-<div id="confirmBox" class="confirm-box">
-
-
-<div class="confirm-card">
-
-
-<h3>
-تأكيد تغيير اللغة
-</h3>
-
-
-<p>
-هل تريد تطبيق اللغة الجديدة؟
-</p>
 
 
 
-<button onclick="saveLanguage()">
-
-تأكيد
-
-</button>
-
-
-
-<button onclick="closeConfirm()">
-
-إبقاء اللغة الحالية
-
-</button>
-
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
+<script src="js/language.js"></script>
 
 
 <script>
 
 
-let selectedLanguage="ar";
+
+let selectedLanguage =
+localStorage.getItem("VALORA_LANG") || "ar";
+
+
 
 
 
 document.querySelectorAll(".language-item").forEach(function(item){
 
 
+
 item.onclick=function(){
+
 
 
 document.querySelectorAll(".language-item")
 .forEach(function(lang){
 
 
+
 lang.classList.remove("active");
 
 
-let check=lang.querySelector("b");
+
+let oldCheck =
+lang.querySelector("b");
 
 
-if(check){
 
-check.remove();
+if(oldCheck){
+
+oldCheck.remove();
 
 }
 
 
 });
+
+
 
 
 
@@ -289,23 +298,35 @@ item.classList.add("active");
 
 
 
-let mark=document.createElement("b");
+let check=document.createElement("b");
 
-mark.innerHTML="✓";
+check.innerHTML="✓";
 
 
-item.appendChild(mark);
+item.appendChild(check);
+
+
 
 
 
 if(item.dataset.langCode){
 
+
+
 selectedLanguage=item.dataset.langCode;
+
+
+
+changeLanguage(selectedLanguage);
+
+
 
 }
 
 
+
 };
+
 
 
 });
@@ -314,44 +335,93 @@ selectedLanguage=item.dataset.langCode;
 
 
 
-function showConfirm(){
 
 
-document.getElementById("confirmBox").style.display="flex";
+function changeLanguage(lang){
 
-
-}
-
-
-
-
-
-function closeConfirm(){
-
-
-document.getElementById("confirmBox").style.display="none";
-
-
-}
-
-
-
-
-
-function saveLanguage(){
 
 
 localStorage.setItem(
 "VALORA_LANG",
-selectedLanguage
+lang
 );
 
 
 
-location.reload();
+showMessage("✓ تم تغيير اللغة");
+
+
+
+if(typeof applyLanguage === "function"){
+
+
+applyLanguage();
 
 
 }
+
+
+
+}
+
+
+
+
+
+
+
+function showMessage(text){
+
+
+
+let msg=document.createElement("div");
+
+
+
+msg.innerText=text;
+
+
+
+msg.style.position="fixed";
+
+msg.style.top="15px";
+
+msg.style.left="50%";
+
+msg.style.transform="translateX(-50%)";
+
+msg.style.background="#1687FF";
+
+msg.style.color="#fff";
+
+msg.style.padding="8px 20px";
+
+msg.style.borderRadius="20px";
+
+msg.style.fontSize="13px";
+
+msg.style.zIndex="9999";
+
+
+
+document.body.appendChild(msg);
+
+
+
+setTimeout(function(){
+
+
+msg.remove();
+
+
+},2000);
+
+
+
+}
+
+
+
 
 
 
