@@ -9,9 +9,12 @@
 
 <title>VALORA | اللغة</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/css/language.css">
+
 
 </head>
 
@@ -47,12 +50,12 @@
 
 
 
-
 <section class="language-card">
 
 
 
-<div class="language-item active">
+<div class="language-item active" data-lang-code="ar">
+
 
 <span>
 
@@ -76,7 +79,8 @@
 
 
 
-<div class="language-item">
+<div class="language-item" data-lang-code="en">
+
 
 <span>
 
@@ -85,6 +89,7 @@
 English
 
 </span>
+
 
 </div>
 
@@ -271,6 +276,15 @@ Português
 
 
 
+
+<button class="confirm-language" onclick="confirmLanguage()">
+
+✓ تأكيد اللغة
+
+</button>
+
+
+
 </section>
 
 
@@ -291,19 +305,20 @@ Português
 <script>
 
 
-let languages = document.querySelectorAll(".language-item");
+let selectedLanguage = "ar";
 
 
 
-languages.forEach(function(item){
+document.querySelectorAll(".language-item").forEach(function(item){
 
 
 
-item.onclick = function(){
+item.onclick=function(){
 
 
 
-languages.forEach(function(lang){
+document.querySelectorAll(".language-item")
+.forEach(function(lang){
 
 
 lang.classList.remove("active");
@@ -330,10 +345,7 @@ item.classList.add("active");
 
 
 
-
-
 let mark = document.createElement("b");
-
 
 mark.innerHTML="✓";
 
@@ -342,15 +354,13 @@ item.appendChild(mark);
 
 
 
+if(item.dataset.langCode){
 
 
-localStorage.setItem(
+selectedLanguage = item.dataset.langCode;
 
-"VALORA_LANGUAGE",
 
-item.innerText.trim()
-
-);
+}
 
 
 
@@ -362,7 +372,35 @@ item.innerText.trim()
 
 
 
+
+
+
+
+function confirmLanguage(){
+
+
+
+localStorage.setItem(
+
+"VALORA_LANG",
+
+selectedLanguage
+
+);
+
+
+
+location.reload();
+
+
+
+}
+
+
+
 </script>
+
+
 
 
 
