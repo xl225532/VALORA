@@ -7,16 +7,28 @@ wallet:"المحفظة",
 team:"الفريق",
 settings:"الإعدادات",
 language:"اللغة",
+
 security:"رمز أمان السحب",
 verify:"التحقق من الهوية",
 support:"مراسلة العملاء",
 notifications:"الإشعارات",
 terms:"الشروط والأحكام",
 logout:"تسجيل الخروج",
+
 assets:"إجمالي الأصول",
-password:"تغيير كلمة المرور"
+password:"تغيير كلمة المرور",
+
+username:"اسم المستخدم",
+email:"البريد الإلكتروني",
+phone:"رقم الهاتف",
+loginCode:"رمز الدخول",
+withdrawSecurity:"رمز أمان السحب",
+change:"تغيير",
+view:"عرض",
+open:"فتح"
 
 },
+
 
 
 en: {
@@ -26,14 +38,25 @@ wallet:"Wallet",
 team:"Team",
 settings:"Settings",
 language:"Language",
+
 security:"Withdrawal Security",
 verify:"Identity Verification",
 support:"Customer Support",
 notifications:"Notifications",
 terms:"Terms & Conditions",
 logout:"Logout",
+
 assets:"Total Assets",
-password:"Change Password"
+password:"Change Password",
+
+username:"Username",
+email:"Email",
+phone:"Phone Number",
+loginCode:"Login Code",
+withdrawSecurity:"Withdrawal Security",
+change:"Change",
+view:"View",
+open:"Open"
 
 }
 
