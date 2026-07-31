@@ -2,34 +2,34 @@ const translations = {
 
 ar: {
 
-home: "الرئيسية",
-wallet: "المحفظة",
-team: "الفريق",
-settings: "الإعدادات",
-language: "اللغة",
-security: "رمز أمان السحب",
-verify: "التحقق من الهوية",
-support: "مراسلة العملاء",
-notifications: "الإشعارات",
-terms: "الشروط والأحكام",
-logout: "تسجيل الخروج"
+home:"الرئيسية",
+wallet:"المحفظة",
+team:"الفريق",
+settings:"الإعدادات",
+language:"اللغة",
+security:"رمز أمان السحب",
+verify:"التحقق من الهوية",
+support:"مراسلة العملاء",
+notifications:"الإشعارات",
+terms:"الشروط والأحكام",
+logout:"تسجيل الخروج"
 
 },
 
 
 en: {
 
-home: "Home",
-wallet: "Wallet",
-team: "Team",
-settings: "Settings",
-language: "Language",
-security: "Withdrawal Security",
-verify: "Identity Verification",
-support: "Customer Support",
-notifications: "Notifications",
-terms: "Terms & Conditions",
-logout: "Logout"
+home:"Home",
+wallet:"Wallet",
+team:"Team",
+settings:"Settings",
+language:"Language",
+security:"Withdrawal Security",
+verify:"Identity Verification",
+support:"Customer Support",
+notifications:"Notifications",
+terms:"Terms & Conditions",
+logout:"Logout"
 
 }
 
@@ -42,28 +42,40 @@ logout: "Logout"
 function applyLanguage(){
 
 
-let current = localStorage.getItem("VALORA_LANG");
+let lang = localStorage.getItem("VALORA_LANG") || "ar";
 
 
 
-if(!current){
+document.documentElement.lang = lang;
 
-current = "ar";
+
+
+if(lang=="ar"){
+
+document.documentElement.dir="rtl";
+
+}else{
+
+document.documentElement.dir="ltr";
 
 }
+
+
 
 
 
 document.querySelectorAll("[data-lang]").forEach(function(el){
 
 
-let key = el.getAttribute("data-lang");
+
+let key=el.dataset.lang;
 
 
-if(translations[current][key]){
+
+if(translations[lang][key]){
 
 
-el.innerText = translations[current][key];
+el.innerText=translations[lang][key];
 
 
 }
@@ -73,22 +85,23 @@ el.innerText = translations[current][key];
 });
 
 
-
 }
 
 
 
 
 
-
-function changeLanguage(lang){
-
-
-localStorage.setItem("VALORA_LANG",lang);
+function setLanguage(lang){
 
 
+localStorage.setItem(
+"VALORA_LANG",
+lang
+);
 
-location.reload();
+
+
+applyLanguage();
 
 
 }
