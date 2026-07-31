@@ -34,7 +34,15 @@ teamProfit:"أرباح الفريق",
 rewardProfit:"أرباح المكافآت",
 withdraw:"سحب",
 deposit:"إيداع",
-history:"السجل"
+history:"السجل",
+
+referralTitle:"رابط الدعوة الخاص بك",
+referralCode:"كود الإحالة",
+invited:"عدد المدعوين",
+inviteReward:"🎁 مكافأة الدعوة",
+rewardCondition:"ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر واحصل على",
+inviteProfitTitle:"أرباح الدعوة",
+teamLevels:"مستويات الفريق"
 
 },
 
@@ -74,12 +82,19 @@ teamProfit:"Team Profit",
 rewardProfit:"Reward Profit",
 withdraw:"Withdraw",
 deposit:"Deposit",
-history:"History"
+history:"History",
+
+referralTitle:"Your Referral Link",
+referralCode:"Referral Code",
+invited:"Invited Members",
+inviteReward:"🎁 Referral Reward",
+rewardCondition:"Invite 10 people with deposits of 500 USDT or more and get",
+inviteProfitTitle:"Referral Earnings",
+teamLevels:"Team Levels"
 
 }
 
 };
-
 
 
 
@@ -91,9 +106,7 @@ function applyLanguage(){
 let lang = localStorage.getItem("VALORA_LANG") || "ar";
 
 
-
 document.documentElement.lang = lang;
-
 
 
 if(lang === "ar"){
@@ -108,8 +121,6 @@ document.documentElement.dir="ltr";
 
 
 
-
-
 document.querySelectorAll("[data-lang]").forEach(function(el){
 
 
@@ -118,9 +129,7 @@ let key = el.dataset.lang;
 
 if(translations[lang] && translations[lang][key]){
 
-
 el.innerText = translations[lang][key];
-
 
 }
 
@@ -129,7 +138,6 @@ el.innerText = translations[lang][key];
 
 
 }
-
 
 
 
@@ -155,11 +163,8 @@ applyLanguage();
 
 
 
-
 document.addEventListener("DOMContentLoaded",function(){
 
-
 applyLanguage();
-
 
 });
