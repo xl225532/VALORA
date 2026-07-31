@@ -37,7 +37,7 @@ VALORA
 <section class="referral-box">
 
 
-<div class="referral-title">
+<div class="referral-title" data-lang="referralTitle">
 
 رابط الدعوة الخاص بك
 
@@ -72,8 +72,10 @@ VALORA
 <div class="team-card">
 
 
-<h3>
+<h3 data-lang="referralCode">
+
 كود الإحالة
+
 </h3>
 
 
@@ -99,8 +101,10 @@ VALORA
 <div class="team-card">
 
 
-<h3>
+<h3 data-lang="invited">
+
 عدد المدعوين
+
 </h3>
 
 
@@ -115,34 +119,50 @@ VALORA
 
 
 
+
 <div class="reward-card">
 
 
-<h3>
+<h3 data-lang="inviteReward">
+
 🎁 مكافأة الدعوة
+
 </h3>
 
 
-<p>
-ادعُ 10 أشخاص نشطين واحصل على
+<p data-lang="rewardCondition">
+
+ادعُ أعضاء لديهم إيداع 500 USDT أو أكثر واحصل على
+
 </p>
 
 
 <strong>
+
 iPhone 17 Pro Max
+
 </strong>
+
 
 
 <div class="reward-progress">
 
-0 / 10 أشخاص
+0 / 500 USDT
 
 </div>
 
 
 </div>
-<h3>
+
+
+
+
+
+
+<h3 data-lang="inviteProfitTitle">
+
 أرباح الدعوة
+
 </h3>
 
 
@@ -240,14 +260,7 @@ iPhone 17 Pro Max
 
 
 </div>
-
-
-
-
-
-
-
-<h3 class="level-title">
+<h3 class="level-title" data-lang="teamLevels">
 
 مستويات الفريق
 
@@ -386,23 +399,70 @@ VIP5
 
 
 <a href="dashboard.html">
+
+⌂
+
+<br>
+
+<span data-lang="home">
+
 الرئيسية
+
+</span>
+
 </a>
+
+
 
 
 <a href="wallet.html">
+
+▣
+
+<br>
+
+<span data-lang="wallet">
+
 المحفظة
+
+</span>
+
 </a>
+
+
 
 
 <a href="team.html">
+
+♟
+
+<br>
+
+<span data-lang="team">
+
 الفريق
+
+</span>
+
 </a>
+
+
 
 
 <a href="settings.html">
+
+⚙
+
+<br>
+
+<span data-lang="settings">
+
 الإعدادات
+
+</span>
+
 </a>
+
 
 
 </nav>
@@ -421,7 +481,14 @@ VIP5
 
 
 
+<script src="js/language.js"></script>
+
+
 <script>
+
+
+applyLanguage();
+
 
 
 let user = JSON.parse(localStorage.getItem("VALORA_USER"));
