@@ -1,4 +1,16 @@
-.support-page{
+*{
+
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,sans-serif;
+
+}
+
+
+
+body,
+.valora-withdraw{
 
 background:#050B16;
 
@@ -6,25 +18,20 @@ color:white;
 
 min-height:100vh;
 
-font-family:'Cairo',Arial,sans-serif;
-
 }
 
 
 
-.support-container{
+
+
+
+.withdraw-container{
 
 max-width:480px;
 
 margin:auto;
 
-padding:18px 15px;
-
-height:100vh;
-
-display:flex;
-
-flex-direction:column;
+padding:18px 15px 100px;
 
 }
 
@@ -32,13 +39,14 @@ flex-direction:column;
 
 
 
-.support-header{
 
-display:flex;
 
-align-items:center;
+/* HEADER */
 
-gap:15px;
+
+.withdraw-header{
+
+text-align:center;
 
 margin-bottom:20px;
 
@@ -46,47 +54,41 @@ margin-bottom:20px;
 
 
 
-.support-header a{
-
-color:white;
+.withdraw-logo{
 
 font-size:32px;
 
-text-decoration:none;
+font-weight:800;
+
+letter-spacing:3px;
+
+color:#EAF3FF;
+
+text-shadow:0 0 12px #1687FF;
 
 }
 
 
 
-.support-header h2{
-
-font-size:20px;
-
-}
 
 
 
 
 
+/* TITLE */
 
-.support-card{
 
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:15px;
+.withdraw-title{
 
 text-align:center;
 
+margin-bottom:20px;
+
 }
 
 
 
-
-.support-avatar{
+.withdraw-icon{
 
 width:55px;
 
@@ -110,9 +112,9 @@ margin:auto;
 
 
 
+.withdraw-title h2{
 
-
-.support-card h3{
+font-size:22px;
 
 margin-top:10px;
 
@@ -120,13 +122,11 @@ margin-top:10px;
 
 
 
-
-
-.support-card p{
+.withdraw-title p{
 
 color:#98A5B8;
 
-font-size:13px;
+font-size:14px;
 
 }
 
@@ -136,64 +136,182 @@ font-size:13px;
 
 
 
-.chat-box{
 
-flex:1;
+/* العملات */
 
-margin-top:15px;
+
+.withdraw-coins{
+
+display:grid;
+
+grid-template-columns:repeat(4,1fr);
+
+gap:10px;
+
+margin-bottom:20px;
+
+}
+
+
+
+.withdraw-coin{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:16px;
+
+padding:12px 5px;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+
+.withdraw-coin.active{
+
+border-color:#1687FF;
+
+box-shadow:0 0 12px #1687FF66;
+
+}
+
+
+
+.withdraw-coin strong{
+
+display:block;
+
+font-size:14px;
+
+}
+
+
+
+.withdraw-coin small{
+
+color:#98A5B8;
+
+font-size:11px;
+
+}
+
+
+
+.withdraw-coin-icon{
+
+font-size:22px;
+
+margin-bottom:5px;
+
+}
+
+
+
+.usdt{
+
+color:#22C55E;
+
+}
+
+
+.btc{
+
+color:#F59E0B;
+
+}
+
+
+.eth{
+
+color:#8B5CF6;
+
+}
+
+
+.trx{
+
+color:#EF4444;
+
+}
+
+
+
+
+
+
+
+
+/* بطاقة السحب */
+
+
+.withdraw-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:22px;
+
+padding:18px;
+
+}
+/* الحقول */
+
+
+.withdraw-input{
+
+margin-bottom:18px;
+
+}
+
+
+
+.withdraw-input label{
+
+display:block;
+
+font-size:14px;
+
+margin-bottom:8px;
+
+color:#EAF3FF;
+
+}
+
+
+
+.withdraw-input input{
+
+width:100%;
+
+height:52px;
 
 background:#071426;
 
 border:1px solid #17365C;
 
-border-radius:18px;
-
-padding:15px;
-
-overflow-y:auto;
-
-}
-
-
-
-
-
-.message{
-
-max-width:80%;
-
-padding:12px;
-
 border-radius:14px;
 
-margin-bottom:12px;
+color:white;
 
-font-size:14px;
+padding:0 15px;
 
-line-height:1.6;
+font-size:15px;
 
-}
-
-
-
-
-.message.admin{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-margin-left:auto;
+outline:none;
 
 }
 
 
 
-.message.user{
+.withdraw-input input:focus{
 
-background:#1687FF;
-
-margin-right:auto;
+border-color:#1687FF;
 
 }
 
@@ -201,37 +319,21 @@ margin-right:auto;
 
 
 
+.fee-note{
 
+margin-top:10px;
 
-.send-area{
-
-display:flex;
-
-gap:10px;
-
-margin-top:15px;
-
-}
-
-
-
-
-
-.send-area input{
-
-flex:1;
-
-height:45px;
-
-background:#0B1628;
-
-border:1px solid #20344F;
+background:#071426;
 
 border-radius:12px;
 
 padding:10px;
 
-color:white;
+color:#98A5B8;
+
+font-size:12px;
+
+line-height:1.8;
 
 }
 
@@ -239,17 +341,171 @@ color:white;
 
 
 
-.send-area button{
 
-width:80px;
+
+/* معلومات السحب */
+
+
+.withdraw-info{
+
+display:flex;
+
+justify-content:space-between;
+
+background:#071426;
+
+border-radius:15px;
+
+padding:15px;
+
+margin-top:15px;
+
+margin-bottom:18px;
+
+}
+
+
+
+.withdraw-info div{
+
+text-align:center;
+
+}
+
+
+
+.withdraw-info span{
+
+display:block;
+
+color:#98A5B8;
+
+font-size:12px;
+
+margin-bottom:5px;
+
+}
+
+
+
+.withdraw-info strong{
+
+font-size:14px;
+
+}
+
+
+
+
+
+
+
+/* زر السحب */
+
+
+.withdraw-button{
+
+width:100%;
+
+height:55px;
 
 background:#1687FF;
 
 border:0;
 
-border-radius:12px;
+border-radius:15px;
 
 color:white;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+
+
+/* حالات العملية */
+
+
+.withdraw-status{
+
+display:none;
+
+margin-top:18px;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+.withdraw-status h3{
+
+font-size:17px;
+
+}
+
+
+
+.withdraw-status p{
+
+margin-top:5px;
+
+font-size:14px;
+
+}
+
+
+
+.success{
+
+background:#052E16;
+
+border:1px solid #22C55E;
+
+}
+
+
+
+.reject{
+
+background:#3F0B0B;
+
+border:1px solid #EF4444;
+
+}
+
+
+
+
+
+
+
+/* سجل السحوبات */
+
+
+.withdraw-history{
+
+display:block;
+
+margin-top:18px;
+
+text-align:center;
+
+color:#1687FF;
+
+text-decoration:none;
 
 font-weight:bold;
 
@@ -258,241 +514,61 @@ font-weight:bold;
 
 
 
-<div class="withdraw-info">
 
 
 
-<div>
+/* الشريط السفلي */
 
-<span>
-الحد الأدنى
-</span>
 
+.withdraw-nav{
 
-<strong>
-50 USDT
-</strong>
+position:fixed;
 
+bottom:0;
 
-</div>
+left:50%;
 
+transform:translateX(-50%);
 
+max-width:480px;
 
+width:100%;
 
+height:75px;
 
-<div>
+background:#0B1628;
 
-<span>
-العمولة
-</span>
+border-top:1px solid #17365C;
 
+display:flex;
 
-<strong id="feeAmount">
-20%
-</strong>
+justify-content:space-around;
 
+align-items:center;
 
-</div>
+z-index:100;
 
+}
 
 
 
+.withdraw-nav a{
 
-<div>
+color:#98A5B8;
 
-<span>
-المستلم
-</span>
+text-decoration:none;
 
+font-size:12px;
 
-<strong id="receiveAmount">
-0.00 USDT
-</strong>
+text-align:center;
 
+}
 
-</div>
 
 
+.withdraw-nav a:hover{
 
-</div>
-
-
-
-
-
-
-
-<button class="withdraw-button" onclick="submitWithdraw()">
-
-تأكيد السحب
-
-</button>
-
-
-
-
-
-
-
-<div id="successBox" class="withdraw-status success">
-
-
-<h3>
-✓ تم إرسال طلب السحب
-</h3>
-
-
-<p>
-السحب قيد المعالجة
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-<div id="rejectBox" class="withdraw-status reject">
-
-
-<h3>
-× رفض السحب
-</h3>
-
-
-<p>
-يرجى إدخال البيانات كاملة
-</p>
-
-
-</div>
-
-
-
-
-
-
-
-
-<a href="withdraw-history.html" class="withdraw-history">
-
-سجل السحوبات
-
-</a>
-
-
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-<nav class="withdraw-nav">
-
-
-<a href="dashboard.html">
-
-⌂
-<br>
-الرئيسية
-
-</a>
-
-
-
-<a href="wallet.html">
-
-▣
-<br>
-المحفظة
-
-</a>
-
-
-
-<a href="team.html">
-
-♟
-<br>
-الفريق
-
-</a>
-
-
-
-<a href="settings.html">
-
-⚙
-<br>
-الإعدادات
-
-</a>
-
-
-
-</nav>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-<script>
-
-
-
-let currentCoin="USDT";
-
-let feePercent=20;
-
-
-
-
-
-function selectCoin(coin,button){
-
-
-currentCoin=coin;
-
-
-
-document
-.querySelectorAll(".withdraw-coin")
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-});
-
-
-
-button.classList.add("active");
-
-
-
-document.getElementById("receiveAmount").innerHTML =
-"0.00 "+coin;
-
+color:#1687FF;
 
 }
 
@@ -500,219 +576,23 @@ document.getElementById("receiveAmount").innerHTML =
 
 
 
+@media(max-width:400px){
 
 
-document
-.getElementById("withdrawAmount")
-.addEventListener("input",function(){
+.withdraw-coins{
 
-
-
-let amount=Number(this.value);
-
-
-
-let fee = amount * (feePercent / 100);
-
-
-
-let receive = amount - fee;
-
-
-
-if(receive < 0){
-
-receive=0;
+grid-template-columns:repeat(2,1fr);
 
 }
 
 
+.withdraw-info{
 
-document.getElementById("receiveAmount").innerHTML=
+flex-direction:column;
 
-receive.toFixed(2)+" "+currentCoin;
-
-
-
-});
-
-
-
-
-
-
-
-function submitWithdraw(){
-
-
-
-let verifyStatus = localStorage.getItem(
-"VALORA_VERIFY_STATUS"
-);
-
-
-
-
-if(verifyStatus !== "verified"){
-
-
-
-document.getElementById("rejectBox").innerHTML=
-
-"⚠️ يجب التحقق من الهوية قبل السحب";
-
-
-document.getElementById("rejectBox").style.display="block";
-
-
-return;
-
+gap:12px;
 
 }
 
 
-
-
-
-
-let pin = document.getElementById("securityPin").value;
-
-
-
-let savedPin =
-localStorage.getItem("VALORA_SECURITY_PIN");
-
-
-
-
-
-if(!savedPin || pin !== savedPin){
-
-
-document.getElementById("rejectBox").innerHTML=
-
-"⚠️ رمز أمان السحب غير صحيح";
-
-
-document.getElementById("rejectBox").style.display="block";
-
-
-return;
-
-
 }
-
-
-
-
-
-
-
-let address =
-document.getElementById("withdrawAddress").value;
-
-
-
-let amount =
-Number(document.getElementById("withdrawAmount").value);
-
-
-
-
-
-
-if(address==="" || amount < 50){
-
-
-document.getElementById("rejectBox").innerHTML=
-
-"⚠️ الحد الأدنى للسحب 50 USDT";
-
-
-document.getElementById("rejectBox").style.display="block";
-
-
-return;
-
-
-}
-
-
-
-
-
-
-let withdrawal={
-
-
-coin:currentCoin,
-
-
-amount:amount,
-
-
-fee:feePercent+"%",
-
-
-address:address,
-
-
-date:new Date().toLocaleString("ar-EG"),
-
-
-status:"pending"
-
-
-};
-
-
-
-
-
-let list = JSON.parse(
-
-localStorage.getItem("withdrawals")
-
-)||[];
-
-
-
-
-
-list.push(withdrawal);
-
-
-
-localStorage.setItem(
-
-"withdrawals",
-
-JSON.stringify(list)
-
-);
-
-
-
-
-
-
-
-document.getElementById("successBox").style.display="block";
-
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-
-</body>
-
-</html>
