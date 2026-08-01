@@ -140,13 +140,12 @@ TRX
 <strong>TRX</strong>
 
 <small>
-TRON
+TRC20
 </small>
 
 </div>
 
 </button>
-
 
 
 
@@ -198,7 +197,6 @@ type="number"
 placeholder="أدخل المبلغ">
 
 
-
 <div class="fee-note">
 
 رسوم السحب:
@@ -215,11 +213,6 @@ placeholder="أدخل المبلغ">
 
 </div>
 
-
-
-
-
-
 <div class="withdraw-input">
 
 
@@ -234,7 +227,6 @@ type="password"
 placeholder="أدخل رمز الأمان">
 
 
-
 <div class="fee-note">
 
 استخدم رمز الأمان لتأكيد عملية السحب
@@ -243,6 +235,11 @@ placeholder="أدخل رمز الأمان">
 
 
 </div>
+
+
+
+
+
 
 <div class="withdraw-info">
 
@@ -291,7 +288,6 @@ placeholder="أدخل رمز الأمان">
 </strong>
 
 </div>
-
 
 
 </div>
@@ -426,21 +422,17 @@ let currentCoin="USDT";
 
 
 
-document
-.getElementById("withdrawAmount")
+document.getElementById("withdrawAmount")
 .addEventListener("input",function(){
 
 
 let amount = Number(this.value);
 
 
-
 let fee = amount * 0.20;
 
 
-
 let receive = amount - fee;
-
 
 
 if(receive < 0){
@@ -450,16 +442,11 @@ receive = 0;
 }
 
 
-
 document.getElementById("receiveAmount").innerHTML =
-
 receive.toFixed(2)+" "+currentCoin;
 
 
-
 });
-
-
 
 
 
@@ -472,18 +459,17 @@ function selectCoin(coin,button){
 currentCoin = coin;
 
 
-
 document.querySelectorAll(".withdraw-coin")
-
 .forEach(btn=>btn.classList.remove("active"));
-
 
 
 button.classList.add("active");
 
 
-
 }
+
+
+
 
 
 
@@ -495,10 +481,8 @@ let address =
 document.getElementById("withdrawAddress").value;
 
 
-
 let amount =
 document.getElementById("withdrawAmount").value;
-
 
 
 let pin =
@@ -518,8 +502,8 @@ document.getElementById("rejectBox").style.display="none";
 
 
 
-if(address==="" || amount==="" || pin===""){
 
+if(address==="" || amount==="" || pin===""){
 
 
 document.getElementById("rejectBox").style.display="block";
@@ -539,6 +523,19 @@ return;
 
 
 
+let network="TRC20";
+
+
+if(currentCoin==="BTC") network="Bitcoin";
+
+if(currentCoin==="ETH") network="ERC20";
+
+if(currentCoin==="TRX") network="TRC20";
+
+
+
+
+
 
 let withdrawal={
 
@@ -546,16 +543,28 @@ let withdrawal={
 coin:currentCoin,
 
 
+network:network,
+
+
 amount:amount,
-
-
-pin:pin,
 
 
 address:address,
 
 
-date:new Date().toLocaleString("ar-EG"),
+date:new Date().toLocaleString("ar-EG",{
+
+year:"numeric",
+
+month:"2-digit",
+
+day:"2-digit",
+
+hour:"2-digit",
+
+minute:"2-digit"
+
+}),
 
 
 status:"pending"
@@ -570,7 +579,6 @@ status:"pending"
 
 
 let list =
-
 JSON.parse(localStorage.getItem("withdrawals")) || [];
 
 
@@ -601,8 +609,6 @@ document.getElementById("successBox").style.display="block";
 
 
 }
-
-
 
 
 
