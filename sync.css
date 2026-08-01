@@ -1,232 +1,622 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | التزامن بالصفقة</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/sync.css">
+
+</head>
+
+
+<body>
+
+
+<div class="sync-page">
+
+
+
+<header class="sync-header">
+
+<div class="sync-brand">
+
+VALORA
+
+</div>
+
+</header>
+
+
+
+
+
+
+<!-- العملات -->
+
+
+<section class="coin-slider">
+
+
+<div class="market-box active">
+
+<b>
+BTC
+</b>
+
+<span class="green">
+
++2.34%
+
+</span>
+
+</div>
+
+
+
+
+<div class="market-box">
+
+<b>
+ETH
+</b>
+
+<span class="red">
+
+-0.87%
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="market-box">
+
+<b>
+BNB
+</b>
+
+<span class="green">
+
++1.12%
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="market-box">
+
+<b>
+SOL
+</b>
+
+<span class="green">
+
++3.55%
+
+</span>
+
+</div>
+
+
+
+
+
+<div class="market-box">
+
+<b>
+XRP
+</b>
+
+<span class="red">
+
+-1.23%
+
+</span>
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- معلومات الصفقة -->
+
+
+<section class="trade-card">
+
+
+
+<div class="trade-head">
+
+
+<div>
+
+<h2>
+
+BTC/USDT
+
+</h2>
+
+
+<span class="trend">
+
+↗ +3.94%
+
+</span>
+
+
+</div>
+
+
+
+<strong class="trade-price">
+
+$70340.51
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+<div class="trade-info">
+
+
+<div>
+
+السعر الحالي
+
+<br>
+
+<b>
+
+70340.51
+
+</b>
+
+</div>
+
+
+
+<div>
+
+الحالة
+
+<br>
+
+<b class="green">
+
+متاح
+
+</b>
+
+</div>
+
+
+
+</div>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+<!-- كود الصفقة -->
+
+
+<section class="code-card">
+
+
+<h3>
+
+التزامن بالصفقة
+
+</h3>
+
+
+<p>
+
+أدخل كود الصفقة للتحقق
+
+</p>
+
+
+
+
+<input
+
+id="tradeCode"
+
+type="text"
+
+placeholder="أدخل كود الصفقة">
+
+
+
+
+
+<button onclick="checkTrade()">
+
+تحقق
+
+</button>
+
+
+
+
+
+<div id="result"></div>
+
+
+
+</section>
+<!-- آخر الصفقات -->
+
+
+<section class="orders-card">
+
+
+<h3>
+
+آخر الصفقات
+
+</h3>
+
+
+
+<div id="ordersList">
+
+
+
+<div class="empty-order">
+
+لا توجد صفقات
+
+</div>
+
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<script>
+
+
+
+// اختيار العملة
+
+
+document.querySelectorAll(".market-box")
+.forEach(function(item){
+
+
+item.onclick=function(){
+
+
+document.querySelectorAll(".market-box")
+.forEach(function(box){
+
+box.classList.remove("active");
+
+});
+
+
+
+this.classList.add("active");
+
+
 }
 
 
-html,body{
+});
 
-background:#050B16;
-color:white;
-min-height:100vh;
+
+
+
+
+
+
+// التحقق من الكود
+
+
+function checkTrade(){
+
+
+
+let code = document.getElementById("tradeCode").value;
+
+
+let result = document.getElementById("result");
+
+
+
+
+if(code.length >= 5){
+
+
+result.innerHTML =
+
+"✅ تم التحقق من الصفقة";
+
+
+
+result.className="success";
+
+
+
+
+// حفظ الصفقة مؤقتاً
+
+saveTrade(code);
+
+
+
+}
+
+else{
+
+
+result.innerHTML =
+
+"❌ كود الصفقة غير صحيح";
+
+
+
+result.className="error";
+
 
 }
 
 
-.sync-page{
-
-max-width:480px;
-margin:auto;
-padding:18px 15px 100px;
-
-}
-
-
-
-/* HEADER */
-
-.sync-header{
-
-text-align:center;
-margin-bottom:25px;
-
-}
-
-
-.sync-brand{
-
-font-size:32px;
-font-weight:800;
-letter-spacing:3px;
-color:#EAF3FF;
-
-text-shadow:0 0 12px #1687FF;
-
-}
-
-
-
-/* CARD */
-
-.sync-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:22px;
-
-padding:25px;
-
-text-align:center;
-
-}
-
-
-.sync-card h2{
-
-font-size:24px;
-
-margin-bottom:12px;
-
-}
-
-
-.sync-card p{
-
-color:#98A5B8;
-
-margin-bottom:20px;
-
-}
-
-
-
-.sync-card input{
-
-width:100%;
-
-height:55px;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:15px;
-
-color:white;
-
-font-size:16px;
-
-text-align:center;
-
-outline:none;
-
-}
-
-
-
-.sync-card button{
-
-margin-top:20px;
-
-width:100%;
-
-height:55px;
-
-background:#1687FF;
-
-border:0;
-
-border-radius:15px;
-
-color:white;
-
-font-size:17px;
-
-font-weight:bold;
-
-}
-
-
-
-/* RESULT */
-
-#result{
-
-margin-top:20px;
-
-font-size:18px;
-
-font-weight:bold;
 
 }
 
 
 
 
-/* NEW BOTTOM NAV */
 
-.sync-page .bottom-nav{
 
-position:fixed;
 
-bottom:0;
+// حفظ الصفقات
 
-left:0;
 
-width:100%;
+function saveTrade(code){
 
-height:80px;
 
-background:#0B1628;
+let trades =
 
-border-top:1px solid #17365C;
+JSON.parse(localStorage.getItem("trades")) || [];
 
-display:flex;
 
-justify-content:space-around;
 
-align-items:center;
 
-z-index:9999;
+let trade={
+
+
+coin:"BTC/USDT",
+
+code:code,
+
+date:new Date().toLocaleString("ar-EG"),
+
+status:"مكتملة"
+
+
+};
+
+
+
+
+
+trades.push(trade);
+
+
+
+localStorage.setItem(
+
+"trades",
+
+JSON.stringify(trades)
+
+);
+
+
+
+
+loadTrades();
+
 
 }
 
 
 
-.sync-page .bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:5px;
-
-}
 
 
 
-.sync-page .bottom-nav svg{
 
-width:28px;
+// عرض الصفقات
 
-height:28px;
 
-stroke:#98A5B8;
+function loadTrades(){
 
-fill:none;
 
-stroke-width:2;
-
-}
+let box=document.getElementById("ordersList");
 
 
 
-.sync-page .bottom-nav .active{
+let trades =
 
-color:#1687FF;
+JSON.parse(localStorage.getItem("trades")) || [];
+
+
+
+
+if(trades.length===0){
+
+
+box.innerHTML=
+
+`
+
+<div class="empty-order">
+
+لا توجد صفقات
+
+</div>
+
+`;
+
+return;
 
 }
 
 
 
-.sync-page .bottom-nav .active svg{
 
-stroke:#1687FF;
 
-filter:drop-shadow(0 0 8px #1687FF);
+box.innerHTML="";
+
+
+
+
+
+trades.reverse().forEach(function(item){
+
+
+
+box.innerHTML +=
+
+
+`
+
+<div class="order-item">
+
+
+<div>
+
+<b>
+
+${item.coin}
+
+</b>
+
+
+<br>
+
+<span>
+
+الكود: ${item.code}
+
+</span>
+
+
+</div>
+
+
+
+
+<div>
+
+
+<span>
+
+${item.date}
+
+</span>
+
+
+<br>
+
+
+<strong class="green">
+
+${item.status}
+
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+`;
+
+
+
+});
+
+
 
 }
+
+
+
+
+
+
+
+loadTrades();
+
+
+
+</script>
+
+
+
+
+
+
+</body>
+
+</html>
