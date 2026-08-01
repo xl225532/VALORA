@@ -8,64 +8,50 @@ font-family:'Cairo',Arial,sans-serif;
 }
 
 
-
 body{
 
 background:#050B16;
 
 color:white;
 
+}
+
+
+
+.dashboard{
+
 min-height:100vh;
 
-}
-
-
-
-.password-page{
-
-max-width:480px;
-
-margin:auto;
-
-padding:18px 15px 90px;
+padding:18px 15px 100px;
 
 }
 
 
 
 
+/* الرأس */
 
-/* HEADER */
+.header{
 
-.page-header{
+text-align:center;
 
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-margin-bottom:22px;
+margin-bottom:20px;
 
 }
 
 
 
-.page-header a{
+.brand{
 
-color:white;
+font-size:32px;
 
-font-size:38px;
+font-weight:800;
 
-text-decoration:none;
+letter-spacing:3px;
 
-}
+color:#EAF3FF;
 
-
-
-.page-header h2{
-
-font-size:20px;
+text-shadow:0 0 12px #1687FF;
 
 }
 
@@ -73,11 +59,10 @@ font-size:20px;
 
 
 
+/* عنوان الصفحة */
 
-/* TOP CARD */
 
-
-.password-card{
+.page-title{
 
 background:#0B1628;
 
@@ -85,27 +70,155 @@ border:1px solid #17365C;
 
 border-radius:20px;
 
-padding:20px;
+padding:18px;
 
 text-align:center;
 
-margin-bottom:18px;
+margin-bottom:20px;
 
 }
 
 
 
-.icon{
+.icon-box{
 
-font-size:45px;
+font-size:30px;
 
-margin-bottom:10px;
+color:#1687FF;
 
 }
 
 
 
-.password-card h3{
+.page-title h2{
+
+margin-top:8px;
+
+font-size:22px;
+
+}
+
+
+
+.page-title p{
+
+color:#98A5B8;
+
+font-size:14px;
+
+}
+
+
+
+
+
+
+/* قائمة السجل */
+
+
+.history-list{
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+
+
+
+
+
+/* بطاقة العملية */
+
+
+.history-card{
+
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:20px;
+
+padding:16px;
+
+
+box-shadow:0 0 15px rgba(0,0,0,.3);
+
+
+}
+
+
+
+
+
+.history-top{
+
+display:flex;
+
+align-items:center;
+
+gap:12px;
+
+padding-bottom:12px;
+
+border-bottom:1px solid #17365C;
+
+}
+
+
+
+
+
+
+/* شعار العملة */
+
+
+.coin-mini{
+
+
+width:45px;
+
+height:45px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:24px;
+
+font-weight:bold;
+
+
+background:#138A43;
+
+color:white;
+
+}
+
+
+
+
+.coin-info{
+
+flex:1;
+
+display:flex;
+
+flex-direction:column;
+
+}
+
+
+
+.coin-info strong{
 
 font-size:18px;
 
@@ -113,152 +226,123 @@ font-size:18px;
 
 
 
-.password-card p{
+.coin-info small{
 
 color:#98A5B8;
 
-font-size:13px;
-
-margin-top:8px;
-
 }
 
 
 
 
 
+/* الحالة */
 
 
-/* FORM */
+.status{
 
 
-.form-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
+padding:6px 12px;
 
 border-radius:20px;
 
-padding:20px;
-
-}
-
-
-
-.form-card label{
-
-display:block;
-
-color:#AAB5C5;
-
-font-size:14px;
-
-margin:12px 0 8px;
-
-}
-
-
-
-
-
-.method-box{
-
-display:flex;
-
-gap:10px;
-
-}
-
-
-
-.method-box button{
-
-flex:1;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-color:white;
-
-border-radius:14px;
-
-padding:12px;
-
 font-size:13px;
-
-cursor:pointer;
-
-}
-
-
-
-.method-box button:hover{
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-
-.form-card input{
-
-
-width:100%;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:14px;
-
-padding:14px;
-
-color:white;
-
-font-size:15px;
-
-outline:none;
-
-}
-
-
-
-.form-card input:focus{
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-.save-btn{
-
-width:100%;
-
-margin-top:25px;
-
-background:#1687FF;
-
-border:0;
-
-border-radius:15px;
-
-padding:15px;
-
-color:white;
-
-font-size:16px;
 
 font-weight:bold;
 
-cursor:pointer;
+}
+
+
+
+
+.pending{
+
+background:#5A4300;
+
+color:#FACC15;
+
+}
+
+
+
+.complete{
+
+background:#064E2A;
+
+color:#22C55E;
+
+}
+
+
+
+.rejected{
+
+background:#5B1111;
+
+color:#EF4444;
+
+}
+
+
+
+
+
+
+/* معلومات العملية */
+
+
+.history-data{
+
+margin-top:12px;
+
+}
+
+
+
+.history-data p{
+
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:8px 0;
+
+color:#98A5B8;
+
+font-size:14px;
+
+border-bottom:1px solid #17365C;
+
+
+}
+
+
+
+.history-data p:last-child{
+
+border-bottom:0;
+
+}
+
+
+
+
+.history-data span{
+
+color:white;
+
+max-width:65%;
+
+text-align:left;
+
+overflow:hidden;
+
+text-overflow:ellipsis;
+
+white-space:nowrap;
 
 }
 
@@ -268,32 +352,37 @@ cursor:pointer;
 
 
 
-/* BOTTOM NAV */
+
+/* الشريط السفلي */
 
 
 .bottom-nav{
+
 
 position:fixed;
 
 bottom:0;
 
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
+left:0;
 
 width:100%;
+
+height:70px;
 
 background:#0B1628;
 
 border-top:1px solid #17365C;
 
+
 display:flex;
 
 justify-content:space-around;
 
-padding:10px;
+align-items:center;
+
+
+z-index:999;
+
 
 }
 
@@ -301,9 +390,10 @@ padding:10px;
 
 .bottom-nav a{
 
-color:#98A5B8;
 
 text-decoration:none;
+
+color:#98A5B8;
 
 font-size:12px;
 
@@ -316,5 +406,29 @@ text-align:center;
 .bottom-nav a:hover{
 
 color:#1687FF;
+
+}
+
+
+
+
+
+@media(max-width:400px){
+
+
+.dashboard{
+
+padding:15px 12px 90px;
+
+}
+
+
+
+.history-card{
+
+padding:14px;
+
+}
+
 
 }
