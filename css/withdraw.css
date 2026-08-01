@@ -596,3 +596,35 @@ gap:12px;
 
 
 }
+.withdraw-input select{
+
+width:100%;
+
+height:52px;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:14px;
+
+color:white;
+
+padding:0 15px;
+
+font-size:15px;
+
+outline:none;
+
+appearance:none;
+
+}
+
+
+.withdraw-input select option{
+
+background:#0B1628;
+
+color:white;
+
+}
