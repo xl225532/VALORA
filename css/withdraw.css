@@ -3,14 +3,14 @@
 margin:0;
 padding:0;
 box-sizing:border-box;
+
 font-family:'Cairo',Arial,sans-serif;
 
 }
 
 
 
-body,
-.valora-withdraw{
+body{
 
 background:#050B16;
 
@@ -21,6 +21,13 @@ min-height:100vh;
 }
 
 
+
+
+.valora-withdraw{
+
+background:#050B16;
+
+}
 
 
 
@@ -34,7 +41,6 @@ margin:auto;
 padding:18px 15px 100px;
 
 }
-
 
 
 
@@ -74,7 +80,6 @@ text-shadow:0 0 12px #1687FF;
 
 
 
-
 /* TITLE */
 
 
@@ -104,9 +109,11 @@ align-items:center;
 
 justify-content:center;
 
-font-size:28px;
-
 margin:auto;
+
+font-size:30px;
+
+box-shadow:0 0 15px #1687FF;
 
 }
 
@@ -114,9 +121,9 @@ margin:auto;
 
 .withdraw-title h2{
 
-font-size:22px;
+margin-top:12px;
 
-margin-top:10px;
+font-size:24px;
 
 }
 
@@ -126,10 +133,9 @@ margin-top:10px;
 
 color:#98A5B8;
 
-font-size:14px;
+font-size:13px;
 
 }
-
 
 
 
@@ -160,496 +166,6 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:16px;
-
-padding:12px 5px;
-
-color:white;
-
-cursor:pointer;
-
-}
-
-
-
-.withdraw-coin.active{
-
-border-color:#1687FF;
-
-box-shadow:0 0 12px #1687FF66;
-
-}
-
-
-
-.withdraw-coin strong{
-
-display:block;
-
-font-size:14px;
-
-}
-
-
-
-.withdraw-coin small{
-
-color:#98A5B8;
-
-font-size:11px;
-
-}
-
-
-
-.withdraw-coin-icon{
-
-font-size:22px;
-
-margin-bottom:5px;
-
-}
-
-
-
-.usdt{
-
-color:#22C55E;
-
-}
-
-
-.btc{
-
-color:#F59E0B;
-
-}
-
-
-.eth{
-
-color:#8B5CF6;
-
-}
-
-
-.trx{
-
-color:#EF4444;
-
-}
-
-
-
-
-
-
-
-
-/* بطاقة السحب */
-
-
-.withdraw-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:22px;
-
-padding:18px;
-
-}
-/* الحقول */
-
-
-.withdraw-input{
-
-margin-bottom:18px;
-
-}
-
-
-
-.withdraw-input label{
-
-display:block;
-
-font-size:14px;
-
-margin-bottom:8px;
-
-color:#EAF3FF;
-
-}
-
-
-
-.withdraw-input input{
-
-width:100%;
-
-height:52px;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:14px;
-
-color:white;
-
-padding:0 15px;
-
-font-size:15px;
-
-outline:none;
-
-}
-
-
-
-.withdraw-input input:focus{
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-.fee-note{
-
-margin-top:10px;
-
-background:#071426;
-
-border-radius:12px;
-
-padding:10px;
-
-color:#98A5B8;
-
-font-size:12px;
-
-line-height:1.8;
-
-}
-
-
-
-
-
-
-
-/* معلومات السحب */
-
-
-.withdraw-info{
-
-display:flex;
-
-justify-content:space-between;
-
-background:#071426;
-
-border-radius:15px;
-
-padding:15px;
-
-margin-top:15px;
-
-margin-bottom:18px;
-
-}
-
-
-
-.withdraw-info div{
-
-text-align:center;
-
-}
-
-
-
-.withdraw-info span{
-
-display:block;
-
-color:#98A5B8;
-
-font-size:12px;
-
-margin-bottom:5px;
-
-}
-
-
-
-.withdraw-info strong{
-
-font-size:14px;
-
-}
-
-
-
-
-
-
-
-/* زر السحب */
-
-
-.withdraw-button{
-
-width:100%;
-
-height:55px;
-
-background:#1687FF;
-
-border:0;
-
-border-radius:15px;
-
-color:white;
-
-font-size:17px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-
-
-
-
-
-/* حالات العملية */
-
-
-.withdraw-status{
-
-display:none;
-
-margin-top:18px;
-
-padding:15px;
-
-border-radius:15px;
-
-text-align:center;
-
-}
-
-
-
-.withdraw-status h3{
-
-font-size:17px;
-
-}
-
-
-
-.withdraw-status p{
-
-margin-top:5px;
-
-font-size:14px;
-
-}
-
-
-
-.success{
-
-background:#052E16;
-
-border:1px solid #22C55E;
-
-}
-
-
-
-.reject{
-
-background:#3F0B0B;
-
-border:1px solid #EF4444;
-
-}
-
-
-
-
-
-
-
-/* سجل السحوبات */
-
-
-.withdraw-history{
-
-display:block;
-
-margin-top:18px;
-
-text-align:center;
-
-color:#1687FF;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-
-
-/* الشريط السفلي */
-
-
-.withdraw-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
-
-width:100%;
-
-height:75px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-z-index:100;
-
-}
-
-
-
-.withdraw-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-}
-
-
-
-.withdraw-nav a:hover{
-
-color:#1687FF;
-
-}
-
-
-
-
-
-@media(max-width:400px){
-
-
-.withdraw-coins{
-
-grid-template-columns:repeat(2,1fr);
-
-}
-
-
-.withdraw-info{
-
-flex-direction:column;
-
-gap:12px;
-
-}
-
-
-}
-.withdraw-input select{
-
-width:100%;
-
-height:52px;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:14px;
-
-color:white;
-
-padding:0 15px;
-
-font-size:15px;
-
-outline:none;
-
-appearance:none;
-
-}
-
-
-.withdraw-input select option{
-
-background:#0B1628;
-
-color:white;
-
-}
-/* شكل العملات الدائرية */
-
-.withdraw-coins{
-
-display:grid;
-
-grid-template-columns:repeat(4,1fr);
-
-gap:12px;
-
-margin-bottom:20px;
-
-}
-
-
-
-.withdraw-coin{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
 border-radius:18px;
 
 padding:12px 5px;
@@ -661,8 +177,6 @@ display:flex;
 flex-direction:column;
 
 align-items:center;
-
-justify-content:center;
 
 cursor:pointer;
 
@@ -702,11 +216,11 @@ justify-content:center;
 
 font-size:22px;
 
-font-weight:700;
-
-margin-bottom:8px;
+font-weight:bold;
 
 color:white;
+
+margin-bottom:8px;
 
 }
 
@@ -714,15 +228,15 @@ color:white;
 
 
 
-/* ألوان العملات */
 
 .usdt-circle{
 
 background:#26A17B;
 
-box-shadow:0 0 12px #26A17B88;
+box-shadow:0 0 12px #26A17B;
 
 }
+
 
 
 
@@ -730,9 +244,10 @@ box-shadow:0 0 12px #26A17B88;
 
 background:#F7931A;
 
-box-shadow:0 0 12px #F7931A88;
+box-shadow:0 0 12px #F7931A;
 
 }
+
 
 
 
@@ -740,9 +255,10 @@ box-shadow:0 0 12px #F7931A88;
 
 background:#627EEA;
 
-box-shadow:0 0 12px #627EEA88;
+box-shadow:0 0 12px #627EEA;
 
 }
+
 
 
 
@@ -750,10 +266,9 @@ box-shadow:0 0 12px #627EEA88;
 
 background:#EF0027;
 
-box-shadow:0 0 12px #EF002788;
+box-shadow:0 0 12px #EF0027;
 
 }
-
 
 
 
@@ -768,21 +283,28 @@ font-size:15px;
 
 .withdraw-coin small{
 
-color:#98A5B8;
-
 font-size:11px;
 
-margin-top:4px;
+color:#98A5B8;
+
+}
+/* بطاقة السحب */
+
+
+.withdraw-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:22px;
+
+padding:20px;
 
 }
 
 
 
-
-
-
-
-/* الشبكات */
 
 
 .withdraw-card h3{
@@ -797,13 +319,20 @@ margin:18px 0 12px;
 
 
 
+
+
+
+
+/* الشبكات */
+
+
 .network-buttons{
 
 display:flex;
 
-gap:10px;
+flex-direction:column;
 
-flex-wrap:wrap;
+gap:12px;
 
 margin-bottom:20px;
 
@@ -813,17 +342,29 @@ margin-bottom:20px;
 
 .network{
 
+width:100%;
+
+height:55px;
+
 background:#071426;
 
 border:1px solid #17365C;
 
+border-radius:16px;
+
 color:white;
 
-padding:12px 22px;
+font-size:16px;
 
-border-radius:14px;
+font-weight:600;
 
-font-size:14px;
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+cursor:pointer;
 
 }
 
@@ -835,7 +376,7 @@ background:#1687FF;
 
 border-color:#1687FF;
 
-box-shadow:0 0 12px #1687FF88;
+box-shadow:0 0 15px #1687FF88;
 
 }
 
@@ -844,23 +385,300 @@ box-shadow:0 0 12px #1687FF88;
 
 
 
-/* عنوان المحفظة */
+
+/* الحقول */
 
 
-.address-area input{
+.withdraw-input{
+
+margin-top:15px;
+
+}
+
+
+
+.withdraw-input label{
+
+display:block;
+
+margin-bottom:8px;
+
+font-size:14px;
+
+color:#EAF3FF;
+
+}
+
+
+
+
+.withdraw-input input{
+
+width:100%;
+
+height:55px;
 
 background:#071426;
 
 border:1px solid #17365C;
 
+border-radius:15px;
+
 color:white;
+
+padding:0 15px;
+
+font-size:15px;
+
+outline:none;
 
 }
 
 
 
-.address-area input::placeholder{
+.withdraw-input input::placeholder{
 
 color:#98A5B8;
+
+}
+
+
+
+
+
+
+
+.fee-note{
+
+margin-top:10px;
+
+font-size:12px;
+
+color:#98A5B8;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+
+
+
+/* معلومات السحب */
+
+
+.withdraw-info{
+
+margin-top:20px;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:16px;
+
+padding:15px;
+
+}
+
+
+
+.withdraw-info div{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:12px;
+
+}
+
+
+
+.withdraw-info div:last-child{
+
+margin-bottom:0;
+
+}
+
+
+
+.withdraw-info span{
+
+color:#98A5B8;
+
+}
+
+
+
+.withdraw-info strong{
+
+color:#EAF3FF;
+
+}
+
+
+
+
+
+
+
+
+/* زر السحب */
+
+
+.withdraw-button{
+
+width:100%;
+
+height:55px;
+
+margin-top:20px;
+
+background:#1687FF;
+
+border:0;
+
+border-radius:16px;
+
+color:white;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px #1687FF55;
+
+}
+
+
+
+
+
+
+
+
+/* رسائل الحالة */
+
+
+.withdraw-status{
+
+display:none;
+
+margin-top:15px;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+.success{
+
+background:#052E1B;
+
+border:1px solid #22C55E;
+
+}
+
+
+
+.reject{
+
+background:#3B0A0A;
+
+border:1px solid #EF4444;
+
+}
+
+
+
+
+
+
+
+/* سجل السحوبات */
+
+
+.withdraw-history{
+
+display:block;
+
+margin-top:18px;
+
+text-align:center;
+
+color:#1687FF;
+
+text-decoration:none;
+
+font-weight:bold;
+
+}
+
+
+
+
+
+
+
+
+/* الشريط السفلي */
+
+
+.withdraw-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:0;
+
+width:100%;
+
+height:80px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+z-index:99;
+
+}
+
+
+
+.withdraw-nav a{
+
+color:#98A5B8;
+
+text-decoration:none;
+
+font-size:12px;
+
+text-align:center;
+
+}
+
+
+
+.withdraw-nav a:hover{
+
+color:#1687FF;
 
 }
