@@ -36,7 +36,9 @@ VALORA
 
 
 
+
 <section class="withdraw-title">
+
 
 <div class="withdraw-icon">
 ↑
@@ -61,22 +63,39 @@ VALORA
 
 
 
+
+<!-- العملات -->
+
 <section class="withdraw-coins">
 
 
 
 <button class="withdraw-coin active" onclick="selectCoin('USDT',this)">
 
-<div class="withdraw-coin-icon usdt">
+
+<div class="coin-circle usdt-circle">
+
 ₮
+
 </div>
 
-<div>
-<strong>USDT</strong>
-<small>Tether</small>
-</div>
+
+<strong>
+
+USDT
+
+</strong>
+
+
+<small>
+
+Tether
+
+</small>
+
 
 </button>
+
 
 
 
@@ -85,16 +104,30 @@ VALORA
 
 <button class="withdraw-coin" onclick="selectCoin('BTC',this)">
 
-<div class="withdraw-coin-icon btc">
+
+<div class="coin-circle btc-circle">
+
 ₿
+
 </div>
 
-<div>
-<strong>BTC</strong>
-<small>Bitcoin</small>
-</div>
+
+<strong>
+
+BTC
+
+</strong>
+
+
+<small>
+
+Bitcoin
+
+</small>
+
 
 </button>
+
 
 
 
@@ -103,14 +136,27 @@ VALORA
 
 <button class="withdraw-coin" onclick="selectCoin('ETH',this)">
 
-<div class="withdraw-coin-icon eth">
+
+<div class="coin-circle eth-circle">
+
 ◆
+
 </div>
 
-<div>
-<strong>ETH</strong>
-<small>Ethereum</small>
-</div>
+
+<strong>
+
+ETH
+
+</strong>
+
+
+<small>
+
+Ethereum
+
+</small>
+
 
 </button>
 
@@ -119,16 +165,30 @@ VALORA
 
 
 
+
 <button class="withdraw-coin" onclick="selectCoin('TRX',this)">
 
-<div class="withdraw-coin-icon trx">
+
+<div class="coin-circle trx-circle">
+
 TRX
+
 </div>
 
-<div>
-<strong>TRX</strong>
-<small>TRON</small>
-</div>
+
+<strong>
+
+TRX
+
+</strong>
+
+
+<small>
+
+TRON
+
+</small>
+
 
 </button>
 
@@ -142,13 +202,21 @@ TRX
 
 
 
+
+
 <section class="withdraw-card">
 
 
 
+
+
 <h3>
+
 شبكة السحب
+
 </h3>
+
+
 
 
 <div class="network-buttons" id="withdrawNetworkBox">
@@ -162,32 +230,46 @@ TRX
 
 
 
+
 <h3>
+
 عنوان محفظة السحب
+
 </h3>
+
 
 
 <div class="address-area">
 
 
-<input 
-type="text"
+<input
+
 id="withdrawAddress"
+
+type="text"
+
 placeholder="أدخل عنوان المحفظة">
 
 
 </div>
+<!-- المبلغ -->
+
 <div class="withdraw-input">
 
 
 <label>
+
 المبلغ
+
 </label>
 
 
-<input 
+<input
+
 id="withdrawAmount"
+
 type="number"
+
 placeholder="أدخل المبلغ">
 
 
@@ -215,18 +297,28 @@ placeholder="أدخل المبلغ">
 
 
 
+<!-- رمز الأمان -->
+
+
 <div class="withdraw-input">
 
 
 <label>
+
 🔐 رمز أمان السحب
+
 </label>
 
 
-<input 
+
+<input
+
 id="withdrawPin"
+
 type="password"
+
 placeholder="أدخل رمز الأمان">
+
 
 
 </div>
@@ -237,24 +329,33 @@ placeholder="أدخل رمز الأمان">
 
 
 
+
+
+<!-- معلومات السحب -->
 
 
 <div class="withdraw-info">
 
 
+
 <div>
 
 <span>
+
 الحد الأدنى
+
 </span>
 
 
 <strong>
+
 50 USDT
+
 </strong>
 
-
 </div>
+
+
 
 
 
@@ -262,16 +363,21 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
+
 العمولة
+
 </span>
 
 
 <strong id="feeAmount">
+
 20%
+
 </strong>
 
-
 </div>
+
+
 
 
 
@@ -279,20 +385,25 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
+
 المستلم
+
 </span>
 
 
 <strong id="receiveAmount">
+
 0.00 USDT
+
 </strong>
 
-
 </div>
 
 
 
 </div>
+
+
 
 
 
@@ -316,12 +427,16 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
+
 ✓ تم إرسال طلب السحب
+
 </h3>
 
 
 <p>
+
 السحب قيد المعالجة
+
 </p>
 
 
@@ -337,12 +452,16 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
+
 × رفض السحب
+
 </h3>
 
 
 <p>
+
 يرجى إدخال البيانات كاملة
+
 </p>
 
 
@@ -377,37 +496,48 @@ placeholder="أدخل رمز الأمان">
 <a href="dashboard.html">
 
 ⌂
+
 <br>
+
 الرئيسية
 
 </a>
 
 
 
+
 <a href="wallet.html">
 
 ▣
+
 <br>
+
 المحفظة
 
 </a>
 
 
 
+
 <a href="team.html">
 
 ♟
+
 <br>
+
 الفريق
 
 </a>
 
 
 
+
 <a href="settings.html">
 
 ⚙
+
 <br>
+
 الإعدادات
 
 </a>
@@ -422,57 +552,35 @@ placeholder="أدخل رمز الأمان">
 
 
 </div>
-
-
-
-
-
-
-
 <script>
 
+let currentCoin = "USDT";
 
-let currentCoin="USDT";
-
-let currentNetwork="TRC20";
-
+let currentNetwork = "TRC20";
 
 
 
-
-let coinNetworks={
+const coinNetworks = {
 
 
 USDT:[
-
 "TRC20",
-
 "ERC20"
-
 ],
-
 
 
 BTC:[
-
 "Bitcoin"
-
 ],
-
 
 
 ETH:[
-
 "ERC20"
-
 ],
 
 
-
 TRX:[
-
 "TRC20"
-
 ]
 
 
@@ -487,13 +595,17 @@ TRX:[
 function selectCoin(coin,button){
 
 
-currentCoin=coin;
+currentCoin = coin;
 
 
 
-document.querySelectorAll(".withdraw-coin")
+document
+.querySelectorAll(".withdraw-coin")
+.forEach(btn=>{
 
-.forEach(btn=>btn.classList.remove("active"));
+btn.classList.remove("active");
+
+});
 
 
 
@@ -517,26 +629,34 @@ document.getElementById("receiveAmount").innerHTML =
 
 
 
+
 function loadNetworks(){
 
 
-let box=document.getElementById("withdrawNetworkBox");
+let box =
+document.getElementById("withdrawNetworkBox");
+
 
 
 box.innerHTML="";
 
 
 
-coinNetworks[currentCoin].forEach(function(network,index){
+coinNetworks[currentCoin].forEach((network,index)=>{
+
 
 
 let btn=document.createElement("button");
 
 
+
 btn.className="network";
 
 
+
 btn.innerText=network;
+
+
 
 
 
@@ -545,6 +665,7 @@ if(index===0){
 
 btn.classList.add("active");
 
+
 currentNetwork=network;
 
 
@@ -552,22 +673,33 @@ currentNetwork=network;
 
 
 
+
+
 btn.onclick=function(){
 
 
-document.querySelectorAll(".network")
 
-.forEach(x=>x.classList.remove("active"));
+document
+.querySelectorAll(".network")
+.forEach(x=>{
+
+x.classList.remove("active");
+
+});
 
 
 
 this.classList.add("active");
 
 
+
 currentNetwork=network;
 
 
+
 };
+
+
 
 
 
@@ -578,7 +710,10 @@ box.appendChild(btn);
 });
 
 
+
 }
+
+
 
 
 
@@ -592,27 +727,33 @@ document
 
 
 
-let amount=Number(this.value);
+let amount =
+Number(this.value);
 
 
 
-let fee=amount*0.20;
+let fee =
+amount * 0.20;
 
 
 
-let receive=amount-fee;
+let receive =
+amount - fee;
 
 
 
-if(receive<0){
+if(receive < 0){
 
-receive=0;
+receive = 0;
 
 }
 
 
 
-document.getElementById("receiveAmount").innerHTML=
+
+document
+.getElementById("receiveAmount")
+.innerHTML =
 
 receive.toFixed(2)+" "+currentCoin;
 
@@ -626,22 +767,36 @@ receive.toFixed(2)+" "+currentCoin;
 
 
 
+
+
+
 function submitWithdraw(){
 
 
 
-let address=
+let address =
 document.getElementById("withdrawAddress").value;
 
 
 
-let amount=
+let amount =
 document.getElementById("withdrawAmount").value;
 
 
 
-let pin=
+let pin =
 document.getElementById("withdrawPin").value;
+
+
+
+
+
+
+document.getElementById("successBox").style.display="none";
+
+document.getElementById("rejectBox").style.display="none";
+
+
 
 
 
@@ -650,13 +805,17 @@ document.getElementById("withdrawPin").value;
 if(address==="" || amount==="" || pin===""){
 
 
+
 document.getElementById("rejectBox").style.display="block";
+
 
 
 return;
 
 
 }
+
+
 
 
 
@@ -689,11 +848,48 @@ status:"pending"
 
 
 
-let list=
+
+let list =
 
 JSON.parse(localStorage.getItem("withdrawals")) || [];
 
 
 
-list
-  
+
+
+list.push(withdrawal);
+
+
+
+
+
+localStorage.setItem(
+
+"withdrawals",
+
+JSON.stringify(list)
+
+);
+
+
+
+
+
+
+document.getElementById("successBox").style.display="block";
+
+
+
+}
+
+
+
+
+
+
+
+loadNetworks();
+
+
+
+</script>
