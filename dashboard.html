@@ -24,6 +24,8 @@
 <div class="dashboard">
 
 
+<!-- القائمة الجانبية -->
+
 <div id="sideMenu" class="side-menu">
 
 
@@ -43,94 +45,287 @@ VALORA
 
 
 
+<!-- حسابي -->
+
+<div class="account-box">
+
+
+<div class="account-avatar">
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="8" r="4"></circle>
+
+<path d="M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21"></path>
+
+</svg>
+
+</div>
+
+
+
+<div class="account-data">
+
+
+<strong>
+حسابي
+</strong>
+
+
+<p>
+user@email.com
+</p>
+
+
+<small>
+UID: 588887
+</small>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
 <div class="side-links">
 
 
+
 <a href="security.html">
-🔐
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2L20 5V11C20 16 16.5 20 12 22C7.5 20 4 16 4 11V5Z"></path>
+
+</svg>
+
+
 <span data-lang="security">
+
 رمز أمان السحب
+
 </span>
+
+
 </a>
+
+
+
 
 
 
 <a href="verify.html">
-🪪
+
+
+<svg viewBox="0 0 24 24">
+
+<rect x="3" y="5" width="18" height="14" rx="2"></rect>
+
+<circle cx="8" cy="12" r="2"></circle>
+
+<path d="M13 10H18"></path>
+
+<path d="M13 14H18"></path>
+
+</svg>
+
+
 <span data-lang="verify">
+
 التحقق من الهوية
+
 </span>
+
+
 </a>
+
+
+
 
 
 
 <a href="change-password.html">
-🔑
+
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="8" cy="15" r="4"></circle>
+
+<path d="M11 12L21 2"></path>
+
+<path d="M17 6L19 8"></path>
+
+</svg>
+
+
 <span data-lang="password">
+
 تغيير كلمة المرور
+
 </span>
+
+
 </a>
+
+
+
+
 
 
 
 <a href="support.html">
-💬
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M4 4H20V16H7L4 20Z"></path>
+
+</svg>
+
+
 <span data-lang="support">
+
 مراسلة العملاء
+
 </span>
+
+
 </a>
-
-
-
 <a href="terms.html">
-📄
+
+<svg viewBox="0 0 24 24">
+
+<path d="M6 3H18V21H6Z"></path>
+
+<path d="M9 8H15"></path>
+
+<path d="M9 12H15"></path>
+
+<path d="M9 16H13"></path>
+
+</svg>
+
+
 <span data-lang="terms">
+
 الشروط والأحكام
+
 </span>
+
+
 </a>
+
+
+
+
 
 
 
 <a href="notifications.html">
-🔔
+
+<svg viewBox="0 0 24 24">
+
+<path d="M18 8C18 4.7 15.8 2 12 2C8.2 2 6 4.7 6 8V13L4 17H20L18 13Z"></path>
+
+<path d="M10 21H14"></path>
+
+</svg>
+
+
 <span data-lang="notifications">
+
 الإشعارات
+
 </span>
+
+
 </a>
 
 
 
+
+
+
+
 <a href="language.html">
-🌐
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="12" r="10"></circle>
+
+<path d="M2 12H22"></path>
+
+<path d="M12 2C15 5 15 19 12 22"></path>
+
+</svg>
+
+
 <span data-lang="language">
+
 اللغة
+
 </span>
+
+
 </a>
 
 
 
 </div>
+
+
+
+
 
 
 
 <div class="logout" onclick="logout()">
 
-🚪
+
+<svg viewBox="0 0 24 24">
+
+<path d="M10 17L15 12L10 7"></path>
+
+<path d="M15 12H3"></path>
+
+<path d="M21 19V5C21 3.9 20.1 3 19 3H13"></path>
+
+</svg>
+
 
 <span data-lang="logout">
+
 تسجيل الخروج
+
 </span>
 
+
 </div>
 
 
+
+
 </div>
+<div class="dashboard-main">
+
+
 <header class="header">
 
 
 <button class="menu-btn" onclick="openMenu()">
+
 ☰
+
 </button>
+
+
 
 
 
@@ -160,16 +355,22 @@ stroke-linecap="round"/>
 
 
 
+
+
 <div class="logo-text">
 
 
 <span class="logo-name">
+
 VALORA
+
 </span>
 
 
 <span class="logo-sub">
+
 EXCHANGE
+
 </span>
 
 
@@ -177,6 +378,9 @@ EXCHANGE
 
 
 </div>
+
+
+
 
 
 
@@ -186,13 +390,19 @@ EXCHANGE
 
 
 <span>
+
 UID:
+
 </span>
 
 
-<strong>
+<strong id="userUID">
+
 588887
+
 </strong>
+
+
 
 
 
@@ -201,9 +411,12 @@ UID:
 
 <svg viewBox="0 0 24 24">
 
+
 <rect x="8" y="8" width="12" height="12" rx="2"/>
 
-<path d="M4 16V4a2 2 0 0 1 2-2h10"/>
+
+<path d="M4 16V4C4 2.9 4.9 2 6 2H16"/>
+
 
 </svg>
 
@@ -211,16 +424,14 @@ UID:
 </button>
 
 
+
 </div>
 
 
 
+
 </header>
-
-
-
-
-
+ id="h7d4x"
 <section class="asset-card">
 
 
@@ -236,16 +447,17 @@ UID:
 
 
 
+
 <button onclick="hideBalance()" class="eye">
 
 
 <svg viewBox="0 0 24 24">
 
 
-<path d="M2 12s4-7 10-7 10 7 10 7-4 7-10 7-10-7-10-7Z"/>
+<path d="M2 12S6 5 12 5S22 12 22 12S18 19 12 19S2 12 2 12Z"></path>
 
 
-<circle cx="12" cy="12" r="3"/>
+<circle cx="12" cy="12" r="3"></circle>
 
 
 </svg>
@@ -254,7 +466,10 @@ UID:
 </button>
 
 
+
 </div>
+
+
 
 
 
@@ -262,9 +477,19 @@ UID:
 
 <div id="balance" class="balance">
 
-0.00 <small>USDT</small>
+
+0.00
+
+<small>
+
+USDT
+
+</small>
+
 
 </div>
+
+
 
 
 
@@ -281,6 +506,7 @@ UID:
 
 
 
+
 <strong id="todayProfit">
 
 +0.00 USDT
@@ -288,11 +514,20 @@ UID:
 </strong>
 
 
+
 </div>
 
 
 
 </section>
+
+
+
+
+
+
+
+
 <section class="trade-bar">
 
 
@@ -300,32 +535,44 @@ UID:
 
 
 <span class="btc-symbol">
+
 ₿
+
 </span>
 
 
 <span class="eth-symbol">
+
 ◆
+
 </span>
 
 
 <span class="usdt-symbol">
+
 ₮
+
 </span>
 
 
 <span class="trx-symbol">
+
 TRX
+
 </span>
 
 
 <span class="sol-symbol">
+
 S
+
 </span>
 
 
 <span class="xrp-symbol">
+
 X
+
 </span>
 
 
@@ -333,13 +580,7 @@ X
 
 
 </section>
-
-
-
-
-
-
-
+ id="f5b7f8"
 <section class="markets">
 
 
@@ -353,17 +594,25 @@ X
 </div>
 
 
+
 <div class="coin-name">
 
 <b>
+
 BTC
+
 </b>
 
+
 <small>
+
 Bitcoin
+
 </small>
 
 </div>
+
+
 
 
 <div class="price">
@@ -373,6 +622,8 @@ Bitcoin
 </div>
 
 
+
+
 <div class="up">
 
 ▲ 2.45%
@@ -380,7 +631,9 @@ Bitcoin
 </div>
 
 
+
 </div>
+
 
 
 
@@ -397,17 +650,26 @@ Bitcoin
 </div>
 
 
+
+
 <div class="coin-name">
 
 <b>
+
 ETH
+
 </b>
 
+
 <small>
+
 Ethereum
+
 </small>
 
 </div>
+
+
 
 
 <div class="price">
@@ -417,6 +679,8 @@ Ethereum
 </div>
 
 
+
+
 <div class="down">
 
 ▼ 1.20%
@@ -424,7 +688,9 @@ Ethereum
 </div>
 
 
+
 </div>
+
 
 
 
@@ -441,19 +707,29 @@ Ethereum
 </div>
 
 
+
+
 <div class="coin-name">
 
 <b>
+
 USDT
+
 </b>
 
 
+
 <small>
+
 Tether
+
 </small>
 
 
 </div>
+
+
+
 
 
 <div class="price">
@@ -463,11 +739,14 @@ Tether
 </div>
 
 
+
+
 <div class="up">
 
 ▲ 0.05%
 
 </div>
+
 
 
 </div>
@@ -488,19 +767,29 @@ TRX
 </div>
 
 
+
+
 <div class="coin-name">
 
 <b>
+
 TRX
+
 </b>
 
 
+
 <small>
+
 TRON
+
 </small>
 
 
 </div>
+
+
+
 
 
 <div class="price">
@@ -510,6 +799,8 @@ TRON
 </div>
 
 
+
+
 <div class="up">
 
 ▲ 1.20%
@@ -517,11 +808,13 @@ TRON
 </div>
 
 
+
 </div>
 
 
 
 </section>
+ id="2o2n4j"
 <nav class="bottom-nav">
 
 
@@ -547,7 +840,6 @@ TRON
 
 
 </a>
-
 
 
 
@@ -588,7 +880,6 @@ TRON
 
 <svg viewBox="0 0 24 24">
 
-
 <path d="M17 1L21 5L17 9"></path>
 
 <path d="M3 11V9C3 6.8 4.8 5 7 5H21"></path>
@@ -597,13 +888,12 @@ TRON
 
 <path d="M21 13V15C21 17.2 19.2 19 17 19H3"></path>
 
-
 </svg>
 
 
 <span>
 
-التزامن بالصفقة
+التزامن
 
 </span>
 
@@ -621,11 +911,9 @@ TRON
 
 <svg viewBox="0 0 24 24">
 
+<circle cx="12" cy="8" r="4"></circle>
 
-<path d="M12 4L14 8L18 8.5L15 12L16 17L12 14.5L8 17L9 12L5 8.5L10 8Z"></path>
-
-<path d="M7 19H17"></path>
-
+<path d="M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21"></path>
 
 </svg>
 
@@ -647,10 +935,14 @@ TRON
 
 
 
+
+
 <script src="js/language.js"></script>
 
 
+
 <script>
+
 
 
 applyLanguage();
@@ -658,11 +950,14 @@ applyLanguage();
 
 
 
+
 function openMenu(){
+
 
 document
 .getElementById("sideMenu")
 .classList.add("open");
+
 
 }
 
@@ -672,10 +967,12 @@ document
 
 function closeMenu(){
 
+
 document
 .getElementById("sideMenu")
 .classList.remove("open");
 
+
 }
 
 
@@ -683,20 +980,17 @@ document
 
 
 
+function copyUID(){
 
-function logout(){
 
-localStorage.removeItem(
-"VALORA_USER"
+navigator.clipboard.writeText(
+
+"UID: 588887"
+
 );
 
 
-window.location.href="login.html";
-
-
 }
-
-
 
 
 
@@ -742,24 +1036,10 @@ balanceHidden=true;
 }
 
 
-}
-
-
-
-
-
-
-function copyUID(){
-
-
-navigator.clipboard.writeText(
-
-"UID: 588887"
-
-);
-
 
 }
+
+
 
 
 
@@ -778,7 +1058,10 @@ window.location.href=
 
 
 
+
+
 </script>
+
 
 
 
@@ -786,6 +1069,5 @@ window.location.href=
 
 
 </body>
-
 
 </html>
