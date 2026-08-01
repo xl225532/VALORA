@@ -27,7 +27,7 @@ max-width:480px;
 
 margin:auto;
 
-padding:18px 15px 90px;
+padding:12px 12px 75px;
 
 }
 
@@ -44,7 +44,7 @@ display:flex;
 
 align-items:center;
 
-margin-bottom:20px;
+margin-bottom:14px;
 
 }
 
@@ -52,7 +52,7 @@ margin-bottom:20px;
 
 .brand{
 
-font-size:30px;
+font-size:28px;
 
 font-weight:800;
 
@@ -80,17 +80,17 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:20px;
+border-radius:18px;
 
-padding:18px;
+padding:12px;
 
 display:flex;
 
 align-items:center;
 
-gap:15px;
+gap:12px;
 
-margin-bottom:18px;
+margin-bottom:12px;
 
 
 }
@@ -100,9 +100,9 @@ margin-bottom:18px;
 .avatar{
 
 
-width:55px;
+width:48px;
 
-height:55px;
+height:48px;
 
 border-radius:50%;
 
@@ -114,7 +114,7 @@ align-items:center;
 
 justify-content:center;
 
-font-size:25px;
+font-size:22px;
 
 }
 
@@ -123,7 +123,7 @@ font-size:25px;
 .profile-card h3{
 
 
-font-size:18px;
+font-size:16px;
 
 }
 
@@ -134,9 +134,9 @@ font-size:18px;
 
 color:#98A5B8;
 
-font-size:13px;
+font-size:12px;
 
-margin-top:4px;
+margin-top:3px;
 
 }
 
@@ -155,7 +155,7 @@ display:flex;
 
 flex-direction:column;
 
-gap:12px;
+gap:8px;
 
 }
 
@@ -167,9 +167,9 @@ background:#0B1628;
 
 border:1px solid #17365C;
 
-border-radius:16px;
+border-radius:14px;
 
-padding:15px;
+padding:10px 12px;
 
 display:flex;
 
@@ -191,9 +191,9 @@ display:flex;
 
 align-items:center;
 
-gap:12px;
+gap:10px;
 
-font-size:15px;
+font-size:14px;
 
 }
 
@@ -201,7 +201,7 @@ font-size:15px;
 
 .settings-item b{
 
-font-size:25px;
+font-size:20px;
 
 color:#1687FF;
 
@@ -231,7 +231,7 @@ border-color:#1687FF;
 
 width:100%;
 
-margin-top:35px;
+margin-top:15px;
 
 background:#EF4444;
 
@@ -239,11 +239,11 @@ border:0;
 
 color:white;
 
-padding:15px;
+padding:11px;
 
-border-radius:16px;
+border-radius:14px;
 
-font-size:16px;
+font-size:14px;
 
 font-weight:bold;
 
@@ -276,6 +276,8 @@ max-width:480px;
 
 width:100%;
 
+height:65px;
+
 background:#0B1628;
 
 border-top:1px solid #17365C;
@@ -284,7 +286,9 @@ display:flex;
 
 justify-content:space-around;
 
-padding:10px;
+align-items:center;
+
+padding:8px;
 
 z-index:50;
 
@@ -300,7 +304,7 @@ color:#98A5B8;
 
 text-decoration:none;
 
-font-size:12px;
+font-size:11px;
 
 text-align:center;
 
@@ -312,5 +316,47 @@ text-align:center;
 .bottom-nav .active{
 
 color:#1687FF;
+
+}
+
+
+
+
+
+@media(max-width:400px){
+
+
+.settings-page{
+
+padding:10px 10px 70px;
+
+}
+
+
+
+.settings-item{
+
+padding:9px 10px;
+
+}
+
+
+
+.settings-item div{
+
+font-size:13px;
+
+}
+
+
+
+.logout-btn{
+
+padding:10px;
+
+font-size:13px;
+
+}
+
 
 }
