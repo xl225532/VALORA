@@ -4,6 +4,7 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | رمز أمان السحب</title>
@@ -140,65 +141,9 @@ placeholder="أعد إدخال الرمز">
 
 
 
-<nav class="bottom-nav">
+<!-- الشريط الجديد -->
 
-
-<a href="dashboard.html">
-
-⌂
-
-<br>
-
-الرئيسية
-
-</a>
-
-
-
-<a href="wallet.html">
-
-▣
-
-<br>
-
-المحفظة
-
-</a>
-
-
-
-<a href="team.html">
-
-♟
-
-<br>
-
-الفريق
-
-</a>
-
-
-
-<a href="settings.html">
-
-⚙
-
-<br>
-
-الإعدادات
-
-</a>
-
-
-</nav>
-
-
-
-
-
-
-
-</div>
+<div id="bottomNav"></div>
 
 
 
@@ -256,9 +201,26 @@ alert("تم حفظ رمز الأمان");
 
 
 
+
+fetch("components/bottom-nav.html")
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById("bottomNav").innerHTML = data;
+
+});
+
+
 </script>
 
 
+
+
+
+
+</div>
 
 
 </body>
