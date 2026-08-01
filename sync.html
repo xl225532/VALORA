@@ -28,9 +28,7 @@
 <header class="sync-header">
 
 <div class="sync-brand">
-
 VALORA
-
 </div>
 
 </header>
@@ -40,47 +38,85 @@ VALORA
 
 
 
+<!-- العملات -->
 
-<section class="sync-card">
-
-
-<h2>
-
-التزامن بالصفقة
-
-</h2>
+<section class="coin-slider">
 
 
+<div class="market-box active">
 
-<p>
+<b>
+BTC
+</b>
 
-أدخل كود الصفقة للتحقق
+<span class="green">
+2.34%+
+</span>
 
-</p>
-
-
-
-
-<input 
-id="tradeCode"
-type="text"
-placeholder="أدخل كود الصفقة">
+</div>
 
 
 
 
+<div class="market-box">
 
-<button onclick="checkCode()">
+<b>
+ETH
+</b>
 
-تحقق
+<span class="red">
+0.87%-
+</span>
 
-</button>
+</div>
 
 
 
 
 
-<div id="result"></div>
+<div class="market-box">
+
+<b>
+BNB
+</b>
+
+<span class="green">
+1.12%+
+</span>
+
+</div>
+
+
+
+
+
+<div class="market-box">
+
+<b>
+SOL
+</b>
+
+<span class="green">
+3.55%+
+</span>
+
+</div>
+
+
+
+
+
+<div class="market-box">
+
+<b>
+XRP
+</b>
+
+<span class="red">
+1.23%-
+</span>
+
+</div>
 
 
 
@@ -91,6 +127,195 @@ placeholder="أدخل كود الصفقة">
 
 
 
+
+
+<!-- بطاقة التداول -->
+
+<section class="trade-card">
+
+
+
+
+
+<div class="trade-head">
+
+
+<div>
+
+<h2>
+BTC/USDT
+</h2>
+
+
+<span class="trend">
+↗ 3.94%+
+</span>
+
+</div>
+
+
+
+<strong class="trade-price">
+
+$70340.51
+
+</strong>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="trade-info">
+
+
+<span>
+L: 67449.28
+</span>
+
+
+<span>
+H: 70585.99
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<!-- الرسم البياني -->
+
+
+<div class="chart-box">
+
+
+<div class="candles">
+
+
+<span style="height:40%"></span>
+<span style="height:55%"></span>
+<span style="height:35%"></span>
+<span style="height:70%"></span>
+<span style="height:60%"></span>
+<span style="height:80%"></span>
+<span style="height:65%"></span>
+<span style="height:90%"></span>
+<span style="height:75%"></span>
+<span style="height:95%"></span>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+<div class="volume-title">
+
+حجم التداول
+
+</div>
+
+
+
+<div class="volume-bars">
+
+
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+<span></span>
+
+
+</div>
+
+
+
+
+
+<div class="momentum">
+
+
+<span>
+زخم السعر
+</span>
+
+
+<div class="line">
+
+
+<div></div>
+
+
+</div>
+
+
+<p>
+↑ صاعد
+</p>
+
+
+</div>
+
+
+
+
+
+</section>
+<!-- أزرار التداول -->
+
+<section class="trade-actions">
+
+
+<button class="new-trade">
+
++ صفقة جديدة
+
+</button>
+
+
+
+<button>
+
+المفتوحة
+
+</button>
+
+
+
+<button>
+
+السجل
+
+</button>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- الشريط السفلي -->
 
 
 <nav class="bottom-nav">
@@ -173,7 +398,7 @@ placeholder="أدخل كود الصفقة">
 
 <span>
 
-التزامن بالصفقة
+التزامن
 
 </span>
 
@@ -223,49 +448,32 @@ placeholder="أدخل كود الصفقة">
 <script>
 
 
-function checkCode(){
+// اختيار العملة
+
+document.querySelectorAll(".market-box").forEach(function(item){
 
 
-let code =
-document.getElementById("tradeCode").value;
+item.onclick=function(){
+
+
+document.querySelectorAll(".market-box")
+.forEach(x=>x.classList.remove("active"));
 
 
 
-let result =
-document.getElementById("result");
-
-
-
-if(code.length > 5){
-
-
-result.innerHTML =
-"✅ تم التحقق من الصفقة";
-
-
-result.style.color="#22C55E";
-
-
-}
-
-else{
-
-
-result.innerHTML =
-"❌ كود الصفقة غير صحيح";
-
-
-result.style.color="#EF4444";
+this.classList.add("active");
 
 
 }
 
 
-}
+});
 
 
 
 </script>
+
+
 
 
 
