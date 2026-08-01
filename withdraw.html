@@ -9,18 +9,14 @@
 
 <title>VALORA | السحب</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/withdraw.css">
 
 </head>
 
 
-
 <body class="valora-withdraw">
-
 
 
 <div class="withdraw-container">
@@ -30,9 +26,7 @@
 <header class="withdraw-header">
 
 <div class="withdraw-logo">
-
 VALORA
-
 </div>
 
 </header>
@@ -42,32 +36,21 @@ VALORA
 
 
 
-
 <section class="withdraw-title">
 
-
 <div class="withdraw-icon">
-
 ↑
-
 </div>
 
 
-
 <h2>
-
 سحب العملات
-
 </h2>
 
 
-
 <p>
-
-اختر العملة وأدخل بيانات السحب
-
+اختر العملة والشبكة للسحب
 </p>
-
 
 
 </section>
@@ -76,10 +59,6 @@ VALORA
 
 
 
-
-
-
-<!-- العملات -->
 
 
 <section class="withdraw-coins">
@@ -88,32 +67,16 @@ VALORA
 
 <button class="withdraw-coin active" onclick="selectCoin('USDT',this)">
 
-
-<div class="coin-circle usdt">
-
+<div class="withdraw-coin-icon usdt">
 ₮
-
 </div>
 
-
-
-<strong>
-
-USDT
-
-</strong>
-
-
-<small>
-
-TRC20
-
-</small>
-
-
+<div>
+<strong>USDT</strong>
+<small>Tether</small>
+</div>
 
 </button>
-
 
 
 
@@ -122,32 +85,16 @@ TRC20
 
 <button class="withdraw-coin" onclick="selectCoin('BTC',this)">
 
-
-<div class="coin-circle btc">
-
+<div class="withdraw-coin-icon btc">
 ₿
-
 </div>
 
-
-
-<strong>
-
-BTC
-
-</strong>
-
-
-<small>
-
-Bitcoin
-
-</small>
-
-
+<div>
+<strong>BTC</strong>
+<small>Bitcoin</small>
+</div>
 
 </button>
-
 
 
 
@@ -156,32 +103,16 @@ Bitcoin
 
 <button class="withdraw-coin" onclick="selectCoin('ETH',this)">
 
-
-<div class="coin-circle eth">
-
+<div class="withdraw-coin-icon eth">
 ◆
-
 </div>
 
-
-
-<strong>
-
-ETH
-
-</strong>
-
-
-<small>
-
-ERC20
-
-</small>
-
-
+<div>
+<strong>ETH</strong>
+<small>Ethereum</small>
+</div>
 
 </button>
-
 
 
 
@@ -190,37 +121,20 @@ ERC20
 
 <button class="withdraw-coin" onclick="selectCoin('TRX',this)">
 
-
-<div class="coin-circle trx">
-
+<div class="withdraw-coin-icon trx">
 TRX
-
 </div>
 
-
-
-<strong>
-
-TRX
-
-</strong>
-
-
-<small>
-
-TRC20
-
-</small>
-
-
+<div>
+<strong>TRX</strong>
+<small>TRON</small>
+</div>
 
 </button>
 
 
 
-
 </section>
-
 
 
 
@@ -232,44 +146,12 @@ TRC20
 
 
 
-<div class="withdraw-input">
-
-
-<label>
-
+<h3>
 شبكة السحب
-
-</label>
-
+</h3>
 
 
-<select id="withdrawNetwork">
-
-
-<option>
-
-TRC20
-
-</option>
-
-
-<option>
-
-ERC20
-
-</option>
-
-
-<option>
-
-Bitcoin
-
-</option>
-
-
-
-</select>
-
+<div class="network-buttons" id="withdrawNetworkBox">
 
 
 </div>
@@ -280,35 +162,26 @@ Bitcoin
 
 
 
-
-<div class="withdraw-input">
-
-
-<label>
-
+<h3>
 عنوان محفظة السحب
+</h3>
 
-</label>
 
+<div class="address-area">
 
 
 <input 
-id="withdrawAddress"
 type="text"
+id="withdrawAddress"
 placeholder="أدخل عنوان المحفظة">
 
 
-
 </div>
-<!-- المبلغ -->
-
 <div class="withdraw-input">
 
 
 <label>
-
 المبلغ
-
 </label>
 
 
@@ -342,17 +215,11 @@ placeholder="أدخل المبلغ">
 
 
 
-
-<!-- رمز الأمان -->
-
-
 <div class="withdraw-input">
 
 
 <label>
-
 🔐 رمز أمان السحب
-
 </label>
 
 
@@ -362,13 +229,6 @@ type="password"
 placeholder="أدخل رمز الأمان">
 
 
-<div class="fee-note">
-
-استخدم رمز الأمان لتأكيد عملية السحب
-
-</div>
-
-
 </div>
 
 
@@ -377,33 +237,24 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-
-<!-- معلومات السحب -->
 
 
 <div class="withdraw-info">
 
 
-
 <div>
 
 <span>
-
 الحد الأدنى
-
 </span>
 
 
 <strong>
-
 50 USDT
-
 </strong>
 
+
 </div>
-
-
 
 
 
@@ -411,21 +262,16 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
-
 العمولة
-
 </span>
 
 
 <strong id="feeAmount">
-
 20%
-
 </strong>
 
+
 </div>
-
-
 
 
 
@@ -433,26 +279,20 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
-
 المستلم
-
 </span>
 
 
 <strong id="receiveAmount">
-
 0.00 USDT
-
 </strong>
 
-</div>
-
-
-
 
 </div>
 
 
+
+</div>
 
 
 
@@ -472,22 +312,16 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-
 <div id="successBox" class="withdraw-status success">
 
 
 <h3>
-
 ✓ تم إرسال طلب السحب
-
 </h3>
 
 
 <p>
-
 السحب قيد المعالجة
-
 </p>
 
 
@@ -503,16 +337,12 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
-
 × رفض السحب
-
 </h3>
 
 
 <p>
-
 يرجى إدخال البيانات كاملة
-
 </p>
 
 
@@ -541,17 +371,13 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-
 <nav class="withdraw-nav">
 
 
 <a href="dashboard.html">
 
 ⌂
-
 <br>
-
 الرئيسية
 
 </a>
@@ -561,9 +387,7 @@ placeholder="أدخل رمز الأمان">
 <a href="wallet.html">
 
 ▣
-
 <br>
-
 المحفظة
 
 </a>
@@ -573,9 +397,7 @@ placeholder="أدخل رمز الأمان">
 <a href="team.html">
 
 ♟
-
 <br>
-
 الفريق
 
 </a>
@@ -585,9 +407,7 @@ placeholder="أدخل رمز الأمان">
 <a href="settings.html">
 
 ⚙
-
 <br>
-
 الإعدادات
 
 </a>
@@ -609,50 +429,54 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-
-
 <script>
 
 
 let currentCoin="USDT";
 
+let currentNetwork="TRC20";
 
 
 
 
-document
-.getElementById("withdrawAmount")
-.addEventListener("input",function(){
+
+let coinNetworks={
 
 
-let amount = Number(this.value);
+USDT:[
 
+"TRC20",
 
-let fee = amount * 0.20;
+"ERC20"
 
-
-let receive = amount - fee;
-
-
-
-if(receive < 0){
-
-receive = 0;
-
-}
+],
 
 
 
-document.getElementById("receiveAmount").innerHTML =
+BTC:[
 
-receive.toFixed(2)+" "+currentCoin;
+"Bitcoin"
 
-
-
-});
+],
 
 
+
+ETH:[
+
+"ERC20"
+
+],
+
+
+
+TRX:[
+
+"TRC20"
+
+]
+
+
+};
 
 
 
@@ -663,7 +487,7 @@ receive.toFixed(2)+" "+currentCoin;
 function selectCoin(coin,button){
 
 
-currentCoin = coin;
+currentCoin=coin;
 
 
 
@@ -677,8 +501,11 @@ button.classList.add("active");
 
 
 
-document.getElementById("receiveAmount").innerHTML =
+loadNetworks();
 
+
+
+document.getElementById("receiveAmount").innerHTML =
 "0.00 "+coin;
 
 
@@ -690,22 +517,130 @@ document.getElementById("receiveAmount").innerHTML =
 
 
 
+function loadNetworks(){
+
+
+let box=document.getElementById("withdrawNetworkBox");
+
+
+box.innerHTML="";
+
+
+
+coinNetworks[currentCoin].forEach(function(network,index){
+
+
+let btn=document.createElement("button");
+
+
+btn.className="network";
+
+
+btn.innerText=network;
+
+
+
+if(index===0){
+
+
+btn.classList.add("active");
+
+currentNetwork=network;
+
+
+}
+
+
+
+btn.onclick=function(){
+
+
+document.querySelectorAll(".network")
+
+.forEach(x=>x.classList.remove("active"));
+
+
+
+this.classList.add("active");
+
+
+currentNetwork=network;
+
+
+};
+
+
+
+box.appendChild(btn);
+
+
+
+});
+
+
+}
+
+
+
+
+
+
+
+document
+.getElementById("withdrawAmount")
+.addEventListener("input",function(){
+
+
+
+let amount=Number(this.value);
+
+
+
+let fee=amount*0.20;
+
+
+
+let receive=amount-fee;
+
+
+
+if(receive<0){
+
+receive=0;
+
+}
+
+
+
+document.getElementById("receiveAmount").innerHTML=
+
+receive.toFixed(2)+" "+currentCoin;
+
+
+
+});
+
+
+
+
+
 
 
 function submitWithdraw(){
 
 
-let address =
+
+let address=
 document.getElementById("withdrawAddress").value;
 
 
 
-let amount =
+let amount=
 document.getElementById("withdrawAmount").value;
 
 
 
-let pin =
+let pin=
 document.getElementById("withdrawPin").value;
 
 
@@ -720,9 +655,8 @@ document.getElementById("rejectBox").style.display="block";
 
 return;
 
+
 }
-
-
 
 
 
@@ -734,7 +668,7 @@ let withdrawal={
 coin:currentCoin,
 
 
-network:document.getElementById("withdrawNetwork").value,
+network:currentNetwork,
 
 
 amount:amount,
@@ -755,46 +689,11 @@ status:"pending"
 
 
 
-let list =
+let list=
 
 JSON.parse(localStorage.getItem("withdrawals")) || [];
 
 
 
-
-list.push(withdrawal);
-
-
-
-
-localStorage.setItem(
-
-"withdrawals",
-
-JSON.stringify(list)
-
-);
-
-
-
-
-
-document.getElementById("successBox").style.display="block";
-
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-
-</body>
-
-</html>
+list
+  
