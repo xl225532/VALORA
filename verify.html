@@ -13,7 +13,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="css/css/verify.css">
+<link rel="stylesheet" href="css/verify.css">
 
 
 </head>
@@ -23,6 +23,8 @@
 
 
 <div class="verify-page">
+
+
 
 
 
@@ -98,26 +100,21 @@
 يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
 </li>
 
-
 <li>
 يُقبل جواز السفر أو بطاقة الهوية الوطنية.
 </li>
-
 
 <li>
 يجب أن تكون الوثيقة سارية المفعول.
 </li>
 
-
 <li>
 يجب أن تكون الصورة واضحة وجميع البيانات ظاهرة.
 </li>
 
-
 <li>
 يجب رفع صورة الوجه الحقيقية لصاحب الحساب.
 </li>
-
 
 </ul>
 
@@ -130,37 +127,44 @@
 
 
 
-
 <section class="upload-card">
 
 
 
+
+
 <h4>
-
 صورة الهوية أو جواز السفر
-
 </h4>
+
 
 
 <label class="upload-box">
 
 
-<input type="file" accept="image/*">
+<input 
+type="file"
+accept="image/*"
+onchange="previewImage(event,'idPreview')">
 
 
-<span>
+
+<div>
 
 📷
 
 <br>
 
-رفع الوثيقة
+تصوير / رفع الوثيقة
 
-</span>
+</div>
 
 
 </label>
 
+
+
+<img id="idPreview" class="preview">
 
 
 
@@ -170,29 +174,38 @@
 
 <h4>
 
-صورة الوجه
+صورة الوجه (سيلفي)
 
 </h4>
+
 
 
 <label class="upload-box">
 
 
-<input type="file" accept="image/*">
+<input 
+type="file"
+accept="image/*"
+onchange="previewImage(event,'facePreview')">
 
 
-<span>
+
+<div>
 
 🤳
 
 <br>
 
-رفع صورة الوجه
+تصوير السيلفي
 
-</span>
+</div>
 
 
 </label>
+
+
+
+<img id="facePreview" class="preview">
 
 
 
@@ -207,9 +220,100 @@
 
 
 
+
 </section>
 
 
+
+
+
+
+
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+⌂
+
+<span>
+الرئيسية
+</span>
+
+</a>
+
+
+
+<a href="wallet.html">
+
+▣
+
+<span>
+الأصول
+</span>
+
+</a>
+
+
+
+<a href="sync.html">
+
+⟳
+
+<span>
+التزامن
+</span>
+
+</a>
+
+
+
+<a href="team.html">
+
+♟
+
+<span>
+الفريق
+</span>
+
+</a>
+
+
+
+</nav>
+
+
+
+
+
+
+
+<script>
+
+
+function previewImage(event,id){
+
+
+let file = event.target.files[0];
+
+
+if(!file) return;
+
+
+let img = document.getElementById(id);
+
+
+img.src = URL.createObjectURL(file);
+
+
+img.style.display="block";
+
+
+}
+
+
+</script>
 
 
 
