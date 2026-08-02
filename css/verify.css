@@ -1,228 +1,43 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+*{
 
-<head>
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Cairo',Arial,sans-serif;
 
-<meta charset="UTF-8">
+}
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | التحقق من الهوية</title>
+html,
+body{
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+width:100%;
 
-<link rel="stylesheet" href="css/verify.css">
+min-height:100vh;
 
-</head>
+background:#050B16 !important;
 
+color:#fff;
 
-<body>
+overflow-x:hidden;
 
+}
 
-<div class="verify-page">
 
 
-<header class="page-header">
+.verify-page{
 
-<a href="settings.html">
-‹
-</a>
+width:100%;
 
-<h2>
-التحقق من الهوية
-</h2>
+max-width:480px;
 
-</header>
+min-height:100vh;
 
+margin:auto;
 
+padding:18px 15px 110px;
 
-
-
-<section class="verify-card">
-
-<div class="verify-icon">
-🪪
-</div>
-
-<h3>
-تأكيد الهوية
-</h3>
-
-<p>
-أكمل التحقق لحماية حسابك
-</p>
-
-</section>
-
-
-
-
-
-
-<section class="rules-card">
-
-<h3>
-شروط التحقق
-</h3>
-
-
-<ul>
-
-<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
-
-<li>يقبل جواز السفر أو بطاقة الهوية.</li>
-
-<li>يجب أن تكون الصورة واضحة.</li>
-
-<li>يجب رفع صورة الوجه الحقيقية.</li>
-
-</ul>
-
-
-</section>
-
-
-
-
-
-
-
-<section class="upload-card">
-
-
-
-<h4>
-صورة الهوية أو جواز السفر
-</h4>
-
-
-
-<div class="image-area">
-
-
-<img id="idPreview" class="preview">
-
-
-<label class="upload-box" id="idBox">
-
-
-<input 
-type="file"
-accept="image/*"
-capture="environment"
-id="idInput">
-
-
-<div>
-📷
-<br>
-تصوير أو رفع الوثيقة
-</div>
-
-
-</label>
-
-
-<button class="change-btn" id="idChange">
-
-تغيير الصورة
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<h4>
-صورة الوجه
-</h4>
-
-
-
-<div class="image-area">
-
-
-<img id="facePreview" class="preview">
-
-
-<label class="upload-box" id="faceBox">
-
-
-<input 
-type="file"
-accept="image/*"
-capture="user"
-id="faceInput">
-
-
-<div>
-🤳
-<br>
-تصوير السيلفي
-</div>
-
-
-</label>
-
-
-<button class="change-btn" id="faceChange">
-
-إعادة التصوير
-
-</button>
-
-
-</div>
-
-
-
-
-
-
-
-<button class="submit-btn">
-
-إرسال للتحقق
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-<div id="bottomNav"></div>
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-<script src="js/language.js"></script>
-
-
-<script>
-
-
-if(typeof applyLanguage === "function"){
-
-applyLanguage();
+background:#050B16;
 
 }
 
@@ -230,88 +45,320 @@ applyLanguage();
 
 
 
-function setupUpload(inputId,previewId,boxId,buttonId){
+/* HEADER */
+
+.page-header{
+
+display:flex;
+
+align-items:center;
+
+gap:15px;
+
+margin-bottom:22px;
+
+}
 
 
-let input=document.getElementById(inputId);
+.page-header a{
 
-let preview=document.getElementById(previewId);
+font-size:38px;
 
-let box=document.getElementById(boxId);
+color:#fff;
 
-let button=document.getElementById(buttonId);
+text-decoration:none;
 
+line-height:1;
 
-
-
-input.onchange=function(){
-
-
-let file=this.files[0];
+}
 
 
-if(file){
+.page-header h2{
 
+font-size:20px;
 
-preview.src=URL.createObjectURL(file);
+font-weight:700;
 
-preview.style.display="block";
-
-
-box.style.display="none";
-
-
-button.style.display="block";
-
+color:#EAF3FF;
 
 }
 
 
 
-};
 
 
 
+/* CARD */
 
-button.onclick=function(){
+.verify-card,
+.rules-card,
+.upload-card{
 
+background:#0B1628;
 
-input.value="";
+border:1px solid #17365C;
 
-preview.src="";
+border-radius:20px;
 
-preview.style.display="none";
+padding:18px;
 
-
-box.style.display="flex";
-
-
-button.style.display="none";
-
-
-};
-
-
+margin-bottom:15px;
 
 }
 
 
 
-setupUpload(
-"idInput",
-"idPreview",
-"idBox",
-"idChange"
-);
+
+
+.verify-card{
+
+text-align:center;
+
+}
 
 
 
-setupUpload(
-"faceInput",
-"facePreview",
-"faceBox",
-"faceChange"
-);
+.verify-icon{
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#1687FF;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+margin:auto;
+
+box-shadow:0 0 15px #1687FF;
+
+}
+
+
+.verify-card h3{
+
+margin-top:12px;
+
+font-size:19px;
+
+}
+
+
+
+.verify-card p{
+
+color:#98A5B8;
+
+font-size:14px;
+
+margin-top:8px;
+
+}
+
+
+
+
+
+
+
+/* RULES */
+
+.rules-card h3{
+
+font-size:17px;
+
+margin-bottom:12px;
+
+}
+
+
+.rules-card ul{
+
+padding-right:18px;
+
+}
+
+
+.rules-card li{
+
+color:#CBD5E1;
+
+font-size:13px;
+
+line-height:2;
+
+}
+
+
+
+
+
+
+
+/* UPLOAD */
+
+
+.upload-card h4{
+
+font-size:15px;
+
+margin:14px 0 10px;
+
+color:#EAF3FF;
+
+}
+
+
+
+.image-area{
+
+width:100%;
+
+overflow:hidden;
+
+}
+
+
+
+.upload-box{
+
+width:100%;
+
+height:125px;
+
+border:1px dashed #1687FF;
+
+border-radius:18px;
+
+background:#071426;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+text-align:center;
+
+color:#98A5B8;
+
+cursor:pointer;
+
+overflow:hidden;
+
+}
+
+
+
+.upload-box input{
+
+display:none;
+
+}
+
+
+
+.upload-box div{
+
+font-size:15px;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+.preview{
+
+display:none;
+
+width:100%;
+
+height:180px;
+
+object-fit:cover;
+
+border-radius:15px;
+
+border:1px solid #17365C;
+
+background:#071426;
+
+margin-bottom:10px;
+
+}
+
+
+
+
+
+.change-btn{
+
+display:none;
+
+width:100%;
+
+height:45px;
+
+background:#071426;
+
+border:1px solid #1687FF;
+
+border-radius:12px;
+
+color:#fff;
+
+font-size:14px;
+
+margin-bottom:10px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+
+/* SEND BUTTON */
+
+
+.submit-btn{
+
+width:100%;
+
+height:55px;
+
+margin-top:15px;
+
+border:0;
+
+border-radius:15px;
+
+background:#1687FF;
+
+color:#fff;
+
+font-size:16px;
+
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:0 0 12px #1687FF55;
+
+}
 
 
 
@@ -320,23 +367,117 @@ setupUpload(
 
 
 
-fetch("components/bottom-nav.html")
+/* BOTTOM NAV */
 
-.then(response=>response.text())
+#bottomNav{
 
-.then(data=>{
+width:100%;
 
-document.getElementById("bottomNav").innerHTML=data;
-
-});
-
-
-</script>
+}
 
 
 
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+width:100%;
+
+max-width:480px;
+
+height:78px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+padding:8px;
+
+z-index:9999;
+
+}
 
 
-</body>
 
-</html>
+.bottom-nav a{
+
+color:#98A5B8;
+
+text-decoration:none;
+
+font-size:12px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:5px;
+
+}
+
+
+
+
+
+.bottom-nav svg{
+
+width:26px;
+
+height:26px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+.bottom-nav a.active,
+.bottom-nav a.active svg{
+
+color:#1687FF;
+
+stroke:#1687FF;
+
+}
+
+
+
+
+
+
+/* منع الخطوط والفراغات */
+
+img{
+
+max-width:100%;
+
+display:block;
+
+}
+
+
+
+button,
+label{
+
+-webkit-tap-highlight-color:transparent;
+
+  }
