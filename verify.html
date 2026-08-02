@@ -22,6 +22,7 @@
 <div class="verify-page">
 
 
+
 <header class="page-header">
 
 <a href="settings.html">
@@ -68,13 +69,21 @@
 
 <ul>
 
-<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
+<li>
+يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
+</li>
 
-<li>يقبل جواز السفر أو بطاقة الهوية.</li>
+<li>
+يقبل جواز السفر أو بطاقة الهوية.
+</li>
 
-<li>يجب أن تكون الصورة واضحة.</li>
+<li>
+يجب أن تكون الصورة واضحة.
+</li>
 
-<li>يجب رفع صورة الوجه الحقيقية.</li>
+<li>
+يجب رفع صورة الوجه الحقيقية.
+</li>
 
 </ul>
 
@@ -97,10 +106,8 @@
 
 
 
-<div class="image-area">
-
-
 <img id="idPreview" class="preview">
+
 
 
 <label class="upload-box" id="idBox">
@@ -114,13 +121,18 @@ id="idInput">
 
 
 <div>
+
 📷
+
 <br>
+
 تصوير أو رفع الوثيقة
+
 </div>
 
 
 </label>
+
 
 
 <button class="change-btn" id="idChange">
@@ -128,9 +140,6 @@ id="idInput">
 تغيير الصورة
 
 </button>
-
-
-</div>
 
 
 
@@ -144,10 +153,8 @@ id="idInput">
 
 
 
-<div class="image-area">
-
-
 <img id="facePreview" class="preview">
+
 
 
 <label class="upload-box" id="faceBox">
@@ -161,13 +168,18 @@ id="faceInput">
 
 
 <div>
+
 🤳
+
 <br>
+
 تصوير السيلفي
+
 </div>
 
 
 </label>
+
 
 
 <button class="change-btn" id="faceChange">
@@ -175,9 +187,6 @@ id="faceInput">
 إعادة التصوير
 
 </button>
-
-
-</div>
 
 
 
@@ -200,14 +209,80 @@ id="faceInput">
 
 
 
-<div id="bottomNav"></div>
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+<svg viewBox="0 0 24 24">
+<path d="M3 11L12 3L21 11"></path>
+<path d="M5 10V21H19V10"></path>
+</svg>
+
+<span>
+الرئيسية
+</span>
+
+</a>
+
+
+
+
+<a href="wallet.html">
+
+<svg viewBox="0 0 24 24">
+<path d="M3 7H18C19 7 21 8 21 10V18C21 19 20 20 19 20H5C4 20 3 19 3 18V7"></path>
+</svg>
+
+<span>
+الأصول
+</span>
+
+</a>
+
+
+
+
+
+<a href="sync.html">
+
+<svg viewBox="0 0 24 24">
+<path d="M17 1L21 5L17 9"></path>
+<path d="M3 11V9C3 6 5 5 7 5H21"></path>
+</svg>
+
+<span>
+التزامن
+</span>
+
+</a>
+
+
+
+
+
+<a href="team.html">
+
+<svg viewBox="0 0 24 24">
+<circle cx="12" cy="8" r="4"></circle>
+<path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"></path>
+</svg>
+
+<span>
+الفريق
+</span>
+
+</a>
+
+
+</nav>
 
 
 
 
 
 </div>
-
 
 
 
@@ -229,8 +304,7 @@ applyLanguage();
 
 
 
-
-function setupUpload(inputId,previewId,boxId,buttonId){
+function uploadImage(inputId,previewId,boxId,buttonId){
 
 
 let input=document.getElementById(inputId);
@@ -240,7 +314,6 @@ let preview=document.getElementById(previewId);
 let box=document.getElementById(boxId);
 
 let button=document.getElementById(buttonId);
-
 
 
 
@@ -257,15 +330,12 @@ preview.src=URL.createObjectURL(file);
 
 preview.style.display="block";
 
-
 box.style.display="none";
-
 
 button.style.display="block";
 
 
 }
-
 
 
 };
@@ -282,9 +352,7 @@ preview.src="";
 
 preview.style.display="none";
 
-
 box.style.display="flex";
-
 
 button.style.display="none";
 
@@ -292,12 +360,11 @@ button.style.display="none";
 };
 
 
-
 }
 
 
 
-setupUpload(
+uploadImage(
 "idInput",
 "idPreview",
 "idBox",
@@ -306,29 +373,13 @@ setupUpload(
 
 
 
-setupUpload(
+uploadImage(
 "faceInput",
 "facePreview",
 "faceBox",
 "faceChange"
 );
 
-
-
-
-
-
-
-
-fetch("components/bottom-nav.html")
-
-.then(response=>response.text())
-
-.then(data=>{
-
-document.getElementById("bottomNav").innerHTML=data;
-
-});
 
 
 </script>
