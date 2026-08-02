@@ -1,149 +1,453 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
+*{
 
-<head>
+margin:0;
+padding:0;
 
-<meta charset="UTF-8">
+box-sizing:border-box;
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+font-family:'Cairo',Arial,sans-serif;
 
-<title>VALORA | التحقق من الهوية</title>
+}
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/verify.css">
 
-</head>
+html,body{
 
+background:#050B16 !important;
 
-<body>
+color:white;
 
+min-height:100vh;
 
-<div class="verify-page">
+overflow-x:hidden;
 
+}
 
-<header class="page-header">
 
-<a href="settings.html">
-‹
-</a>
 
-<h2>
-التحقق من الهوية
-</h2>
 
-</header>
 
+.app-page{
 
+max-width:480px;
 
+margin:auto;
 
-<section class="verify-card">
+min-height:100vh;
 
+padding:18px 15px 110px;
 
-<div class="verify-icon">
+background:#050B16;
 
-🪪
+}
 
-</div>
 
 
-<h3>
-تأكيد الهوية
-</h3>
 
 
-<p>
-أكمل التحقق لحماية حسابك
-</p>
 
 
-</section>
+/* HEADER */
 
 
+.page-header{
 
+display:flex;
 
+align-items:center;
 
-<section class="rules-card">
+gap:15px;
 
+margin-bottom:25px;
 
-<h3>
-شروط التحقق
-</h3>
+}
 
 
-<ul>
 
-<li>
-يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
-</li>
+.page-header a{
 
-<li>
-يقبل جواز السفر أو بطاقة الهوية.
-</li>
+font-size:38px;
 
-<li>
-يجب أن تكون الصورة واضحة.
-</li>
+color:white;
 
-<li>
-يجب رفع صورة الوجه الحقيقية.
-</li>
+text-decoration:none;
 
-</ul>
+line-height:1;
 
+}
 
-</section>
 
 
+.page-header h2{
 
+font-size:20px;
 
+color:#EAF3FF;
 
-<section class="upload-card">
+}
 
 
 
-<h4>
-صورة الهوية أو جواز السفر
-</h4>
 
 
 
-<img id="idPreview" class="preview">
 
+/* APP CARD */
 
 
-<label class="upload-box" id="idBox">
+.app-card{
 
+background:#0B1628;
 
-<input 
-type="file"
-accept="image/*"
-capture="environment"
-id="idInput"
-onchange="previewImage(this,'idPreview','idBox')">
+border:1px solid #17365C;
 
+border-radius:22px;
 
-<div>
+padding:25px 18px;
 
-📷
+text-align:center;
 
-<br>
+margin-bottom:15px;
 
-تصوير أو رفع الوثيقة
+}
 
-</div>
 
 
-</label>
+.app-icon{
 
+width:75px;
 
+height:75px;
 
-<button class="change-btn" id="idChange" onclick="changeImage('idInput','idPreview','idBox')">
+border-radius:20px;
 
-تغيير الصورة
+background:#1687FF;
 
-</button>
- id="x8k3md"
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:40px;
+
+margin:auto;
+
+box-shadow:0 0 18px #1687FF;
+
+}
+
+
+
+.app-card h3{
+
+font-size:20px;
+
+margin-top:15px;
+
+}
+
+
+
+.app-card p{
+
+color:#98A5B8;
+
+font-size:13px;
+
+margin-top:8px;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+
+
+/* VERSION */
+
+
+.version-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:16px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.version-card div{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:12px;
+
+}
+
+
+
+.version-card div:last-child{
+
+margin-bottom:0;
+
+}
+
+
+
+.version-card span{
+
+color:#98A5B8;
+
+}
+
+
+
+.version-card strong{
+
+color:#EAF3FF;
+
+}
+
+
+
+
+
+
+
+/* DOWNLOAD */
+
+
+.download-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:18px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.download-card h3{
+
+font-size:17px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.download-card button{
+
+width:100%;
+
+height:52px;
+
+background:#1687FF;
+
+border:0;
+
+border-radius:15px;
+
+color:white;
+
+font-size:15px;
+
+font-weight:bold;
+
+margin-bottom:12px;
+
+cursor:pointer;
+
+}
+
+
+
+.download-card .ios{
+
+background:#071426;
+
+border:1px solid #1687FF;
+
+}
+
+
+
+
+
+
+
+/* UPDATES */
+
+
+.updates-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:18px;
+
+}
+
+
+
+.updates-card h3{
+
+font-size:17px;
+
+margin-bottom:12px;
+
+}
+
+
+
+.updates-card ul{
+
+list-style:none;
+
+}
+
+
+
+.updates-card li{
+
+color:#CBD5E1;
+
+font-size:14px;
+
+line-height:2;
+
+}
+
+
+
+
+
+
+
+/* BOTTOM NAV */
+
+
+.bottom-nav{
+
+position:fixed;
+
+bottom:0;
+
+left:50%;
+
+transform:translateX(-50%);
+
+max-width:480px;
+
+width:100%;
+
+height:78px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+padding:8px;
+
+z-index:9999;
+
+}
+
+
+
+
+
+.bottom-nav a{
+
+color:#98A5B8;
+
+text-decoration:none;
+
+font-size:12px;
+
+text-align:center;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:5px;
+
+-webkit-tap-highlight-color:transparent;
+
+}
+
+
+
+
+
+.bottom-nav svg{
+
+width:27px;
+
+height:27px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+
+
+.bottom-nav a.active,
+.bottom-nav a.active svg{
+
+color:#1687FF;
+
+stroke:#1687FF;
+
+}
+
+
+
+.bottom-nav a:hover,
+.bottom-nav a:hover svg{
+
+color:#1687FF;
+
+stroke:#1687FF;
+
+}
 <h4>
 صورة الوجه
 </h4>
@@ -191,6 +495,7 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
+
 <button class="submit-btn">
 
 إرسال للتحقق
@@ -205,13 +510,16 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
-<!-- الشريط السفلي الموحد -->
 
 <div id="bottomNav"></div>
 
 
 
+
+
+
 </div>
+
 
 
 
@@ -224,7 +532,7 @@ onchange="previewImage(this,'facePreview','faceBox')">
 <script>
 
 
-if(typeof applyLanguage==="function"){
+if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
@@ -255,7 +563,14 @@ preview.style.display="block";
 document.getElementById(boxId).style.display="none";
 
 
-preview.nextElementSibling.style.display="block";
+let btn=preview.nextElementSibling;
+
+
+if(btn){
+
+btn.style.display="block";
+
+}
 
 
 }
@@ -278,10 +593,10 @@ document.getElementById(inputId).value="";
 let preview=document.getElementById(previewId);
 
 
-preview.style.display="none";
-
-
 preview.src="";
+
+
+preview.style.display="none";
 
 
 document.getElementById(boxId).style.display="flex";
@@ -294,29 +609,28 @@ document.getElementById(boxId).style.display="flex";
 
 
 
+
+
 fetch("components/bottom-nav.html")
 
 .then(response=>response.text())
 
 .then(data=>{
 
-
 document.getElementById("bottomNav").innerHTML=data;
-
 
 })
 
 .catch(error=>{
 
-
 console.log("Bottom Nav Error:",error);
-
 
 });
 
 
 
 </script>
+
 
 
 
