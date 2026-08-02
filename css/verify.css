@@ -367,7 +367,7 @@ box-shadow:0 0 12px #1687FF55;
 
 
 
-/* BOTTOM NAV */
+/* NEW BOTTOM NAV */
 
 
 .bottom-nav{
@@ -418,14 +418,42 @@ display:flex;
 
 flex-direction:column;
 
+align-items:center;
+
 gap:5px;
+
+-webkit-tap-highlight-color:transparent;
 
 }
 
 
 
-.bottom-nav a:hover{
+
+
+.bottom-nav svg{
+
+width:27px;
+
+height:27px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+
+
+
+.bottom-nav a:hover,
+
+.bottom-nav a:hover svg{
 
 color:#1687FF;
+
+stroke:#1687FF;
 
 }
