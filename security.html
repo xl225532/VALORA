@@ -43,13 +43,16 @@
 
 
 
-
 <section class="security-card">
 
 
 <div class="icon">
 
-🔐
+<svg viewBox="0 0 24 24">
+
+<path d="M12 2L20 5V11C20 16 16.5 20 12 22C7.5 20 4 16 4 11V5Z"></path>
+
+</svg>
 
 </div>
 
@@ -62,9 +65,7 @@
 
 
 <p>
-
 يستخدم هذا الرمز لحماية عمليات السحب من الحساب
-
 </p>
 
 
@@ -87,13 +88,9 @@
 
 
 <input
-
 type="password"
-
 id="securityCode"
-
 maxlength="6"
-
 placeholder="أدخل رمز من 6 أرقام">
 
 
@@ -107,13 +104,9 @@ placeholder="أدخل رمز من 6 أرقام">
 
 
 <input
-
 type="password"
-
 id="confirmCode"
-
 maxlength="6"
-
 placeholder="أعد إدخال الرمز">
 
 
@@ -147,12 +140,13 @@ placeholder="أعد إدخال الرمز">
 </svg>
 
 
-<span>
+<span data-lang="home">
 الرئيسية
 </span>
 
 
 </a>
+
 
 
 
@@ -173,12 +167,13 @@ placeholder="أعد إدخال الرمز">
 </svg>
 
 
-<span>
+<span data-lang="wallet">
 الأصول
 </span>
 
 
 </a>
+
 
 
 
@@ -226,7 +221,7 @@ placeholder="أعد إدخال الرمز">
 </svg>
 
 
-<span>
+<span data-lang="team">
 الفريق
 </span>
 
@@ -234,16 +229,8 @@ placeholder="أعد إدخال الرمز">
 </a>
 
 
+
 </nav>
-
-
-
-
-
-
-
-</div>
-
 
 
 
@@ -304,6 +291,9 @@ alert("تم حفظ رمز الأمان");
 
 
 
+
+
+</div>
 
 
 </body>
