@@ -1,256 +1,228 @@
-*{
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-margin:0;
-padding:0;
+<head>
 
-box-sizing:border-box;
+<meta charset="UTF-8">
 
-font-family:'Cairo','Tajawal',Arial,sans-serif;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-}
+<title>VALORA | التحقق من الهوية</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="css/verify.css">
 
-html,
-body{
+</head>
 
-background:#050B16 !important;
 
-color:#fff;
+<body>
 
-width:100%;
 
-min-height:100%;
+<div class="verify-page">
 
-overflow-x:hidden;
 
-}
+<header class="page-header">
 
+<a href="settings.html">
+‹
+</a>
 
+<h2>
+التحقق من الهوية
+</h2>
 
+</header>
 
 
-.verify-page{
 
-width:100%;
 
-max-width:480px;
 
-min-height:100dvh;
+<section class="verify-card">
 
-margin:auto;
+<div class="verify-icon">
+🪪
+</div>
 
-padding:18px 15px 95px;
+<h3>
+تأكيد الهوية
+</h3>
 
-background:#050B16;
+<p>
+أكمل التحقق لحماية حسابك
+</p>
 
-}
+</section>
 
 
 
 
 
 
+<section class="rules-card">
 
-/* HEADER */
+<h3>
+شروط التحقق
+</h3>
 
 
-.page-header{
+<ul>
 
-display:flex;
+<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
 
-align-items:center;
+<li>يقبل جواز السفر أو بطاقة الهوية.</li>
 
-gap:15px;
+<li>يجب أن تكون الصورة واضحة.</li>
 
-margin-bottom:25px;
+<li>يجب رفع صورة الوجه الحقيقية.</li>
 
-}
+</ul>
 
 
+</section>
 
-.page-header a{
 
-font-size:38px;
 
-color:#fff;
 
-text-decoration:none;
 
-line-height:1;
 
-}
 
+<section class="upload-card">
 
 
-.page-header h2{
 
-font-size:20px;
+<h4>
+صورة الهوية أو جواز السفر
+</h4>
 
-font-weight:700;
 
-color:#EAF3FF;
 
-}
+<div class="image-area">
 
 
+<img id="idPreview" class="preview">
 
 
+<label class="upload-box" id="idBox">
 
 
+<input 
+type="file"
+accept="image/*"
+capture="environment"
+id="idInput">
 
-/* VERIFY CARD */
 
+<div>
+📷
+<br>
+تصوير أو رفع الوثيقة
+</div>
 
-.verify-card{
 
-background:#0B1628;
+</label>
 
-border:1px solid #17365C;
 
-border-radius:20px;
+<button class="change-btn" id="idChange">
 
-padding:20px;
+تغيير الصورة
 
-text-align:center;
+</button>
 
-margin-bottom:15px;
 
-}
+</div>
 
 
 
-.verify-icon{
 
-width:65px;
 
-height:65px;
 
-border-radius:50%;
 
-background:#1687FF;
+<h4>
+صورة الوجه
+</h4>
 
-display:flex;
 
-align-items:center;
 
-justify-content:center;
+<div class="image-area">
 
-font-size:35px;
 
-margin:auto;
+<img id="facePreview" class="preview">
 
-box-shadow:0 0 15px #1687FF;
 
-}
+<label class="upload-box" id="faceBox">
 
 
+<input 
+type="file"
+accept="image/*"
+capture="user"
+id="faceInput">
 
-.verify-card h3{
 
-margin-top:12px;
+<div>
+🤳
+<br>
+تصوير السيلفي
+</div>
 
-font-size:18px;
 
-font-weight:700;
+</label>
 
-}
 
+<button class="change-btn" id="faceChange">
 
+إعادة التصوير
 
-.verify-card p{
+</button>
 
-margin-top:8px;
 
-color:#98A5B8;
+</div>
 
-font-size:13px;
 
-}
 
 
 
 
 
+<button class="submit-btn">
 
+إرسال للتحقق
 
-/* RULES */
+</button>
 
 
-.rules-card{
 
-background:#0B1628;
+</section>
 
-border:1px solid #17365C;
 
-border-radius:18px;
 
-padding:16px;
 
-margin-bottom:15px;
 
-}
 
+<div id="bottomNav"></div>
 
 
-.rules-card h3{
 
-font-size:17px;
 
-margin-bottom:10px;
 
-}
+</div>
 
 
 
-.rules-card ul{
 
-padding-right:18px;
 
-}
 
 
+<script src="js/language.js"></script>
 
-.rules-card li{
 
-color:#CBD5E1;
+<script>
 
-font-size:13px;
 
-line-height:2;
+if(typeof applyLanguage === "function"){
 
-}
-
-
-
-
-
-
-
-/* UPLOAD */
-
-
-.upload-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:16px;
-
-}
-
-
-
-.upload-card h4{
-
-font-size:15px;
-
-font-weight:600;
-
-margin:12px 0;
+applyLanguage();
 
 }
 
@@ -258,47 +230,88 @@ margin:12px 0;
 
 
 
-.upload-box{
+function setupUpload(inputId,previewId,boxId,buttonId){
 
-height:120px;
 
-border:1px dashed #1687FF;
+let input=document.getElementById(inputId);
 
-border-radius:18px;
+let preview=document.getElementById(previewId);
 
-background:#071426;
+let box=document.getElementById(boxId);
 
-display:flex;
+let button=document.getElementById(buttonId);
 
-align-items:center;
 
-justify-content:center;
 
-text-align:center;
 
-color:#98A5B8;
+input.onchange=function(){
 
-cursor:pointer;
+
+let file=this.files[0];
+
+
+if(file){
+
+
+preview.src=URL.createObjectURL(file);
+
+preview.style.display="block";
+
+
+box.style.display="none";
+
+
+button.style.display="block";
+
 
 }
 
 
 
-.upload-box input{
+};
 
-display:none;
+
+
+
+button.onclick=function(){
+
+
+input.value="";
+
+preview.src="";
+
+preview.style.display="none";
+
+
+box.style.display="flex";
+
+
+button.style.display="none";
+
+
+};
+
+
 
 }
 
 
 
-.upload-box div{
+setupUpload(
+"idInput",
+"idPreview",
+"idBox",
+"idChange"
+);
 
-font-size:15px;
 
-line-height:1.8;
 
-}
+setupUpload(
+"faceInput",
+"facePreview",
+"faceBox",
+"faceChange"
+);
 
 
 
@@ -306,164 +319,24 @@ line-height:1.8;
 
 
 
-.preview{
 
-display:none;
+fetch("components/bottom-nav.html")
 
-width:100%;
+.then(response=>response.text())
 
-height:180px;
+.then(data=>{
 
-object-fit:cover;
+document.getElementById("bottomNav").innerHTML=data;
 
-border-radius:15px;
+});
 
-margin-bottom:10px;
 
-border:1px solid #17365C;
+</script>
 
-}
 
 
 
 
+</body>
 
-
-
-.change-btn{
-
-display:none;
-
-width:100%;
-
-height:45px;
-
-background:#071426;
-
-border:1px solid #1687FF;
-
-border-radius:12px;
-
-color:#fff;
-
-font-size:14px;
-
-margin-bottom:15px;
-
-}
-
-
-
-
-
-
-
-.submit-btn{
-
-width:100%;
-
-height:55px;
-
-background:#1687FF;
-
-border:0;
-
-border-radius:15px;
-
-color:#fff;
-
-font-size:16px;
-
-font-weight:700;
-
-margin-top:15px;
-
-}
-
-
-
-
-
-
-
-/* BOTTOM NAV */
-
-
-.bottom-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-width:100%;
-
-max-width:480px;
-
-height:75px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-around;
-
-padding:8px;
-
-z-index:9999;
-
-}
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:5px;
-
-}
-
-
-
-.bottom-nav svg{
-
-width:26px;
-
-height:26px;
-
-stroke:#98A5B8;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-.bottom-nav a.active,
-.bottom-nav a.active svg{
-
-color:#1687FF;
-
-stroke:#1687FF;
-
-}
+</html>
