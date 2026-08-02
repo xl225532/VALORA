@@ -25,18 +25,12 @@
 <header class="page-header">
 
 <a href="dashboard.html">
-
 ‹
-
 </a>
 
-
 <h2>
-
 تطبيق VALORA
-
 </h2>
-
 
 </header>
 
@@ -44,31 +38,26 @@
 
 
 
+
 <section class="app-card">
 
-
 <div class="app-icon">
-
 📱
-
 </div>
 
 
 <h3>
-
 تطبيق VALORA
-
 </h3>
 
 
 <p>
-
 احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي
-
 </p>
 
 
 </section>
+
 
 
 
@@ -81,16 +70,11 @@
 <div>
 
 <span>
-
 الإصدار الحالي
-
 </span>
 
-
 <strong>
-
 V1.0.0
-
 </strong>
 
 </div>
@@ -101,16 +85,11 @@ V1.0.0
 <div>
 
 <span>
-
 آخر تحديث
-
 </span>
 
-
 <strong>
-
 2026/08/01
-
 </strong>
 
 </div>
@@ -129,9 +108,7 @@ V1.0.0
 
 
 <h3>
-
 تحميل التطبيق
-
 </h3>
 
 
@@ -165,35 +142,28 @@ V1.0.0
 
 
 <h3>
-
 آخر التحديثات
-
 </h3>
 
 
 
 <ul>
 
-
 <li>
 ✓ تحسين سرعة التطبيق
 </li>
-
 
 <li>
 ✓ تحسين حماية الحساب
 </li>
 
-
 <li>
 ✓ تحديث واجهة VALORA
 </li>
 
-
 <li>
 ✓ تحسين المحفظة والعمليات
 </li>
-
 
 </ul>
 
@@ -205,9 +175,64 @@ V1.0.0
 
 
 
-<!-- الشريط السفلي الموحد -->
 
-<div id="bottomNav"></div>
+
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+⌂
+
+<span>
+الرئيسية
+</span>
+
+</a>
+
+
+
+<a href="wallet.html">
+
+▣
+
+<span>
+الأصول
+</span>
+
+</a>
+
+
+
+
+<a href="sync.html">
+
+⇄
+
+<span>
+التزامن
+</span>
+
+</a>
+
+
+
+
+<a href="team.html">
+
+♙
+
+<span>
+الفريق
+</span>
+
+</a>
+
+
+
+</nav>
+
 
 
 
@@ -237,34 +262,11 @@ applyLanguage();
 
 
 
-fetch("components/bottom-nav.html")
-
-.then(response => response.text())
-
-.then(data => {
-
-document.getElementById("bottomNav").innerHTML = data;
-
-})
-
-.catch(error => {
-
-console.log("Bottom Nav Error:",error);
-
-});
-
-
-
-
-
-
-
 function downloadAndroid(){
 
 alert("سيتم توفير تحميل تطبيق Android قريباً");
 
 }
-
 
 
 
