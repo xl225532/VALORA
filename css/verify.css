@@ -367,93 +367,18 @@ box-shadow:0 0 12px #1687FF55;
 
 
 
-/* NEW BOTTOM NAV */
+/* منع تعارض الشريط السفلي */
 
-
-.bottom-nav{
+#bottomNav{
 
 position:fixed;
 
 bottom:0;
 
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
+left:0;
 
 width:100%;
 
-height:78px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-padding:8px;
-
-z-index:100;
-
-}
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:5px;
-
--webkit-tap-highlight-color:transparent;
-
-}
-
-
-
-
-
-.bottom-nav svg{
-
-width:27px;
-
-height:27px;
-
-stroke:#98A5B8;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-
-
-.bottom-nav a:hover,
-
-.bottom-nav a:hover svg{
-
-color:#1687FF;
-
-stroke:#1687FF;
+z-index:999;
 
 }
