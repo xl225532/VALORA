@@ -9,14 +9,9 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
-
-
 <link rel="stylesheet" href="css/verify.css">
-
 
 </head>
 
@@ -27,13 +22,11 @@
 <div class="verify-page">
 
 
-
 <header class="page-header">
 
 <a href="settings.html">
 ‹
 </a>
-
 
 <h2>
 التحقق من الهوية
@@ -45,26 +38,19 @@
 
 
 
-
 <section class="verify-card">
 
-
 <div class="verify-icon">
-
 🪪
-
 </div>
-
 
 <h3>
 تأكيد الهوية
 </h3>
 
-
 <p>
 أكمل التحقق لحماية حسابك
 </p>
-
 
 </section>
 
@@ -73,9 +59,7 @@
 
 
 
-
 <section class="rules-card">
-
 
 <h3>
 شروط التحقق
@@ -84,22 +68,13 @@
 
 <ul>
 
-<li>
-يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
-</li>
+<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
 
-<li>
-يقبل جواز السفر أو بطاقة الهوية.
-</li>
+<li>يقبل جواز السفر أو بطاقة الهوية.</li>
 
-<li>
-يجب أن تكون الصورة واضحة.
-</li>
+<li>يجب أن تكون الصورة واضحة.</li>
 
-<li>
-يجب رفع صورة الوجه الحقيقية.
-</li>
-
+<li>يجب رفع صورة الوجه الحقيقية.</li>
 
 </ul>
 
@@ -122,9 +97,10 @@
 
 
 
+<div class="image-area">
+
 
 <img id="idPreview" class="preview">
-
 
 
 <label class="upload-box" id="idBox">
@@ -134,31 +110,27 @@
 type="file"
 accept="image/*"
 capture="environment"
-id="idInput"
-onchange="previewImage(this,'idPreview','idBox')">
+id="idInput">
 
 
 <div>
-
 📷
-
 <br>
-
 تصوير أو رفع الوثيقة
-
 </div>
 
 
 </label>
 
 
-
-<button class="change-btn" onclick="changeImage('idInput','idPreview','idBox')">
+<button class="change-btn" id="idChange">
 
 تغيير الصورة
 
 </button>
 
+
+</div>
 
 
 
@@ -172,9 +144,10 @@ onchange="previewImage(this,'idPreview','idBox')">
 
 
 
+<div class="image-area">
+
 
 <img id="facePreview" class="preview">
-
 
 
 <label class="upload-box" id="faceBox">
@@ -184,30 +157,28 @@ onchange="previewImage(this,'idPreview','idBox')">
 type="file"
 accept="image/*"
 capture="user"
-id="faceInput"
-onchange="previewImage(this,'facePreview','faceBox')">
+id="faceInput">
 
 
 <div>
-
 🤳
-
 <br>
-
 تصوير السيلفي
-
 </div>
 
 
 </label>
 
 
-
-<button class="change-btn" onclick="changeImage('faceInput','facePreview','faceBox')">
+<button class="change-btn" id="faceChange">
 
 إعادة التصوير
 
 </button>
+
+
+</div>
+
 
 
 
@@ -229,17 +200,13 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
-
 <div id="bottomNav"></div>
 
 
 
 
 
-
-
 </div>
-
 
 
 
@@ -263,67 +230,90 @@ applyLanguage();
 
 
 
+function setupUpload(inputId,previewId,boxId,buttonId){
 
-function previewImage(input,previewId,boxId){
+
+let input=document.getElementById(inputId);
+
+let preview=document.getElementById(previewId);
+
+let box=document.getElementById(boxId);
+
+let button=document.getElementById(buttonId);
 
 
-let file=input.files[0];
+
+
+input.onchange=function(){
+
+
+let file=this.files[0];
 
 
 if(file){
 
 
-let preview=document.getElementById(previewId);
-
-
 preview.src=URL.createObjectURL(file);
-
 
 preview.style.display="block";
 
 
-document.getElementById(boxId).style.display="none";
+box.style.display="none";
 
 
-let btn=preview.nextElementSibling;
-
-
-if(btn){
-
-btn.style.display="block";
-
-}
-
-
-}
+button.style.display="block";
 
 
 }
 
 
 
+};
 
 
 
 
-function changeImage(inputId,previewId,boxId){
+button.onclick=function(){
 
 
-document.getElementById(inputId).value="";
-
-
-let preview=document.getElementById(previewId);
-
+input.value="";
 
 preview.src="";
 
 preview.style.display="none";
 
 
-document.getElementById(boxId).style.display="flex";
+box.style.display="flex";
+
+
+button.style.display="none";
+
+
+};
+
 
 
 }
+
+
+
+setupUpload(
+"idInput",
+"idPreview",
+"idBox",
+"idChange"
+);
+
+
+
+setupUpload(
+"faceInput",
+"facePreview",
+"faceBox",
+"faceChange"
+);
+
+
 
 
 
@@ -338,18 +328,10 @@ fetch("components/bottom-nav.html")
 
 document.getElementById("bottomNav").innerHTML=data;
 
-})
-
-.catch(error=>{
-
-console.log(error);
-
 });
 
 
-
 </script>
-
 
 
 
