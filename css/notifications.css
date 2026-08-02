@@ -1,9 +1,14 @@
 *{
+
 margin:0;
 padding:0;
+
 box-sizing:border-box;
+
 font-family:'Cairo',Arial,sans-serif;
+
 }
+
 
 
 html,body{
@@ -12,9 +17,13 @@ background:#050B16 !important;
 
 color:white !important;
 
-min-height:100%;
+min-height:100vh;
+
+overflow-x:hidden;
 
 }
+
+
 
 
 
@@ -24,9 +33,12 @@ max-width:480px;
 
 margin:auto;
 
-padding:18px 15px 90px;
+padding:18px 15px 110px;
 
 }
+
+
+
 
 
 
@@ -57,6 +69,8 @@ color:white;
 
 text-decoration:none;
 
+line-height:1;
+
 }
 
 
@@ -65,13 +79,18 @@ text-decoration:none;
 
 font-size:20px;
 
+color:#EAF3FF;
+
 }
 
 
 
 
 
-/* EMPTY NOTIFICATION */
+
+
+
+/* NOTIFICATION CARD */
 
 
 .notification-card{
@@ -88,17 +107,41 @@ text-align:center;
 
 margin-top:30px;
 
+box-shadow:0 0 15px #00000033;
+
 }
+
+
 
 
 
 .notification-icon{
 
-font-size:55px;
+width:70px;
 
-margin-bottom:15px;
+height:70px;
+
+border-radius:50%;
+
+background:#1687FF;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:38px;
+
+margin:auto;
+
+margin-bottom:18px;
+
+box-shadow:0 0 15px #1687FF;
 
 }
+
+
 
 
 
@@ -112,6 +155,8 @@ margin-bottom:10px;
 
 
 
+
+
 .notification-card p{
 
 font-size:13px;
@@ -121,6 +166,7 @@ color:#98A5B8;
 line-height:1.8;
 
 }
+
 
 
 
@@ -145,6 +191,8 @@ max-width:480px;
 
 width:100%;
 
+height:78px;
+
 background:#0B1628;
 
 border-top:1px solid #17365C;
@@ -153,11 +201,15 @@ display:flex;
 
 justify-content:space-around;
 
-padding:10px;
+align-items:center;
 
-z-index:50;
+padding:8px;
+
+z-index:100;
 
 }
+
+
 
 
 
@@ -171,12 +223,52 @@ font-size:12px;
 
 text-align:center;
 
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:4px;
+
 }
+
+
+
+
+
+.bottom-nav svg{
+
+width:27px;
+
+height:27px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
 
 
 
 .bottom-nav a:hover{
 
 color:#1687FF;
+
+}
+
+
+
+
+
+.bottom-nav a:hover svg{
+
+stroke:#1687FF;
+
+filter:drop-shadow(0 0 8px #1687FF);
 
 }
