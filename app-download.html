@@ -9,12 +9,9 @@
 
 <title>VALORA | تطبيق VALORA</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/app-download.css">
-
 
 </head>
 
@@ -23,7 +20,6 @@
 
 
 <div class="app-page">
-
 
 
 <header class="page-header">
@@ -43,8 +39,6 @@
 
 
 </header>
-
-
 
 
 
@@ -75,7 +69,6 @@
 
 
 </section>
-
 
 
 
@@ -212,7 +205,7 @@ V1.0.0
 
 
 
-<!-- الشريط السفلي الجديد -->
+<!-- الشريط السفلي الموحد -->
 
 <div id="bottomNav"></div>
 
@@ -234,12 +227,12 @@ V1.0.0
 <script>
 
 
-
 if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
 }
+
 
 
 
@@ -252,7 +245,14 @@ fetch("components/bottom-nav.html")
 
 document.getElementById("bottomNav").innerHTML = data;
 
+})
+
+.catch(error => {
+
+console.log("Bottom Nav Error:",error);
+
 });
+
 
 
 
@@ -264,6 +264,7 @@ function downloadAndroid(){
 alert("سيتم توفير تحميل تطبيق Android قريباً");
 
 }
+
 
 
 
