@@ -9,11 +9,9 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/verify.css">
-
 
 </head>
 
@@ -24,22 +22,17 @@
 <div class="verify-page">
 
 
-
 <header class="page-header">
 
 <a href="settings.html">
 ‹
 </a>
 
-
 <h2>
 التحقق من الهوية
 </h2>
 
-
 </header>
-
-
 
 
 
@@ -65,7 +58,6 @@
 
 
 </section>
-
 
 
 
@@ -97,12 +89,10 @@
 يجب رفع صورة الوجه الحقيقية.
 </li>
 
-
 </ul>
 
 
 </section>
-
 
 
 
@@ -153,14 +143,7 @@ onchange="previewImage(this,'idPreview','idBox')">
 تغيير الصورة
 
 </button>
-
-
-
-
-
-
-
-
+ id="x8k3md"
 <h4>
 صورة الوجه
 </h4>
@@ -222,70 +205,9 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
+<!-- الشريط السفلي الموحد -->
 
-
-
-<!-- الشريط السفلي الجديد -->
-
-<nav class="bottom-nav">
-
-
-<a href="dashboard.html">
-
-⌂
-
-<span>
-الرئيسية
-</span>
-
-</a>
-
-
-
-
-<a href="wallet.html">
-
-▣
-
-<span>
-الأصول
-</span>
-
-</a>
-
-
-
-
-<a href="sync.html">
-
-⇄
-
-<span>
-التزامن
-</span>
-
-</a>
-
-
-
-
-<a href="team.html">
-
-♙
-
-<span>
-الفريق
-</span>
-
-</a>
-
-
-
-</nav>
-
-
-
-
+<div id="bottomNav"></div>
 
 
 
@@ -296,8 +218,19 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
+<script src="js/language.js"></script>
+
 
 <script>
+
+
+if(typeof applyLanguage==="function"){
+
+applyLanguage();
+
+}
+
+
 
 
 
@@ -322,13 +255,10 @@ preview.style.display="block";
 document.getElementById(boxId).style.display="none";
 
 
-document.getElementById(previewId)
-.nextElementSibling
-.style.display="block";
+preview.nextElementSibling.style.display="block";
 
 
 }
-
 
 
 }
@@ -345,10 +275,13 @@ function changeImage(inputId,previewId,boxId){
 document.getElementById(inputId).value="";
 
 
-document.getElementById(previewId).style.display="none";
+let preview=document.getElementById(previewId);
 
 
-document.getElementById(previewId).src="";
+preview.style.display="none";
+
+
+preview.src="";
 
 
 document.getElementById(boxId).style.display="flex";
@@ -359,10 +292,31 @@ document.getElementById(boxId).style.display="flex";
 
 
 
+
+
+fetch("components/bottom-nav.html")
+
+.then(response=>response.text())
+
+.then(data=>{
+
+
+document.getElementById("bottomNav").innerHTML=data;
+
+
+})
+
+.catch(error=>{
+
+
+console.log("Bottom Nav Error:",error);
+
+
+});
+
+
+
 </script>
-
-
-
 
 
 
