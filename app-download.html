@@ -55,9 +55,7 @@
 
 <div class="app-icon">
 
-
 📱
-
 
 </div>
 
@@ -145,7 +143,7 @@ V1.0.0
 
 
 
-<button>
+<button onclick="downloadAndroid()">
 
 ⬇️ تحميل تطبيق Android
 
@@ -153,7 +151,7 @@ V1.0.0
 
 
 
-<button class="ios">
+<button class="ios" onclick="downloadIOS()">
 
  تحميل تطبيق iOS
 
@@ -214,8 +212,71 @@ V1.0.0
 
 
 
+<!-- الشريط السفلي الجديد -->
+
+<div id="bottomNav"></div>
+
+
+
+
+
 
 </div>
+
+
+
+
+
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
+
+}
+
+
+
+
+fetch("components/bottom-nav.html")
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById("bottomNav").innerHTML = data;
+
+});
+
+
+
+
+
+
+function downloadAndroid(){
+
+alert("سيتم توفير تحميل تطبيق Android قريباً");
+
+}
+
+
+
+
+function downloadIOS(){
+
+alert("سيتم توفير تطبيق iOS قريباً");
+
+}
+
+
+
+</script>
 
 
 
