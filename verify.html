@@ -9,9 +9,14 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
+
+
 <link rel="stylesheet" href="css/verify.css">
+
 
 </head>
 
@@ -20,6 +25,7 @@
 
 
 <div class="verify-page">
+
 
 
 <header class="page-header">
@@ -33,9 +39,7 @@
 التحقق من الهوية
 </h2>
 
-
 </header>
-
 
 
 
@@ -80,21 +84,17 @@
 
 <ul>
 
-
 <li>
 يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
 </li>
-
 
 <li>
 يقبل جواز السفر أو بطاقة الهوية.
 </li>
 
-
 <li>
 يجب أن تكون الصورة واضحة.
 </li>
-
 
 <li>
 يجب رفع صورة الوجه الحقيقية.
@@ -127,8 +127,6 @@
 
 
 
-
-
 <label class="upload-box" id="idBox">
 
 
@@ -138,7 +136,6 @@ accept="image/*"
 capture="environment"
 id="idInput"
 onchange="previewImage(this,'idPreview','idBox')">
-
 
 
 <div>
@@ -156,12 +153,19 @@ onchange="previewImage(this,'idPreview','idBox')">
 
 
 
-
-<button class="change-btn" id="idChange" onclick="changeImage('idInput','idPreview','idBox')">
+<button class="change-btn" onclick="changeImage('idInput','idPreview','idBox')">
 
 تغيير الصورة
 
 </button>
+
+
+
+
+
+
+
+
 <h4>
 صورة الوجه
 </h4>
@@ -170,8 +174,6 @@ onchange="previewImage(this,'idPreview','idBox')">
 
 
 <img id="facePreview" class="preview">
-
-
 
 
 
@@ -184,7 +186,6 @@ accept="image/*"
 capture="user"
 id="faceInput"
 onchange="previewImage(this,'facePreview','faceBox')">
-
 
 
 <div>
@@ -202,14 +203,11 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
-
-
-<button class="change-btn" id="faceChange" onclick="changeImage('faceInput','facePreview','faceBox')">
+<button class="change-btn" onclick="changeImage('faceInput','facePreview','faceBox')">
 
 إعادة التصوير
 
 </button>
-
 
 
 
@@ -239,7 +237,9 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
+
 </div>
+
 
 
 
@@ -250,7 +250,6 @@ onchange="previewImage(this,'facePreview','faceBox')">
 <script src="js/language.js"></script>
 
 
-
 <script>
 
 
@@ -259,7 +258,6 @@ if(typeof applyLanguage === "function"){
 applyLanguage();
 
 }
-
 
 
 
@@ -285,6 +283,16 @@ preview.style.display="block";
 
 
 document.getElementById(boxId).style.display="none";
+
+
+let btn=preview.nextElementSibling;
+
+
+if(btn){
+
+btn.style.display="block";
+
+}
 
 
 }
@@ -322,31 +330,26 @@ document.getElementById(boxId).style.display="flex";
 
 
 
-
-
 fetch("components/bottom-nav.html")
 
 .then(response=>response.text())
 
 .then(data=>{
 
-
 document.getElementById("bottomNav").innerHTML=data;
-
 
 })
 
 .catch(error=>{
 
-
-console.log("Bottom Nav Error:",error);
-
+console.log(error);
 
 });
 
 
 
 </script>
+
 
 
 
