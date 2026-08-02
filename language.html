@@ -9,9 +9,12 @@
 
 <title>VALORA | اللغة</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/css/language.css">
+
+<link rel="stylesheet" href="css/language.css">
+
 
 </head>
 
@@ -22,17 +25,26 @@
 <div class="language-page">
 
 
+
 <header class="page-header">
 
+
 <a href="settings.html">
+
 ‹
+
 </a>
 
+
 <h2>
+
 اختيار اللغة
+
 </h2>
 
+
 </header>
+
 
 
 
@@ -65,7 +77,7 @@
 
 
 
-<div class="language-item">
+<div class="language-item" data-lang-code="es">
 
 <span>
 🇪🇸 Español
@@ -75,7 +87,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="fr">
 
 <span>
 🇫🇷 Français
@@ -85,7 +98,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="de">
 
 <span>
 🇩🇪 Deutsch
@@ -95,7 +109,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="tr">
 
 <span>
 🇹🇷 Türkçe
@@ -105,7 +120,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="ru">
 
 <span>
 🇷🇺 Русский
@@ -115,7 +131,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="zh">
 
 <span>
 🇨🇳 中文
@@ -125,7 +142,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="ja">
 
 <span>
 🇯🇵 日本語
@@ -135,7 +153,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="ko">
 
 <span>
 🇰🇷 한국어
@@ -145,7 +164,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="it">
 
 <span>
 🇮🇹 Italiano
@@ -155,7 +175,8 @@
 
 
 
-<div class="language-item">
+
+<div class="language-item" data-lang-code="pt">
 
 <span>
 🇵🇹 Português
@@ -165,10 +186,13 @@
 
 
 
+
 </section>
 
-</div>
 
+
+
+</div>
 
 
 
@@ -198,22 +222,24 @@ document.querySelectorAll(".language-item")
 item.classList.remove("active");
 
 
-let old =
-item.querySelector("b");
+
+let oldCheck=item.querySelector("b");
 
 
-if(old){
+if(oldCheck){
 
-old.remove();
+oldCheck.remove();
 
 }
 
 
 
-if(item.dataset.langCode == selectedLanguage){
+
+if(item.dataset.langCode === selectedLanguage){
 
 
 item.classList.add("active");
+
 
 
 let check=document.createElement("b");
@@ -231,12 +257,13 @@ item.appendChild(check);
 
 });
 
+
 }
 
 
 
-loadSelectedLanguage();
 
+loadSelectedLanguage();
 
 
 
@@ -277,11 +304,13 @@ loadSelectedLanguage();
 
 
 
+
 if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
 }
+
 
 
 
@@ -302,13 +331,10 @@ showMessage("✓ تم تغيير اللغة");
 
 
 
-
 function showMessage(text){
 
 
-
 let msg=document.createElement("div");
-
 
 
 msg.innerText=text;
@@ -356,7 +382,6 @@ msg.remove();
 
 
 </script>
-
 
 
 
