@@ -29,17 +29,9 @@
 
 <section class="support-card">
 
-<div class="support-icon">
+<div class="support-icon">💬</div>
 
-💬
-
-</div>
-
-<h3>
-
-مراسلة العملاء
-
-</h3>
+<h3>مراسلة العملاء</h3>
 
 <p>
 
@@ -51,30 +43,23 @@
 
 <section class="channel-card">
 
-<div class="channel-icon">
+<div class="channel-icon">📢</div>
 
-📢
-
-</div>
-
-<h3>
-
-القناة الرسمية لـ VALORA
-
-</h3>
+<h3>القناة الرسمية</h3>
 
 <p>
 
-تابع آخر الأخبار والتحديثات والإعلانات الرسمية للمنصة.
+تابع جميع الأخبار والتحديثات الخاصة بمنصة VALORA.
 
 </p>
 
-<a
-class="channel-btn"
+<a class="channel-btn"
+
 href="https://t.me/+lf2KqUHbtII1MmJk"
+
 target="_blank">
 
-📲 الانضمام إلى القناة
+الانضمام إلى القناة
 
 </a>
 
@@ -83,13 +68,11 @@ target="_blank">
 
 <div class="message admin">
 
-مرحبًا بك في دعم VALORA 👋
+مرحبًا بك 👋
 
 <br><br>
 
-يسعدنا مساعدتك.
-
-اكتب رسالتك في الأسفل وسيقوم فريق الدعم بالرد عليك في أقرب وقت.
+يمكنك إرسال استفسارك أو مشكلتك، وسيقوم فريق الدعم بالرد عليك في أقرب وقت.
 
 </div>
 
@@ -103,7 +86,6 @@ id="supportMessage"
 placeholder="اكتب رسالتك هنا...">
 
 <button
-type="button"
 onclick="sendMessage()">
 
 إرسال
@@ -112,7 +94,41 @@ onclick="sendMessage()">
 
 </div>
 
-<div id="bottomNav"></div>
+<nav class="bottom-nav">
+
+<a href="dashboard.html">
+
+🏠
+
+<span>الرئيسية</span>
+
+</a>
+
+<a href="wallet.html">
+
+💼
+
+<span>الأصول</span>
+
+</a>
+
+<a href="sync.html">
+
+🔄
+
+<span>التزامن</span>
+
+</a>
+
+<a href="team.html">
+
+👥
+
+<span>الفريق</span>
+
+</a>
+
+</nav>
 <script src="js/language.js"></script>
 
 <script>
@@ -137,7 +153,7 @@ const msg=document.createElement("div");
 
 msg.className="message user";
 
-msg.innerHTML=text;
+msg.textContent=text;
 
 chat.appendChild(msg);
 
@@ -147,23 +163,8 @@ input.value="";
 
 }
 
-fetch("components/bottom-nav.html")
-
-.then(response=>response.text())
-
-.then(data=>{
-
-document.getElementById("bottomNav").innerHTML=data;
-
-})
-
-.catch(error=>{
-
-console.log("Bottom Nav Error:",error);
-
-});
-
 </script>
+
 </div>
 
 </body>
