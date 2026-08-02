@@ -427,3 +427,24 @@ gap:5px;
 color:#1687FF;
 
   }
+.bottom-nav svg{
+
+width:26px;
+height:26px;
+
+stroke:#98A5B8;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+.bottom-nav a.active,
+.bottom-nav a.active svg{
+
+color:#1687FF;
+
+stroke:#1687FF;
+
+} 
