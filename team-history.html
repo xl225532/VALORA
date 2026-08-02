@@ -15,15 +15,28 @@
 
 </head>
 
+
 <body>
+
 
 <div class="history-page">
 
+
+
 <header class="page-header">
 
-<a href="team.html">‹</a>
+<a href="team.html">
 
-<h2>سجل الدعوات</h2>
+‹
+
+</a>
+
+
+<h2>
+
+سجل الدعوات
+
+</h2>
 
 </header>
 
@@ -31,33 +44,69 @@
 
 
 
+
 <section class="summary-card">
 
-<div class="summary-item">
-
-<span>إجمالي الفريق</span>
-
-<strong>10</strong>
-
-</div>
 
 <div class="summary-item">
 
-<span>المستوى الأول</span>
+<span>
 
-<strong>6</strong>
+إجمالي الفريق
+
+</span>
+
+<strong>
+
+10
+
+</strong>
 
 </div>
+
+
+
 
 <div class="summary-item">
 
-<span>المستوى الثاني</span>
+<span>
 
-<strong>4</strong>
+المستوى الأول
+
+</span>
+
+<strong>
+
+6
+
+</strong>
 
 </div>
+
+
+
+
+
+<div class="summary-item">
+
+<span>
+
+المستوى الثاني
+
+</span>
+
+<strong>
+
+4
+
+</strong>
+
+</div>
+
 
 </section>
+
+
 
 
 
@@ -66,87 +115,212 @@
 
 <section class="tree-card">
 
-<h3>شجرة الدعوات</h3>
+
+<h3>
+
+شجرة الدعوات
+
+</h3>
+
+
+
 
 <div class="tree">
 
+
+
 <div class="member root">
 
+
 <div class="member-card">
 
-<strong>أنت</strong>
 
-<p>UID : 588887</p>
+<strong>
+
+أنت
+
+</strong>
+
+
+<p>
+
+UID : 588887
+
+</p>
+
 
 </div>
 
+
 </div>
 
-<div class="line"></div>
 
-<div class="children">
+
+
+
+<div class="vertical-line"></div>
+
+
+
+
+
+
+<div class="branch">
+
+
 
 <div class="member">
 
-<div class="member-card">
-
-<strong>UID : 65591</strong>
-
-<p>💰 500 USDT</p>
-
-<p>📈 35 USDT</p>
-
-</div>
-
-<div class="sub-line"></div>
-
-<div class="member sub">
 
 <div class="member-card">
 
-<strong>UID : 71230</strong>
 
-<p>💰 200 USDT</p>
+<strong>
 
-<p>📈 10 USDT</p>
+UID : 65591
+
+</strong>
+
+
+<p>
+
+💰 500 USDT
+
+</p>
+
+
+<p>
+
+📈 35 USDT
+
+</p>
+
 
 </div>
 
-</div>
+
+
+
+
+<div class="vertical-line small"></div>
+
+
+
+<div class="member-card sub-card">
+
+
+<strong>
+
+UID : 71230
+
+</strong>
+
+
+<p>
+
+💰 200 USDT
+
+</p>
+
+
+<p>
+
+📈 10 USDT
+
+</p>
+
 
 </div>
+
+
+
+</div>
+
+
+
+
+
+
 
 <div class="member">
 
+
 <div class="member-card">
 
-<strong>UID : 65592</strong>
 
-<p>💰 300 USDT</p>
+<strong>
 
-<p>📈 20 USDT</p>
+UID : 65592
+
+</strong>
+
+
+<p>
+
+💰 300 USDT
+
+</p>
+
+
+<p>
+
+📈 20 USDT
+
+</p>
+
 
 </div>
 
+
 </div>
+
+
+
+
+
+
 
 <div class="member">
 
+
 <div class="member-card">
 
-<strong>UID : 65593</strong>
 
-<p>💰 700 USDT</p>
+<strong>
 
-<p>📈 90 USDT</p>
+UID : 65593
+
+</strong>
+
+
+<p>
+
+💰 700 USDT
+
+</p>
+
+
+<p>
+
+📈 90 USDT
+
+</p>
+
 
 </div>
 
-</div>
 
 </div>
 
+
+
 </div>
+
+
+
+</div>
+
+
 
 </section>
 
@@ -154,26 +328,12 @@
 
 
 
-<div id="bottomNav"></div>
+
 
 </div>
 
-<script src="js/language.js"></script>
-
-<script>
-
-if(typeof applyLanguage==="function"){
-applyLanguage();
-}
-
-fetch("components/bottom-nav.html")
-.then(r=>r.text())
-.then(data=>{
-document.getElementById("bottomNav").innerHTML=data;
-});
-
-</script>
 
 </body>
+
 
 </html>
