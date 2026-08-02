@@ -43,7 +43,7 @@
 
 <p>
 
-تواصل مع فريق دعم VALORA في حال واجهتك أي مشكلة أو احتجت إلى المساعدة.
+إذا واجهتك أي مشكلة يمكنك التواصل مع فريق دعم VALORA.
 
 </p>
 
@@ -65,7 +65,7 @@
 
 <p>
 
-تابع آخر الأخبار والتحديثات والإعلانات الرسمية الخاصة بالمنصة.
+تابع آخر الأخبار والتحديثات والإعلانات الرسمية للمنصة.
 
 </p>
 
@@ -79,18 +79,20 @@ target="_blank">
 </a>
 
 </section>
-
-<section class="chat-box">
+<section class="chat-box" id="chatBox">
 
 <div class="message admin">
 
-مرحبًا بك 👋
+مرحبًا بك في دعم VALORA 👋
 
 <br><br>
 
-يسعدنا مساعدتك، أرسل رسالتك وسيقوم فريق الدعم بالرد عليك في أقرب وقت.
+يسعدنا مساعدتك.
+
+اكتب رسالتك في الأسفل وسيقوم فريق الدعم بالرد عليك في أقرب وقت.
 
 </div>
+
 </section>
 
 <div class="send-area">
@@ -111,9 +113,6 @@ onclick="sendMessage()">
 </div>
 
 <div id="bottomNav"></div>
-
-</div>
-
 <script src="js/language.js"></script>
 
 <script>
@@ -125,28 +124,24 @@ applyLanguage();
 function sendMessage(){
 
 const input=document.getElementById("supportMessage");
+const chat=document.getElementById("chatBox");
 
 const text=input.value.trim();
 
 if(text===""){
-
 alert("اكتب رسالتك أولاً");
-
 return;
-
 }
-
-const box=document.querySelector(".chat-box");
 
 const msg=document.createElement("div");
 
 msg.className="message user";
 
-msg.textContent=text;
+msg.innerHTML=text;
 
-box.appendChild(msg);
+chat.appendChild(msg);
 
-box.scrollTop=box.scrollHeight;
+chat.scrollTop=chat.scrollHeight;
 
 input.value="";
 
@@ -160,9 +155,16 @@ fetch("components/bottom-nav.html")
 
 document.getElementById("bottomNav").innerHTML=data;
 
+})
+
+.catch(error=>{
+
+console.log("Bottom Nav Error:",error);
+
 });
 
 </script>
+</div>
 
 </body>
 
