@@ -1,17 +1,12 @@
 *{
-
 margin:0;
 padding:0;
-
 box-sizing:border-box;
-
 font-family:'Cairo',Arial,sans-serif;
-
 }
 
 
-
-body{
+html,body{
 
 background:#050B16;
 
@@ -25,27 +20,20 @@ overflow-x:hidden;
 
 
 
-
-
 .verify-page{
 
 max-width:480px;
 
 margin:auto;
 
-padding:18px 15px 110px;
+padding:18px 15px 100px;
 
 }
 
 
 
 
-
-
-
-
 /* HEADER */
-
 
 .page-header{
 
@@ -82,8 +70,6 @@ font-size:20px;
 color:#EAF3FF;
 
 }
-
-
 
 
 
@@ -162,9 +148,7 @@ margin-top:8px;
 
 
 
-
 /* RULES */
-
 
 .rules-card{
 
@@ -234,8 +218,6 @@ padding:16px;
 
 
 
-
-
 .upload-card h4{
 
 font-size:15px;
@@ -271,21 +253,7 @@ color:#98A5B8;
 
 cursor:pointer;
 
-transition:.3s;
-
 }
-
-
-
-
-
-.upload-box:hover{
-
-background:#102440;
-
-}
-
-
 
 
 
@@ -309,6 +277,8 @@ line-height:1.8;
 
 
 
+
+
 .preview{
 
 display:none;
@@ -321,12 +291,41 @@ object-fit:cover;
 
 border-radius:15px;
 
-margin-bottom:15px;
+margin-bottom:10px;
 
 border:1px solid #17365C;
 
 }
 
+
+
+
+
+
+
+.change-btn{
+
+display:none;
+
+width:100%;
+
+height:45px;
+
+background:#071426;
+
+border:1px solid #1687FF;
+
+border-radius:12px;
+
+color:white;
+
+font-size:14px;
+
+margin-bottom:15px;
+
+cursor:pointer;
+
+}
 
 
 
@@ -366,19 +365,65 @@ box-shadow:0 0 12px #1687FF55;
 
 
 
+/* NEW BOTTOM NAV */
 
-/* منع تعارض الشريط السفلي */
 
-#bottomNav{
+.bottom-nav{
 
 position:fixed;
 
 bottom:0;
 
-left:0;
+left:50%;
+
+transform:translateX(-50%);
+
+max-width:480px;
 
 width:100%;
 
-z-index:999;
+height:78px;
+
+background:#0B1628;
+
+border-top:1px solid #17365C;
+
+display:flex;
+
+justify-content:space-around;
+
+align-items:center;
+
+padding:8px;
+
+z-index:9999;
 
 }
+
+
+
+.bottom-nav a{
+
+color:#98A5B8;
+
+text-decoration:none;
+
+font-size:12px;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+gap:5px;
+
+}
+
+
+
+.bottom-nav a:hover{
+
+color:#1687FF;
+
+  }
