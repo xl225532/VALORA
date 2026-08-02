@@ -1,15 +1,410 @@
-<label class="upload-box">
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-<input 
-type="file"
-accept="image/*"
-capture="environment"
-onchange="previewImage(event,'idPreview')">
+<head>
 
-<div>
-📷
-<br>
-تصوير الوثيقة
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | التحقق من الهوية</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/verify.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="verify-page">
+
+
+
+
+
+<header class="page-header">
+
+<a href="settings.html">
+‹
+</a>
+
+
+<h2>
+التحقق من الهوية
+</h2>
+
+
+</header>
+
+
+
+
+
+
+
+<section class="verify-card">
+
+
+<div class="verify-icon">
+
+🪪
+
 </div>
 
+
+<h3>
+
+تأكيد الهوية
+
+</h3>
+
+
+<p>
+
+أكمل التحقق لحماية حسابك
+
+</p>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="rules-card">
+
+
+<h3>
+
+شروط التحقق
+
+</h3>
+
+
+<ul>
+
+<li>
+يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
+</li>
+
+
+<li>
+يُقبل جواز السفر أو بطاقة الهوية الوطنية.
+</li>
+
+
+<li>
+يجب أن تكون الوثيقة سارية المفعول.
+</li>
+
+
+<li>
+يجب أن تكون الصورة واضحة وجميع البيانات ظاهرة.
+</li>
+
+
+<li>
+يجب رفع صورة الوجه الحقيقية لصاحب الحساب.
+</li>
+
+
+</ul>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<section class="upload-card">
+
+
+
+
+
+<h4>
+
+صورة الهوية أو جواز السفر
+
+</h4>
+
+
+
+
+<label class="upload-box">
+
+
+<input
+
+type="file"
+
+accept="image/*"
+
+capture="environment"
+
+onchange="previewImage(event,'idPreview')">
+
+
+<div>
+
+📷
+
+<br>
+
+تصوير الوثيقة
+
+</div>
+
+
 </label>
+
+
+
+
+<img id="idPreview" class="preview">
+
+
+
+
+
+
+
+<h4>
+
+صورة الوجه (سيلفي)
+
+</h4>
+
+
+
+
+<label class="upload-box">
+
+
+<input
+
+type="file"
+
+accept="image/*"
+
+capture="user"
+
+onchange="previewImage(event,'facePreview')">
+
+
+<div>
+
+🤳
+
+<br>
+
+تصوير سيلفي
+
+</div>
+
+
+</label>
+
+
+
+
+<img id="facePreview" class="preview">
+
+
+
+
+
+
+<button class="submit-btn">
+
+إرسال للتحقق
+
+</button>
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M3 11L12 3L21 11"></path>
+
+<path d="M5 10V21H19V10"></path>
+
+<path d="M9 21V14H15V21"></path>
+
+</svg>
+
+
+<span>
+
+الرئيسية
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+<a href="wallet.html">
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M3 7H18C19.6 7 21 8.4 21 10V18C21 19.1 20.1 20 19 20H5C3.9 20 3 19.1 3 18V7Z"></path>
+
+</svg>
+
+
+<span>
+
+الأصول
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+
+<a href="sync.html">
+
+
+<svg viewBox="0 0 24 24">
+
+<path d="M17 1L21 5L17 9"></path>
+
+<path d="M3 11V9C3 6.8 4.8 5 7 5H21"></path>
+
+<path d="M7 23L3 19L7 15"></path>
+
+<path d="M21 13V15C21 17.2 19.2 19 17 19H3"></path>
+
+</svg>
+
+
+<span>
+
+التزامن
+
+</span>
+
+
+</a>
+
+
+
+
+
+
+
+<a href="team.html">
+
+
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="8" r="4"></circle>
+
+<path d="M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21"></path>
+
+</svg>
+
+
+<span>
+
+الفريق
+
+</span>
+
+
+</a>
+
+
+
+</nav>
+
+
+
+
+
+
+
+
+
+<script>
+
+
+function previewImage(event,id){
+
+
+let file = event.target.files[0];
+
+
+if(!file) return;
+
+
+let image=document.getElementById(id);
+
+
+image.src=URL.createObjectURL(file);
+
+
+image.style.display="block";
+
+
+}
+
+
+
+</script>
+
+
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
