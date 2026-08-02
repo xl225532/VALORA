@@ -984,3 +984,10 @@ fill:none;
 stroke-width:2;
 
 }
+/* لون أرباح اليوم */
+
+.today-profit strong{
+
+color:#22C55E !important;
+
+}
