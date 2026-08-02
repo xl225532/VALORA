@@ -12,7 +12,6 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/verify.css">
 
 
@@ -29,21 +28,16 @@
 <header class="page-header">
 
 <a href="settings.html">
-
 ‹
-
 </a>
 
 
 <h2>
-
 التحقق من الهوية
-
 </h2>
 
 
 </header>
-
 
 
 
@@ -61,16 +55,12 @@
 
 
 <h3>
-
 تأكيد الهوية
-
 </h3>
 
 
 <p>
-
 أكمل التحقق لحماية حسابك
-
 </p>
 
 
@@ -81,14 +71,11 @@
 
 
 
-
 <section class="rules-card">
 
 
 <h3>
-
 شروط التحقق
-
 </h3>
 
 
@@ -98,24 +85,16 @@
 يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
 </li>
 
-
 <li>
-يُقبل جواز السفر أو بطاقة الهوية الوطنية.
+يقبل جواز السفر أو بطاقة الهوية.
 </li>
 
-
 <li>
-يجب أن تكون الوثيقة سارية المفعول.
+يجب أن تكون الصورة واضحة.
 </li>
 
-
 <li>
-يجب أن تكون الصورة واضحة وجميع البيانات ظاهرة.
-</li>
-
-
-<li>
-يجب رفع صورة الوجه الحقيقية لصاحب الحساب.
+يجب رفع صورة الوجه الحقيقية.
 </li>
 
 
@@ -129,23 +108,29 @@
 
 
 
-
-
 <section class="upload-card">
 
 
 
 <h4>
-
 صورة الهوية أو جواز السفر
-
 </h4>
 
 
-<label class="upload-box">
+
+<img id="idPreview" class="preview">
 
 
-<input type="file" accept="image/*" capture="environment">
+
+<label class="upload-box" id="idBox">
+
+
+<input 
+type="file"
+accept="image/*"
+capture="environment"
+id="idInput"
+onchange="previewImage(this,'idPreview','idBox')">
 
 
 <div>
@@ -163,22 +148,38 @@
 
 
 
+<button class="change-btn" id="idChange" onclick="changeImage('idInput','idPreview','idBox')">
+
+تغيير الصورة
+
+</button>
+
+
+
 
 
 
 
 
 <h4>
-
 صورة الوجه
-
 </h4>
 
 
-<label class="upload-box">
+
+<img id="facePreview" class="preview">
 
 
-<input type="file" accept="image/*" capture="user">
+
+<label class="upload-box" id="faceBox">
+
+
+<input 
+type="file"
+accept="image/*"
+capture="user"
+id="faceInput"
+onchange="previewImage(this,'facePreview','faceBox')">
 
 
 <div>
@@ -193,6 +194,14 @@
 
 
 </label>
+
+
+
+<button class="change-btn" id="faceChange" onclick="changeImage('faceInput','facePreview','faceBox')">
+
+إعادة التصوير
+
+</button>
 
 
 
@@ -213,9 +222,67 @@
 
 
 
+
+
+
 <!-- الشريط السفلي الجديد -->
 
-<div id="bottomNav"></div>
+<nav class="bottom-nav">
+
+
+<a href="dashboard.html">
+
+⌂
+
+<span>
+الرئيسية
+</span>
+
+</a>
+
+
+
+
+<a href="wallet.html">
+
+▣
+
+<span>
+الأصول
+</span>
+
+</a>
+
+
+
+
+<a href="sync.html">
+
+⇄
+
+<span>
+التزامن
+</span>
+
+</a>
+
+
+
+
+<a href="team.html">
+
+♙
+
+<span>
+الفريق
+</span>
+
+</a>
+
+
+
+</nav>
+
 
 
 
@@ -228,21 +295,72 @@
 
 
 
+
+
 <script>
 
 
-fetch("components/bottom-nav.html")
 
-.then(response => response.text())
+function previewImage(input,previewId,boxId){
 
-.then(data => {
 
-document.getElementById("bottomNav").innerHTML = data;
+let file=input.files[0];
 
-});
+
+if(file){
+
+
+let preview=document.getElementById(previewId);
+
+
+preview.src=URL.createObjectURL(file);
+
+
+preview.style.display="block";
+
+
+document.getElementById(boxId).style.display="none";
+
+
+document.getElementById(previewId)
+.nextElementSibling
+.style.display="block";
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+function changeImage(inputId,previewId,boxId){
+
+
+document.getElementById(inputId).value="";
+
+
+document.getElementById(previewId).style.display="none";
+
+
+document.getElementById(previewId).src="";
+
+
+document.getElementById(boxId).style.display="flex";
+
+
+}
+
+
 
 
 </script>
+
 
 
 
