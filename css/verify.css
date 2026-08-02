@@ -1,16 +1,22 @@
 *{
+
 margin:0;
 padding:0;
+
 box-sizing:border-box;
+
 font-family:'Cairo',Arial,sans-serif;
+
 }
 
 
-html,body{
 
-background:#050B16;
+html,
+body{
 
-color:white;
+background:#050B16 !important;
+
+color:#fff;
 
 min-height:100vh;
 
@@ -20,15 +26,26 @@ overflow-x:hidden;
 
 
 
+
+
 .verify-page{
+
+width:100%;
 
 max-width:480px;
 
+min-height:100vh;
+
 margin:auto;
 
-padding:18px 15px 100px;
+padding:18px 15px 110px;
+
+background:#050B16;
 
 }
+
+
+
 
 
 
@@ -53,7 +70,7 @@ margin-bottom:20px;
 
 font-size:38px;
 
-color:white;
+color:#fff;
 
 text-decoration:none;
 
@@ -128,6 +145,8 @@ box-shadow:0 0 15px #1687FF;
 
 margin-top:12px;
 
+font-size:18px;
+
 }
 
 
@@ -149,6 +168,7 @@ margin-top:8px;
 
 
 /* RULES */
+
 
 .rules-card{
 
@@ -193,7 +213,6 @@ font-size:13px;
 line-height:1.9;
 
 }
-
 
 
 
@@ -317,7 +336,7 @@ border:1px solid #1687FF;
 
 border-radius:12px;
 
-color:white;
+color:#fff;
 
 font-size:14px;
 
@@ -343,7 +362,7 @@ background:#1687FF;
 
 border:0;
 
-color:white;
+color:#fff;
 
 border-radius:15px;
 
@@ -365,7 +384,7 @@ box-shadow:0 0 12px #1687FF55;
 
 
 
-/* NEW BOTTOM NAV */
+/* BOTTOM NAV */
 
 
 .bottom-nav{
@@ -422,14 +441,10 @@ gap:5px;
 
 
 
-.bottom-nav a:hover{
-
-color:#1687FF;
-
-  }
 .bottom-nav svg{
 
 width:26px;
+
 height:26px;
 
 stroke:#98A5B8;
@@ -440,6 +455,8 @@ stroke-width:2;
 
 }
 
+
+
 .bottom-nav a.active,
 .bottom-nav a.active svg{
 
@@ -447,4 +464,4 @@ color:#1687FF;
 
 stroke:#1687FF;
 
-} 
+}
