@@ -9,9 +9,7 @@
 
 <title>VALORA | الرئيسية</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
 
 <link rel="stylesheet" href="css/dashboard.css">
 
@@ -44,8 +42,6 @@ VALORA
 </div>
 
 
-
-<!-- حسابي -->
 
 <div class="account-box">
 
@@ -91,14 +87,11 @@ UID: 588887
 
 
 
-
-
 <div class="side-links">
 
 
 
 <a href="security.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -113,16 +106,13 @@ UID: 588887
 
 </span>
 
-
 </a>
 
 
 
 
 
-
 <a href="verify.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -143,16 +133,13 @@ UID: 588887
 
 </span>
 
-
 </a>
 
 
 
 
 
-
 <a href="change-password.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -171,17 +158,13 @@ UID: 588887
 
 </span>
 
-
 </a>
 
 
 
 
 
-
-
 <a href="support.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -195,7 +178,6 @@ UID: 588887
 مراسلة العملاء
 
 </span>
-
 
 </a>
 <a href="terms.html">
@@ -219,9 +201,7 @@ UID: 588887
 
 </span>
 
-
 </a>
-
 
 
 
@@ -244,7 +224,6 @@ UID: 588887
 الإشعارات
 
 </span>
-
 
 </a>
 
@@ -273,8 +252,35 @@ UID: 588887
 
 </span>
 
+</a>
+
+
+
+
+
+<!-- تطبيق VALORA -->
+
+<a href="app-download.html">
+
+<svg viewBox="0 0 24 24">
+
+<rect x="7" y="2" width="10" height="20" rx="2"></rect>
+
+<path d="M11 18H13"></path>
+
+</svg>
+
+
+<span>
+
+تطبيق VALORA
+
+</span>
+
 
 </a>
+
+
 
 
 
@@ -308,6 +314,7 @@ UID: 588887
 
 
 </div>
+
 
 
 
@@ -431,7 +438,6 @@ UID:
 
 
 </header>
- 
 <section class="asset-card">
 
 
@@ -580,7 +586,14 @@ X
 
 
 </section>
- 
+
+
+
+
+
+
+
+
 <section class="markets">
 
 
@@ -633,13 +646,6 @@ Bitcoin
 
 
 </div>
-
-
-
-
-
-
-
 <div class="coin-row" onclick="openTrade('ETH')">
 
 
@@ -814,7 +820,6 @@ TRON
 
 
 </section>
-
 <nav class="bottom-nav">
 
 
@@ -943,52 +948,36 @@ TRON
 
 <script>
 
-
-
 applyLanguage();
-
-
 
 
 
 function openMenu(){
 
-
 document
 .getElementById("sideMenu")
 .classList.add("open");
 
-
 }
-
-
 
 
 
 function closeMenu(){
 
-
 document
 .getElementById("sideMenu")
 .classList.remove("open");
 
-
 }
-
-
 
 
 
 
 function copyUID(){
 
-
 navigator.clipboard.writeText(
-
 "UID: 588887"
-
 );
-
 
 }
 
@@ -1036,10 +1025,7 @@ balanceHidden=true;
 }
 
 
-
 }
-
-
 
 
 
@@ -1048,20 +1034,13 @@ balanceHidden=true;
 
 function openTrade(coin){
 
-
-window.location.href=
-
-"trade.html?coin="+coin;
-
+window.location.href="trade.html?coin="+coin;
 
 }
 
 
 
-
-
 </script>
-
 
 
 
@@ -1071,21 +1050,3 @@ window.location.href=
 </body>
 
 </html>
-<a href="app-download.html">
-
-<svg viewBox="0 0 24 24">
-
-<rect x="7" y="2" width="10" height="20" rx="2"></rect>
-
-<path d="M11 18H13"></path>
-
-</svg>
-
-
-<span>
-
-تطبيق VALORA
-
-</span>
-
-</a>
