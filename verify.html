@@ -1,460 +1,177 @@
-*{
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
 
-margin:0;
-padding:0;
+<head>
 
-box-sizing:border-box;
+<meta charset="UTF-8">
 
-font-family:'Cairo',Arial,sans-serif;
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-}
+<title>VALORA | التحقق من الهوية</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="css/verify.css">
 
-html,body{
+</head>
 
-background:#050B16 !important;
 
-color:white;
+<body>
 
-min-height:100vh;
 
-overflow-x:hidden;
+<div class="verify-page">
 
-}
 
+<header class="page-header">
 
+<a href="settings.html">
+‹
+</a>
 
 
+<h2>
+التحقق من الهوية
+</h2>
 
-.app-page{
 
-max-width:480px;
+</header>
 
-margin:auto;
 
-min-height:100vh;
 
-padding:18px 15px 110px;
 
-background:#050B16;
 
-}
 
 
+<section class="verify-card">
 
 
+<div class="verify-icon">
 
+🪪
 
+</div>
 
-/* HEADER */
 
+<h3>
+تأكيد الهوية
+</h3>
 
-.page-header{
 
-display:flex;
+<p>
+أكمل التحقق لحماية حسابك
+</p>
 
-align-items:center;
 
-gap:15px;
+</section>
 
-margin-bottom:25px;
 
-}
 
 
 
-.page-header a{
 
-font-size:38px;
 
-color:white;
+<section class="rules-card">
 
-text-decoration:none;
 
-line-height:1;
+<h3>
+شروط التحقق
+</h3>
 
-}
 
+<ul>
 
 
-.page-header h2{
+<li>
+يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
+</li>
 
-font-size:20px;
 
-color:#EAF3FF;
+<li>
+يقبل جواز السفر أو بطاقة الهوية.
+</li>
 
-}
 
+<li>
+يجب أن تكون الصورة واضحة.
+</li>
 
 
+<li>
+يجب رفع صورة الوجه الحقيقية.
+</li>
 
 
+</ul>
 
 
-/* APP CARD */
+</section>
 
 
-.app-card{
 
-background:#0B1628;
 
-border:1px solid #17365C;
 
-border-radius:22px;
 
-padding:25px 18px;
 
-text-align:center;
+<section class="upload-card">
 
-margin-bottom:15px;
 
-}
 
+<h4>
+صورة الهوية أو جواز السفر
+</h4>
 
 
-.app-icon{
 
-width:75px;
 
-height:75px;
+<img id="idPreview" class="preview">
 
-border-radius:20px;
 
-background:#1687FF;
 
-display:flex;
 
-align-items:center;
 
-justify-content:center;
+<label class="upload-box" id="idBox">
 
-font-size:40px;
 
-margin:auto;
+<input 
+type="file"
+accept="image/*"
+capture="environment"
+id="idInput"
+onchange="previewImage(this,'idPreview','idBox')">
 
-box-shadow:0 0 18px #1687FF;
 
-}
 
+<div>
 
+📷
 
-.app-card h3{
+<br>
 
-font-size:20px;
+تصوير أو رفع الوثيقة
 
-margin-top:15px;
+</div>
 
-}
 
+</label>
 
 
-.app-card p{
 
-color:#98A5B8;
 
-font-size:13px;
+<button class="change-btn" id="idChange" onclick="changeImage('idInput','idPreview','idBox')">
 
-margin-top:8px;
+تغيير الصورة
 
-line-height:1.8;
-
-}
-
-
-
-
-
-
-
-/* VERSION */
-
-
-.version-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:16px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.version-card div{
-
-display:flex;
-
-justify-content:space-between;
-
-margin-bottom:12px;
-
-}
-
-
-
-.version-card div:last-child{
-
-margin-bottom:0;
-
-}
-
-
-
-.version-card span{
-
-color:#98A5B8;
-
-}
-
-
-
-.version-card strong{
-
-color:#EAF3FF;
-
-}
-
-
-
-
-
-
-
-/* DOWNLOAD */
-
-
-.download-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:18px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.download-card h3{
-
-font-size:17px;
-
-margin-bottom:15px;
-
-}
-
-
-
-.download-card button{
-
-width:100%;
-
-height:52px;
-
-background:#1687FF;
-
-border:0;
-
-border-radius:15px;
-
-color:white;
-
-font-size:15px;
-
-font-weight:bold;
-
-margin-bottom:12px;
-
-cursor:pointer;
-
-}
-
-
-
-.download-card .ios{
-
-background:#071426;
-
-border:1px solid #1687FF;
-
-}
-
-
-
-
-
-
-
-/* UPDATES */
-
-
-.updates-card{
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:18px;
-
-padding:18px;
-
-}
-
-
-
-.updates-card h3{
-
-font-size:17px;
-
-margin-bottom:12px;
-
-}
-
-
-
-.updates-card ul{
-
-list-style:none;
-
-}
-
-
-
-.updates-card li{
-
-color:#CBD5E1;
-
-font-size:14px;
-
-line-height:2;
-
-}
-
-
-
-
-
-
-
-/* BOTTOM NAV */
-
-
-.bottom-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
-
-width:100%;
-
-height:78px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-justify-content:space-around;
-
-align-items:center;
-
-padding:8px;
-
-z-index:9999;
-
-}
-
-
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
-display:flex;
-
-flex-direction:column;
-
-align-items:center;
-
-gap:5px;
-
--webkit-tap-highlight-color:transparent;
-
-}
-
-
-
-
-
-.bottom-nav svg{
-
-width:27px;
-
-height:27px;
-
-stroke:#98A5B8;
-
-fill:none;
-
-stroke-width:2;
-
-}
-
-
-
-
-
-.bottom-nav a.active,
-.bottom-nav a.active svg{
-
-color:#1687FF;
-
-stroke:#1687FF;
-
-}
-
-
-
-.bottom-nav a:hover,
-.bottom-nav a:hover svg{
-
-color:#1687FF;
-
-stroke:#1687FF;
-
-}
+</button>
 <h4>
 صورة الوجه
 </h4>
 
 
 
+
 <img id="facePreview" class="preview">
+
+
 
 
 
@@ -469,6 +186,7 @@ id="faceInput"
 onchange="previewImage(this,'facePreview','faceBox')">
 
 
+
 <div>
 
 🤳
@@ -481,6 +199,8 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 </label>
+
+
 
 
 
@@ -511,6 +231,7 @@ onchange="previewImage(this,'facePreview','faceBox')">
 
 
 
+
 <div id="bottomNav"></div>
 
 
@@ -529,6 +250,7 @@ onchange="previewImage(this,'facePreview','faceBox')">
 <script src="js/language.js"></script>
 
 
+
 <script>
 
 
@@ -537,6 +259,8 @@ if(typeof applyLanguage === "function"){
 applyLanguage();
 
 }
+
+
 
 
 
@@ -563,16 +287,6 @@ preview.style.display="block";
 document.getElementById(boxId).style.display="none";
 
 
-let btn=preview.nextElementSibling;
-
-
-if(btn){
-
-btn.style.display="block";
-
-}
-
-
 }
 
 
@@ -595,7 +309,6 @@ let preview=document.getElementById(previewId);
 
 preview.src="";
 
-
 preview.style.display="none";
 
 
@@ -617,19 +330,24 @@ fetch("components/bottom-nav.html")
 
 .then(data=>{
 
+
 document.getElementById("bottomNav").innerHTML=data;
+
 
 })
 
 .catch(error=>{
 
+
 console.log("Bottom Nav Error:",error);
+
 
 });
 
 
 
 </script>
+
 
 
 
