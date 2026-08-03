@@ -25,12 +25,18 @@
 
 <header class="withdraw-header">
 
+
+<a href="javascript:history.back()" class="back-btn">
+‹
+</a>
+
+
 <div class="withdraw-logo">
 VALORA
 </div>
 
-</header>
 
+</header>
 
 
 
@@ -64,39 +70,28 @@ VALORA
 
 
 
-<!-- العملات -->
-
 <section class="withdraw-coins">
-
 
 
 <button class="withdraw-coin active" onclick="selectCoin('USDT',this)">
 
 
 <div class="coin-circle usdt-circle">
-
 ₮
-
 </div>
 
 
 <strong>
-
 USDT
-
 </strong>
 
 
 <small>
-
 Tether
-
 </small>
 
 
 </button>
-
-
 
 
 
@@ -106,29 +101,21 @@ Tether
 
 
 <div class="coin-circle btc-circle">
-
 ₿
-
 </div>
 
 
 <strong>
-
 BTC
-
 </strong>
 
 
 <small>
-
 Bitcoin
-
 </small>
 
 
 </button>
-
-
 
 
 
@@ -138,23 +125,17 @@ Bitcoin
 
 
 <div class="coin-circle eth-circle">
-
 ◆
-
 </div>
 
 
 <strong>
-
 ETH
-
 </strong>
 
 
 <small>
-
 Ethereum
-
 </small>
 
 
@@ -164,29 +145,21 @@ Ethereum
 
 
 
-
-
 <button class="withdraw-coin" onclick="selectCoin('TRX',this)">
 
 
 <div class="coin-circle trx-circle">
-
 TRX
-
 </div>
 
 
 <strong>
-
 TRX
-
 </strong>
 
 
 <small>
-
 TRON
-
 </small>
 
 
@@ -203,24 +176,16 @@ TRON
 
 
 
-
 <section class="withdraw-card">
 
 
-
-
-
 <h3>
-
 شبكة السحب
-
 </h3>
 
 
 
-
 <div class="network-buttons" id="withdrawNetworkBox">
-
 
 </div>
 
@@ -228,13 +193,8 @@ TRON
 
 
 
-
-
-
 <h3>
-
 عنوان محفظة السحب
-
 </h3>
 
 
@@ -252,15 +212,16 @@ placeholder="أدخل عنوان المحفظة">
 
 
 </div>
-<!-- المبلغ -->
+
+
+
+
 
 <div class="withdraw-input">
 
 
 <label>
-
 المبلغ
-
 </label>
 
 
@@ -290,23 +251,13 @@ placeholder="أدخل المبلغ">
 
 
 </div>
-
-
-
-
-
-
-
 <!-- رمز الأمان -->
-
 
 <div class="withdraw-input">
 
 
 <label>
-
 🔐 رمز أمان السحب
-
 </label>
 
 
@@ -320,10 +271,7 @@ type="password"
 placeholder="أدخل رمز الأمان">
 
 
-
 </div>
-
-
 
 
 
@@ -341,16 +289,12 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
-
 الحد الأدنى
-
 </span>
 
 
 <strong>
-
 50 USDT
-
 </strong>
 
 </div>
@@ -359,24 +303,18 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
 <div>
 
 <span>
-
 العمولة
-
 </span>
 
 
 <strong id="feeAmount">
-
 20%
-
 </strong>
 
 </div>
-
 
 
 
@@ -385,16 +323,12 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
-
 المستلم
-
 </span>
 
 
 <strong id="receiveAmount">
-
 0.00 USDT
-
 </strong>
 
 </div>
@@ -402,8 +336,6 @@ placeholder="أدخل رمز الأمان">
 
 
 </div>
-
-
 
 
 
@@ -427,16 +359,12 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
-
 ✓ تم إرسال طلب السحب
-
 </h3>
 
 
 <p>
-
 السحب قيد المعالجة
-
 </p>
 
 
@@ -452,21 +380,16 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
-
 × رفض السحب
-
 </h3>
 
 
 <p>
-
 يرجى إدخال البيانات كاملة
-
 </p>
 
 
 </div>
-
 
 
 
@@ -531,18 +454,6 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-<a href="javascript:history.back()">
-‹
-</a>
-
-
-
-
-
-
-
-
 </nav>
 
 
@@ -553,6 +464,7 @@ placeholder="أدخل رمز الأمان">
 
 </div>
 <script>
+
 
 let currentCoin = "USDT";
 
@@ -769,7 +681,6 @@ receive.toFixed(2)+" "+currentCoin;
 
 
 
-
 function submitWithdraw(){
 
 
@@ -893,3 +804,9 @@ loadNetworks();
 
 
 </script>
+
+
+
+</body>
+
+</html>
