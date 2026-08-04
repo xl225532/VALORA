@@ -72,3 +72,41 @@ document.addEventListener(
 "DOMContentLoaded",
 loadWallet
 );
+// ===============================
+// VALORA Separate Profits
+// ===============================
+
+
+function getReferralProfit(){
+
+    return Number(
+        localStorage.getItem(
+            "VALORA_REFERRAL_PROFIT"
+        )
+    ) || 0;
+
+}
+
+
+
+function getTeamProfit(){
+
+    return Number(
+        localStorage.getItem(
+            "VALORA_TEAM_PROFIT"
+        )
+    ) || 0;
+
+}
+
+
+
+function getRewardProfit(){
+
+    return Number(
+        localStorage.getItem(
+            "VALORA_REWARD_PROFIT"
+        )
+    ) || 0;
+
+}
