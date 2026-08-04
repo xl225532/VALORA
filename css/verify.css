@@ -15,8 +15,6 @@ width:100%;
 
 min-height:100vh;
 
-background:#050B16 !important;
-
 color:#fff;
 
 overflow-x:hidden;
@@ -37,7 +35,7 @@ margin:auto;
 
 padding:18px 15px 110px;
 
-background:#050B16;
+background:transparent;
 
 }
 
@@ -162,13 +160,6 @@ font-size:14px;
 margin-top:8px;
 
 }
-
-
-
-
-
-
-
 /* RULES */
 
 .rules-card h3{
@@ -480,4 +471,4 @@ label{
 
 -webkit-tap-highlight-color:transparent;
 
-  }
+}
