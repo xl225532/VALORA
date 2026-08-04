@@ -327,3 +327,154 @@ console.log("Bottom Nav Error:", error);
 </body>
 
 </html>
+<button class="submit-btn">
+
+إرسال للتحقق
+
+</button>
+
+
+</section>
+
+
+
+
+<div id="bottomNav"></div>
+
+
+
+
+</div>
+
+
+
+
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
+
+}
+
+
+
+
+function uploadImage(inputId, previewId, boxId, buttonId){
+
+
+let input = document.getElementById(inputId);
+
+let preview = document.getElementById(previewId);
+
+let box = document.getElementById(boxId);
+
+let button = document.getElementById(buttonId);
+
+
+
+input.onchange = function(){
+
+
+let file = this.files[0];
+
+
+if(file){
+
+
+preview.src = URL.createObjectURL(file);
+
+
+preview.style.display = "block";
+
+
+box.style.display = "none";
+
+
+button.style.display = "block";
+
+
+}
+
+
+};
+
+
+
+
+button.onclick = function(){
+
+
+input.value = "";
+
+
+preview.src = "";
+
+
+preview.style.display = "none";
+
+
+box.style.display = "flex";
+
+
+button.style.display = "none";
+
+
+};
+
+
+}
+
+
+
+
+
+uploadImage(
+"idInput",
+"idPreview",
+"idBox",
+"idChange"
+);
+
+
+
+uploadImage(
+"faceInput",
+"facePreview",
+"faceBox",
+"faceChange"
+);
+
+
+
+
+
+fetch("components/bottom-nav.html")
+
+.then(response => response.text())
+
+.then(data => {
+
+document.getElementById("bottomNav").innerHTML = data;
+
+})
+
+.catch(error => {
+
+console.log("Bottom Nav Error:", error);
+
+});
+
+
+</script>
+
+
+
+</body>
+
+</html>
