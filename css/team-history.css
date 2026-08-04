@@ -341,3 +341,12 @@ font-size:13px;
 }
 
 }
+.empty-team svg{
+
+width:70px;
+height:70px;
+stroke:#1687FF;
+fill:none;
+stroke-width:2;
+
+} 
