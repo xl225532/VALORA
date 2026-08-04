@@ -12,13 +12,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/verify.css">
+
 <link rel="stylesheet" href="css/background.css">
 
 </head>
 
+
 <body>
 
+
 <div class="verify-page">
+
 
 <header class="page-header">
 
@@ -33,29 +37,40 @@
 </header>
 
 
+
 <section class="verify-card">
 
+
 <div class="verify-icon">
+
 🪪
+
 </div>
+
 
 <h3>
 تأكيد الهوية
 </h3>
 
+
 <p>
 أكمل التحقق لحماية حسابك
 </p>
+
 
 </section>
 
 
 
+
+
 <section class="rules-card">
+
 
 <h3>
 شروط التحقق
 </h3>
+
 
 <ul>
 
@@ -77,7 +92,10 @@
 
 </ul>
 
+
 </section>
+
+
 
 
 
@@ -96,7 +114,7 @@
 <label class="upload-box" id="idBox">
 
 
-<input
+<input 
 type="file"
 accept="image/*"
 capture="environment"
@@ -135,7 +153,7 @@ id="idInput">
 <label class="upload-box" id="faceBox">
 
 
-<input
+<input 
 type="file"
 accept="image/*"
 capture="user"
@@ -185,65 +203,80 @@ id="faceInput">
 
 
 
+
 <script src="js/language.js"></script>
 
 
 <script>
 
-if(typeof applyLanguage==="function"){
+if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
 }
-  function uploadImage(inputId,previewId,boxId,buttonId){
-
-let input=document.getElementById(inputId);
-
-let preview=document.getElementById(previewId);
-
-let box=document.getElementById(boxId);
-
-let button=document.getElementById(buttonId);
+  function uploadImage(inputId, previewId, boxId, buttonId){
 
 
-input.onchange=function(){
+let input = document.getElementById(inputId);
 
-let file=this.files[0];
+let preview = document.getElementById(previewId);
+
+let box = document.getElementById(boxId);
+
+let button = document.getElementById(buttonId);
+
+
+
+input.onchange = function(){
+
+
+let file = this.files[0];
 
 
 if(file){
 
-preview.src=URL.createObjectURL(file);
 
-preview.style.display="block";
+preview.src = URL.createObjectURL(file);
 
-box.style.display="none";
 
-button.style.display="block";
+preview.style.display = "block";
+
+
+box.style.display = "none";
+
+
+button.style.display = "block";
+
 
 }
+
 
 };
 
 
 
-button.onclick=function(){
+button.onclick = function(){
 
-input.value="";
 
-preview.src="";
+input.value = "";
 
-preview.style.display="none";
 
-box.style.display="flex";
+preview.src = "";
 
-button.style.display="none";
+
+preview.style.display = "none";
+
+
+box.style.display = "flex";
+
+
+button.style.display = "none";
+
 
 };
 
 
 }
-
 
 
 
@@ -280,17 +313,16 @@ document.getElementById("bottomNav").innerHTML = data;
 
 .catch(error => {
 
-console.log("Bottom Nav Error:",error);
+console.log("Bottom Nav Error:", error);
 
 });
-
 
 
 </script>
 
 
-
 </div>
+
 
 </body>
 
