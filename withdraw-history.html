@@ -15,45 +15,29 @@
 
 <link rel="stylesheet" href="css/withdraw-history.css">
 <link rel="stylesheet" href="css/background.css">
-</head>
 
+
+</head>
 
 
 <body>
 
 
 
-<div class="dashboard">
+<div class="history-container">
 
 
 
 
 
-<header class="header">
-
-<div class="brand">
-
-VALORA
-
-</div>
-
-</header>
+<header class="history-header">
 
 
+<a href="wallet.html" class="back-btn">
 
+‹
 
-
-
-
-<section class="page-title">
-
-
-<div class="icon-box">
-
-▤
-
-</div>
-
+</a>
 
 
 <h2>
@@ -63,110 +47,34 @@ VALORA
 </h2>
 
 
+</header>
 
-<p>
 
-تابع جميع عمليات السحب الخاصة بك
 
-</p>
 
 
-</section>
 
 
 
+<section class="history-summary">
 
 
 
+<div class="summary-box">
 
 
-<section class="history-list" id="historyList">
+<span>
 
+إجمالي الطلبات
 
+</span>
 
 
-<!-- تظهر عمليات السحب هنا تلقائياً -->
+<strong id="totalWithdraw">
 
+0
 
-
-</section>
-
-
-
-
-
-
-
-</section>
-
-
-
-
-
-
-
-
-
-<nav class="bottom-nav">
-
-
-<a href="dashboard.html">
-
-⌂
-
-<br>
-
-الرئيسية
-
-</a>
-
-
-
-
-<a href="wallet.html">
-
-▣
-
-<br>
-
-المحفظة
-
-</a>
-
-
-
-
-<a href="team.html">
-
-♟
-
-<br>
-
-الفريق
-
-</a>
-
-
-
-
-<a href="settings.html">
-
-⚙
-
-<br>
-
-الإعدادات
-
-</a>
-
-
-
-</nav>
-
-
-
-
-
+</strong>
 
 
 </div>
@@ -177,15 +85,171 @@ VALORA
 
 
 
+<div class="summary-box">
 
+
+<span>
+
+المكتملة
+
+</span>
+
+
+<strong id="completedWithdraw">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="summary-box">
+
+
+<span>
+
+قيد المراجعة
+
+</span>
+
+
+<strong id="pendingWithdraw">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="withdrawList" class="withdraw-list">
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<div id="emptyBox" class="empty-box">
+
+
+لا توجد عمليات سحب
+
+
+</div>
+
+
+
+
+
+
+</div>
 <script>
 
 
-let historyList = document.getElementById("historyList");
+let withdrawals =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_WITHDRAWALS")
+
+) || [];
 
 
 
-let withdrawals = JSON.parse(localStorage.getItem("withdrawals")) || [];
+
+
+let listBox =
+
+document.getElementById("withdrawList");
+
+
+
+let emptyBox =
+
+document.getElementById("emptyBox");
+
+
+
+
+
+
+
+function loadWithdrawHistory(){
+
+
+
+document.getElementById("totalWithdraw").innerHTML =
+
+withdrawals.length;
+
+
+
+
+
+let pending =
+
+withdrawals.filter(item =>
+
+item.status === "بانتظار المراجعة"
+
+).length;
+
+
+
+
+
+let completed =
+
+withdrawals.filter(item =>
+
+item.status === "مكتمل"
+
+).length;
+
+
+
+
+
+
+document.getElementById("pendingWithdraw").innerHTML =
+
+pending;
+
+
+
+document.getElementById("completedWithdraw").innerHTML =
+
+completed;
+
+
+
+
 
 
 
@@ -194,84 +258,71 @@ let withdrawals = JSON.parse(localStorage.getItem("withdrawals")) || [];
 if(withdrawals.length === 0){
 
 
-historyList.innerHTML = `
-
-<div class="history-card">
+emptyBox.style.display="block";
 
 
-<div class="history-data">
-
-
-<p>
-
-لا توجد عمليات سحب
-
-</p>
-
-
-</div>
-
-
-</div>
-
-`;
+return;
 
 
 }
 
-else{
+
+
+emptyBox.style.display="none";
 
 
 
-withdrawals.reverse().forEach(function(item){
+listBox.innerHTML="";
+
+
+
+
+
+
+
+withdrawals.reverse().forEach(item=>{
+
+
+
+let card = document.createElement("div");
+
+
+
+card.className="withdraw-card";
+
+
+
+
 
 
 
 let statusClass = "pending";
 
-let statusText = "قيد المعالجة";
 
 
+if(item.status==="مكتمل"){
 
-if(item.status === "complete"){
-
-statusClass="complete";
-
-statusText="مكتمل";
+statusClass="success";
 
 }
 
 
-if(item.status === "rejected"){
+if(item.status==="مرفوض"){
 
-statusClass="rejected";
-
-statusText="رفض";
+statusClass="reject";
 
 }
 
 
 
 
-historyList.innerHTML += `
 
 
-<div class="history-card">
 
+card.innerHTML = `
 
 
 <div class="history-top">
-
-
-<div class="coin-mini usdt">
-
-₮
-
-</div>
-
-
-
-<div class="coin-info">
 
 
 <strong>
@@ -279,106 +330,3 @@ historyList.innerHTML += `
 ${item.coin}
 
 </strong>
-
-
-<small>
-
-${item.network}
-
-</small>
-
-
-</div>
-
-
-
-<span class="status ${statusClass}">
-
-${statusText}
-
-</span>
-
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-data">
-
-
-<p>
-
-المبلغ
-
-<span>
-
-${item.amount} USDT
-
-</span>
-
-</p>
-
-
-
-<p>
-
-التاريخ
-
-<span>
-
-${item.date}
-
-</span>
-
-</p>
-
-
-
-<p>
-
-العنوان
-
-<span>
-
-${item.address}
-
-</span>
-
-</p>
-
-
-
-</div>
-
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-
-}
-
-
-
-</script>
-
-
-
-
-
-
-</body>
-
-</html>
