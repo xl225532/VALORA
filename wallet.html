@@ -44,12 +44,10 @@ VALORA
 
 
 
-<!-- إجمالي الأصول -->
-
 <section class="wallet-balance">
 
 
-<div class="balance-label" data-lang="totalAssets">
+<div class="balance-label">
 
 إجمالي الأصول
 
@@ -57,7 +55,7 @@ VALORA
 
 
 
-<div class="balance-value" id="walletBalance">
+<div class="balance-value" id="balance">
 
 0.00
 
@@ -78,11 +76,6 @@ USDT
 
 
 
-
-
-<!-- الأرباح المنفصلة -->
-
-
 <section class="profit-grid">
 
 
@@ -90,14 +83,14 @@ USDT
 <div class="profit-card">
 
 
-<span data-lang="todayProfit">
+<span>
 
 أرباح اليوم
 
 </span>
 
 
-<strong id="todayProfitWallet">
+<strong id="todayProfit">
 
 +0.00 USDT
 
@@ -116,14 +109,14 @@ USDT
 <div class="profit-card">
 
 
-<span data-lang="inviteProfit">
+<span>
 
 أرباح الدعوة
 
 </span>
 
 
-<strong id="inviteProfitWallet">
+<strong id="inviteProfit">
 
 0.00 USDT
 
@@ -142,14 +135,14 @@ USDT
 <div class="profit-card">
 
 
-<span data-lang="teamProfit">
+<span>
 
 أرباح الفريق
 
 </span>
 
 
-<strong id="teamProfitWallet">
+<strong id="teamProfit">
 
 0.00 USDT
 
@@ -168,14 +161,14 @@ USDT
 <div class="profit-card">
 
 
-<span data-lang="rewardProfit">
+<span>
 
 أرباح المكافآت
 
 </span>
 
 
-<strong id="rewardProfitWallet">
+<strong id="rewardProfit">
 
 0.00 USDT
 
@@ -186,16 +179,7 @@ USDT
 
 
 
-
 </section>
-
-
-
-
-
-<!-- أزرار العمليات -->
-
-
 <section class="wallet-actions">
 
 
@@ -210,7 +194,7 @@ USDT
 </span>
 
 
-<span data-lang="withdraw">
+<span>
 
 سحب
 
@@ -218,6 +202,7 @@ USDT
 
 
 </button>
+
 
 
 
@@ -234,7 +219,7 @@ USDT
 </span>
 
 
-<span data-lang="deposit">
+<span>
 
 إيداع
 
@@ -253,28 +238,19 @@ USDT
 
 
 
-
-
-<!-- سجل العمليات -->
-
-
 <section class="wallet-history">
 
 
-<a href="withdraw-history.html">
+<a href="transactions.html">
 
 
 <svg viewBox="0 0 24 24">
 
-
 <rect x="5" y="3" width="14" height="18" rx="2"></rect>
-
 
 <line x1="8" y1="8" x2="16" y2="8"></line>
 
-
 <line x1="8" y1="12" x2="16" y2="12"></line>
-
 
 <line x1="8" y1="16" x2="13" y2="16"></line>
 
@@ -283,9 +259,9 @@ USDT
 
 
 
-<span data-lang="history">
+<span>
 
-السجل
+سجل العمليات
 
 </span>
 
@@ -299,11 +275,6 @@ USDT
 
 
 
-
-
-
-
-<!-- الشريط السفلي -->
 
 
 <nav class="bottom-nav">
@@ -324,7 +295,7 @@ USDT
 </svg>
 
 
-<span data-lang="home">
+<span>
 
 الرئيسية
 
@@ -353,7 +324,7 @@ USDT
 </svg>
 
 
-<span data-lang="wallet">
+<span>
 
 الأصول
 
@@ -391,7 +362,7 @@ USDT
 
 <span>
 
-التزامن بالصفقة
+التزامن
 
 </span>
 
@@ -419,7 +390,7 @@ USDT
 </svg>
 
 
-<span data-lang="team">
+<span>
 
 الفريق
 
@@ -431,39 +402,24 @@ USDT
 
 
 </nav>
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
-
 <script src="js/language.js"></script>
 
-
-<script src="js/wallet.js"></script>
-
+<script src="js/wallet-system.js"></script>
 
 
 <script>
 
+if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
+}
 
 </script>
 
 
 
+</div>
 
 
 </body>
