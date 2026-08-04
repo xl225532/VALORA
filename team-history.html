@@ -9,30 +9,46 @@
 
 <title>VALORA | سجل أعضاء الفريق</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/team-history.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
+
 
 
 <body>
 
 
+
 <div class="history-page">
+
 
 
 <header class="page-header">
 
+
 <a href="team.html">
+
 ‹
+
 </a>
 
+
 <h2>
+
 سجل أعضاء الفريق
+
 </h2>
 
+
 </header>
+
+
 
 
 
@@ -41,46 +57,79 @@
 <section class="summary-card">
 
 
+
 <div class="summary-item">
 
+
 <span>
+
 إجمالي الفريق
+
 </span>
 
-<strong>
-10
+
+<strong id="teamCount">
+
+0
+
 </strong>
+
 
 </div>
 
 
+
+
+
 <div class="summary-item">
 
+
 <span>
+
 الأرباح
+
 </span>
 
-<strong>
-155 USDT
+
+<strong id="teamProfit">
+
+0 USDT
+
 </strong>
 
+
 </div>
+
+
+
 
 
 <div class="summary-item">
 
+
 <span>
+
 النشط
+
 </span>
 
-<strong>
-8
+
+<strong id="activeCount">
+
+0
+
 </strong>
 
+
 </div>
+
 
 
 </section>
+
+
+
+
 
 
 
@@ -90,282 +139,65 @@
 
 
 
-<div class="member-node main-member">
-
-
-<div class="member-card">
-
-
-<div class="member-top">
-
-<strong>
-UID : 65591
-</strong>
-
-<span class="active-status">
-نشط
-</span>
-
-</div>
-
-
-<div class="member-data">
-
-<p>
-الإيداع : 500 USDT
-</p>
-
-<p>
-الأرباح : 35 USDT
-</p>
-
-<p>
-المدعوين : 2
-</p>
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-<div class="tree-arrow">
-↓
-</div>
-<div class="children-list">
-
-
-<div class="member-node child-member">
-
-
-<div class="member-card">
-
-
-<div class="member-top">
-
-
-<strong>
-UID : 71230
-</strong>
-
-
-<span class="active-status">
-نشط
-</span>
-
-
-</div>
+<div class="empty-team">
 
 
 
-<div class="member-data">
+<svg viewBox="0 0 24 24">
+
+
+<circle cx="12" cy="8" r="4"></circle>
+
+
+<path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"></path>
+
+
+</svg>
+
+
+
+
+<h3>
+
+لا يوجد أعضاء في الفريق
+
+</h3>
+
+
 
 
 <p>
-الإيداع : 200 USDT
+
+شارك رابط الدعوة الخاص بك لبناء فريقك
+
 </p>
 
 
-<p>
-الأرباح : 10 USDT
-</p>
-
-
-<p>
-المدعوين : 1
-</p>
-
 
 </div>
 
 
 
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="tree-arrow small-arrow">
-
-↓
-
-</div>
-
-
-
-
-
-<div class="member-node sub-member">
-
-
-<div class="member-card">
-
-
-<div class="member-top">
-
-
-<strong>
-UID : 80001
-</strong>
-
-
-<span class="active-status">
-نشط
-</span>
-
-
-</div>
-
-
-
-<div class="member-data">
-
-
-<p>
-الإيداع : 100 USDT
-</p>
-
-
-<p>
-الأرباح : 5 USDT
-</p>
-
-
-<p>
-المدعوين : 0
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-
-<div class="member-node child-member">
-
-
-<div class="member-card">
-
-
-<div class="member-top">
-
-
-<strong>
-UID : 65592
-</strong>
-
-
-<span class="active-status">
-نشط
-</span>
-
-
-</div>
-
-
-<div class="member-data">
-
-
-<p>
-الإيداع : 300 USDT
-</p>
-
-
-<p>
-الأرباح : 20 USDT
-</p>
-
-
-<p>
-المدعوين : 0
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-
-
-
-<div class="member-node child-member">
-
-
-<div class="member-card">
-
-
-<div class="member-top">
-
-
-<strong>
-UID : 65593
-</strong>
-
-
-<span class="pending-status">
-بانتظار الإيداع
-</span>
-
-
-</div>
-
-
-<div class="member-data">
-
-
-<p>
-الإيداع : 0 USDT
-</p>
-
-
-<p>
-الأرباح : 0 USDT
-</p>
-
-
-<p>
-المدعوين : 0
-</p>
-
-
-</div>
-
-
-</div>
-
-
-</div>
-
-
-</div>
 </section>
 
 
+
+
+
+
+
+
+
 </div>
+
+
+
+
 
 
 
 <script src="js/language.js"></script>
+
 
 
 <script>
