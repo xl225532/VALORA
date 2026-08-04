@@ -297,3 +297,16 @@ fill:none;
 stroke-width:2;
 
 }
+.bottom-nav .active{
+color:#1687FF;
+text-shadow:0 0 10px #1687FF;
+}
+
+
+.bottom-nav .active svg{
+
+stroke:#1687FF;
+
+filter:drop-shadow(0 0 8px #1687FF);
+
+} 
