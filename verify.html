@@ -13,15 +13,12 @@
 
 <link rel="stylesheet" href="css/verify.css">
 <link rel="stylesheet" href="css/background.css">
-</head>
 
+</head>
 
 <body>
 
-
 <div class="verify-page">
-
-
 
 <header class="page-header">
 
@@ -34,10 +31,6 @@
 </h2>
 
 </header>
-
-
-
-
 
 <section class="verify-card">
 
@@ -55,70 +48,41 @@
 
 </section>
 
-
-
-
-
-
 <section class="rules-card">
 
 <h3>
 شروط التحقق
 </h3>
 
-
 <ul>
 
-<li>
-يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
-</li>
+<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
 
-<li>
-يقبل جواز السفر أو بطاقة الهوية.
-</li>
+<li>يقبل جواز السفر أو بطاقة الهوية.</li>
 
-<li>
-يجب أن تكون الصورة واضحة.
-</li>
+<li>يجب أن تكون الصورة واضحة.</li>
 
-<li>
-يجب رفع صورة الوجه الحقيقية.
-</li>
+<li>يجب رفع صورة الوجه الحقيقية.</li>
 
 </ul>
 
-
 </section>
 
-
-
-
-
-
-
 <section class="upload-card">
-
-
 
 <h4>
 صورة الهوية أو جواز السفر
 </h4>
 
-
-
 <img id="idPreview" class="preview">
-
-
 
 <label class="upload-box" id="idBox">
 
-
-<input 
+<input
 type="file"
 accept="image/*"
 capture="environment"
 id="idInput">
-
 
 <div>
 
@@ -130,35 +94,29 @@ id="idInput">
 
 </div>
 
-
 </label>
-
-
 
 <button class="change-btn" id="idChange">
 
 تغيير الصورة
 
 </button>
+
 <h4>
+
 صورة الوجه
+
 </h4>
-
-
 
 <img id="facePreview" class="preview">
 
-
-
 <label class="upload-box" id="faceBox">
 
-
-<input 
+<input
 type="file"
 accept="image/*"
 capture="user"
 id="faceInput">
-
 
 <div>
 
@@ -170,10 +128,7 @@ id="faceInput">
 
 </div>
 
-
 </label>
-
-
 
 <button class="change-btn" id="faceChange">
 
@@ -181,124 +136,25 @@ id="faceInput">
 
 </button>
 
-
-
-
-
-
-
 <button class="submit-btn">
 
 إرسال للتحقق
 
 </button>
 
-
-
 </section>
 
-
-
-
-
-
-
-<nav class="bottom-nav">
-
-
-<a href="dashboard.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M3 11L12 3L21 11"></path>
-<path d="M5 10V21H19V10"></path>
-</svg>
-
-<span>
-الرئيسية
-</span>
-
-</a>
-
-
-
-
-<a href="wallet.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M3 7H18C19 7 21 8 21 10V18C21 19 20 20 19 20H5C4 20 3 19 3 18V7"></path>
-</svg>
-
-<span>
-الأصول
-</span>
-
-</a>
-
-
-
-
-
-<a href="sync.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M17 1L21 5L17 9"></path>
-<path d="M3 11V9C3 6 5 5 7 5H21"></path>
-</svg>
-
-<span>
-التزامن
-</span>
-
-</a>
-
-
-
-
-
-<a href="team.html">
-
-<svg viewBox="0 0 24 24">
-<circle cx="12" cy="8" r="4"></circle>
-<path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"></path>
-</svg>
-
-<span>
-الفريق
-</span>
-
-</a>
-
-
-</nav>
-
-
-
-
-
-</div>
-
-
-
-
-
+<div id="bottomNav"></div>
 
 <script src="js/language.js"></script>
 
-
 <script>
 
-
-if(typeof applyLanguage === "function"){
-
+if(typeof applyLanguage==="function"){
 applyLanguage();
-
 }
 
-
-
-
 function uploadImage(inputId,previewId,boxId,buttonId){
-
 
 let input=document.getElementById(inputId);
 
@@ -308,16 +164,11 @@ let box=document.getElementById(boxId);
 
 let button=document.getElementById(buttonId);
 
-
-
 input.onchange=function(){
-
 
 let file=this.files[0];
 
-
 if(file){
-
 
 preview.src=URL.createObjectURL(file);
 
@@ -327,17 +178,11 @@ box.style.display="none";
 
 button.style.display="block";
 
-
 }
-
 
 };
 
-
-
-
 button.onclick=function(){
-
 
 input.value="";
 
@@ -349,13 +194,9 @@ box.style.display="flex";
 
 button.style.display="none";
 
-
 };
 
-
 }
-
-
 
 uploadImage(
 "idInput",
@@ -364,22 +205,35 @@ uploadImage(
 "idChange"
 );
 
-
-
 uploadImage(
+"faceInput",
+"facePreview",
+"idBox",
+"idChange"
+);
+  uploadImage(
 "faceInput",
 "facePreview",
 "faceBox",
 "faceChange"
 );
 
+fetch("components/bottom-nav.html")
+.then(response => response.text())
+.then(data => {
 
+document.getElementById("bottomNav").innerHTML = data;
+
+})
+.catch(error => {
+
+console.log("Bottom Nav Error:", error);
+
+});
 
 </script>
 
-
-
-
+</div>
 
 </body>
 
