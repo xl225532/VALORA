@@ -709,3 +709,29 @@ stroke:#1687FF;
 filter:drop-shadow(0 0 8px #1687FF);
 
 }
+.order-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:16px;
+
+padding:15px;
+
+margin-bottom:10px;
+
+display:flex;
+
+justify-content:space-between;
+
+font-size:13px;
+
+}
+
+
+.success-text{
+
+color:#22C55E;
+
+} 
