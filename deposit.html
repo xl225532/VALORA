@@ -9,10 +9,13 @@
 
 <title>VALORA | الإيداع</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/deposit.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -26,7 +29,9 @@
 <header class="deposit-header">
 
 <div class="deposit-logo">
+
 VALORA
+
 </div>
 
 </header>
@@ -35,24 +40,35 @@ VALORA
 
 
 
+
+
 <section class="deposit-title">
 
+
 <div class="deposit-icon">
+
 ↓
+
 </div>
 
 
+
 <h2>
+
 إيداع العملات
+
 </h2>
 
 
+
 <p>
-اختر العملة والشبكة للإيداع
+
+اختر العملة والشبكة وأدخل مبلغ الإيداع
+
 </p>
 
-</section>
 
+</section>
 
 
 
@@ -66,16 +82,35 @@ VALORA
 
 <button class="deposit-coin active" onclick="selectCoin('USDT',this)">
 
+
 <div class="deposit-coin-icon usdt">
+
 ₮
+
 </div>
+
 
 <div>
-<strong>USDT</strong>
-<small>Tether</small>
+
+<strong>
+
+USDT
+
+</strong>
+
+
+<small>
+
+Tether
+
+</small>
+
+
 </div>
 
+
 </button>
+
 
 
 
@@ -84,16 +119,35 @@ VALORA
 
 <button class="deposit-coin" onclick="selectCoin('BTC',this)">
 
+
 <div class="deposit-coin-icon btc">
+
 ₿
+
 </div>
+
 
 <div>
-<strong>BTC</strong>
-<small>Bitcoin</small>
+
+<strong>
+
+BTC
+
+</strong>
+
+
+<small>
+
+Bitcoin
+
+</small>
+
+
 </div>
 
+
 </button>
+
 
 
 
@@ -102,16 +156,35 @@ VALORA
 
 <button class="deposit-coin" onclick="selectCoin('ETH',this)">
 
+
 <div class="deposit-coin-icon eth">
+
 ◆
+
 </div>
+
 
 <div>
-<strong>ETH</strong>
-<small>Ethereum</small>
+
+<strong>
+
+ETH
+
+</strong>
+
+
+<small>
+
+Ethereum
+
+</small>
+
+
 </div>
 
+
 </button>
+
 
 
 
@@ -120,26 +193,84 @@ VALORA
 
 <button class="deposit-coin" onclick="selectCoin('TRX',this)">
 
+
 <div class="deposit-coin-icon trx">
+
 TRX
+
 </div>
 
+
 <div>
-<strong>TRX</strong>
-<small>TRON</small>
+
+<strong>
+
+TRX
+
+</strong>
+
+
+<small>
+
+TRON
+
+</small>
+
+
 </div>
+
 
 </button>
 
 
 
+
 </section>
+
+
+
+
+
+
+
 <section class="deposit-card">
 
 
+
 <h3>
-شبكة الإيداع
+
+مبلغ الإيداع
+
 </h3>
+
+
+
+<div class="amount-box">
+
+
+<input
+
+type="number"
+
+id="depositAmount"
+
+placeholder="أدخل مبلغ USDT">
+
+
+</div>
+
+
+
+
+
+
+
+<h3>
+
+شبكة الإيداع
+
+</h3>
+
 
 
 <div class="network-buttons" id="networkBox">
@@ -152,9 +283,14 @@ TRX
 
 
 
+
 <h3>
+
 عنوان الإيداع
+
 </h3>
+
+
 
 
 
@@ -162,10 +298,12 @@ TRX
 <div class="address-area">
 
 
-<input 
+<input
+
 type="text"
+
 id="depositAddress"
-value=""
+
 readonly>
 
 
@@ -177,8 +315,8 @@ readonly>
 </button>
 
 
-
 </div>
+
 
 
 
@@ -187,14 +325,70 @@ readonly>
 
 <div class="deposit-warning">
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.  
-إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
+
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
+
 
 <br><br>
 
+
 الحد الأدنى للإيداع: 100 USDT
 
+
 </div>
+
+
+
+
+
+
+
+<button class="confirm-deposit" onclick="submitDeposit()">
+
+
+تأكيد طلب الإيداع
+
+
+</button>
+
+
+
+</section>
+<!-- مبلغ الإيداع -->
+
+<section class="deposit-card">
+
+
+<h3>
+مبلغ الإيداع
+</h3>
+
+
+
+<div class="amount-area">
+
+
+<input
+
+type="number"
+
+id="depositAmount"
+
+placeholder="أدخل المبلغ USDT"
+
+>
+
+
+</div>
+
+
+
+
+<button class="confirm-deposit" onclick="submitDeposit()">
+
+تأكيد طلب الإيداع
+
+</button>
 
 
 
@@ -202,9 +396,27 @@ readonly>
 
 
 
+
+
+
+<section class="deposit-warning">
+
+⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
+
+<br><br>
+
+إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
+
+<br><br>
+
+الحد الأدنى للإيداع: 100 USDT
+
+</section>
+
+
+
+
 </div>
-
-
 
 
 
@@ -253,36 +465,52 @@ TRX:[
 
 
 
-
 let addresses={
 
 
 USDT:{
 
-TRC20:"TXXXXXXXXXXXXXXXXXXXXXXXX",
 
-ERC20:"0xUSDTXXXXXXXXXXXXXXXX"
+TRC20:
+"TXXXXXXXXXXXXXXXXXXXXXXXX",
+
+
+ERC20:
+"0xUSDTXXXXXXXXXXXXXXXX"
+
 
 },
+
 
 
 BTC:{
 
-Bitcoin:"bc1BTCXXXXXXXXXXXXXXXX"
+
+Bitcoin:
+"bc1BTCXXXXXXXXXXXXXXXX"
+
 
 },
+
 
 
 ETH:{
 
-ERC20:"0xETHXXXXXXXXXXXXXXXX"
+
+ERC20:
+"0xETHXXXXXXXXXXXXXXXX"
+
 
 },
 
 
+
 TRX:{
 
-TRC20:"TXTRONXXXXXXXXXXXXXXXX"
+
+TRC20:
+"TXTRONXXXXXXXXXXXXXXXX"
+
 
 }
 
@@ -318,7 +546,10 @@ loadNetworks();
 updateAddress();
 
 
+
 }
+
+
 
 
 
@@ -329,7 +560,9 @@ updateAddress();
 function loadNetworks(){
 
 
-let box=document.getElementById("networkBox");
+let box =
+document.getElementById("networkBox");
+
 
 
 box.innerHTML="";
@@ -342,9 +575,7 @@ coinNetworks[currentCoin].forEach((network,index)=>{
 let btn=document.createElement("button");
 
 
-
 btn.className="network";
-
 
 
 btn.innerText=network;
@@ -389,6 +620,7 @@ box.appendChild(btn);
 
 
 
+
 function selectNetwork(button,network){
 
 
@@ -408,8 +640,8 @@ button.classList.add("active");
 updateAddress();
 
 
-
 }
+
 
 
 
@@ -425,6 +657,8 @@ addresses[currentCoin][currentNetwork];
 
 
 }
+
+
 
 
 
@@ -455,14 +689,38 @@ alert("تم نسخ عنوان الإيداع");
 
 
 
-loadNetworks();
-
-updateAddress();
 
 
-</script>
+function submitDeposit(){
 
 
-</body>
 
-</html>
+let amount =
+Number(document.getElementById("depositAmount").value);
+
+
+
+if(amount < 100){
+
+
+alert("الحد الأدنى للإيداع 100 USDT");
+
+
+return;
+
+
+}
+
+
+
+
+let deposit={
+
+
+coin:currentCoin,
+
+
+network:currentNetwork,
+
+
+amount
