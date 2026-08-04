@@ -9,17 +9,24 @@
 
 <title>VALORA | السحب</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/withdraw.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
+
 
 
 <body class="valora-withdraw">
 
 
+
 <div class="withdraw-container">
+
+
 
 
 
@@ -27,12 +34,17 @@
 
 
 <a href="javascript:history.back()" class="back-btn">
+
 ‹
+
 </a>
 
 
+
 <div class="withdraw-logo">
+
 VALORA
+
 </div>
 
 
@@ -43,26 +55,35 @@ VALORA
 
 
 
+
 <section class="withdraw-title">
 
 
 <div class="withdraw-icon">
+
 ↑
+
 </div>
 
 
+
 <h2>
+
 سحب العملات
+
 </h2>
 
 
+
 <p>
-اختر العملة والشبكة للسحب
+
+اختر العملة والشبكة وأدخل بيانات السحب
+
 </p>
 
 
-</section>
 
+</section>
 
 
 
@@ -73,25 +94,39 @@ VALORA
 <section class="withdraw-coins">
 
 
+
 <button class="withdraw-coin active" onclick="selectCoin('USDT',this)">
 
 
 <div class="coin-circle usdt-circle">
+
 ₮
+
 </div>
 
 
+<div>
+
 <strong>
+
 USDT
+
 </strong>
 
 
 <small>
+
 Tether
+
 </small>
 
 
+</div>
+
+
 </button>
+
+
 
 
 
@@ -101,21 +136,34 @@ Tether
 
 
 <div class="coin-circle btc-circle">
+
 ₿
+
 </div>
 
 
+<div>
+
 <strong>
+
 BTC
+
 </strong>
 
 
 <small>
+
 Bitcoin
+
 </small>
 
 
+</div>
+
+
 </button>
+
+
 
 
 
@@ -125,21 +173,34 @@ Bitcoin
 
 
 <div class="coin-circle eth-circle">
+
 ◆
+
 </div>
 
 
+<div>
+
 <strong>
+
 ETH
+
 </strong>
 
 
 <small>
+
 Ethereum
+
 </small>
 
 
+</div>
+
+
 </button>
+
+
 
 
 
@@ -149,21 +210,34 @@ Ethereum
 
 
 <div class="coin-circle trx-circle">
+
 TRX
+
 </div>
 
 
+<div>
+
 <strong>
+
 TRX
+
 </strong>
 
 
 <small>
+
 TRON
+
 </small>
 
 
+</div>
+
+
 </button>
+
+
 
 
 
@@ -175,17 +249,23 @@ TRON
 
 
 
-
 <section class="withdraw-card">
 
 
+
+
+
 <h3>
+
 شبكة السحب
+
 </h3>
 
 
 
+
 <div class="network-buttons" id="withdrawNetworkBox">
+
 
 </div>
 
@@ -193,9 +273,15 @@ TRON
 
 
 
+
+
 <h3>
+
 عنوان محفظة السحب
+
 </h3>
+
+
 
 
 
@@ -217,12 +303,17 @@ placeholder="أدخل عنوان المحفظة">
 
 
 
+
+
+<h3>
+
+مبلغ السحب
+
+</h3>
+
+
+
 <div class="withdraw-input">
-
-
-<label>
-المبلغ
-</label>
 
 
 <input
@@ -234,32 +325,23 @@ type="number"
 placeholder="أدخل المبلغ">
 
 
-
-<div class="fee-note">
-
-رسوم السحب:
-
-<br>
-
-قبل تحقيق شرط التضعيف: 20%
-
-<br>
-
-بعد تحقيق شرط التضعيف: 5%
-
 </div>
 
 
-</div>
-<!-- رمز الأمان -->
+
+
+
+
+
+<h3>
+
+رمز أمان السحب
+
+</h3>
+
+
 
 <div class="withdraw-input">
-
-
-<label>
-🔐 رمز أمان السحب
-</label>
-
 
 
 <input
@@ -278,24 +360,24 @@ placeholder="أدخل رمز الأمان">
 
 
 
-
-<!-- معلومات السحب -->
-
-
 <div class="withdraw-info">
-
 
 
 <div>
 
 <span>
+
 الحد الأدنى
+
 </span>
 
 
 <strong>
+
 50 USDT
+
 </strong>
+
 
 </div>
 
@@ -306,13 +388,18 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
-العمولة
+
+الرسوم
+
 </span>
 
 
 <strong id="feeAmount">
+
 20%
+
 </strong>
+
 
 </div>
 
@@ -323,13 +410,18 @@ placeholder="أدخل رمز الأمان">
 <div>
 
 <span>
+
 المستلم
+
 </span>
 
 
 <strong id="receiveAmount">
+
 0.00 USDT
+
 </strong>
+
 
 </div>
 
@@ -348,28 +440,24 @@ placeholder="أدخل رمز الأمان">
 تأكيد السحب
 
 </button>
-
-
-
-
-
-
-
 <div id="successBox" class="withdraw-status success">
 
 
 <h3>
+
 ✓ تم إرسال طلب السحب
+
 </h3>
 
 
 <p>
-السحب قيد المعالجة
+
+السحب قيد المراجعة
+
 </p>
 
 
 </div>
-
 
 
 
@@ -380,17 +468,20 @@ placeholder="أدخل رمز الأمان">
 
 
 <h3>
-× رفض السحب
+
+× تعذر تنفيذ السحب
+
 </h3>
 
 
 <p>
-يرجى إدخال البيانات كاملة
+
+يرجى التأكد من البيانات
+
 </p>
 
 
 </div>
-
 
 
 
@@ -405,7 +496,12 @@ placeholder="أدخل رمز الأمان">
 
 
 
+
+
+
 </section>
+
+
 
 
 
@@ -418,37 +514,76 @@ placeholder="أدخل رمز الأمان">
 
 <a href="dashboard.html">
 
-⌂
 
-<br>
+<svg viewBox="0 0 24 24">
+
+<path d="M3 11L12 3L21 11"></path>
+
+<path d="M5 10V21H19V10"></path>
+
+<path d="M9 21V14H15V21"></path>
+
+</svg>
+
+
+<span>
 
 الرئيسية
 
+</span>
+
+
 </a>
+
+
 
 
 
 
 <a href="wallet.html">
 
-▣
 
-<br>
+<svg viewBox="0 0 24 24">
 
-المحفظة
+<path d="M3 7H18C19 7 21 8 21 10V18C21 19 20 20 19 20H5C4 20 3 19 3 18V7Z"></path>
+
+<path d="M16 13H21"></path>
+
+</svg>
+
+
+<span>
+
+الأصول
+
+</span>
+
 
 </a>
 
 
 
 
+
+
 <a href="team.html">
 
-♟
 
-<br>
+<svg viewBox="0 0 24 24">
+
+<circle cx="12" cy="8" r="4"></circle>
+
+<path d="M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21"></path>
+
+</svg>
+
+
+<span>
 
 الفريق
+
+</span>
+
 
 </a>
 
@@ -462,13 +597,24 @@ placeholder="أدخل رمز الأمان">
 
 
 
+
 </div>
+
+
+
+
+
+
+
 <script>
 
 
 let currentCoin = "USDT";
 
+
 let currentNetwork = "TRC20";
+
+
 
 
 
@@ -476,27 +622,37 @@ const coinNetworks = {
 
 
 USDT:[
+
 "TRC20",
+
 "ERC20"
+
 ],
 
 
 BTC:[
+
 "Bitcoin"
+
 ],
 
 
 ETH:[
+
 "ERC20"
+
 ],
 
 
 TRX:[
+
 "TRC20"
+
 ]
 
 
 };
+
 
 
 
@@ -511,11 +667,12 @@ currentCoin = coin;
 
 
 
-document
-.querySelectorAll(".withdraw-coin")
+document.querySelectorAll(".withdraw-coin")
 .forEach(btn=>{
 
+
 btn.classList.remove("active");
+
 
 });
 
@@ -530,6 +687,7 @@ loadNetworks();
 
 
 document.getElementById("receiveAmount").innerHTML =
+
 "0.00 "+coin;
 
 
@@ -546,6 +704,7 @@ function loadNetworks(){
 
 
 let box =
+
 document.getElementById("withdrawNetworkBox");
 
 
@@ -557,18 +716,14 @@ box.innerHTML="";
 coinNetworks[currentCoin].forEach((network,index)=>{
 
 
-
-let btn=document.createElement("button");
+let btn = document.createElement("button");
 
 
 
 btn.className="network";
 
 
-
 btn.innerText=network;
-
-
 
 
 
@@ -590,28 +745,18 @@ currentNetwork=network;
 btn.onclick=function(){
 
 
-
-document
-.querySelectorAll(".network")
-.forEach(x=>{
-
-x.classList.remove("active");
-
-});
+document.querySelectorAll(".network")
+.forEach(x=>x.classList.remove("active"));
 
 
 
 this.classList.add("active");
 
 
-
 currentNetwork=network;
 
 
-
 };
-
-
 
 
 
@@ -620,7 +765,6 @@ box.appendChild(btn);
 
 
 });
-
 
 
 }
@@ -633,24 +777,20 @@ box.appendChild(btn);
 
 
 
-document
-.getElementById("withdrawAmount")
+document.getElementById("withdrawAmount")
 .addEventListener("input",function(){
 
 
 
-let amount =
-Number(this.value);
+let amount = Number(this.value);
 
 
 
-let fee =
-amount * 0.20;
+let fee = amount * 0.20;
 
 
 
-let receive =
-amount - fee;
+let receive = amount - fee;
 
 
 
@@ -662,10 +802,8 @@ receive = 0;
 
 
 
+document.getElementById("receiveAmount").innerHTML =
 
-document
-.getElementById("receiveAmount")
-.innerHTML =
 
 receive.toFixed(2)+" "+currentCoin;
 
@@ -686,16 +824,19 @@ function submitWithdraw(){
 
 
 let address =
+
 document.getElementById("withdrawAddress").value;
 
 
 
 let amount =
-document.getElementById("withdrawAmount").value;
+
+Number(document.getElementById("withdrawAmount").value);
 
 
 
 let pin =
+
 document.getElementById("withdrawPin").value;
 
 
@@ -712,13 +853,10 @@ document.getElementById("rejectBox").style.display="none";
 
 
 
-
-if(address==="" || amount==="" || pin===""){
-
+if(address==="" || amount < 50 || pin===""){
 
 
 document.getElementById("rejectBox").style.display="block";
-
 
 
 return;
@@ -731,8 +869,7 @@ return;
 
 
 
-
-let withdrawal={
+let withdrawal = {
 
 
 coin:currentCoin,
@@ -747,10 +884,10 @@ amount:amount,
 address:address,
 
 
-date:new Date().toLocaleString("ar-EG"),
+status:"بانتظار المراجعة",
 
 
-status:"pending"
+date:new Date().toLocaleString("ar-EG")
 
 
 };
@@ -762,7 +899,11 @@ status:"pending"
 
 let list =
 
-JSON.parse(localStorage.getItem("withdrawals")) || [];
+JSON.parse(
+
+localStorage.getItem("VALORA_WITHDRAWALS")
+
+) || [];
 
 
 
@@ -776,12 +917,11 @@ list.push(withdrawal);
 
 localStorage.setItem(
 
-"withdrawals",
+"VALORA_WITHDRAWALS",
 
 JSON.stringify(list)
 
 );
-
 
 
 
@@ -804,6 +944,8 @@ loadNetworks();
 
 
 </script>
+
+
 
 
 
