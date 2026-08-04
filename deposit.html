@@ -41,7 +41,6 @@ VALORA
 
 
 
-
 <section class="deposit-title">
 
 
@@ -52,13 +51,11 @@ VALORA
 </div>
 
 
-
 <h2>
 
 إيداع العملات
 
 </h2>
-
 
 
 <p>
@@ -69,6 +66,7 @@ VALORA
 
 
 </section>
+
 
 
 
@@ -233,8 +231,8 @@ TRON
 
 
 
-<section class="deposit-card">
 
+<section class="deposit-card">
 
 
 <h3>
@@ -242,7 +240,6 @@ TRON
 مبلغ الإيداع
 
 </h3>
-
 
 
 <div class="amount-box">
@@ -254,7 +251,9 @@ type="number"
 
 id="depositAmount"
 
-placeholder="أدخل مبلغ USDT">
+placeholder="أدخل مبلغ الإيداع USDT"
+
+>
 
 
 </div>
@@ -283,14 +282,11 @@ placeholder="أدخل مبلغ USDT">
 
 
 
-
 <h3>
 
 عنوان الإيداع
 
 </h3>
-
-
 
 
 
@@ -305,7 +301,6 @@ type="text"
 id="depositAddress"
 
 readonly>
-
 
 
 <button onclick="copyDeposit()">
@@ -332,88 +327,13 @@ readonly>
 <br><br>
 
 
-الحد الأدنى للإيداع: 100 USDT
-
-
-</div>
-
-
-
-
-
-
-
-<button class="confirm-deposit" onclick="submitDeposit()">
-
-
-تأكيد طلب الإيداع
-
-
-</button>
-
-
-
-</section>
-<!-- مبلغ الإيداع -->
-
-<section class="deposit-card">
-
-
-<h3>
-مبلغ الإيداع
-</h3>
-
-
-
-<div class="amount-area">
-
-
-<input
-
-type="number"
-
-id="depositAmount"
-
-placeholder="أدخل المبلغ USDT"
-
->
-
-
-</div>
-
-
-
-
-<button class="confirm-deposit" onclick="submitDeposit()">
-
-تأكيد طلب الإيداع
-
-</button>
-
-
-
-</section>
-
-
-
-
-
-
-<section class="deposit-warning">
-
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
-
-<br><br>
-
 إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
 
+
 <br><br>
 
+
 الحد الأدنى للإيداع: 100 USDT
-
-</section>
-
-
 
 
 </div>
@@ -423,18 +343,30 @@ placeholder="أدخل المبلغ USDT"
 
 
 
+
+<button class="confirm-deposit" onclick="submitDeposit()">
+
+
+تأكيد طلب الإيداع
+
+
+</button>
+
+
+
+</section>
 <script>
 
 
-let currentCoin="USDT";
+let currentCoin = "USDT";
 
-let currentNetwork="TRC20";
-
-
+let currentNetwork = "TRC20";
 
 
 
-let coinNetworks={
+
+
+let coinNetworks = {
 
 
 USDT:[
@@ -465,7 +397,7 @@ TRX:[
 
 
 
-let addresses={
+let addresses = {
 
 
 USDT:{
@@ -524,15 +456,21 @@ TRC20:
 
 
 
+
+
 function selectCoin(coin,button){
 
 
-currentCoin=coin;
+currentCoin = coin;
 
 
 
 document.querySelectorAll(".deposit-coin")
-.forEach(btn=>btn.classList.remove("active"));
+.forEach(btn=>{
+
+btn.classList.remove("active");
+
+});
 
 
 
@@ -544,7 +482,6 @@ loadNetworks();
 
 
 updateAddress();
-
 
 
 }
@@ -565,33 +502,36 @@ document.getElementById("networkBox");
 
 
 
-box.innerHTML="";
+box.innerHTML = "";
 
 
 
 coinNetworks[currentCoin].forEach((network,index)=>{
 
 
-let btn=document.createElement("button");
-
-
-btn.className="network";
-
-
-btn.innerText=network;
+let btn =
+document.createElement("button");
 
 
 
-if(index===0){
+btn.className = "network";
+
+
+btn.innerText = network;
+
+
+
+if(index === 0){
 
 
 btn.classList.add("active");
 
 
-currentNetwork=network;
+currentNetwork = network;
 
 
 }
+
 
 
 
@@ -621,15 +561,22 @@ box.appendChild(btn);
 
 
 
+
 function selectNetwork(button,network){
 
 
-currentNetwork=network;
+currentNetwork = network;
 
 
 
 document.querySelectorAll(".network")
-.forEach(btn=>btn.classList.remove("active"));
+.forEach(btn=>{
+
+
+btn.classList.remove("active");
+
+
+});
 
 
 
@@ -649,10 +596,12 @@ updateAddress();
 
 
 
+
 function updateAddress(){
 
 
 document.getElementById("depositAddress").value =
+
 addresses[currentCoin][currentNetwork];
 
 
@@ -670,6 +619,7 @@ function copyDeposit(){
 
 
 let address =
+
 document.getElementById("depositAddress").value;
 
 
@@ -694,13 +644,15 @@ alert("تم نسخ عنوان الإيداع");
 function submitDeposit(){
 
 
-
 let amount =
-Number(document.getElementById("depositAmount").value);
+
+Number(
+document.getElementById("depositAmount").value
+);
 
 
 
-if(amount < 100){
+if(!amount || amount < 100){
 
 
 alert("الحد الأدنى للإيداع 100 USDT");
@@ -714,13 +666,103 @@ return;
 
 
 
-let deposit={
 
 
-coin:currentCoin,
+let deposit = {
 
 
-network:currentNetwork,
+coin: currentCoin,
 
 
-amount
+network: currentNetwork,
+
+
+amount: amount,
+
+
+address:
+addresses[currentCoin][currentNetwork],
+
+
+status:"بانتظار التأكيد",
+
+
+date:
+new Date().toLocaleString("ar-EG")
+
+
+};
+
+
+
+
+
+
+
+let deposits =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_DEPOSITS")
+
+) || [];
+
+
+
+
+
+deposits.push(deposit);
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_DEPOSITS",
+
+JSON.stringify(deposits)
+
+);
+
+
+
+
+
+alert("تم إرسال طلب الإيداع بنجاح");
+
+
+
+document.getElementById("depositAmount").value = "";
+
+
+
+}
+
+
+
+
+
+
+
+
+
+loadNetworks();
+
+updateAddress();
+
+
+
+</script>
+
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>
