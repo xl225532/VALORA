@@ -728,12 +728,19 @@ JSON.stringify(deposits)
 
 
 
-
 alert("تم إرسال طلب الإيداع بنجاح");
 
 
-
 document.getElementById("depositAmount").value = "";
+
+
+// الانتقال إلى سجل العمليات
+
+setTimeout(()=>{
+
+window.location.href="deposit-history.html";
+
+},1000);
 
 
 
