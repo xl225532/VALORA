@@ -15,6 +15,7 @@
 
 <link rel="stylesheet" href="css/wallet.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -42,6 +43,9 @@ VALORA
 
 
 
+
+<!-- إجمالي الأصول -->
+
 <section class="wallet-balance">
 
 
@@ -53,12 +57,14 @@ VALORA
 
 
 
-<div class="balance-value">
+<div class="balance-value" id="walletBalance">
 
 0.00
 
 <span>
+
 USDT
+
 </span>
 
 </div>
@@ -69,6 +75,12 @@ USDT
 
 
 
+
+
+
+
+
+<!-- الأرباح المنفصلة -->
 
 
 <section class="profit-grid">
@@ -77,6 +89,7 @@ USDT
 
 <div class="profit-card">
 
+
 <span data-lang="todayProfit">
 
 أرباح اليوم
@@ -84,11 +97,12 @@ USDT
 </span>
 
 
-<strong>
+<strong id="todayProfitWallet">
 
 +0.00 USDT
 
 </strong>
+
 
 </div>
 
@@ -97,7 +111,10 @@ USDT
 
 
 
+
+
 <div class="profit-card">
+
 
 <span data-lang="inviteProfit">
 
@@ -106,11 +123,12 @@ USDT
 </span>
 
 
-<strong>
+<strong id="inviteProfitWallet">
 
 0.00 USDT
 
 </strong>
+
 
 </div>
 
@@ -119,7 +137,10 @@ USDT
 
 
 
+
+
 <div class="profit-card">
+
 
 <span data-lang="teamProfit">
 
@@ -128,13 +149,16 @@ USDT
 </span>
 
 
-<strong>
+<strong id="teamProfitWallet">
 
 0.00 USDT
 
 </strong>
 
+
 </div>
+
+
 
 
 
@@ -143,6 +167,7 @@ USDT
 
 <div class="profit-card">
 
+
 <span data-lang="rewardProfit">
 
 أرباح المكافآت
@@ -150,13 +175,15 @@ USDT
 </span>
 
 
-<strong>
+<strong id="rewardProfitWallet">
 
 0.00 USDT
 
 </strong>
 
+
 </div>
+
 
 
 
@@ -164,6 +191,9 @@ USDT
 
 
 
+
+
+<!-- أزرار العمليات -->
 
 
 <section class="wallet-actions">
@@ -222,6 +252,12 @@ USDT
 
 
 
+
+
+
+<!-- سجل العمليات -->
+
+
 <section class="wallet-history">
 
 
@@ -230,11 +266,15 @@ USDT
 
 <svg viewBox="0 0 24 24">
 
+
 <rect x="5" y="3" width="14" height="18" rx="2"></rect>
+
 
 <line x1="8" y1="8" x2="16" y2="8"></line>
 
+
 <line x1="8" y1="12" x2="16" y2="12"></line>
+
 
 <line x1="8" y1="16" x2="13" y2="16"></line>
 
@@ -255,7 +295,19 @@ USDT
 
 
 </section>
+
+
+
+
+
+
+
+
+<!-- الشريط السفلي -->
+
+
 <nav class="bottom-nav">
+
 
 
 <a href="dashboard.html">
@@ -358,10 +410,10 @@ USDT
 <svg viewBox="0 0 24 24">
 
 
-<path d="M12 4L14 8L18 8.5L15 12L16 17L12 14.5L8 17L9 12L5 8.5L10 8Z"></path>
+<circle cx="12" cy="8" r="4"></circle>
 
 
-<path d="M7 19H17"></path>
+<path d="M4 21C4 16.5 7.5 14 12 14C16.5 14 20 16.5 20 21"></path>
 
 
 </svg>
@@ -384,13 +436,22 @@ USDT
 
 
 
+
 </div>
 
 
 
 
 
+
+
+
+
 <script src="js/language.js"></script>
+
+
+<script src="js/wallet.js"></script>
+
 
 
 <script>
@@ -406,6 +467,5 @@ applyLanguage();
 
 
 </body>
-
 
 </html>
