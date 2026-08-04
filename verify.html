@@ -32,6 +32,7 @@
 
 </header>
 
+
 <section class="verify-card">
 
 <div class="verify-icon">
@@ -48,6 +49,8 @@
 
 </section>
 
+
+
 <section class="rules-card">
 
 <h3>
@@ -56,33 +59,49 @@
 
 <ul>
 
-<li>يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.</li>
+<li>
+يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
+</li>
 
-<li>يقبل جواز السفر أو بطاقة الهوية.</li>
+<li>
+يقبل جواز السفر أو بطاقة الهوية.
+</li>
 
-<li>يجب أن تكون الصورة واضحة.</li>
+<li>
+يجب أن تكون الصورة واضحة.
+</li>
 
-<li>يجب رفع صورة الوجه الحقيقية.</li>
+<li>
+يجب رفع صورة الوجه الحقيقية.
+</li>
 
 </ul>
 
 </section>
 
+
+
 <section class="upload-card">
+
 
 <h4>
 صورة الهوية أو جواز السفر
 </h4>
 
+
 <img id="idPreview" class="preview">
 
+
+
 <label class="upload-box" id="idBox">
+
 
 <input
 type="file"
 accept="image/*"
 capture="environment"
 id="idInput">
+
 
 <div>
 
@@ -94,29 +113,34 @@ id="idInput">
 
 </div>
 
+
 </label>
+
+
 
 <button class="change-btn" id="idChange">
 
 تغيير الصورة
 
 </button>
-
 <h4>
-
 صورة الوجه
-
 </h4>
+
 
 <img id="facePreview" class="preview">
 
+
+
 <label class="upload-box" id="faceBox">
+
 
 <input
 type="file"
 accept="image/*"
 capture="user"
 id="faceInput">
+
 
 <div>
 
@@ -128,7 +152,10 @@ id="faceInput">
 
 </div>
 
+
 </label>
+
+
 
 <button class="change-btn" id="faceChange">
 
@@ -136,25 +163,39 @@ id="faceInput">
 
 </button>
 
+
+
+
+
 <button class="submit-btn">
 
 إرسال للتحقق
 
 </button>
 
+
 </section>
+
+
+
+
 
 <div id="bottomNav"></div>
 
+
+
+
 <script src="js/language.js"></script>
+
 
 <script>
 
 if(typeof applyLanguage==="function"){
-applyLanguage();
-}
 
-function uploadImage(inputId,previewId,boxId,buttonId){
+applyLanguage();
+
+}
+  function uploadImage(inputId,previewId,boxId,buttonId){
 
 let input=document.getElementById(inputId);
 
@@ -164,9 +205,11 @@ let box=document.getElementById(boxId);
 
 let button=document.getElementById(buttonId);
 
+
 input.onchange=function(){
 
 let file=this.files[0];
+
 
 if(file){
 
@@ -182,6 +225,8 @@ button.style.display="block";
 
 };
 
+
+
 button.onclick=function(){
 
 input.value="";
@@ -196,7 +241,12 @@ button.style.display="none";
 
 };
 
+
 }
+
+
+
+
 
 uploadImage(
 "idInput",
@@ -205,33 +255,40 @@ uploadImage(
 "idChange"
 );
 
+
+
 uploadImage(
-"faceInput",
-"facePreview",
-"idBox",
-"idChange"
-);
-  uploadImage(
 "faceInput",
 "facePreview",
 "faceBox",
 "faceChange"
 );
 
+
+
+
+
 fetch("components/bottom-nav.html")
+
 .then(response => response.text())
+
 .then(data => {
 
 document.getElementById("bottomNav").innerHTML = data;
 
 })
+
 .catch(error => {
 
-console.log("Bottom Nav Error:", error);
+console.log("Bottom Nav Error:",error);
 
 });
 
+
+
 </script>
+
+
 
 </div>
 
