@@ -5,229 +5,623 @@ box-sizing:border-box;
 font-family:'Cairo',Arial,sans-serif;
 }
 
-body{
+
+html,body{
+
 background:#050B16;
-color:#fff;
+
+color:white;
+
 min-height:100vh;
+
+overflow-x:hidden;
+
 }
 
+
+
 .sync-page{
+
 max-width:480px;
+
 margin:auto;
-padding:18px 15px 30px;
+
+padding:18px 15px 110px;
+
 }
+
+
+
 
 /* HEADER */
 
+
 .sync-header{
-text-align:center;
-margin-bottom:20px;
-}
 
-.sync-brand{
-font-size:32px;
-font-weight:800;
-letter-spacing:3px;
-color:#EAF3FF;
-text-shadow:0 0 12px #1687FF;
-}
-
-/* العملات */
-
-.market-list{
 display:flex;
-flex-direction:column;
-gap:12px;
-margin-bottom:20px;
-}
 
-.market-card{
-background:#0B1628;
-border:1px solid #17365C;
-border-radius:18px;
-padding:15px;
-display:flex;
 justify-content:space-between;
+
 align-items:center;
-transition:.3s;
-}
 
-.market-card.active{
-border-color:#1687FF;
-box-shadow:0 0 12px rgba(22,135,255,.35);
-}
-
-.market-card strong{
-display:block;
-font-size:17px;
-}
-
-.market-card span{
-display:block;
-font-size:13px;
-color:#98A5B8;
-margin-top:3px;
-}
-
-.market-card b{
-font-size:17px;
-}
-
-.green{
-color:#22C55E;
-}
-
-.red{
-color:#EF4444;
-}
-/* كود الصفقة */
-
-.code-card{
-background:#0B1628;
-border:1px solid #17365C;
-border-radius:18px;
-padding:20px;
 margin-bottom:20px;
-text-align:center;
+
 }
 
-.code-card h2{
-font-size:20px;
-margin-bottom:10px;
+
+
+.logo{
+
+font-size:30px;
+
+font-weight:800;
+
+letter-spacing:2px;
+
+color:#EAF3FF;
+
+text-shadow:0 0 12px #1687FF;
+
 }
 
-.code-card p{
-color:#98A5B8;
-font-size:14px;
-margin-bottom:15px;
-}
 
-.code-card input{
-width:100%;
-height:52px;
-background:#071426;
-border:1px solid #17365C;
-border-radius:14px;
-padding:0 15px;
-color:white;
-font-size:15px;
-outline:none;
-transition:.3s;
-}
 
-.code-card input:focus{
-border-color:#1687FF;
-box-shadow:0 0 10px rgba(22,135,255,.25);
-}
+.server-status{
 
-.code-card button{
-width:100%;
-height:52px;
-margin-top:15px;
-background:#1687FF;
-border:none;
-border-radius:14px;
-color:white;
-font-size:16px;
-font-weight:bold;
-cursor:pointer;
-transition:.3s;
-}
-
-.code-card button:hover{
-background:#0E74E8;
-}
-
-#result{
-margin-top:15px;
-font-size:15px;
-font-weight:bold;
-min-height:20px;
-}
-
-/* آخر الصفقات */
-
-.orders-card{
 background:#0B1628;
+
 border:1px solid #17365C;
-border-radius:18px;
-padding:18px;
+
+border-radius:20px;
+
+padding:8px 14px;
+
+font-size:13px;
+
+display:flex;
+
+align-items:center;
+
+gap:8px;
+
 }
 
-.orders-card h2{
-font-size:20px;
-margin-bottom:15px;
+
+
+.online-dot{
+
+width:9px;
+
+height:9px;
+
+background:#22C55E;
+
+border-radius:50%;
+
+box-shadow:0 0 10px #22C55E;
+
 }
+
+
+
+
+
+/* HERO */
+
+
+.hero-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:20px;
+
+padding:20px;
+
+margin-bottom:15px;
+
+text-align:center;
+
+}
+
+
+
+.hero-card h2{
+
+font-size:22px;
+
+}
+
+
+
+.hero-card p{
+
+color:#98A5B8;
+
+font-size:14px;
+
+margin-top:8px;
+
+}
+
+
+
+
+
+/* COINS */
+
+
+.coins-slider{
+
+display:flex;
+
+gap:12px;
+
+overflow-x:auto;
+
+padding-bottom:8px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.coins-slider::-webkit-scrollbar{
+
+display:none;
+
+}
+
+
+
+.coin{
+
+min-width:95px;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:12px;
+
+text-align:center;
+
+transition:.3s;
+
+}
+
+
+
+.coin.active{
+
+border-color:#1687FF;
+
+box-shadow:0 0 15px #1687FF55;
+
+}
+
+
+
+.coin-icon{
+
+width:38px;
+
+height:38px;
+
+border-radius:50%;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+margin:auto;
+
+font-size:22px;
+
+font-weight:bold;
+
+}
+
+
+
+.btc{
+
+background:#F7931A;
+
+}
+
+
+.eth{
+
+background:#627EEA;
+
+}
+
+
+.sol{
+
+background:#9945FF;
+
+}
+
+
+.usdt{
+
+background:#26A17B;
+
+}
+
+
+.xrp{
+
+background:#2563EB;
+
+}
+
+
+
+.coin h4{
+
+margin-top:8px;
+
+font-size:14px;
+
+}
+
+
+
+.coin small{
+
+color:#22C55E;
+
+font-size:12px;
+
+}
+
+
+
+
+
+/* STATUS */
+
+
+.status-card{
+
+display:flex;
+
+justify-content:space-between;
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:18px;
+
+padding:15px;
+
+margin-bottom:15px;
+
+}
+
+
+
+.status-item{
+
+display:flex;
+
+flex-direction:column;
+
+gap:5px;
+
+}
+
+
+
+.status-item span{
+
+color:#98A5B8;
+
+font-size:12px;
+
+}
+
+
+
+.status-item strong{
+
+font-size:14px;
+
+}
+
+
+
+.online{
+
+color:#22C55E;
+
+}
+
+
+
+
+
+
+
+/* SYNC CARD */
+
+
+.sync-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:22px;
+
+padding:22px;
+
+text-align:center;
+
+}
+
+
+
+.sync-icon{
+
+width:65px;
+
+height:65px;
+
+border-radius:50%;
+
+background:#1687FF;
+
+display:flex;
+
+align-items:center;
+
+justify-content:center;
+
+font-size:32px;
+
+margin:auto;
+
+box-shadow:0 0 20px #1687FF;
+
+}
+
+
+
+.sync-card h2{
+
+margin-top:15px;
+
+}
+
+
+
+.sync-card p{
+
+color:#98A5B8;
+
+font-size:14px;
+
+margin:8px 0 18px;
+
+}
+
+
+
+
+
+/* INPUT */
+
+
+.input-box{
+
+height:55px;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:15px;
+
+display:flex;
+
+align-items:center;
+
+padding:0 15px;
+
+gap:10px;
+
+}
+
+
+
+.input-box input{
+
+width:100%;
+
+background:none;
+
+border:0;
+
+outline:none;
+
+color:white;
+
+font-size:15px;
+
+}
+
+
+
+.input-box:focus-within{
+
+border-color:#1687FF;
+
+box-shadow:0 0 10px #1687FF55;
+
+}
+
+
+
+
+
+
+
+/* BUTTON */
+
+
+.sync-btn{
+
+width:100%;
+
+height:55px;
+
+margin-top:18px;
+
+border:0;
+
+border-radius:16px;
+
+background:#1687FF;
+
+color:white;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px #1687FF55;
+
+transition:.3s;
+
+}
+
+
+
+.sync-btn:active{
+
+transform:scale(.97);
+
+}
+
+
+
+
+
+/* RESULT */
+
+
+#resultBox{
+
+margin-top:15px;
+
+border-radius:15px;
+
+font-size:14px;
+
+}
+
+
+
+.success{
+
+background:#052E16;
+
+border:1px solid #22C55E;
+
+color:#22C55E;
+
+padding:15px;
+
+}
+
+
+
+.error{
+
+background:#450A0A;
+
+border:1px solid #EF4444;
+
+color:#EF4444;
+
+padding:15px;
+
+}
+
+
+
+
+
+
+
+/* ORDERS */
+
+
+.orders-section{
+
+margin-top:18px;
+
+}
+
+
+
+.section-title{
+
+font-size:18px;
+
+font-weight:bold;
+
+margin-bottom:12px;
+
+}
+
+
 
 .empty-order{
-background:#071426;
-border:1px dashed #17365C;
-border-radius:14px;
-padding:25px;
-text-align:center;
-color:#98A5B8;
-}
 
-.order-item{
-display:flex;
-justify-content:space-between;
-align-items:center;
-background:#071426;
+background:#0B1628;
+
 border:1px solid #17365C;
-border-radius:14px;
-padding:14px;
-margin-bottom:12px;
-}
 
-.order-item:last-child{
-margin-bottom:0;
-}
+border-radius:16px;
 
-.order-item strong{
-font-size:15px;
-color:#fff;
-}
+padding:20px;
 
-.order-item span{
-display:block;
-font-size:12px;
+text-align:center;
+
 color:#98A5B8;
-margin-top:4px;
-}
-
-@media(max-width:480px){
-
-.sync-page{
-padding:16px 14px 25px;
-}
-
-.sync-brand{
-font-size:28px;
-}
-
-.market-card{
-padding:13px;
-}
-
-.market-card strong{
-font-size:15px;
-}
-
-.market-card b{
-font-size:15px;
-}
-
-.code-card h2,
-.orders-card h2{
-font-size:18px;
-}
-
-.code-card input,
-.code-card button{
-height:50px;
-}
 
 }
+
+
+
+
+.bottom-space{
+
+height:20px;
+
+}
+
+
+
+
+
+/* BOTTOM NAV */
+
+
 .bottom-nav{
 
 position:fixed;
@@ -238,9 +632,9 @@ left:50%;
 
 transform:translateX(-50%);
 
-max-width:480px;
-
 width:100%;
+
+max-width:480px;
 
 height:78px;
 
@@ -270,8 +664,6 @@ text-decoration:none;
 
 font-size:12px;
 
-text-align:center;
-
 display:flex;
 
 flex-direction:column;
@@ -297,10 +689,17 @@ fill:none;
 stroke-width:2;
 
 }
+
+
+
 .bottom-nav .active{
+
 color:#1687FF;
+
 text-shadow:0 0 10px #1687FF;
+
 }
+
 
 
 .bottom-nav .active svg{
@@ -309,4 +708,4 @@ stroke:#1687FF;
 
 filter:drop-shadow(0 0 8px #1687FF);
 
-} 
+}
