@@ -9,12 +9,12 @@
 
 <title>VALORA | التزامن بالصفقة</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/sync.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -39,10 +39,6 @@ VALORA
 
 
 
-
-<!-- العملات مع السعر -->
-
-
 <section class="market-list">
 
 
@@ -52,15 +48,11 @@ VALORA
 <div>
 
 <strong>
-
 BTC
-
 </strong>
 
 <span>
-
 Bitcoin
-
 </span>
 
 </div>
@@ -69,19 +61,14 @@ Bitcoin
 <div>
 
 <b>
-
 $70340.51
-
 </b>
 
 <small class="green">
-
 +2.34%
-
 </small>
 
 </div>
-
 
 </div>
 
@@ -94,15 +81,11 @@ $70340.51
 <div>
 
 <strong>
-
 ETH
-
 </strong>
 
 <span>
-
 Ethereum
-
 </span>
 
 </div>
@@ -111,19 +94,14 @@ Ethereum
 <div>
 
 <b>
-
 $3820.20
-
 </b>
 
 <small class="red">
-
 -0.87%
-
 </small>
 
 </div>
-
 
 </div>
 
@@ -136,15 +114,11 @@ $3820.20
 <div>
 
 <strong>
-
 BNB
-
 </strong>
 
 <span>
-
 BNB
-
 </span>
 
 </div>
@@ -153,19 +127,14 @@ BNB
 <div>
 
 <b>
-
 $610.40
-
 </b>
 
 <small class="green">
-
 +1.12%
-
 </small>
 
 </div>
-
 
 </div>
 
@@ -178,15 +147,11 @@ $610.40
 <div>
 
 <strong>
-
 SOL
-
 </strong>
 
 <span>
-
 Solana
-
 </span>
 
 </div>
@@ -195,19 +160,14 @@ Solana
 <div>
 
 <b>
-
 $178.20
-
 </b>
 
 <small class="green">
-
 +3.55%
-
 </small>
 
 </div>
-
 
 </div>
 
@@ -220,15 +180,11 @@ $178.20
 <div>
 
 <strong>
-
 XRP
-
 </strong>
 
 <span>
-
 Ripple
-
 </span>
 
 </div>
@@ -237,19 +193,14 @@ Ripple
 <div>
 
 <b>
-
 $0.62
-
 </b>
 
 <small class="red">
-
 -1.23%
-
 </small>
 
 </div>
-
 
 </div>
 
@@ -261,38 +212,23 @@ $0.62
 
 
 
-
-
-<!-- كود الصفقة -->
-
-
 <section class="code-card">
 
 
 <h2>
-
 التزامن بالصفقة
-
 </h2>
 
 
-
 <p>
-
 أدخل كود الصفقة للتحقق
-
 </p>
 
 
-
 <input
-
 type="text"
-
 id="tradeCode"
-
 placeholder="كود الصفقة">
-
 
 
 <button onclick="checkTrade()">
@@ -302,23 +238,20 @@ placeholder="كود الصفقة">
 </button>
 
 
-
 <div id="result"></div>
 
 
 </section>
-<!-- آخر الصفقات -->
+
+
 
 
 <section class="orders-card">
 
 
 <h2>
-
 آخر الصفقات
-
 </h2>
-
 
 
 <div id="ordersList">
@@ -334,35 +267,14 @@ placeholder="كود الصفقة">
 </div>
 
 
-
 </section>
-
-
-
-
-
-
-
-</div>
-
-
-
-
-
-
-
-
 <script>
-
-
-// التحقق من كود الصفقة
 
 
 function checkTrade(){
 
 
 let code = document.getElementById("tradeCode").value;
-
 
 let result = document.getElementById("result");
 
@@ -372,12 +284,10 @@ if(code.length >= 5){
 
 
 result.innerHTML =
-
 "✅ تم التحقق من الصفقة";
 
 
 result.style.color="#22C55E";
-
 
 
 saveTrade(code);
@@ -388,7 +298,6 @@ saveTrade(code);
 
 
 result.innerHTML =
-
 "❌ كود الصفقة غير صحيح";
 
 
@@ -406,11 +315,7 @@ result.style.color="#EF4444";
 
 
 
-// حفظ آخر الصفقات
-
-
 function saveTrade(code){
-
 
 
 let trades = JSON.parse(localStorage.getItem("trades")) || [];
@@ -459,20 +364,13 @@ loadTrades();
 
 
 
-
-// عرض الصفقات
-
-
 function loadTrades(){
-
 
 
 let box=document.getElementById("ordersList");
 
 
-
 let trades = JSON.parse(localStorage.getItem("trades")) || [];
-
 
 
 
@@ -495,13 +393,11 @@ return;
 
 
 
-
 box.innerHTML="";
 
 
 
 trades.reverse().forEach(function(item){
-
 
 
 box.innerHTML += `
@@ -570,10 +466,7 @@ ${item.status}
 });
 
 
-
 }
-
-
 
 
 
@@ -582,47 +475,6 @@ loadTrades();
 
 
 </script>
-
-
-<nav class="bottom-nav">
-
-<a href="dashboard.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M3 11L12 3L21 11"></path>
-<path d="M5 10V21H19V10"></path>
-</svg>
-
-<span>
-الرئيسية
-</span>
-
-</a>
-
-
-
-<a href="wallet.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M3 7H18C19 7 21 8 21 10V18C21 19 20 20 19 20H5C4 20 3 19 3 18V7"></path>
-</svg>
-
-<span>
-الأصول
-</span>
-
-</a>
-
-
-
-<a href="sync.html">
-
-<svg viewBox="0 0 24 24">
-<path d="M17 1L21 5L17 9"></path>
-<path d="M3 11V9C3 6 5 5 7 5H21"></path>
-</svg>
-
-<span>
 <nav class="bottom-nav">
 
 
@@ -666,7 +518,7 @@ loadTrades();
 
 
 
-<a href="sync.html">
+<a href="sync.html" class="active">
 
 <svg viewBox="0 0 24 24">
 
@@ -689,7 +541,6 @@ loadTrades();
 
 
 
-
 <a href="team.html">
 
 <svg viewBox="0 0 24 24">
@@ -708,6 +559,10 @@ loadTrades();
 
 
 </nav>
+
+
+</div>
+
 
 </body>
 
