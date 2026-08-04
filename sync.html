@@ -7,238 +7,239 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | التزامن بالصفقة</title>
+<title>VALORA | التزامن الذكي</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 <link rel="stylesheet" href="css/sync.css">
-
 <link rel="stylesheet" href="css/background.css">
 
 </head>
 
-
 <body>
-
 
 <div class="sync-page">
 
-
+<!-- HEADER -->
 
 <header class="sync-header">
 
-<div class="sync-brand">
+<div class="logo">
 
 VALORA
 
 </div>
 
+<div class="server-status">
+
+<span class="online-dot"></span>
+
+متصل
+
+</div>
+
 </header>
 
+<!-- TITLE -->
 
+<section class="hero-card">
 
+<h2>
 
+التزامن الذكي
 
-<section class="market-list">
+</h2>
 
+<p>
 
+قم بمزامنة صفقاتك بسهولة وأمان
 
-<div class="market-card active">
-
-<div>
-
-<strong>
-BTC
-</strong>
-
-<span>
-Bitcoin
-</span>
-
-</div>
-
-
-<div>
-
-<b>
-$70340.51
-</b>
-
-<small class="green">
-+2.34%
-</small>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="market-card">
-
-<div>
-
-<strong>
-ETH
-</strong>
-
-<span>
-Ethereum
-</span>
-
-</div>
-
-
-<div>
-
-<b>
-$3820.20
-</b>
-
-<small class="red">
--0.87%
-</small>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="market-card">
-
-<div>
-
-<strong>
-BNB
-</strong>
-
-<span>
-BNB
-</span>
-
-</div>
-
-
-<div>
-
-<b>
-$610.40
-</b>
-
-<small class="green">
-+1.12%
-</small>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="market-card">
-
-<div>
-
-<strong>
-SOL
-</strong>
-
-<span>
-Solana
-</span>
-
-</div>
-
-
-<div>
-
-<b>
-$178.20
-</b>
-
-<small class="green">
-+3.55%
-</small>
-
-</div>
-
-</div>
-
-
-
-
-
-<div class="market-card">
-
-<div>
-
-<strong>
-XRP
-</strong>
-
-<span>
-Ripple
-</span>
-
-</div>
-
-
-<div>
-
-<b>
-$0.62
-</b>
-
-<small class="red">
--1.23%
-</small>
-
-</div>
-
-</div>
-
-
+</p>
 
 </section>
 
+<!-- COINS -->
+
+<section class="coins-slider">
+
+<div class="coin active">
+
+<div class="coin-icon btc">
+
+₿
+
+</div>
+
+<h4>BTC</h4>
+
+<small>+2.34%</small>
+
+</div>
+
+<div class="coin">
+
+<div class="coin-icon eth">
+
+Ξ
+
+</div>
+
+<h4>ETH</h4>
+
+<small>-0.84%</small>
+
+</div>
+
+<div class="coin">
+
+<div class="coin-icon sol">
+
+◎
+
+</div>
+
+<h4>SOL</h4>
+
+<small>+3.17%</small>
+
+</div>
+
+<div class="coin">
+
+<div class="coin-icon usdt">
+
+₮
+
+</div>
+
+<h4>USDT</h4>
+
+<small>0.00%</small>
+
+</div>
+
+<div class="coin">
+
+<div class="coin-icon xrp">
+
+✕</div>
+
+<h4>XRP</h4>
+
+<small>+1.25%</small>
+
+</div>
+
+</section>
+
+<!-- STATUS -->
+
+<section class="status-card">
+
+<div class="status-item">
+
+<span>
+
+آخر مزامنة
+
+</span>
+
+<strong>
+
+قبل 8 ثوان
+
+</strong>
+
+</div>
+
+<div class="status-item">
+
+<span>
+
+الخادم
+
+</span>
+
+<strong class="online">
+
+متصل
+
+</strong>
+
+</div>
+
+</section>
+<!-- TRADE SYNC CARD -->
+
+<section class="sync-card">
 
 
+<div class="sync-icon">
 
+🔄
 
-<section class="code-card">
+</div>
 
 
 <h2>
-التزامن بالصفقة
+
+مزامنة الصفقة
+
 </h2>
 
 
 <p>
-أدخل كود الصفقة للتحقق
+
+أدخل كود الصفقة للمتابعة
+
 </p>
 
 
+
+
+<div class="input-box">
+
+
+<span>
+
+🔑
+
+</span>
+
+
 <input
+
 type="text"
+
 id="tradeCode"
-placeholder="كود الصفقة">
+
+placeholder="أدخل كود الصفقة">
 
 
-<button onclick="checkTrade()">
+</div>
+
+
+
+
+
+<button class="sync-btn" onclick="checkTrade()">
+
+
+<span>
 
 تحقق
+
+</span>
+
 
 </button>
 
 
-<div id="result"></div>
+
+
+
+<div id="resultBox"></div>
+
 
 
 </section>
@@ -246,235 +247,56 @@ placeholder="كود الصفقة">
 
 
 
-<section class="orders-card">
 
 
-<h2>
+
+<!-- LAST ORDERS -->
+
+
+<section class="orders-section">
+
+
+<div class="section-title">
+
 آخر الصفقات
-</h2>
+
+</div>
+
 
 
 <div id="ordersList">
 
 
+
 <div class="empty-order">
 
-لا توجد صفقات
+لا توجد صفقات حالياً
 
 </div>
 
 
+
 </div>
+
 
 
 </section>
-<script>
 
 
-function checkTrade(){
 
 
-let code = document.getElementById("tradeCode").value;
 
-let result = document.getElementById("result");
 
 
+<!-- BOTTOM SPACE -->
 
-if(code.length >= 5){
 
-
-result.innerHTML =
-"✅ تم التحقق من الصفقة";
-
-
-result.style.color="#22C55E";
-
-
-saveTrade(code);
-
-
-
-}else{
-
-
-result.innerHTML =
-"❌ كود الصفقة غير صحيح";
-
-
-result.style.color="#EF4444";
-
-
-}
-
-
-}
-
-
-
-
-
-
-
-function saveTrade(code){
-
-
-let trades = JSON.parse(localStorage.getItem("trades")) || [];
-
-
-
-let item = {
-
-
-coin:"BTC/USDT",
-
-code:code,
-
-date:new Date().toLocaleString("ar-EG"),
-
-status:"مكتملة"
-
-
-};
-
-
-
-trades.push(item);
-
-
-
-localStorage.setItem(
-
-"trades",
-
-JSON.stringify(trades)
-
-);
-
-
-
-loadTrades();
-
-
-
-}
-
-
-
-
-
-
-
-function loadTrades(){
-
-
-let box=document.getElementById("ordersList");
-
-
-let trades = JSON.parse(localStorage.getItem("trades")) || [];
-
-
-
-if(trades.length===0){
-
-
-box.innerHTML=`
-
-<div class="empty-order">
-
-لا توجد صفقات
-
-</div>
-
-`;
-
-return;
-
-}
-
-
-
-box.innerHTML="";
-
-
-
-trades.reverse().forEach(function(item){
-
-
-box.innerHTML += `
-
-
-<div class="order-item">
-
-
-<div>
-
-
-<strong>
-
-${item.coin}
-
-</strong>
-
-
-<br>
-
-
-<span>
-
-الكود: ${item.code}
-
-</span>
+<div class="bottom-space"></div>
 
 
 </div>
+<!-- BOTTOM NAV -->
 
-
-
-
-
-<div>
-
-
-<span>
-
-${item.date}
-
-</span>
-
-
-<br>
-
-
-<b class="green">
-
-${item.status}
-
-</b>
-
-
-</div>
-
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
-}
-
-
-
-loadTrades();
-
-
-
-</script>
 <nav class="bottom-nav">
 
 
@@ -518,6 +340,7 @@ loadTrades();
 
 
 
+
 <a href="sync.html" class="active">
 
 <svg viewBox="0 0 24 24">
@@ -541,13 +364,14 @@ loadTrades();
 
 
 
+
 <a href="team.html">
 
 <svg viewBox="0 0 24 24">
 
 <circle cx="12" cy="8" r="4"></circle>
 
-<path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"></path>
+<path d="M4 21C4 16 7 14 12 14C17 14 20 16 20 21"></path>
 
 </svg>
 
@@ -561,7 +385,10 @@ loadTrades();
 </nav>
 
 
-</div>
+
+
+
+<script src="js/sync.js"></script>
 
 
 </body>
