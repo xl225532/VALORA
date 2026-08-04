@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | سجل الإيداعات</title>
+
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/deposit-history.css">
+<link rel="stylesheet" href="css/background.css">
+
+
+</head>
+
+
+<body>
+
+
+<div class="history-container">
+
+
+
+
+
+<header class="history-header">
+
+
+<a href="wallet.html" class="back-btn">
+
+‹
+
+</a>
+
+
+<h2>
+
+سجل الإيداعات
+
+</h2>
+
+
+</header>
+
+
+
+
+
+
+
+<section class="history-summary">
+
+
+
+<div class="summary-box">
+
+
+<span>
+
+إجمالي الطلبات
+
+</span>
+
+
+<strong id="totalDeposit">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="summary-box">
+
+
+<span>
+
+المكتملة
+
+</span>
+
+
+<strong id="completedDeposit">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="summary-box">
+
+
+<span>
+
+قيد المراجعة
+
+</span>
+
+
+<strong id="pendingDeposit">
+
+0
+
+</strong>
+
+
+</div>
+
+
+
+</section>
+
+
+
+
+
+
+
+
+<section id="depositList" class="deposit-list">
+
+
+</section>
+
+
+
+
+
+
+<div id="emptyBox" class="empty-box">
+
+
+لا توجد عمليات إيداع
+
+
+</div>
+<script>
+
+
+let deposits =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_DEPOSITS")
+
+) || [];
+
+
+
+
+
+let listBox =
+
+document.getElementById("depositList");
+
+
+
+let emptyBox =
+
+document.getElementById("emptyBox");
+
+
+
+
+
+
+
+
+function loadDepositHistory(){
+
+
+
+document.getElementById("totalDeposit").innerHTML =
+
+deposits.length;
+
+
+
+
+
+
+
+let pending =
+
+deposits.filter(item =>
+
+item.status === "بانتظار التأكيد"
+
+).length;
+
+
+
+
+
+
+
+
+let completed =
+
+deposits.filter(item =>
+
+item.status === "مكتمل"
+
+).length;
+
+
+
+
+
+
+
+
+
+document.getElementById("pendingDeposit").innerHTML =
+
+pending;
+
+
+
+
+
+document.getElementById("completedDeposit").innerHTML =
+
+completed;
+
+
+
+
+
+
+
+
+
+if(deposits.length === 0){
+
+
+emptyBox.style.display="block";
+
+
+return;
+
+
+}
+
+
+
+
+
+emptyBox.style.display="none";
+
+
+
+listBox.innerHTML="";
+
+
+
+
+
+
+
+deposits.reverse().forEach(item=>{
+
+
+
+let card = document.createElement("div");
+
+
+
+card.className="deposit-card";
+
+
+
+
+
+
+
+let statusClass="pending";
+
+
+
+if(item.status==="مكتمل"){
+
+
+statusClass="success";
+
+
+}
+
+
+
+if(item.status==="مرفوض"){
+
+
+statusClass="reject";
+
+
+}
+
+
+
+
+
+
+
+card.innerHTML = `
+
+
+<div class="history-top">
+
+
+<strong>
+
+${item.coin}
+
+</strong>
+
+
+<span class="${statusClass}">
+
+${item.status}
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="history-row">
+
+<span>
+
+الشبكة
+
+</span>
+
+
+<b>
+
+${item.network}
+
+</b>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="history-row">
+
+<span>
+
+المبلغ
+
+</span>
+
+
+<b>
+
+${item.amount} ${item.coin}
+
+</b>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="history-row">
+
+<span>
+
+العنوان
+
+</span>
+
+
+<b>
+
+${item.address.substring(0,12)}...
+
+</b>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="history-date">
+
+${item.date}
+
+</div>
+
+
+`;
+
+
+
+
+
+
+listBox.appendChild(card);
+
+
+
+});
+
+
+
+
+
+}
+
+
+
+
+
+
+
+
+loadDepositHistory();
+
+
+
+</script>
+
+
+
+
+</div>
+
+
+</body>
+
+</html>
