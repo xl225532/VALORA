@@ -1175,3 +1175,31 @@ fill:none;
 stroke-width:2;
 
 } 
+.sync-icon svg{
+
+width:34px;
+
+height:34px;
+
+stroke:white;
+
+fill:none;
+
+stroke-width:2;
+
+}
+
+
+.key-icon svg{
+
+width:22px;
+
+height:22px;
+
+stroke:#1687FF;
+
+fill:none;
+
+stroke-width:2;
+
+} 
