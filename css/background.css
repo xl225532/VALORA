@@ -1,36 +1,22 @@
-/* ==========================
-   VALORA Global Background
-   ========================== */
-
 html,
 body{
 
-margin:0;
-padding:0;
-
 min-height:100vh;
-width:100%;
-
-background-color:#050B16;
 
 background-image:url("../assets/images/background.png");
+
+background-size:cover;
 
 background-position:center;
 
 background-repeat:no-repeat;
 
-background-size:cover;
-
 background-attachment:fixed;
 
-color:#ffffff;
-
-overflow-x:hidden;
+color:white;
 
 }
 
-
-/* طبقة تعتيم خفيفة */
 
 body::before{
 
@@ -38,37 +24,17 @@ content:"";
 
 position:fixed;
 
-top:0;
-left:0;
-right:0;
-bottom:0;
+inset:0;
 
-background:rgba(5,11,22,.35);
-
-pointer-events:none;
+background:rgba(5,11,22,0.55);
 
 z-index:-1;
 
 }
 
 
-/* جميع الصفحات تكون شفافة */
+.verify-page{
 
-.dashboard-page,
-.wallet-page,
-.settings-page,
-.security-page,
-.verify-page,
-.password-page,
-.notifications-page,
-.support-page,
-.app-page,
-.team-page,
-.sync-page,
-.withdraw-container,
-.deposit-page,
-.history-page{
-
-background:transparent;
+background:transparent !important;
 
 }
