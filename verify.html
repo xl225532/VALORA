@@ -9,11 +9,14 @@
 
 <title>VALORA | التحقق من الهوية</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/verify.css">
 
 <link rel="stylesheet" href="css/background.css">
+
 
 </head>
 
@@ -24,17 +27,27 @@
 <div class="verify-page">
 
 
+
 <header class="page-header">
 
+
 <a href="javascript:history.back()">
+
 ‹
+
 </a>
 
+
 <h2>
+
 التحقق من الهوية
+
 </h2>
 
+
 </header>
+
+
 
 
 
@@ -49,12 +62,16 @@
 
 
 <h3>
+
 تأكيد الهوية
+
 </h3>
 
 
 <p>
+
 أكمل التحقق لحماية حسابك
+
 </p>
 
 
@@ -64,31 +81,47 @@
 
 
 
+
 <section class="rules-card">
 
 
 <h3>
+
 شروط التحقق
+
 </h3>
 
 
 <ul>
 
+
 <li>
+
 يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.
+
 </li>
 
+
 <li>
+
 يقبل جواز السفر أو بطاقة الهوية.
+
 </li>
 
+
 <li>
+
 يجب أن تكون الصورة واضحة.
+
 </li>
 
+
 <li>
+
 يجب رفع صورة الوجه الحقيقية.
+
 </li>
+
 
 </ul>
 
@@ -99,12 +132,16 @@
 
 
 
+
 <section class="upload-card">
 
 
 <h4>
+
 صورة الهوية أو جواز السفر
+
 </h4>
+
 
 
 <img id="idPreview" class="preview">
@@ -114,10 +151,14 @@
 <label class="upload-box" id="idBox">
 
 
-<input 
+<input
+
 type="file"
+
 accept="image/*"
+
 capture="environment"
+
 id="idInput">
 
 
@@ -142,8 +183,11 @@ id="idInput">
 
 </button>
 <h4>
+
 صورة الوجه
+
 </h4>
+
 
 
 <img id="facePreview" class="preview">
@@ -153,10 +197,14 @@ id="idInput">
 <label class="upload-box" id="faceBox">
 
 
-<input 
+<input
+
 type="file"
+
 accept="image/*"
+
 capture="user"
+
 id="faceInput">
 
 
@@ -172,6 +220,7 @@ id="faceInput">
 
 
 </label>
+
 
 
 
@@ -192,6 +241,7 @@ id="faceInput">
 </button>
 
 
+
 </section>
 
 
@@ -200,151 +250,6 @@ id="faceInput">
 
 <div id="bottomNav"></div>
 
-
-
-
-
-<script src="js/language.js"></script>
-
-
-<script>
-
-if(typeof applyLanguage === "function"){
-
-applyLanguage();
-
-}
-  function uploadImage(inputId, previewId, boxId, buttonId){
-
-
-let input = document.getElementById(inputId);
-
-let preview = document.getElementById(previewId);
-
-let box = document.getElementById(boxId);
-
-let button = document.getElementById(buttonId);
-
-
-
-input.onchange = function(){
-
-
-let file = this.files[0];
-
-
-if(file){
-
-
-preview.src = URL.createObjectURL(file);
-
-
-preview.style.display = "block";
-
-
-box.style.display = "none";
-
-
-button.style.display = "block";
-
-
-}
-
-
-};
-
-
-
-button.onclick = function(){
-
-
-input.value = "";
-
-
-preview.src = "";
-
-
-preview.style.display = "none";
-
-
-box.style.display = "flex";
-
-
-button.style.display = "none";
-
-
-};
-
-
-}
-
-
-
-
-uploadImage(
-"idInput",
-"idPreview",
-"idBox",
-"idChange"
-);
-
-
-
-uploadImage(
-"faceInput",
-"facePreview",
-"faceBox",
-"faceChange"
-);
-
-
-
-
-
-fetch("components/bottom-nav.html")
-
-.then(response => response.text())
-
-.then(data => {
-
-document.getElementById("bottomNav").innerHTML = data;
-
-})
-
-.catch(error => {
-
-console.log("Bottom Nav Error:", error);
-
-});
-
-
-</script>
-
-
-</div>
-
-
-</body>
-
-</html>
-<button class="submit-btn">
-
-إرسال للتحقق
-
-</button>
-
-
-</section>
-
-
-
-
-<div id="bottomNav"></div>
-
-
-
-
-</div>
 
 
 
@@ -361,6 +266,7 @@ if(typeof applyLanguage === "function"){
 applyLanguage();
 
 }
+
 
 
 
@@ -406,7 +312,6 @@ button.style.display = "block";
 
 
 
-
 button.onclick = function(){
 
 
@@ -429,12 +334,7 @@ button.style.display = "none";
 
 
 }
-
-
-
-
-
-uploadImage(
+ uploadImage(
 "idInput",
 "idPreview",
 "idBox",
@@ -449,6 +349,7 @@ uploadImage(
 "faceBox",
 "faceChange"
 );
+
 
 
 
@@ -471,10 +372,15 @@ console.log("Bottom Nav Error:", error);
 });
 
 
+
 </script>
 
 
 
+</div>
+
+
 </body>
 
-</html>
+
+</html> 
