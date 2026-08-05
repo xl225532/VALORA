@@ -16,16 +16,13 @@
 <link rel="stylesheet" href="css/deposit-history.css">
 <link rel="stylesheet" href="css/background.css">
 
-
 </head>
 
 
 <body>
 
 
-<div class="history-container">
-
-
+<div class="history-page">
 
 
 
@@ -51,24 +48,20 @@
 
 
 
-
-
-
 <section class="history-summary">
 
 
-
-<div class="summary-box">
+<div class="summary-card">
 
 
 <span>
 
-إجمالي الطلبات
+عدد الإيداعات
 
 </span>
 
 
-<strong id="totalDeposit">
+<strong id="totalDeposits">
 
 0
 
@@ -81,52 +74,24 @@
 
 
 
-
-
-<div class="summary-box">
+<div class="summary-card">
 
 
 <span>
 
-المكتملة
+إجمالي الإيداعات
 
 </span>
 
 
-<strong id="completedDeposit">
+<strong id="totalDepositAmount">
 
-0
+0.00 USDT
 
 </strong>
 
 
 </div>
-
-
-
-
-
-
-
-<div class="summary-box">
-
-
-<span>
-
-قيد المراجعة
-
-</span>
-
-
-<strong id="pendingDeposit">
-
-0
-
-</strong>
-
-
-</div>
-
 
 
 </section>
@@ -135,94 +100,47 @@
 
 
 
-
-
-
-<section id="depositList" class="deposit-list">
+<section class="deposit-list" id="depositList">
 
 
 </section>
-
-
-
-
-
-
-<div id="emptyBox" class="empty-box">
-
-
-لا توجد عمليات إيداع
-
-
-</div>
 <script>
-
-
-let deposits =
-
-JSON.parse(
-
-localStorage.getItem("VALORA_DEPOSITS")
-
-) || [];
-
-
-
-
-
-let listBox =
-
-document.getElementById("depositList");
-
-
-
-let emptyBox =
-
-document.getElementById("emptyBox");
-
-
-
-
-
-
 
 
 function loadDepositHistory(){
 
 
 
-document.getElementById("totalDeposit").innerHTML =
+let deposits =
 
-deposits.length;
+JSON.parse(
 
+localStorage.getItem("VALORA_DEPOSIT_HISTORY")
 
+)
 
-
-
-
-
-let pending =
-
-deposits.filter(item =>
-
-item.status === "بانتظار التأكيد"
-
-).length;
+|| [];
 
 
 
 
 
 
+let list =
+
+document.getElementById("depositList");
 
 
-let completed =
 
-deposits.filter(item =>
+let totalBox =
 
-item.status === "مكتمل"
+document.getElementById("totalDeposits");
 
-).length;
+
+
+let amountBox =
+
+document.getElementById("totalDepositAmount");
 
 
 
@@ -230,21 +148,11 @@ item.status === "مكتمل"
 
 
 
-
-
-document.getElementById("pendingDeposit").innerHTML =
-
-pending;
+list.innerHTML="";
 
 
 
-
-
-document.getElementById("completedDeposit").innerHTML =
-
-completed;
-
-
+let totalAmount = 0;
 
 
 
@@ -255,10 +163,17 @@ completed;
 if(deposits.length === 0){
 
 
-emptyBox.style.display="block";
 
+list.innerHTML = `
 
-return;
+<div class="empty-history">
+
+لا توجد إيداعات حتى الآن
+
+</div>
+
+`;
+
 
 
 }
@@ -267,11 +182,15 @@ return;
 
 
 
-emptyBox.style.display="none";
+
+
+deposits.forEach((item)=>{
 
 
 
-listBox.innerHTML="";
+totalAmount +=
+
+Number(item.amount);
 
 
 
@@ -279,11 +198,11 @@ listBox.innerHTML="";
 
 
 
-deposits.reverse().forEach(item=>{
+let card =
+
+document.createElement("div");
 
 
-
-let card = document.createElement("div");
 
 
 
@@ -295,38 +214,12 @@ card.className="deposit-card";
 
 
 
-let statusClass="pending";
-
-
-
-if(item.status==="مكتمل"){
-
-
-statusClass="success";
-
-
-}
-
-
-
-if(item.status==="مرفوض"){
-
-
-statusClass="reject";
-
-
-}
-
-
-
-
-
-
 
 card.innerHTML = `
 
 
-<div class="history-top">
+
+<div class="deposit-top">
 
 
 <strong>
@@ -336,7 +229,8 @@ ${item.coin}
 </strong>
 
 
-<span class="${statusClass}">
+
+<span class="success">
 
 ${item.status}
 
@@ -351,14 +245,12 @@ ${item.status}
 
 
 
-<div class="history-row">
+<div class="deposit-info">
 
-<span>
 
-الشبكة
+<p>
 
-</span>
-
+الشبكة:
 
 <b>
 
@@ -366,66 +258,44 @@ ${item.network}
 
 </b>
 
-
-</div>
-
+</p>
 
 
 
 
 
+<p>
 
-<div class="history-row">
-
-<span>
-
-المبلغ
-
-</span>
-
+المبلغ:
 
 <b>
 
-${item.amount} ${item.coin}
+${Number(item.amount).toFixed(2)}
+
+${item.coin}
 
 </b>
 
-
-</div>
-
+</p>
 
 
 
 
 
 
-<div class="history-row">
+<p>
 
-<span>
-
-العنوان
-
-</span>
-
+تاريخ الإيداع:
 
 <b>
-
-${item.address.substring(0,12)}...
-
-</b>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="history-date">
 
 ${item.date}
+
+</b>
+
+</p>
+
+
 
 </div>
 
@@ -437,13 +307,38 @@ ${item.date}
 
 
 
-listBox.appendChild(card);
+
+
+list.appendChild(card);
 
 
 
 });
 
 
+
+
+
+
+
+
+totalBox.innerHTML =
+
+deposits.length;
+
+
+
+
+
+
+
+amountBox.innerHTML =
+
+totalAmount.toFixed(2)
+
++
+
+" USDT";
 
 
 
@@ -455,8 +350,13 @@ listBox.appendChild(card);
 
 
 
+document.addEventListener(
 
-loadDepositHistory();
+"DOMContentLoaded",
+
+loadDepositHistory
+
+);
 
 
 
@@ -465,9 +365,12 @@ loadDepositHistory();
 
 
 
+
+
 </div>
 
 
 </body>
+
 
 </html>
