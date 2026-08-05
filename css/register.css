@@ -435,3 +435,86 @@ margin-bottom:9px;
 
 
 }
+/* =========================
+   Verification Code
+========================= */
+
+
+.verify-box{
+
+display:flex;
+
+gap:10px;
+
+align-items:center;
+
+}
+
+
+.verify-box input{
+
+flex:1;
+
+}
+
+
+.verify-btn{
+
+height:50px;
+
+padding:0 18px;
+
+border:none;
+
+border-radius:12px;
+
+background:#1687FF;
+
+color:white;
+
+font-family:'Cairo',sans-serif;
+
+font-size:14px;
+
+font-weight:700;
+
+cursor:pointer;
+
+box-shadow:0 0 12px #1687FF55;
+
+transition:.3s;
+
+}
+
+
+.verify-btn:active{
+
+transform:scale(.96);
+
+}
+
+
+
+#verifyCode{
+
+letter-spacing:5px;
+
+text-align:center;
+
+font-size:18px;
+
+font-weight:bold;
+
+}
+
+
+
+.verify-status{
+
+margin-top:8px;
+
+font-size:13px;
+
+color:#22C55E;
+
+}
