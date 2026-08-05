@@ -1,177 +1,763 @@
 // ===============================
-// VALORA Sync System
+// VALORA Smart Sync System
 // ===============================
 
-let trades = JSON.parse(localStorage.getItem("VALORA_TRADES")) || [];
 
-// أكواد التزامن الصحيحة (مؤقتة حتى ربط السيرفر)
-const validCodes = [
-    "VALORA2026",
-    "SYNC8888",
-    "TRADE777",
-    "VIP2026",
-    "BTC1000"
-];
+// إعدادات الصفقات من الإدارة (مؤقتة)
+// لاحقاً تنتقل إلى قاعدة البيانات
 
-// ===============================
-// التحقق من الكود
-// ===============================
+const tradeCodes = {
 
-function checkTrade() {
 
-    const input = document.getElementById("tradeCode");
-    const code = input.value.trim();
-    const result = document.getElementById("resultBox");
+"VALORA2026":{
 
-    if (code === "") {
+type:"normal",
 
-        result.innerHTML = `
-        <div class="error">
-        يرجى إدخال كود الصفقة
-        </div>
-        `;
+profit:2,
 
-        return;
-    }
+limit:1
 
-    if (!validCodes.includes(code)) {
+},
 
-        result.innerHTML = `
-        <div class="error">
-        ✕ كود الصفقة غير صحيح
-        <br>
-        يرجى التحقق والمحاولة مرة أخرى
-        </div>
-        `;
 
-        return;
-    }
+"SYNC8888":{
 
-    const exists = trades.find(item => item.code === code);
+type:"normal",
 
-    if (exists) {
+profit:2,
 
-        result.innerHTML = `
-        <div class="error">
-        ⚠️ هذا الكود مستخدم مسبقاً
-        </div>
-        `;
+limit:1
 
-        return;
-    }
+},
 
-    result.innerHTML = `
-    <div class="success">
-    ✓ تم ربط الصفقة بنجاح
-    </div>
-    `;
 
-    const trade = {
+"TRADE777":{
 
-        coin: document.querySelector(".coin.active h4").innerText + "/USDT",
+type:"normal",
 
-        code: code,
+profit:2,
 
-        date: new Date().toLocaleString("ar-EG"),
+limit:1
 
-        status: "مكتملة"
+},
 
-    };
 
-    trades.push(trade);
 
-    localStorage.setItem(
-        "VALORA_TRADES",
-        JSON.stringify(trades)
-    );
+"VIP2026":{
 
-    input.value = "";
+type:"deposit",
 
-    loadTrades();
+profit:7,
+
+minDeposit:500,
+
+limit:1
+
+},
+
+
+
+"BTC1000":{
+
+type:"team",
+
+profit:7,
+
+minTeam:20,
+
+limit:1
 
 }
+
+
+};
+
+
+
+
+
+// تحميل الصفقات السابقة
+
+let trades =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_TRADES")
+
+)
+
+|| [];
+
+
+
+
+
+
+
+
+// ===============================
+// بيانات المستخدم
+// ===============================
+
+
+function getUserData(){
+
+
+
+return {
+
+
+deposit:
+
+Number(
+
+localStorage.getItem("VALORA_DEPOSIT")
+
+)
+
+||0,
+
+
+
+team:
+
+Number(
+
+localStorage.getItem("VALORA_REAL_TEAM")
+
+)
+
+||0,
+
+
+
+tradeCount:
+
+Number(
+
+localStorage.getItem("VALORA_TRADE_COUNT")
+
+)
+
+||0
+
+
+};
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// فحص صلاحية الصفقة
+// ===============================
+
+
+function checkTrade(){
+
+
+
+let input =
+
+document.getElementById("tradeCode");
+
+
+
+let code =
+
+input.value.trim();
+
+
+
+let result =
+
+document.getElementById("resultBox");
+
+
+
+
+
+if(code===""){
+
+
+result.innerHTML=`
+
+<div class="error">
+
+يرجى إدخال كود الصفقة
+
+</div>
+
+`;
+
+return;
+
+}
+
+
+
+
+
+
+let config = tradeCodes[code];
+
+
+
+
+
+
+if(!config){
+
+
+result.innerHTML=`
+
+<div class="error">
+
+✕ كود الصفقة غير صحيح
+
+</div>
+
+`;
+
+return;
+
+
+}
+
+
+
+
+
+
+
+let user =
+
+getUserData();
+
+
+
+
+
+
+
+// فحص الصفقة الخاصة بالإيداع
+
+
+
+if(config.type==="deposit"){
+
+
+
+if(user.deposit < config.minDeposit){
+
+
+
+result.innerHTML=`
+
+<div class="error">
+
+هذه الصفقة تحتاج إيداع 500 USDT أو أكثر
+
+</div>
+
+`;
+
+return;
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// فحص صفقة الفريق
+
+
+
+if(config.type==="team"){
+
+
+
+if(user.team < config.minTeam){
+
+
+
+result.innerHTML=`
+
+<div class="error">
+
+هذه الصفقة تحتاج فريق لديه 20 عضو بإيداعات حقيقية
+
+</div>
+
+`;
+
+return;
+
+
+}
+
+
+
+}
+// ===============================
+// بدء الصفقة
+// ===============================
+
+
+let activeTrade =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_ACTIVE_TRADE")
+
+)
+
+|| null;
+
+
+
+
+
+
+
+function startTrade(code,config){
+
+
+
+let user = getUserData();
+
+
+
+
+let trade = {
+
+
+code:code,
+
+
+profit:config.profit,
+
+
+start:
+
+Date.now(),
+
+
+
+end:
+
+Date.now() + (15 * 60 * 1000),
+
+
+
+status:"قيد التنفيذ"
+
+
+
+};
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_ACTIVE_TRADE",
+
+JSON.stringify(trade)
+
+);
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_TRADE_COUNT",
+
+user.tradeCount + 1
+
+);
+
+
+
+
+
+showTradeTimer();
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// بعد التحقق
+// ===============================
+
+
+function acceptTrade(code,config){
+
+
+
+startTrade(code,config);
+
+
+
+let result =
+
+document.getElementById("resultBox");
+
+
+
+result.innerHTML=`
+
+<div class="success">
+
+✓ تم تفعيل الصفقة
+
+<br>
+
+جاري التنفيذ لمدة 15 دقيقة
+
+</div>
+
+`;
+
+
+
+}
+
+
+
+
+
+// ===============================
+// المؤقت
+// ===============================
+
+
+function showTradeTimer(){
+
+
+
+let result =
+
+document.getElementById("resultBox");
+
+
+
+let timer = setInterval(function(){
+
+
+
+let trade =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_ACTIVE_TRADE")
+
+);
+
+
+
+
+
+if(!trade){
+
+clearInterval(timer);
+
+return;
+
+}
+
+
+
+
+
+
+let remain =
+
+trade.end - Date.now();
+
+
+
+
+
+
+if(remain <=0){
+
+
+
+clearInterval(timer);
+
+
+
+finishTrade();
+
+
+
+return;
+
+}
+
+
+
+
+
+
+
+let minutes =
+
+Math.floor(
+
+remain / 60000
+
+);
+
+
+
+let seconds =
+
+Math.floor(
+
+(remain % 60000) / 1000
+
+);
+
+
+
+
+
+
+result.innerHTML=`
+
+<div class="success">
+
+الصفقة قيد التنفيذ
+
+<br>
+
+${minutes}:${seconds.toString().padStart(2,"0")}
+
+</div>
+
+`;
+
+
+
+
+},1000);
+
+
+
+}
+
+
+
+
+
+
+
+
+
+// ===============================
+// إنهاء الصفقة وإضافة الربح
+// ===============================
+
+
+function finishTrade(){
+
+
+
+let trade =
+
+JSON.parse(
+
+localStorage.getItem("VALORA_ACTIVE_TRADE")
+
+);
+
+
+
+
+
+
+if(!trade){
+
+return;
+
+}
+
+
+
+
+
+
+
+let balance =
+
+Number(
+
+localStorage.getItem("VALORA_BALANCE")
+
+)
+
+||0;
+
+
+
+
+
+
+
+let profit =
+
+balance *
+
+(trade.profit / 100);
+
+
+
+
+
+
+
+let today =
+
+Number(
+
+localStorage.getItem("VALORA_TODAY_PROFIT")
+
+)
+
+||0;
+
+
+
+
+
+
+
+today += profit;
+
+
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_TODAY_PROFIT",
+
+today
+
+);
+
+
+
+
+
+
+
+
+trade.status="مكتملة";
+
+
+
+
+
+trades.push(trade);
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_TRADES",
+
+JSON.stringify(trades)
+
+);
+
+
+
+
+
+
+localStorage.removeItem(
+
+"VALORA_ACTIVE_TRADE"
+
+);
+
+
+
+
+
+
+document.getElementById("resultBox").innerHTML=`
+
+<div class="success">
+
+✓ اكتملت الصفقة
+
+<br>
+
+الربح:
+
+${profit.toFixed(2)} USDT
+
+</div>
+
+`;
+
+
+
+
+
+
+loadTrades();
+
+
+
+}
+
+
+
+
+
+
+
 
 // ===============================
 // عرض الصفقات
-// ===============================
-
-function loadTrades() {
-
-    const box = document.getElementById("ordersList");
-
-    if (!box) return;
-
-    if (trades.length === 0) {
-
-        box.innerHTML = `
-        <div class="empty-order">
-        لا توجد صفقات حالياً
-        </div>
-        `;
-
-        return;
-    }
-
-    box.innerHTML = "";
-
-    [...trades].reverse().forEach(item => {
-
-        box.innerHTML += `
-        <div class="order-card">
-
-            <div>
-
-                <strong>${item.coin}</strong>
-
-                <br>
-
-                <span>الكود: ${item.code}</span>
-
-            </div>
-
-            <div>
-
-                <span>${item.date}</span>
-
-                <br>
-
-                <b class="success-text">${item.status}</b>
-
-            </div>
-
-        </div>
-        `;
-
-    });
-
-}
-
-// ===============================
-// اختيار العملة
-// ===============================
-
-document.querySelectorAll(".coin").forEach(coin => {
-
-    coin.addEventListener("click", function () {
-
-        document.querySelectorAll(".coin").forEach(c => {
-
-            c.classList.remove("active");
-
-        });
-
-        this.classList.add("active");
-
-    });
-
-});
-
-// ===============================
-// تشغيل الصفحة
-// ===============================
-
-document.addEventListener("DOMContentLoaded", function () {
-
-    loadTrades();
-
-});
+// ===============================    
