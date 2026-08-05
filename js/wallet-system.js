@@ -12,8 +12,29 @@ function loadWallet(){
 let balance =
 
 Number(
+
 localStorage.getItem("VALORA_BALANCE")
+
 ) || 0;
+
+
+
+
+
+
+
+// الإيداعات المؤكدة فقط
+
+let confirmedDeposits =
+
+Number(
+
+localStorage.getItem("VALORA_CONFIRMED_DEPOSITS")
+
+) || 0;
+
+
+
 
 
 
@@ -24,8 +45,12 @@ localStorage.getItem("VALORA_BALANCE")
 let todayProfit =
 
 Number(
+
 localStorage.getItem("VALORA_TODAY_PROFIT")
+
 ) || 0;
+
+
 
 
 
@@ -37,8 +62,12 @@ localStorage.getItem("VALORA_TODAY_PROFIT")
 let inviteProfit =
 
 Number(
+
 localStorage.getItem("VALORA_INVITE_PROFIT")
+
 ) || 0;
+
+
 
 
 
@@ -50,8 +79,12 @@ localStorage.getItem("VALORA_INVITE_PROFIT")
 let teamProfit =
 
 Number(
+
 localStorage.getItem("VALORA_TEAM_PROFIT")
+
 ) || 0;
+
+
 
 
 
@@ -63,7 +96,9 @@ localStorage.getItem("VALORA_TEAM_PROFIT")
 let rewardProfit =
 
 Number(
+
 localStorage.getItem("VALORA_REWARD_PROFIT")
+
 ) || 0;
 
 
@@ -72,12 +107,22 @@ localStorage.getItem("VALORA_REWARD_PROFIT")
 
 
 
+
 // إجمالي الأصول
-// الرصيد + أرباح اليوم فقط
+
+// الرصيد + الإيداعات المؤكدة + أرباح اليوم فقط
 
 let totalAssets =
 
-balance + todayProfit;
+balance
+
++
+
+confirmedDeposits
+
++
+
+todayProfit;
 
 
 
@@ -86,19 +131,13 @@ balance + todayProfit;
 
 
 
-// الصفحة الرئيسية
+
+
+// عرض إجمالي الأصول
 
 let balanceBox =
 
 document.getElementById("balance");
-
-
-
-let todayBox =
-
-document.getElementById("todayProfit");
-
-
 
 
 
@@ -119,6 +158,18 @@ totalAssets.toFixed(2)
 }
 
 
+
+
+
+
+
+
+
+// عرض أرباح اليوم
+
+let todayBox =
+
+document.getElementById("todayProfit");
 
 
 
@@ -148,11 +199,15 @@ todayProfit.toFixed(2)
 
 
 
-// صفحة المحفظة
+
+
+// عرض أرباح الدعوة
 
 let inviteBox =
 
 document.getElementById("inviteProfit");
+
+
 
 
 
@@ -174,9 +229,17 @@ inviteProfit.toFixed(2)
 
 
 
+
+
+
+
+// عرض أرباح الفريق
+
 let teamBox =
 
 document.getElementById("teamProfit");
+
+
 
 
 
@@ -198,9 +261,17 @@ teamProfit.toFixed(2)
 
 
 
+
+
+
+
+// عرض المكافآت
+
 let rewardBox =
 
 document.getElementById("rewardProfit");
+
+
 
 
 
@@ -221,6 +292,7 @@ rewardProfit.toFixed(2)
 
 
 }
+
 
 
 
