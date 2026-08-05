@@ -16,19 +16,19 @@
 
 </head>
 
+
 <body>
+
 
 <div class="sync-page">
 
-<!-- HEADER -->
 
 <header class="sync-header">
 
 <div class="logo">
-
 VALORA
-
 </div>
+
 
 <div class="server-status">
 
@@ -38,145 +38,217 @@ VALORA
 
 </div>
 
+
 </header>
 
-<!-- TITLE -->
+
+
+
 
 <section class="hero-card">
 
+
 <h2>
-
 التزامن الذكي
-
 </h2>
 
+
 <p>
-
 قم بمزامنة صفقاتك بسهولة وأمان
-
 </p>
+
 
 </section>
 
-<!-- COINS -->
+
+
+
+
+
 
 <section class="coins-slider">
 
-<div class="coin active">
+
+<div class="coin active" data-coin="BTC">
 
 <div class="coin-icon btc">
-
 ₿
+</div>
+
+<h4>
+BTC
+</h4>
+
+<small>
++2.34%
+</small>
 
 </div>
 
-<h4>BTC</h4>
 
-<small>+2.34%</small>
 
-</div>
 
-<div class="coin">
+
+<div class="coin" data-coin="ETH">
 
 <div class="coin-icon eth">
-
 Ξ
+</div>
+
+<h4>
+ETH
+</h4>
+
+<small>
+-0.84%
+</small>
 
 </div>
 
-<h4>ETH</h4>
 
-<small>-0.84%</small>
 
-</div>
 
-<div class="coin">
+
+<div class="coin" data-coin="SOL">
 
 <div class="coin-icon sol">
-
 ◎
+</div>
+
+<h4>
+SOL
+</h4>
+
+<small>
++3.17%
+</small>
 
 </div>
 
-<h4>SOL</h4>
 
-<small>+3.17%</small>
 
-</div>
 
-<div class="coin">
+
+<div class="coin" data-coin="USDT">
 
 <div class="coin-icon usdt">
-
 ₮
+</div>
+
+<h4>
+USDT
+</h4>
+
+<small>
+0.00%
+</small>
 
 </div>
 
-<h4>USDT</h4>
 
-<small>0.00%</small>
 
-</div>
 
-<div class="coin">
+
+<div class="coin" data-coin="XRP">
 
 <div class="coin-icon xrp">
+✕
+</div>
 
-✕</div>
+<h4>
+XRP
+</h4>
 
-<h4>XRP</h4>
-
-<small>+1.25%</small>
+<small>
++1.25%
+</small>
 
 </div>
+
 
 </section>
 
-<!-- STATUS -->
+
+
+
+
+
 
 <section class="status-card">
 
+
 <div class="status-item">
 
+
 <span>
-
 آخر مزامنة
-
 </span>
 
-<strong>
 
-قبل 8 ثوان
-
+<strong id="lastSync">
+الآن
 </strong>
+
 
 </div>
 
+
+
+
+
 <div class="status-item">
 
+
 <span>
-
-الخادم
-
+العملة المختارة
 </span>
+
+
+<strong id="selectedCoin">
+BTC
+</strong>
+
+
+</div>
+
+
+
+
+
+<div class="status-item">
+
+
+<span>
+الخادم
+</span>
+
 
 <strong class="online">
-
 متصل
-
 </strong>
+
 
 </div>
 
+
 </section>
-<!-- TRADE SYNC CARD -->
+
+
+
+
+
+
+
 
 <section class="sync-card">
 
 
+
 <div class="sync-icon">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <path d="M17 1L21 5L17 9"></path>
 
@@ -186,13 +258,28 @@ VALORA
 
 <path d="M21 13V15C21 18 19 19 16 19H3"></path>
 
+
 </svg>
+
 
 </div>
 
-أدخل كود الصفقة للمتابعة
 
+
+
+
+<h2>
+تحقق من الصفقة
+</h2>
+
+
+
+<p>
+أدخل كود الصفقة للمتابعة
 </p>
+
+
+
 
 
 
@@ -202,7 +289,9 @@ VALORA
 
 <span class="key-icon">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <circle cx="8" cy="15" r="4"></circle>
 
@@ -210,16 +299,21 @@ VALORA
 
 <path d="M17 6L19 8"></path>
 
+
 </svg>
+
 
 </span>
 
 
+
+
+
 <input
 
-type="text"
-
 id="tradeCode"
+
+type="text"
 
 placeholder="أدخل كود الصفقة">
 
@@ -230,17 +324,15 @@ placeholder="أدخل كود الصفقة">
 
 
 
+
+
 <button class="sync-btn" onclick="checkTrade()">
-
-
-<span>
 
 تحقق
 
-</span>
-
-
 </button>
+
+
 
 
 
@@ -258,8 +350,6 @@ placeholder="أدخل كود الصفقة">
 
 
 
-<!-- LAST ORDERS -->
-
 
 <section class="orders-section">
 
@@ -275,7 +365,6 @@ placeholder="أدخل كود الصفقة">
 <div id="ordersList">
 
 
-
 <div class="empty-order">
 
 لا توجد صفقات حالياً
@@ -283,9 +372,7 @@ placeholder="أدخل كود الصفقة">
 </div>
 
 
-
 </div>
-
 
 
 </section>
@@ -295,20 +382,22 @@ placeholder="أدخل كود الصفقة">
 
 
 
-
-<!-- BOTTOM SPACE -->
-
-
 <div class="bottom-space"></div>
 
 
 </div>
-<!-- BOTTOM NAV -->
+
+
+
+
+
+
 
 <nav class="bottom-nav">
 
 
 <a href="dashboard.html">
+
 
 <svg viewBox="0 0 24 24">
 
@@ -320,30 +409,43 @@ placeholder="أدخل كود الصفقة">
 
 </svg>
 
+
 <span>
 الرئيسية
 </span>
 
+
 </a>
+
+
+
 
 
 
 
 <a href="wallet.html">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <path d="M3 7H18C19 7 21 8 21 10V18C21 19 20 20 19 20H5C4 20 3 19 3 18V7"></path>
 
+
 <path d="M16 13H21"></path>
 
+
 </svg>
+
 
 <span>
 الأصول
 </span>
 
+
 </a>
+
+
 
 
 
@@ -351,7 +453,9 @@ placeholder="أدخل كود الصفقة">
 
 <a href="sync.html" class="active">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <path d="M17 1L21 5L17 9"></path>
 
@@ -361,13 +465,18 @@ placeholder="أدخل كود الصفقة">
 
 <path d="M21 13V15C21 18 19 19 16 19H3"></path>
 
+
 </svg>
+
 
 <span>
 التزامن
 </span>
 
+
 </a>
+
+
 
 
 
@@ -375,22 +484,31 @@ placeholder="أدخل كود الصفقة">
 
 <a href="team.html">
 
+
 <svg viewBox="0 0 24 24">
+
 
 <circle cx="12" cy="8" r="4"></circle>
 
+
 <path d="M4 21C4 16 7 14 12 14C17 14 20 16 20 21"></path>
 
+
 </svg>
+
 
 <span>
 الفريق
 </span>
 
+
 </a>
 
 
+
 </nav>
+
+
 
 
 
