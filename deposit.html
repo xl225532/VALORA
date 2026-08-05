@@ -41,6 +41,7 @@ VALORA
 
 
 
+
 <section class="deposit-title">
 
 
@@ -51,6 +52,7 @@ VALORA
 </div>
 
 
+
 <h2>
 
 إيداع العملات
@@ -58,15 +60,15 @@ VALORA
 </h2>
 
 
+
 <p>
 
-اختر العملة والشبكة وأدخل مبلغ الإيداع
+اختر العملة والشبكة لعرض عنوان الإيداع
 
 </p>
 
 
 </section>
-
 
 
 
@@ -221,8 +223,6 @@ TRON
 </button>
 
 
-
-
 </section>
 
 
@@ -231,36 +231,7 @@ TRON
 
 
 
-
 <section class="deposit-card">
-
-
-<h3>
-
-مبلغ الإيداع
-
-</h3>
-
-
-<div class="amount-box">
-
-
-<input
-
-type="number"
-
-id="depositAmount"
-
-placeholder="أدخل مبلغ الإيداع USDT"
-
->
-
-
-</div>
-
-
-
-
 
 
 
@@ -274,8 +245,8 @@ placeholder="أدخل مبلغ الإيداع USDT"
 
 <div class="network-buttons" id="networkBox">
 
-
 </div>
+
 
 
 
@@ -311,7 +282,32 @@ readonly>
 
 
 </div>
+<div class="deposit-info">
 
+
+<div class="info-card">
+
+
+<h3>
+
+سيتم إضافة الرصيد تلقائياً
+
+</h3>
+
+
+<p>
+
+بعد إرسال العملات إلى عنوان الإيداع،
+سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
+بعد تأكيد الشبكة.
+
+</p>
+
+
+</div>
+
+
+</div>
 
 
 
@@ -321,19 +317,35 @@ readonly>
 <div class="deposit-warning">
 
 
-⚠️ تأكد من اختيار الشبكة الصحيحة قبل الإيداع.
+⚠️ أرسل العملات إلى العنوان الظاهر فقط.
 
 
 <br><br>
 
 
-إرسال العملات عبر شبكة غير صحيحة قد يؤدي إلى فقدانها.
+تأكد من اختيار نفس الشبكة قبل التحويل.
 
 
 <br><br>
 
 
-الحد الأدنى للإيداع: 100 USDT
+أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
+
+
+<br><br>
+
+
+بعد تأكيد التحويل على البلوكشين
+سيتم إضافة الرصيد تلقائياً.
+
+</div>
+
+
+
+
+
+</section>
+
 
 
 </div>
@@ -344,17 +356,7 @@ readonly>
 
 
 
-<button class="confirm-deposit" onclick="submitDeposit()">
 
-
-تأكيد طلب الإيداع
-
-
-</button>
-
-
-
-</section>
 <script>
 
 
@@ -370,27 +372,40 @@ let coinNetworks = {
 
 
 USDT:[
+
 "TRC20",
+
 "ERC20"
+
 ],
+
 
 
 BTC:[
+
 "Bitcoin"
+
 ],
+
 
 
 ETH:[
+
 "ERC20"
+
 ],
 
 
+
 TRX:[
+
 "TRC20"
+
 ]
 
 
 };
+
 
 
 
@@ -404,10 +419,12 @@ USDT:{
 
 
 TRC20:
+
 "TXXXXXXXXXXXXXXXXXXXXXXXX",
 
 
 ERC20:
+
 "0xUSDTXXXXXXXXXXXXXXXX"
 
 
@@ -415,10 +432,12 @@ ERC20:
 
 
 
+
 BTC:{
 
 
 Bitcoin:
+
 "bc1BTCXXXXXXXXXXXXXXXX"
 
 
@@ -426,10 +445,12 @@ Bitcoin:
 
 
 
+
 ETH:{
 
 
 ERC20:
+
 "0xETHXXXXXXXXXXXXXXXX"
 
 
@@ -437,10 +458,12 @@ ERC20:
 
 
 
+
 TRX:{
 
 
 TRC20:
+
 "TXTRONXXXXXXXXXXXXXXXX"
 
 
@@ -457,20 +480,29 @@ TRC20:
 
 
 
-
 function selectCoin(coin,button){
+
 
 
 currentCoin = coin;
 
 
 
-document.querySelectorAll(".deposit-coin")
+
+
+document
+
+.querySelectorAll(".deposit-coin")
+
 .forEach(btn=>{
+
 
 btn.classList.remove("active");
 
+
 });
+
+
 
 
 
@@ -478,10 +510,16 @@ button.classList.add("active");
 
 
 
+
+
 loadNetworks();
 
 
+
+
+
 updateAddress();
+
 
 
 }
@@ -497,40 +535,61 @@ updateAddress();
 function loadNetworks(){
 
 
+
 let box =
+
 document.getElementById("networkBox");
 
 
 
-box.innerHTML = "";
+
+
+box.innerHTML="";
+
+
 
 
 
 coinNetworks[currentCoin].forEach((network,index)=>{
 
 
+
 let btn =
+
 document.createElement("button");
 
 
 
-btn.className = "network";
 
 
-btn.innerText = network;
+btn.className="network";
 
 
 
-if(index === 0){
+
+
+btn.innerText=network;
+
+
+
+
+
+
+
+if(index===0){
+
 
 
 btn.classList.add("active");
 
 
-currentNetwork = network;
+currentNetwork=network;
+
 
 
 }
+
+
 
 
 
@@ -545,11 +604,15 @@ selectNetwork(this,network);
 
 
 
+
+
+
 box.appendChild(btn);
 
 
 
 });
+
 
 
 }
@@ -565,11 +628,17 @@ box.appendChild(btn);
 function selectNetwork(button,network){
 
 
+
 currentNetwork = network;
 
 
 
-document.querySelectorAll(".network")
+
+
+document
+
+.querySelectorAll(".network")
+
 .forEach(btn=>{
 
 
@@ -580,11 +649,17 @@ btn.classList.remove("active");
 
 
 
+
+
+
 button.classList.add("active");
 
 
 
+
+
 updateAddress();
+
 
 
 }
@@ -600,9 +675,15 @@ updateAddress();
 function updateAddress(){
 
 
-document.getElementById("depositAddress").value =
+
+document
+
+.getElementById("depositAddress")
+
+.value =
 
 addresses[currentCoin][currentNetwork];
+
 
 
 }
@@ -618,9 +699,16 @@ addresses[currentCoin][currentNetwork];
 function copyDeposit(){
 
 
+
 let address =
 
-document.getElementById("depositAddress").value;
+document
+
+.getElementById("depositAddress")
+
+.value;
+
+
 
 
 
@@ -628,124 +716,13 @@ navigator.clipboard.writeText(address);
 
 
 
+
+
 alert("تم نسخ عنوان الإيداع");
 
 
-}
-
-
-
-
-
-
-
-
-
-function submitDeposit(){
-
-
-let amount =
-
-Number(
-document.getElementById("depositAmount").value
-);
-
-
-
-if(!amount || amount < 100){
-
-
-alert("الحد الأدنى للإيداع 100 USDT");
-
-
-return;
-
 
 }
-
-
-
-
-
-
-let deposit = {
-
-
-coin: currentCoin,
-
-
-network: currentNetwork,
-
-
-amount: amount,
-
-
-address:
-addresses[currentCoin][currentNetwork],
-
-
-status:"بانتظار التأكيد",
-
-
-date:
-new Date().toLocaleString("ar-EG")
-
-
-};
-
-
-
-
-
-
-
-let deposits =
-
-JSON.parse(
-
-localStorage.getItem("VALORA_DEPOSITS")
-
-) || [];
-
-
-
-
-
-deposits.push(deposit);
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_DEPOSITS",
-
-JSON.stringify(deposits)
-
-);
-
-
-
-
-alert("تم إرسال طلب الإيداع بنجاح");
-
-
-document.getElementById("depositAmount").value = "";
-
-
-// الانتقال إلى سجل العمليات
-
-setTimeout(()=>{
-
-window.location.href="deposit-history.html";
-
-},1000);
-
-
-
-}
-
 
 
 
@@ -756,6 +733,7 @@ window.location.href="deposit-history.html";
 
 loadNetworks();
 
+
 updateAddress();
 
 
@@ -763,10 +741,6 @@ updateAddress();
 </script>
 
 
-
-
-
-</div>
 
 
 </body>
