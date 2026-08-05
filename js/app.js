@@ -73,10 +73,10 @@ referralInput.readOnly = true;
 
 
 
-
+if
 
 registerForm.addEventListener("submit",function(e){
-
+if(!checkVerification()) return;
 
 e.preventDefault();
 
