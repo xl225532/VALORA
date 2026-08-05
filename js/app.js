@@ -2,155 +2,191 @@
 // VALORA USER SYSTEM
 // ======================================
 
+// جلب كود الدعوة من الرابط
+function getReferralFromURL() {
+    const params = new URLSearchParams(window.location.search);
+    return params.get("ref") || "";
+}
 
-// كود الدعوة من الرابط
-function getReferralFromURL(){
+// إنشاء كود دعوة جديد
+function generateReferralCode() {
+    const code = Math.random()
+        .toString(36)
+        .substring(2, 8)
+        .toUpperCase();
 
-const params = new URLSearchParams(window.location.search);
+    return "VALORA-" + code;
+}
 
-return params.get("ref") || "";
+// ======================================
+// إظهار وإخفاء كلمة المرور
+// ======================================
+
+function togglePassword(id, button) {
+
+    const input = document.getElementById(id);
+
+    if (!input) return;
+
+    if (input.type === "password") {
+
+        input.type = "text";
+
+        if (button) {
+            button.classList.add("show");
+        }
+
+    } else {
+
+        input.type = "password";
+
+        if (button) {
+            button.classList.remove("show");
+        }
+
+    }
 
 }
 
+// ======================================
+// نظام كود التحقق
+// ======================================
 
+let valoraVerifyCode = "";
 
-// إنشاء كود دعوة للمستخدم
-function generateReferralCode(){
+// إرسال الكود (تجريبي)
+function sendVerificationCode() {
 
-const code = Math.random()
-.toString(36)
-.substring(2,8)
-.toUpperCase();
+    const contact = document
+        .getElementById("contact")
+        .value
+        .trim();
 
-return "VALORA-" + code;
+    if (contact === "") {
 
-}
+        alert("يرجى إدخال البريد الإلكتروني أو رقم الهاتف أولاً");
 
+        return;
 
+    }
 
-// كود التحقق المؤقت
-let valoraVerifyCode = null;
+    valoraVerifyCode = Math.floor(
+        100000 + Math.random() * 900000
+    ).toString();
 
+    localStorage.setItem(
+        "VALORA_VERIFY_CODE",
+        valoraVerifyCode
+    );
 
-
-// إرسال كود التحقق
-function sendVerificationCode(){
-
-const contact = document.getElementById("contact");
-
-if(!contact) return;
-
-const value = contact.value.trim();
-
-if(value === ""){
-
-alert("أدخل البريد الإلكتروني أو رقم الهاتف أولاً");
-
-return;
-
-}
-
-valoraVerifyCode = Math.floor(100000 + Math.random() * 900000);
-
-localStorage.setItem(
-"VALORA_VERIFY_CODE",
-valoraVerifyCode
-);
-
-// مؤقتاً
-alert("رمز التحقق: " + valoraVerifyCode);
+    alert(
+        "رمز التحقق: " +
+        valoraVerifyCode
+    );
 
 }
-
-
 
 // فحص الكود
-function checkVerification(){
+function checkVerification() {
 
-const input = document.getElementById("verifyCode");
+    const input = document
+        .getElementById("verifyCode");
 
-if(!input) return true;
+    if (!input) {
+        return true;
+    }
 
-const saved = localStorage.getItem("VALORA_VERIFY_CODE");
+    const code = input.value.trim();
 
-if(input.value.trim() !== saved){
+    const saved = localStorage.getItem(
+        "VALORA_VERIFY_CODE"
+    );
 
-alert("رمز التحقق غير صحيح");
+    if (code !== saved) {
 
-return false;
+        alert("رمز التحقق غير صحيح");
+
+        return false;
+
+    }
+
+    return true;
 
 }
-
-return true;
-
-}
-
-
-
 // ======================================
 // إنشاء الحساب
 // ======================================
 
 const registerForm = document.getElementById("registerForm");
 
-if(registerForm){
+if (registerForm) {
 
-const invite = document.getElementById("inviteCode");
+    const inviteInput = document.getElementById("inviteCode");
 
-if(invite){
+    if (inviteInput) {
 
-const ref = getReferralFromURL();
+        const ref = getReferralFromURL();
 
-if(ref){
+        if (ref !== "") {
 
-invite.value = ref;
+            inviteInput.value = ref;
+            inviteInput.readOnly = true;
 
-invite.readOnly = true;
+        }
 
-}
+    }
 
-}
+    registerForm.addEventListener("submit", function (e) {
 
-registerForm.addEventListener("submit",function(e){
+        e.preventDefault();
 
-e.preventDefault();
+        if (!checkVerification()) {
+            return;
+        }
 
-if(!checkVerification()) return;
+        const contact = document
+            .getElementById("contact")
+            .value
+            .trim();
 
-const password = document.getElementById("password").value;
+        const password = document
+            .getElementById("password")
+            .value;
 
-const confirm = document.getElementById("confirmPassword").value;
+        const confirmPassword = document
+            .getElementById("confirmPassword")
+            .value;
 
-if(password !== confirm){
+        if (password !== confirmPassword) {
 
-alert("كلمة المرور غير متطابقة");
+            alert("كلمة المرور غير متطابقة");
 
-return;
+            return;
 
-}
+        }
 
-const user={
+        const user = {
 
-contact:document.getElementById("contact").value,
+            contact: contact,
 
-password:password,
+            password: password,
 
-referralCode:generateReferralCode(),
+            referralCode: generateReferralCode(),
 
-invitedBy:getReferralFromURL()
+            invitedBy: getReferralFromURL()
 
-};
+        };
 
-localStorage.setItem(
-"VALORA_USER",
-JSON.stringify(user)
-);
+        localStorage.setItem(
+            "VALORA_USER",
+            JSON.stringify(user)
+        );
 
-alert("تم إنشاء الحساب بنجاح");
+        alert("تم إنشاء الحساب بنجاح");
 
-window.location.href="login.html";
+        window.location.href = "login.html";
 
-});
+    });
 
 }
 // ======================================
@@ -159,108 +195,80 @@ window.location.href="login.html";
 
 const loginForm = document.getElementById("loginForm");
 
-if(loginForm){
+if (loginForm) {
 
-loginForm.addEventListener("submit",function(e){
+    loginForm.addEventListener("submit", function (e) {
 
-e.preventDefault();
+        e.preventDefault();
 
-const savedUser = JSON.parse(
-localStorage.getItem("VALORA_USER")
-);
+        const savedUser = JSON.parse(
+            localStorage.getItem("VALORA_USER")
+        );
 
-const loginValue =
-document.getElementById("loginInput").value.trim();
+        const loginInput = document
+            .getElementById("loginInput")
+            .value
+            .trim();
 
-const password =
-document.getElementById("loginPassword").value;
+        const loginPassword = document
+            .getElementById("loginPassword")
+            .value;
 
-if(
+        if (
+            savedUser &&
+            loginInput === savedUser.contact &&
+            loginPassword === savedUser.password
+        ) {
 
-savedUser &&
-loginValue === savedUser.contact &&
-password === savedUser.password
+            showSuccess();
 
-){
+            setTimeout(function () {
 
-showSuccess();
+                window.location.href = "dashboard.html";
 
-setTimeout(function(){
+            }, 1500);
 
-window.location.href = "dashboard.html";
+        } else {
 
-},1500);
+            alert("بيانات تسجيل الدخول غير صحيحة");
 
-}else{
+        }
 
-alert("بيانات الدخول غير صحيحة");
-
-}
-
-});
-
-}
-
-
-
-// ======================================
-// إشعار نجاح الدخول
-// ======================================
-
-function showSuccess(){
-
-let box = document.createElement("div");
-
-box.className = "success-toast";
-
-box.innerHTML = `
-
-<div class="toast-icon">✓</div>
-
-<div>
-
-<strong>تم تسجيل الدخول</strong>
-
-<p>جاري الدخول إلى الحساب...</p>
-
-</div>
-
-`;
-
-document.body.appendChild(box);
-
-setTimeout(function(){
-
-box.remove();
-
-},1800);
+    });
 
 }
-
-
-
 // ======================================
-// إظهار وإخفاء كلمة المرور
+// إشعار نجاح تسجيل الدخول
 // ======================================
 
-function togglePassword(id,button){
+function showSuccess() {
 
-const input = document.getElementById(id);
+    const oldToast = document.querySelector(".success-toast");
 
-if(!input) return;
+    if (oldToast) {
+        oldToast.remove();
+    }
 
-if(input.type === "password"){
+    const box = document.createElement("div");
 
-input.type = "text";
+    box.className = "success-toast";
 
-button.classList.add("show");
+    box.innerHTML = `
+        <div class="toast-icon">✓</div>
+        <div>
+            <strong>تم تسجيل الدخول</strong>
+            <p>جاري الدخول إلى الحساب...</p>
+        </div>
+    `;
 
-}else{
+    document.body.appendChild(box);
 
-input.type = "password";
+    setTimeout(function () {
 
-button.classList.remove("show");
+        if (box) {
+            box.remove();
+        }
 
-}
+    }, 1800);
 
 }
