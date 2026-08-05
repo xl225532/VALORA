@@ -1,118 +1,28 @@
 // ======================================
-// VALORA USER SYSTEM
+// VALORA APP
 // ======================================
 
-// جلب كود الدعوة من الرابط
+// استخراج كود الدعوة من الرابط
 function getReferralFromURL() {
+
     const params = new URLSearchParams(window.location.search);
+
     return params.get("ref") || "";
+
 }
 
-// إنشاء كود دعوة جديد
+// إنشاء كود دعوة عشوائي
 function generateReferralCode() {
+
     const code = Math.random()
         .toString(36)
         .substring(2, 8)
         .toUpperCase();
 
     return "VALORA-" + code;
-}
-
-// ======================================
-// إظهار وإخفاء كلمة المرور
-// ======================================
-
-function togglePassword(id, button) {
-
-    const input = document.getElementById(id);
-
-    if (!input) return;
-
-    if (input.type === "password") {
-
-        input.type = "text";
-
-        if (button) {
-            button.classList.add("show");
-        }
-
-    } else {
-
-        input.type = "password";
-
-        if (button) {
-            button.classList.remove("show");
-        }
-
-    }
 
 }
 
-// ======================================
-// نظام كود التحقق
-// ======================================
-
-let valoraVerifyCode = "";
-
-// إرسال الكود (تجريبي)
-function sendVerificationCode() {
-
-    const contact = document
-        .getElementById("contact")
-        .value
-        .trim();
-
-    if (contact === "") {
-
-        alert("يرجى إدخال البريد الإلكتروني أو رقم الهاتف أولاً");
-
-        return;
-
-    }
-
-    valoraVerifyCode = Math.floor(
-        100000 + Math.random() * 900000
-    ).toString();
-
-    localStorage.setItem(
-        "VALORA_VERIFY_CODE",
-        valoraVerifyCode
-    );
-
-    alert(
-        "رمز التحقق: " +
-        valoraVerifyCode
-    );
-
-}
-
-// فحص الكود
-function checkVerification() {
-
-    const input = document
-        .getElementById("verifyCode");
-
-    if (!input) {
-        return true;
-    }
-
-    const code = input.value.trim();
-
-    const saved = localStorage.getItem(
-        "VALORA_VERIFY_CODE"
-    );
-
-    if (code !== saved) {
-
-        alert("رمز التحقق غير صحيح");
-
-        return false;
-
-    }
-
-    return true;
-
-}
 // ======================================
 // إنشاء الحساب
 // ======================================
@@ -136,26 +46,30 @@ if (registerForm) {
 
     }
 
+}
+// ======================================
+// إنشاء الحساب
+// ======================================
+
+if (registerForm) {
+
     registerForm.addEventListener("submit", function (e) {
 
         e.preventDefault();
 
-        if (!checkVerification()) {
+        const contact = document.getElementById("contact").value.trim();
+
+        const password = document.getElementById("password").value;
+
+        const confirmPassword = document.getElementById("confirmPassword").value;
+
+        if (contact === "") {
+
+            alert("يرجى إدخال البريد الإلكتروني أو رقم الهاتف");
+
             return;
+
         }
-
-        const contact = document
-            .getElementById("contact")
-            .value
-            .trim();
-
-        const password = document
-            .getElementById("password")
-            .value;
-
-        const confirmPassword = document
-            .getElementById("confirmPassword")
-            .value;
 
         if (password !== confirmPassword) {
 
@@ -220,13 +134,9 @@ if (loginForm) {
             loginPassword === savedUser.password
         ) {
 
-            showSuccess();
+            alert("تم تسجيل الدخول بنجاح");
 
-            setTimeout(function () {
-
-                window.location.href = "dashboard.html";
-
-            }, 1500);
+            window.location.href = "dashboard.html";
 
         } else {
 
@@ -238,37 +148,31 @@ if (loginForm) {
 
 }
 // ======================================
-// إشعار نجاح تسجيل الدخول
+// إظهار / إخفاء كلمة المرور
 // ======================================
 
-function showSuccess() {
+function togglePassword(id, button) {
 
-    const oldToast = document.querySelector(".success-toast");
+    const input = document.getElementById(id);
 
-    if (oldToast) {
-        oldToast.remove();
-    }
+    if (!input) return;
 
-    const box = document.createElement("div");
+    if (input.type === "password") {
 
-    box.className = "success-toast";
+        input.type = "text";
 
-    box.innerHTML = `
-        <div class="toast-icon">✓</div>
-        <div>
-            <strong>تم تسجيل الدخول</strong>
-            <p>جاري الدخول إلى الحساب...</p>
-        </div>
-    `;
-
-    document.body.appendChild(box);
-
-    setTimeout(function () {
-
-        if (box) {
-            box.remove();
+        if (button) {
+            button.classList.add("show");
         }
 
-    }, 1800);
+    } else {
+
+        input.type = "password";
+
+        if (button) {
+            button.classList.remove("show");
+        }
+
+    }
 
 }
