@@ -16,17 +16,13 @@
 <link rel="stylesheet" href="css/withdraw-history.css">
 <link rel="stylesheet" href="css/background.css">
 
-
 </head>
 
 
 <body>
 
 
-
-<div class="history-container">
-
-
+<div class="history-page">
 
 
 
@@ -47,6 +43,7 @@
 </h2>
 
 
+
 </header>
 
 
@@ -59,8 +56,7 @@
 <section class="history-summary">
 
 
-
-<div class="summary-box">
+<div class="summary-card">
 
 
 <span>
@@ -70,7 +66,7 @@
 </span>
 
 
-<strong id="totalWithdraw">
+<strong id="totalWithdrawals">
 
 0
 
@@ -84,52 +80,24 @@
 
 
 
-
-<div class="summary-box">
+<div class="summary-card">
 
 
 <span>
 
-المكتملة
+إجمالي المبالغ
 
 </span>
 
 
-<strong id="completedWithdraw">
+<strong id="totalAmount">
 
-0
+0.00 USDT
 
 </strong>
 
 
 </div>
-
-
-
-
-
-
-
-<div class="summary-box">
-
-
-<span>
-
-قيد المراجعة
-
-</span>
-
-
-<strong id="pendingWithdraw">
-
-0
-
-</strong>
-
-
-</div>
-
-
 
 
 
@@ -141,113 +109,61 @@
 
 
 
-
-<section id="withdrawList" class="withdraw-list">
-
+<section class="withdraw-list" id="withdrawList">
 
 
 </section>
-
-
-
-
-
-
-
-
-<div id="emptyBox" class="empty-box">
-
-
-لا توجد عمليات سحب
-
-
-</div>
-
-
-
-
-
-
-</div>
 <script>
-
-
-let withdrawals =
-
-JSON.parse(
-
-localStorage.getItem("VALORA_WITHDRAWALS")
-
-) || [];
-
-
-
-
-
-let listBox =
-
-document.getElementById("withdrawList");
-
-
-
-let emptyBox =
-
-document.getElementById("emptyBox");
-
-
-
-
-
 
 
 function loadWithdrawHistory(){
 
 
 
-document.getElementById("totalWithdraw").innerHTML =
+let withdrawals =
 
-withdrawals.length;
+JSON.parse(
 
+localStorage.getItem("withdrawals")
 
+)
 
-
-
-let pending =
-
-withdrawals.filter(item =>
-
-item.status === "بانتظار المراجعة"
-
-).length;
-
-
-
-
-
-let completed =
-
-withdrawals.filter(item =>
-
-item.status === "مكتمل"
-
-).length;
+|| [];
 
 
 
 
 
 
-document.getElementById("pendingWithdraw").innerHTML =
 
-pending;
+let list =
 
-
-
-document.getElementById("completedWithdraw").innerHTML =
-
-completed;
+document.getElementById("withdrawList");
 
 
+
+let totalBox =
+
+document.getElementById("totalWithdrawals");
+
+
+
+let amountBox =
+
+document.getElementById("totalAmount");
+
+
+
+
+
+
+list.innerHTML="";
+
+
+
+
+
+let totalAmount = 0;
 
 
 
@@ -258,33 +174,47 @@ completed;
 if(withdrawals.length === 0){
 
 
-emptyBox.style.display="block";
 
+list.innerHTML = `
 
-return;
+<div class="empty-history">
+
+لا توجد طلبات سحب حتى الآن
+
+</div>
+
+`;
+
 
 
 }
 
 
 
-emptyBox.style.display="none";
-
-
-
-listBox.innerHTML="";
 
 
 
 
+withdrawals.forEach((item)=>{
 
 
 
-withdrawals.reverse().forEach(item=>{
+totalAmount +=
+
+Number(item.amount);
 
 
 
-let card = document.createElement("div");
+
+
+
+
+
+let card =
+
+document.createElement("div");
+
+
 
 
 
@@ -296,33 +226,10 @@ card.className="withdraw-card";
 
 
 
-let statusClass = "pending";
-
-
-
-if(item.status==="مكتمل"){
-
-statusClass="success";
-
-}
-
-
-if(item.status==="مرفوض"){
-
-statusClass="reject";
-
-}
-
-
-
-
-
-
-
 card.innerHTML = `
 
 
-<div class="history-top">
+<div class="withdraw-top">
 
 
 <strong>
@@ -330,3 +237,158 @@ card.innerHTML = `
 ${item.coin}
 
 </strong>
+
+
+
+<span class="pending">
+
+${item.status}
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+<div class="withdraw-info">
+
+
+<p>
+
+الشبكة:
+
+<b>
+
+${item.network}
+
+</b>
+
+</p>
+
+
+
+<p>
+
+المبلغ:
+
+<b>
+
+${Number(item.amount).toFixed(2)}
+
+${item.coin}
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+العنوان:
+
+<b class="address">
+
+${item.address}
+
+</b>
+
+</p>
+
+
+
+
+<p>
+
+التاريخ:
+
+<b>
+
+${item.date}
+
+</b>
+
+</p>
+
+
+
+</div>
+
+
+`;
+
+
+
+
+
+
+
+list.appendChild(card);
+
+
+
+});
+
+
+
+
+
+
+
+
+
+totalBox.innerHTML =
+
+withdrawals.length;
+
+
+
+
+
+
+amountBox.innerHTML =
+
+totalAmount.toFixed(2)
+
++
+
+" USDT";
+
+
+
+
+
+}
+
+
+
+
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+loadWithdrawHistory
+
+);
+
+
+
+</script>
+
+
+
+
+</div>
+
+
+</body>
+
+
+</html>
