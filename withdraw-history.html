@@ -10,7 +10,7 @@
 <title>VALORA | سجل السحوبات</title>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
 
 <link rel="stylesheet" href="css/withdraw-history.css">
@@ -36,6 +36,7 @@
 </a>
 
 
+
 <h2>
 
 سجل السحوبات
@@ -45,6 +46,7 @@
 
 
 </header>
+
 
 
 
@@ -111,8 +113,24 @@
 
 <section class="withdraw-list" id="withdrawList">
 
-
 </section>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
 <script>
 
 
@@ -129,8 +147,6 @@ localStorage.getItem("withdrawals")
 )
 
 || [];
-
-
 
 
 
@@ -156,15 +172,11 @@ document.getElementById("totalAmount");
 
 
 
-
 list.innerHTML="";
 
 
 
-
-
 let totalAmount = 0;
-
 
 
 
@@ -177,11 +189,38 @@ if(withdrawals.length === 0){
 
 list.innerHTML = `
 
+
 <div class="empty-history">
+
+
+<svg viewBox="0 0 24 24">
+
+
+<path d="M6 3H18V21H6Z"></path>
+
+
+<path d="M9 8H15"></path>
+
+
+<path d="M9 12H15"></path>
+
+
+<path d="M9 16H13"></path>
+
+
+</svg>
+
+
+
+<p>
 
 لا توجد طلبات سحب حتى الآن
 
+</p>
+
+
 </div>
+
 
 `;
 
@@ -195,32 +234,42 @@ list.innerHTML = `
 
 
 
-withdrawals.forEach((item)=>{
 
-
-
-totalAmount +=
-
-Number(item.amount);
+withdrawals.reverse().forEach(item=>{
 
 
 
 
 
+totalAmount += Number(item.amount);
 
 
 
-let card =
-
-document.createElement("div");
 
 
+
+let status =
+
+item.status === "pending"
+
+?
+
+"قيد المعالجة"
+
+:
+
+item.status;
+
+
+
+
+
+
+let card = document.createElement("div");
 
 
 
 card.className="withdraw-card";
-
-
 
 
 
@@ -232,6 +281,16 @@ card.innerHTML = `
 <div class="withdraw-top">
 
 
+<div class="coin-title">
+
+
+<div class="mini-coin">
+
+${item.coin.charAt(0)}
+
+</div>
+
+
 <strong>
 
 ${item.coin}
@@ -239,15 +298,22 @@ ${item.coin}
 </strong>
 
 
+</div>
 
-<span class="pending">
 
-${item.status}
+
+
+
+<span class="status pending">
+
+${status}
 
 </span>
 
 
+
 </div>
+
 
 
 
@@ -257,23 +323,15 @@ ${item.status}
 <div class="withdraw-info">
 
 
-<p>
 
-الشبكة:
+<div>
 
-<b>
+<span>
 
-${item.network}
+المبلغ
 
-</b>
+</span>
 
-</p>
-
-
-
-<p>
-
-المبلغ:
 
 <b>
 
@@ -283,14 +341,96 @@ ${item.coin}
 
 </b>
 
-</p>
+</div>
 
 
 
 
-<p>
 
-العنوان:
+
+<div>
+
+<span>
+
+العمولة
+
+</span>
+
+
+<b class="fee">
+
+${Number(item.fee).toFixed(2)}
+
+${item.coin}
+
+(${item.feePercent}%)
+
+</b>
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<span>
+
+المستلم
+
+</span>
+
+
+<b class="receive">
+
+${Number(item.receive).toFixed(2)}
+
+${item.coin}
+
+</b>
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<span>
+
+الشبكة
+
+</span>
+
+
+<b>
+
+${item.network}
+
+</b>
+
+</div>
+
+
+
+
+
+
+
+<div>
+
+<span>
+
+العنوان
+
+</span>
+
 
 <b class="address">
 
@@ -298,14 +438,22 @@ ${item.address}
 
 </b>
 
-</p>
+</div>
 
 
 
 
-<p>
 
-التاريخ:
+
+
+<div>
+
+<span>
+
+التاريخ
+
+</span>
+
 
 <b>
 
@@ -313,7 +461,7 @@ ${item.date}
 
 </b>
 
-</p>
+</div>
 
 
 
@@ -321,8 +469,6 @@ ${item.date}
 
 
 `;
-
-
 
 
 
@@ -341,11 +487,9 @@ list.appendChild(card);
 
 
 
-
 totalBox.innerHTML =
 
 withdrawals.length;
-
 
 
 
@@ -370,6 +514,7 @@ totalAmount.toFixed(2)
 
 
 
+
 document.addEventListener(
 
 "DOMContentLoaded",
@@ -385,7 +530,6 @@ loadWithdrawHistory
 
 
 
-</div>
 
 
 </body>
