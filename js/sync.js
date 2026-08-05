@@ -3,94 +3,46 @@
 // ===============================
 
 
-// إعدادات الصفقات من الإدارة (مؤقتة)
-// لاحقاً تنتقل إلى قاعدة البيانات
-
+// إعدادات الصفقات من الإدارة
 const tradeCodes = {
 
+    "VALORA2026":{
+        type:"normal",
+        profit:2
+    },
 
-"VALORA2026":{
+    "SYNC8888":{
+        type:"normal",
+        profit:2
+    },
 
-type:"normal",
+    "TRADE777":{
+        type:"normal",
+        profit:2
+    },
 
-profit:2,
+    "VIP2026":{
+        type:"deposit",
+        profit:7,
+        minDeposit:500
+    },
 
-limit:1
-
-},
-
-
-"SYNC8888":{
-
-type:"normal",
-
-profit:2,
-
-limit:1
-
-},
-
-
-"TRADE777":{
-
-type:"normal",
-
-profit:2,
-
-limit:1
-
-},
-
-
-
-"VIP2026":{
-
-type:"deposit",
-
-profit:7,
-
-minDeposit:500,
-
-limit:1
-
-},
-
-
-
-"BTC1000":{
-
-type:"team",
-
-profit:7,
-
-minTeam:20,
-
-limit:1
-
-}
-
+    "BTC1000":{
+        type:"team",
+        profit:7,
+        minTeam:20
+    }
 
 };
 
 
 
 
+// حفظ الصفقات
 
-// تحميل الصفقات السابقة
-
-let trades =
-
-JSON.parse(
-
-localStorage.getItem("VALORA_TRADES")
-
-)
-
-|| [];
-
-
-
-
+let trades = JSON.parse(
+    localStorage.getItem("VALORA_TRADES")
+) || [];
 
 
 
@@ -99,52 +51,18 @@ localStorage.getItem("VALORA_TRADES")
 // بيانات المستخدم
 // ===============================
 
-
 function getUserData(){
 
+    return {
+
+        deposit:
+        Number(localStorage.getItem("VALORA_DEPOSIT")) || 0,
 
 
-return {
+        team:
+        Number(localStorage.getItem("VALORA_REAL_TEAM")) || 0
 
-
-deposit:
-
-Number(
-
-localStorage.getItem("VALORA_DEPOSIT")
-
-)
-
-||0,
-
-
-
-team:
-
-Number(
-
-localStorage.getItem("VALORA_REAL_TEAM")
-
-)
-
-||0,
-
-
-
-tradeCount:
-
-Number(
-
-localStorage.getItem("VALORA_TRADE_COUNT")
-
-)
-
-||0
-
-
-};
-
-
+    };
 
 }
 
@@ -152,53 +70,143 @@ localStorage.getItem("VALORA_TRADE_COUNT")
 
 
 
-
-
-
-
 // ===============================
-// فحص صلاحية الصفقة
+// التحقق من الصفقة
 // ===============================
-
 
 function checkTrade(){
 
 
-
-let input =
-
-document.getElementById("tradeCode");
+    let input =
+    document.getElementById("tradeCode");
 
 
-
-let code =
-
-input.value.trim();
+    let code =
+    input.value.trim();
 
 
-
-let result =
-
-document.getElementById("resultBox");
+    let result =
+    document.getElementById("resultBox");
 
 
 
+    if(code === ""){
+
+        result.innerHTML = `
+        <div class="error">
+        ⚠️ يرجى إدخال كود الصفقة
+        </div>
+        `;
+
+        return;
+    }
 
 
-if(code===""){
 
 
-result.innerHTML=`
+    let config = tradeCodes[code];
 
-<div class="error">
 
-يرجى إدخال كود الصفقة
 
-</div>
+    if(!config){
 
-`;
+        result.innerHTML = `
+        <div class="error">
+        ❌ كود الصفقة غير صحيح
+        </div>
+        `;
 
-return;
+        return;
+
+    }
+
+
+
+
+
+    // منع وجود صفقة قيد التنفيذ
+
+    let active =
+    localStorage.getItem("VALORA_ACTIVE_TRADE");
+
+
+    if(active){
+
+        result.innerHTML = `
+        <div class="error">
+        ⚠️ لديك صفقة قيد التنفيذ
+        </div>
+        `;
+
+        return;
+    }
+
+
+
+
+
+
+    let user = getUserData();
+
+
+
+
+    // صفقة الإيداع
+
+    if(config.type === "deposit"){
+
+
+        if(user.deposit < config.minDeposit){
+
+
+            result.innerHTML = `
+            <div class="error">
+            هذه الصفقة خاصة بأصحاب الإيداع 500 USDT أو أكثر
+            </div>
+            `;
+
+            return;
+
+        }
+
+    }
+
+
+
+
+
+
+    // صفقة الفريق
+
+    if(config.type === "team"){
+
+
+        if(user.team < config.minTeam){
+
+
+            result.innerHTML = `
+            <div class="error">
+            هذه الصفقة تحتاج فريق 20 عضو بإيداعات حقيقية
+            </div>
+            `;
+
+            return;
+
+        }
+
+    }
+
+
+
+
+
+
+    startTrade(code,config);
+
+
+    input.value="";
+
+
 
 }
 
@@ -207,203 +215,77 @@ return;
 
 
 
-let config = tradeCodes[code];
 
 
 
-
-
-
-if(!config){
-
-
-result.innerHTML=`
-
-<div class="error">
-
-✕ كود الصفقة غير صحيح
-
-</div>
-
-`;
-
-return;
-
-
-}
-
-
-
-
-
-
-
-let user =
-
-getUserData();
-
-
-
-
-
-
-
-// فحص الصفقة الخاصة بالإيداع
-
-
-
-if(config.type==="deposit"){
-
-
-
-if(user.deposit < config.minDeposit){
-
-
-
-result.innerHTML=`
-
-<div class="error">
-
-هذه الصفقة تحتاج إيداع 500 USDT أو أكثر
-
-</div>
-
-`;
-
-return;
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-// فحص صفقة الفريق
-
-
-
-if(config.type==="team"){
-
-
-
-if(user.team < config.minTeam){
-
-
-
-result.innerHTML=`
-
-<div class="error">
-
-هذه الصفقة تحتاج فريق لديه 20 عضو بإيداعات حقيقية
-
-</div>
-
-`;
-
-return;
-
-
-}
-
-
-
-}
 // ===============================
 // بدء الصفقة
 // ===============================
-acceptTrade(code,config);
-
-let activeTrade =
-
-JSON.parse(
-
-localStorage.getItem("VALORA_ACTIVE_TRADE")
-
-)
-
-|| null;
-
-
-
-
-
 
 
 function startTrade(code,config){
 
 
 
-let user = getUserData();
+    let trade = {
+
+
+        code:code,
+
+
+        profit:config.profit,
+
+
+        coin:
+        document.querySelector(".coin.active h4")?.innerText || "BTC",
 
 
 
-
-let trade = {
-
-
-code:code,
-
-
-profit:config.profit,
-
-
-start:
-
-Date.now(),
+        start:Date.now(),
 
 
 
-end:
-
-Date.now() + (15 * 60 * 1000),
-
-
-
-status:"قيد التنفيذ"
+        end:
+        Date.now() + (15 * 60 * 1000),
 
 
 
-};
+        status:"قيد التنفيذ"
 
 
-
-
-
-
-localStorage.setItem(
-
-"VALORA_ACTIVE_TRADE",
-
-JSON.stringify(trade)
-
-);
+    };
 
 
 
 
 
 
-localStorage.setItem(
+    localStorage.setItem(
 
-"VALORA_TRADE_COUNT",
+        "VALORA_ACTIVE_TRADE",
 
-user.tradeCount + 1
+        JSON.stringify(trade)
 
-);
-
-
+    );
 
 
 
-showTradeTimer();
 
+    showMessage(
+
+    `
+    <div class="success">
+    ✅ تم تفعيل الصفقة
+    <br>
+    جاري التنفيذ لمدة 15 دقيقة
+    </div>
+    `
+
+    );
+
+
+
+    startTimer();
 
 
 }
@@ -417,41 +299,25 @@ showTradeTimer();
 
 
 // ===============================
-// بعد التحقق
+// الرسائل
 // ===============================
 
+function showMessage(html){
 
-function acceptTrade(code,config){
+    let box =
+    document.getElementById("resultBox");
 
+    if(box){
 
+        box.innerHTML = html;
 
-startTrade(code,config);
-
-
-
-let result =
-
-document.getElementById("resultBox");
-
-
-
-result.innerHTML=`
-
-<div class="success">
-
-✓ تم تفعيل الصفقة
-
-<br>
-
-جاري التنفيذ لمدة 15 دقيقة
-
-</div>
-
-`;
-
-
+    }
 
 }
+
+
+
+
 
 
 
@@ -461,30 +327,18 @@ result.innerHTML=`
 // المؤقت
 // ===============================
 
-
-function showTradeTimer(){
-
-
-
-let result =
-
-document.getElementById("resultBox");
+function startTimer(){
 
 
 
-let timer = setInterval(function(){
-
+let timer =
+setInterval(()=>{
 
 
 let trade =
-
 JSON.parse(
-
 localStorage.getItem("VALORA_ACTIVE_TRADE")
-
 );
-
-
 
 
 
@@ -499,27 +353,20 @@ return;
 
 
 
-
-
 let remain =
-
 trade.end - Date.now();
 
 
 
 
 
-
-if(remain <=0){
-
+if(remain <= 0){
 
 
 clearInterval(timer);
 
 
-
 finishTrade();
-
 
 
 return;
@@ -530,50 +377,34 @@ return;
 
 
 
-
-
-let minutes =
-
-Math.floor(
-
-remain / 60000
-
-);
+let min =
+Math.floor(remain / 60000);
 
 
 
-let seconds =
-
-Math.floor(
-
-(remain % 60000) / 1000
-
-);
+let sec =
+Math.floor((remain % 60000)/1000);
 
 
 
-
-
-
-result.innerHTML=`
+showMessage(`
 
 <div class="success">
 
-الصفقة قيد التنفيذ
+⏳ الصفقة قيد التنفيذ
 
 <br>
 
-${minutes}:${seconds.toString().padStart(2,"0")}
+${min}:${sec.toString().padStart(2,"0")}
 
 </div>
 
-`;
+`);
 
 
 
 
 },1000);
-
 
 
 }
@@ -587,7 +418,7 @@ ${minutes}:${seconds.toString().padStart(2,"0")}
 
 
 // ===============================
-// إنهاء الصفقة وإضافة الربح
+// إنهاء الصفقة
 // ===============================
 
 
@@ -596,15 +427,9 @@ function finishTrade(){
 
 
 let trade =
-
 JSON.parse(
-
 localStorage.getItem("VALORA_ACTIVE_TRADE")
-
 );
-
-
-
 
 
 
@@ -617,58 +442,29 @@ return;
 
 
 
-
-
-
 let balance =
-
 Number(
-
 localStorage.getItem("VALORA_BALANCE")
-
-)
-
-||0;
-
-
-
+)||0;
 
 
 
 
 let profit =
-
-balance *
-
-(trade.profit / 100);
-
-
+balance * (trade.profit /100);
 
 
 
 
 
 let today =
-
 Number(
-
 localStorage.getItem("VALORA_TODAY_PROFIT")
-
-)
-
-||0;
-
-
-
-
+)||0;
 
 
 
 today += profit;
-
-
-
-
 
 
 
@@ -685,18 +481,11 @@ today
 
 
 
-
-
-
 trade.status="مكتملة";
 
 
 
-
-
 trades.push(trade);
-
-
 
 
 
@@ -711,8 +500,6 @@ JSON.stringify(trades)
 
 
 
-
-
 localStorage.removeItem(
 
 "VALORA_ACTIVE_TRADE"
@@ -722,26 +509,21 @@ localStorage.removeItem(
 
 
 
-
-
-document.getElementById("resultBox").innerHTML=`
+showMessage(`
 
 <div class="success">
 
-✓ اكتملت الصفقة
+✅ اكتملت الصفقة
 
 <br>
 
 الربح:
-
-${profit.toFixed(2)} USDT
+${profit.toFixed(2)}
+USDT
 
 </div>
 
-`;
-
-
-
+`);
 
 
 
@@ -758,6 +540,162 @@ loadTrades();
 
 
 
+
 // ===============================
-// عرض الصفقات
-// ===============================    
+// عرض سجل الصفقات
+// ===============================
+
+
+function loadTrades(){
+
+
+let box =
+document.getElementById("ordersList");
+
+
+
+if(!box) return;
+
+
+
+
+if(trades.length===0){
+
+
+box.innerHTML=`
+
+<div class="empty-order">
+
+لا توجد صفقات حالياً
+
+</div>
+
+`;
+
+return;
+
+
+}
+
+
+
+
+box.innerHTML="";
+
+
+
+
+trades.slice().reverse().forEach(t=>{
+
+
+box.innerHTML += `
+
+<div class="order-card">
+
+
+<strong>
+
+${t.coin}
+
+</strong>
+
+
+<br>
+
+الكود:
+${t.code}
+
+
+<br>
+
+الربح:
+${t.profit}%
+
+
+<br>
+
+<span>
+
+${t.status}
+
+</span>
+
+
+</div>
+
+
+`;
+
+
+
+});
+
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// اختيار العملات
+// ===============================
+
+
+document.querySelectorAll(".coin")
+.forEach(coin=>{
+
+
+coin.onclick=function(){
+
+
+document.querySelectorAll(".coin")
+.forEach(c=>c.classList.remove("active"));
+
+
+this.classList.add("active");
+
+
+};
+
+
+});
+
+
+
+
+
+
+
+
+
+// تشغيل الصفحة
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+()=>{
+
+
+loadTrades();
+
+
+let active =
+localStorage.getItem("VALORA_ACTIVE_TRADE");
+
+
+if(active){
+
+startTimer();
+
+}
+
+
+}
+
+);
