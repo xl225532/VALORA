@@ -1047,6 +1047,105 @@ window.location.href="trade.html?coin="+coin;
 </div>
 <script src="js/language.js"></script>
 
+<script>
+
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
+
+}
+
+
+
+function openMenu(){
+
+document
+.getElementById("sideMenu")
+.classList.add("open");
+
+}
+
+
+
+function closeMenu(){
+
+document
+.getElementById("sideMenu")
+.classList.remove("open");
+
+}
+
+
+
+
+function copyUID(){
+
+navigator.clipboard.writeText("UID: 588887");
+
+}
+
+
+
+
+let balanceHidden=false;
+
+
+
+function hideBalance(){
+
+
+let b=document.getElementById("balance");
+
+let p=document.getElementById("todayProfit");
+
+
+
+if(balanceHidden){
+
+
+b.innerHTML="0.00 <small>USDT</small>";
+
+p.innerHTML="+0.00 USDT";
+
+
+balanceHidden=false;
+
+
+}else{
+
+
+b.innerHTML="***** <small>USDT</small>";
+
+p.innerHTML="*****";
+
+
+balanceHidden=true;
+
+
+}
+
+
+}
+
+
+
+
+
+function openTrade(coin){
+
+window.location.href="trade.html?coin="+coin;
+
+}
+
+
+
+</script>
+
+
+<script src="js/dashboard.js"></script>
+
+
 </body>
 
-</html>
+</html>  
