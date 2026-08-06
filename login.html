@@ -7,13 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | تسجيل الدخول</title>
+<title>VALORA | Language</title>
+
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-<link rel="stylesheet" href="css/login.css">
 
+<link rel="stylesheet" href="css/settings.css">
 <link rel="stylesheet" href="css/background.css">
+
 
 </head>
 
@@ -21,105 +23,52 @@
 <body>
 
 
-<div class="login-container">
+<div class="settings-container">
 
 
-<div class="logo">
+<div class="settings-header">
 
+<h2>
+Language
+</h2>
 
-<div class="logo-icon">
-
-<svg viewBox="0 0 64 64">
-
-<path d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
-fill="#1687FF"/>
-
-
-<path d="M22 24 L32 44 L42 24"
-stroke="#ffffff"
-stroke-width="4"
-fill="none"
-stroke-linecap="round"/>
-
-</svg>
-
-</div>
-
-
-
-<div class="logo-name">
-
-VALORA
-
-</div>
-
-
-
-<div class="logo-sub">
-
-EXCHANGE
-
-</div>
-
-
-</div>
-
-
-
-<div class="subtitle">
-
-تسجيل الدخول إلى حسابك
+<p>
+Choose your preferred language
+</p>
 
 </div>
 
 
 
 
-<form id="loginForm">
+
+<div class="language-card">
 
 
 
-<div class="input-group">
+<div class="language-item"
+onclick="setLanguage('en')">
 
 
-<label>
+<div class="language-icon">
 
-البريد الإلكتروني أو رقم الهاتف
-
-</label>
-
-
-<input
-
-type="text"
-
-id="loginInput"
-
-placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
-
-required>
-
+🇺🇸
 
 </div>
-<div class="input-group">
 
 
-<label>
+<div class="language-name">
 
-كلمة المرور
+English
 
-</label>
+</div>
 
 
-<input
+<div class="language-check">
 
-type="password"
+✓
 
-id="loginPassword"
-
-placeholder="أدخل كلمة المرور"
-
-required>
+</div>
 
 
 </div>
@@ -128,53 +77,37 @@ required>
 
 
 
-<button
 
-class="login-btn"
-
-type="submit">
+<div class="language-item"
+onclick="setLanguage('ar')">
 
 
-تسجيل الدخول
+<div class="language-icon">
+
+🇸🇦
+
+</div>
 
 
-</button>
+<div class="language-name">
+
+العربية
+
+</div>
 
 
+<div class="language-check">
 
+✓
 
-</form>
-
-
-
-
-
-<div class="links">
-
-
-
-<a href="forgot-password.html">
-
-
-نسيت كلمة المرور؟
-
-
-</a>
-
-
-
-
-<a href="register.html">
-
-
-إنشاء حساب
-
-
-</a>
+</div>
 
 
 </div>
 
+
+
+</div>
 
 
 
@@ -184,7 +117,8 @@ type="submit">
 
 
 
-<script src="js/app.js"></script>
+
+<script src="js/language.js"></script>
 
 
 </body>
