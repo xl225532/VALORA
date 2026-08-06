@@ -1,376 +1,125 @@
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
-}
-
-
-html,
-body{
-
-margin:0;
-padding:0;
-
-background:#050B16 !important;
-
-color:#fff;
-
-min-height:100vh;
-
-overflow-x:hidden;
-
-}
-
-
-
-.language-page{
-
-width:100%;
-
-max-width:480px;
-
-min-height:100vh;
-
-margin:auto;
-
-padding:18px 15px 95px;
-
-background:#050B16;
-
-}
-
-
-
-
-
-/* HEADER */
-
-.page-header{
-
-display:flex;
-
-align-items:center;
-
-gap:15px;
-
-margin-bottom:25px;
-
-}
-
-
-
-.page-header a{
-
-font-size:38px;
-
-color:#fff;
-
-text-decoration:none;
-
-line-height:1;
-
-}
-
-
-
-.page-header h2{
-
-font-size:20px;
-
-font-weight:700;
-
-}
-
-
-
-
-
-
-
-/* LANGUAGE BOX */
-
+/* ===========================
+   VALORA Language
+=========================== */
 
 .language-card{
 
 background:#0B1628;
-
 border:1px solid #17365C;
-
 border-radius:20px;
-
-padding:12px;
+overflow:hidden;
+margin-top:20px;
 
 }
-
-
-
-
 
 .language-item{
 
 display:flex;
-
+justify-content:space-between;
 align-items:center;
 
-justify-content:space-between;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:14px;
-
-padding:15px;
-
-margin-bottom:10px;
-
-font-size:15px;
-
-color:#fff;
+padding:18px;
 
 cursor:pointer;
 
-transition:.2s;
+transition:.25s;
+
+border-bottom:1px solid #17365C;
 
 }
 
+.language-item:last-child{
 
-
-.language-item span{
-
-display:flex;
-
-align-items:center;
-
-gap:12px;
+border-bottom:none;
 
 }
-
-
 
 .language-item:hover{
 
-border-color:#1687FF;
+background:#101E34;
 
 }
 
+.language-left{
 
-
-.language-item.active{
-
-border-color:#1687FF;
-
-background:#102342;
+display:flex;
+align-items:center;
+gap:15px;
 
 }
 
+.language-flag{
 
-
-.language-item b{
-
-color:#22C55E;
-
-font-size:20px;
+font-size:28px;
 
 }
 
+.language-title{
 
-
-
-
-
-
-/* CONFIRM BUTTON */
-
-.confirm-language{
-
-width:100%;
-
-background:#1687FF;
-
-border:0;
-
+font-size:16px;
+font-weight:700;
 color:#fff;
 
-padding:14px;
+}
 
-border-radius:14px;
+.language-subtitle{
 
-font-size:15px;
-
-font-weight:bold;
-
-margin-top:15px;
-
-cursor:pointer;
+font-size:12px;
+color:#98A5B8;
+margin-top:3px;
 
 }
 
+/* دائرة الاختيار */
 
+.language-radio{
 
+width:24px;
+height:24px;
 
+border:2px solid #1687FF;
 
+border-radius:50%;
 
-
-/* CONFIRM WINDOW */
-
-
-.confirm-box{
-
-display:none;
-
-position:fixed;
-
-inset:0;
-
-background:rgba(0,0,0,.65);
+display:flex;
 
 align-items:center;
 
 justify-content:center;
 
-z-index:1000;
+transition:.25s;
 
 }
 
+.radio-dot{
 
+width:12px;
+height:12px;
 
-.confirm-card{
-
-width:90%;
-
-max-width:360px;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:20px;
-
-padding:25px;
-
-text-align:center;
-
-}
-
-
-
-.confirm-card h3{
-
-font-size:20px;
-
-margin-bottom:12px;
-
-}
-
-
-
-.confirm-card p{
-
-color:#98A5B8;
-
-font-size:14px;
-
-margin-bottom:20px;
-
-}
-
-
-
-.confirm-card button{
-
-width:100%;
-
-padding:13px;
-
-border:0;
-
-border-radius:12px;
-
-margin-top:10px;
-
-font-size:15px;
-
-font-weight:bold;
-
-cursor:pointer;
+border-radius:50%;
 
 background:#1687FF;
 
-color:#fff;
+transform:scale(0);
+
+transition:.25s;
 
 }
 
+.language-radio.active .radio-dot{
 
-
-.confirm-card button:last-child{
-
-background:#1A2638;
-
-color:#CBD5E1;
+transform:scale(1);
 
 }
 
+.save-info{
 
-
-
-
-
-
-/* BOTTOM NAV */
-
-
-.bottom-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:50%;
-
-transform:translateX(-50%);
-
-max-width:480px;
-
-width:100%;
-
-height:78px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-around;
-
-padding:8px;
-
-z-index:999;
-
-}
-
-
-
-.bottom-nav a{
-
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
+margin-top:18px;
 
 text-align:center;
 
-}
+font-size:13px;
 
-
-
-.bottom-nav a.active{
-
-color:#1687FF;
+color:#98A5B8;
 
 }
