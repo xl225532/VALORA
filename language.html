@@ -13,82 +13,134 @@
 
 <link rel="stylesheet" href="css/settings.css">
 <link rel="stylesheet" href="css/background.css">
+<link rel="stylesheet" href="css/language.css">
 
 </head>
 
-
 <body>
-
 
 <div class="settings-container">
 
-
 <div class="settings-header">
 
-<h2 data-lang="language_title">
-اللغة
+<h2>
+🌐 Language
 </h2>
 
-
-<p data-lang="language_choose">
-اختر اللغة المفضلة لديك
+<p>
+Choose your preferred language
 </p>
 
-
 </div>
-
-
 
 
 <div class="language-card">
-
-
+  <!-- English -->
 
 <div class="language-item" onclick="setLanguage('en')">
 
+    <div class="language-left">
 
-<div class="language-icon">
-🇺🇸
+        <div class="language-flag">
+            🇺🇸
+        </div>
+
+        <div>
+
+            <div class="language-title">
+                English
+            </div>
+
+            <div class="language-subtitle">
+                Default Language
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="language-radio" id="radio-en">
+
+        <div class="radio-dot"></div>
+
+    </div>
+
 </div>
 
 
-<div class="language-name" data-lang="english">
-English
-</div>
 
-
-</div>
-
-
-
-
+<!-- Arabic -->
 
 <div class="language-item" onclick="setLanguage('ar')">
 
+    <div class="language-left">
 
-<div class="language-icon">
-🇸🇦
+        <div class="language-flag">
+            🇸🇦
+        </div>
+
+        <div>
+
+            <div class="language-title">
+                العربية
+            </div>
+
+            <div class="language-subtitle">
+                Arabic
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="language-radio" id="radio-ar">
+
+        <div class="radio-dot"></div>
+
+    </div>
+
 </div>
 
 
-<div class="language-name" data-lang="arabic">
-العربية
-</div>
-
 
 </div>
 
 
+<div class="save-info">
+
+سيتم حفظ اللغة تلقائياً
 
 </div>
-
-
 </div>
-
-
 
 <script src="js/language.js"></script>
 
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    const current =
+    localStorage.getItem("VALORA_LANG") || "en";
+
+    const en =
+    document.getElementById("radio-en");
+
+    const ar =
+    document.getElementById("radio-ar");
+
+    if(current === "en"){
+
+        en.classList.add("active");
+
+    }else{
+
+        ar.classList.add("active");
+
+    }
+
+});
+
+</script>
 
 </body>
 
