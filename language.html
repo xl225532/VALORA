@@ -7,14 +7,15 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | اللغة</title>
+<title>VALORA | Language</title>
 
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
 
-<link rel="stylesheet" href="css/language.css">
+<link rel="stylesheet" href="css/settings.css">
 <link rel="stylesheet" href="css/background.css">
+
 
 </head>
 
@@ -22,54 +23,18 @@
 <body>
 
 
-<div class="language-page">
+<div class="settings-container">
 
 
-
-<header class="page-header">
-
-
-<a href="settings.html">
-
-‹
-
-</a>
-
+<div class="settings-header">
 
 <h2>
-
-اختيار اللغة
-
+Language
 </h2>
 
-
-</header>
-
-
-
-
-
-
-<section class="language-card">
-
-
-
-<div class="language-item" data-lang-code="ar">
-
-<span>
-🇸🇦 العربية
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="en">
-
-<span>
-🇺🇸 English
-</span>
+<p>
+Choose your preferred language
+</p>
 
 </div>
 
@@ -77,312 +42,83 @@
 
 
 
-<div class="language-item" data-lang-code="es">
+<div class="language-card">
 
-<span>
-🇪🇸 Español
-</span>
+
+
+<div class="language-item"
+onclick="setLanguage('en')">
+
+
+<div class="language-icon">
+
+🇺🇸
+
+</div>
+
+
+<div class="language-name">
+
+English
+
+</div>
+
+
+<div class="language-check">
+
+✓
+
+</div>
+
 
 </div>
 
 
 
 
-<div class="language-item" data-lang-code="fr">
 
-<span>
-🇫🇷 Français
-</span>
+
+<div class="language-item"
+onclick="setLanguage('ar')">
+
+
+<div class="language-icon">
+
+🇸🇦
+
+</div>
+
+
+<div class="language-name">
+
+العربية
+
+</div>
+
+
+<div class="language-check">
+
+✓
+
+</div>
+
+
+</div>
+
+
 
 </div>
 
 
 
 
-<div class="language-item" data-lang-code="de">
-
-<span>
-🇩🇪 Deutsch
-</span>
-
 </div>
-
-
-
-
-<div class="language-item" data-lang-code="tr">
-
-<span>
-🇹🇷 Türkçe
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="ru">
-
-<span>
-🇷🇺 Русский
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="zh">
-
-<span>
-🇨🇳 中文
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="ja">
-
-<span>
-🇯🇵 日本語
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="ko">
-
-<span>
-🇰🇷 한국어
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="it">
-
-<span>
-🇮🇹 Italiano
-</span>
-
-</div>
-
-
-
-
-<div class="language-item" data-lang-code="pt">
-
-<span>
-🇵🇹 Português
-</span>
-
-</div>
-
-
-
-
-</section>
-
-
-
-
-</div>
-
 
 
 
 
 
 <script src="js/language.js"></script>
-
-
-<script>
-
-
-let selectedLanguage =
-localStorage.getItem("VALORA_LANG") || "ar";
-
-
-
-
-
-function loadSelectedLanguage(){
-
-
-document.querySelectorAll(".language-item")
-.forEach(function(item){
-
-
-item.classList.remove("active");
-
-
-
-let oldCheck=item.querySelector("b");
-
-
-if(oldCheck){
-
-oldCheck.remove();
-
-}
-
-
-
-
-if(item.dataset.langCode === selectedLanguage){
-
-
-item.classList.add("active");
-
-
-
-let check=document.createElement("b");
-
-check.innerHTML="✓";
-
-
-item.appendChild(check);
-
-
-
-}
-
-
-
-});
-
-
-}
-
-
-
-
-loadSelectedLanguage();
-
-
-
-
-
-
-document.querySelectorAll(".language-item")
-.forEach(function(item){
-
-
-
-item.onclick=function(){
-
-
-
-if(!item.dataset.langCode){
-
-return;
-
-}
-
-
-
-selectedLanguage=item.dataset.langCode;
-
-
-
-localStorage.setItem(
-"VALORA_LANG",
-selectedLanguage
-);
-
-
-
-
-loadSelectedLanguage();
-
-
-
-
-
-if(typeof applyLanguage === "function"){
-
-applyLanguage();
-
-}
-
-
-
-
-
-showMessage("✓ تم تغيير اللغة");
-
-
-
-};
-
-
-
-});
-
-
-
-
-
-
-
-function showMessage(text){
-
-
-let msg=document.createElement("div");
-
-
-msg.innerText=text;
-
-
-
-msg.style.position="fixed";
-
-msg.style.top="15px";
-
-msg.style.left="50%";
-
-msg.style.transform="translateX(-50%)";
-
-msg.style.background="#1687FF";
-
-msg.style.color="#fff";
-
-msg.style.padding="8px 20px";
-
-msg.style.borderRadius="20px";
-
-msg.style.fontSize="13px";
-
-msg.style.zIndex="9999";
-
-
-
-document.body.appendChild(msg);
-
-
-
-setTimeout(function(){
-
-
-msg.remove();
-
-
-},2000);
-
-
-
-}
-
-
-
-</script>
-
 
 
 </body>
