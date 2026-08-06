@@ -581,3 +581,55 @@ padding:18px 15px;
 
 
 }
+/* كود التحقق */
+
+.verify-box{
+
+display:flex;
+gap:8px;
+align-items:center;
+
+}
+
+
+.verify-box input{
+
+flex:1;
+
+}
+
+
+.verify-btn{
+
+height:38px;
+padding:0 16px;
+
+border:none;
+border-radius:10px;
+
+background:#1687FF;
+color:white;
+
+font-family:'Cairo',sans-serif;
+font-size:13px;
+font-weight:bold;
+
+cursor:pointer;
+
+}
+
+
+.verify-btn:active{
+
+transform:scale(.95);
+
+}
+
+
+#verifyCode{
+
+text-align:center;
+letter-spacing:5px;
+font-weight:bold;
+
+}
