@@ -2,41 +2,64 @@
 // VALORA LANGUAGE SYSTEM
 // ======================================
 
+
 const translations = {
 
-    en: {
 
-        login_subtitle: "Login to your account",
-        email_phone: "Email or Phone Number",
-        email_phone_placeholder: "Enter Email or Phone Number",
-        password: "Password",
-        password_placeholder: "Enter Password",
-        login_btn: "Login",
-        forgot_password: "Forgot Password?",
-        create_account: "Create Account"
+en: {
 
-    },
+    // Login
+    login_subtitle: "Login to your account",
+    email_phone: "Email or Phone Number",
+    email_phone_placeholder: "Enter Email or Phone Number",
+    password: "Password",
+    password_placeholder: "Enter Password",
+    login_btn: "Login",
+    forgot_password: "Forgot Password?",
+    create_account: "Create Account",
 
 
-    ar: {
+    // Language Page
+    language_title: "Language",
+    language_choose: "Choose your preferred language",
+    english: "English",
+    arabic: "Arabic"
 
-        login_subtitle: "تسجيل الدخول إلى حسابك",
-        email_phone: "البريد الإلكتروني أو رقم الهاتف",
-        email_phone_placeholder: "أدخل البريد الإلكتروني أو رقم الهاتف",
-        password: "كلمة المرور",
-        password_placeholder: "أدخل كلمة المرور",
-        login_btn: "تسجيل الدخول",
-        forgot_password: "نسيت كلمة المرور؟",
-        create_account: "إنشاء حساب"
+},
 
-    }
+
+
+ar: {
+
+    // Login
+    login_subtitle: "تسجيل الدخول إلى حسابك",
+    email_phone: "البريد الإلكتروني أو رقم الهاتف",
+    email_phone_placeholder: "أدخل البريد الإلكتروني أو رقم الهاتف",
+    password: "كلمة المرور",
+    password_placeholder: "أدخل كلمة المرور",
+    login_btn: "تسجيل الدخول",
+    forgot_password: "نسيت كلمة المرور؟",
+    create_account: "إنشاء حساب",
+
+
+    // Language Page
+    language_title: "اللغة",
+    language_choose: "اختر اللغة المفضلة لديك",
+    english: "الإنجليزية",
+    arabic: "العربية"
+
+}
+
 
 };
 
 
-// اللغة الافتراضية
+
+// اللغة الحالية
 let currentLanguage =
 localStorage.getItem("VALORA_LANG") || "en";
+
+
 
 
 // تغيير اللغة
@@ -47,19 +70,19 @@ function setLanguage(lang){
         lang
     );
 
-    window.location.reload();
+    location.reload();
 
 }
 
 
 
-// تطبيق اللغة
+
+// تطبيق الترجمة
 function applyLanguage(){
 
 
     currentLanguage =
     localStorage.getItem("VALORA_LANG") || "en";
-
 
 
     const data =
@@ -109,6 +132,7 @@ function applyLanguage(){
 
 
 }
+
 
 
 
