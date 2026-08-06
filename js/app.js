@@ -77,9 +77,13 @@ if (loginForm) {
             loginPassword === savedUser.password
         ) {
 
-            alert("تم تسجيل الدخول بنجاح");
+    showLoginSuccess();
 
-            window.location.href = "dashboard.html";
+setTimeout(function(){
+
+    window.location.href = "dashboard.html";
+
+},1800);
 
         } else {
 
@@ -114,5 +118,45 @@ function togglePassword(id, button) {
         if (button) button.classList.remove("show");
 
     }
+
+}
+// ======================================
+// إشعار نجاح تسجيل الدخول
+// ======================================
+
+function showLoginSuccess(){
+
+    const box = document.createElement("div");
+
+    box.className = "login-success";
+
+    box.innerHTML = `
+
+    <div class="success-icon">
+        ✓
+    </div>
+
+    <div class="success-text">
+
+        <strong>
+        تم تسجيل الدخول
+        </strong>
+
+        <p>
+        جاري الدخول إلى الحساب
+        </p>
+
+    </div>
+
+    `;
+
+    document.body.appendChild(box);
+
+
+    setTimeout(function(){
+
+        box.remove();
+
+    },1800);
 
 }
