@@ -17,9 +17,12 @@
 
 <body>
 
+
 <div class="auth-container">
 
+
 <div class="logo">
+
 
 <div class="logo-icon">
 
@@ -38,21 +41,30 @@ stroke-linecap="round"/>
 
 </div>
 
+
 <div class="logo-name">
 VALORA
 </div>
+
 
 <div class="logo-sub">
 EXCHANGE
 </div>
 
+
 </div>
+
+
 
 <div class="auth-title">
 إنشاء حساب جديد
 </div>
 
+
+
 <form id="registerForm">
+
+
 
 <div class="input-group">
 
@@ -60,13 +72,66 @@ EXCHANGE
 البريد الإلكتروني أو رقم الهاتف
 </label>
 
+
 <input
+
 type="text"
+
 id="contact"
+
 placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
+
 required>
 
 </div>
+
+
+
+
+
+<div class="input-group">
+
+<label>
+كود التحقق
+</label>
+
+
+<div class="verify-box">
+
+
+<input
+
+type="text"
+
+id="verifyCode"
+
+maxlength="6"
+
+placeholder="أدخل كود التحقق">
+
+
+<button
+
+type="button"
+
+class="verify-btn"
+
+onclick="sendVerificationCode()">
+
+تحقق
+
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
 
 <div class="input-group">
 
@@ -74,18 +139,30 @@ required>
 كلمة المرور
 </label>
 
+
 <div class="password-box">
 
+
 <input
+
 type="password"
+
 id="password"
+
 placeholder="********"
+
 required>
 
+
+
 <button
+
 type="button"
+
 class="eye-btn"
+
 onclick="togglePassword('password',this)">
+
 
 <svg viewBox="0 0 24 24">
 
@@ -95,29 +172,48 @@ onclick="togglePassword('password',this)">
 
 </svg>
 
+
 </button>
 
+
 </div>
 
 </div>
+
+
+
+
+
 <div class="input-group">
 
 <label>
 تأكيد كلمة المرور
 </label>
 
+
 <div class="password-box">
 
+
 <input
+
 type="password"
+
 id="confirmPassword"
+
 placeholder="********"
+
 required>
 
+
+
 <button
+
 type="button"
+
 class="eye-btn"
+
 onclick="togglePassword('confirmPassword',this)">
+
 
 <svg viewBox="0 0 24 24">
 
@@ -127,11 +223,19 @@ onclick="togglePassword('confirmPassword',this)">
 
 </svg>
 
+
 </button>
 
+
 </div>
 
 </div>
+
+
+
+
+
+
 
 <div class="input-group">
 
@@ -139,29 +243,48 @@ onclick="togglePassword('confirmPassword',this)">
 كود الدعوة
 </label>
 
+
 <input
+
 type="text"
+
 id="inviteCode"
+
 placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
+
 
 </div>
 
+
+
+
+
+
 <div class="checkbox-group">
+
 
 <label class="circle-check">
 
+
 <input
+
 type="checkbox"
+
 id="agree"
+
 required>
+
 
 <span></span>
 
+
 </label>
+
 
 <label>
 
 أوافق على
+
 
 <a href="terms.html" target="_blank">
 
@@ -169,22 +292,41 @@ required>
 
 </a>
 
+
 </label>
+
 
 </div>
 
+
+
+
+
+
 <button
+
 type="submit"
+
 class="btn-primary">
 
 إنشاء الحساب
 
 </button>
+
+
+
 </form>
+
+
+
+
+
+
 
 <div class="bottom-link">
 
 لديك حساب بالفعل؟
+
 
 <a href="login.html">
 
@@ -192,11 +334,19 @@ class="btn-primary">
 
 </a>
 
-</div>
 
 </div>
+
+
+
+
+
+</div>
+
+
 
 <script src="js/app.js"></script>
+
 
 </body>
 
