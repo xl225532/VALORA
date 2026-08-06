@@ -633,3 +633,39 @@ letter-spacing:5px;
 font-weight:bold;
 
 }
+/* =========================
+   Verification Code
+========================= */
+
+.verify-box{
+    display:flex;
+    align-items:center;
+    gap:8px;
+}
+
+.verify-box input{
+    flex:1;
+}
+
+.verify-btn{
+    height:38px;
+    padding:0 15px;
+    border:none;
+    border-radius:10px;
+    background:#1687FF;
+    color:white;
+    font-family:'Cairo',sans-serif;
+    font-size:13px;
+    font-weight:bold;
+    cursor:pointer;
+}
+
+.verify-btn:active{
+    transform:scale(.95);
+}
+
+#verifyCode{
+    text-align:center;
+    letter-spacing:5px;
+    font-size:16px;
+}
