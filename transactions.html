@@ -1,129 +1,37 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-
-<head>
-
-<meta charset="UTF-8">
-
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>VALORA | سجل العمليات</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-<link rel="stylesheet" href="css/transactions.css">
-<link rel="stylesheet" href="css/background.css">
-
-</head>
-
-
-<body>
-
-
-<div class="transactions-page">
-
-
-<header class="transactions-header">
-
-<a href="wallet.html">
+<!DOCTYPE html><html lang="ar" dir="rtl"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><title>VALORA | سجل العمليات</title><link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet"><link rel="stylesheet" href="css/transactions.css"><link rel="stylesheet" href="css/background.css"></head><body><div class="transactions-page"><header class="transactions-header"><a href="wallet.html">
 ‹
-</a>
-
-<h2>
+</a><h2 data-lang="transaction_history">
 سجل العمليات
-</h2>
-
-</header>
-
-
-
-
-
-<section class="history-card">
-
-
-<div id="transactionsList">
-
-
-<div class="empty-history">
-
+</h2></header><section class="history-card"><div id="transactionsList"><div class="empty-history"><span data-lang="no_transactions">
 لا توجد عمليات حالياً
+</span></div></div></section></div><nav class="bottom-nav"><a href="dashboard.html">⌂
 
-</div>
-
-
-</div>
-
-
-</section>
-
-
-
-</div>
-
-
-
-
-
-<nav class="bottom-nav">
-
-
-<a href="dashboard.html">
-
-⌂
-
-<span>
+<span data-lang="home">
 الرئيسية
-</span>
+</span></a><a href="wallet.html" class="active">▣
 
-</a>
-
-
-
-<a href="wallet.html" class="active">
-
-▣
-
-<span>
+<span data-lang="wallet">
 الأصول
-</span>
+</span></a><a href="sync.html">⟳
 
-</a>
-
-
-
-<a href="sync.html">
-
-⟳
-
-<span>
+<span data-lang="sync">
 التزامن
-</span>
+</span></a><a href="team.html">♙
 
-</a>
-
-
-
-<a href="team.html">
-
-♙
-
-<span>
+<span data-lang="team">
 الفريق
-</span>
+</span></a></nav><script src="js/language.js"></script><script src="js/transactions.js"></script><script>
 
-</a>
+document.addEventListener("DOMContentLoaded", function(){
 
+    if(typeof applyLanguage === "function"){
 
-</nav>
+        applyLanguage();
 
+    }
 
+});
 
-
-
-<script src="js/transactions.js"></script>
-
-
-</body>
-
-</html>
+</script></body></html>
