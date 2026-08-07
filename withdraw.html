@@ -86,6 +86,7 @@ Withdraw your assets safely
 
 <!-- BALANCE -->
 
+
 <section class="balance-card">
 
 
@@ -110,15 +111,17 @@ Available Balance
 
 
 
-
-
 <!-- COINS -->
 
 <section class="withdraw-coins">
 
 
+<!-- USDT -->
 
-<button class="withdraw-coin active" onclick="selectWithdrawCoin('USDT',this)">
+<button 
+class="withdraw-coin active"
+onclick="selectWithdrawCoin('USDT',this)"
+>
 
 
 <div class="coin-icon usdt">
@@ -128,8 +131,6 @@ Available Balance
 </div>
 
 
-<div>
-
 <strong>
 
 USDT
@@ -137,14 +138,11 @@ USDT
 </strong>
 
 
-<small>
+<small data-lang="tether">
 
 Tether
 
 </small>
-
-
-</div>
 
 
 </button>
@@ -153,8 +151,12 @@ Tether
 
 
 
+<!-- BTC -->
 
-<button class="withdraw-coin" onclick="selectWithdrawCoin('BTC',this)">
+<button 
+class="withdraw-coin"
+onclick="selectWithdrawCoin('BTC',this)"
+>
 
 
 <div class="coin-icon btc">
@@ -164,8 +166,6 @@ Tether
 </div>
 
 
-<div>
-
 <strong>
 
 BTC
@@ -173,14 +173,11 @@ BTC
 </strong>
 
 
-<small>
+<small data-lang="bitcoin">
 
 Bitcoin
 
 </small>
-
-
-</div>
 
 
 </button>
@@ -190,7 +187,12 @@ Bitcoin
 
 
 
-<button class="withdraw-coin" onclick="selectWithdrawCoin('ETH',this)">
+<!-- ETH -->
+
+<button 
+class="withdraw-coin"
+onclick="selectWithdrawCoin('ETH',this)"
+>
 
 
 <div class="coin-icon eth">
@@ -200,8 +202,6 @@ Bitcoin
 </div>
 
 
-<div>
-
 <strong>
 
 ETH
@@ -209,14 +209,46 @@ ETH
 </strong>
 
 
-<small>
+<small data-lang="ethereum">
 
 Ethereum
 
 </small>
 
 
+</button>
+
+
+
+
+
+<!-- TRX -->
+
+<button 
+class="withdraw-coin"
+onclick="selectWithdrawCoin('TRX',this)"
+>
+
+
+<div class="coin-icon trx">
+
+TRX
+
 </div>
+
+
+<strong>
+
+TRX
+
+</strong>
+
+
+<small data-lang="tron">
+
+TRON
+
+</small>
 
 
 </button>
@@ -229,6 +261,8 @@ Ethereum
 
 
 
+<!-- NETWORK -->
+
 <h3 data-lang="withdraw_network">
 
 Withdrawal Network
@@ -237,8 +271,9 @@ Withdrawal Network
 
 
 
-<div class="network-buttons" id="withdrawNetwork">
-
+<div 
+class="network-buttons" 
+id="withdrawNetwork">
 
 </div>
 
@@ -247,13 +282,13 @@ Withdrawal Network
 
 
 
+<!-- ADDRESS -->
 
 <h3 data-lang="withdraw_address">
 
 Withdrawal Address
 
 </h3>
-
 
 
 
@@ -281,12 +316,13 @@ placeholder="Enter withdrawal address"
 
 
 
+<!-- AMOUNT -->
+
 <h3 data-lang="withdraw_amount">
 
 Withdrawal Amount
 
 </h3>
-
 
 
 
@@ -298,6 +334,8 @@ Withdrawal Amount
 type="number"
 
 id="withdrawAmount"
+
+oninput="calculateWithdraw()"
 
 data-lang-placeholder="withdraw_amount_placeholder"
 
@@ -312,6 +350,130 @@ placeholder="Enter amount"
 
 
 
+
+
+
+<!-- SECURITY CODE -->
+
+
+<h3 data-lang="security_code">
+
+Withdrawal Security Code
+
+</h3>
+
+
+
+<div class="input-area">
+
+
+<input
+
+type="password"
+
+id="withdrawSecurityCode"
+
+data-lang-placeholder="security_code_placeholder"
+
+placeholder="Enter security code"
+
+>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- FEE INFO -->
+
+
+<div class="withdraw-info">
+
+
+
+<div>
+
+
+<span data-lang="withdraw_fee">
+
+Withdrawal Fee
+
+</span>
+
+
+<strong id="withdrawFee">
+
+5%
+
+</strong>
+
+
+</div>
+
+
+
+
+
+<div>
+
+
+<span data-lang="receive_amount">
+
+You Receive
+
+</span>
+
+
+<strong id="receiveAmount">
+
+0.00 USDT
+
+</strong>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- FEE NOTE -->
+
+
+<div class="fee-note">
+
+
+<span data-lang="fee_note">
+
+Withdrawal fee before activation 20%  
+<br>
+After activation 5%
+
+</span>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- BUTTON -->
 
 
 <button
@@ -338,6 +500,10 @@ Confirm Withdrawal
 
 
 
+
+<!-- MESSAGE -->
+
+
 <div
 
 id="withdrawMessage"
@@ -350,65 +516,8 @@ class="withdraw-message"
 
 
 
+
 </section>
 
 
-
-
-
-
 </div>
-
-
-
-
-
-
-
-
-
-<!-- LANGUAGE -->
-
-<script src="js/language.js"></script>
-
-
-
-<!-- WITHDRAW SYSTEM -->
-
-<script src="js/withdraw.js"></script>
-
-
-
-
-
-
-<script>
-
-
-document.addEventListener(
-
-"DOMContentLoaded",
-
-function(){
-
-
-if(typeof applyLanguage === "function"){
-
-applyLanguage();
-
-}
-
-
-}
-
-);
-
-
-
-</script>
-
-
-
-</body>
-
-</html>
