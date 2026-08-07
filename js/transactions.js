@@ -18,9 +18,9 @@ function loadTransactions() {
     }
 
 
-    // --------------------------------------
-    // قراءة العمليات من LocalStorage
-    // --------------------------------------
+    // ======================================
+    // قراءة سجل العمليات
+    // ======================================
 
     let transactions = [];
 
@@ -34,7 +34,7 @@ function loadTransactions() {
     } catch (error) {
 
         console.warn(
-            "VALORA: Unable to read transactions.",
+            "VALORA: Error reading transactions.",
             error
         );
 
@@ -43,9 +43,9 @@ function loadTransactions() {
     }
 
 
-    // --------------------------------------
+    // ======================================
     // لا توجد عمليات
-    // --------------------------------------
+    // ======================================
 
     if (
         !Array.isArray(transactions) ||
@@ -53,7 +53,7 @@ function loadTransactions() {
     ) {
 
         box.innerHTML = `
-
+        
             <div class="empty-history">
 
                 <span data-lang="no_transactions">
@@ -65,32 +65,38 @@ function loadTransactions() {
         `;
 
 
-        applyTransactionsLanguage();
+        // إعادة تطبيق نظام اللغة
+        if (typeof applyLanguage === "function") {
+
+            applyLanguage();
+
+        }
+
 
         return;
 
     }
 
 
-    // --------------------------------------
+    // ======================================
     // تنظيف القائمة
-    // --------------------------------------
+    // ======================================
 
     box.innerHTML = "";
 
 
-    // --------------------------------------
-    // نسخ المصفوفة ثم عكسها
-    // حتى لا نغيّر البيانات الأصلية
-    // --------------------------------------
+    // ======================================
+    // ترتيب العمليات
+    // الأحدث أولاً
+    // ======================================
 
     const sortedTransactions =
         [...transactions].reverse();
 
 
-    // --------------------------------------
+    // ======================================
     // عرض العمليات
-    // --------------------------------------
+    // ======================================
 
     sortedTransactions.forEach(function (item) {
 
@@ -100,14 +106,14 @@ function loadTransactions() {
         }
 
 
+        // ----------------------------------
+        // نوع العملية
+        // ----------------------------------
+
         let typeClass = "profit";
 
         let typeKey = "profit_transaction";
 
-
-        // ----------------------------------
-        // إيداع
-        // ----------------------------------
 
         if (item.type === "deposit") {
 
@@ -117,10 +123,6 @@ function loadTransactions() {
 
         }
 
-
-        // ----------------------------------
-        // سحب
-        // ----------------------------------
 
         else if (item.type === "withdraw") {
 
@@ -132,16 +134,11 @@ function loadTransactions() {
 
 
         // ----------------------------------
-        // أرباح
+        // ترجمة اسم العملية
         // ----------------------------------
 
-        else {
-
-            typeClass = "profit";
-
-            typeKey = "profit_transaction";
-
-        }
+        let typeName =
+            getTransactionTranslation(typeKey);
 
 
         // ----------------------------------
@@ -149,7 +146,10 @@ function loadTransactions() {
         // ----------------------------------
 
         let amount =
-            item.amount ?? 0;
+            item.amount !== undefined &&
+            item.amount !== null
+                ? item.amount
+                : "0.00";
 
 
         // ----------------------------------
@@ -157,11 +157,13 @@ function loadTransactions() {
         // ----------------------------------
 
         let date =
-            item.date || "اليوم";
+            item.date
+                ? item.date
+                : getTransactionTranslation("today");
 
 
         // ----------------------------------
-        // إنشاء العملية
+        // إضافة العملية
         // ----------------------------------
 
         box.innerHTML += `
@@ -176,9 +178,7 @@ function loadTransactions() {
                         class="transaction-title"
                         data-lang="${typeKey}"
                     >
-
-                        ${getTransactionText(typeKey)}
-
+                        ${escapeTransactionText(typeName)}
                     </div>
 
 
@@ -197,7 +197,6 @@ function loadTransactions() {
                 >
 
                     ${escapeTransactionText(amount)}
-
                     USDT
 
                 </div>
@@ -210,22 +209,30 @@ function loadTransactions() {
     });
 
 
-    // --------------------------------------
-    // تطبيق اللغة
-    // --------------------------------------
+    // ======================================
+    // تطبيق اللغة بعد بناء العناصر
+    // ======================================
 
-    applyTransactionsLanguage();
+    if (typeof applyLanguage === "function") {
+
+        applyLanguage();
+
+    }
 
 }
 
 
 
 // ==========================================
-// GET TRANSLATION
+// GET TRANSACTION TRANSLATION
 // ==========================================
 
-function getTransactionText(key) {
+function getTransactionTranslation(key) {
 
+
+    // --------------------------------------
+    // محاولة استخدام نظام VALORA
+    // --------------------------------------
 
     try {
 
@@ -265,7 +272,7 @@ function getTransactionText(key) {
 
 
     // --------------------------------------
-    // Fallback عربي
+    // Fallback
     // --------------------------------------
 
     const fallback = {
@@ -280,7 +287,10 @@ function getTransactionText(key) {
             "أرباح",
 
         no_transactions:
-            "لا توجد عمليات حالياً"
+            "لا توجد عمليات حالياً",
+
+        today:
+            "اليوم"
 
     };
 
@@ -292,32 +302,16 @@ function getTransactionText(key) {
 
 
 // ==========================================
-// APPLY LANGUAGE
-// ==========================================
-
-function applyTransactionsLanguage() {
-
-
-    if (
-        typeof window.applyLanguage === "function"
-    ) {
-
-        window.applyLanguage();
-
-    }
-
-}
-
-
-
-// ==========================================
-// PROTECT TEXT
+// ESCAPE TEXT
 // ==========================================
 
 function escapeTransactionText(value) {
 
 
-    if (value === null || value === undefined) {
+    if (
+        value === null ||
+        value === undefined
+    ) {
 
         return "";
 
@@ -341,17 +335,35 @@ function escapeTransactionText(value) {
 
 
 // ==========================================
-// PAGE LOAD
+// مراقبة تغيير اللغة
+// ==========================================
+
+window.addEventListener(
+    "storage",
+    function (event) {
+
+        if (
+            event.key === "VALORA_LANG"
+        ) {
+
+            loadTransactions();
+
+        }
+
+    }
+);
+
+
+
+// ==========================================
+// تشغيل الصفحة
 // ==========================================
 
 document.addEventListener(
-
     "DOMContentLoaded",
-
     function () {
 
         loadTransactions();
 
     }
-
 );
