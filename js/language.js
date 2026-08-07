@@ -6,7 +6,10 @@ let currentCoin = "USDT";
 let currentNetwork = "TRC20";
 
 
-// العملات والشبكات
+
+// ==================================
+// COIN NETWORKS
+// ==================================
 
 const coinNetworks = {
 
@@ -31,7 +34,10 @@ const coinNetworks = {
 
 
 
-// العناوين
+
+// ==================================
+// DEPOSIT ADDRESSES
+// ==================================
 
 const addresses = {
 
@@ -74,16 +80,23 @@ const addresses = {
 
 
 
-// اختيار العملة
+// ==================================
+// SELECT COIN
+// ==================================
 
 function selectCoin(coin,button){
+
+
+    if(!coinNetworks[coin]) return;
+
 
     currentCoin = coin;
 
 
+
     document
     .querySelectorAll(".deposit-coin")
-    .forEach(btn=>{
+    .forEach(function(btn){
 
         btn.classList.remove("active");
 
@@ -91,54 +104,73 @@ function selectCoin(coin,button){
 
 
 
-    button.classList.add("active");
+    if(button){
+
+        button.classList.add("active");
+
+    }
+
 
 
     loadNetworks();
 
-
-    updateAddress();
 
 }
 
 
 
 
-// تحميل الشبكات
+
+// ==================================
+// LOAD NETWORKS
+// ==================================
 
 function loadNetworks(){
 
-    let box =
+
+    const box =
     document.getElementById("networkBox");
 
 
+
     if(!box) return;
+
 
 
     box.innerHTML="";
 
 
 
-    coinNetworks[currentCoin]
-    .forEach((network,index)=>{
+    const networks =
+    coinNetworks[currentCoin];
+
+
+
+    networks.forEach(function(network,index){
+
 
 
         let btn =
         document.createElement("button");
 
 
+
+        btn.type="button";
+
         btn.className="network";
 
 
-        btn.innerText=network;
+        btn.innerText = network;
 
 
 
         if(index===0){
 
+
             btn.classList.add("active");
 
             currentNetwork = network;
+
 
         }
 
@@ -146,7 +178,12 @@ function loadNetworks(){
 
         btn.onclick=function(){
 
-            selectNetwork(this,network);
+
+            selectNetwork(
+                this,
+                network
+            );
+
 
         };
 
@@ -160,14 +197,23 @@ function loadNetworks(){
 
 
 
+    updateAddress();
+
+
 }
 
 
 
 
-// اختيار الشبكة
+
+
+
+// ==================================
+// SELECT NETWORK
+// ==================================
 
 function selectNetwork(button,network){
+
 
 
     currentNetwork = network;
@@ -176,9 +222,11 @@ function selectNetwork(button,network){
 
     document
     .querySelectorAll(".network")
-    .forEach(btn=>{
+    .forEach(function(btn){
+
 
         btn.classList.remove("active");
+
 
     });
 
@@ -187,7 +235,9 @@ function selectNetwork(button,network){
     button.classList.add("active");
 
 
+
     updateAddress();
+
 
 
 }
@@ -195,22 +245,47 @@ function selectNetwork(button,network){
 
 
 
-// تحديث العنوان
+
+
+
+// ==================================
+// UPDATE ADDRESS
+// ==================================
 
 function updateAddress(){
 
 
-    let input =
-    document.getElementById("depositAddress");
+
+    const input =
+    document.getElementById(
+        "depositAddress"
+    );
 
 
 
-    if(input){
+    if(!input) return;
+
+
+
+
+    if(
+        addresses[currentCoin] &&
+        addresses[currentCoin][currentNetwork]
+    ){
+
 
         input.value =
         addresses[currentCoin][currentNetwork];
 
+
+    }else{
+
+
+        input.value="";
+
+
     }
+
 
 
 }
@@ -218,37 +293,63 @@ function updateAddress(){
 
 
 
-// نسخ العنوان
+
+
+
+// ==================================
+// COPY ADDRESS
+// ==================================
 
 function copyDeposit(){
 
 
-    let address =
-    document
-    .getElementById("depositAddress")
-    .value;
+
+    const input =
+    document.getElementById(
+        "depositAddress"
+    );
 
 
 
-    navigator.clipboard.writeText(address);
+    if(!input || !input.value) return;
 
 
 
-    let lang =
-    localStorage.getItem("VALORA_LANG")
-    || "en";
+    navigator.clipboard
+    .writeText(input.value)
+    .then(function(){
 
 
 
-    if(lang==="ar"){
+        let lang =
+        localStorage.getItem(
+            "VALORA_LANG"
+        ) || "en";
 
-        alert("تم نسخ عنوان الإيداع");
 
-    }else{
 
-        alert("Deposit address copied");
+        if(lang==="ar"){
 
-    }
+
+            alert(
+            "تم نسخ عنوان الإيداع"
+            );
+
+
+        }else{
+
+
+            alert(
+            "Deposit address copied"
+            );
+
+
+        }
+
+
+
+    });
+
 
 
 }
@@ -257,23 +358,33 @@ function copyDeposit(){
 
 
 
-// تشغيل الصفحة
+
+
+// ==================================
+// START
+// ==================================
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
 
-    loadNetworks();
-
-    updateAddress();
-
 
     if(typeof applyLanguage === "function"){
 
+
         applyLanguage();
 
+
     }
+
+
+
+    loadNetworks();
+
+
+    updateAddress();
+
 
 
 });
