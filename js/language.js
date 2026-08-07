@@ -3,1153 +3,713 @@
 // GLOBAL LANGUAGE SYSTEM
 // ==========================================
 //
-// Languages:
 // ar = العربية
 // en = English
 //
 // Storage:
 // VALORA_LANG
 //
-// Text:
-// <span data-lang="home">الرئيسية</span>
-//
-// Placeholder:
-// <input data-lang-placeholder="email_phone_placeholder">
-//
 // ==========================================
 
-(function () {
+(function(){
 
-    "use strict";
+"use strict";
 
 
-    // ======================================
-    // SETTINGS
-    // ======================================
+const STORAGE_KEY = "VALORA_LANG";
 
-    const STORAGE_KEY = "VALORA_LANG";
+const DEFAULT_LANGUAGE = "en";
 
-    const DEFAULT_LANGUAGE = "en";
+const RTL_LANGUAGES = ["ar"];
 
-    const RTL_LANGUAGES = ["ar"];
 
+// ==========================================
+// TRANSLATIONS
+// ==========================================
 
-    // ======================================
-    // TRANSLATIONS
-    // ======================================
+const translations = {
 
-    const translations = {
 
-        // ==================================
-        // ENGLISH
-        // ==================================
+en:{
 
-        en: {
 
-            // --------------------------------
-            // General
-            // --------------------------------
+// General
 
-            home: "Home",
+home:"Home",
 
-            dashboard: "Dashboard",
+dashboard:"Dashboard",
 
-            wallet: "Wallet",
+wallet:"Wallet",
 
-            assets: "Total Assets",
+assets:"Total Assets",
 
-            total_assets: "Total Assets",
+total_assets:"Total Assets",
 
-            team: "Team",
+team:"Team",
 
-            language: "Language",
+language:"Language",
 
-            settings: "Settings",
+settings:"Settings",
 
-            notifications: "Notifications",
+notifications:"Notifications",
 
-            support: "Customer Support",
+support:"Customer Support",
 
-            terms: "Terms & Conditions",
+terms:"Terms & Conditions",
 
-            security: "Withdrawal Security Code",
+security:"Withdrawal Security Code",
 
-            verify: "Identity Verification",
+verify:"Identity Verification",
 
-            password: "Change Password",
+password:"Change Password",
 
-            logout: "Logout",
+logout:"Logout",
 
-            application: "VALORA App",
+application:"VALORA App",
 
-            sync: "Sync",
+sync:"Sync",
 
 
-            // --------------------------------
-            // Account
-            // --------------------------------
 
-            account: "My Account",
+// Account
 
-            username: "Username",
+account:"My Account",
 
-            uid: "UID",
+username:"Username",
 
-            email: "Email",
+uid:"UID",
 
-            phone: "Phone Number",
+email:"Email",
 
-            security_code: "Security Code",
+phone:"Phone Number",
 
-            identity_verification:
-                "Identity Verification",
 
 
-            // --------------------------------
-            // Dashboard
-            // --------------------------------
+// Dashboard
 
-            today_profit: "Today's Profit",
+today_profit:"Today's Profit",
 
-            markets: "Markets",
+markets:"Markets",
 
-            bitcoin: "Bitcoin",
+bitcoin:"Bitcoin",
 
-            ethereum: "Ethereum",
+ethereum:"Ethereum",
 
-            tether: "Tether",
+tether:"Tether",
 
-            tron: "TRON",
+tron:"TRON",
 
-            ripple: "XRP",
+ripple:"XRP",
 
-            solana: "Solana",
+solana:"Solana",
 
 
-            // --------------------------------
-            // Login
-            // --------------------------------
 
-            login: "Login",
+// Login
 
-            login_subtitle:
-                "Login to your account",
+login:"Login",
 
-            email_phone:
-                "Email or Phone Number",
+login_subtitle:"Login to your account",
 
-            email_phone_placeholder:
-                "Enter Email or Phone Number",
+email_phone:"Email or Phone Number",
 
-            password_label:
-                "Password",
+email_phone_placeholder:"Enter Email or Phone Number",
 
-            password_placeholder:
-                "Enter Password",
+password_label:"Password",
 
-            login_btn:
-                "Login",
+password_placeholder:"Enter Password",
 
-            forgot_password:
-                "Forgot Password?",
+login_btn:"Login",
 
-            create_account:
-                "Create Account",
+forgot_password:"Forgot Password?",
 
+create_account:"Create Account",
 
-            // --------------------------------
-            // Register
-            // --------------------------------
 
-            register:
-                "Register",
 
-            register_title:
-                "Create Your Account",
+// Wallet
 
-            register_subtitle:
-                "Join VALORA today",
+wallet_title:"Wallet",
 
-            confirm_password:
-                "Confirm Password",
+deposit:"Deposit",
 
-            confirm_password_placeholder:
-                "Confirm your password",
+withdraw:"Withdraw",
 
-            referral_code:
-                "Referral Code",
+deposit_title:"Deposit",
 
-            referral_code_placeholder:
-                "Enter referral code",
+withdraw_title:"Withdraw",
 
-            register_btn:
-                "Create Account",
+deposit_amount:"Deposit Amount",
 
+withdraw_amount:"Withdrawal Amount",
 
-            // --------------------------------
-            // Wallet
-            // --------------------------------
+available_balance:"Available Balance",
 
-            wallet_title:
-                "Wallet",
+transaction_history:"Transaction History",
 
-            deposit:
-                "Deposit",
 
-            withdraw:
-                "Withdraw",
+invite_profit:"Invitation Profit",
 
-            deposit_title:
-                "Deposit",
+team_profit:"Team Profit",
 
-            withdraw_title:
-                "Withdraw",
+reward_profit:"Reward Profit",
 
-            deposit_amount:
-                "Deposit Amount",
 
-            withdraw_amount:
-                "Withdrawal Amount",
 
-            available_balance:
-                "Available Balance",
+// Team
 
-            transaction_history:
-                "Transaction History",
+my_team:"My Team",
 
+team_members:"Team Members",
 
-            // --------------------------------
-            // Team
-            // --------------------------------
+referral:"Referral",
 
-            my_team:
-                "My Team",
+referral_code_title:"Referral Code",
 
-            team_members:
-                "Team Members",
+copy:"Copy",
 
-            referral:
-                "Referral",
+copied:"Copied",
 
-            referral_code_title:
-                "Referral Code",
 
-            copy:
-                "Copy",
 
-            copied:
-                "Copied",
+// Language
 
+language_title:"Language",
 
-            // --------------------------------
-            // Notifications
-            // --------------------------------
+language_subtitle:"Choose your preferred language",
 
-            notification_title:
-                "Notifications",
+english:"English",
 
-            no_notifications:
-                "No notifications",
+arabic:"Arabic",
 
-            mark_read:
-                "Mark as read",
+default_language:"Default Language",
 
+save_language:"Language will be saved automatically",
 
-            // --------------------------------
-            // Language
-            // --------------------------------
+language_changed:"Language changed successfully",
 
-            language_title:
-                "Language",
 
-            language_subtitle:
-                "Choose your preferred language",
 
-            english:
-                "English",
+// Settings
 
-            arabic:
-                "Arabic",
+settings_title:"Settings",
 
-            default_language:
-                "Default Language",
+account_settings:"Account Settings",
 
-            save_language:
-                "Language will be saved automatically",
+app_settings:"App Settings",
 
-            language_changed:
-                "Language changed successfully",
+security_settings:"Security Settings",
 
+loginCode:"Login Code",
 
-            // --------------------------------
-            // Settings
-            // --------------------------------
+withdrawSecurity:"Withdrawal Security Code",
 
-            settings_title:
-                "Settings",
+change:"Change",
 
-            account_settings:
-                "Account Settings",
+view:"View",
 
-            app_settings:
-                "App Settings",
+open:"Open",
 
-            security_settings:
-                "Security Settings",
 
-            loginCode:
-                "Login Code",
 
-            withdrawSecurity:
-                "Withdrawal Security Code",
+// Common
 
-            change:
-                "Change",
+save:"Save",
 
-            view:
-                "View",
+cancel:"Cancel",
 
-            open:
-                "Open",
+confirm:"Confirm",
 
+close:"Close",
 
-            // --------------------------------
-            // Security
-            // --------------------------------
+back:"Back",
 
-            withdrawal_security:
-                "Withdrawal Security",
+next:"Next",
 
-            enter_security_code:
-                "Enter Security Code",
+submit:"Submit",
 
-            security_code_placeholder:
-                "Enter your security code",
+loading:"Loading...",
 
 
-            // --------------------------------
-            // Verification
-            // --------------------------------
 
-            verification:
-                "Identity Verification",
+// Messages
 
-            verification_title:
-                "Verify Your Identity",
+login_success:"Login successful",
 
-            verification_status:
-                "Verification Status",
+login_success_message:"Entering your account",
 
-            verified:
-                "Verified",
+invalid_login:"Invalid login information",
 
-            not_verified:
-                "Not Verified",
+account_created:"Account created successfully",
 
-            pending:
-                "Pending",
+password_mismatch:"Passwords do not match",
 
+required_field:"Please fill all required fields"
 
-            // --------------------------------
-            // Common Actions
-            // --------------------------------
 
-            save:
-                "Save",
+},
 
-            cancel:
-                "Cancel",
 
-            confirm:
-                "Confirm",
 
-            close:
-                "Close",
+// ==========================================
+// العربية
+// ==========================================
 
-            back:
-                "Back",
 
-            next:
-                "Next",
+ar:{
 
-            submit:
-                "Submit",
 
-            edit:
-                "Edit",
+home:"الرئيسية",
 
-            delete:
-                "Delete",
+dashboard:"الرئيسية",
 
-            search:
-                "Search",
+wallet:"المحفظة",
 
-            loading:
-                "Loading...",
+assets:"إجمالي الأصول",
 
+total_assets:"إجمالي الأصول",
 
-            // --------------------------------
-            // Messages
-            // --------------------------------
+team:"الفريق",
 
-            login_success:
-                "Login successful",
+language:"اللغة",
 
-            login_success_message:
-                "Entering your account",
+settings:"الإعدادات",
 
-            invalid_login:
-                "Invalid login information",
+notifications:"الإشعارات",
 
-            account_created:
-                "Account created successfully",
+support:"مراسلة العملاء",
 
-            password_mismatch:
-                "Passwords do not match",
+terms:"الشروط والأحكام",
 
-            required_field:
-                "Please fill in all required fields"
+security:"رمز أمان السحب",
 
-        },
+verify:"التحقق من الهوية",
 
+password:"تغيير كلمة المرور",
 
-        // ==================================
-        // العربية
-        // ==================================
+logout:"تسجيل الخروج",
 
-        ar: {
+application:"تطبيق VALORA",
 
-            // --------------------------------
-            // عام
-            // --------------------------------
+sync:"التزامن",
 
-            home:
-                "الرئيسية",
 
-            dashboard:
-                "الرئيسية",
 
-            wallet:
-                "المحفظة",
+// Account
 
-            assets:
-                "إجمالي الأصول",
+account:"حسابي",
 
-            total_assets:
-                "إجمالي الأصول",
+username:"اسم المستخدم",
 
-            team:
-                "الفريق",
+uid:"UID",
 
-            language:
-                "اللغة",
+email:"البريد الإلكتروني",
 
-            settings:
-                "الإعدادات",
+phone:"رقم الهاتف",
 
-            notifications:
-                "الإشعارات",
 
-            support:
-                "مراسلة العملاء",
 
-            terms:
-                "الشروط والأحكام",
+// Dashboard
 
-            security:
-                "رمز أمان السحب",
+today_profit:"أرباح اليوم",
 
-            verify:
-                "التحقق من الهوية",
+markets:"الأسواق",
 
-            password:
-                "تغيير كلمة المرور",
+bitcoin:"Bitcoin",
 
-            logout:
-                "تسجيل الخروج",
+ethereum:"Ethereum",
 
-            application:
-                "تطبيق VALORA",
+tether:"Tether",
 
-            sync:
-                "التزامن",
+tron:"TRON",
 
+ripple:"XRP",
 
-            // --------------------------------
-            // الحساب
-            // --------------------------------
+solana:"Solana",
 
-            account:
-                "حسابي",
 
-            username:
-                "اسم المستخدم",
 
-            uid:
-                "UID",
+// Login
 
-            email:
-                "البريد الإلكتروني",
+login:"تسجيل الدخول",
 
-            phone:
-                "رقم الهاتف",
+login_subtitle:"تسجيل الدخول إلى حسابك",
 
-            security_code:
-                "رمز الأمان",
+email_phone:"البريد الإلكتروني أو رقم الهاتف",
 
-            identity_verification:
-                "التحقق من الهوية",
+email_phone_placeholder:"أدخل البريد الإلكتروني أو رقم الهاتف",
 
+password_label:"كلمة المرور",
 
-            // --------------------------------
-            // الرئيسية
-            // --------------------------------
+password_placeholder:"أدخل كلمة المرور",
 
-            today_profit:
-                "أرباح اليوم",
+login_btn:"تسجيل الدخول",
 
-            markets:
-                "الأسواق",
+forgot_password:"نسيت كلمة المرور؟",
 
-            bitcoin:
-                "Bitcoin",
+create_account:"إنشاء حساب",
 
-            ethereum:
-                "Ethereum",
 
-            tether:
-                "Tether",
 
-            tron:
-                "TRON",
+// Wallet
 
-            ripple:
-                "XRP",
+wallet_title:"المحفظة",
 
-            solana:
-                "Solana",
+deposit:"إيداع",
 
+withdraw:"سحب",
 
-            // --------------------------------
-            // تسجيل الدخول
-            // --------------------------------
+deposit_title:"الإيداع",
 
-            login:
-                "تسجيل الدخول",
+withdraw_title:"السحب",
 
-            login_subtitle:
-                "تسجيل الدخول إلى حسابك",
+deposit_amount:"مبلغ الإيداع",
 
-            email_phone:
-                "البريد الإلكتروني أو رقم الهاتف",
+withdraw_amount:"مبلغ السحب",
 
-            email_phone_placeholder:
-                "أدخل البريد الإلكتروني أو رقم الهاتف",
+available_balance:"الرصيد المتاح",
 
-            password_label:
-                "كلمة المرور",
+transaction_history:"سجل المعاملات",
 
-            password_placeholder:
-                "أدخل كلمة المرور",
 
-            login_btn:
-                "تسجيل الدخول",
+invite_profit:"أرباح الدعوة",
 
-            forgot_password:
-                "نسيت كلمة المرور؟",
+team_profit:"أرباح الفريق",
 
-            create_account:
-                "إنشاء حساب",
+reward_profit:"أرباح المكافآت",
 
 
-            // --------------------------------
-            // إنشاء الحساب
-            // --------------------------------
 
-            register:
-                "إنشاء حساب",
+// Team
 
-            register_title:
-                "إنشاء حسابك",
+my_team:"فريقي",
 
-            register_subtitle:
-                "انضم إلى VALORA اليوم",
+team_members:"أعضاء الفريق",
 
-            confirm_password:
-                "تأكيد كلمة المرور",
+referral:"الإحالة",
 
-            confirm_password_placeholder:
-                "أعد إدخال كلمة المرور",
+referral_code_title:"رمز الدعوة",
 
-            referral_code:
-                "رمز الدعوة",
+copy:"نسخ",
 
-            referral_code_placeholder:
-                "أدخل رمز الدعوة",
+copied:"تم النسخ",
 
-            register_btn:
-                "إنشاء الحساب",
 
 
-            // --------------------------------
-            // المحفظة
-            // --------------------------------
+// Language
 
-            wallet_title:
-                "المحفظة",
+language_title:"اللغة",
 
-            deposit:
-                "إيداع",
+language_subtitle:"اختر لغتك المفضلة",
 
-            withdraw:
-                "سحب",
+english:"English",
 
-            deposit_title:
-                "الإيداع",
+arabic:"العربية",
 
-            withdraw_title:
-                "السحب",
+default_language:"اللغة الافتراضية",
 
-            deposit_amount:
-                "مبلغ الإيداع",
+save_language:"سيتم حفظ اللغة تلقائياً",
 
-            withdraw_amount:
-                "مبلغ السحب",
+language_changed:"تم تغيير اللغة بنجاح",
+// Settings
 
-            available_balance:
-                "الرصيد المتاح",
+settings_title:"الإعدادات",
 
-            transaction_history:
-                "سجل المعاملات",
+account_settings:"إعدادات الحساب",
 
+app_settings:"إعدادات التطبيق",
 
-            // --------------------------------
-            // الفريق
-            // --------------------------------
+security_settings:"إعدادات الأمان",
 
-            my_team:
-                "فريقي",
+loginCode:"رمز الدخول",
 
-            team_members:
-                "أعضاء الفريق",
+withdrawSecurity:"رمز أمان السحب",
 
-            referral:
-                "الإحالة",
+change:"تغيير",
 
-            referral_code_title:
-                "رمز الدعوة",
+view:"عرض",
 
-            copy:
-                "نسخ",
+open:"فتح",
 
-            copied:
-                "تم النسخ",
 
 
-            // --------------------------------
-            // الإشعارات
-            // --------------------------------
+// Security
 
-            notification_title:
-                "الإشعارات",
+withdrawal_security:"أمان السحب",
 
-            no_notifications:
-                "لا توجد إشعارات",
+enter_security_code:"أدخل رمز الأمان",
 
-            mark_read:
-                "تحديد كمقروء",
+security_code_placeholder:"أدخل رمز الأمان الخاص بك",
 
 
-            // --------------------------------
-            // اللغة
-            // --------------------------------
 
-            language_title:
-                "اللغة",
+// Verification
 
-            language_subtitle:
-                "اختر لغتك المفضلة",
+verification:"التحقق من الهوية",
 
-            english:
-                "English",
+verification_title:"تحقق من هويتك",
 
-            arabic:
-                "العربية",
+verification_status:"حالة التحقق",
 
-            default_language:
-                "اللغة الافتراضية",
+verified:"تم التحقق",
 
-            save_language:
-                "سيتم حفظ اللغة تلقائياً",
+not_verified:"لم يتم التحقق",
 
-            language_changed:
-                "تم تغيير اللغة بنجاح",
+pending:"قيد الانتظار",
 
 
-            // --------------------------------
-            // الإعدادات
-            // --------------------------------
 
-            settings_title:
-                "الإعدادات",
+// Common
 
-            account_settings:
-                "إعدادات الحساب",
+save:"حفظ",
 
-            app_settings:
-                "إعدادات التطبيق",
+cancel:"إلغاء",
 
-            security_settings:
-                "إعدادات الأمان",
+confirm:"تأكيد",
 
-            loginCode:
-                "رمز الدخول",
+close:"إغلاق",
 
-            withdrawSecurity:
-                "رمز أمان السحب",
+back:"رجوع",
 
-            change:
-                "تغيير",
+next:"التالي",
 
-            view:
-                "عرض",
+submit:"إرسال",
 
-            open:
-                "فتح",
+edit:"تعديل",
 
+delete:"حذف",
 
-            // --------------------------------
-            // الأمان
-            // --------------------------------
+search:"بحث",
 
-            withdrawal_security:
-                "أمان السحب",
+loading:"جارٍ التحميل...",
 
-            enter_security_code:
-                "أدخل رمز الأمان",
 
-            security_code_placeholder:
-                "أدخل رمز الأمان الخاص بك",
 
+// Messages
 
-            // --------------------------------
-            // التحقق
-            // --------------------------------
+login_success:"تم تسجيل الدخول",
 
-            verification:
-                "التحقق من الهوية",
+login_success_message:"جاري الدخول إلى الحساب",
 
-            verification_title:
-                "تحقق من هويتك",
+invalid_login:"بيانات تسجيل الدخول غير صحيحة",
 
-            verification_status:
-                "حالة التحقق",
+account_created:"تم إنشاء الحساب بنجاح",
 
-            verified:
-                "تم التحقق",
+password_mismatch:"كلمة المرور غير متطابقة",
 
-            not_verified:
-                "لم يتم التحقق",
+required_field:"يرجى إدخال جميع الحقول المطلوبة"
 
-            pending:
-                "قيد الانتظار",
 
 
-            // --------------------------------
-            // الأوامر
-            // --------------------------------
+}
 
-            save:
-                "حفظ",
 
-            cancel:
-                "إلغاء",
+};
+// ==========================================
+// GET CURRENT LANGUAGE
+// ==========================================
 
-            confirm:
-                "تأكيد",
+function getLanguage(){
 
-            close:
-                "إغلاق",
+    let lang = localStorage.getItem(STORAGE_KEY);
 
-            back:
-                "رجوع",
 
-            next:
-                "التالي",
+    if(lang && translations[lang]){
 
-            submit:
-                "إرسال",
-
-            edit:
-                "تعديل",
-
-            delete:
-                "حذف",
-
-            search:
-                "بحث",
-
-            loading:
-                "جارٍ التحميل...",
-
-
-            // --------------------------------
-            // الرسائل
-            // --------------------------------
-
-            login_success:
-                "تم تسجيل الدخول",
-
-            login_success_message:
-                "جاري الدخول إلى الحساب",
-
-            invalid_login:
-                "بيانات تسجيل الدخول غير صحيحة",
-
-            account_created:
-                "تم إنشاء الحساب بنجاح",
-
-            password_mismatch:
-                "كلمة المرور غير متطابقة",
-
-            required_field:
-                "يرجى إدخال جميع الحقول المطلوبة"
-
-        }
-
-    };
-
-
-    // ======================================
-    // GET CURRENT LANGUAGE
-    // ======================================
-
-    function getLanguage() {
-
-        let savedLanguage = null;
-
-        try {
-
-            savedLanguage =
-                localStorage.getItem(STORAGE_KEY);
-
-        } catch (error) {
-
-            savedLanguage = null;
-
-        }
-
-
-        if (
-            savedLanguage &&
-            translations[savedLanguage]
-        ) {
-
-            return savedLanguage;
-
-        }
-
-
-        return DEFAULT_LANGUAGE;
+        return lang;
 
     }
 
 
-    // ======================================
-    // APPLY HTML LANGUAGE & DIRECTION
-    // ======================================
+    return DEFAULT_LANGUAGE;
 
-    function applyDocumentLanguage(lang) {
-
-        const html =
-            document.documentElement;
+}
 
 
-        if (!html) return;
+
+// ==========================================
+// APPLY DOCUMENT LANGUAGE
+// ==========================================
+
+function applyDocumentLanguage(lang){
+
+    document.documentElement.lang = lang;
 
 
-        html.lang = lang;
+    if(RTL_LANGUAGES.includes(lang)){
+
+        document.documentElement.dir = "rtl";
+
+    }else{
+
+        document.documentElement.dir = "ltr";
+
+    }
+
+}
 
 
-        html.dir =
-            RTL_LANGUAGES.includes(lang)
-                ? "rtl"
-                : "ltr";
+
+// ==========================================
+// APPLY TRANSLATIONS
+// ==========================================
+
+function applyTranslations(){
+
+
+    const lang = getLanguage();
+
+    const data = translations[lang];
+
+
+    document.querySelectorAll("[data-lang]").forEach(function(element){
+
+
+        const key = element.getAttribute("data-lang");
+
+
+        if(data[key]){
+
+            element.textContent = data[key];
+
+        }
+
+
+    });
+
+
+
+    document.querySelectorAll("[data-lang-placeholder]").forEach(function(element){
+
+
+        const key = element.getAttribute("data-lang-placeholder");
+
+
+        if(data[key]){
+
+            element.placeholder = data[key];
+
+        }
+
+
+    });
+
+
+}
+
+
+
+// ==========================================
+// APPLY LANGUAGE
+// ==========================================
+
+function applyLanguage(){
+
+
+    const lang = getLanguage();
+
+
+    applyDocumentLanguage(lang);
+
+
+    applyTranslations();
+
+
+}
+
+
+
+// ==========================================
+// CHANGE LANGUAGE
+// ==========================================
+
+function setLanguage(lang){
+
+
+    if(!translations[lang]){
+
+        lang = DEFAULT_LANGUAGE;
 
     }
 
 
-    // ======================================
-    // APPLY TEXT TRANSLATIONS
-    // ======================================
 
-    function applyTranslations() {
+    localStorage.setItem(
 
-        const lang =
-            getLanguage();
+        STORAGE_KEY,
 
+        lang
 
-        const data =
-            translations[lang];
-
-
-        if (!data) return;
-
-
-        // ----------------------------------
-        // Normal text
-        // ----------------------------------
-
-        document
-            .querySelectorAll("[data-lang]")
-            .forEach(function (element) {
-
-                const key =
-                    element.getAttribute("data-lang");
-
-
-                if (
-                    Object.prototype.hasOwnProperty.call(
-                        data,
-                        key
-                    )
-                ) {
-
-                    element.textContent =
-                        data[key];
-
-                }
-
-            });
-
-
-        // ----------------------------------
-        // Placeholder
-        // ----------------------------------
-
-        document
-            .querySelectorAll(
-                "[data-lang-placeholder]"
-            )
-            .forEach(function (element) {
-
-                const key =
-                    element.getAttribute(
-                        "data-lang-placeholder"
-                    );
-
-
-                if (
-                    Object.prototype.hasOwnProperty.call(
-                        data,
-                        key
-                    )
-                ) {
-
-                    element.placeholder =
-                        data[key];
-
-                }
-
-            });
-
-
-        // ----------------------------------
-        // Title
-        // ----------------------------------
-
-        const titleElement =
-            document.querySelector(
-                "[data-lang-title]"
-            );
-
-
-        if (titleElement) {
-
-            const key =
-                titleElement.getAttribute(
-                    "data-lang-title"
-                );
-
-
-            if (
-                Object.prototype.hasOwnProperty.call(
-                    data,
-                    key
-                )
-            ) {
-
-                document.title =
-                    "VALORA | " + data[key];
-
-            }
-
-        }
-
-    }
-
-
-    // ======================================
-    // APPLY LANGUAGE
-    // ======================================
-
-    function applyLanguage() {
-
-        const lang =
-            getLanguage();
-
-
-        applyDocumentLanguage(lang);
-
-        applyTranslations();
-
-    }
-
-
-    // ======================================
-    // CHANGE LANGUAGE
-    // ======================================
-
-    function setLanguage(lang) {
-
-        if (!translations[lang]) {
-
-            lang =
-                DEFAULT_LANGUAGE;
-
-        }
-
-
-        // Save selected language
-
-        try {
-
-            localStorage.setItem(
-                STORAGE_KEY,
-                lang
-            );
-
-        } catch (error) {
-
-            console.warn(
-                "VALORA: Unable to save language."
-            );
-
-        }
-
-
-        // Apply immediately
-
-        applyDocumentLanguage(lang);
-
-        applyTranslations();
-
-
-        // Update radio buttons
-
-        document
-            .querySelectorAll(".language-radio")
-            .forEach(function (item) {
-
-                item.classList.remove(
-                    "active"
-                );
-
-            });
-
-
-        const radio =
-            document.getElementById(
-                "radio-" + lang
-            );
-
-
-        if (radio) {
-
-            radio.classList.add(
-                "active"
-            );
-
-        }
-
-
-        // Return to dashboard
-
-        setTimeout(function () {
-
-            window.location.href =
-                "dashboard.html";
-
-        }, 300);
-
-    }
-
-
-    // ======================================
-    // PAGE LOAD
-    // ======================================
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        function () {
-
-            applyLanguage();
-
-
-            const currentLanguage =
-                getLanguage();
-
-
-            const radio =
-                document.getElementById(
-                    "radio-" +
-                    currentLanguage
-                );
-
-
-            if (radio) {
-
-                radio.classList.add(
-                    "active"
-                );
-
-            }
-
-        }
     );
 
 
-    // ======================================
-    // PUBLIC API
-    // ======================================
 
-    window.VALORA_LANG = {
-
-        getLanguage:
-            getLanguage,
-
-        setLanguage:
-            setLanguage,
-
-        applyLanguage:
-            applyLanguage,
-
-        translations:
-            translations
-
-    };
+    applyLanguage();
 
 
-    // ======================================
-    // BACKWARD COMPATIBILITY
-    // ======================================
 
-    window.setLanguage =
-        setLanguage;
+    setTimeout(function(){
 
 
-    window.applyLanguage =
-        applyLanguage;
+        window.location.href="dashboard.html";
 
 
-})();
+    },300);
+
+
+
+}
+
+
+
+// ==========================================
+// START SYSTEM
+// ==========================================
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+
+    applyLanguage();
+
+
+
+}
+
+);
+
+
+
+// ==========================================
+// PUBLIC
+// ==========================================
+
+window.applyLanguage = applyLanguage;
+
+
+window.setLanguage = setLanguage;
+
+
+window.VALORA_LANG = {
+
+
+    getLanguage:getLanguage,
+
+
+    setLanguage:setLanguage,
+
+
+    applyLanguage:applyLanguage,
+
+
+    translations:translations
+
+
+};
+
+
+
+})();    
