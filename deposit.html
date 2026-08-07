@@ -9,12 +9,9 @@
 
 <title>VALORA | الإيداع</title>
 
-
 <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
-    rel="stylesheet"
->
-
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/deposit.css">
 
@@ -29,352 +26,357 @@
 <div class="deposit-container">
 
 
-<!-- =====================================
+<!-- ==========================================
      HEADER
-===================================== -->
+========================================== -->
 
 <header class="deposit-header">
 
-    <div class="deposit-logo">
+<div class="deposit-logo">
 
-        VALORA
+VALORA
 
-    </div>
+</div>
 
 </header>
 
 
 
-<!-- =====================================
+<!-- ==========================================
      TITLE
-===================================== -->
+========================================== -->
 
 <section class="deposit-title">
 
 
-    <div class="deposit-icon">
+<div class="deposit-icon">
 
-        ↓
+↓
 
-    </div>
-
-
-    <h2 data-lang="deposit_title">
-
-        الإيداع
-
-    </h2>
+</div>
 
 
-    <p data-lang="deposit_subtitle">
+<h2 data-lang="deposit_title">
 
-        اختر العملة والشبكة لعرض عنوان الإيداع
+إيداع العملات
 
-    </p>
+</h2>
+
+
+<p data-lang="deposit_subtitle">
+
+اختر العملة والشبكة لعرض عنوان الإيداع
+
+</p>
 
 
 </section>
 
 
 
-<!-- =====================================
+<!-- ==========================================
      COINS
-===================================== -->
+========================================== -->
 
 <section class="deposit-coins">
 
 
-    <!-- USDT -->
+<!-- USDT -->
 
-    <button
-        class="deposit-coin active"
-        type="button"
-        onclick="selectCoin('USDT', this)"
-    >
+<button
+class="deposit-coin active"
+type="button"
+onclick="selectCoin('USDT',this)"
+>
 
-        <div class="deposit-coin-icon usdt">
 
-            ₮
+<div class="deposit-coin-icon usdt">
 
-        </div>
+₮
 
+</div>
 
-        <div>
 
-            <strong>
+<div>
 
-                USDT
+<strong>
 
-            </strong>
+USDT
 
+</strong>
 
-            <small data-lang="tether">
 
-                Tether
+<small data-lang="tether">
 
-            </small>
+Tether
 
-        </div>
+</small>
 
-    </button>
+</div>
 
 
+</button>
 
-    <!-- BTC -->
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('BTC', this)"
-    >
 
-        <div class="deposit-coin-icon btc">
+<!-- BTC -->
 
-            ₿
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('BTC',this)"
+>
 
-        </div>
 
+<div class="deposit-coin-icon btc">
 
-        <div>
+₿
 
-            <strong>
+</div>
 
-                BTC
 
-            </strong>
+<div>
 
+<strong>
 
-            <small data-lang="bitcoin">
+BTC
 
-                Bitcoin
+</strong>
 
-            </small>
 
-        </div>
+<small data-lang="bitcoin">
 
-    </button>
+Bitcoin
 
+</small>
 
+</div>
 
-    <!-- ETH -->
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('ETH', this)"
-    >
+</button>
 
-        <div class="deposit-coin-icon eth">
 
-            ◆
 
-        </div>
+<!-- ETH -->
 
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('ETH',this)"
+>
 
-        <div>
 
-            <strong>
+<div class="deposit-coin-icon eth">
 
-                ETH
+◆
 
-            </strong>
+</div>
 
 
-            <small data-lang="ethereum">
+<div>
 
-                Ethereum
+<strong>
 
-            </small>
+ETH
 
-        </div>
+</strong>
 
-    </button>
 
+<small data-lang="ethereum">
 
+Ethereum
 
-    <!-- TRX -->
+</small>
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('TRX', this)"
-    >
+</div>
 
-        <div class="deposit-coin-icon trx">
 
-            TRX
+</button>
 
-        </div>
 
 
-        <div>
+<!-- TRX -->
 
-            <strong>
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('TRX',this)"
+>
 
-                TRX
 
-            </strong>
+<div class="deposit-coin-icon trx">
 
+TRX
 
-            <small data-lang="tron">
+</div>
 
-                TRON
 
-            </small>
+<div>
 
-        </div>
+<strong>
 
-    </button>
+TRX
+
+</strong>
+
+
+<small data-lang="tron">
+
+TRON
+
+</small>
+
+</div>
+
+
+</button>
 
 
 </section>
 
 
 
-<!-- =====================================
+<!-- ==========================================
      DEPOSIT CARD
-===================================== -->
+========================================== -->
 
 <section class="deposit-card">
 
 
-    <!-- NETWORK -->
+<!-- NETWORK -->
 
-    <h3 data-lang="deposit_network">
+<h3 data-lang="deposit_network">
 
-        شبكة الإيداع
+شبكة الإيداع
 
-    </h3>
+</h3>
 
 
-    <div
-        class="network-buttons"
-        id="networkBox"
-    >
+<div
+class="network-buttons"
+id="networkBox"
+>
 
-    </div>
+</div>
 
 
 
-    <!-- ADDRESS -->
+<!-- ADDRESS -->
 
-    <h3 data-lang="deposit_address">
+<h3 data-lang="deposit_address">
 
-        عنوان الإيداع
+عنوان الإيداع
 
-    </h3>
+</h3>
 
 
-    <div class="address-area">
+<div class="address-area">
 
 
-        <input
-            type="text"
-            id="depositAddress"
-            readonly
-            aria-label="Deposit Address"
-        >
+<input
+type="text"
+id="depositAddress"
+readonly
+>
 
 
-        <button
-            type="button"
-            onclick="copyDeposit()"
-            data-lang="copy"
-        >
+<button
+type="button"
+onclick="copyDeposit()"
+data-lang="copy"
+>
 
-            نسخ
+نسخ
 
-        </button>
+</button>
 
 
-    </div>
+</div>
 
 
 
-    <!-- =================================
-         INFORMATION
-    ================================== -->
+<!-- ==========================================
+     AUTO CREDIT
+========================================== -->
 
-    <div class="deposit-info">
+<div class="deposit-info">
 
 
-        <div class="info-card">
+<div class="info-card">
 
 
-            <h3 data-lang="deposit_auto_credit">
+<h3 data-lang="deposit_auto_credit">
 
-                سيتم إضافة الرصيد تلقائياً
+سيتم إضافة الرصيد تلقائياً
 
-            </h3>
+</h3>
 
 
-            <p data-lang="deposit_auto_credit_text">
+<p data-lang="deposit_auto_credit_text">
 
-                بعد إرسال العملات إلى عنوان الإيداع،
-                سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
-                بعد تأكيد الشبكة.
+بعد إرسال العملات إلى عنوان الإيداع،
+سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
+بعد تأكيد الشبكة.
 
-            </p>
+</p>
 
 
-        </div>
+</div>
 
 
-    </div>
+</div>
 
 
 
-    <!-- =================================
-         WARNING
-    ================================== -->
+<!-- ==========================================
+     WARNING
+========================================== -->
 
-    <div class="deposit-warning">
+<div class="deposit-warning">
 
 
-        ⚠️
+⚠️
 
-        <span data-lang="deposit_warning_1">
 
-            أرسل العملات إلى العنوان الظاهر فقط.
+<span data-lang="deposit_warning_1">
 
-        </span>
+أرسل العملات إلى العنوان الظاهر فقط.
 
+</span>
 
-        <br>
-        <br>
 
+<br><br>
 
-        <span data-lang="deposit_warning_2">
 
-            تأكد من اختيار نفس الشبكة قبل التحويل.
+<span data-lang="deposit_warning_2">
 
-        </span>
+تأكد من اختيار نفس الشبكة قبل التحويل.
 
+</span>
 
-        <br>
-        <br>
 
+<br><br>
 
-        <span data-lang="deposit_warning_3">
 
-            أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
+<span data-lang="deposit_warning_3">
 
-        </span>
+أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
 
+</span>
 
-        <br>
-        <br>
 
+<br><br>
 
-        <span data-lang="deposit_warning_4">
 
-            بعد تأكيد التحويل على البلوكشين
-            سيتم إضافة الرصيد تلقائياً.
+<span data-lang="deposit_warning_4">
 
-        </span>
+بعد تأكيد التحويل على البلوكشين
+سيتم إضافة الرصيد تلقائياً.
 
+</span>
 
-    </div>
+
+</div>
 
 
 </section>
@@ -384,17 +386,17 @@
 
 
 
-<!-- =====================================
+<!-- ==========================================
      LANGUAGE SYSTEM
-===================================== -->
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
 
-<!-- =====================================
+<!-- ==========================================
      DEPOSIT SYSTEM
-===================================== -->
+========================================== -->
 
 <script>
 
@@ -404,100 +406,92 @@
 // ==========================================
 
 
-// ------------------------------------------
-// العملة الحالية
-// ------------------------------------------
-
 let currentCoin = "USDT";
-
-
-// ------------------------------------------
-// الشبكة الحالية
-// ------------------------------------------
 
 let currentNetwork = "TRC20";
 
 
-// ------------------------------------------
-// الشبكات المتاحة
-// ------------------------------------------
+
+// ==========================================
+// COIN NETWORKS
+// ==========================================
 
 const coinNetworks = {
 
-    USDT: [
 
-        "TRC20",
-        "ERC20"
+USDT: [
 
-    ],
+"TRC20",
 
+"ERC20"
 
-    BTC: [
-
-        "Bitcoin"
-
-    ],
+],
 
 
-    ETH: [
+BTC: [
 
-        "ERC20"
+"Bitcoin"
 
-    ],
+],
 
 
-    TRX: [
+ETH: [
 
-        "TRC20"
+"ERC20"
 
-    ]
+],
+
+
+TRX: [
+
+"TRC20"
+
+]
 
 };
 
 
-// ------------------------------------------
-// عناوين الإيداع
-// ------------------------------------------
-//
-// هذه العناوين تجريبية للتصميم فقط.
-// لا تستخدمها لاستقبال أموال حقيقية.
-// ------------------------------------------
+
+// ==========================================
+// DEPOSIT ADDRESSES
+// ==========================================
 
 const addresses = {
 
-    USDT: {
 
-        TRC20:
-            "TXXXXXXXXXXXXXXXXXXXXXXXX",
+USDT: {
 
-        ERC20:
-            "0xUSDTXXXXXXXXXXXXXXXX"
+TRC20:
+"TXXXXXXXXXXXXXXXXXXXXXXXX",
 
-    },
+ERC20:
+"0xUSDTXXXXXXXXXXXXXXXX"
 
-
-    BTC: {
-
-        Bitcoin:
-            "bc1BTCXXXXXXXXXXXXXXXX"
-
-    },
+},
 
 
-    ETH: {
+BTC: {
 
-        ERC20:
-            "0xETHXXXXXXXXXXXXXXXX"
+Bitcoin:
+"bc1BTCXXXXXXXXXXXXXXXX"
 
-    },
+},
 
 
-    TRX: {
+ETH: {
 
-        TRC20:
-            "TXTRONXXXXXXXXXXXXXXXX"
+ERC20:
+"0xETHXXXXXXXXXXXXXXXX"
 
-    }
+},
+
+
+TRX: {
+
+TRC20:
+"TXTRONXXXXXXXXXXXXXXXX"
+
+}
 
 };
 
@@ -510,39 +504,33 @@ const addresses = {
 function selectCoin(coin, button) {
 
 
-    if (!coinNetworks[coin]) {
+if (!coinNetworks[coin]) {
 
-        return;
+return;
 
-    }
-
-
-    currentCoin = coin;
+}
 
 
-    // إزالة التحديد السابق
-
-    document
-        .querySelectorAll(".deposit-coin")
-        .forEach(function (btn) {
-
-            btn.classList.remove("active");
-
-        });
+currentCoin = coin;
 
 
-    // تحديد العملة
+document
+.querySelectorAll(".deposit-coin")
+.forEach(function(btn) {
 
-    if (button) {
+btn.classList.remove("active");
 
-        button.classList.add("active");
-
-    }
+});
 
 
-    // تحميل الشبكات
+if (button) {
 
-    loadNetworks();
+button.classList.add("active");
+
+}
+
+
+loadNetworks();
 
 }
 
@@ -555,65 +543,63 @@ function selectCoin(coin, button) {
 function loadNetworks() {
 
 
-    const box =
-        document.getElementById("networkBox");
+const box =
+document.getElementById("networkBox");
 
 
-    if (!box) {
+if (!box) {
 
-        return;
+return;
 
-    }
-
-
-    box.innerHTML = "";
+}
 
 
-    const networks =
-        coinNetworks[currentCoin] || [];
+box.innerHTML = "";
 
 
-    networks.forEach(function (network, index) {
+const networks =
+coinNetworks[currentCoin] || [];
 
 
-        const button =
-            document.createElement("button");
+networks.forEach(function(network, index) {
 
 
-        button.type = "button";
-
-        button.className = "network";
-
-        button.innerText = network;
+const button =
+document.createElement("button");
 
 
-        // أول شبكة تكون محددة
+button.type = "button";
 
-        if (index === 0) {
+button.className = "network";
 
-            button.classList.add("active");
-
-            currentNetwork = network;
-
-        }
+button.innerText = network;
 
 
-        button.onclick = function () {
+if (index === 0) {
 
-            selectNetwork(
-                this,
-                network
-            );
+button.classList.add("active");
 
-        };
+currentNetwork = network;
 
-
-        box.appendChild(button);
-
-    });
+}
 
 
-    updateAddress();
+button.onclick = function() {
+
+selectNetwork(
+this,
+network
+);
+
+};
+
+
+box.appendChild(button);
+
+});
+
+
+updateAddress();
 
 }
 
@@ -626,26 +612,22 @@ function loadNetworks() {
 function selectNetwork(button, network) {
 
 
-    currentNetwork = network;
+currentNetwork = network;
 
 
-    document
-        .querySelectorAll(".network")
-        .forEach(function (btn) {
+document
+.querySelectorAll(".network")
+.forEach(function(btn) {
 
-            btn.classList.remove("active");
+btn.classList.remove("active");
 
-        });
-
-
-    if (button) {
-
-        button.classList.add("active");
-
-    }
+});
 
 
-    updateAddress();
+button.classList.add("active");
+
+
+updateAddress();
 
 }
 
@@ -658,194 +640,200 @@ function selectNetwork(button, network) {
 function updateAddress() {
 
 
-    const addressInput =
-        document.getElementById("depositAddress");
+const input =
+document.getElementById("depositAddress");
 
 
-    if (!addressInput) {
+if (!input) {
 
-        return;
+return;
 
-    }
-
-
-    const coinData =
-        addresses[currentCoin];
+}
 
 
-    if (
-        !coinData ||
-        !coinData[currentNetwork]
-    ) {
+if (
+!addresses[currentCoin] ||
+!addresses[currentCoin][currentNetwork]
+) {
 
-        addressInput.value = "";
+input.value = "";
 
-        return;
+return;
 
-    }
+}
 
 
-    addressInput.value =
-        coinData[currentNetwork];
+input.value =
+addresses[currentCoin][currentNetwork];
 
 }
 
 
 
 // ==========================================
-// COPY DEPOSIT ADDRESS
+// COPY ADDRESS
 // ==========================================
 
-async function copyDeposit() {
+function copyDeposit() {
 
 
-    const input =
-        document.getElementById("depositAddress");
+const input =
+document.getElementById("depositAddress");
 
 
-    if (!input) {
+if (!input || !input.value) {
 
-        return;
+return;
 
-    }
-
-
-    const address =
-        input.value;
+}
 
 
-    if (!address) {
-
-        return;
-
-    }
+const address =
+input.value;
 
 
-    try {
+if (
+navigator.clipboard &&
+window.isSecureContext
+) {
 
 
-        // Clipboard API
+navigator.clipboard
+.writeText(address)
+.then(function() {
 
-        if (
-            navigator.clipboard &&
-            window.isSecureContext
-        ) {
+showCopyMessage();
 
-            await navigator.clipboard.writeText(
-                address
-            );
+})
+.catch(function() {
 
-        }
+fallbackCopy(input);
 
-        else {
+});
 
-            // Fallback
-
-            input.focus();
-
-            input.select();
-
-            document.execCommand("copy");
-
-            input.blur();
-
-        }
+}
 
 
-        showDepositMessage(
-            "deposit_copied"
-        );
+else {
 
+fallbackCopy(input);
 
-    }
-
-    catch (error) {
-
-
-        console.error(
-            "VALORA: Copy failed.",
-            error
-        );
-
-
-        showDepositMessage(
-            "copy_failed"
-        );
-
-    }
+}
 
 }
 
 
 
 // ==========================================
-// SHOW MESSAGE
+// FALLBACK COPY
 // ==========================================
 
-function showDepositMessage(key) {
+function fallbackCopy(input) {
 
 
-    let message = "";
+try {
 
 
-    // محاولة الحصول على الترجمة
+input.focus();
 
-    try {
+input.select();
 
+document.execCommand("copy");
 
-        if (
-            window.VALORA_LANG &&
-            typeof window.VALORA_LANG.getLanguage ===
-            "function"
-        ) {
+input.blur();
 
 
-            const lang =
-                window.VALORA_LANG.getLanguage();
+showCopyMessage();
 
 
-            const translations =
-                window.VALORA_LANG.translations;
+}
+
+catch(error) {
 
 
-            if (
-                translations &&
-                translations[lang] &&
-                translations[lang][key]
-            ) {
+alert(
+getDepositText(
+"copy_failed",
+"فشل نسخ العنوان"
+)
+);
 
-                message =
-                    translations[lang][key];
+}
 
-            }
-
-        }
-
-    }
-
-    catch (error) {
-
-        console.warn(
-            "VALORA: Translation error.",
-            error
-        );
-
-    }
+}
 
 
-    // Fallback
 
-    if (!message) {
+// ==========================================
+// COPY MESSAGE
+// ==========================================
 
-        message =
-            key === "deposit_copied"
-                ? "تم نسخ عنوان الإيداع"
-                : "Copy failed";
-
-    }
+function showCopyMessage() {
 
 
-    alert(message);
+alert(
+getDepositText(
+"deposit_copied",
+"تم نسخ عنوان الإيداع"
+)
+);
+
+}
+
+
+
+// ==========================================
+// GET LANGUAGE TEXT
+// ==========================================
+
+function getDepositText(key, fallback) {
+
+
+try {
+
+
+if (
+window.VALORA_LANG &&
+window.VALORA_LANG.getLanguage &&
+window.VALORA_LANG.translations
+) {
+
+
+const lang =
+window.VALORA_LANG.getLanguage();
+
+
+const data =
+window.VALORA_LANG.translations[lang];
+
+
+if (
+data &&
+Object.prototype.hasOwnProperty.call(
+data,
+key
+)
+) {
+
+return data[key];
+
+}
+
+}
+
+}
+
+catch(error) {
+
+console.warn(
+"VALORA language error:",
+error
+);
+
+}
+
+
+return fallback;
 
 }
 
@@ -856,32 +844,25 @@ function showDepositMessage(key) {
 // ==========================================
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function () {
+"DOMContentLoaded",
+function() {
 
 
-        // تطبيق اللغة
+if (
+typeof applyLanguage ===
+"function"
+) {
 
-        if (
-            typeof applyLanguage ===
-            "function"
-        ) {
+applyLanguage();
 
-            applyLanguage();
-
-        }
+}
 
 
-        // تحميل الشبكات
+loadNetworks();
 
-        loadNetworks();
+updateAddress();
 
-
-        // تحديث العنوان
-
-        updateAddress();
-
-    }
+}
 );
 
 </script>
