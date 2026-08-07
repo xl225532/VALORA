@@ -1,160 +1,357 @@
-// ===============================
+// ==========================================
 // VALORA Transactions System
-// ===============================
+// ==========================================
 
 
-function loadTransactions(){
+// ==========================================
+// LOAD TRANSACTIONS
+// ==========================================
+
+function loadTransactions() {
+
+    const box =
+        document.getElementById("transactionsList");
 
 
-let box = document.getElementById("transactionsList");
+    if (!box) {
+        return;
+    }
 
 
+    // --------------------------------------
+    // قراءة العمليات من LocalStorage
+    // --------------------------------------
 
-let transactions =
+    let transactions = [];
 
-JSON.parse(
+    try {
 
-localStorage.getItem("VALORA_TRANSACTIONS")
+        transactions =
+            JSON.parse(
+                localStorage.getItem("VALORA_TRANSACTIONS")
+            ) || [];
 
-)
+    } catch (error) {
 
-|| [];
+        console.warn(
+            "VALORA: Unable to read transactions.",
+            error
+        );
+
+        transactions = [];
+
+    }
 
 
+    // --------------------------------------
+    // لا توجد عمليات
+    // --------------------------------------
+
+    if (
+        !Array.isArray(transactions) ||
+        transactions.length === 0
+    ) {
+
+        box.innerHTML = `
+
+            <div class="empty-history">
+
+                <span data-lang="no_transactions">
+                    لا توجد عمليات حالياً
+                </span>
+
+            </div>
+
+        `;
 
 
-if(transactions.length === 0){
+        applyTransactionsLanguage();
+
+        return;
+
+    }
 
 
-box.innerHTML = `
+    // --------------------------------------
+    // تنظيف القائمة
+    // --------------------------------------
 
-<div class="empty-history">
+    box.innerHTML = "";
 
-لا توجد عمليات حالياً
 
-</div>
+    // --------------------------------------
+    // نسخ المصفوفة ثم عكسها
+    // حتى لا نغيّر البيانات الأصلية
+    // --------------------------------------
 
-`;
+    const sortedTransactions =
+        [...transactions].reverse();
 
-return;
 
+    // --------------------------------------
+    // عرض العمليات
+    // --------------------------------------
+
+    sortedTransactions.forEach(function (item) {
+
+
+        if (!item) {
+            return;
+        }
+
+
+        let typeClass = "profit";
+
+        let typeKey = "profit_transaction";
+
+
+        // ----------------------------------
+        // إيداع
+        // ----------------------------------
+
+        if (item.type === "deposit") {
+
+            typeClass = "deposit";
+
+            typeKey = "deposit_transaction";
+
+        }
+
+
+        // ----------------------------------
+        // سحب
+        // ----------------------------------
+
+        else if (item.type === "withdraw") {
+
+            typeClass = "withdraw";
+
+            typeKey = "withdraw_transaction";
+
+        }
+
+
+        // ----------------------------------
+        // أرباح
+        // ----------------------------------
+
+        else {
+
+            typeClass = "profit";
+
+            typeKey = "profit_transaction";
+
+        }
+
+
+        // ----------------------------------
+        // المبلغ
+        // ----------------------------------
+
+        let amount =
+            item.amount ?? 0;
+
+
+        // ----------------------------------
+        // التاريخ
+        // ----------------------------------
+
+        let date =
+            item.date || "اليوم";
+
+
+        // ----------------------------------
+        // إنشاء العملية
+        // ----------------------------------
+
+        box.innerHTML += `
+
+            <div class="transaction-item">
+
+
+                <div class="transaction-info">
+
+
+                    <div
+                        class="transaction-title"
+                        data-lang="${typeKey}"
+                    >
+
+                        ${getTransactionText(typeKey)}
+
+                    </div>
+
+
+                    <div class="transaction-date">
+
+                        ${escapeTransactionText(date)}
+
+                    </div>
+
+
+                </div>
+
+
+                <div
+                    class="transaction-value ${typeClass}"
+                >
+
+                    ${escapeTransactionText(amount)}
+
+                    USDT
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    });
+
+
+    // --------------------------------------
+    // تطبيق اللغة
+    // --------------------------------------
+
+    applyTransactionsLanguage();
 
 }
 
 
 
+// ==========================================
+// GET TRANSLATION
+// ==========================================
+
+function getTransactionText(key) {
 
 
-box.innerHTML = "";
+    try {
+
+        if (
+            window.VALORA_LANG &&
+            typeof window.VALORA_LANG.getLanguage === "function"
+        ) {
+
+            const lang =
+                window.VALORA_LANG.getLanguage();
 
 
+            const translations =
+                window.VALORA_LANG.translations;
 
 
+            if (
+                translations &&
+                translations[lang] &&
+                translations[lang][key]
+            ) {
 
-transactions.reverse().forEach(function(item){
+                return translations[lang][key];
+
+            }
+
+        }
+
+    } catch (error) {
+
+        console.warn(
+            "VALORA: Translation error.",
+            error
+        );
+
+    }
 
 
+    // --------------------------------------
+    // Fallback عربي
+    // --------------------------------------
 
-let typeClass = "";
+    const fallback = {
 
-let typeName = "";
+        deposit_transaction:
+            "إيداع",
+
+        withdraw_transaction:
+            "سحب",
+
+        profit_transaction:
+            "أرباح",
+
+        no_transactions:
+            "لا توجد عمليات حالياً"
+
+    };
 
 
-
-
-if(item.type === "deposit"){
-
-typeClass = "deposit";
-
-typeName = "إيداع";
+    return fallback[key] || key;
 
 }
 
 
 
-else if(item.type === "withdraw"){
+// ==========================================
+// APPLY LANGUAGE
+// ==========================================
+
+function applyTransactionsLanguage() {
 
 
-typeClass = "withdraw";
+    if (
+        typeof window.applyLanguage === "function"
+    ) {
 
-typeName = "سحب";
+        window.applyLanguage();
 
-
-}
-
-
-
-else{
-
-
-typeClass = "profit";
-
-typeName = "أرباح";
-
+    }
 
 }
 
 
 
+// ==========================================
+// PROTECT TEXT
+// ==========================================
+
+function escapeTransactionText(value) {
 
 
-box.innerHTML += `
+    if (value === null || value === undefined) {
+
+        return "";
+
+    }
 
 
-<div class="transaction-item">
+    return String(value)
 
+        .replace(/&/g, "&amp;")
 
-<div>
+        .replace(/</g, "&lt;")
 
+        .replace(/>/g, "&gt;")
 
-<div class="transaction-title">
+        .replace(/"/g, "&quot;")
 
-${typeName}
-
-</div>
-
-
-<div class="transaction-date">
-
-${item.date || "اليوم"}
-
-</div>
-
-
-</div>
-
-
-
-<div class="transaction-value ${typeClass}">
-
-${item.amount}
-
- USDT
-
-</div>
-
-
-</div>
-
-
-`;
-
-
-
-});
-
-
+        .replace(/'/g, "&#039;");
 
 }
 
 
 
-
+// ==========================================
+// PAGE LOAD
+// ==========================================
 
 document.addEventListener(
 
-"DOMContentLoaded",
+    "DOMContentLoaded",
 
-loadTransactions
+    function () {
 
-)
+        loadTransactions();
+
+    }
+
+);
