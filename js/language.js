@@ -3,23 +3,20 @@
 // GLOBAL LANGUAGE SYSTEM
 // ==========================================
 //
-// Supported languages:
+// Languages:
 // ar = العربية
 // en = English
 //
-// Storage key:
+// Storage:
 // VALORA_LANG
 //
-// HTML usage:
-//
+// Text:
 // <span data-lang="home">الرئيسية</span>
 //
-// <input
-//     data-lang-placeholder="email_phone_placeholder"
-// >
+// Placeholder:
+// <input data-lang-placeholder="email_phone_placeholder">
 //
 // ==========================================
-
 
 (function () {
 
@@ -27,7 +24,7 @@
 
 
     // ======================================
-    // إعدادات النظام
+    // SETTINGS
     // ======================================
 
     const STORAGE_KEY = "VALORA_LANG";
@@ -38,7 +35,7 @@
 
 
     // ======================================
-    // الترجمات
+    // TRANSLATIONS
     // ======================================
 
     const translations = {
@@ -49,9 +46,9 @@
 
         en: {
 
-            // ------------------------------
+            // --------------------------------
             // General
-            // ------------------------------
+            // --------------------------------
 
             home: "Home",
 
@@ -60,6 +57,8 @@
             wallet: "Wallet",
 
             assets: "Total Assets",
+
+            total_assets: "Total Assets",
 
             team: "Team",
 
@@ -83,16 +82,34 @@
 
             application: "VALORA App",
 
+            sync: "Sync",
 
-            // ------------------------------
+
+            // --------------------------------
+            // Account
+            // --------------------------------
+
+            account: "My Account",
+
+            username: "Username",
+
+            uid: "UID",
+
+            email: "Email",
+
+            phone: "Phone Number",
+
+            security_code: "Security Code",
+
+            identity_verification:
+                "Identity Verification",
+
+
+            // --------------------------------
             // Dashboard
-            // ------------------------------
-
-            total_assets: "Total Assets",
+            // --------------------------------
 
             today_profit: "Today's Profit",
-
-            sync: "Sync",
 
             markets: "Markets",
 
@@ -109,42 +126,29 @@
             solana: "Solana",
 
 
-            // ------------------------------
-            // Account
-            // ------------------------------
-
-            account: "My Account",
-
-            uid: "UID",
-
-            email: "Email",
-
-            phone: "Phone",
-
-            security_code: "Security Code",
-
-            identity_verification: "Identity Verification",
-
-
-            // ------------------------------
+            // --------------------------------
             // Login
-            // ------------------------------
+            // --------------------------------
 
             login: "Login",
 
-            login_subtitle: "Login to your account",
+            login_subtitle:
+                "Login to your account",
 
-            email_phone: "Email or Phone Number",
+            email_phone:
+                "Email or Phone Number",
 
             email_phone_placeholder:
                 "Enter Email or Phone Number",
 
-            password_label: "Password",
+            password_label:
+                "Password",
 
             password_placeholder:
                 "Enter Password",
 
-            login_btn: "Login",
+            login_btn:
+                "Login",
 
             forgot_password:
                 "Forgot Password?",
@@ -153,14 +157,15 @@
                 "Create Account",
 
 
-            // ------------------------------
+            // --------------------------------
             // Register
-            // ------------------------------
+            // --------------------------------
 
-            register: "Register",
+            register:
+                "Register",
 
             register_title:
-                "Create your account",
+                "Create Your Account",
 
             register_subtitle:
                 "Join VALORA today",
@@ -181,15 +186,18 @@
                 "Create Account",
 
 
-            // ------------------------------
+            // --------------------------------
             // Wallet
-            // ------------------------------
+            // --------------------------------
 
-            wallet_title: "Wallet",
+            wallet_title:
+                "Wallet",
 
-            deposit: "Deposit",
+            deposit:
+                "Deposit",
 
-            withdraw: "Withdraw",
+            withdraw:
+                "Withdraw",
 
             deposit_title:
                 "Deposit",
@@ -210,11 +218,12 @@
                 "Transaction History",
 
 
-            // ------------------------------
+            // --------------------------------
             // Team
-            // ------------------------------
+            // --------------------------------
 
-            my_team: "My Team",
+            my_team:
+                "My Team",
 
             team_members:
                 "Team Members",
@@ -232,9 +241,9 @@
                 "Copied",
 
 
-            // ------------------------------
+            // --------------------------------
             // Notifications
-            // ------------------------------
+            // --------------------------------
 
             notification_title:
                 "Notifications",
@@ -246,9 +255,9 @@
                 "Mark as read",
 
 
-            // ------------------------------
+            // --------------------------------
             // Language
-            // ------------------------------
+            // --------------------------------
 
             language_title:
                 "Language",
@@ -272,9 +281,9 @@
                 "Language changed successfully",
 
 
-            // ------------------------------
+            // --------------------------------
             // Settings
-            // ------------------------------
+            // --------------------------------
 
             settings_title:
                 "Settings",
@@ -288,10 +297,25 @@
             security_settings:
                 "Security Settings",
 
+            loginCode:
+                "Login Code",
 
-            // ------------------------------
+            withdrawSecurity:
+                "Withdrawal Security Code",
+
+            change:
+                "Change",
+
+            view:
+                "View",
+
+            open:
+                "Open",
+
+
+            // --------------------------------
             // Security
-            // ------------------------------
+            // --------------------------------
 
             withdrawal_security:
                 "Withdrawal Security",
@@ -303,15 +327,15 @@
                 "Enter your security code",
 
 
-            // ------------------------------
+            // --------------------------------
             // Verification
-            // ------------------------------
+            // --------------------------------
 
             verification:
                 "Identity Verification",
 
             verification_title:
-                "Verify your identity",
+                "Verify Your Identity",
 
             verification_status:
                 "Verification Status",
@@ -326,36 +350,47 @@
                 "Pending",
 
 
-            // ------------------------------
-            // Common actions
-            // ------------------------------
+            // --------------------------------
+            // Common Actions
+            // --------------------------------
 
-            save: "Save",
+            save:
+                "Save",
 
-            cancel: "Cancel",
+            cancel:
+                "Cancel",
 
-            confirm: "Confirm",
+            confirm:
+                "Confirm",
 
-            close: "Close",
+            close:
+                "Close",
 
-            back: "Back",
+            back:
+                "Back",
 
-            next: "Next",
+            next:
+                "Next",
 
-            submit: "Submit",
+            submit:
+                "Submit",
 
-            edit: "Edit",
+            edit:
+                "Edit",
 
-            delete: "Delete",
+            delete:
+                "Delete",
 
-            search: "Search",
+            search:
+                "Search",
 
-            loading: "Loading...",
+            loading:
+                "Loading...",
 
 
-            // ------------------------------
+            // --------------------------------
             // Messages
-            // ------------------------------
+            // --------------------------------
 
             login_success:
                 "Login successful",
@@ -384,53 +419,94 @@
 
         ar: {
 
-            // ------------------------------
+            // --------------------------------
             // عام
-            // ------------------------------
+            // --------------------------------
 
-            home: "الرئيسية",
+            home:
+                "الرئيسية",
 
-            dashboard: "لوحة الرئيسية",
+            dashboard:
+                "الرئيسية",
 
-            wallet: "المحفظة",
+            wallet:
+                "المحفظة",
 
-            assets: "إجمالي الأصول",
-
-            team: "الفريق",
-
-            language: "اللغة",
-
-            settings: "الإعدادات",
-
-            notifications: "الإشعارات",
-
-            support: "مراسلة العملاء",
-
-            terms: "الشروط والأحكام",
-
-            security: "رمز أمان السحب",
-
-            verify: "التحقق من الهوية",
-
-            password: "تغيير كلمة المرور",
-
-            logout: "تسجيل الخروج",
-
-            application: "تطبيق VALORA",
-
-
-            // ------------------------------
-            // الرئيسية
-            // ------------------------------
+            assets:
+                "إجمالي الأصول",
 
             total_assets:
                 "إجمالي الأصول",
 
-            today_profit:
-                "أرباح اليوم",
+            team:
+                "الفريق",
+
+            language:
+                "اللغة",
+
+            settings:
+                "الإعدادات",
+
+            notifications:
+                "الإشعارات",
+
+            support:
+                "مراسلة العملاء",
+
+            terms:
+                "الشروط والأحكام",
+
+            security:
+                "رمز أمان السحب",
+
+            verify:
+                "التحقق من الهوية",
+
+            password:
+                "تغيير كلمة المرور",
+
+            logout:
+                "تسجيل الخروج",
+
+            application:
+                "تطبيق VALORA",
 
             sync:
                 "التزامن",
+
+
+            // --------------------------------
+            // الحساب
+            // --------------------------------
+
+            account:
+                "حسابي",
+
+            username:
+                "اسم المستخدم",
+
+            uid:
+                "UID",
+
+            email:
+                "البريد الإلكتروني",
+
+            phone:
+                "رقم الهاتف",
+
+            security_code:
+                "رمز الأمان",
+
+            identity_verification:
+                "التحقق من الهوية",
+
+
+            // --------------------------------
+            // الرئيسية
+            // --------------------------------
+
+            today_profit:
+                "أرباح اليوم",
 
             markets:
                 "الأسواق",
@@ -454,32 +530,9 @@
                 "Solana",
 
 
-            // ------------------------------
-            // الحساب
-            // ------------------------------
-
-            account:
-                "حسابي",
-
-            uid:
-                "UID",
-
-            email:
-                "البريد الإلكتروني",
-
-            phone:
-                "رقم الهاتف",
-
-            security_code:
-                "رمز الأمان",
-
-            identity_verification:
-                "التحقق من الهوية",
-
-
-            // ------------------------------
+            // --------------------------------
             // تسجيل الدخول
-            // ------------------------------
+            // --------------------------------
 
             login:
                 "تسجيل الدخول",
@@ -509,9 +562,9 @@
                 "إنشاء حساب",
 
 
-            // ------------------------------
+            // --------------------------------
             // إنشاء الحساب
-            // ------------------------------
+            // --------------------------------
 
             register:
                 "إنشاء حساب",
@@ -538,9 +591,9 @@
                 "إنشاء الحساب",
 
 
-            // ------------------------------
+            // --------------------------------
             // المحفظة
-            // ------------------------------
+            // --------------------------------
 
             wallet_title:
                 "المحفظة",
@@ -570,9 +623,9 @@
                 "سجل المعاملات",
 
 
-            // ------------------------------
+            // --------------------------------
             // الفريق
-            // ------------------------------
+            // --------------------------------
 
             my_team:
                 "فريقي",
@@ -593,9 +646,9 @@
                 "تم النسخ",
 
 
-            // ------------------------------
+            // --------------------------------
             // الإشعارات
-            // ------------------------------
+            // --------------------------------
 
             notification_title:
                 "الإشعارات",
@@ -607,9 +660,9 @@
                 "تحديد كمقروء",
 
 
-            // ------------------------------
+            // --------------------------------
             // اللغة
-            // ------------------------------
+            // --------------------------------
 
             language_title:
                 "اللغة",
@@ -633,9 +686,9 @@
                 "تم تغيير اللغة بنجاح",
 
 
-            // ------------------------------
+            // --------------------------------
             // الإعدادات
-            // ------------------------------
+            // --------------------------------
 
             settings_title:
                 "الإعدادات",
@@ -649,10 +702,25 @@
             security_settings:
                 "إعدادات الأمان",
 
+            loginCode:
+                "رمز الدخول",
 
-            // ------------------------------
+            withdrawSecurity:
+                "رمز أمان السحب",
+
+            change:
+                "تغيير",
+
+            view:
+                "عرض",
+
+            open:
+                "فتح",
+
+
+            // --------------------------------
             // الأمان
-            // ------------------------------
+            // --------------------------------
 
             withdrawal_security:
                 "أمان السحب",
@@ -664,9 +732,9 @@
                 "أدخل رمز الأمان الخاص بك",
 
 
-            // ------------------------------
+            // --------------------------------
             // التحقق
-            // ------------------------------
+            // --------------------------------
 
             verification:
                 "التحقق من الهوية",
@@ -687,9 +755,9 @@
                 "قيد الانتظار",
 
 
-            // ------------------------------
+            // --------------------------------
             // الأوامر
-            // ------------------------------
+            // --------------------------------
 
             save:
                 "حفظ",
@@ -725,9 +793,9 @@
                 "جارٍ التحميل...",
 
 
-            // ------------------------------
+            // --------------------------------
             // الرسائل
-            // ------------------------------
+            // --------------------------------
 
             login_success:
                 "تم تسجيل الدخول",
@@ -753,13 +821,23 @@
 
 
     // ======================================
-    // الحصول على اللغة الحالية
+    // GET CURRENT LANGUAGE
     // ======================================
 
     function getLanguage() {
 
-        const savedLanguage =
-            localStorage.getItem(STORAGE_KEY);
+        let savedLanguage = null;
+
+        try {
+
+            savedLanguage =
+                localStorage.getItem(STORAGE_KEY);
+
+        } catch (error) {
+
+            savedLanguage = null;
+
+        }
 
 
         if (
@@ -778,7 +856,7 @@
 
 
     // ======================================
-    // تطبيق اتجاه ولغة الصفحة
+    // APPLY HTML LANGUAGE & DIRECTION
     // ======================================
 
     function applyDocumentLanguage(lang) {
@@ -802,7 +880,7 @@
 
 
     // ======================================
-    // ترجمة النصوص
+    // APPLY TEXT TRANSLATIONS
     // ======================================
 
     function applyTranslations() {
@@ -818,9 +896,9 @@
         if (!data) return;
 
 
-        // ------------------------------
-        // النصوص
-        // ------------------------------
+        // ----------------------------------
+        // Normal text
+        // ----------------------------------
 
         document
             .querySelectorAll("[data-lang]")
@@ -845,9 +923,9 @@
             });
 
 
-        // ------------------------------
-        // Placeholders
-        // ------------------------------
+        // ----------------------------------
+        // Placeholder
+        // ----------------------------------
 
         document
             .querySelectorAll(
@@ -876,9 +954,9 @@
             });
 
 
-        // ------------------------------
+        // ----------------------------------
         // Title
-        // ------------------------------
+        // ----------------------------------
 
         const titleElement =
             document.querySelector(
@@ -912,7 +990,7 @@
 
 
     // ======================================
-    // تطبيق اللغة بالكامل
+    // APPLY LANGUAGE
     // ======================================
 
     function applyLanguage() {
@@ -929,39 +1007,53 @@
 
 
     // ======================================
-    // تغيير اللغة
+    // CHANGE LANGUAGE
     // ======================================
 
     function setLanguage(lang) {
 
         if (!translations[lang]) {
 
-            lang = DEFAULT_LANGUAGE;
+            lang =
+                DEFAULT_LANGUAGE;
 
         }
 
 
-        // حفظ اللغة
+        // Save selected language
 
-        localStorage.setItem(
-            STORAGE_KEY,
-            lang
-        );
+        try {
+
+            localStorage.setItem(
+                STORAGE_KEY,
+                lang
+            );
+
+        } catch (error) {
+
+            console.warn(
+                "VALORA: Unable to save language."
+            );
+
+        }
 
 
-        // تطبيقها فورًا
+        // Apply immediately
 
         applyDocumentLanguage(lang);
 
         applyTranslations();
 
 
-        // تحديث اختيار الراديو
+        // Update radio buttons
+
         document
             .querySelectorAll(".language-radio")
             .forEach(function (item) {
 
-                item.classList.remove("active");
+                item.classList.remove(
+                    "active"
+                );
 
             });
 
@@ -974,12 +1066,14 @@
 
         if (radio) {
 
-            radio.classList.add("active");
+            radio.classList.add(
+                "active"
+            );
 
         }
 
 
-        // الرجوع للرئيسية
+        // Return to dashboard
 
         setTimeout(function () {
 
@@ -992,7 +1086,7 @@
 
 
     // ======================================
-    // تشغيل النظام عند تحميل الصفحة
+    // PAGE LOAD
     // ======================================
 
     document.addEventListener(
@@ -1002,20 +1096,22 @@
             applyLanguage();
 
 
-            // تحديد اللغة الحالية
             const currentLanguage =
                 getLanguage();
 
 
             const radio =
                 document.getElementById(
-                    "radio-" + currentLanguage
+                    "radio-" +
+                    currentLanguage
                 );
 
 
             if (radio) {
 
-                radio.classList.add("active");
+                radio.classList.add(
+                    "active"
+                );
 
             }
 
@@ -1024,7 +1120,7 @@
 
 
     // ======================================
-    // جعل الدوال متاحة للـ HTML
+    // PUBLIC API
     // ======================================
 
     window.VALORA_LANG = {
@@ -1044,7 +1140,10 @@
     };
 
 
-    // دعم الكود القديم
+    // ======================================
+    // BACKWARD COMPATIBILITY
+    // ======================================
+
     window.setLanguage =
         setLanguage;
 
