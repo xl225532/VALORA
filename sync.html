@@ -7,7 +7,7 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | التزامن الذكي</title>
+<title>VALORA | Smart Sync</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 
@@ -34,7 +34,9 @@ VALORA
 
 <span class="online-dot"></span>
 
+<span data-lang="connected">
 متصل
+</span>
 
 </div>
 
@@ -48,12 +50,12 @@ VALORA
 <section class="hero-card">
 
 
-<h2>
+<h2 data-lang="smart_sync">
 التزامن الذكي
 </h2>
 
 
-<p>
+<p data-lang="sync_description">
 قم بمزامنة صفقاتك بسهولة وأمان
 </p>
 
@@ -124,11 +126,6 @@ SOL
 </small>
 
 </div>
-
-
-
-
-
 <div class="coin" data-coin="USDT">
 
 <div class="coin-icon usdt">
@@ -180,7 +177,7 @@ XRP
 <div class="status-item">
 
 
-<span>
+<span data-lang="last_sync">
 آخر مزامنة
 </span>
 
@@ -199,7 +196,7 @@ XRP
 <div class="status-item">
 
 
-<span>
+<span data-lang="selected_coin">
 العملة المختارة
 </span>
 
@@ -218,12 +215,12 @@ BTC
 <div class="status-item">
 
 
-<span>
+<span data-lang="server">
 الخادم
 </span>
 
 
-<strong class="online">
+<strong class="online" data-lang="connected">
 متصل
 </strong>
 
@@ -268,13 +265,13 @@ BTC
 
 
 
-<h2>
+<h2 data-lang="check_trade">
 تحقق من الصفقة
 </h2>
 
 
 
-<p>
+<p data-lang="enter_trade_code">
 أدخل كود الصفقة للمتابعة
 </p>
 
@@ -315,18 +312,13 @@ id="tradeCode"
 
 type="text"
 
-placeholder="أدخل كود الصفقة">
+placeholder="أدخل كود الصفقة"
+
+data-lang-placeholder="trade_code_placeholder">
 
 
 </div>
-
-
-
-
-
-
-
-<button class="sync-btn" onclick="checkTrade()">
+<button class="sync-btn" onclick="checkTrade()" data-lang="check">
 
 تحقق
 
@@ -354,7 +346,7 @@ placeholder="أدخل كود الصفقة">
 <section class="orders-section">
 
 
-<div class="section-title">
+<div class="section-title" data-lang="last_orders">
 
 آخر الصفقات
 
@@ -365,7 +357,7 @@ placeholder="أدخل كود الصفقة">
 <div id="ordersList">
 
 
-<div class="empty-order">
+<div class="empty-order" data-lang="no_orders">
 
 لا توجد صفقات حالياً
 
@@ -410,8 +402,10 @@ placeholder="أدخل كود الصفقة">
 </svg>
 
 
-<span>
+<span data-lang="home">
+
 الرئيسية
+
 </span>
 
 
@@ -438,8 +432,10 @@ placeholder="أدخل كود الصفقة">
 </svg>
 
 
-<span>
+<span data-lang="wallet">
+
 الأصول
+
 </span>
 
 
@@ -469,19 +465,14 @@ placeholder="أدخل كود الصفقة">
 </svg>
 
 
-<span>
+<span data-lang="sync">
+
 التزامن
+
 </span>
 
 
 </a>
-
-
-
-
-
-
-
 <a href="team.html">
 
 
@@ -497,8 +488,10 @@ placeholder="أدخل كود الصفقة">
 </svg>
 
 
-<span>
+<span data-lang="team">
+
 الفريق
+
 </span>
 
 
@@ -514,7 +507,22 @@ placeholder="أدخل كود الصفقة">
 
 
 
+<script src="js/language.js"></script>
+
 <script src="js/sync.js"></script>
+
+
+<script>
+
+if(typeof applyLanguage === "function"){
+
+    applyLanguage();
+
+}
+
+
+</script>
+
 
 
 </body>
