@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 
 <head>
 
@@ -9,14 +9,12 @@
 
 <title>VALORA | Language</title>
 
-<link
-href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
-rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
 
 <link rel="stylesheet" href="css/settings.css">
-
 <link rel="stylesheet" href="css/background.css">
-
 <link rel="stylesheet" href="css/language.css">
 
 </head>
@@ -28,133 +26,180 @@ rel="stylesheet">
 <div class="settings-container">
 
 
-    <!-- =========================
-         Header
-    ========================== -->
 
-    <div class="settings-header">
-
-        <h2>
-            🌐 Language
-        </h2>
+<header class="settings-header">
 
 
-    </div>
+<h2 data-lang="language_title">
+
+🌐 Language
+
+</h2>
 
 
+<p data-lang="language_subtitle">
 
-    <!-- =========================
-         Languages
-    ========================== -->
+Choose your preferred language
 
-    <div class="language-card">
-
-
-        <!-- English -->
-
-        <div
-            class="language-item"
-            onclick="setLanguage('en')"
-        >
-
-            <div class="language-left">
-
-                <div class="language-flag">
-                    🇺🇸
-                </div>
+</p>
 
 
-                <div>
-
-                    <div class="language-title">
-                        English
-                    </div>
-
-                    <div class="language-subtitle">
-                        Default Language
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="language-radio"
-                id="radio-en"
-            >
-
-                <div class="radio-dot"></div>
-
-            </div>
-
-        </div>
+</header>
 
 
 
-        <!-- Arabic -->
-
-        <div
-            class="language-item"
-            onclick="setLanguage('ar')"
-        >
-
-            <div class="language-left">
-
-                <div class="language-flag">
-                    🇸🇦
-                </div>
-
-
-                <div>
-
-                    <div class="language-title">
-                        العربية
-                    </div>
-
-                    <div class="language-subtitle">
-                        Arabic
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <div
-                class="language-radio"
-                id="radio-ar"
-            >
-
-                <div class="radio-dot"></div>
-
-            </div>
-
-        </div>
-
-
-    </div>
 
 
 
-    <!-- =========================
-         Save Info
-    ========================== -->
+<div class="language-card">
 
-    <div class="save-info">
 
-        سيتم حفظ اللغة تلقائياً
 
-    </div>
+<!-- English -->
+
+<div class="language-item" onclick="setLanguage('en')">
+
+
+
+<div class="language-left">
+
+
+<div class="language-flag">
+
+🇺🇸
+
+</div>
+
+
+
+<div>
+
+
+<div class="language-title" data-lang="english">
+
+English
+
+</div>
+
+
+
+<div class="language-subtitle" data-lang="default_language">
+
+Default Language
+
+</div>
+
+
+</div>
 
 
 </div>
 
 
 
-<!-- =========================
-     Language System
-========================== -->
+
+<div class="language-radio" id="radio-en">
+
+
+<div class="radio-dot"></div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Arabic -->
+
+<div class="language-item" onclick="setLanguage('ar')">
+
+
+
+<div class="language-left">
+
+
+<div class="language-flag">
+
+🇸🇦
+
+</div>
+
+
+
+<div>
+
+
+<div class="language-title" data-lang="arabic">
+
+العربية
+
+</div>
+
+
+
+<div class="language-subtitle">
+
+Arabic
+
+</div>
+
+
+</div>
+
+
+</div>
+
+
+
+
+<div class="language-radio" id="radio-ar">
+
+
+<div class="radio-dot"></div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="save-info" data-lang="save_language">
+
+سيتم حفظ اللغة تلقائياً
+
+</div>
+
+
+
+
+
+</div>
+
+
+
+
+
+
 
 <script src="js/language.js"></script>
 
@@ -162,58 +207,60 @@ rel="stylesheet">
 
 <script>
 
+
 document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        const currentLanguage =
-            localStorage.getItem("VALORA_LANG") || "en";
+"DOMContentLoaded",
+function(){
 
 
-        const englishRadio =
-            document.getElementById("radio-en");
+const current =
+localStorage.getItem("VALORA_LANG")
+|| "en";
 
 
-        const arabicRadio =
-            document.getElementById("radio-ar");
+
+const en =
+document.getElementById("radio-en");
 
 
-        if (englishRadio) {
-
-            englishRadio.classList.remove("active");
-
-        }
+const ar =
+document.getElementById("radio-ar");
 
 
-        if (arabicRadio) {
 
-            arabicRadio.classList.remove("active");
-
-        }
+if(current === "en"){
 
 
-        if (currentLanguage === "ar") {
+en.classList.add("active");
 
-            if (arabicRadio) {
 
-                arabicRadio.classList.add("active");
+}else{
 
-            }
 
-        } else {
+ar.classList.add("active");
 
-            if (englishRadio) {
 
-                englishRadio.classList.add("active");
+}
 
-            }
 
-        }
 
-    }
-);
+if(typeof applyLanguage === "function"){
+
+
+applyLanguage();
+
+
+}
+
+
+});
+
+
 
 </script>
+
+
+
 
 
 </body>
