@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar" dir="rtl">
+<html lang="en" dir="ltr">
 
 <head>
 
@@ -9,138 +9,215 @@
 
 <title>VALORA | Language</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/settings.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 <link rel="stylesheet" href="css/language.css">
 
 </head>
 
+
 <body>
+
 
 <div class="settings-container">
 
-<div class="settings-header">
 
-<h2>
-🌐 Language
-</h2>
+    <!-- =========================
+         Header
+    ========================== -->
 
-<p>
-Choose your preferred language
-</p>
+    <div class="settings-header">
 
-</div>
+        <h2>
+            🌐 Language
+        </h2>
 
-
-<div class="language-card">
-  <!-- English -->
-
-<div class="language-item" onclick="setLanguage('en')">
-
-    <div class="language-left">
-
-        <div class="language-flag">
-            🇺🇸
-        </div>
-
-        <div>
-
-            <div class="language-title">
-                English
-            </div>
-
-            <div class="language-subtitle">
-                Default Language
-            </div>
-
-        </div>
+        <p>
+            Choose your preferred language
+        </p>
 
     </div>
 
-    <div class="language-radio" id="radio-en">
-
-        <div class="radio-dot"></div>
-
-    </div>
-
-</div>
 
 
+    <!-- =========================
+         Languages
+    ========================== -->
 
-<!-- Arabic -->
+    <div class="language-card">
 
-<div class="language-item" onclick="setLanguage('ar')">
 
-    <div class="language-left">
+        <!-- English -->
 
-        <div class="language-flag">
-            🇸🇦
-        </div>
+        <div
+            class="language-item"
+            onclick="setLanguage('en')"
+        >
 
-        <div>
+            <div class="language-left">
 
-            <div class="language-title">
-                العربية
+                <div class="language-flag">
+                    🇺🇸
+                </div>
+
+
+                <div>
+
+                    <div class="language-title">
+                        English
+                    </div>
+
+                    <div class="language-subtitle">
+                        Default Language
+                    </div>
+
+                </div>
+
             </div>
 
-            <div class="language-subtitle">
-                Arabic
+
+            <div
+                class="language-radio"
+                id="radio-en"
+            >
+
+                <div class="radio-dot"></div>
+
             </div>
 
         </div>
 
+
+
+        <!-- Arabic -->
+
+        <div
+            class="language-item"
+            onclick="setLanguage('ar')"
+        >
+
+            <div class="language-left">
+
+                <div class="language-flag">
+                    🇸🇦
+                </div>
+
+
+                <div>
+
+                    <div class="language-title">
+                        العربية
+                    </div>
+
+                    <div class="language-subtitle">
+                        Arabic
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <div
+                class="language-radio"
+                id="radio-ar"
+            >
+
+                <div class="radio-dot"></div>
+
+            </div>
+
+        </div>
+
+
     </div>
 
-    <div class="language-radio" id="radio-ar">
 
-        <div class="radio-dot"></div>
+
+    <!-- =========================
+         Save Info
+    ========================== -->
+
+    <div class="save-info">
+
+        سيتم حفظ اللغة تلقائياً
 
     </div>
 
-</div>
-
-
 
 </div>
 
 
-<div class="save-info">
 
-سيتم حفظ اللغة تلقائياً
-
-</div>
-</div>
+<!-- =========================
+     Language System
+========================== -->
 
 <script src="js/language.js"></script>
 
+
+
 <script>
 
-document.addEventListener("DOMContentLoaded", function(){
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    const current =
-    localStorage.getItem("VALORA_LANG") || "en";
+        const currentLanguage =
+            localStorage.getItem("VALORA_LANG") || "en";
 
-    const en =
-    document.getElementById("radio-en");
 
-    const ar =
-    document.getElementById("radio-ar");
+        const englishRadio =
+            document.getElementById("radio-en");
 
-    if(current === "en"){
 
-        en.classList.add("active");
+        const arabicRadio =
+            document.getElementById("radio-ar");
 
-    }else{
 
-        ar.classList.add("active");
+        if (englishRadio) {
+
+            englishRadio.classList.remove("active");
+
+        }
+
+
+        if (arabicRadio) {
+
+            arabicRadio.classList.remove("active");
+
+        }
+
+
+        if (currentLanguage === "ar") {
+
+            if (arabicRadio) {
+
+                arabicRadio.classList.add("active");
+
+            }
+
+        } else {
+
+            if (englishRadio) {
+
+                englishRadio.classList.add("active");
+
+            }
+
+        }
 
     }
-
-});
+);
 
 </script>
+
 
 </body>
 
