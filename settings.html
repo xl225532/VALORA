@@ -9,12 +9,14 @@
 
 <title>VALORA | الإعدادات</title>
 
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
+<link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    rel="stylesheet">
 
 <link rel="stylesheet" href="css/settings.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -24,6 +26,9 @@
 <div class="settings-page">
 
 
+<!-- ======================================
+     HEADER
+====================================== -->
 
 <header class="page-header">
 
@@ -42,8 +47,9 @@
 
 
 
-
-
+<!-- ======================================
+     PROFILE
+====================================== -->
 
 <section class="profile-card">
 
@@ -74,14 +80,14 @@ ID: VAL583921
 
 
 
-
-
-
-
+<!-- ======================================
+     SETTINGS
+====================================== -->
 
 <section class="settings-box">
 
 
+<!-- اسم المستخدم -->
 
 <div class="settings-item">
 
@@ -100,9 +106,7 @@ Ahmed
 
 
 
-
-
-
+<!-- البريد الإلكتروني -->
 
 <div class="settings-item">
 
@@ -122,10 +126,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- رقم الهاتف -->
 
 <div class="settings-item">
 
@@ -145,10 +146,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- رمز الدخول -->
 
 <div class="settings-item">
 
@@ -159,7 +157,9 @@ example@email.com
 </span>
 
 
-<a href="login-pin.html" data-lang="change">
+<a
+href="login-pin.html"
+data-lang="change">
 
 تغيير
 
@@ -170,10 +170,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- أمان السحب -->
 
 <div class="settings-item">
 
@@ -184,7 +181,9 @@ example@email.com
 </span>
 
 
-<a href="withdraw-pin.html" data-lang="change">
+<a
+href="withdraw-pin.html"
+data-lang="change">
 
 تغيير
 
@@ -195,10 +194,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- اللغة -->
 
 <div class="settings-item">
 
@@ -220,10 +216,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- الشروط -->
 
 <div class="settings-item">
 
@@ -234,7 +227,9 @@ example@email.com
 </span>
 
 
-<a href="terms.html" data-lang="view">
+<a
+href="terms.html"
+data-lang="view">
 
 عرض
 
@@ -245,10 +240,7 @@ example@email.com
 
 
 
-
-
-
-
+<!-- الإشعارات -->
 
 <div class="settings-item">
 
@@ -259,7 +251,9 @@ example@email.com
 </span>
 
 
-<a href="notifications.html" data-lang="open">
+<a
+href="notifications.html"
+data-lang="open">
 
 فتح
 
@@ -269,21 +263,18 @@ example@email.com
 </div>
 
 
-
-
-
-
 </section>
 
 
 
+<!-- ======================================
+     LOGOUT
+====================================== -->
 
-
-
-
-
-
-<button class="logout-btn" onclick="logout()" data-lang="logout">
+<button
+class="logout-btn"
+onclick="logout()"
+data-lang="logout">
 
 🚪 تسجيل الخروج
 
@@ -291,11 +282,9 @@ example@email.com
 
 
 
-
-
-
-
-
+<!-- ======================================
+     BOTTOM NAV
+====================================== -->
 
 <nav class="bottom-nav">
 
@@ -342,7 +331,9 @@ example@email.com
 
 
 
-<a class="active" href="settings.html">
+<a
+class="active"
+href="settings.html">
 
 ⚙
 
@@ -358,41 +349,33 @@ example@email.com
 </nav>
 
 
-
-
-
 </div>
 
 
 
-
-
+<!-- ======================================
+     LANGUAGE SYSTEM
+====================================== -->
 
 <script src="js/language.js"></script>
 
 
+
+<!-- ======================================
+     SETTINGS FUNCTIONS
+====================================== -->
+
 <script>
 
+function logout() {
 
-applyLanguage();
+    localStorage.removeItem("VALORA_USER");
 
-
-
-function logout(){
-
-
-localStorage.removeItem("VALORA_USER");
-
-
-window.location.href="login.html";
-
+    window.location.href = "login.html";
 
 }
 
-
 </script>
-
-
 
 
 </body>
