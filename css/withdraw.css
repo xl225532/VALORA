@@ -733,3 +733,122 @@ border-color:#1687FF !important;
 box-shadow:0 0 12px #1687FF66;
 
 }
+/* ==================================
+   VALORA ENGLISH LANGUAGE FIX
+================================== */
+
+
+html[dir="ltr"] .withdraw-container{
+
+direction:ltr;
+
+}
+
+
+
+html[dir="ltr"] .withdraw-title h2{
+
+font-size:26px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-title p{
+
+font-size:14px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-card{
+
+direction:ltr;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-card h3{
+
+font-size:17px;
+
+text-align:left;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-coin strong{
+
+font-size:16px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-coin small{
+
+font-size:13px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-input label{
+
+font-size:15px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-input input{
+
+font-size:16px;
+
+}
+
+
+
+
+html[dir="ltr"] .network{
+
+font-size:17px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-button{
+
+font-size:18px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-nav a{
+
+font-size:13px;
+
+}
+
+
+
+
+html[dir="ltr"] .withdraw-logo{
+
+letter-spacing:4px;
+
+}
