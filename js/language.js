@@ -1,118 +1,944 @@
-// ==================================
-// VALORA DEPOSIT SYSTEM
-// ==================================
+// ==========================================
+// VALORA
+// GLOBAL LANGUAGE SYSTEM
+// ==========================================
+//
+// Languages:
+// ar = Arabic
+// en = English
+//
+// Storage:
+// VALORA_LANG
+//
+// ==========================================
 
-let currentCoin = "USDT";
-let currentNetwork = "TRC20";
+
+(function(){
+
+
+"use strict";
 
 
 
-// ==================================
-// COIN NETWORKS
-// ==================================
+// ==========================================
+// SETTINGS
+// ==========================================
 
-const coinNetworks = {
 
-    USDT:[
-        "TRC20",
-        "ERC20"
-    ],
+const STORAGE_KEY = "VALORA_LANG";
 
-    BTC:[
-        "Bitcoin"
-    ],
 
-    ETH:[
-        "ERC20"
-    ],
+const DEFAULT_LANGUAGE = "ar";
 
-    TRX:[
-        "TRC20"
-    ]
+
+const RTL_LANGUAGES = [
+    "ar"
+];
+
+
+
+
+// ==========================================
+// TRANSLATIONS
+// ==========================================
+
+
+const translations = {
+
+
+
+en:{
+
+
+/* GENERAL */
+
+
+home:
+"Home",
+
+
+wallet:
+"Wallet",
+
+
+assets:
+"Total Assets",
+
+
+team:
+"Team",
+
+
+sync:
+"Sync",
+
+
+settings:
+"Settings",
+
+
+language:
+"Language",
+
+
+notifications:
+"Notifications",
+
+
+support:
+"Customer Support",
+
+
+terms:
+"Terms & Conditions",
+
+
+security:
+"Withdrawal Security Code",
+
+
+verify:
+"Identity Verification",
+
+
+password:
+"Change Password",
+
+
+logout:
+"Logout",
+
+
+application:
+"VALORA App",
+
+
+
+
+/* ACCOUNT */
+
+
+account:
+"My Account",
+
+
+username:
+"Username",
+
+
+email:
+"Email",
+
+
+phone:
+"Phone Number",
+
+
+uid:
+"UID",
+
+
+
+
+/* DASHBOARD */
+
+
+today_profit:
+"Today's Profit",
+
+
+markets:
+"Markets",
+
+
+bitcoin:
+"Bitcoin",
+
+
+ethereum:
+"Ethereum",
+
+
+tether:
+"Tether",
+
+
+tron:
+"TRON",
+
+
+ripple:
+"XRP",
+
+
+solana:
+"Solana",
+
+
+
+
+/* LOGIN */
+
+
+login_subtitle:
+"Login to your account",
+
+
+email_phone:
+"Email or Phone Number",
+
+
+email_phone_placeholder:
+"Enter Email or Phone Number",
+
+
+password:
+"Password",
+
+
+password_placeholder:
+"Enter Password",
+
+
+login_btn:
+"Login",
+
+
+forgot_password:
+"Forgot Password?",
+
+
+create_account:
+"Create Account",
+
+
+
+/* WALLET */
+
+
+wallet_title:
+"Wallet",
+
+
+deposit:
+"Deposit",
+
+
+withdraw:
+"Withdraw",
+
+
+transaction_history:
+"Transaction History",
+
+
+deposit_title:
+"Deposit Coins",
+
+
+withdraw_title:
+"Withdraw Coins",
+
+
+
+/* PROFITS */
+
+
+today:
+"Today's Profit",
+
+
+invite_profit:
+"Invitation Profit",
+
+
+team_profit:
+"Team Profit",
+
+
+reward_profit:
+"Reward Profit",
+
+
+
+/* LANGUAGE */
+
+
+language_title:
+"Language",
+
+
+language_subtitle:
+"Choose your preferred language",
+
+
+english:
+"English",
+
+
+arabic:
+"Arabic",
+
+
+default_language:
+"Default Language",
+
+
+save_language:
+"Language will be saved automatically",
+
+// ==========================================
+// CONTINUE TRANSLATIONS
+// ==========================================
+
+
+/* SETTINGS */
+
+
+settings_title:
+"Settings",
+
+
+account_settings:
+"Account Settings",
+
+
+app_settings:
+"App Settings",
+
+
+security_settings:
+"Security Settings",
+
+
+loginCode:
+"Login Code",
+
+
+withdrawSecurity:
+"Withdrawal Security Code",
+
+
+change:
+"Change",
+
+
+view:
+"View",
+
+
+open:
+"Open",
+
+
+
+
+/* DEPOSIT */
+
+
+deposit_subtitle:
+"Choose coin and network to display deposit address",
+
+
+deposit_network:
+"Deposit Network",
+
+
+deposit_address:
+"Deposit Address",
+
+
+copy:
+"Copy",
+
+
+deposit_auto_credit:
+"Balance will be added automatically",
+
+
+deposit_auto_credit_text:
+"After sending coins to the deposit address, the transfer will be detected and your balance will be added after network confirmation.",
+
+
+deposit_warning_1:
+"Send coins only to the displayed address.",
+
+
+deposit_warning_2:
+"Make sure to select the same network before transferring.",
+
+
+deposit_warning_3:
+"Transfer through another network may result in loss of funds.",
+
+
+deposit_warning_4:
+"After blockchain confirmation, the balance will be added automatically.",
+
+
+deposit_copied:
+"Deposit address copied",
+
+
+copy_failed:
+"Copy failed",
+
+
+
+
+
+/* WITHDRAW */
+
+
+withdraw_subtitle:
+"Withdraw your assets safely",
+
+
+withdraw_amount:
+"Withdrawal Amount",
+
+
+withdraw_address:
+"Withdrawal Address",
+
+
+available_balance:
+"Available Balance",
+
+
+confirm_withdraw:
+"Confirm Withdrawal",
+
+
+
+
+
+/* SYNC */
+
+
+sync_title:
+"Smart Sync",
+
+
+sync_subtitle:
+"Sync your trades easily and securely",
+
+
+connected:
+"Connected",
+
+
+last_sync:
+"Last Sync",
+
+
+selected_coin:
+"Selected Coin",
+
+
+server:
+"Server",
+
+
+verify_trade:
+"Verify Trade",
+
+
+enter_trade_code:
+"Enter trade code",
+
+
+check:
+"Check",
+
+
+latest_orders:
+"Latest Orders",
+
+
+no_orders:
+"No orders currently",
+
+
+
+
+
+/* TEAM */
+
+
+my_team:
+"My Team",
+
+
+team_members:
+"Team Members",
+
+
+referral:
+"Referral",
+
+
+referral_code:
+"Referral Code",
+
+
+copied:
+"Copied",
+
+
+
+
+
+/* COMMON */
+
+
+save:
+"Save",
+
+
+cancel:
+"Cancel",
+
+
+confirm:
+"Confirm",
+
+
+close:
+"Close",
+
+
+back:
+"Back",
+
+
+next:
+"Next",
+
+
+submit:
+"Submit",
+
+
+loading:
+"Loading...",
+
+
+success:
+"Success",
+
+
+error:
+"Error",
+
+
+required:
+"This field is required",
+
+
+}
+
+// ==========================================
+// ARABIC TRANSLATIONS
+// ==========================================
+
+
+ar:{
+
+
+home:
+"الرئيسية",
+
+
+wallet:
+"المحفظة",
+
+
+assets:
+"إجمالي الأصول",
+
+
+team:
+"الفريق",
+
+
+sync:
+"التزامن",
+
+
+settings:
+"الإعدادات",
+
+
+language:
+"اللغة",
+
+
+notifications:
+"الإشعارات",
+
+
+support:
+"مراسلة العملاء",
+
+
+terms:
+"الشروط والأحكام",
+
+
+security:
+"رمز أمان السحب",
+
+
+verify:
+"التحقق من الهوية",
+
+
+password:
+"تغيير كلمة المرور",
+
+
+logout:
+"تسجيل الخروج",
+
+
+application:
+"تطبيق VALORA",
+
+
+
+account:
+"حسابي",
+
+
+username:
+"اسم المستخدم",
+
+
+email:
+"البريد الإلكتروني",
+
+
+phone:
+"رقم الهاتف",
+
+
+uid:
+"UID",
+
+
+
+today_profit:
+"أرباح اليوم",
+
+
+markets:
+"الأسواق",
+
+
+bitcoin:
+"Bitcoin",
+
+
+ethereum:
+"Ethereum",
+
+
+tether:
+"Tether",
+
+
+tron:
+"TRON",
+
+
+ripple:
+"XRP",
+
+
+solana:
+"Solana",
+
+
+
+login_subtitle:
+"تسجيل الدخول إلى حسابك",
+
+
+email_phone:
+"البريد الإلكتروني أو رقم الهاتف",
+
+
+email_phone_placeholder:
+"أدخل البريد الإلكتروني أو رقم الهاتف",
+
+
+password_placeholder:
+"أدخل كلمة المرور",
+
+
+login_btn:
+"تسجيل الدخول",
+
+
+forgot_password:
+"نسيت كلمة المرور؟",
+
+
+create_account:
+"إنشاء حساب",
+
+
+
+wallet_title:
+"المحفظة",
+
+
+deposit:
+"إيداع",
+
+
+withdraw:
+"سحب",
+
+
+transaction_history:
+"سجل العمليات",
+
+
+
+today:
+"أرباح اليوم",
+
+
+invite_profit:
+"أرباح الدعوة",
+
+
+team_profit:
+"أرباح الفريق",
+
+
+reward_profit:
+"أرباح المكافآت",
+
+
+
+language_title:
+"اللغة",
+
+
+language_subtitle:
+"اختر لغتك المفضلة",
+
+
+english:
+"English",
+
+
+arabic:
+"العربية",
+
+
+default_language:
+"اللغة الافتراضية",
+
+
+save_language:
+"سيتم حفظ اللغة تلقائياً",
+
+
+
+deposit_subtitle:
+"اختر العملة والشبكة لعرض عنوان الإيداع",
+
+
+deposit_network:
+"شبكة الإيداع",
+
+
+deposit_address:
+"عنوان الإيداع",
+
+
+copy:
+"نسخ",
+
+
+deposit_auto_credit:
+"سيتم إضافة الرصيد تلقائياً",
+
+
+deposit_auto_credit_text:
+"بعد إرسال العملات إلى عنوان الإيداع سيتم اكتشاف التحويل وإضافة الرصيد بعد تأكيد الشبكة.",
+
+
+deposit_warning_1:
+"أرسل العملات إلى العنوان الظاهر فقط.",
+
+
+deposit_warning_2:
+"تأكد من اختيار نفس الشبكة قبل التحويل.",
+
+
+deposit_warning_3:
+"أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.",
+
+
+deposit_warning_4:
+"بعد تأكيد التحويل سيتم إضافة الرصيد تلقائياً.",
+
+
+deposit_copied:
+"تم نسخ عنوان الإيداع",
+
+
+copy_failed:
+"فشل النسخ",
+
+
+
+sync_title:
+"التزامن الذكي",
+
+
+sync_subtitle:
+"قم بمزامنة صفقاتك بسهولة وأمان",
+
+
+connected:
+"متصل",
+
+
+last_sync:
+"آخر مزامنة",
+
+
+selected_coin:
+"العملة المختارة",
+
+
+server:
+"الخادم",
+
+
+verify_trade:
+"تحقق من الصفقة",
+
+
+enter_trade_code:
+"أدخل كود الصفقة",
+
+
+check:
+"تحقق",
+
+
+latest_orders:
+"آخر الصفقات",
+
+
+no_orders:
+"لا توجد صفقات حالياً",
+
+
+
+my_team:
+"فريقي",
+
+
+team_members:
+"أعضاء الفريق",
+
+
+referral:
+"الإحالة",
+
+
+referral_code:
+"رمز الدعوة",
+
+
+copied:
+"تم النسخ",
+
+
+
+save:
+"حفظ",
+
+
+cancel:
+"إلغاء",
+
+
+confirm:
+"تأكيد",
+
+
+close:
+"إغلاق",
+
+
+back:
+"رجوع",
+
+
+next:
+"التالي",
+
+
+submit:
+"إرسال",
+
+
+loading:
+"جارٍ التحميل...",
+
+
+success:
+"نجاح",
+
+
+error:
+"خطأ",
+
+
+required:
+"هذا الحقل مطلوب"
+
+
+}
+
 
 };
 
 
 
 
-// ==================================
-// DEPOSIT ADDRESSES
-// ==================================
+// ==========================================
+// GET LANGUAGE
+// ==========================================
 
-const addresses = {
-
-    USDT:{
-
-        TRC20:
-        "TXXXXXXXXXXXXXXXXXXXXXXXX",
-
-        ERC20:
-        "0xUSDTXXXXXXXXXXXXXXXX"
-
-    },
+function getLanguage(){
 
 
-    BTC:{
-
-        Bitcoin:
-        "bc1BTCXXXXXXXXXXXXXXXX"
-
-    },
-
-
-    ETH:{
-
-        ERC20:
-        "0xETHXXXXXXXXXXXXXXXX"
-
-    },
-
-
-    TRX:{
-
-        TRC20:
-        "TXTRONXXXXXXXXXXXXXXXX"
-
-    }
-
-};
+let lang =
+localStorage.getItem(STORAGE_KEY);
 
 
 
+if(
+lang &&
+translations[lang]
+){
 
-// ==================================
-// SELECT COIN
-// ==================================
+return lang;
 
-function selectCoin(coin,button){
-
-
-    if(!coinNetworks[coin]) return;
-
-
-    currentCoin = coin;
+}
 
 
-
-    document
-    .querySelectorAll(".deposit-coin")
-    .forEach(function(btn){
-
-        btn.classList.remove("active");
-
-    });
-
-
-
-    if(button){
-
-        button.classList.add("active");
-
-    }
-
-
-
-    loadNetworks();
+return DEFAULT_LANGUAGE;
 
 
 }
@@ -120,84 +946,79 @@ function selectCoin(coin,button){
 
 
 
+// ==========================================
+// APPLY LANGUAGE
+// ==========================================
 
-// ==================================
-// LOAD NETWORKS
-// ==================================
-
-function loadNetworks(){
-
-
-    const box =
-    document.getElementById("networkBox");
+function applyLanguage(){
 
 
-
-    if(!box) return;
+let lang =
+getLanguage();
 
 
 
-    box.innerHTML="";
+document.documentElement.lang =
+lang;
 
 
 
-    const networks =
-    coinNetworks[currentCoin];
+document.documentElement.dir =
+RTL_LANGUAGES.includes(lang)
+? "rtl"
+: "ltr";
 
 
 
-    networks.forEach(function(network,index){
+
+
+document
+.querySelectorAll("[data-lang]")
+.forEach(function(el){
+
+
+let key =
+el.getAttribute("data-lang");
 
 
 
-        let btn =
-        document.createElement("button");
+if(
+translations[lang][key]
+){
+
+el.textContent =
+translations[lang][key];
+
+}
+
+
+});
 
 
 
-        btn.type="button";
-
-        btn.className="network";
 
 
-        btn.innerText = network;
+document
+.querySelectorAll("[data-lang-placeholder]")
+.forEach(function(el){
 
 
-
-        if(index===0){
-
-
-            btn.classList.add("active");
-
-            currentNetwork = network;
-
-
-        }
+let key =
+el.getAttribute("data-lang-placeholder");
 
 
 
-        btn.onclick=function(){
+if(
+translations[lang][key]
+){
+
+el.placeholder =
+translations[lang][key];
+
+}
 
 
-            selectNetwork(
-                this,
-                network
-            );
-
-
-        };
-
-
-
-        box.appendChild(btn);
-
-
-
-    });
-
-
-
-    updateAddress();
+});
 
 
 }
@@ -207,85 +1028,36 @@ function loadNetworks(){
 
 
 
+// ==========================================
+// CHANGE LANGUAGE
+// ==========================================
 
-// ==================================
-// SELECT NETWORK
-// ==================================
-
-function selectNetwork(button,network){
-
+function setLanguage(lang){
 
 
-    currentNetwork = network;
+if(!translations[lang]) return;
 
 
 
-    document
-    .querySelectorAll(".network")
-    .forEach(function(btn){
-
-
-        btn.classList.remove("active");
-
-
-    });
+localStorage.setItem(
+STORAGE_KEY,
+lang
+);
 
 
 
-    button.classList.add("active");
+applyLanguage();
 
 
 
-    updateAddress();
+setTimeout(function(){
 
 
-
-}
-
-
+window.location.href =
+"dashboard.html";
 
 
-
-
-
-// ==================================
-// UPDATE ADDRESS
-// ==================================
-
-function updateAddress(){
-
-
-
-    const input =
-    document.getElementById(
-        "depositAddress"
-    );
-
-
-
-    if(!input) return;
-
-
-
-
-    if(
-        addresses[currentCoin] &&
-        addresses[currentCoin][currentNetwork]
-    ){
-
-
-        input.value =
-        addresses[currentCoin][currentNetwork];
-
-
-    }else{
-
-
-        input.value="";
-
-
-    }
-
+},300);
 
 
 }
@@ -295,96 +1067,53 @@ function updateAddress(){
 
 
 
-
-// ==================================
-// COPY ADDRESS
-// ==================================
-
-function copyDeposit(){
-
-
-
-    const input =
-    document.getElementById(
-        "depositAddress"
-    );
-
-
-
-    if(!input || !input.value) return;
-
-
-
-    navigator.clipboard
-    .writeText(input.value)
-    .then(function(){
-
-
-
-        let lang =
-        localStorage.getItem(
-            "VALORA_LANG"
-        ) || "en";
-
-
-
-        if(lang==="ar"){
-
-
-            alert(
-            "تم نسخ عنوان الإيداع"
-            );
-
-
-        }else{
-
-
-            alert(
-            "Deposit address copied"
-            );
-
-
-        }
-
-
-
-    });
-
-
-
-}
-
-
-
-
-
-
-
-// ==================================
+// ==========================================
 // START
-// ==================================
+// ==========================================
 
 document.addEventListener(
 "DOMContentLoaded",
 function(){
 
 
-
-    if(typeof applyLanguage === "function"){
-
-
-        applyLanguage();
-
-
-    }
-
-
-
-    loadNetworks();
-
-
-    updateAddress();
-
+applyLanguage();
 
 
 });
+
+
+
+
+
+// ==========================================
+// GLOBAL
+// ==========================================
+
+window.setLanguage =
+setLanguage;
+
+
+window.applyLanguage =
+applyLanguage;
+
+
+window.VALORA_LANG = {
+
+
+getLanguage:
+getLanguage,
+
+
+translations:
+translations,
+
+
+setLanguage:
+setLanguage
+
+
+};
+
+
+
+})();    
