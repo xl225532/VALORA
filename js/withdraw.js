@@ -9,10 +9,8 @@ let withdrawNetwork = "TRC20";
 
 
 
-
-
 // ==========================================
-// COINS NETWORKS
+// NETWORKS
 // ==========================================
 
 
@@ -28,7 +26,6 @@ USDT:[
 ],
 
 
-
 BTC:[
 
 "Bitcoin"
@@ -36,62 +33,21 @@ BTC:[
 ],
 
 
-
 ETH:[
 
 "ERC20"
 
+],
+
+
+TRX:[
+
+"TRC20"
+
 ]
 
+
 };
-
-
-
-
-
-// ==========================================
-// WITHDRAW BALANCE
-// ==========================================
-
-
-function loadWithdrawBalance(){
-
-
-let balance =
-
-Number(
-
-localStorage.getItem("VALORA_BALANCE")
-
-) || 0;
-
-
-
-let box =
-
-document.getElementById(
-"availableBalance"
-);
-
-
-
-if(box){
-
-
-box.innerHTML =
-
-balance.toFixed(2)
-
-+
-
-" USDT";
-
-
-}
-
-
-}
-
 
 
 
@@ -119,9 +75,7 @@ withdrawCoin = coin;
 
 
 document
-
 .querySelectorAll(".withdraw-coin")
-
 .forEach(function(btn){
 
 
@@ -132,33 +86,25 @@ btn.classList.remove("active");
 
 
 
-
-
 if(button){
-
 
 button.classList.add("active");
 
-
 }
-
 
 
 
 loadWithdrawNetworks();
 
 
-
 }
 
 
 
 
 
-
-
 // ==========================================
-// LOAD NETWORKS
+// LOAD NETWORK
 // ==========================================
 
 
@@ -182,7 +128,8 @@ return;
 
 
 
-box.innerHTML = "";
+box.innerHTML="";
+
 
 
 
@@ -199,16 +146,16 @@ document.createElement("button");
 
 
 
-btn.type = "button";
+btn.type="button";
 
-btn.className = "network";
+btn.className="network";
 
-btn.innerText = network;
-
-
+btn.innerText=network;
 
 
-if(index === 0){
+
+
+if(index===0){
 
 
 btn.classList.add("active");
@@ -218,8 +165,6 @@ withdrawNetwork = network;
 
 
 }
-
-
 
 
 
@@ -238,7 +183,6 @@ network
 
 
 
-
 box.appendChild(btn);
 
 
@@ -248,7 +192,6 @@ box.appendChild(btn);
 
 
 }
-
 
 
 
@@ -284,6 +227,159 @@ btn.classList.remove("active");
 
 
 button.classList.add("active");
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// BALANCE
+// ==========================================
+
+
+function loadWithdrawBalance(){
+
+
+
+let balance =
+
+Number(
+
+localStorage.getItem(
+"VALORA_BALANCE"
+
+)
+
+) || 0;
+
+
+
+let box =
+
+document.getElementById(
+"availableBalance"
+);
+
+
+
+if(box){
+
+box.innerHTML =
+
+balance.toFixed(2)
+
++
+
+" USDT";
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================================
+// CALCULATE FEE
+// ==========================================
+
+
+function calculateWithdraw(){
+
+
+
+let amount =
+
+Number(
+
+document.getElementById(
+"withdrawAmount"
+).value
+
+)
+
+||0;
+
+
+
+
+let feePercent = 5;
+
+
+
+let fee =
+
+amount *
+
+(feePercent / 100);
+
+
+
+
+let receive =
+
+amount - fee;
+
+
+
+
+let feeBox =
+
+document.getElementById(
+"withdrawFee"
+);
+
+
+
+let receiveBox =
+
+document.getElementById(
+"receiveAmount"
+);
+
+
+
+
+if(feeBox){
+
+
+feeBox.innerHTML =
+
+fee.toFixed(2)
+
++
+
+" USDT";
+
+
+}
+
+
+
+if(receiveBox){
+
+
+receiveBox.innerHTML =
+
+receive.toFixed(2)
+
++
+
+" USDT";
+
+
+}
 
 
 
@@ -324,13 +420,12 @@ document.getElementById(
 
 
 
-
-
-let message =
+let security =
 
 document.getElementById(
-"withdrawMessage"
-);
+"withdrawSecurityCode"
+).value;
+
 
 
 
@@ -340,18 +435,29 @@ let lang =
 
 localStorage.getItem(
 "VALORA_LANG"
+
 )
 
-|| "en";
+||"en";
 
 
 
 
 
+// رمز الأمان
+
+let savedSecurity =
+
+localStorage.getItem(
+"VALORA_WITHDRAW_SECURITY"
+
+);
 
 
-if(!amount || !address){
 
+
+
+if(savedSecurity && security !== savedSecurity){
 
 
 showWithdrawMessage(
@@ -360,7 +466,37 @@ lang==="ar"
 
 ?
 
-"يرجى إدخال جميع البيانات"
+"رمز الأمان غير صحيح"
+
+:
+
+"Wrong security code",
+
+false
+
+);
+
+
+return;
+
+}
+
+
+
+
+
+
+
+if(!amount || !address || !security){
+
+
+showWithdrawMessage(
+
+lang==="ar"
+
+?
+
+"يرجى تعبئة جميع البيانات"
 
 :
 
@@ -371,11 +507,9 @@ false
 );
 
 
-
 return;
 
 }
-
 
 
 
@@ -391,7 +525,7 @@ localStorage.getItem(
 
 )
 
-) || 0;
+)||0;
 
 
 
@@ -402,14 +536,13 @@ localStorage.getItem(
 if(amount > balance){
 
 
-
 showWithdrawMessage(
 
 lang==="ar"
 
 ?
 
-"الرصيد غير كافٍ"
+"الرصيد غير كافي"
 
 :
 
@@ -420,8 +553,8 @@ false
 );
 
 
-
 return;
+
 
 }
 
@@ -431,7 +564,17 @@ return;
 
 
 
-// خصم الرصيد
+let fee =
+
+amount * 0.05;
+
+
+let receive =
+
+amount - fee;
+
+
+
 
 
 localStorage.setItem(
@@ -447,10 +590,13 @@ balance - amount
 
 
 
-
 saveWithdrawHistory(
 
 amount,
+
+fee,
+
+receive,
 
 address
 
@@ -472,12 +618,88 @@ lang==="ar"
 
 :
 
-"Withdrawal request submitted successfully",
+"Withdrawal submitted successfully",
 
 true
 
 );
 
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// SAVE HISTORY
+// ==========================================
+
+
+function saveWithdrawHistory(
+
+amount,
+
+fee,
+
+receive,
+
+address
+
+){
+
+
+
+let history =
+
+JSON.parse(
+
+localStorage.getItem(
+"VALORA_WITHDRAW_HISTORY"
+
+)
+
+)
+
+||[];
+
+
+
+
+
+history.push({
+
+coin:withdrawCoin,
+
+network:withdrawNetwork,
+
+amount:amount,
+
+fee:fee,
+
+receive:receive,
+
+address:address,
+
+date:new Date().toLocaleString()
+
+});
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_WITHDRAW_HISTORY",
+
+JSON.stringify(history)
+
+);
 
 
 
@@ -517,7 +739,7 @@ return;
 box.style.display="block";
 
 
-box.innerText=text;
+box.innerHTML=text;
 
 
 
@@ -550,68 +772,6 @@ box.className=
 
 
 // ==========================================
-// SAVE HISTORY
-// ==========================================
-
-
-function saveWithdrawHistory(amount,address){
-
-
-
-let history =
-
-JSON.parse(
-
-localStorage.getItem(
-"VALORA_WITHDRAW_HISTORY"
-
-)
-
-)
-
-|| [];
-
-
-
-
-
-history.push({
-
-coin: withdrawCoin,
-
-network: withdrawNetwork,
-
-amount: amount,
-
-address: address,
-
-date: new Date().toLocaleString()
-
-});
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_WITHDRAW_HISTORY",
-
-JSON.stringify(history)
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
 // START
 // ==========================================
 
@@ -624,7 +784,7 @@ function(){
 
 
 
-if(typeof applyLanguage === "function"){
+if(typeof applyLanguage==="function"){
 
 
 applyLanguage();
