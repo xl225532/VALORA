@@ -1,49 +1,93 @@
-// ==========================
-// VALORA Language System
-// ==========================
+// ======================================
+// VALORA LANGUAGE SYSTEM
+// ======================================
 
-// تغيير اللغة
-function setLanguage(lang){
+function setLanguage(lang) {
 
     // حفظ اللغة
     localStorage.setItem("VALORA_LANG", lang);
 
-    // إزالة التحديد السابق
-    document.querySelectorAll(".language-radio").forEach(function(item){
-        item.classList.remove("active");
-    });
+    // تحديث اتجاه الصفحة
+    if (lang === "ar") {
 
-    // تحديد اللغة المختارة
-    const radio = document.getElementById("radio-" + lang);
+        document.documentElement.lang = "ar";
+        document.documentElement.dir = "rtl";
 
-    if(radio){
-        radio.classList.add("active");
+    } else {
+
+        document.documentElement.lang = "en";
+        document.documentElement.dir = "ltr";
+
     }
 
-    // رسالة نجاح
-    alert(lang === "ar"
-        ? "تم تغيير اللغة بنجاح"
-        : "Language changed successfully");
+    // تحديث زر الاختيار
+    document
+        .querySelectorAll(".language-radio")
+        .forEach(function (item) {
 
-    // الرجوع للإعدادات
-    setTimeout(function(){
-        window.location.href = "settings.html";
-    },500);
+            item.classList.remove("active");
+
+        });
+
+
+    const radio =
+        document.getElementById("radio-" + lang);
+
+
+    if (radio) {
+
+        radio.classList.add("active");
+
+    }
+
+
+    // الرجوع إلى الصفحة الرئيسية
+    setTimeout(function () {
+
+        window.location.href = "dashboard.html";
+
+    }, 300);
 
 }
 
 
-// عند فتح الصفحة
-document.addEventListener("DOMContentLoaded",function(){
 
-    const lang =
-    localStorage.getItem("VALORA_LANG") || "en";
+// ======================================
+// عند فتح صفحة اللغة
+// ======================================
 
-    const radio =
-    document.getElementById("radio-" + lang);
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
 
-    if(radio){
-        radio.classList.add("active");
+        const currentLanguage =
+            localStorage.getItem("VALORA_LANG") || "en";
+
+
+        if (currentLanguage === "ar") {
+
+            document.documentElement.lang = "ar";
+            document.documentElement.dir = "rtl";
+
+        } else {
+
+            document.documentElement.lang = "en";
+            document.documentElement.dir = "ltr";
+
+        }
+
+
+        const radio =
+            document.getElementById(
+                "radio-" + currentLanguage
+            );
+
+
+        if (radio) {
+
+            radio.classList.add("active");
+
+        }
+
     }
-
-});
+);
