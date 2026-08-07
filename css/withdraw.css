@@ -1023,3 +1023,308 @@ text-align:center;
 display:none;
 
 }
+/* ==================================
+   VALORA WITHDRAW UPDATE
+================================== */
+
+
+/* TRX ICON */
+
+.coin-icon{
+
+width:48px;
+height:48px;
+
+border-radius:50%;
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+font-size:22px;
+font-weight:bold;
+
+color:white;
+
+margin-bottom:8px;
+
+}
+
+
+.coin-icon.usdt{
+
+background:#26A17B;
+
+box-shadow:0 0 12px #26A17B;
+
+}
+
+
+
+.coin-icon.btc{
+
+background:#F7931A;
+
+box-shadow:0 0 12px #F7931A;
+
+}
+
+
+
+.coin-icon.eth{
+
+background:#627EEA;
+
+box-shadow:0 0 12px #627EEA;
+
+}
+
+
+
+.coin-icon.trx{
+
+background:#EF0027;
+
+box-shadow:0 0 12px #EF0027;
+
+}
+
+
+
+
+
+/* BALANCE */
+
+.balance-card{
+
+background:#0B1628;
+
+border:1px solid #17365C;
+
+border-radius:22px;
+
+padding:18px;
+
+text-align:center;
+
+margin-bottom:20px;
+
+}
+
+
+.balance-card span{
+
+color:#98A5B8;
+
+font-size:14px;
+
+}
+
+
+.balance-card h2{
+
+margin-top:10px;
+
+font-size:25px;
+
+}
+
+
+
+
+
+
+/* INPUT */
+
+.input-area{
+
+margin-top:10px;
+
+}
+
+
+
+.input-area input{
+
+width:100%;
+
+height:55px;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:15px;
+
+color:white;
+
+padding:0 15px;
+
+font-size:15px;
+
+outline:none;
+
+}
+
+
+
+.input-area input:focus{
+
+border-color:#1687FF;
+
+box-shadow:0 0 12px #1687FF66;
+
+}
+
+
+
+
+
+
+/* INFO */
+
+.withdraw-info{
+
+margin-top:20px;
+
+background:#071426;
+
+border:1px solid #17365C;
+
+border-radius:16px;
+
+padding:15px;
+
+}
+
+
+
+.withdraw-info div{
+
+display:flex;
+
+justify-content:space-between;
+
+margin-bottom:12px;
+
+}
+
+
+.withdraw-info span{
+
+color:#98A5B8;
+
+}
+
+
+
+.withdraw-info strong{
+
+color:#EAF3FF;
+
+}
+
+
+
+
+
+
+
+/* FEE NOTE */
+
+.fee-note{
+
+margin-top:15px;
+
+padding:12px;
+
+background:#071426;
+
+border-radius:15px;
+
+border:1px solid #17365C;
+
+color:#98A5B8;
+
+font-size:13px;
+
+line-height:1.8;
+
+}
+
+
+
+
+
+
+/* BUTTON */
+
+.withdraw-btn{
+
+width:100%;
+
+height:55px;
+
+margin-top:20px;
+
+background:#1687FF;
+
+border:0;
+
+border-radius:16px;
+
+color:white;
+
+font-size:17px;
+
+font-weight:bold;
+
+cursor:pointer;
+
+box-shadow:0 0 15px #1687FF55;
+
+}
+
+
+
+
+
+/* MESSAGE */
+
+.withdraw-message{
+
+display:none;
+
+margin-top:15px;
+
+padding:15px;
+
+border-radius:15px;
+
+text-align:center;
+
+}
+
+
+
+.withdraw-message.success{
+
+display:block;
+
+background:#052E1B;
+
+border:1px solid #22C55E;
+
+}
+
+
+
+.withdraw-message.reject{
+
+display:block;
+
+background:#3B0A0A;
+
+border:1px solid #EF4444;
+
+}
