@@ -12,217 +12,125 @@
 //
 // ==========================================
 
-
 (function(){
 
 "use strict";
-
 
 
 // ==========================================
 // SETTINGS
 // ==========================================
 
-
 const STORAGE_KEY = "VALORA_LANG";
 
 const DEFAULT_LANGUAGE = "ar";
 
-
 const RTL_LANGUAGES = [
-"ar"
+    "ar"
 ];
-
-
 
 
 // ==========================================
 // TRANSLATIONS
 // ==========================================
 
-
 const translations = {
 
 
-en:{
+// ==========================================
+// ENGLISH
+// ==========================================
+
+en: {
 
 
+// ==========================================
 // GENERAL
+// ==========================================
 
-home:
-"Home",
-
-dashboard:
-"Dashboard",
-
-wallet:
-"Wallet",
-
-assets:
-"Total Assets",
-
-team:
-"Team",
-
-sync:
-"Sync",
-
-settings:
-"Settings",
-
-language:
-"Language",
-
-notifications:
-"Notifications",
-
-support:
-"Customer Support",
-
-terms:
-"Terms & Conditions",
-
-security:
-"Withdrawal Security Code",
-
-verify:
-"Identity Verification",
-
-password:
-"Change Password",
-
-logout:
-"Logout",
-
-application:
-"VALORA App",
+home: "Home",
+dashboard: "Dashboard",
+wallet: "Wallet",
+assets: "Total Assets",
+team: "Team",
+sync: "Sync",
+settings: "Settings",
+language: "Language",
+notifications: "Notifications",
+support: "Customer Support",
+terms: "Terms & Conditions",
+security: "Withdrawal Security Code",
+verify: "Identity Verification",
+password: "Change Password",
+logout: "Logout",
+application: "VALORA App",
 
 
-
+// ==========================================
 // ACCOUNT
+// ==========================================
 
-account:
-"My Account",
-
-username:
-"Username",
-
-email:
-"Email",
-
-phone:
-"Phone Number",
-
-uid:
-"UID",
+account: "My Account",
+username: "Username",
+email: "Email",
+phone: "Phone Number",
+uid: "UID",
 
 
-
+// ==========================================
 // DASHBOARD
+// ==========================================
 
-today_profit:
-"Today's Profit",
+today_profit: "Today's Profit",
+markets: "Markets",
+bitcoin: "Bitcoin",
+ethereum: "Ethereum",
+tether: "Tether",
+tron: "TRON",
+ripple: "XRP",
+solana: "Solana",
 
-markets:
-"Markets",
 
-bitcoin:
-"Bitcoin",
-
-ethereum:
-"Ethereum",
-
-tether:
-"Tether",
-
-tron:
-"TRON",
-
-ripple:
-"XRP",
-
-solana:
-"Solana",
 // ==========================================
 // LOGIN
 // ==========================================
 
-
-login_subtitle:
-"Login to your account",
-
-email_phone:
-"Email or Phone Number",
-
-email_phone_placeholder:
-"Enter Email or Phone Number",
-
-password:
-"Password",
-
-password_placeholder:
-"Enter Password",
-
-login_btn:
-"Login",
-
-forgot_password:
-"Forgot Password?",
-
-create_account:
-"Create Account",
-
-
+login_subtitle: "Login to your account",
+email_phone: "Email or Phone Number",
+email_phone_placeholder: "Enter Email or Phone Number",
+password: "Password",
+password_placeholder: "Enter Password",
+login_btn: "Login",
+forgot_password: "Forgot Password?",
+create_account: "Create Account",
 
 
 // ==========================================
 // WALLET
 // ==========================================
 
-
-wallet_title:
-"Wallet",
-
-deposit:
-"Deposit",
-
-withdraw:
-"Withdraw",
-
-transaction_history:
-"Transaction History",
-
-today:
-"Today's Profit",
-
-invite_profit:
-"Invitation Profit",
-
-team_profit:
-"Team Profit",
-
-reward_profit:
-"Reward Profit",
-
-
+wallet_title: "Wallet",
+deposit: "Deposit",
+withdraw: "Withdraw",
+transaction_history: "Transaction History",
+today: "Today's Profit",
+invite_profit: "Invitation Profit",
+team_profit: "Team Profit",
+reward_profit: "Reward Profit",
 
 
 // ==========================================
 // DEPOSIT
 // ==========================================
 
-
-deposit_title:
-"Deposit Coins",
+deposit_title: "Deposit Coins",
 
 deposit_subtitle:
 "Choose coin and network to display deposit address",
 
-deposit_network:
-"Deposit Network",
+deposit_network: "Deposit Network",
 
-deposit_address:
-"Deposit Address",
+deposit_address: "Deposit Address",
 
 deposit_auto_credit:
 "Balance will be added automatically",
@@ -242,22 +150,16 @@ deposit_warning_3:
 deposit_warning_4:
 "After blockchain confirmation, the balance will be added automatically.",
 
-copy:
-"Copy",
+copy: "Copy",
 
-deposit_copied:
-"Deposit address copied",
-
-
+deposit_copied: "Deposit address copied",
 
 
 // ==========================================
 // WITHDRAW
 // ==========================================
 
-
-withdraw_title:
-"Withdraw Coins",
+withdraw_title: "Withdraw Coins",
 
 withdraw_subtitle:
 "Withdraw your assets safely",
@@ -289,7 +191,6 @@ withdraw_success:
 withdraw_error:
 "Insufficient balance",
 
-
 withdraw_fee:
 "Withdrawal Fee",
 
@@ -302,9 +203,16 @@ security_code:
 security_code_placeholder:
 "Enter security code",
 
-
 fee_note:
 "Before doubling: 20%<br>After doubling: 5%",
+
+withdraw_security_error:
+"Incorrect security code",
+
+withdraw_amount_error:
+"Please complete all required information",
+
+
 // ==========================================
 // SYNC
 // ==========================================
@@ -388,15 +296,33 @@ before:
 "Before",
 
 seconds:
-"seconds"
+"seconds",
 
+trade_coin:
+"Coin",
 
+trade_status:
+"Status",
+
+trade_time:
+"Time",
+
+completed:
+"Completed",
+
+pending:
+"Pending",
+
+error:
+"Error",
+
+success:
+"Success",
 
 
 // ==========================================
 // TEAM
 // ==========================================
-
 
 my_team:
 "My Team",
@@ -414,12 +340,9 @@ copied:
 "Copied",
 
 
-
-
 // ==========================================
 // LANGUAGE
 // ==========================================
-
 
 language_title:
 "Language",
@@ -440,12 +363,9 @@ save_language:
 "Language will be saved automatically",
 
 
-
-
 // ==========================================
 // COMMON
 // ==========================================
-
 
 save:
 "Save",
@@ -471,32 +391,22 @@ submit:
 loading:
 "Loading...",
 
-success:
-"Success",
-
-error:
-"Error",
-
 required:
 "This field is required"
 
-
 },
-
-
-
 
 
 // ==========================================
 // ARABIC
 // ==========================================
 
+ar: {
 
-ar:{
 
-
+// ==========================================
 // GENERAL
-
+// ==========================================
 
 home:
 "الرئيسية",
@@ -547,10 +457,9 @@ application:
 "تطبيق VALORA",
 
 
-
-
+// ==========================================
 // ACCOUNT
-
+// ==========================================
 
 account:
 "حسابي",
@@ -568,10 +477,9 @@ uid:
 "UID",
 
 
-
-
+// ==========================================
 // DASHBOARD
-
+// ==========================================
 
 today_profit:
 "أرباح اليوم",
@@ -596,7 +504,11 @@ ripple:
 
 solana:
 "Solana",
+
+
+// ==========================================
 // LOGIN
+// ==========================================
 
 login_subtitle:
 "تسجيل الدخول إلى حسابك",
@@ -623,9 +535,9 @@ create_account:
 "إنشاء حساب",
 
 
-
-
+// ==========================================
 // WALLET
+// ==========================================
 
 wallet_title:
 "المحفظة",
@@ -652,9 +564,9 @@ reward_profit:
 "أرباح المكافآت",
 
 
-
-
+// ==========================================
 // DEPOSIT
+// ==========================================
 
 deposit_title:
 "إيداع العملات",
@@ -693,9 +605,9 @@ deposit_copied:
 "تم نسخ عنوان الإيداع",
 
 
-
-
+// ==========================================
 // WITHDRAW
+// ==========================================
 
 withdraw_title:
 "سحب العملات",
@@ -730,7 +642,6 @@ withdraw_success:
 withdraw_error:
 "الرصيد غير كافٍ",
 
-
 withdraw_fee:
 "رسوم السحب",
 
@@ -743,12 +654,16 @@ security_code:
 security_code_placeholder:
 "أدخل رمز أمان السحب",
 
-
 fee_note:
-"قبل التضعيف: 20%<br>بعد التضعيف: 5%", 
- }
+"قبل التضعيف: 20%<br>بعد التضعيف: 5%",
 
-}; 
+withdraw_security_error:
+"رمز الأمان غير صحيح",
+
+withdraw_amount_error:
+"يرجى إكمال جميع البيانات المطلوبة",
+
+
 // ==========================================
 // SYNC
 // ==========================================
@@ -832,119 +747,324 @@ before:
 "قبل",
 
 seconds:
-"ثانية"
- // ==========================================
-// LANGUAGE FUNCTIONS
+"ثانية",
+
+trade_coin:
+"العملة",
+
+trade_status:
+"الحالة",
+
+trade_time:
+"الوقت",
+
+completed:
+"مكتملة",
+
+pending:
+"قيد التنفيذ",
+
+error:
+"خطأ",
+
+success:
+"نجاح",
+
+
+// ==========================================
+// TEAM
+// ==========================================
+
+my_team:
+"فريقي",
+
+team_members:
+"أعضاء الفريق",
+
+referral:
+"الإحالة",
+
+referral_code:
+"رمز الدعوة",
+
+copied:
+"تم النسخ",
+
+
+// ==========================================
+// LANGUAGE
+// ==========================================
+
+language_title:
+"اللغة",
+
+language_subtitle:
+"اختر لغتك المفضلة",
+
+english:
+"English",
+
+arabic:
+"العربية",
+
+default_language:
+"اللغة الافتراضية",
+
+save_language:
+"سيتم حفظ اللغة تلقائياً",
+
+
+// ==========================================
+// COMMON
+// ==========================================
+
+save:
+"حفظ",
+
+cancel:
+"إلغاء",
+
+confirm:
+"تأكيد",
+
+close:
+"إغلاق",
+
+back:
+"رجوع",
+
+next:
+"التالي",
+
+submit:
+"إرسال",
+
+loading:
+"جارٍ التحميل...",
+
+required:
+"هذا الحقل مطلوب"
+
+}
+
+};
+
+
+// ==========================================
+// GET LANGUAGE
 // ==========================================
 
 function getLanguage(){
 
-let lang =
-localStorage.getItem(STORAGE_KEY);
+    let lang = null;
 
-if(lang && translations[lang]){
+    try {
 
-return lang;
+        lang =
+            localStorage.getItem(STORAGE_KEY);
+
+    } catch(error){
+
+        console.warn(
+            "VALORA localStorage error:",
+            error
+        );
+
+    }
+
+
+    if(
+        lang &&
+        Object.prototype.hasOwnProperty.call(
+            translations,
+            lang
+        )
+    ){
+
+        return lang;
+
+    }
+
+
+    return DEFAULT_LANGUAGE;
 
 }
 
-return DEFAULT_LANGUAGE;
 
-}
-
-
+// ==========================================
+// APPLY LANGUAGE
+// ==========================================
 
 function applyLanguage(){
 
-let lang =
-getLanguage();
+    const lang =
+        getLanguage();
+
+    const currentTranslations =
+        translations[lang] ||
+        translations[DEFAULT_LANGUAGE];
 
 
-document.documentElement.lang =
-lang;
+    document.documentElement.lang =
+        lang;
+
+    document.documentElement.dir =
+        RTL_LANGUAGES.includes(lang)
+        ? "rtl"
+        : "ltr";
 
 
-document.documentElement.dir =
-RTL_LANGUAGES.includes(lang)
-? "rtl"
-: "ltr";
+    // ======================================
+    // TEXT
+    // ======================================
+
+    document
+    .querySelectorAll("[data-lang]")
+    .forEach(function(el){
+
+        const key =
+            el.getAttribute("data-lang");
 
 
+        if(
+            Object.prototype.hasOwnProperty.call(
+                currentTranslations,
+                key
+            )
+        ){
 
-document
-.querySelectorAll("[data-lang]")
-.forEach(function(el){
+            el.innerHTML =
+                currentTranslations[key];
 
-let key =
-el.getAttribute("data-lang");
+        }
+
+    });
 
 
-if(translations[lang][key]){
+    // ======================================
+    // PLACEHOLDER
+    // ======================================
 
-el.innerHTML =
-translations[lang][key];
+    document
+    .querySelectorAll("[data-lang-placeholder]")
+    .forEach(function(el){
+
+        const key =
+            el.getAttribute(
+                "data-lang-placeholder"
+            );
+
+
+        if(
+            Object.prototype.hasOwnProperty.call(
+                currentTranslations,
+                key
+            )
+        ){
+
+            el.placeholder =
+                currentTranslations[key];
+
+        }
+
+    });
 
 }
 
-});
 
-
-
-document
-.querySelectorAll("[data-lang-placeholder]")
-.forEach(function(el){
-
-let key =
-el.getAttribute("data-lang-placeholder");
-
-
-if(translations[lang][key]){
-
-el.placeholder =
-translations[lang][key];
-
-}
-
-});
-
-}
-
-
-
+// ==========================================
+// SET LANGUAGE
+// ==========================================
 
 function setLanguage(lang){
 
-if(!translations[lang]) return;
+    if(
+        !Object.prototype.hasOwnProperty.call(
+            translations,
+            lang
+        )
+    ){
+
+        return;
+
+    }
 
 
-localStorage.setItem(
-STORAGE_KEY,
-lang
-);
+    try {
+
+        localStorage.setItem(
+            STORAGE_KEY,
+            lang
+        );
+
+    } catch(error){
+
+        console.warn(
+            "VALORA language save error:",
+            error
+        );
+
+        return;
+
+    }
 
 
-location.reload();
+    // تطبيق اللغة فوراً قبل إعادة تحميل الصفحة
+    applyLanguage();
+
+
+    // إعادة تحميل الصفحة الحالية فقط
+    setTimeout(function(){
+
+        window.location.reload();
+
+    }, 100);
 
 }
 
 
+// ==========================================
+// DOM READY
+// ==========================================
 
 document.addEventListener(
-"DOMContentLoaded",
-function(){
+    "DOMContentLoaded",
+    function(){
 
-applyLanguage();
+        applyLanguage();
 
-});
+    }
+);
 
 
+// ==========================================
+// GLOBAL
+// ==========================================
 
 window.setLanguage =
-setLanguage;
-
+    setLanguage;
 
 window.applyLanguage =
-applyLanguage;
+    applyLanguage;
+
+window.getLanguage =
+    getLanguage;
+
+window.VALORA_LANG = {
+
+    getLanguage:
+        getLanguage,
+
+    translations:
+        translations,
+
+    setLanguage:
+        setLanguage,
+
+    applyLanguage:
+        applyLanguage
+
+};
 
 
-})();   
+})();
