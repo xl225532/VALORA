@@ -26,12 +26,11 @@
 
 const STORAGE_KEY = "VALORA_LANG";
 
-
 const DEFAULT_LANGUAGE = "ar";
 
 
 const RTL_LANGUAGES = [
-    "ar"
+"ar"
 ];
 
 
@@ -45,15 +44,10 @@ const RTL_LANGUAGES = [
 const translations = {
 
 
-
 en:{
 
 
-
-// ==========================================
 // GENERAL
-// ==========================================
-
 
 home:
 "Home",
@@ -105,11 +99,7 @@ application:
 
 
 
-
-// ==========================================
 // ACCOUNT
-// ==========================================
-
 
 account:
 "My Account",
@@ -128,11 +118,7 @@ uid:
 
 
 
-
-// ==========================================
 // DASHBOARD
-// ==========================================
-
 
 today_profit:
 "Today's Profit",
@@ -157,7 +143,7 @@ ripple:
 
 solana:
 "Solana",
- // ==========================================
+// ==========================================
 // LOGIN
 // ==========================================
 
@@ -185,7 +171,6 @@ forgot_password:
 
 create_account:
 "Create Account",
-
 
 
 
@@ -218,7 +203,6 @@ team_profit:
 
 reward_profit:
 "Reward Profit",
-
 
 
 
@@ -263,7 +247,6 @@ copy:
 
 deposit_copied:
 "Deposit address copied",
-
 
 
 
@@ -319,9 +302,10 @@ security_code:
 security_code_placeholder:
 "Enter security code",
 
+
 fee_note:
 "Before doubling: 20%<br>After doubling: 5%",
-// ==========================================
+    // ==========================================
 // SYNC
 // ==========================================
 
@@ -362,7 +346,6 @@ no_orders:
 
 
 
-
 // ==========================================
 // TEAM
 // ==========================================
@@ -382,7 +365,6 @@ referral_code:
 
 copied:
 "Copied",
-
 
 
 
@@ -409,7 +391,6 @@ default_language:
 
 save_language:
 "Language will be saved automatically",
-
 
 
 
@@ -453,7 +434,6 @@ required:
 "This field is required"
 
 
-
 },
 
 
@@ -468,9 +448,7 @@ required:
 ar:{
 
 
-// ==========================================
 // GENERAL
-// ==========================================
 
 
 home:
@@ -524,10 +502,7 @@ application:
 
 
 
-
-// ==========================================
 // ACCOUNT
-// ==========================================
 
 
 account:
@@ -548,10 +523,7 @@ uid:
 
 
 
-
-// ==========================================
 // DASHBOARD
-// ==========================================
 
 
 today_profit:
@@ -577,10 +549,7 @@ ripple:
 
 solana:
 "Solana",
-  // ==========================================
 // LOGIN
-// ==========================================
-
 
 login_subtitle:
 "تسجيل الدخول إلى حسابك",
@@ -609,11 +578,7 @@ create_account:
 
 
 
-
-// ==========================================
 // WALLET
-// ==========================================
-
 
 wallet_title:
 "المحفظة",
@@ -642,11 +607,7 @@ reward_profit:
 
 
 
-
-// ==========================================
 // DEPOSIT
-// ==========================================
-
 
 deposit_title:
 "إيداع العملات",
@@ -687,11 +648,7 @@ deposit_copied:
 
 
 
-
-// ==========================================
 // WITHDRAW
-// ==========================================
-
 
 withdraw_title:
 "سحب العملات",
@@ -739,167 +696,20 @@ security_code:
 security_code_placeholder:
 "أدخل رمز أمان السحب",
 
+
 fee_note:
-"قبل التضعيف: 20%<br>بعد التضعيف: 5%",
-
-
-
-
-
-// ==========================================
-// SYNC
-// ==========================================
-
-
-sync_title:
-"التزامن الذكي",
-
-sync_subtitle:
-"قم بمزامنة صفقاتك بسهولة وأمان",
-
-connected:
-"متصل",
-
-last_sync:
-"آخر مزامنة",
-
-selected_coin:
-"العملة المختارة",
-
-server:
-"الخادم",
-
-verify_trade:
-"تحقق من الصفقة",
-
-enter_trade_code:
-"أدخل كود الصفقة",
-
-check:
-"تحقق",
-
-latest_orders:
-"آخر الصفقات",
-
-no_orders:
-"لا توجد صفقات حالياً",
-
-
-
-
-
-// ==========================================
-// TEAM
-// ==========================================
-
-
-my_team:
-"فريقي",
-
-team_members:
-"أعضاء الفريق",
-
-referral:
-"الإحالة",
-
-referral_code:
-"رمز الدعوة",
-
-copied:
-"تم النسخ",
-
-
-
-
-
-// ==========================================
-// LANGUAGE
-// ==========================================
-
-
-language_title:
-"اللغة",
-
-language_subtitle:
-"اختر لغتك المفضلة",
-
-english:
-"English",
-
-arabic:
-"العربية",
-
-default_language:
-"اللغة الافتراضية",
-
-save_language:
-"سيتم حفظ اللغة تلقائياً",
-
-
-
-
-
-// ==========================================
-// COMMON
-// ==========================================
-
-
-save:
-"حفظ",
-
-cancel:
-"إلغاء",
-
-confirm:
-"تأكيد",
-
-close:
-"إغلاق",
-
-back:
-"رجوع",
-
-next:
-"التالي",
-
-submit:
-"إرسال",
-
-loading:
-"جارٍ التحميل...",
-
-success:
-"نجاح",
-
-error:
-"خطأ",
-
-required:
-"هذا الحقل مطلوب"
-
-
-}
-
-
-
-};
-
-
-
-
-
-// ==========================================
+"قبل التضعيف: 20%<br>بعد التضعيف: 5%", 
+ }
+
+}; 
+ // ==========================================
 // LANGUAGE FUNCTIONS
 // ==========================================
 
-
 function getLanguage(){
-
 
 let lang =
 localStorage.getItem(STORAGE_KEY);
-
-
 
 if(lang && translations[lang]){
 
@@ -907,23 +717,16 @@ return lang;
 
 }
 
-
 return DEFAULT_LANGUAGE;
-
 
 }
 
 
 
-
-
-
 function applyLanguage(){
-
 
 let lang =
 getLanguage();
-
 
 
 document.documentElement.lang =
@@ -937,66 +740,50 @@ RTL_LANGUAGES.includes(lang)
 
 
 
-
-
-document.querySelectorAll("[data-lang]")
+document
+.querySelectorAll("[data-lang]")
 .forEach(function(el){
-
 
 let key =
 el.getAttribute("data-lang");
 
 
-
 if(translations[lang][key]){
-
 
 el.innerHTML =
 translations[lang][key];
 
-
 }
-
 
 });
 
 
 
-
-
-document.querySelectorAll("[data-lang-placeholder]")
+document
+.querySelectorAll("[data-lang-placeholder]")
 .forEach(function(el){
-
 
 let key =
 el.getAttribute("data-lang-placeholder");
 
 
-
 if(translations[lang][key]){
-
 
 el.placeholder =
 translations[lang][key];
 
-
 }
-
 
 });
 
-
 }
-
 
 
 
 
 function setLanguage(lang){
 
-
 if(!translations[lang]) return;
-
 
 
 localStorage.setItem(
@@ -1005,19 +792,28 @@ lang
 );
 
 
+location.reload();
+
+}
+
+
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
 applyLanguage();
 
-
-
-setTimeout(function(){
-
-
-window.location.reload();
-
-
-},300);
+});
 
 
 
-}
+window.setLanguage =
+setLanguage;
+
+
+window.applyLanguage =
+applyLanguage;
+
+
+})();   
