@@ -538,6 +538,38 @@ already_have_account:
 // ==========================================
 // COMMON
 // ==========================================
+register_title: "Create New Account",
+register_contact: "Email or Phone Number",
+register_contact_placeholder: "Enter Email or Phone Number",
+
+verification_code: "Verification Code",
+verification_code_placeholder: "Enter Verification Code",
+
+confirm_password: "Confirm Password",
+confirm_password_placeholder: "Confirm your password",
+
+invite_code: "Invitation Code",
+invite_code_placeholder: "Automatically filled from invitation link",
+
+agree_terms: "I agree to",
+terms_privacy: "Terms & Conditions and Privacy Policy",
+
+register_btn: "Create Account",
+already_have_account: "Already have an account?",
+
+required_field: "Please fill in this field",
+password_mismatch: "Passwords do not match",
+agree_required: "You must agree to the Terms & Conditions and Privacy Policy",
+invalid_contact: "Please enter a valid email or phone number",
+verification_required: "Please enter the verification code",
+
+account_created: "Account created successfully",
+redirecting_login: "Redirecting to login...",
+
+login_error: "Login information is incorrect",
+login_success: "Login successful",
+login_redirect: "Redirecting to your account..."
+    
 field_required:
 "This field is required",
 
@@ -1256,6 +1288,38 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+register_title: "إنشاء حساب جديد",
+register_contact: "البريد الإلكتروني أو رقم الهاتف",
+register_contact_placeholder: "أدخل البريد الإلكتروني أو رقم الهاتف",
+
+verification_code: "كود التحقق",
+verification_code_placeholder: "أدخل كود التحقق",
+
+confirm_password: "تأكيد كلمة المرور",
+confirm_password_placeholder: "أكد كلمة المرور",
+
+invite_code: "كود الدعوة",
+invite_code_placeholder: "يتم تعبئته تلقائياً من رابط الدعوة",
+
+agree_terms: "أوافق على",
+terms_privacy: "الشروط والأحكام وسياسة الخصوصية",
+
+register_btn: "إنشاء الحساب",
+already_have_account: "لديك حساب بالفعل؟",
+
+required_field: "يرجى ملء هذا الحقل",
+password_mismatch: "كلمتا المرور غير متطابقتين",
+agree_required: "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
+invalid_contact: "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
+verification_required: "يرجى إدخال كود التحقق",
+
+account_created: "تم إنشاء الحساب بنجاح",
+redirecting_login: "جاري تحويلك إلى تسجيل الدخول...",
+
+login_error: "بيانات تسجيل الدخول غير صحيحة",
+login_success: "تم تسجيل الدخول بنجاح",
+login_redirect: "جاري الدخول إلى حسابك..."
+    
 field_required:
 "هذا الحقل مطلوب",
 
