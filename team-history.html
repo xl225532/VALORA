@@ -10,7 +10,9 @@
 <title>VALORA | سجل أعضاء الفريق</title>
 
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 
 <link rel="stylesheet" href="css/team-history.css">
@@ -29,17 +31,23 @@
 
 
 
+<!-- ========================================== -->
+<!-- HEADER -->
+<!-- ========================================== -->
+
 <header class="page-header">
 
 
-<a href="team.html">
-
+<a
+href="team.html"
+data-lang="back"
+aria-label="Back"
+>
 ‹
-
 </a>
 
 
-<h2>
+<h2 data-lang="team_history_title">
 
 سجل أعضاء الفريق
 
@@ -52,16 +60,20 @@
 
 
 
-
+<!-- ========================================== -->
+<!-- SUMMARY -->
+<!-- ========================================== -->
 
 <section class="summary-card">
 
 
 
+<!-- TOTAL TEAM -->
+
 <div class="summary-item">
 
 
-<span>
+<span data-lang="total_team">
 
 إجمالي الفريق
 
@@ -81,10 +93,12 @@
 
 
 
+<!-- PROFITS -->
+
 <div class="summary-item">
 
 
-<span>
+<span data-lang="team_earnings">
 
 الأرباح
 
@@ -104,10 +118,12 @@
 
 
 
+<!-- ACTIVE -->
+
 <div class="summary-item">
 
 
-<span>
+<span data-lang="active_members">
 
 النشط
 
@@ -135,6 +151,10 @@
 
 
 
+<!-- ========================================== -->
+<!-- TEAM MEMBERS -->
+<!-- ========================================== -->
+
 <section class="team-tree">
 
 
@@ -145,19 +165,24 @@
 
 <svg viewBox="0 0 24 24">
 
+<circle
+cx="12"
+cy="8"
+r="4"
+></circle>
 
-<circle cx="12" cy="8" r="4"></circle>
 
-
-<path d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"></path>
-
+<path
+d="M4 21C4 16 8 14 12 14C16 14 20 16 20 21"
+></path>
 
 </svg>
 
 
 
 
-<h3>
+
+<h3 data-lang="no_team_members">
 
 لا يوجد أعضاء في الفريق
 
@@ -166,7 +191,8 @@
 
 
 
-<p>
+
+<p data-lang="team_history_empty">
 
 شارك رابط الدعوة الخاص بك لبناء فريقك
 
@@ -194,7 +220,9 @@
 
 
 
-
+<!-- ========================================== -->
+<!-- LANGUAGE SYSTEM -->
+<!-- ========================================== -->
 
 <script src="js/language.js"></script>
 
@@ -202,14 +230,18 @@
 
 <script>
 
+document.addEventListener(
+"DOMContentLoaded",
+function(){
 
-if(typeof applyLanguage==="function"){
+if(typeof applyLanguage === "function"){
 
 applyLanguage();
 
 }
 
-
+}
+);
 
 </script>
 
