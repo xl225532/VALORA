@@ -305,15 +305,20 @@ security_code_placeholder:
 
 fee_note:
 "Before doubling: 20%<br>After doubling: 5%",
-    // ==========================================
+// ==========================================
 // SYNC
 // ==========================================
-
 
 sync_title:
 "Smart Sync",
 
 sync_subtitle:
+"Sync your trades easily and securely",
+
+smart_sync:
+"Smart Sync",
+
+sync_description:
 "Sync your trades easily and securely",
 
 connected:
@@ -331,7 +336,13 @@ server:
 verify_trade:
 "Verify Trade",
 
+check_trade:
+"Verify Trade",
+
 enter_trade_code:
+"Enter trade code",
+
+trade_code_placeholder:
 "Enter trade code",
 
 check:
@@ -340,8 +351,44 @@ check:
 latest_orders:
 "Latest Orders",
 
+last_orders:
+"Latest Orders",
+
 no_orders:
 "No orders currently",
+
+enter_trade_error:
+"Please enter trade code",
+
+invalid_trade_code:
+"Invalid trade code",
+
+check_code_again:
+"Check the code and try again",
+
+deposit_trade_error:
+"This trade requires a deposit of 500 USDT or more",
+
+team_trade_error:
+"This trade requires a team of 20 members with real deposits",
+
+trade_running:
+"Trade in progress",
+
+trade_completed:
+"Trade completed",
+
+profit:
+"Profit",
+
+trade_code:
+"Code",
+
+before:
+"Before",
+
+seconds:
+"seconds"
 
 
 
@@ -702,6 +749,90 @@ fee_note:
  }
 
 }; 
+// ==========================================
+// SYNC
+// ==========================================
+
+sync_title:
+"التزامن الذكي",
+
+sync_subtitle:
+"قم بمزامنة صفقاتك بسهولة وأمان",
+
+smart_sync:
+"التزامن الذكي",
+
+sync_description:
+"قم بمزامنة صفقاتك بسهولة وأمان",
+
+connected:
+"متصل",
+
+last_sync:
+"آخر مزامنة",
+
+selected_coin:
+"العملة المختارة",
+
+server:
+"الخادم",
+
+verify_trade:
+"تحقق من الصفقة",
+
+check_trade:
+"تحقق من الصفقة",
+
+enter_trade_code:
+"أدخل كود الصفقة",
+
+trade_code_placeholder:
+"أدخل كود الصفقة",
+
+check:
+"تحقق",
+
+latest_orders:
+"آخر الصفقات",
+
+last_orders:
+"آخر الصفقات",
+
+no_orders:
+"لا توجد صفقات حالياً",
+
+enter_trade_error:
+"يرجى إدخال كود الصفقة",
+
+invalid_trade_code:
+"كود الصفقة غير صحيح",
+
+check_code_again:
+"تأكد من الكود وحاول مرة أخرى",
+
+deposit_trade_error:
+"هذه الصفقة خاصة بمن لديه إيداع 500 USDT أو أكثر",
+
+team_trade_error:
+"هذه الصفقة تحتاج فريقاً من 20 عضواً بإيداعات حقيقية",
+
+trade_running:
+"الصفقة قيد التنفيذ",
+
+trade_completed:
+"اكتملت الصفقة",
+
+profit:
+"الربح",
+
+trade_code:
+"الكود",
+
+before:
+"قبل",
+
+seconds:
+"ثانية"
  // ==========================================
 // LANGUAGE FUNCTIONS
 // ==========================================
