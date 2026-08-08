@@ -538,6 +538,30 @@ already_have_account:
 // ==========================================
 // COMMON
 // ==========================================
+forgot_password_title:
+"Reset Password",
+
+forgot_password_subtitle:
+"Reset your password",
+
+forgot_email_phone:
+"Email or Phone Number",
+
+forgot_email_phone_placeholder:
+"Enter email or phone number",
+
+forgot_submit:
+"Submit Reset Request",
+
+remember_password:
+"Remember your password?",
+
+reset_request_sent:
+"Request Sent",
+
+reset_request_message:
+"Your information will be verified and the recovery process will be completed",
+
 register_contact_required:
 "Please enter your email or phone number",
 
@@ -1190,6 +1214,30 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+forgot_password_title:
+"استرجاع كلمة المرور",
+
+forgot_password_subtitle:
+"استرجاع كلمة المرور",
+
+forgot_email_phone:
+"البريد الإلكتروني أو رقم الهاتف",
+
+forgot_email_phone_placeholder:
+"أدخل البريد أو رقم الهاتف",
+
+forgot_submit:
+"إرسال طلب الاسترجاع",
+
+remember_password:
+"تذكرت كلمة المرور؟",
+
+reset_request_sent:
+"تم إرسال الطلب",
+
+reset_request_message:
+"سيتم التحقق من البيانات وإكمال الاسترجاع",
+    
 register_contact_required:
 "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
 
