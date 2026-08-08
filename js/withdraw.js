@@ -802,3 +802,891 @@ loadWithdrawNetworks();
 
 
 });
+// ==========================================
+// GET WITHDRAW FEE
+// ==========================================
+
+
+function getWithdrawFee(){
+
+
+
+let deposits =
+
+JSON.parse(
+
+localStorage.getItem(
+"VALORA_DEPOSITS"
+)
+
+)
+
+||[];
+
+
+
+
+
+let feePercent = 20;
+
+
+
+// البحث عن آخر دورة إيداع غير مكتملة
+
+let activeDeposit =
+
+deposits.find(function(item){
+
+
+return item.doubled === false;
+
+
+});
+
+
+
+
+
+
+if(activeDeposit){
+
+
+
+let balance =
+
+Number(
+
+localStorage.getItem(
+"VALORA_BALANCE"
+)
+
+)
+
+||0;
+
+
+
+
+if(balance >= activeDeposit.target){
+
+
+
+feePercent = 5;
+
+
+}
+
+
+
+}
+
+else{
+
+
+feePercent = 5;
+
+
+}
+
+
+
+
+
+return feePercent;
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================================
+// CALCULATE WITHDRAW
+// ==========================================
+
+
+function calculateWithdraw(){
+
+
+
+let amountInput =
+
+document.getElementById(
+"withdrawAmount"
+);
+
+
+
+if(!amountInput){
+
+return;
+
+}
+
+
+
+let amount =
+
+Number(
+amountInput.value
+)
+
+||0;
+
+
+
+
+
+let feePercent =
+
+getWithdrawFee();
+
+
+
+
+
+let fee =
+
+amount *
+
+(feePercent / 100);
+
+
+
+
+
+
+let receive =
+
+amount - fee;
+
+
+
+
+
+
+
+let feeBox =
+
+document.getElementById(
+"withdrawFee"
+);
+
+
+
+let receiveBox =
+
+document.getElementById(
+"receiveAmount"
+);
+
+
+
+
+
+
+if(feeBox){
+
+
+feeBox.innerHTML =
+
+fee.toFixed(2)
+
++
+
+" USDT ("+
+
+feePercent+
+
+"%)";
+
+
+
+}
+
+
+
+
+
+if(receiveBox){
+
+
+receiveBox.innerHTML =
+
+receive.toFixed(2)
+
++
+
+" USDT";
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+// ==========================================
+// AUTO CALCULATE
+// ==========================================
+
+
+document.addEventListener(
+
+"input",
+
+function(e){
+
+
+
+if(
+e.target.id ===
+"withdrawAmount"
+
+){
+
+
+
+calculateWithdraw();
+
+
+
+}
+
+
+
+});
+// ==========================================
+// SUBMIT WITHDRAW
+// ==========================================
+
+
+function submitWithdraw(){
+
+
+
+let amount =
+
+Number(
+
+document.getElementById(
+"withdrawAmount"
+).value
+
+)
+
+||0;
+
+
+
+
+
+let address =
+
+document.getElementById(
+"withdrawAddress"
+).value;
+
+
+
+
+
+let security =
+
+document.getElementById(
+"withdrawSecurityCode"
+);
+
+
+
+let securityValue =
+
+security ?
+
+security.value
+
+:
+
+"";
+
+
+
+
+
+
+
+let lang =
+
+localStorage.getItem(
+"VALORA_LANG"
+)
+
+||"ar";
+
+
+
+
+
+
+
+// التحقق من رمز الأمان
+
+
+let savedCode =
+
+localStorage.getItem(
+"VALORA_WITHDRAW_SECURITY"
+);
+
+
+
+
+
+if(savedCode && securityValue !== savedCode){
+
+
+
+showWithdrawMessage(
+
+lang==="ar"
+
+?
+
+"رمز الأمان غير صحيح"
+
+:
+
+"Incorrect security code",
+
+false
+
+);
+
+
+
+return;
+
+}
+
+
+
+
+
+if(!amount || !address){
+
+
+
+showWithdrawMessage(
+
+lang==="ar"
+
+?
+
+"يرجى إدخال جميع البيانات"
+
+:
+
+"Please fill all fields",
+
+false
+
+);
+
+
+
+return;
+
+}
+
+
+
+
+
+let balance =
+
+Number(
+
+localStorage.getItem(
+"VALORA_BALANCE"
+)
+
+)
+
+||0;
+
+
+
+
+
+if(amount > balance){
+
+
+
+showWithdrawMessage(
+
+lang==="ar"
+
+?
+
+"الرصيد غير كافي"
+
+:
+
+"Insufficient balance",
+
+false
+
+);
+
+
+
+return;
+
+}
+
+
+
+
+
+
+
+let feePercent =
+
+getWithdrawFee();
+
+
+
+
+
+let fee =
+
+amount *
+
+(feePercent/100);
+
+
+
+
+
+let receive =
+
+amount-fee;
+
+
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_BALANCE",
+
+balance-amount
+
+);
+
+
+
+
+
+
+saveWithdrawHistory(
+
+amount,
+
+fee,
+
+receive,
+
+address
+
+);
+
+
+
+
+
+
+
+showWithdrawMessage(
+
+lang==="ar"
+
+?
+
+"تم إرسال طلب السحب بنجاح"
+
+:
+
+"Withdrawal request submitted",
+
+true
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// SAVE WITHDRAW HISTORY
+// ==========================================
+
+
+function saveWithdrawHistory(
+
+amount,
+
+fee,
+
+receive,
+
+address
+
+){
+
+
+
+
+
+let history =
+
+JSON.parse(
+
+localStorage.getItem(
+"VALORA_WITHDRAW_HISTORY"
+)
+
+)
+
+||[];
+
+
+
+
+
+history.push({
+
+
+coin:withdrawCoin,
+
+
+network:withdrawNetwork,
+
+
+amount:amount,
+
+
+fee:fee,
+
+
+receive:receive,
+
+
+address:address,
+
+
+date:new Date().toLocaleString()
+
+
+
+});
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_WITHDRAW_HISTORY",
+
+JSON.stringify(history)
+
+);
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// MESSAGE
+// ==========================================
+
+
+function showWithdrawMessage(text,success){
+
+
+
+let box =
+
+document.getElementById(
+"withdrawMessage"
+);
+
+
+
+if(!box){
+
+return;
+
+}
+
+
+
+
+box.style.display="block";
+
+
+box.innerHTML=text;
+
+
+
+
+
+if(success){
+
+
+box.className=
+
+"withdraw-message success";
+
+
+}else{
+
+
+box.className=
+
+"withdraw-message reject";
+
+
+}
+
+
+
+}
+// ==========================================
+// SELECT NETWORK
+// ==========================================
+
+
+function selectWithdrawNetwork(button,network){
+
+
+withdrawNetwork = network;
+
+
+
+document
+
+.querySelectorAll(".network")
+
+.forEach(function(btn){
+
+
+btn.classList.remove("active");
+
+
+});
+
+
+
+button.classList.add("active");
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// LOAD BALANCE
+// ==========================================
+
+
+function loadWithdrawBalance(){
+
+
+
+let balance =
+
+Number(
+
+localStorage.getItem(
+"VALORA_BALANCE"
+)
+
+)
+
+||0;
+
+
+
+
+
+let box =
+
+document.getElementById(
+"availableBalance"
+);
+
+
+
+
+
+if(box){
+
+
+
+box.innerHTML =
+
+balance.toFixed(2)
+
++
+
+" USDT";
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// CREATE SECURITY CODE
+// ==========================================
+// إذا لم يوجد رمز أمان يتم إنشاء رمز افتراضي
+
+
+function createSecurityCode(){
+
+
+
+let code =
+
+localStorage.getItem(
+"VALORA_WITHDRAW_SECURITY"
+);
+
+
+
+
+
+if(!code){
+
+
+
+localStorage.setItem(
+
+"VALORA_WITHDRAW_SECURITY",
+
+"123456"
+
+);
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// START SYSTEM
+// ==========================================
+
+
+document.addEventListener(
+
+"DOMContentLoaded",
+
+function(){
+
+
+
+if(typeof applyLanguage==="function"){
+
+
+applyLanguage();
+
+
+}
+
+
+
+loadWithdrawNetworks();
+
+
+loadWithdrawBalance();
+
+
+createSecurityCode();
+
+
+
+
+
+let amountBox =
+
+document.getElementById(
+"withdrawAmount"
+);
+
+
+
+if(amountBox){
+
+
+amountBox.addEventListener(
+
+"input",
+
+calculateWithdraw
+
+);
+
+
+}
+
+
+
+});
