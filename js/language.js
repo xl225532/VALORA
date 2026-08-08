@@ -48,168 +48,82 @@ en: {
 // GENERAL
 // ==========================================
 
-home:
-"Home",
-
-dashboard:
-"Dashboard",
-
-wallet:
-"Wallet",
-
-assets:
-"Total Assets",
-
-team:
-"Team",
-
-sync:
-"Sync",
-
-settings:
-"Settings",
-
-language:
-"Language",
-
-notifications:
-"Notifications",
-
-support:
-"Customer Support",
-
-terms:
-"Terms & Conditions",
-
-security:
-"Withdrawal Security Code",
-
-verify:
-"Identity Verification",
-
-password:
-"Change Password",
-
-logout:
-"Logout",
-
-application:
-"VALORA App",
+home: "Home",
+dashboard: "Dashboard",
+wallet: "Wallet",
+assets: "Total Assets",
+team: "Team",
+sync: "Sync",
+settings: "Settings",
+language: "Language",
+notifications: "Notifications",
+support: "Customer Support",
+terms: "Terms & Conditions",
+security: "Withdrawal Security Code",
+verify: "Identity Verification",
+password: "Change Password",
+logout: "Logout",
+application: "VALORA App",
 
 
 // ==========================================
 // ACCOUNT
 // ==========================================
 
-account:
-"My Account",
-
-username:
-"Username",
-
-email:
-"Email",
-
-phone:
-"Phone Number",
-
-uid:
-"UID",
+account: "My Account",
+username: "Username",
+email: "Email",
+phone: "Phone Number",
+uid: "UID",
 
 
 // ==========================================
 // DASHBOARD
 // ==========================================
 
-today_profit:
-"Today's Profit",
-
-markets:
-"Markets",
-
-bitcoin:
-"Bitcoin",
-
-ethereum:
-"Ethereum",
-
-tether:
-"Tether",
-
-tron:
-"TRON",
-
-ripple:
-"XRP",
-
-solana:
-"Solana",
+today_profit: "Today's Profit",
+markets: "Markets",
+bitcoin: "Bitcoin",
+ethereum: "Ethereum",
+tether: "Tether",
+tron: "TRON",
+ripple: "XRP",
+solana: "Solana",
 
 
 // ==========================================
 // LOGIN
 // ==========================================
 
-login_subtitle:
-"Login to your account",
-
-email_phone:
-"Email or Phone Number",
-
-email_phone_placeholder:
-"Enter Email or Phone Number",
-
-password:
-"Password",
-
-password_placeholder:
-"Enter Password",
-
-login_btn:
-"Login",
-
-forgot_password:
-"Forgot Password?",
-
-create_account:
-"Create Account",
+login_subtitle: "Login to your account",
+email_phone: "Email or Phone Number",
+email_phone_placeholder: "Enter Email or Phone Number",
+password: "Password",
+password_placeholder: "Enter Password",
+login_btn: "Login",
+forgot_password: "Forgot Password?",
+create_account: "Create Account",
 
 
 // ==========================================
 // WALLET
 // ==========================================
 
-wallet_title:
-"Wallet",
-
-deposit:
-"Deposit",
-
-withdraw:
-"Withdraw",
-
-transaction_history:
-"Transaction History",
-
-today:
-"Today's Profit",
-
-invite_profit:
-"Invitation Profit",
-
-team_profit:
-"Team Profit",
-
-reward_profit:
-"Reward Profit",
+wallet_title: "Wallet",
+deposit: "Deposit",
+withdraw: "Withdraw",
+transaction_history: "Transaction History",
+today: "Today's Profit",
+invite_profit: "Invitation Profit",
+team_profit: "Team Profit",
+reward_profit: "Reward Profit",
 
 
 // ==========================================
 // DEPOSIT
 // ==========================================
 
-deposit_title:
-"Deposit Coins",
+deposit_title: "Deposit Coins",
 
 deposit_subtitle:
 "Choose coin and network to display deposit address",
@@ -238,8 +152,7 @@ deposit_warning_3:
 deposit_warning_4:
 "After blockchain confirmation, the balance will be added automatically.",
 
-copy:
-"Copy",
+copy: "Copy",
 
 deposit_copied:
 "Deposit address copied",
@@ -552,9 +465,6 @@ buy_success:
 sell_success:
 "Sell request submitted successfully",
 
-required:
-"This field is required",
-
 
 // ==========================================
 // LANGUAGE
@@ -583,6 +493,9 @@ save_language:
 // COMMON
 // ==========================================
 
+no_records:
+"No records currently",
+
 save:
 "Save",
 
@@ -605,7 +518,10 @@ submit:
 "Submit",
 
 loading:
-"Loading..."
+"Loading...",
+
+required:
+"This field is required"
 
 },
 
@@ -1125,9 +1041,6 @@ buy_success:
 sell_success:
 "تم إرسال طلب البيع بنجاح",
 
-required:
-"هذا الحقل مطلوب",
-
 
 // ==========================================
 // LANGUAGE
@@ -1156,6 +1069,9 @@ save_language:
 // COMMON
 // ==========================================
 
+no_records:
+"لا توجد سجلات حالياً",
+
 save:
 "حفظ",
 
@@ -1178,7 +1094,10 @@ submit:
 "إرسال",
 
 loading:
-"جارٍ التحميل..."
+"جارٍ التحميل...",
+
+required:
+"هذا الحقل مطلوب"
 
 }
 
@@ -1192,7 +1111,6 @@ loading:
 function getLanguage(){
 
     let lang = null;
-
 
     try {
 
@@ -1238,7 +1156,6 @@ function applyLanguage(){
     const lang =
         getLanguage();
 
-
     const currentTranslations =
         translations[lang] ||
         translations[DEFAULT_LANGUAGE];
@@ -1246,7 +1163,6 @@ function applyLanguage(){
 
     document.documentElement.lang =
         lang;
-
 
     document.documentElement.dir =
         RTL_LANGUAGES.includes(lang)
@@ -1353,12 +1269,8 @@ function setLanguage(lang){
     }
 
 
-    // تطبيق اللغة فوراً
-
     applyLanguage();
 
-
-    // إعادة تحميل الصفحة الحالية
 
     setTimeout(function(){
 
@@ -1390,14 +1302,11 @@ document.addEventListener(
 window.setLanguage =
     setLanguage;
 
-
 window.applyLanguage =
     applyLanguage;
 
-
 window.getLanguage =
     getLanguage;
-
 
 window.VALORA_LANG = {
 
