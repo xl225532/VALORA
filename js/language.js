@@ -493,7 +493,7 @@ save_language:
 // COMMON
 // ==========================================
 
-no_records:
+no_transactions:
 "No transactions currently",
 
 save:
@@ -522,6 +522,7 @@ loading:
 
 required:
 "This field is required"
+
 
 },
 
@@ -1069,7 +1070,7 @@ save_language:
 // COMMON
 // ==========================================
 
-no_records:
+no_transactions:
 "لا توجد عمليات حالياً",
 
 save:
