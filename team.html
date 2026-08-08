@@ -9,9 +9,9 @@
 
 <title>VALORA | الفريق</title>
 
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/team.css">
 
@@ -26,33 +26,38 @@
 <div class="dashboard">
 
 
+<!-- ========================================== -->
+<!-- HEADER -->
+<!-- ========================================== -->
 
 <header class="header">
 
-
 <div class="brand">
-
 VALORA
-
 </div>
-
 
 </header>
 
 
-
-
+<!-- ========================================== -->
+<!-- TEAM HISTORY -->
+<!-- ========================================== -->
 
 <section class="history-card">
-
 
 <a href="team-history.html" class="history-link">
 
 
 <div class="history-left">
 
-
-<svg viewBox="0 0 24 24" width="26" height="26" fill="none" stroke="currentColor" stroke-width="2">
+<svg
+viewBox="0 0 24 24"
+width="26"
+height="26"
+fill="none"
+stroke="currentColor"
+stroke-width="2"
+>
 
 <path d="M4 6H20"></path>
 
@@ -62,229 +67,174 @@ VALORA
 
 </svg>
 
-
 </div>
-
 
 
 <div class="history-center">
 
-
-<h3>
-
+<h3 data-lang="team_history_title">
 سجل أعضاء الفريق
-
 </h3>
 
-
-<p>
-
+<p data-lang="team_history_description">
 عرض جميع أعضاء فريقك والدعوات
-
 </p>
 
-
 </div>
-
 
 
 <div class="history-right">
-
 ›
-
 </div>
-
 
 
 </a>
 
-
 </section>
 
 
-
-
-
-
+<!-- ========================================== -->
+<!-- REFERRAL LINK -->
+<!-- ========================================== -->
 
 <section class="referral-box">
 
-
-<div class="referral-title">
-
+<div
+class="referral-title"
+data-lang="referral_link_title"
+>
 رابط الدعوة الخاص بك
-
 </div>
-
 
 
 <div class="referral-code">
 
-
 <span id="referralLink">
-
 جاري تحميل الرابط...
-
 </span>
 
 
-
-<button class="copy-icon" onclick="copyReferral()">
-
+<button
+class="copy-icon"
+onclick="copyReferral()"
+aria-label="Copy referral link"
+>
 </button>
 
-
-
 </div>
-
 
 </section>
 
 
-
-
-
-
+<!-- ========================================== -->
+<!-- REFERRAL CODE -->
+<!-- ========================================== -->
 
 <div class="team-card">
 
-
-<h3>
-
+<h3 data-lang="referral_code">
 كود الإحالة
-
 </h3>
-
 
 
 <div class="code-copy-box">
 
-
 <span id="myReferralCode">
-
 ---
-
 </span>
 
 
-
-<button class="copy-icon" onclick="copyCode()">
-
+<button
+class="copy-icon"
+onclick="copyCode()"
+aria-label="Copy referral code"
+>
 </button>
 
+</div>
 
 </div>
 
 
-</div>
-
-
-
-
-
-
+<!-- ========================================== -->
+<!-- TEAM COUNT -->
+<!-- ========================================== -->
 
 <div class="team-card">
 
-
-<h3>
-
+<h3 data-lang="invited_count">
 عدد المدعوين
-
 </h3>
 
 
-
-<div class="team-number">
-
+<div
+class="team-number"
+id="teamNumber"
+>
 0
+</div>
 
 </div>
 
 
-</div>
-
-
-
-
-
-
-
+<!-- ========================================== -->
+<!-- REWARD -->
+<!-- ========================================== -->
 
 <div class="reward-card">
 
-
-<h3>
-
+<h3 data-lang="referral_reward">
 مكافأة الدعوة
-
 </h3>
 
 
-
-<p>
-
+<p data-lang="reward_description">
 ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر لتحصل على
-
 </p>
 
 
-
 <strong>
-
 iPhone 17 Pro Max
-
 </strong>
 
 
-
-<div class="reward-progress">
-
-0 / 10 أشخاص
+<div
+class="reward-progress"
+id="rewardProgress"
+>
+0 / 10
+</div>
 
 </div>
 
 
-
-</div>
-
-
-
-
-
-
+<!-- ========================================== -->
+<!-- REFERRAL TABLE -->
+<!-- ========================================== -->
 
 <section class="team-table">
 
 
-<div class="table-title">
-
+<div
+class="table-title"
+data-lang="referral_table"
+>
 جدول الدعوة
-
 </div>
-
 
 
 <div class="table-row table-head">
 
-
-<span>
-
+<span data-lang="deposit">
 الإيداع
-
 </span>
 
 
-<span>
-
+<span data-lang="referral_reward">
 مكافأة الدعوة
-
 </span>
-
 
 </div>
-
-
 
 
 <div class="table-row">
@@ -296,7 +246,6 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
 <span>200 USDT</span>
@@ -304,7 +253,6 @@ iPhone 17 Pro Max
 <span>20 USDT</span>
 
 </div>
-
 
 
 <div class="table-row">
@@ -316,7 +264,6 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
 <span>400 USDT</span>
@@ -324,7 +271,6 @@ iPhone 17 Pro Max
 <span>40 USDT</span>
 
 </div>
-
 
 
 <div class="table-row">
@@ -337,32 +283,40 @@ iPhone 17 Pro Max
 
 
 </section>
+
+
+<!-- ========================================== -->
+<!-- TEAM LEVELS -->
+<!-- ========================================== -->
+
 <section class="team-table">
 
-<div class="table-title">
 
+<div
+class="table-title"
+data-lang="team_levels"
+>
 مستويات الفريق
-
 </div>
-
 
 
 <div class="table-row table-head">
 
-<span>
+<span data-lang="level">
 المستوى
 </span>
 
-<span>
+
+<span data-lang="invite_count">
 عدد الدعوات
 </span>
 
-<span>
+
+<span data-lang="profit">
 الربح
 </span>
 
 </div>
-
 
 
 <div class="table-row">
@@ -376,7 +330,6 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
 <span>VIP2</span>
@@ -386,7 +339,6 @@ iPhone 17 Pro Max
 <span>7%</span>
 
 </div>
-
 
 
 <div class="table-row">
@@ -400,7 +352,6 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
 <span>VIP4</span>
@@ -410,7 +361,6 @@ iPhone 17 Pro Max
 <span>10%</span>
 
 </div>
-
 
 
 <div class="table-row">
@@ -427,41 +377,38 @@ iPhone 17 Pro Max
 </section>
 
 
-
-
-
-
+<!-- ========================================== -->
+<!-- TRADES TABLE -->
+<!-- ========================================== -->
 
 <section class="team-table">
 
 
-<div class="table-title">
-
+<div
+class="table-title"
+data-lang="trades_table"
+>
 جدول الصفقات
-
 </div>
-
 
 
 <div class="table-row table-head">
 
-<span>
+<span data-lang="trade">
 الصفقة
 </span>
 
 
-<span>
+<span data-lang="daily_return">
 العائد اليومي
 </span>
-
 
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="trade_1">
 صفقة 1
 </span>
 
@@ -472,10 +419,9 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="trade_2">
 صفقة 2
 </span>
 
@@ -486,10 +432,9 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="trade_3">
 صفقة 3
 </span>
 
@@ -500,10 +445,9 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="vip_trade">
 صفقة VIP
 </span>
 
@@ -514,28 +458,26 @@ iPhone 17 Pro Max
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="compensation_trade">
 صفقة التعويض
 </span>
 
-<span>
+<span data-lang="according_to_status">
 حسب الحالة
 </span>
 
 </div>
 
 
-
 <div class="table-row">
 
-<span>
+<span data-lang="team_trade">
 صفقة الفريق
 </span>
 
-<span>
+<span data-lang="over_20_members">
 فوق 20 عضو
 </span>
 
@@ -545,40 +487,13 @@ iPhone 17 Pro Max
 </section>
 
 
+</div>
 
 
+<!-- ========================================== -->
+<!-- BOTTOM NAVIGATION -->
+<!-- ========================================== -->
 
-
-<script>
-
-
-function copyReferral(){
-
-
-let text = document.getElementById("referralLink").innerText;
-
-
-navigator.clipboard.writeText(text);
-
-
-}
-
-
-
-function copyCode(){
-
-
-let text = document.getElementById("myReferralCode").innerText;
-
-
-navigator.clipboard.writeText(text);
-
-
-}
-
-
-
-</script>
 <nav class="bottom-nav">
 
 
@@ -594,14 +509,12 @@ navigator.clipboard.writeText(text);
 
 </svg>
 
-<span>
+
+<span data-lang="home">
 الرئيسية
 </span>
 
 </a>
-
-
-
 
 
 <a href="wallet.html">
@@ -614,14 +527,12 @@ navigator.clipboard.writeText(text);
 
 </svg>
 
-<span>
+
+<span data-lang="wallet">
 الأصول
 </span>
 
 </a>
-
-
-
 
 
 <a href="sync.html">
@@ -638,32 +549,118 @@ navigator.clipboard.writeText(text);
 
 </svg>
 
-<span>
+
+<span data-lang="sync">
 التزامن
 </span>
 
 </a>
 
 
-  <a href="team.html" class="active">
+<a
+href="team.html"
+class="active"
+>
 
 <svg viewBox="0 0 24 24">
 
-<circle cx="12" cy="8" r="4"></circle>
+<circle
+cx="12"
+cy="8"
+r="4"
+></circle>
 
-<path d="M4 21C4 16 7.5 14 12 14C16.5 14 20 16 20 21"></path>
+<path
+d="M4 21C4 16 7.5 14 12 14C16.5 14 20 16 20 21"
+></path>
 
 </svg>
 
-<span>
+
+<span data-lang="team">
 الفريق
 </span>
 
-  </a>
+</a>
+
+
 </nav>
 
 
+<!-- ========================================== -->
+<!-- REFERRAL SYSTEM -->
+<!-- ========================================== -->
+
 <script src="js/referral.js"></script>
+
+
+<!-- ========================================== -->
+<!-- LANGUAGE SYSTEM -->
+<!-- ========================================== -->
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
+
+}
+
+}
+);
+
+</script>
+
+
+<!-- ========================================== -->
+<!-- COPY FUNCTIONS -->
+<!-- ========================================== -->
+
+<script>
+
+function copyReferral(){
+
+let element =
+document.getElementById("referralLink");
+
+if(!element) return;
+
+let text =
+element.innerText.trim();
+
+if(!text) return;
+
+
+navigator.clipboard.writeText(text);
+
+}
+
+
+function copyCode(){
+
+let element =
+document.getElementById("myReferralCode");
+
+if(!element) return;
+
+let text =
+element.innerText.trim();
+
+if(!text) return;
+
+
+navigator.clipboard.writeText(text);
+
+}
+
+</script>
 
 
 </body>
