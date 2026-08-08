@@ -538,6 +538,48 @@ already_have_account:
 // ==========================================
 // COMMON
 // ==========================================
+field_required:
+"This field is required",
+
+invalid_contact:
+"Please enter a valid email address or phone number",
+
+password_mismatch:
+"Passwords do not match",
+
+password_too_short:
+"Password must be at least 6 characters",
+
+confirm_password_required:
+"Please confirm your password",
+
+verification_required:
+"Please enter the verification code",
+
+invalid_verification_code:
+"Invalid verification code",
+
+verification_success:
+"Verification successful",
+
+invite_code_invalid:
+"Invalid referral code",
+
+terms_required:
+"You must agree to the Terms & Conditions and Privacy Policy",
+
+register_success:
+"Account created successfully",
+
+register_error:
+"Unable to create account",
+
+login_error:
+"Invalid login credentials",
+
+required_field:
+"Please fill in this field"
+    
 forgot_password_title:
 "Reset Password",
 
@@ -1214,6 +1256,48 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+field_required:
+"هذا الحقل مطلوب",
+
+invalid_contact:
+"يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
+
+password_mismatch:
+"كلمة المرور غير متطابقة",
+
+password_too_short:
+"يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+
+confirm_password_required:
+"يرجى تأكيد كلمة المرور",
+
+verification_required:
+"يرجى إدخال كود التحقق",
+
+invalid_verification_code:
+"كود التحقق غير صحيح",
+
+verification_success:
+"تم التحقق بنجاح",
+
+invite_code_invalid:
+"كود الدعوة غير صحيح",
+
+terms_required:
+"يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
+
+register_success:
+"تم إنشاء الحساب بنجاح",
+
+register_error:
+"تعذر إنشاء الحساب",
+
+login_error:
+"بيانات تسجيل الدخول غير صحيحة",
+
+required_field:
+"يرجى ملء هذا الحقل"
+    
 forgot_password_title:
 "استرجاع كلمة المرور",
 
