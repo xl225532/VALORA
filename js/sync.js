@@ -58,8 +58,51 @@ let selectedCoin = "BTC";
 
 
 // ===============================
+// LANGUAGE HELPER
+// ===============================
+
+
+function syncTranslate(key,fallback){
+
+    try{
+
+        let lang =
+        localStorage.getItem("VALORA_LANG") || "ar";
+
+
+        if(
+        window.VALORA_LANG &&
+        window.VALORA_LANG.translations &&
+        window.VALORA_LANG.translations[lang] &&
+        window.VALORA_LANG.translations[lang][key]
+        ){
+
+            return window.VALORA_LANG.translations[lang][key];
+
+        }
+
+
+    }catch(e){
+
+        console.log(e);
+
+    }
+
+
+    return fallback;
+
+}
+
+
+
+
+
+
+
+// ===============================
 // اختيار العملة
 // ===============================
+
 
 document.querySelectorAll(".coin").forEach(coin=>{
 
@@ -84,49 +127,7 @@ this.querySelector("h4").innerText;
 });
 
 
-
 });
-
-
-
-
-
-
-
-// ===============================
-// بيانات المستخدم
-// ===============================
-
-function getUserData(){
-
-
-return {
-
-
-deposit:
-
-Number(localStorage.getItem("VALORA_DEPOSIT"))
-||0,
-
-
-team:
-
-Number(localStorage.getItem("VALORA_REAL_TEAM"))
-||0
-
-
-};
-
-
-}
-
-
-
-
-
-
-
-
 // ===============================
 // فحص الكود
 // ===============================
@@ -154,7 +155,10 @@ result.innerHTML=`
 
 <div class="error">
 
-⚠️ يرجى إدخال كود الصفقة
+⚠️ ${syncTranslate(
+"enter_trade_error",
+"يرجى إدخال كود الصفقة"
+)}
 
 </div>
 
@@ -180,11 +184,17 @@ result.innerHTML=`
 
 <div class="error">
 
-✕ كود الصفقة غير صحيح
+✕ ${syncTranslate(
+"invalid_trade_code",
+"كود الصفقة غير صحيح"
+)}
 
 <br>
 
-تأكد من الكود وحاول مرة أخرى
+${syncTranslate(
+"check_code_again",
+"تأكد من الكود وحاول مرة أخرى"
+)}
 
 </div>
 
@@ -211,7 +221,10 @@ result.innerHTML=`
 
 <div class="error">
 
-هذه الصفقة خاصة بمن لديه إيداع 500 USDT أو أكثر
+${syncTranslate(
+"deposit_trade_error",
+"هذه الصفقة خاصة بمن لديه إيداع 500 USDT أو أكثر"
+)}
 
 </div>
 
@@ -232,7 +245,10 @@ result.innerHTML=`
 
 <div class="error">
 
-هذه الصفقة تحتاج فريق 20 عضو بإيداعات حقيقية
+${syncTranslate(
+"team_trade_error",
+"هذه الصفقة تحتاج فريق 20 عضو بإيداعات حقيقية"
+)}
 
 </div>
 
@@ -254,14 +270,6 @@ input.value="";
 
 
 }
-
-
-
-
-
-
-
-
 // ===============================
 // بدء الصفقة
 // ===============================
@@ -288,8 +296,10 @@ start:Date.now(),
 end:Date.now()+900000,
 
 
-status:"قيد التنفيذ"
-
+status:syncTranslate(
+"trade_running",
+"قيد التنفيذ"
+)
 
 
 };
@@ -365,7 +375,6 @@ clearInterval(timer);
 
 finishTrade();
 
-
 return;
 
 }
@@ -389,17 +398,29 @@ result.innerHTML=`
 
 <div class="success">
 
-✓ الصفقة قيد التنفيذ
+✓ ${syncTranslate(
+"trade_running",
+"الصفقة قيد التنفيذ"
+)}
 
 <br>
 
-العملة:
+${syncTranslate(
+"selected_coin",
+"العملة المختارة"
+)}:
+
 ${trade.coin}
 
 <br>
 
-الربح:
+${syncTranslate(
+"profit",
+"الربح"
+)}:
+
 ${trade.profit}%
+
 
 <div class="trade-time">
 
@@ -478,7 +499,10 @@ today
 
 
 
-trade.status="مكتملة";
+trade.status = syncTranslate(
+"trade_completed",
+"مكتملة"
+);
 
 
 
@@ -505,11 +529,18 @@ document.getElementById("resultBox").innerHTML=`
 
 <div class="success">
 
-✓ اكتملت الصفقة
+✓ ${syncTranslate(
+"trade_completed",
+"اكتملت الصفقة"
+)}
 
 <br>
 
-الربح:
+${syncTranslate(
+"profit",
+"الربح"
+)}:
+
 ${profit.toFixed(2)} USDT
 
 </div>
@@ -521,15 +552,7 @@ ${profit.toFixed(2)} USDT
 loadTrades();
 
 
-}
-
-
-
-
-
-
-
-
+                      }
 // ===============================
 // عرض الصفقات
 // ===============================
@@ -553,7 +576,10 @@ box.innerHTML=`
 
 <div class="empty-order">
 
-لا توجد صفقات حالياً
+${syncTranslate(
+"no_orders",
+"لا توجد صفقات حالياً"
+)}
 
 </div>
 
@@ -585,7 +611,14 @@ box.innerHTML+=`
 <br>
 
 <span>
-الكود: ${t.code}
+
+${syncTranslate(
+"trade_code",
+"الكود"
+)}:
+
+${t.code}
+
 </span>
 
 
@@ -595,12 +628,18 @@ box.innerHTML+=`
 
 <div>
 
-<span>${t.status}</span>
+<span>
+
+${t.status}
+
+</span>
 
 <br>
 
 <b class="success-text">
+
 ${t.profit}%
+
 </b>
 
 
@@ -634,7 +673,7 @@ function updateSyncTime(){
 
 
 let box =
-document.querySelector(".status-item strong");
+document.getElementById("lastSync");
 
 
 if(!box)return;
@@ -652,7 +691,19 @@ seconds++;
 
 
 box.innerHTML =
-"قبل "+seconds+" ثانية";
+
+syncTranslate(
+"before",
+"قبل"
+)
++" "
++seconds+
+" "
++
+syncTranslate(
+"seconds",
+"ثانية"
+);
 
 
 
@@ -667,6 +718,60 @@ box.innerHTML =
 
 
 
+
+
+// ===============================
+// LANGUAGE HELPER
+// ===============================
+
+function syncTranslate(key,fallback){
+
+try{
+
+
+let lang =
+localStorage.getItem("VALORA_LANG") || "ar";
+
+
+
+if(
+window.VALORA_LANG &&
+window.VALORA_LANG.translations &&
+window.VALORA_LANG.translations[lang] &&
+window.VALORA_LANG.translations[lang][key]
+){
+
+return window.VALORA_LANG.translations[lang][key];
+
+}
+
+
+}catch(e){
+
+
+console.log(e);
+
+
+}
+
+
+
+return fallback;
+
+
+}
+
+
+
+
+
+
+
+
+// ===============================
+// START
+// ===============================
+
 document.addEventListener(
 "DOMContentLoaded",
 ()=>{
@@ -677,6 +782,11 @@ loadTrades();
 updateSyncTime();
 
 
+if(typeof applyLanguage==="function"){
+
+applyLanguage();
+
 }
 
-);
+
+});
