@@ -9,11 +9,7 @@
 
 let withdrawCoin = "USDT";
 
-console.log("VALORA WITHDRAW JS NEW VERSION");
-console.log("VALORA LANG:", localStorage.getItem("VALORA_LANG"));
-
 let withdrawNetwork = "TRC20";
-
 
 
 
@@ -47,39 +43,92 @@ const withdrawNetworks = {
 
 
 // ==========================================
-// LANGUAGE HELPER
+// WITHDRAW MESSAGES
 // ==========================================
 
-function withdrawTranslate(key, fallback){
+const withdrawMessages = {
 
-    try {
+    ar: {
 
-        const lang =
-            localStorage.getItem("VALORA_LANG") || "ar";
+        withdraw_security_error:
+            "رمز الأمان غير صحيح",
+
+        withdraw_amount_error:
+            "أكمل جميع البيانات",
+
+        withdraw_error:
+            "الرصيد غير كافي",
+
+        withdraw_success:
+            "تم إرسال طلب السحب"
+
+    },
 
 
-        if(
-            window.VALORA_LANG &&
-            window.VALORA_LANG.translations &&
-            window.VALORA_LANG.translations[lang] &&
-            window.VALORA_LANG.translations[lang][key]
-        ){
+    en: {
 
-            return window.VALORA_LANG.translations[lang][key];
+        withdraw_security_error:
+            "Invalid withdrawal security code",
 
-        }
+        withdraw_amount_error:
+            "Please complete all required fields",
 
-    } catch(error){
+        withdraw_error:
+            "Insufficient balance",
 
-        console.warn(
-            "VALORA language error:",
-            error
-        );
+        withdraw_success:
+            "Withdrawal request submitted successfully"
+
+    }
+
+};
+
+
+
+
+// ==========================================
+// GET CURRENT LANGUAGE
+// ==========================================
+
+function getWithdrawLanguage(){
+
+    let lang =
+        localStorage.getItem("VALORA_LANG");
+
+    if(lang === "en"){
+
+        return "en";
+
+    }
+
+    return "ar";
+
+}
+
+
+
+
+// ==========================================
+// TRANSLATE WITHDRAW MESSAGE
+// ==========================================
+
+function withdrawTranslate(key){
+
+    let lang =
+        getWithdrawLanguage();
+
+
+    if(
+        withdrawMessages[lang] &&
+        withdrawMessages[lang][key]
+    ){
+
+        return withdrawMessages[lang][key];
 
     }
 
 
-    return fallback;
+    return key;
 
 }
 
@@ -239,9 +288,10 @@ function getWithdrawFee(){
         قبل التضعيف = 20%
         بعد التضعيف = 5%
 
-        حالياً النظام مضبوط على
-        مرحلة ما بعد التضعيف.
+        حالياً مضبوط على مرحلة
+        ما بعد التضعيف.
     */
+
 
     let doubled = "true";
 
@@ -387,17 +437,8 @@ function submitWithdraw(){
     if(security !== savedSecurity){
 
         showWithdrawMessage(
-
-            withdrawTranslate(
-
-                "withdraw_security_error",
-
-                "رمز الأمان غير صحيح"
-
-            ),
-
+            "withdraw_security_error",
             false
-
         );
 
         return;
@@ -414,17 +455,8 @@ function submitWithdraw(){
     if(!amount || !address){
 
         showWithdrawMessage(
-
-            withdrawTranslate(
-
-                "withdraw_amount_error",
-
-                "أكمل جميع البيانات"
-
-            ),
-
+            "withdraw_amount_error",
             false
-
         );
 
         return;
@@ -445,17 +477,8 @@ function submitWithdraw(){
     if(amount > balance){
 
         showWithdrawMessage(
-
-            withdrawTranslate(
-
-                "withdraw_error",
-
-                "الرصيد غير كافي"
-
-            ),
-
+            "withdraw_error",
             false
-
         );
 
         return;
@@ -521,17 +544,8 @@ function submitWithdraw(){
     // ======================================
 
     showWithdrawMessage(
-
-        withdrawTranslate(
-
-            "withdraw_success",
-
-            "تم إرسال طلب السحب"
-
-        ),
-
+        "withdraw_success",
         true
-
     );
 
 }
@@ -610,7 +624,7 @@ function saveWithdrawHistory(
 // ==========================================
 
 function showWithdrawMessage(
-    text,
+    key,
     success
 ){
 
@@ -624,10 +638,14 @@ function showWithdrawMessage(
     if(!box) return;
 
 
+    let message =
+        withdrawTranslate(key);
+
+
     box.style.display = "block";
 
 
-    box.innerHTML = text;
+    box.innerHTML = message;
 
 
     box.className =
