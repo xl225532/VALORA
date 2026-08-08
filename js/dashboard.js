@@ -1,21 +1,597 @@
-// ===============================
-// VALORA Dashboard System
-// ===============================
+// ==========================================
+// VALORA DEPOSIT SYSTEM
+// ==========================================
 
 
-function loadDashboard(){
+let currentCoin = "USDT";
+
+let currentNetwork = "TRC20";
 
 
 
-// الرصيد الأساسي
+
+// ==========================================
+// COIN NETWORKS
+// ==========================================
+
+
+const coinNetworks = {
+
+
+USDT:[
+
+"TRC20",
+
+"ERC20"
+
+],
+
+
+BTC:[
+
+"Bitcoin"
+
+],
+
+
+ETH:[
+
+"ERC20"
+
+],
+
+
+TRX:[
+
+"TRC20"
+
+]
+
+
+};
+
+
+
+
+
+
+// ==========================================
+// DEPOSIT ADDRESSES
+// ==========================================
+
+
+const addresses = {
+
+
+USDT:{
+
+
+TRC20:
+
+"TXXXXXXXXXXXXXXXXXXXXXXXX",
+
+
+ERC20:
+
+"0xUSDTXXXXXXXXXXXXXXXX"
+
+
+},
+
+
+
+BTC:{
+
+
+Bitcoin:
+
+"bc1BTCXXXXXXXXXXXXXXXX"
+
+
+},
+
+
+
+ETH:{
+
+
+ERC20:
+
+"0xETHXXXXXXXXXXXXXXXX"
+
+
+},
+
+
+
+TRX:{
+
+
+TRC20:
+
+"TXTRONXXXXXXXXXXXXXXXX"
+
+
+}
+
+
+};
+
+
+
+
+
+// ==========================================
+// SELECT COIN
+// ==========================================
+
+
+function selectCoin(coin,button){
+
+
+if(!coinNetworks[coin]){
+
+return;
+
+}
+
+
+currentCoin = coin;
+
+
+
+document
+
+.querySelectorAll(".deposit-coin")
+
+.forEach(function(btn){
+
+
+btn.classList.remove("active");
+
+
+});
+
+
+
+if(button){
+
+button.classList.add("active");
+
+}
+
+
+
+loadNetworks();
+
+
+}
+// ==========================================
+// LOAD NETWORKS
+// ==========================================
+
+
+function loadNetworks(){
+
+
+const box =
+
+document.getElementById(
+"networkBox"
+);
+
+
+
+if(!box){
+
+return;
+
+}
+
+
+
+box.innerHTML="";
+
+
+
+
+coinNetworks[currentCoin]
+
+.forEach(function(network,index){
+
+
+
+let btn =
+
+document.createElement("button");
+
+
+
+btn.type="button";
+
+btn.className="network";
+
+
+btn.innerText=network;
+
+
+
+if(index===0){
+
+
+btn.classList.add("active");
+
+
+currentNetwork = network;
+
+
+}
+
+
+
+
+btn.onclick=function(){
+
+
+selectNetwork(
+this,
+network
+);
+
+
+};
+
+
+
+box.appendChild(btn);
+
+
+
+});
+
+
+
+updateAddress();
+
+
+}
+
+
+
+
+
+
+// ==========================================
+// SELECT NETWORK
+// ==========================================
+
+
+function selectNetwork(button,network){
+
+
+currentNetwork = network;
+
+
+
+document
+
+.querySelectorAll(".network")
+
+.forEach(function(btn){
+
+
+btn.classList.remove("active");
+
+
+});
+
+
+
+button.classList.add("active");
+
+
+
+updateAddress();
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// UPDATE ADDRESS
+// ==========================================
+
+
+function updateAddress(){
+
+
+
+let input =
+
+document.getElementById(
+"depositAddress"
+);
+
+
+
+if(!input){
+
+return;
+
+}
+
+
+
+if(
+
+addresses[currentCoin] &&
+
+addresses[currentCoin][currentNetwork]
+
+){
+
+
+
+input.value =
+
+addresses[currentCoin][currentNetwork];
+
+
+
+}
+
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================================
+// SAVE DEPOSIT CYCLE
+// ==========================================
+
+
+function saveDeposit(amount){
+
+
+
+let deposits =
+
+JSON.parse(
+
+localStorage.getItem(
+"VALORA_DEPOSITS"
+)
+
+)
+
+||[];
+
+
+
+
+
+let deposit = {
+
+
+id:
+
+Date.now(),
+
+
+
+coin:
+
+currentCoin,
+
+
+
+network:
+
+currentNetwork,
+
+
+
+amount:
+
+Number(amount),
+
+
+
+target:
+
+Number(amount) * 2,
+
+
+
+doubled:
+
+false,
+
+
+
+date:
+
+new Date().toLocaleString()
+
+
+
+};
+
+
+
+
+
+
+deposits.push(deposit);
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_DEPOSITS",
+
+JSON.stringify(deposits)
+
+);
+
+
+
+
+
+
+// إضافة الرصيد
 
 let balance =
 
 Number(
 
-localStorage.getItem("VALORA_BALANCE")
+localStorage.getItem(
+"VALORA_BALANCE"
+)
 
-) || 0;
+)
+
+||0;
+
+
+
+
+
+localStorage.setItem(
+
+"VALORA_BALANCE",
+
+balance + Number(amount)
+
+);
+
+
+
+}
+
+
+
+
+
+// ==========================================
+// TEST DEPOSIT BUTTON
+// ==========================================
+// سيتم ربطه لاحقاً مع زر التأكيد الحقيقي
+
+
+function confirmDeposit(){
+
+
+
+let amount =
+
+prompt(
+"Enter deposit amount"
+);
+
+
+
+if(!amount || amount<=0){
+
+return;
+
+}
+
+
+
+
+saveDeposit(amount);
+
+
+
+
+alert(
+
+"Deposit saved"
+
+);
+
+
+
+}
+// ==========================================
+// COPY ADDRESS
+// ==========================================
+
+
+function copyDeposit(){
+
+
+let input =
+
+document.getElementById(
+"depositAddress"
+);
+
+
+
+if(!input || !input.value){
+
+return;
+
+}
+
+
+
+navigator.clipboard.writeText(
+input.value
+);
+
+
+
+let lang =
+
+localStorage.getItem(
+"VALORA_LANG"
+)
+
+||"ar";
+
+
+
+
+if(lang==="ar"){
+
+
+alert(
+"تم نسخ عنوان الإيداع"
+);
+
+
+
+}else{
+
+
+alert(
+"Deposit address copied"
+);
+
+
+
+}
+
+
+
+}
 
 
 
@@ -23,65 +599,81 @@ localStorage.getItem("VALORA_BALANCE")
 
 
 
-// أرباح اليوم فقط
+// ==========================================
+// CHECK DOUBLING STATUS
+// ==========================================
 
-let todayProfit =
+
+function checkDepositDoubling(){
+
+
+
+let deposits =
+
+JSON.parse(
+
+localStorage.getItem(
+"VALORA_DEPOSITS"
+)
+
+)
+
+||[];
+
+
+
+
+
+
+let balance =
 
 Number(
 
-localStorage.getItem("VALORA_TODAY_PROFIT")
+localStorage.getItem(
+"VALORA_BALANCE"
+)
 
-) || 0;
+)
 
-
-
-
-
-
-
-
-// إجمالي الأصول
-
-let totalAssets =
-
-balance + todayProfit;
+||0;
 
 
 
 
 
+deposits.forEach(function(item){
 
 
 
-let balanceBox =
+if(
 
-document.getElementById("balance");
+balance >= item.target
+
+){
+
+
+item.doubled = true;
+
+
+}
 
 
 
-
-
-let todayBox =
-
-document.getElementById("todayProfit");
+});
 
 
 
 
 
 
+localStorage.setItem(
 
+"VALORA_DEPOSITS",
 
-if(balanceBox){
+JSON.stringify(deposits)
 
+);
 
-balanceBox.innerHTML =
-
-totalAssets.toFixed(2)
-
-+
-
-' <small>USDT</small>';
 
 
 }
@@ -91,42 +683,39 @@ totalAssets.toFixed(2)
 
 
 
+// ==========================================
+// START SYSTEM
+// ==========================================
 
-
-if(todayBox){
-
-
-todayBox.innerHTML =
-
-"+"
-
-+
-
-todayProfit.toFixed(2)
-
-+
-
-" USDT";
-
-
-}
-
-
-
-
-
-
-
-}
-
-
-
-// تشغيل عند فتح الصفحة
 
 document.addEventListener(
 
 "DOMContentLoaded",
 
-loadDashboard
+function(){
 
-);
+
+
+if(typeof applyLanguage==="function"){
+
+
+applyLanguage();
+
+
+}
+
+
+
+
+loadNetworks();
+
+
+updateAddress();
+
+
+
+checkDepositDoubling();
+
+
+
+});
