@@ -494,7 +494,7 @@ save_language:
 // ==========================================
 
 no_records:
-"No records currently",
+"No transactions currently",
 
 save:
 "Save",
@@ -1070,7 +1070,7 @@ save_language:
 // ==========================================
 
 no_records:
-"لا توجد سجلات حالياً",
+"لا توجد عمليات حالياً",
 
 save:
 "حفظ",
