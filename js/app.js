@@ -44,20 +44,31 @@ function appTranslate(key) {
     }
 
 
-    // Fallback عربي
     const fallback = {
 
         register_contact_required:
             "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
 
+        password_required:
+            "يرجى إدخال كلمة المرور",
+
+        confirm_password_required:
+            "يرجى تأكيد كلمة المرور",
+
         password_mismatch:
-            "كلمة المرور غير متطابقة",
+            "كلمتا المرور غير متطابقتين",
+
+        agree_required:
+            "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
+
+        verification_required:
+            "يرجى إدخال كود التحقق",
 
         register_success:
             "تم إنشاء الحساب بنجاح",
 
         login_success:
-            "تم تسجيل الدخول",
+            "تم تسجيل الدخول بنجاح",
 
         login_success_message:
             "جاري الدخول إلى الحساب",
@@ -75,7 +86,126 @@ function appTranslate(key) {
 
 
 // ======================================
-// إنشاء كود دعوة
+// CLEAR ERROR
+// ======================================
+
+function clearFieldError(groupId, errorId) {
+
+    const group =
+        document.getElementById(groupId);
+
+    const error =
+        document.getElementById(errorId);
+
+
+    if (group) {
+
+        group.classList.remove("error");
+
+    }
+
+
+    if (error) {
+
+        error.textContent = "";
+
+    }
+
+}
+
+
+
+// ======================================
+// SHOW FIELD ERROR
+// ======================================
+
+function showFieldError(
+    groupId,
+    errorId,
+    message
+) {
+
+    const group =
+        document.getElementById(groupId);
+
+    const error =
+        document.getElementById(errorId);
+
+
+    if (group) {
+
+        group.classList.add("error");
+
+    }
+
+
+    if (error) {
+
+        error.textContent =
+            message;
+
+    }
+
+}
+
+
+
+// ======================================
+// CLEAR ALL REGISTER ERRORS
+// ======================================
+
+function clearRegisterErrors() {
+
+    clearFieldError(
+        "contactGroup",
+        "contactError"
+    );
+
+
+    clearFieldError(
+        "verificationGroup",
+        "verificationError"
+    );
+
+
+    clearFieldError(
+        "passwordGroup",
+        "passwordError"
+    );
+
+
+    clearFieldError(
+        "confirmPasswordGroup",
+        "confirmPasswordError"
+    );
+
+
+    const termsGroup =
+        document.getElementById("termsGroup");
+
+    const termsError =
+        document.getElementById("termsError");
+
+
+    if (termsGroup) {
+
+        termsGroup.classList.remove("error");
+
+    }
+
+
+    if (termsError) {
+
+        termsError.textContent = "";
+
+    }
+
+}
+
+
+
+// ======================================
+// CREATE REFERRAL CODE
 // ======================================
 
 function generateReferralCode() {
@@ -94,7 +224,7 @@ function generateReferralCode() {
 
 
 // ======================================
-// إنشاء حساب
+// REGISTER
 // ======================================
 
 const registerForm =
@@ -108,6 +238,9 @@ if (registerForm) {
         function (e) {
 
             e.preventDefault();
+
+
+            clearRegisterErrors();
 
 
             const contact =
@@ -129,18 +262,37 @@ if (registerForm) {
                 .value;
 
 
+            const verifyCode =
+                document
+                .getElementById("verifyCode")
+                ?.value
+                .trim() || "";
 
-            // ------------------------------
-            // التحقق من البريد أو الهاتف
-            // ------------------------------
+
+            const agree =
+                document
+                .getElementById("agree")
+                ?.checked || false;
+
+
+
+            // ==================================
+            // CONTACT REQUIRED
+            // ==================================
 
             if (contact === "") {
 
-                alert(
+                showFieldError(
+                    "contactGroup",
+                    "contactError",
                     appTranslate(
                         "register_contact_required"
                     )
                 );
+
+                document
+                .getElementById("contact")
+                .focus();
 
                 return;
 
@@ -148,20 +300,74 @@ if (registerForm) {
 
 
 
-            // ------------------------------
-            // التحقق من كلمة المرور
-            // ------------------------------
+            // ==================================
+            // PASSWORD REQUIRED
+            // ==================================
+
+            if (password === "") {
+
+                showFieldError(
+                    "passwordGroup",
+                    "passwordError",
+                    appTranslate(
+                        "password_required"
+                    )
+                );
+
+                document
+                .getElementById("password")
+                .focus();
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // CONFIRM PASSWORD REQUIRED
+            // ==================================
+
+            if (confirmPassword === "") {
+
+                showFieldError(
+                    "confirmPasswordGroup",
+                    "confirmPasswordError",
+                    appTranslate(
+                        "confirm_password_required"
+                    )
+                );
+
+                document
+                .getElementById("confirmPassword")
+                .focus();
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // PASSWORD MATCH
+            // ==================================
 
             if (
                 password !==
                 confirmPassword
             ) {
 
-                alert(
+                showFieldError(
+                    "confirmPasswordGroup",
+                    "confirmPasswordError",
                     appTranslate(
                         "password_mismatch"
                     )
                 );
+
+                document
+                .getElementById("confirmPassword")
+                .focus();
 
                 return;
 
@@ -169,9 +375,78 @@ if (registerForm) {
 
 
 
-            // ------------------------------
-            // إنشاء المستخدم
-            // ------------------------------
+            // ==================================
+            // VERIFICATION CODE
+            // ==================================
+
+            if (
+                document.getElementById("verifyCode") &&
+                verifyCode === ""
+            ) {
+
+                showFieldError(
+                    "verificationGroup",
+                    "verificationError",
+                    appTranslate(
+                        "verification_required"
+                    )
+                );
+
+                document
+                .getElementById("verifyCode")
+                .focus();
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // TERMS
+            // ==================================
+
+            if (!agree) {
+
+                const termsGroup =
+                    document.getElementById(
+                        "termsGroup"
+                    );
+
+                const termsError =
+                    document.getElementById(
+                        "termsError"
+                    );
+
+
+                if (termsGroup) {
+
+                    termsGroup.classList.add(
+                        "error"
+                    );
+
+                }
+
+
+                if (termsError) {
+
+                    termsError.textContent =
+                        appTranslate(
+                            "agree_required"
+                        );
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // CREATE USER
+            // ==================================
 
             const user = {
 
@@ -195,9 +470,9 @@ if (registerForm) {
 
 
 
-            // ------------------------------
-            // نجاح إنشاء الحساب
-            // ------------------------------
+            // ==================================
+            // SUCCESS
+            // ==================================
 
             alert(
                 appTranslate(
@@ -217,7 +492,121 @@ if (registerForm) {
 
 
 // ======================================
-// تسجيل الدخول
+// REMOVE ERROR WHEN USER STARTS TYPING
+// ======================================
+
+function registerInputClear() {
+
+    const fields = [
+
+        {
+            input: "contact",
+            group: "contactGroup",
+            error: "contactError"
+        },
+
+        {
+            input: "verifyCode",
+            group: "verificationGroup",
+            error: "verificationError"
+        },
+
+        {
+            input: "password",
+            group: "passwordGroup",
+            error: "passwordError"
+        },
+
+        {
+            input: "confirmPassword",
+            group: "confirmPasswordGroup",
+            error: "confirmPasswordError"
+        }
+
+    ];
+
+
+    fields.forEach(function(item) {
+
+        const input =
+            document.getElementById(
+                item.input
+            );
+
+
+        if (input) {
+
+            input.addEventListener(
+                "input",
+                function() {
+
+                    clearFieldError(
+                        item.group,
+                        item.error
+                    );
+
+                }
+            );
+
+        }
+
+    });
+
+
+    const agree =
+        document.getElementById("agree");
+
+
+    if (agree) {
+
+        agree.addEventListener(
+            "change",
+            function() {
+
+                const termsGroup =
+                    document.getElementById(
+                        "termsGroup"
+                    );
+
+                const termsError =
+                    document.getElementById(
+                        "termsError"
+                    );
+
+
+                if (agree.checked) {
+
+                    if (termsGroup) {
+
+                        termsGroup.classList.remove(
+                            "error"
+                        );
+
+                    }
+
+
+                    if (termsError) {
+
+                        termsError.textContent = "";
+
+                    }
+
+                }
+
+            }
+        );
+
+    }
+
+}
+
+
+registerInputClear();
+
+
+
+// ======================================
+// LOGIN
 // ======================================
 
 const loginForm =
@@ -231,7 +620,6 @@ if (loginForm) {
         function (e) {
 
             e.preventDefault();
-
 
 
             let savedUser = null;
@@ -253,7 +641,6 @@ if (loginForm) {
             }
 
 
-
             const loginInput =
                 document
                 .getElementById("loginInput")
@@ -268,9 +655,9 @@ if (loginForm) {
 
 
 
-            // ------------------------------
-            // بيانات صحيحة
-            // ------------------------------
+            // ==================================
+            // LOGIN SUCCESS
+            // ==================================
 
             if (
                 savedUser &&
@@ -278,9 +665,7 @@ if (loginForm) {
                 loginPassword === savedUser.password
             ) {
 
-
                 showLoginSuccess();
-
 
 
                 setTimeout(
@@ -293,12 +678,12 @@ if (loginForm) {
                     1800
                 );
 
-
             }
 
-            // ------------------------------
-            // بيانات خاطئة
-            // ------------------------------
+
+            // ==================================
+            // LOGIN ERROR
+            // ==================================
 
             else {
 
@@ -318,7 +703,7 @@ if (loginForm) {
 
 
 // ======================================
-// إظهار وإخفاء كلمة المرور
+// PASSWORD SHOW / HIDE
 // ======================================
 
 function togglePassword(
@@ -377,7 +762,7 @@ function togglePassword(
 
 
 // ======================================
-// إشعار نجاح تسجيل الدخول
+// LOGIN SUCCESS MESSAGE
 // ======================================
 
 function showLoginSuccess() {
@@ -419,7 +804,6 @@ function showLoginSuccess() {
     );
 
 
-
     setTimeout(
         function () {
 
@@ -430,3 +814,61 @@ function showLoginSuccess() {
     );
 
 }
+
+
+
+// ======================================
+// VERIFICATION BUTTON
+// ======================================
+
+function sendVerificationCode() {
+
+    const contact =
+        document
+        .getElementById("contact")
+        ?.value
+        .trim();
+
+
+    if (!contact) {
+
+        showFieldError(
+            "contactGroup",
+            "contactError",
+            appTranslate(
+                "register_contact_required"
+            )
+        );
+
+        document
+        .getElementById("contact")
+        ?.focus();
+
+        return;
+
+    }
+
+
+    alert(
+        appTranslate("verification_sent")
+    );
+
+}
+
+
+
+// ======================================
+// GLOBAL
+// ======================================
+
+window.appTranslate =
+    appTranslate;
+
+window.generateReferralCode =
+    generateReferralCode;
+
+window.togglePassword =
+    togglePassword;
+
+window.sendVerificationCode =
+    sendVerificationCode;
