@@ -537,7 +537,10 @@ already_have_account:
 
 // ==========================================
 // COMMON
+
 // ==========================================
+verification_sent: "Verification code sent",
+    
 register_title: "Create New Account",
 register_contact: "Email or Phone Number",
 register_contact_placeholder: "Enter Email or Phone Number",
@@ -1288,6 +1291,8 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+verification_sent: "تم إرسال كود التحقق",
+    
 register_title: "إنشاء حساب جديد",
 register_contact: "البريد الإلكتروني أو رقم الهاتف",
 register_contact_placeholder: "أدخل البريد الإلكتروني أو رقم الهاتف",
