@@ -1,4 +1,4 @@
-br ==========================================
+// ==========================================
 // VALORA
 // GLOBAL LANGUAGE SYSTEM
 // ==========================================
@@ -27,12 +27,13 @@ br ==========================================
 const STORAGE_KEY = "VALORA_LANG";
 
 
-const DEFAULT_LANGUAGE = "en";
+const DEFAULT_LANGUAGE = "ar";
 
 
 const RTL_LANGUAGES = [
     "ar"
 ];
+
 
 
 
@@ -44,7 +45,9 @@ const RTL_LANGUAGES = [
 const translations = {
 
 
+
 en:{
+
 
 
 // ==========================================
@@ -103,7 +106,6 @@ application:
 
 
 
-
 // ==========================================
 // ACCOUNT
 // ==========================================
@@ -123,7 +125,6 @@ phone:
 
 uid:
 "UID",
-
 
 
 
@@ -156,12 +157,7 @@ ripple:
 
 solana:
 "Solana",
-
-
-
-
-
-// ==========================================
+ // ==========================================
 // LOGIN
 // ==========================================
 
@@ -324,12 +320,7 @@ security_code_placeholder:
 "Enter security code",
 
 fee_note:
-"Withdrawal fee before doubling: 20%<br>After doubling: 5%",
-
-
-
-
-
+"Before doubling: 20%<br>After doubling: 5%",
 // ==========================================
 // SYNC
 // ==========================================
@@ -367,7 +358,12 @@ latest_orders:
 
 no_orders:
 "No orders currently",
-    // ==========================================
+
+
+
+
+
+// ==========================================
 // TEAM
 // ==========================================
 
@@ -459,7 +455,6 @@ required:
 
 
 },
-
 
 
 
@@ -582,7 +577,7 @@ ripple:
 
 solana:
 "Solana",
-    // ==========================================
+  // ==========================================
 // LOGIN
 // ==========================================
 
@@ -894,8 +889,9 @@ required:
 
 
 // ==========================================
-// GET LANGUAGE
+// LANGUAGE FUNCTIONS
 // ==========================================
+
 
 function getLanguage(){
 
@@ -921,9 +917,6 @@ return DEFAULT_LANGUAGE;
 
 
 
-// ==========================================
-// APPLY LANGUAGE
-// ==========================================
 
 function applyLanguage(){
 
@@ -958,7 +951,7 @@ el.getAttribute("data-lang");
 if(translations[lang][key]){
 
 
-el.textContent =
+el.innerHTML =
 translations[lang][key];
 
 
@@ -971,34 +964,34 @@ translations[lang][key];
 
 
 
-document.querySelectorAll("[data-lang]")
+document.querySelectorAll("[data-lang-placeholder]")
 .forEach(function(el){
 
 
 let key =
-el.getAttribute("data-lang");
+el.getAttribute("data-lang-placeholder");
 
 
 
 if(translations[lang][key]){
 
 
-el.innerHTML =
+el.placeholder =
 translations[lang][key];
 
 
 }
 
 
-});    
+});
+
+
+}
 
 
 
 
 
-// ==========================================
-// SET LANGUAGE
-// ==========================================
 
 function setLanguage(lang){
 
@@ -1018,61 +1011,10 @@ applyLanguage();
 
 
 
-setTimeout(function(){
-
-
-window.location.href =
-"dashboard.html";
-
-
-},300);
-
-
 }
 
 
 
 
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
-
-
-applyLanguage();
-
-
-});
-
-
-
-
-
-window.setLanguage =
-setLanguage;
-
-
-window.applyLanguage =
-applyLanguage;
-
-
-window.VALORA_LANG = {
-
-
-getLanguage:
-getLanguage,
-
-
-translations:
-translations,
-
-
-setLanguage:
-setLanguage
-
-
-};
-
-
-
-})();
+document.addEventListener(  
