@@ -9,43 +9,33 @@ let withdrawNetwork = "TRC20";
 
 
 
+
 // ==========================================
-// NETWORKS
+// COIN NETWORKS
 // ==========================================
 
 
 const withdrawNetworks = {
 
-
-USDT:[
-
-"TRC20",
-
-"ERC20"
-
-],
+    USDT:[
+        "TRC20",
+        "ERC20"
+    ],
 
 
-BTC:[
-
-"Bitcoin"
-
-],
+    BTC:[
+        "Bitcoin"
+    ],
 
 
-ETH:[
-
-"ERC20"
-
-],
+    ETH:[
+        "ERC20"
+    ],
 
 
-TRX:[
-
-"TRC20"
-
-]
-
+    TRX:[
+        "TRC20"
+    ]
 
 };
 
@@ -58,53 +48,47 @@ TRX:[
 // ==========================================
 
 
-function selectWithdrawCoin(coin,button){
+function selectWithdrawCoin(coin, button){
+
+
+    if(!withdrawNetworks[coin]) return;
 
 
 
-if(!withdrawNetworks[coin]){
-
-return;
-
-}
+    withdrawCoin = coin;
 
 
 
-withdrawCoin = coin;
+    document
+    .querySelectorAll(".withdraw-coin")
+    .forEach(function(btn){
+
+        btn.classList.remove("active");
+
+    });
 
 
 
-document
-.querySelectorAll(".withdraw-coin")
-.forEach(function(btn){
+    if(button){
 
+        button.classList.add("active");
 
-btn.classList.remove("active");
-
-
-});
+    }
 
 
 
-if(button){
-
-button.classList.add("active");
-
-}
-
-
-
-loadWithdrawNetworks();
+    loadWithdrawNetworks();
 
 
 }
+
 
 
 
 
 
 // ==========================================
-// LOAD NETWORK
+// LOAD NETWORKS
 // ==========================================
 
 
@@ -112,86 +96,73 @@ function loadWithdrawNetworks(){
 
 
 
-let box =
-
-document.getElementById(
-"withdrawNetwork"
-);
-
-
-
-if(!box){
-
-return;
-
-}
+    let box =
+    document.getElementById(
+        "withdrawNetwork"
+    );
 
 
 
-box.innerHTML="";
+    if(!box) return;
 
 
 
-
-
-withdrawNetworks[withdrawCoin]
-
-.forEach(function(network,index){
+    box.innerHTML = "";
 
 
 
-let btn =
-
-document.createElement("button");
-
-
-
-btn.type="button";
-
-btn.className="network";
-
-btn.innerText=network;
+    withdrawNetworks[withdrawCoin]
+    .forEach(function(network,index){
 
 
 
-
-if(index===0){
-
-
-btn.classList.add("active");
+        let btn =
+        document.createElement("button");
 
 
-withdrawNetwork = network;
+
+        btn.type="button";
+
+        btn.className="network";
+
+        btn.innerText=network;
 
 
-}
+
+        if(index===0){
+
+            btn.classList.add("active");
+
+            withdrawNetwork = network;
+
+        }
 
 
 
 
-btn.onclick=function(){
+        btn.onclick=function(){
 
 
-selectWithdrawNetwork(
-this,
-network
-);
+            selectWithdrawNetwork(
+                this,
+                network
+            );
 
 
-};
-
-
-
-
-box.appendChild(btn);
+        };
 
 
 
-});
+        box.appendChild(btn);
+
+
+
+    });
 
 
 
 }
+
 
 
 
@@ -206,78 +177,23 @@ box.appendChild(btn);
 function selectWithdrawNetwork(button,network){
 
 
-
-withdrawNetwork = network;
-
-
-
-document
-
-.querySelectorAll(".network")
-
-.forEach(function(btn){
-
-
-btn.classList.remove("active");
-
-
-});
+    withdrawNetwork = network;
 
 
 
-
-button.classList.add("active");
-
-
-}
+    document
+    .querySelectorAll(".network")
+    .forEach(function(btn){
 
 
+        btn.classList.remove("active");
 
 
-
-
-
-// ==========================================
-// BALANCE
-// ==========================================
-
-
-function loadWithdrawBalance(){
+    });
 
 
 
-let balance =
-
-Number(
-
-localStorage.getItem(
-"VALORA_BALANCE"
-
-)
-
-) || 0;
-
-
-
-let box =
-
-document.getElementById(
-"availableBalance"
-);
-
-
-
-if(box){
-
-box.innerHTML =
-
-balance.toFixed(2)
-
-+
-
-" USDT";
-
-}
+    button.classList.add("active");
 
 
 
@@ -291,7 +207,72 @@ balance.toFixed(2)
 
 
 // ==========================================
-// CALCULATE FEE
+// GET BALANCE
+// ==========================================
+
+
+function getBalance(){
+
+
+    return Number(
+
+        localStorage.getItem(
+            "VALORA_BALANCE"
+        )
+
+    ) || 0;
+
+
+}
+
+
+
+
+
+
+
+
+// ==========================================
+// WITHDRAW FEE SYSTEM
+// ==========================================
+
+
+function getWithdrawFee(){
+
+
+
+    let doubled =
+
+    localStorage.getItem(
+        "VALORA_DOUBLED"
+    );
+
+
+
+    if(doubled === "true"){
+
+
+        return 5;
+
+
+    }
+
+
+
+    return 20;
+
+
+
+}
+
+
+
+
+
+
+
+// ==========================================
+// CALCULATE WITHDRAW
 // ==========================================
 
 
@@ -299,91 +280,94 @@ function calculateWithdraw(){
 
 
 
-let amount =
+    let amount =
 
-Number(
+    Number(
 
-document.getElementById(
-"withdrawAmount"
-).value
+        document.getElementById(
+            "withdrawAmount"
+        ).value
 
-)
+    )
 
-||0;
-
-
-
-
-let feePercent = 5;
-
-
-
-let fee =
-
-amount *
-
-(feePercent / 100);
+    ||0;
 
 
 
 
-let receive =
 
-amount - fee;
+    let feePercent =
 
-
-
-
-let feeBox =
-
-document.getElementById(
-"withdrawFee"
-);
-
-
-
-let receiveBox =
-
-document.getElementById(
-"receiveAmount"
-);
+    getWithdrawFee();
 
 
 
 
-if(feeBox){
+
+    let fee =
+
+    amount *
+
+    (feePercent / 100);
 
 
-feeBox.innerHTML =
 
-fee.toFixed(2)
 
-+
 
-" USDT";
+    let receive =
+
+    amount - fee;
+
+
+
+
+
+    let feeBox =
+
+    document.getElementById(
+        "withdrawFee"
+    );
+
+
+
+    let receiveBox =
+
+    document.getElementById(
+        "receiveAmount"
+    );
+
+
+
+
+
+    if(feeBox){
+
+        feeBox.innerHTML =
+
+        fee.toFixed(2)
+
+        +" USDT";
+
+    }
+
+
+
+
+
+    if(receiveBox){
+
+        receiveBox.innerHTML =
+
+        receive.toFixed(2)
+
+        +" USDT";
+
+    }
+
 
 
 }
 
-
-
-if(receiveBox){
-
-
-receiveBox.innerHTML =
-
-receive.toFixed(2)
-
-+
-
-" USDT";
-
-
-}
-
-
-
-}
 
 
 
@@ -400,233 +384,179 @@ function submitWithdraw(){
 
 
 
-let amount =
+    let amount =
 
-Number(
+    Number(
 
-document.getElementById(
-"withdrawAmount"
-).value
+        document.getElementById(
+            "withdrawAmount"
+        ).value
 
-);
+    )
 
+    ||0;
 
 
-let address =
 
-document.getElementById(
-"withdrawAddress"
-).value;
 
+    let address =
 
+    document.getElementById(
+        "withdrawAddress"
+    ).value;
 
-let security =
 
-document.getElementById(
-"withdrawSecurityCode"
-).value;
 
 
 
+    let security =
 
+    document.getElementById(
+        "withdrawSecurityCode"
+    ).value;
 
 
-let lang =
 
-localStorage.getItem(
-"VALORA_LANG"
 
-)
 
-||"en";
 
 
+    let savedSecurity =
 
+    localStorage.getItem(
+        "VALORA_SECURITY_CODE"
+    )
 
+    ||"123456";
 
-// رمز الأمان
 
-let savedSecurity =
 
-localStorage.getItem(
-"VALORA_WITHDRAW_SECURITY"
 
-);
 
 
 
+    if(security !== savedSecurity){
 
 
-if(savedSecurity && security !== savedSecurity){
+        showWithdrawMessage(
+        "رمز الأمان غير صحيح",
+        false
+        );
 
 
-showWithdrawMessage(
+        return;
 
-lang==="ar"
+    }
 
-?
 
-"رمز الأمان غير صحيح"
 
-:
 
-"Wrong security code",
 
-false
 
-);
 
+    if(!amount || !address){
 
-return;
 
-}
+        showWithdrawMessage(
+        "أكمل جميع البيانات",
+        false
+        );
 
 
+        return;
 
+    }
 
 
 
 
-if(!amount || !address || !security){
 
 
-showWithdrawMessage(
 
-lang==="ar"
+    let balance = getBalance();
 
-?
 
-"يرجى تعبئة جميع البيانات"
 
-:
 
-"Please fill all fields",
 
-false
+    if(amount > balance){
 
-);
 
+        showWithdrawMessage(
+        "الرصيد غير كافي",
+        false
+        );
 
-return;
 
-}
+        return;
 
 
+    }
 
 
 
 
-let balance =
 
-Number(
 
-localStorage.getItem(
-"VALORA_BALANCE"
 
-)
+    let fee =
 
-)||0;
+    amount *
 
+    (getWithdrawFee()/100);
 
 
 
 
 
+    let receive =
 
-if(amount > balance){
+    amount-fee;
 
 
-showWithdrawMessage(
 
-lang==="ar"
 
-?
 
-"الرصيد غير كافي"
 
-:
+    localStorage.setItem(
 
-"Insufficient balance",
+        "VALORA_BALANCE",
 
-false
+        balance-amount
 
-);
+    );
 
 
-return;
 
 
-}
 
+    saveWithdrawHistory(
 
+        amount,
 
+        fee,
 
+        receive,
 
+        address
 
+    );
 
-let fee =
 
-amount * 0.05;
 
 
-let receive =
 
-amount - fee;
 
 
-
-
-
-localStorage.setItem(
-
-"VALORA_BALANCE",
-
-balance - amount
-
-);
-
-
-
-
-
-
-saveWithdrawHistory(
-
-amount,
-
-fee,
-
-receive,
-
-address
-
-);
-
-
-
-
-
-
-
-showWithdrawMessage(
-
-lang==="ar"
-
-?
-
-"تم إرسال طلب السحب بنجاح"
-
-:
-
-"Withdrawal submitted successfully",
-
-true
-
-);
+    showWithdrawMessage(
+    "تم إرسال طلب السحب",
+    true
+    );
 
 
 
 }
+
 
 
 
@@ -653,53 +583,53 @@ address
 
 
 
-let history =
+    let history =
 
-JSON.parse(
+    JSON.parse(
 
-localStorage.getItem(
-"VALORA_WITHDRAW_HISTORY"
+        localStorage.getItem(
+            "VALORA_WITHDRAW_HISTORY"
+        )
 
-)
+    )
 
-)
-
-||[];
-
-
-
-
-
-history.push({
-
-coin:withdrawCoin,
-
-network:withdrawNetwork,
-
-amount:amount,
-
-fee:fee,
-
-receive:receive,
-
-address:address,
-
-date:new Date().toLocaleString()
-
-});
+    ||[];
 
 
 
 
 
 
-localStorage.setItem(
+    history.push({
 
-"VALORA_WITHDRAW_HISTORY",
+        coin:withdrawCoin,
 
-JSON.stringify(history)
+        network:withdrawNetwork,
 
-);
+        amount:amount,
+
+        fee:fee,
+
+        receive:receive,
+
+        address:address,
+
+        date:new Date().toLocaleString()
+
+
+    });
+
+
+
+
+
+    localStorage.setItem(
+
+        "VALORA_WITHDRAW_HISTORY",
+
+        JSON.stringify(history)
+
+    );
 
 
 
@@ -720,46 +650,36 @@ function showWithdrawMessage(text,success){
 
 
 
-let box =
+    let box =
 
-document.getElementById(
-"withdrawMessage"
-);
-
-
-
-if(!box){
-
-return;
-
-}
+    document.getElementById(
+        "withdrawMessage"
+    );
 
 
 
-box.style.display="block";
-
-
-box.innerHTML=text;
+    if(!box) return;
 
 
 
-if(success){
+    box.style.display="block";
 
 
-box.className=
-
-"withdraw-message success";
+    box.innerHTML=text;
 
 
-}else{
 
+    box.className =
 
-box.className=
+    success
 
-"withdraw-message reject";
+    ?
 
+    "withdraw-message success"
 
-}
+    :
+
+    "withdraw-message reject";
 
 
 
@@ -784,908 +704,34 @@ function(){
 
 
 
-if(typeof applyLanguage==="function"){
+    loadWithdrawNetworks();
 
 
-applyLanguage();
+    calculateWithdraw();
 
 
-}
 
+    let amount =
 
+    document.getElementById(
+        "withdrawAmount"
+    );
 
-loadWithdrawBalance();
 
 
-loadWithdrawNetworks();
+    if(amount){
 
 
+        amount.addEventListener(
 
-});
-// ==========================================
-// GET WITHDRAW FEE
-// ==========================================
+        "input",
 
+        calculateWithdraw
 
-function getWithdrawFee(){
+        );
 
 
-
-let deposits =
-
-JSON.parse(
-
-localStorage.getItem(
-"VALORA_DEPOSITS"
-)
-
-)
-
-||[];
-
-
-
-
-
-let feePercent = 20;
-
-
-
-// البحث عن آخر دورة إيداع غير مكتملة
-
-let activeDeposit =
-
-deposits.find(function(item){
-
-
-return item.doubled === false;
-
-
-});
-
-
-
-
-
-
-if(activeDeposit){
-
-
-
-let balance =
-
-Number(
-
-localStorage.getItem(
-"VALORA_BALANCE"
-)
-
-)
-
-||0;
-
-
-
-
-if(balance >= activeDeposit.target){
-
-
-
-feePercent = 5;
-
-
-}
-
-
-
-}
-
-else{
-
-
-feePercent = 5;
-
-
-}
-
-
-
-
-
-return feePercent;
-
-
-
-}
-
-
-
-
-
-
-
-
-// ==========================================
-// CALCULATE WITHDRAW
-// ==========================================
-
-
-function calculateWithdraw(){
-
-
-
-let amountInput =
-
-document.getElementById(
-"withdrawAmount"
-);
-
-
-
-if(!amountInput){
-
-return;
-
-}
-
-
-
-let amount =
-
-Number(
-amountInput.value
-)
-
-||0;
-
-
-
-
-
-let feePercent =
-
-getWithdrawFee();
-
-
-
-
-
-let fee =
-
-amount *
-
-(feePercent / 100);
-
-
-
-
-
-
-let receive =
-
-amount - fee;
-
-
-
-
-
-
-
-let feeBox =
-
-document.getElementById(
-"withdrawFee"
-);
-
-
-
-let receiveBox =
-
-document.getElementById(
-"receiveAmount"
-);
-
-
-
-
-
-
-if(feeBox){
-
-
-feeBox.innerHTML =
-
-fee.toFixed(2)
-
-+
-
-" USDT ("+
-
-feePercent+
-
-"%)";
-
-
-
-}
-
-
-
-
-
-if(receiveBox){
-
-
-receiveBox.innerHTML =
-
-receive.toFixed(2)
-
-+
-
-" USDT";
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-// ==========================================
-// AUTO CALCULATE
-// ==========================================
-
-
-document.addEventListener(
-
-"input",
-
-function(e){
-
-
-
-if(
-e.target.id ===
-"withdrawAmount"
-
-){
-
-
-
-calculateWithdraw();
-
-
-
-}
-
-
-
-});
-// ==========================================
-// SUBMIT WITHDRAW
-// ==========================================
-
-
-function submitWithdraw(){
-
-
-
-let amount =
-
-Number(
-
-document.getElementById(
-"withdrawAmount"
-).value
-
-)
-
-||0;
-
-
-
-
-
-let address =
-
-document.getElementById(
-"withdrawAddress"
-).value;
-
-
-
-
-
-let security =
-
-document.getElementById(
-"withdrawSecurityCode"
-);
-
-
-
-let securityValue =
-
-security ?
-
-security.value
-
-:
-
-"";
-
-
-
-
-
-
-
-let lang =
-
-localStorage.getItem(
-"VALORA_LANG"
-)
-
-||"ar";
-
-
-
-
-
-
-
-// التحقق من رمز الأمان
-
-
-let savedCode =
-
-localStorage.getItem(
-"VALORA_WITHDRAW_SECURITY"
-);
-
-
-
-
-
-if(savedCode && securityValue !== savedCode){
-
-
-
-showWithdrawMessage(
-
-lang==="ar"
-
-?
-
-"رمز الأمان غير صحيح"
-
-:
-
-"Incorrect security code",
-
-false
-
-);
-
-
-
-return;
-
-}
-
-
-
-
-
-if(!amount || !address){
-
-
-
-showWithdrawMessage(
-
-lang==="ar"
-
-?
-
-"يرجى إدخال جميع البيانات"
-
-:
-
-"Please fill all fields",
-
-false
-
-);
-
-
-
-return;
-
-}
-
-
-
-
-
-let balance =
-
-Number(
-
-localStorage.getItem(
-"VALORA_BALANCE"
-)
-
-)
-
-||0;
-
-
-
-
-
-if(amount > balance){
-
-
-
-showWithdrawMessage(
-
-lang==="ar"
-
-?
-
-"الرصيد غير كافي"
-
-:
-
-"Insufficient balance",
-
-false
-
-);
-
-
-
-return;
-
-}
-
-
-
-
-
-
-
-let feePercent =
-
-getWithdrawFee();
-
-
-
-
-
-let fee =
-
-amount *
-
-(feePercent/100);
-
-
-
-
-
-let receive =
-
-amount-fee;
-
-
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_BALANCE",
-
-balance-amount
-
-);
-
-
-
-
-
-
-saveWithdrawHistory(
-
-amount,
-
-fee,
-
-receive,
-
-address
-
-);
-
-
-
-
-
-
-
-showWithdrawMessage(
-
-lang==="ar"
-
-?
-
-"تم إرسال طلب السحب بنجاح"
-
-:
-
-"Withdrawal request submitted",
-
-true
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
-// SAVE WITHDRAW HISTORY
-// ==========================================
-
-
-function saveWithdrawHistory(
-
-amount,
-
-fee,
-
-receive,
-
-address
-
-){
-
-
-
-
-
-let history =
-
-JSON.parse(
-
-localStorage.getItem(
-"VALORA_WITHDRAW_HISTORY"
-)
-
-)
-
-||[];
-
-
-
-
-
-history.push({
-
-
-coin:withdrawCoin,
-
-
-network:withdrawNetwork,
-
-
-amount:amount,
-
-
-fee:fee,
-
-
-receive:receive,
-
-
-address:address,
-
-
-date:new Date().toLocaleString()
-
-
-
-});
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_WITHDRAW_HISTORY",
-
-JSON.stringify(history)
-
-);
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
-// MESSAGE
-// ==========================================
-
-
-function showWithdrawMessage(text,success){
-
-
-
-let box =
-
-document.getElementById(
-"withdrawMessage"
-);
-
-
-
-if(!box){
-
-return;
-
-}
-
-
-
-
-box.style.display="block";
-
-
-box.innerHTML=text;
-
-
-
-
-
-if(success){
-
-
-box.className=
-
-"withdraw-message success";
-
-
-}else{
-
-
-box.className=
-
-"withdraw-message reject";
-
-
-}
-
-
-
-}
-// ==========================================
-// SELECT NETWORK
-// ==========================================
-
-
-function selectWithdrawNetwork(button,network){
-
-
-withdrawNetwork = network;
-
-
-
-document
-
-.querySelectorAll(".network")
-
-.forEach(function(btn){
-
-
-btn.classList.remove("active");
-
-
-});
-
-
-
-button.classList.add("active");
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
-// LOAD BALANCE
-// ==========================================
-
-
-function loadWithdrawBalance(){
-
-
-
-let balance =
-
-Number(
-
-localStorage.getItem(
-"VALORA_BALANCE"
-)
-
-)
-
-||0;
-
-
-
-
-
-let box =
-
-document.getElementById(
-"availableBalance"
-);
-
-
-
-
-
-if(box){
-
-
-
-box.innerHTML =
-
-balance.toFixed(2)
-
-+
-
-" USDT";
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
-// CREATE SECURITY CODE
-// ==========================================
-// إذا لم يوجد رمز أمان يتم إنشاء رمز افتراضي
-
-
-function createSecurityCode(){
-
-
-
-let code =
-
-localStorage.getItem(
-"VALORA_WITHDRAW_SECURITY"
-);
-
-
-
-
-
-if(!code){
-
-
-
-localStorage.setItem(
-
-"VALORA_WITHDRAW_SECURITY",
-
-"123456"
-
-);
-
-
-
-}
-
-
-
-}
-
-
-
-
-
-
-
-// ==========================================
-// START SYSTEM
-// ==========================================
-
-
-document.addEventListener(
-
-"DOMContentLoaded",
-
-function(){
-
-
-
-if(typeof applyLanguage==="function"){
-
-
-applyLanguage();
-
-
-}
-
-
-
-loadWithdrawNetworks();
-
-
-loadWithdrawBalance();
-
-
-createSecurityCode();
-
-
-
-
-
-let amountBox =
-
-document.getElementById(
-"withdrawAmount"
-);
-
-
-
-if(amountBox){
-
-
-amountBox.addEventListener(
-
-"input",
-
-calculateWithdraw
-
-);
-
-
-}
+    }
 
 
 
