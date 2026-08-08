@@ -128,9 +128,11 @@ deposit_title: "Deposit Coins",
 deposit_subtitle:
 "Choose coin and network to display deposit address",
 
-deposit_network: "Deposit Network",
+deposit_network:
+"Deposit Network",
 
-deposit_address: "Deposit Address",
+deposit_address:
+"Deposit Address",
 
 deposit_auto_credit:
 "Balance will be added automatically",
@@ -150,16 +152,19 @@ deposit_warning_3:
 deposit_warning_4:
 "After blockchain confirmation, the balance will be added automatically.",
 
-copy: "Copy",
+copy:
+"Copy",
 
-deposit_copied: "Deposit address copied",
+deposit_copied:
+"Deposit address copied",
 
 
 // ==========================================
 // WITHDRAW
 // ==========================================
 
-withdraw_title: "Withdraw Coins",
+withdraw_title:
+"Withdraw Coins",
 
 withdraw_subtitle:
 "Withdraw your assets safely",
@@ -418,13 +423,15 @@ no_team_members:
 "No Team Members",
 
 team_history_empty:
-"Share your referral link to build your team"
+"Share your referral link to build your team",
 
 referral_code_copied:
 "Referral code copied",
 
 referral_link_copied:
 "Referral link copied",
+
+
 // ==========================================
 // LANGUAGE
 // ==========================================
@@ -855,6 +862,7 @@ error:
 success:
 "نجاح",
 
+
 // ==========================================
 // TEAM
 // ==========================================
@@ -953,13 +961,14 @@ no_team_members:
 "لا يوجد أعضاء في الفريق",
 
 team_history_empty:
-"شارك رابط الدعوة الخاص بك لبناء فريقك"
-    
+"شارك رابط الدعوة الخاص بك لبناء فريقك",
+
 referral_code_copied:
 "تم نسخ كود الدعوة",
 
 referral_link_copied:
 "تم نسخ رابط الدعوة",
+
 
 // ==========================================
 // LANGUAGE
