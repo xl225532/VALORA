@@ -339,6 +339,87 @@ referral_code:
 copied:
 "Copied",
 
+team_history_title:
+"Team Members History",
+
+team_history_description:
+"View all your team members and referrals",
+
+referral_link_title:
+"Your Referral Link",
+
+invited_count:
+"Invited Members",
+
+referral_reward:
+"Referral Reward",
+
+reward_description:
+"Invite 10 people with a deposit of 500 USDT or more to receive",
+
+referral_table:
+"Referral Table",
+
+team_levels:
+"Team Levels",
+
+level:
+"Level",
+
+invite_count:
+"Number of Invitations",
+
+profit:
+"Profit",
+
+trades_table:
+"Trades Table",
+
+trade:
+"Trade",
+
+daily_return:
+"Daily Return",
+
+trade_1:
+"Trade 1",
+
+trade_2:
+"Trade 2",
+
+trade_3:
+"Trade 3",
+
+vip_trade:
+"VIP Trade",
+
+compensation_trade:
+"Compensation Trade",
+
+according_to_status:
+"According to Status",
+
+team_trade:
+"Team Trade",
+
+over_20_members:
+"Over 20 Members",
+
+total_team:
+"Total Team",
+
+team_earnings:
+"Earnings",
+
+active_members:
+"Active",
+
+no_team_members:
+"No Team Members",
+
+team_history_empty:
+"Share your referral link to build your team"
+
 
 // ==========================================
 // LANGUAGE
@@ -770,7 +851,6 @@ error:
 success:
 "نجاح",
 
-
 // ==========================================
 // TEAM
 // ==========================================
@@ -789,6 +869,87 @@ referral_code:
 
 copied:
 "تم النسخ",
+
+team_history_title:
+"سجل أعضاء الفريق",
+
+team_history_description:
+"عرض جميع أعضاء فريقك والدعوات",
+
+referral_link_title:
+"رابط الدعوة الخاص بك",
+
+invited_count:
+"عدد المدعوين",
+
+referral_reward:
+"مكافأة الدعوة",
+
+reward_description:
+"ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر لتحصل على",
+
+referral_table:
+"جدول الدعوة",
+
+team_levels:
+"مستويات الفريق",
+
+level:
+"المستوى",
+
+invite_count:
+"عدد الدعوات",
+
+profit:
+"الربح",
+
+trades_table:
+"جدول الصفقات",
+
+trade:
+"الصفقة",
+
+daily_return:
+"العائد اليومي",
+
+trade_1:
+"صفقة 1",
+
+trade_2:
+"صفقة 2",
+
+trade_3:
+"صفقة 3",
+
+vip_trade:
+"صفقة VIP",
+
+compensation_trade:
+"صفقة التعويض",
+
+according_to_status:
+"حسب الحالة",
+
+team_trade:
+"صفقة الفريق",
+
+over_20_members:
+"فوق 20 عضو",
+
+total_team:
+"إجمالي الفريق",
+
+team_earnings:
+"الأرباح",
+
+active_members:
+"النشط",
+
+no_team_members:
+"لا يوجد أعضاء في الفريق",
+
+team_history_empty:
+"شارك رابط الدعوة الخاص بك لبناء فريقك"
 
 
 // ==========================================
