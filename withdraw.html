@@ -22,7 +22,6 @@
 </head>
 
 
-
 <body class="valora-withdraw">
 
 
@@ -63,7 +62,7 @@ VALORA
 
 <h2 data-lang="withdraw_title">
 
-Withdraw Coins
+سحب العملات
 
 </h2>
 
@@ -71,7 +70,7 @@ Withdraw Coins
 
 <p data-lang="withdraw_subtitle">
 
-Withdraw your assets safely
+اسحب أصولك بأمان
 
 </p>
 
@@ -86,14 +85,16 @@ Withdraw your assets safely
 
 <!-- BALANCE -->
 
+
 <section class="balance-card">
 
 
 <span data-lang="available_balance">
 
-Available Balance
+الرصيد المتاح
 
 </span>
+
 
 
 <h2 id="availableBalance">
@@ -104,7 +105,6 @@ Available Balance
 
 
 </section>
-
 
 
 
@@ -153,7 +153,6 @@ Tether
 
 
 
-
 <!-- BTC -->
 
 <button 
@@ -184,8 +183,6 @@ Bitcoin
 
 
 </button>
-
-
 
 
 
@@ -226,8 +223,6 @@ Ethereum
 
 
 
-
-
 <!-- TRX -->
 
 <button 
@@ -261,8 +256,6 @@ TRON
 
 
 
-
-
 </section>
 <!-- WITHDRAW FORM -->
 
@@ -274,7 +267,7 @@ TRON
 
 <h3 data-lang="withdraw_network">
 
-Withdrawal Network
+شبكة السحب
 
 </h3>
 
@@ -291,11 +284,12 @@ id="withdrawNetwork">
 
 
 
+
 <!-- ADDRESS -->
 
 <h3 data-lang="withdraw_address">
 
-Withdrawal Address
+عنوان السحب
 
 </h3>
 
@@ -312,7 +306,7 @@ id="withdrawAddress"
 
 data-lang-placeholder="withdraw_address_placeholder"
 
-placeholder="Enter withdrawal address"
+placeholder="أدخل عنوان المحفظة"
 
 >
 
@@ -329,7 +323,7 @@ placeholder="Enter withdrawal address"
 
 <h3 data-lang="withdraw_amount">
 
-Withdrawal Amount
+مبلغ السحب
 
 </h3>
 
@@ -348,7 +342,7 @@ oninput="calculateWithdraw()"
 
 data-lang-placeholder="withdraw_amount_placeholder"
 
-placeholder="Enter amount"
+placeholder="أدخل مبلغ السحب"
 
 >
 
@@ -361,11 +355,12 @@ placeholder="Enter amount"
 
 
 
+
 <!-- SECURITY CODE -->
 
 <h3 data-lang="security_code">
 
-Withdrawal Security Code
+رمز أمان السحب
 
 </h3>
 
@@ -382,7 +377,7 @@ id="withdrawSecurityCode"
 
 data-lang-placeholder="security_code_placeholder"
 
-placeholder="Enter security code"
+placeholder="أدخل رمز أمان السحب"
 
 >
 
@@ -395,7 +390,8 @@ placeholder="Enter security code"
 
 
 
-<!-- FEE INFO -->
+<!-- WITHDRAW INFO -->
+
 
 <div class="withdraw-info">
 
@@ -406,7 +402,7 @@ placeholder="Enter security code"
 
 <span data-lang="withdraw_fee">
 
-Withdrawal Fee
+رسوم السحب
 
 </span>
 
@@ -424,13 +420,12 @@ Withdrawal Fee
 
 
 
-
 <div>
 
 
 <span data-lang="receive_amount">
 
-You Receive
+المبلغ المستلم
 
 </span>
 
@@ -454,14 +449,21 @@ You Receive
 
 
 
-<!-- NOTE -->
+<!-- FEE NOTE -->
 
-<div class="fee-note">
 
-<span data-lang="fee_note"></span>
+<div 
+class="fee-note"
+data-lang="fee_note"
+>
+
+
+قبل التضعيف: 20%
+<br>
+بعد التضعيف: 5%
+
 
 </div>
-
 
 
 
@@ -483,7 +485,7 @@ onclick="submitWithdraw()"
 
 <span data-lang="confirm_withdraw">
 
-Confirm Withdrawal
+تأكيد السحب
 
 </span>
 
@@ -511,14 +513,9 @@ class="withdraw-message"
 
 
 
+
 </section>
-
-
 </div>
-
-
-
-
 
 
 
@@ -539,17 +536,13 @@ class="withdraw-message"
 <script>
 
 document.addEventListener(
-
 "DOMContentLoaded",
-
 function(){
 
 
 if(typeof applyLanguage === "function"){
 
-
 applyLanguage();
-
 
 }
 
@@ -557,7 +550,6 @@ applyLanguage();
 }
 
 );
-
 
 </script>
 
