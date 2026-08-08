@@ -488,7 +488,59 @@ default_language:
 save_language:
 "Language will be saved automatically",
 
+// ==========================================
+// REGISTER
+// ==========================================
 
+register_title:
+"Create New Account",
+
+register_contact:
+"Email or Phone Number",
+
+register_contact_placeholder:
+"Enter Email or Phone Number",
+
+verification_code:
+"Verification Code",
+
+verification_code_placeholder:
+"Enter Verification Code",
+
+password_placeholder_register:
+"Enter Password",
+
+confirm_password:
+"Confirm Password",
+
+confirm_password_placeholder:
+"Confirm Password",
+
+invite_code:
+"Referral Code",
+
+invite_code_placeholder:
+"Automatically filled from referral link",
+
+agree_terms:
+"I agree to",
+
+terms_privacy:
+"Terms & Conditions and Privacy Policy",
+
+register_btn:
+"Create Account",
+
+already_have_account:
+"Already have an account?",
+
+
+// ==========================================
+// COMMON
+// ==========================================
+
+no_transactions:
+"No transactions currently",
 // ==========================================
 // COMMON
 // ==========================================
@@ -1049,6 +1101,52 @@ buy_success:
 
 sell_success:
 "تم إرسال طلب البيع بنجاح",
+
+// ==========================================
+// REGISTER
+// ==========================================
+
+register_title:
+"إنشاء حساب جديد",
+
+register_contact:
+"البريد الإلكتروني أو رقم الهاتف",
+
+register_contact_placeholder:
+"أدخل البريد الإلكتروني أو رقم الهاتف",
+
+verification_code:
+"كود التحقق",
+
+verification_code_placeholder:
+"أدخل كود التحقق",
+
+password_placeholder_register:
+"أدخل كلمة المرور",
+
+confirm_password:
+"تأكيد كلمة المرور",
+
+confirm_password_placeholder:
+"أعد إدخال كلمة المرور",
+
+invite_code:
+"كود الدعوة",
+
+invite_code_placeholder:
+"يتم تعبئته تلقائياً من رابط الدعوة",
+
+agree_terms:
+"أوافق على",
+
+terms_privacy:
+"الشروط والأحكام وسياسة الخصوصية",
+
+register_btn:
+"إنشاء الحساب",
+
+already_have_account:
+"لديك حساب بالفعل؟",
 
 
 // ==========================================
