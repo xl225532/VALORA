@@ -992,7 +992,6 @@ translations[lang][key];
 
 
 
-
 function setLanguage(lang){
 
 
@@ -1011,10 +1010,14 @@ applyLanguage();
 
 
 
+setTimeout(function(){
+
+
+window.location.reload();
+
+
+},300);
+
+
+
 }
-
-
-
-
-
-document.addEventListener(  
