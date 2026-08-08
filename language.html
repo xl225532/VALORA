@@ -31,7 +31,6 @@ rel="stylesheet">
 <div class="settings-container">
 
 
-
 <div class="settings-header">
 
 
@@ -42,7 +41,6 @@ rel="stylesheet">
 </h2>
 
 
-
 <p data-lang="language_subtitle">
 
 Choose your preferred language
@@ -50,21 +48,15 @@ Choose your preferred language
 </p>
 
 
-
 </div>
-
-
-
-
-
 
 
 <div class="language-card">
 
 
-
-<!-- English -->
-
+<!-- ==========================================
+     ENGLISH
+========================================== -->
 
 <div
 class="language-item"
@@ -82,35 +74,33 @@ onclick="setLanguage('en')"
 </div>
 
 
-
-
 <div>
 
 
-<div class="language-title" data-lang="english">
+<div
+class="language-title"
+data-lang="english"
+>
 
 English
 
 </div>
 
 
-
-<div class="language-subtitle" data-lang="default_language">
+<div
+class="language-subtitle"
+data-lang="default_language"
+>
 
 Default Language
 
 </div>
 
 
-
 </div>
 
 
-
 </div>
-
-
-
 
 
 <div
@@ -118,26 +108,17 @@ class="language-radio"
 id="radio-en"
 >
 
-
 <div class="radio-dot"></div>
 
+</div>
+
 
 </div>
 
 
-
-</div>
-
-
-
-
-
-
-
-
-
-<!-- Arabic -->
-
+<!-- ==========================================
+     ARABIC
+========================================== -->
 
 <div
 class="language-item"
@@ -155,35 +136,33 @@ onclick="setLanguage('ar')"
 </div>
 
 
-
-
 <div>
 
 
-<div class="language-title" data-lang="arabic">
+<div
+class="language-title"
+data-lang="arabic"
+>
 
 العربية
 
 </div>
 
 
+<div
+class="language-subtitle"
+data-lang="arabic"
+>
 
-<div class="language-subtitle">
-
-Arabic
-
-</div>
-
-
+العربية
 
 </div>
 
 
-
 </div>
 
 
-
+</div>
 
 
 <div
@@ -191,156 +170,141 @@ class="language-radio"
 id="radio-ar"
 >
 
-
 <div class="radio-dot"></div>
 
-
 </div>
-
-
-
-</div>
-
-
-
-
 
 
 </div>
 
 
+</div>
 
 
-
-
-
-
-
-<div class="save-info" data-lang="save_language">
-
+<div
+class="save-info"
+data-lang="save_language"
+>
 
 سيتم حفظ اللغة تلقائياً
 
-
 </div>
 
 
-
-
-
-
-
 </div>
-
-
-
-
-
-
-
 
 
 <script src="js/language.js"></script>
 
 
-
-
-
 <script>
 
-
 document.addEventListener(
-"DOMContentLoaded",
-function(){
+    "DOMContentLoaded",
+    function(){
+
+        // ======================================
+        // APPLY LANGUAGE
+        // ======================================
+
+        if(
+            typeof applyLanguage === "function"
+        ){
+
+            applyLanguage();
+
+        }
 
 
+        // ======================================
+        // GET CURRENT LANGUAGE
+        // ======================================
 
-// تشغيل نظام اللغة
-
-if(typeof applyLanguage === "function"){
-
-applyLanguage();
-
-}
+        let currentLanguage = "ar";
 
 
+        try {
+
+            currentLanguage =
+                localStorage.getItem(
+                    "VALORA_LANG"
+                ) || "ar";
+
+        } catch(error){
+
+            currentLanguage = "ar";
+
+        }
 
 
-const currentLanguage =
+        // ======================================
+        // RADIO BUTTONS
+        // ======================================
 
-localStorage.getItem("VALORA_LANG") || "en";
-
-
-
-
-
-const englishRadio =
-
-document.getElementById("radio-en");
+        const englishRadio =
+            document.getElementById(
+                "radio-en"
+            );
 
 
-
-const arabicRadio =
-
-document.getElementById("radio-ar");
-
-
+        const arabicRadio =
+            document.getElementById(
+                "radio-ar"
+            );
 
 
+        // إزالة التحديد
 
-if(englishRadio){
+        if(englishRadio){
 
-englishRadio.classList.remove("active");
+            englishRadio.classList.remove(
+                "active"
+            );
 
-}
-
-
-
-
-if(arabicRadio){
-
-arabicRadio.classList.remove("active");
-
-}
+        }
 
 
+        if(arabicRadio){
+
+            arabicRadio.classList.remove(
+                "active"
+            );
+
+        }
 
 
+        // تحديد اللغة الحالية
 
-if(currentLanguage === "ar"){
+        if(
+            currentLanguage === "en"
+        ){
 
+            if(englishRadio){
 
-if(arabicRadio){
+                englishRadio.classList.add(
+                    "active"
+                );
 
-arabicRadio.classList.add("active");
+            }
 
-}
+        }
 
+        else {
 
-}else{
+            if(arabicRadio){
 
+                arabicRadio.classList.add(
+                    "active"
+                );
 
-if(englishRadio){
+            }
 
-englishRadio.classList.add("active");
+        }
 
-}
-
-
-}
-
-
-
-
-});
-
-
+    }
+);
 
 </script>
-
-
-
-
 
 
 </body>
