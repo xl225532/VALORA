@@ -239,29 +239,17 @@ function getBalance(){
 
 function getWithdrawFee(){
 
-
-
-    let doubled =
-
-    localStorage.getItem(
-        "VALORA_DOUBLED"
-    );
-
+    let doubled = "true";
 
 
     if(doubled === "true"){
 
-
         return 5;
-
 
     }
 
 
-
     return 20;
-
-
 
 }
 
