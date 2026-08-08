@@ -669,3 +669,253 @@ font-weight:bold;
     letter-spacing:5px;
     font-size:16px;
 }
+/* ==========================================
+   VALORA - FORM VALIDATION
+========================================== */
+
+
+/* ==========================================
+   الحقل عند وجود خطأ
+========================================== */
+
+.input-group.has-error input{
+
+    border-color:#EF4444 !important;
+
+    box-shadow:
+        0 0 0 1px #EF4444,
+        0 0 8px #EF444433;
+
+}
+
+
+/* ==========================================
+   الحقل عند النجاح
+========================================== */
+
+.input-group.has-success input{
+
+    border-color:#22C55E !important;
+
+    box-shadow:
+        0 0 0 1px #22C55E,
+        0 0 8px #22C55E33;
+
+}
+
+
+/* ==========================================
+   رسالة الخطأ
+========================================== */
+
+.field-error{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:5px;
+
+    color:#EF4444;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+    animation:
+        errorAppear .2s ease;
+
+}
+
+
+/* أيقونة الخطأ */
+
+.field-error::before{
+
+    content:"⚠";
+
+    font-size:11px;
+
+}
+
+
+/* ==========================================
+   رسالة النجاح
+========================================== */
+
+.field-success{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:5px;
+
+    margin-top:5px;
+
+    color:#22C55E;
+
+    font-size:11px;
+
+}
+
+
+/* ==========================================
+   الشروط عند الخطأ
+========================================== */
+
+.checkbox-group.has-error{
+
+    color:#EF4444;
+
+}
+
+
+.checkbox-group.has-error .circle-check span{
+
+    border-color:#EF4444 !important;
+
+    box-shadow:
+        0 0 0 2px #EF444422;
+
+}
+
+
+/* ==========================================
+   رسالة خطأ الشروط
+========================================== */
+
+.terms-error{
+
+    color:#EF4444;
+
+    font-size:11px;
+
+    margin-top:-7px;
+
+    margin-bottom:8px;
+
+    animation:
+        errorAppear .2s ease;
+
+}
+
+
+/* ==========================================
+   إشعار عام
+========================================== */
+
+.form-notice{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:8px;
+
+    width:100%;
+
+    padding:10px 12px;
+
+    border-radius:10px;
+
+    margin-bottom:12px;
+
+    font-size:12px;
+
+    line-height:1.5;
+
+    animation:
+        errorAppear .25s ease;
+
+}
+
+
+.form-notice.error{
+
+    background:#EF444415;
+
+    border:1px solid #EF444455;
+
+    color:#FF6B6B;
+
+}
+
+
+.form-notice.success{
+
+    background:#22C55E15;
+
+    border:1px solid #22C55E55;
+
+    color:#4ADE80;
+
+}
+
+
+.form-notice-icon{
+
+    width:20px;
+
+    height:20px;
+
+    min-width:20px;
+
+    border-radius:50%;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-weight:bold;
+
+}
+
+
+.form-notice.error
+.form-notice-icon{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+
+.form-notice.success
+.form-notice-icon{
+
+    background:#22C55E;
+
+    color:white;
+
+}
+
+
+/* ==========================================
+   ظهور الخطأ
+========================================== */
+
+@keyframes errorAppear{
+
+    from{
+
+        opacity:0;
+
+        transform:translateY(-3px);
+
+    }
+
+    to{
+
+        opacity:1;
+
+        transform:translateY(0);
+
+    }
+
+}
