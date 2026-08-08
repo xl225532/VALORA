@@ -9,7 +9,11 @@
 
 let withdrawCoin = "USDT";
 
+console.log("VALORA WITHDRAW JS NEW VERSION");
+console.log("VALORA LANG:", localStorage.getItem("VALORA_LANG"));
+
 let withdrawNetwork = "TRC20";
+
 
 
 
