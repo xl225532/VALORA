@@ -5,16 +5,16 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport"
+      content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | تداول</title>
+<title>VALORA | Trade</title>
 
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+      rel="stylesheet">
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
-
-<link rel="stylesheet" href="css/trade.css">
-<link rel="stylesheet" href="css/background.css">
+<link rel="stylesheet"
+      href="css/trade.css">
 
 </head>
 
@@ -25,239 +25,248 @@
 <div class="trade-page">
 
 
+    <!-- ==========================================
+         HEADER
+    =========================================== -->
 
-<header class="trade-header">
+    <header class="trade-header">
+
+        <button
+            class="back-btn"
+            onclick="history.back()"
+            aria-label="Back">
+
+            ‹
+
+        </button>
 
 
-<button onclick="history.back()" class="back">
+        <div class="trade-title">
 
-←
+            <h1 id="coinName">
+                Bitcoin
+            </h1>
 
-</button>
+            <span id="coinPair">
+                BTC / USDT
+            </span>
+
+        </div>
+
+    </header>
 
 
 
+    <!-- ==========================================
+         MAIN
+    =========================================== -->
 
-<div class="coin-header">
+    <main>
 
 
-<div class="coin-big btc">
+        <!-- ======================================
+             PRICE
+        ======================================= -->
 
-₿
+        <section class="price-card">
+
+
+            <div
+                class="price-label"
+                data-lang="current_price">
+
+                السعر الحالي
+
+            </div>
+
+
+            <div
+                id="coinPrice"
+                class="price-value">
+
+                --
+
+            </div>
+
+
+            <div
+                id="coinChange"
+                class="price-change">
+
+                --
+
+            </div>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             BUY / SELL
+        ======================================= -->
+
+        <section class="trade-actions">
+
+
+            <button
+                class="trade-btn buy-btn"
+                type="button"
+                onclick="selectTradeType('buy')"
+                data-lang="buy">
+
+                شراء
+
+            </button>
+
+
+            <button
+                class="trade-btn sell-btn"
+                type="button"
+                onclick="selectTradeType('sell')"
+                data-lang="sell">
+
+                بيع
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             TRADE FORM
+        ======================================= -->
+
+        <section class="trade-form">
+
+
+            <!-- AVAILABLE BALANCE -->
+
+            <div class="field-group">
+
+
+                <label
+                    data-lang="available_balance">
+
+                    الرصيد المتاح
+
+                </label>
+
+
+                <strong id="availableBalance">
+
+                    0 USDT
+
+                </strong>
+
+
+            </div>
+
+
+
+            <!-- AMOUNT -->
+
+            <div class="field-group">
+
+
+                <label
+                    for="tradeAmount"
+                    data-lang="amount">
+
+                    الكمية
+
+                </label>
+
+
+                <input
+                    id="tradeAmount"
+                    type="number"
+                    min="0"
+                    step="any"
+                    data-lang-placeholder="enter_amount"
+                    placeholder="أدخل مبلغ التداول بالـ USDT">
+
+
+            </div>
+
+
+
+            <!-- SUBMIT -->
+
+            <button
+                id="submitTrade"
+                class="submit-trade"
+                type="button"
+                onclick="submitTrade()">
+
+                <span data-lang="buy">
+
+                    شراء
+
+                </span>
+
+            </button>
+
+
+        </section>
+
+
+
+        <!-- ======================================
+             RECENT ORDERS
+        ======================================= -->
+
+        <section class="orders-section">
+
+
+            <h2 data-lang="recent_orders">
+
+                آخر العمليات
+
+            </h2>
+
+
+            <div
+                id="ordersList"
+                class="orders-list">
+
+
+                <div
+                    class="empty-orders"
+                    data-lang="no_orders">
+
+                    لا توجد عمليات
+
+                </div>
+
+
+            </div>
+
+
+        </section>
+
+
+    </main>
+
 
 </div>
 
 
-<div>
 
+<!-- ==========================================
+     LANGUAGE SYSTEM
+=========================================== -->
 
-<h2>
+<script src="js/language.js"></script>
 
-Bitcoin
 
-</h2>
-
-
-<span>
-
-BTC / USDT
-
-</span>
-
-
-</div>
-
-
-</div>
-
-
-</header>
-
-
-
-
-
-
-
-
-<section class="price-box">
-
-
-<p>
-
-السعر الحالي
-
-</p>
-
-
-<h1 id="tradePrice">
-
-67,500$
-
-</h1>
-
-
-<span class="up">
-
-▲ 2.45%
-
-</span>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="chart-box">
-
-
-<div class="chart-line">
-
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-<span></span>
-
-
-</div>
-
-
-</section>
-
-
-
-
-
-
-
-
-<section class="trade-form">
-
-
-
-<div class="available">
-
-
-الرصيد المتاح
-
-
-<strong id="tradeBalance">
-
-0.00 USDT
-
-</strong>
-
-
-
-</div>
-
-
-
-
-
-
-<label>
-
-الكمية
-
-</label>
-
-
-<input
-
-type="number"
-
-id="tradeAmount"
-
-placeholder="أدخل مبلغ التداول بالـ USDT"
-
->
-
-
-
-
-
-<div class="buttons">
-
-
-<button class="buy" onclick="buyTrade()">
-
-شراء
-
-</button>
-
-
-
-
-<button class="sell" onclick="sellTrade()">
-
-بيع
-
-</button>
-
-
-
-</div>
-
-
-
-
-</section>
-<section class="orders">
-
-
-<h3>
-
-آخر العمليات
-
-</h3>
-
-
-
-
-<div id="tradeHistory" class="trade-history">
-
-
-<div class="empty">
-
-لا توجد عمليات
-
-</div>
-
-
-
-</div>
-
-
-
-</section>
-
-
-
-
-
-
-</div>
-
-
-
-
-
+<!-- ==========================================
+     TRADE SYSTEM
+=========================================== -->
 
 <script src="js/trade.js"></script>
-
-
 
 
 </body>
