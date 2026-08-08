@@ -538,12 +538,27 @@ already_have_account:
 // ==========================================
 // COMMON
 // ==========================================
+register_contact_required:
+"Please enter your email or phone number",
 
+password_mismatch:
+"Passwords do not match",
+
+register_success:
+"Account created successfully",
+
+login_success:
+"Login successful",
+
+login_success_message:
+"Logging into your account",
+
+login_error:
+"Invalid login credentials",
+    
 no_transactions:
 "No transactions currently",
-// ==========================================
-// COMMON
-// ==========================================
+
 deposit_transaction:
 "Deposit",
 
@@ -1175,7 +1190,25 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
-deposit_transaction:
+register_contact_required:
+"يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
+
+password_mismatch:
+"كلمة المرور غير متطابقة",
+
+register_success:
+"تم إنشاء الحساب بنجاح",
+
+login_success:
+"تم تسجيل الدخول",
+
+login_success_message:
+"جاري الدخول إلى الحساب",
+
+login_error:
+"بيانات تسجيل الدخول غير صحيحة",
+    
+ deposit_transaction:
 "إيداع",
 
 withdraw_transaction:
