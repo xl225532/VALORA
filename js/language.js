@@ -492,7 +492,15 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+deposit_transaction:
+"Deposit",
 
+withdraw_transaction:
+"Withdrawal",
+
+profit_transaction:
+"Profit",
+    
 no_transactions:
 "No transactions currently",
 
@@ -1069,7 +1077,15 @@ save_language:
 // ==========================================
 // COMMON
 // ==========================================
+deposit_transaction:
+"إيداع",
 
+withdraw_transaction:
+"سحب",
+
+profit_transaction:
+"أرباح",
+    
 no_transactions:
 "لا توجد عمليات حالياً",
 
