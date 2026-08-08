@@ -559,101 +559,153 @@ loadTrades();
 
 function loadTrades(){
 
+    let box =
+        document.getElementById("ordersList");
 
-let box =
-document.getElementById("ordersList");
-
-
-if(!box)return;
+    if(!box) return;
 
 
+    // ======================================
+    // اللغة الحالية
+    // ======================================
+
+    let lang =
+        localStorage.getItem("VALORA_LANG") || "ar";
 
 
-if(trades.length===0){
+    let t =
+        window.VALORA_LANG &&
+        window.VALORA_LANG.translations &&
+        window.VALORA_LANG.translations[lang]
+        ? window.VALORA_LANG.translations[lang]
+        : null;
 
 
-box.innerHTML=`
+    // ======================================
+    // لا توجد صفقات
+    // ======================================
 
-<div class="empty-order">
+    if(trades.length === 0){
 
-${syncTranslate(
-"no_orders",
-"لا توجد صفقات حالياً"
-)}
+        box.innerHTML = `
 
-</div>
+            <div class="empty-order">
 
-`;
+                ${
+                    t && t.no_orders
+                    ? t.no_orders
+                    : "لا توجد صفقات حالياً"
+                }
 
-return;
+            </div>
 
-}
+        `;
 
+        return;
 
-
-
-box.innerHTML="";
-
-
-
-[...trades].reverse().forEach(t=>{
+    }
 
 
-box.innerHTML+=`
+    // ======================================
+    // تنظيف القائمة
+    // ======================================
 
-<div class="order-card">
-
-
-<div>
-
-<strong>${t.coin}</strong>
-
-<br>
-
-<span>
-
-${syncTranslate(
-"trade_code",
-"الكود"
-)}:
-
-${t.code}
-
-</span>
+    box.innerHTML = "";
 
 
-</div>
+    // ======================================
+    // عرض الصفقات
+    // ======================================
+
+    [...trades].reverse().forEach(function(tData){
+
+        let statusText;
 
 
+        // ==================================
+        // ترجمة الحالة
+        // ==================================
 
-<div>
+        if(tData.status === "مكتملة"){
 
-<span>
+            statusText =
+                t && t.completed
+                ? t.completed
+                : "مكتملة";
 
-${t.status}
+        }
 
-</span>
+        else if(tData.status === "قيد التنفيذ"){
 
-<br>
+            statusText =
+                t && t.pending
+                ? t.pending
+                : "قيد التنفيذ";
 
-<b class="success-text">
+        }
 
-${t.profit}%
+        else {
 
-</b>
+            statusText =
+                tData.status || "";
 
-
-</div>
-
-
-</div>
-
-`;
+        }
 
 
+        // ==================================
+        // بناء البطاقة
+        // ==================================
 
-});
+        box.innerHTML += `
 
+            <div class="order-card">
+
+
+                <div>
+
+                    <strong>
+                        ${tData.coin}
+                    </strong>
+
+                    <br>
+
+                    <span>
+
+                        ${
+                            t && t.trade_code
+                            ? t.trade_code
+                            : "الكود"
+                        }
+
+                        :
+
+                        ${tData.code}
+
+                    </span>
+
+                </div>
+
+
+                <div>
+
+                    <span>
+                        ${statusText}
+                    </span>
+
+                    <br>
+
+                    <b class="success-text">
+                        ${tData.profit}%
+                    </b>
+
+                </div>
+
+
+            </div>
+
+        `;
+
+    });
 
 }
 
