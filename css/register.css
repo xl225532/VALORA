@@ -919,3 +919,337 @@ font-weight:bold;
     }
 
 }
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>VALORA | إنشاء حساب</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="css/register.css">
+<link rel="stylesheet" href="css/background.css">
+
+</head>
+
+<body>
+
+<div class="auth-container">
+
+<!-- LOGO -->
+
+<div class="logo">
+
+    <div class="logo-icon">
+
+        <svg viewBox="0 0 64 64">
+
+            <path
+                d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+                fill="#1687FF">
+            </path>
+
+            <path
+                d="M22 24 L32 44 L42 24"
+                stroke="#ffffff"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round">
+            </path>
+
+        </svg>
+
+    </div>
+
+    <div class="logo-name">
+        VALORA
+    </div>
+
+    <div class="logo-sub">
+        EXCHANGE
+    </div>
+
+</div>
+
+
+<!-- TITLE -->
+
+<div
+    class="auth-title"
+    data-lang="register_title">
+
+    إنشاء حساب جديد
+
+</div>
+
+
+<!-- FORM MESSAGE -->
+
+<div id="registerMessage" class="form-message"></div>
+
+
+<form id="registerForm" novalidate>
+
+
+<!-- CONTACT -->
+
+<div class="input-group" id="contactGroup">
+
+    <label data-lang="register_contact">
+        البريد الإلكتروني أو رقم الهاتف
+    </label>
+
+    <input
+        type="text"
+        id="contact"
+        data-lang-placeholder="register_contact_placeholder"
+        placeholder="أدخل البريد الإلكتروني أو رقم الهاتف">
+
+    <div
+        class="field-error"
+        id="contactError">
+    </div>
+
+</div>
+
+
+<!-- VERIFICATION CODE -->
+
+<div class="input-group" id="verificationGroup">
+
+    <label data-lang="verification_code">
+        كود التحقق
+    </label>
+
+    <div class="verify-box">
+
+        <input
+            type="text"
+            id="verifyCode"
+            maxlength="6"
+            data-lang-placeholder="verification_code_placeholder"
+            placeholder="أدخل كود التحقق">
+
+        <button
+            type="button"
+            class="verify-btn"
+            onclick="sendVerificationCode()"
+            data-lang="verify">
+
+            تحقق
+
+        </button>
+
+    </div>
+
+    <div
+        class="field-error"
+        id="verificationError">
+    </div>
+
+</div>
+
+
+<!-- PASSWORD -->
+
+<div class="input-group" id="passwordGroup">
+
+    <label data-lang="password">
+        كلمة المرور
+    </label>
+
+    <div class="password-box">
+
+        <input
+            type="password"
+            id="password"
+            data-lang-placeholder="password_placeholder_register"
+            placeholder="********">
+
+        <button
+            type="button"
+            class="eye-btn"
+            onclick="togglePassword('password',this)">
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+
+                <circle cx="12" cy="12" r="3">
+                </circle>
+
+            </svg>
+
+        </button>
+
+    </div>
+
+    <div
+        class="field-error"
+        id="passwordError">
+    </div>
+
+</div>
+
+
+<!-- CONFIRM PASSWORD -->
+
+<div class="input-group" id="confirmPasswordGroup">
+
+    <label data-lang="confirm_password">
+        تأكيد كلمة المرور
+    </label>
+
+    <div class="password-box">
+
+        <input
+            type="password"
+            id="confirmPassword"
+            data-lang-placeholder="confirm_password_placeholder"
+            placeholder="********">
+
+        <button
+            type="button"
+            class="eye-btn"
+            onclick="togglePassword('confirmPassword',this)">
+
+            <svg viewBox="0 0 24 24">
+
+                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+
+                <circle cx="12" cy="12" r="3">
+                </circle>
+
+            </svg>
+
+        </button>
+
+    </div>
+
+    <div
+        class="field-error"
+        id="confirmPasswordError">
+    </div>
+
+</div>
+
+
+<!-- INVITE CODE -->
+
+<div class="input-group">
+
+    <label data-lang="invite_code">
+        كود الدعوة
+    </label>
+
+    <input
+        type="text"
+        id="inviteCode"
+        data-lang-placeholder="invite_code_placeholder"
+        placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
+
+</div>
+
+
+<!-- TERMS -->
+
+<div
+    class="checkbox-group"
+    id="termsGroup">
+
+    <label class="circle-check">
+
+        <input
+            type="checkbox"
+            id="agree">
+
+        <span></span>
+
+    </label>
+
+    <label>
+
+        <span data-lang="agree_terms">
+            أوافق على
+        </span>
+
+        <a
+            href="terms.html"
+            target="_blank"
+            data-lang="terms_privacy">
+
+            الشروط والأحكام وسياسة الخصوصية
+
+        </a>
+
+    </label>
+
+</div>
+
+<div
+    class="field-error"
+    id="termsError">
+</div>
+
+
+<!-- REGISTER -->
+
+<button
+    type="submit"
+    class="btn-primary"
+    data-lang="register_btn">
+
+    إنشاء الحساب
+
+</button>
+
+</form>
+
+
+<!-- LOGIN -->
+
+<div class="bottom-link">
+
+    <span data-lang="already_have_account">
+        لديك حساب بالفعل؟
+    </span>
+
+    <a
+        href="login.html"
+        data-lang="login_btn">
+
+        تسجيل الدخول
+
+    </a>
+
+</div>
+
+</div>
+
+
+<script src="js/language.js"></script>
+<script src="js/app.js"></script>
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        if(typeof applyLanguage === "function"){
+            applyLanguage();
+        }
+
+    }
+);
+
+</script>
+
+</body>
+</html>
