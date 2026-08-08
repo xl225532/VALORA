@@ -420,7 +420,11 @@ no_team_members:
 team_history_empty:
 "Share your referral link to build your team"
 
+referral_code_copied:
+"Referral code copied",
 
+referral_link_copied:
+"Referral link copied",
 // ==========================================
 // LANGUAGE
 // ==========================================
@@ -950,7 +954,12 @@ no_team_members:
 
 team_history_empty:
 "شارك رابط الدعوة الخاص بك لبناء فريقك"
+    
+referral_code_copied:
+"تم نسخ كود الدعوة",
 
+referral_link_copied:
+"تم نسخ رابط الدعوة",
 
 // ==========================================
 // LANGUAGE
