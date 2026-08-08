@@ -86,7 +86,6 @@ Withdraw your assets safely
 
 <!-- BALANCE -->
 
-
 <section class="balance-card">
 
 
@@ -111,9 +110,12 @@ Available Balance
 
 
 
+
+
 <!-- COINS -->
 
 <section class="withdraw-coins">
+
 
 
 <!-- USDT -->
@@ -146,6 +148,7 @@ Tether
 
 
 </button>
+
 
 
 
@@ -187,6 +190,7 @@ Bitcoin
 
 
 
+
 <!-- ETH -->
 
 <button 
@@ -222,6 +226,8 @@ Ethereum
 
 
 
+
+
 <!-- TRX -->
 
 <button 
@@ -252,6 +258,9 @@ TRON
 
 
 </button>
+
+
+
 
 
 </section>
@@ -352,9 +361,7 @@ placeholder="Enter amount"
 
 
 
-
 <!-- SECURITY CODE -->
-
 
 <h3 data-lang="security_code">
 
@@ -388,19 +395,19 @@ placeholder="Enter security code"
 
 
 
-
-<!-- FEE INFO -->
-
-
 <!-- FEE INFO -->
 
 <div class="withdraw-info">
 
 
+
 <div>
 
-<span>
-رسوم السحب
+
+<span data-lang="withdraw_fee">
+
+Withdrawal Fee
+
 </span>
 
 
@@ -413,27 +420,6 @@ placeholder="Enter security code"
 
 </div>
 
-
-
-
-<div>
-
-<span>
-المستلم
-</span>
-
-
-<strong id="receiveAmount">
-
-0.00 USDT
-
-</strong>
-
-
-</div>
-
-
-</div>
 
 
 
@@ -456,7 +442,7 @@ You Receive
 </strong>
 
 
-
+</div>
 
 
 
@@ -468,25 +454,19 @@ You Receive
 
 
 
+<!-- NOTE -->
 
-<!-- FEE NOTE -->
+<div class="fee-note">
 
 
-  <!-- FEE NOTE -->
+<span data-lang="fee_note">
 
-<div class="fee-note" id="feeNote">
-
-⚠️ ملاحظة مهمة
-
-<br><br>
-
-قبل التضعيف:
-رسوم السحب 20%
-
+Withdrawal fee before doubling: 20%
 <br>
+After doubling: 5%
 
-بعد التضعيف:
-رسوم السحب 5%
+</span>
+
 
 </div>
 
@@ -524,7 +504,6 @@ Confirm Withdrawal
 
 
 
-
 <!-- MESSAGE -->
 
 
@@ -540,11 +519,17 @@ class="withdraw-message"
 
 
 
-
 </section>
 
 
 </div>
+
+
+
+
+
+
+
 <!-- LANGUAGE SYSTEM -->
 
 <script src="js/language.js"></script>
@@ -558,8 +543,8 @@ class="withdraw-message"
 
 
 
-<script>
 
+<script>
 
 document.addEventListener(
 
@@ -575,7 +560,6 @@ applyLanguage();
 
 
 }
-
 
 
 }
