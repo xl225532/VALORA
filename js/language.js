@@ -971,29 +971,26 @@ translations[lang][key];
 
 
 
-document.querySelectorAll("[data-lang-placeholder]")
+document.querySelectorAll("[data-lang]")
 .forEach(function(el){
 
 
 let key =
-el.getAttribute("data-lang-placeholder");
+el.getAttribute("data-lang");
 
 
 
 if(translations[lang][key]){
 
 
-el.placeholder =
+el.innerHTML =
 translations[lang][key];
 
 
 }
 
 
-});
-
-
-}
+});    
 
 
 
