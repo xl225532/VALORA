@@ -3,18 +3,24 @@
 // =================================
 
 
-// إنشاء كود دعوة خاص بالمستخدم
+// =================================
+// CREATE REFERRAL CODE
+// =================================
 
 function createReferralCode(){
 
-    let chars = "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+    let chars =
+        "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
 
     let code = "VA";
+
 
     for(let i = 0; i < 6; i++){
 
         code += chars[
-            Math.floor(Math.random() * chars.length)
+            Math.floor(
+                Math.random() * chars.length
+            )
         ];
 
     }
@@ -25,19 +31,26 @@ function createReferralCode(){
 
 
 
-// جلب الكود المحفوظ
+// =================================
+// GET SAVED CODE
+// =================================
 
-let userReferralCode = localStorage.getItem(
-    "VALORA_REFERRAL_CODE"
-);
+let userReferralCode =
+    localStorage.getItem(
+        "VALORA_REFERRAL_CODE"
+    );
 
 
 
-// إذا لا يوجد كود أنشئ واحد
+// =================================
+// CREATE CODE IF NOT EXISTS
+// =================================
 
 if(!userReferralCode){
 
-    userReferralCode = createReferralCode();
+    userReferralCode =
+        createReferralCode();
+
 
     localStorage.setItem(
         "VALORA_REFERRAL_CODE",
@@ -48,95 +61,175 @@ if(!userReferralCode){
 
 
 
-// إنشاء رابط الدعوة
+// =================================
+// CREATE REFERRAL URL
+// =================================
 
 let referralURL =
-window.location.origin +
-"/VALORA/register.html?ref=" +
-userReferralCode;
+    window.location.origin +
+    "/VALORA/register.html?ref=" +
+    userReferralCode;
 
 
 
+// =================================
+// LANGUAGE HELPER
+// =================================
 
-// عرض كود الدعوة
+function referralTranslate(
+    key,
+    fallback
+){
+
+    try{
+
+        let lang =
+            localStorage.getItem(
+                "VALORA_LANG"
+            ) || "ar";
+
+
+        if(
+            window.VALORA_LANG &&
+            window.VALORA_LANG.translations &&
+            window.VALORA_LANG.translations[lang] &&
+            window.VALORA_LANG.translations[lang][key]
+        ){
+
+            return
+                window.VALORA_LANG
+                .translations[lang][key];
+
+        }
+
+    }catch(error){
+
+        console.warn(
+            "VALORA referral language error:",
+            error
+        );
+
+    }
+
+
+    return fallback;
+
+}
+
+
+
+// =================================
+// DISPLAY REFERRAL DATA
+// =================================
 
 document.addEventListener(
-"DOMContentLoaded",
-function(){
+    "DOMContentLoaded",
+    function(){
 
 
-    let code =
-    document.getElementById(
-        "myReferralCode"
-    );
+        // =============================
+        // REFERRAL CODE
+        // =============================
+
+        let code =
+            document.getElementById(
+                "myReferralCode"
+            );
 
 
-    if(code){
+        if(code){
 
-        code.innerText =
-        userReferralCode;
+            code.innerText =
+                userReferralCode;
+
+        }
+
+
+
+        // =============================
+        // REFERRAL LINK
+        // =============================
+
+        let link =
+            document.getElementById(
+                "referralLink"
+            );
+
+
+        if(link){
+
+            link.innerText =
+                referralURL;
+
+        }
+
 
     }
+);
 
 
 
-
-    let link =
-    document.getElementById(
-        "referralLink"
-    );
-
-
-    if(link){
-
-        link.innerText =
-        referralURL;
-
-    }
-
-
-});
-
-
-
-
-
-
-// نسخ الكود
+// =================================
+// COPY REFERRAL CODE
+// =================================
 
 function copyCode(){
 
+    navigator.clipboard.writeText(
+        userReferralCode
+    );
 
-navigator.clipboard.writeText(
-    userReferralCode
-);
 
+    alert(
 
-alert(
-"تم نسخ كود الدعوة"
-);
+        referralTranslate(
 
+            "referral_code_copied",
+
+            "تم نسخ كود الدعوة"
+
+        )
+
+    );
 
 }
 
 
 
-
-
-
-// نسخ الرابط
+// =================================
+// COPY REFERRAL LINK
+// =================================
 
 function copyReferral(){
 
+    navigator.clipboard.writeText(
+        referralURL
+    );
 
-navigator.clipboard.writeText(
-    referralURL
-);
 
+    alert(
 
-alert(
-"تم نسخ رابط الدعوة"
-);
+        referralTranslate(
 
+            "referral_link_copied",
+
+            "تم نسخ رابط الدعوة"
+
+        )
+
+    );
 
 }
+
+
+
+// =================================
+// GLOBAL
+// =================================
+
+window.copyCode =
+    copyCode;
+
+
+window.copyReferral =
+    copyReferral;
