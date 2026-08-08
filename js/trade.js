@@ -3,8 +3,11 @@
 // TRADE PAGE
 // ==========================================
 //
-// Dynamic Coins
+// Language compatible
+// Uses:
+// VALORA_LANG
 //
+// Supported coins:
 // BTC
 // ETH
 // USDT
@@ -29,96 +32,54 @@
 const COINS = {
 
     BTC: {
-
         name: "Bitcoin",
-
         symbol: "BTC",
-
         icon: "₿",
-
         price: 67500,
-
         change: 2.45
-
     },
-
 
     ETH: {
-
         name: "Ethereum",
-
         symbol: "ETH",
-
         icon: "Ξ",
-
         price: 3500,
-
         change: 1.82
-
     },
-
 
     USDT: {
-
         name: "Tether",
-
         symbol: "USDT",
-
         icon: "₮",
-
         price: 1,
-
         change: 0.01
-
     },
-
 
     TRX: {
-
         name: "TRON",
-
         symbol: "TRX",
-
         icon: "T",
-
         price: 0.27,
-
         change: 1.14
-
     },
-
 
     XRP: {
-
         name: "XRP",
-
         symbol: "XRP",
-
         icon: "X",
-
         price: 0.58,
-
         change: 1.06
-
     },
 
-
     SOL: {
-
         name: "Solana",
-
         symbol: "SOL",
-
         icon: "S",
-
         price: 180,
-
         change: 2.11
-
     }
 
 };
-
 
 
 // ==========================================
@@ -128,9 +89,54 @@ const COINS = {
 let selectedCoin = "BTC";
 
 
+// ==========================================
+// GET LANGUAGE
+// ==========================================
+
+function getCurrentLanguage(){
+
+    if(
+        typeof window.getLanguage ===
+        "function"
+    ){
+
+        return window.getLanguage();
+
+    }
+
+    return "ar";
+
+}
+
 
 // ==========================================
-// GET COIN
+// GET TRANSLATIONS
+// ==========================================
+
+function getTranslations(){
+
+    const lang =
+        getCurrentLanguage();
+
+
+    if(
+        window.VALORA_LANG &&
+        window.VALORA_LANG.translations &&
+        window.VALORA_LANG.translations[lang]
+    ){
+
+        return window.VALORA_LANG.translations[lang];
+
+    }
+
+
+    return {};
+
+}
+
+
+// ==========================================
+// GET COIN FROM URL
 // ==========================================
 
 function getCoinFromURL(){
@@ -163,7 +169,6 @@ function getCoinFromURL(){
     return "BTC";
 
 }
-
 
 
 // ==========================================
@@ -206,6 +211,23 @@ function formatPrice(price){
 }
 
 
+// ==========================================
+// UPDATE STATIC LANGUAGE ELEMENTS
+// ==========================================
+
+function updateStaticLanguage(){
+
+    if(
+        typeof window.applyLanguage ===
+        "function"
+    ){
+
+        window.applyLanguage();
+
+    }
+
+}
+
 
 // ==========================================
 // LOAD COIN
@@ -224,78 +246,168 @@ function loadCoin(){
     }
 
 
+    // ======================================
+    // PAGE TITLE
+    // ======================================
+
+    const translations =
+        getTranslations();
+
+
+    const tradeTitle =
+        translations.trade || "Trade";
+
+
+    document.title =
+        "VALORA | " +
+        tradeTitle +
+        " | " +
+        coin.name;
+
 
     // ======================================
-    // NAME
+    // COIN NAME
     // ======================================
 
-    const name =
+    const coinName =
         document.getElementById(
             "coinName"
         );
 
 
-    if(name){
+    if(coinName){
 
-        name.textContent =
+        /*
+         * أسماء العملات لها مفاتيح خاصة
+         * داخل language.js
+         */
+
+        let translatedName =
             coin.name;
+
+
+        if(
+            selectedCoin === "BTC" &&
+            translations.bitcoin
+        ){
+
+            translatedName =
+                translations.bitcoin;
+
+        }
+
+
+        if(
+            selectedCoin === "ETH" &&
+            translations.ethereum
+        ){
+
+            translatedName =
+                translations.ethereum;
+
+        }
+
+
+        if(
+            selectedCoin === "USDT" &&
+            translations.tether
+        ){
+
+            translatedName =
+                translations.tether;
+
+        }
+
+
+        if(
+            selectedCoin === "TRX" &&
+            translations.tron
+        ){
+
+            translatedName =
+                translations.tron;
+
+        }
+
+
+        if(
+            selectedCoin === "XRP" &&
+            translations.ripple
+        ){
+
+            translatedName =
+                translations.ripple;
+
+        }
+
+
+        if(
+            selectedCoin === "SOL" &&
+            translations.solana
+        ){
+
+            translatedName =
+                translations.solana;
+
+        }
+
+
+        coinName.textContent =
+            translatedName;
 
     }
 
 
-
     // ======================================
-    // SYMBOL
+    // COIN PAIR
     // ======================================
 
-    const pair =
+    const coinPair =
         document.getElementById(
             "coinPair"
         );
 
 
-    if(pair){
+    if(coinPair){
 
-        pair.textContent =
+        coinPair.textContent =
             coin.symbol +
             " / USDT";
 
     }
 
 
-
     // ======================================
-    // ICON
+    // COIN ICON
     // ======================================
 
-    const icon =
+    const coinIcon =
         document.getElementById(
             "coinIcon"
         );
 
 
-    if(icon){
+    if(coinIcon){
 
-        icon.textContent =
+        coinIcon.textContent =
             coin.icon;
 
     }
-
 
 
     // ======================================
     // PRICE
     // ======================================
 
-    const price =
+    const tradePrice =
         document.getElementById(
             "tradePrice"
         );
 
 
-    if(price){
+    if(tradePrice){
 
-        price.textContent =
+        tradePrice.textContent =
             formatPrice(
                 coin.price
             );
@@ -303,38 +415,58 @@ function loadCoin(){
     }
 
 
-
     // ======================================
     // CHANGE
     // ======================================
 
-    const change =
+    const tradeChange =
         document.getElementById(
             "tradeChange"
         );
 
 
-    if(change){
+    if(tradeChange){
 
-        change.textContent =
+        const prefix =
+            coin.change >= 0
+            ? "+"
+            : "";
+
+
+        tradeChange.textContent =
             "▲ " +
+            prefix +
             coin.change +
             "%";
 
+
+        if(
+            coin.change >= 0
+        ){
+
+            tradeChange.classList.add(
+                "up"
+            );
+
+            tradeChange.classList.remove(
+                "down"
+            );
+
+        }else{
+
+            tradeChange.classList.add(
+                "down"
+            );
+
+            tradeChange.classList.remove(
+                "up"
+            );
+
+        }
+
     }
 
-
-
-    // ======================================
-    // TITLE
-    // ======================================
-
-    document.title =
-        "VALORA | " +
-        coin.name;
-
 }
-
 
 
 // ==========================================
@@ -361,26 +493,28 @@ function loadBalance(){
 
     try{
 
-        const saved =
+        const savedBalance =
             localStorage.getItem(
                 "VALORA_BALANCE"
             );
 
 
-        if(saved !== null){
+        if(savedBalance !== null){
 
-            const value =
-                Number(saved);
+            const parsedBalance =
+                Number(
+                    savedBalance
+                );
 
 
             if(
                 Number.isFinite(
-                    value
+                    parsedBalance
                 )
             ){
 
                 balance =
-                    value;
+                    parsedBalance;
 
             }
 
@@ -409,9 +543,8 @@ function loadBalance(){
 }
 
 
-
 // ==========================================
-// GET AMOUNT
+// GET TRADE AMOUNT
 // ==========================================
 
 function getTradeAmount(){
@@ -436,27 +569,27 @@ function getTradeAmount(){
 }
 
 
-
 // ==========================================
-// LANGUAGE
+// SHOW MESSAGE
 // ==========================================
 
-function getCurrentLanguage(){
+function showTradeMessage(key){
 
-    if(
-        typeof window.getLanguage ===
-        "function"
-    ){
+    const translations =
+        getTranslations();
 
-        return window.getLanguage();
+
+    const message =
+        translations[key];
+
+
+    if(message){
+
+        alert(message);
 
     }
 
-
-    return "ar";
-
 }
-
 
 
 // ==========================================
@@ -470,48 +603,46 @@ function(){
         getTradeAmount();
 
 
-    const lang =
-        getCurrentLanguage();
-
-
     if(
         !amount ||
         amount <= 0
     ){
 
-        alert(
-
-            lang === "en"
-
-            ? "Please enter a valid amount"
-
-            : "يرجى إدخال مبلغ صحيح"
-
+        showTradeMessage(
+            "required"
         );
-
 
         return;
 
     }
 
 
+    /*
+     * لا يوجد نص ثابت هنا.
+     * الرسالة تأتي من language.js.
+     *
+     * إذا أضفت لاحقًا:
+     *
+     * buy_success
+     *
+     * إلى اللغات، سيتم استخدامها.
+     */
 
-    if(lang === "en"){
+    const translations =
+        getTranslations();
+
+
+    if(
+        translations.buy_success
+    ){
 
         alert(
-            "Buy request submitted"
-        );
-
-    }else{
-
-        alert(
-            "تم إرسال طلب الشراء"
+            translations.buy_success
         );
 
     }
 
 };
-
 
 
 // ==========================================
@@ -525,42 +656,34 @@ function(){
         getTradeAmount();
 
 
-    const lang =
-        getCurrentLanguage();
-
-
     if(
         !amount ||
         amount <= 0
     ){
 
-        alert(
-
-            lang === "en"
-
-            ? "Please enter a valid amount"
-
-            : "يرجى إدخال مبلغ صحيح"
-
+        showTradeMessage(
+            "required"
         );
-
 
         return;
 
     }
 
 
+    /*
+     * لا يوجد نص عربي ثابت هنا.
+     */
 
-    if(lang === "en"){
+    const translations =
+        getTranslations();
+
+
+    if(
+        translations.sell_success
+    ){
 
         alert(
-            "Sell request submitted"
-        );
-
-    }else{
-
-        alert(
-            "تم إرسال طلب البيع"
+            translations.sell_success
         );
 
     }
@@ -568,24 +691,36 @@ function(){
 };
 
 
-
 // ==========================================
-// UPDATE LANGUAGE
+// REFRESH LANGUAGE
 // ==========================================
 
-function updateLanguage(){
+function updateTradeLanguage(){
 
-    if(
-        typeof window.applyLanguage ===
-        "function"
-    ){
+    /*
+     * أولًا نطبق نظام اللغة العام
+     */
 
-        window.applyLanguage();
+    updateStaticLanguage();
 
-    }
+
+    /*
+     * ثم نعيد تحميل اسم العملة
+     * لأن أسماء العملات لها مفاتيح
+     * مختلفة في language.js.
+     */
+
+    loadCoin();
+
+
+    /*
+     * الرصيد لا يحتاج ترجمة،
+     * لكنه يعاد عرضه فقط.
+     */
+
+    loadBalance();
 
 }
-
 
 
 // ==========================================
@@ -596,13 +731,18 @@ document.addEventListener(
     "DOMContentLoaded",
     function(){
 
-        // تحديد العملة من الرابط
+        // تحديد العملة
 
         selectedCoin =
             getCoinFromURL();
 
 
-        // تحميل بيانات العملة
+        // تطبيق اللغة أولًا
+
+        updateStaticLanguage();
+
+
+        // تحميل العملة
 
         loadCoin();
 
@@ -611,18 +751,39 @@ document.addEventListener(
 
         loadBalance();
 
+    }
+);
 
-        // تطبيق اللغة
 
-        updateLanguage();
+// ==========================================
+// LANGUAGE CHANGE LISTENER
+// ==========================================
+//
+// إذا تم تغيير اللغة من صفحة أخرى
+// ثم العودة إلى صفحة العملة،
+// يتم تطبيق اللغة الجديدة.
+//
+// ==========================================
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+        if(
+            event.key ===
+            "VALORA_LANG"
+        ){
+
+            updateTradeLanguage();
+
+        }
 
     }
 );
 
 
-
 // ==========================================
-// GLOBAL
+// GLOBAL API
 // ==========================================
 
 window.VALORA_TRADE = {
@@ -653,6 +814,13 @@ window.VALORA_TRADE = {
     reloadBalance: function(){
 
         loadBalance();
+
+    },
+
+
+    updateLanguage: function(){
+
+        updateTradeLanguage();
 
     }
 
