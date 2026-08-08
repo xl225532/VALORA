@@ -48,82 +48,168 @@ en: {
 // GENERAL
 // ==========================================
 
-home: "Home",
-dashboard: "Dashboard",
-wallet: "Wallet",
-assets: "Total Assets",
-team: "Team",
-sync: "Sync",
-settings: "Settings",
-language: "Language",
-notifications: "Notifications",
-support: "Customer Support",
-terms: "Terms & Conditions",
-security: "Withdrawal Security Code",
-verify: "Identity Verification",
-password: "Change Password",
-logout: "Logout",
-application: "VALORA App",
+home:
+"Home",
+
+dashboard:
+"Dashboard",
+
+wallet:
+"Wallet",
+
+assets:
+"Total Assets",
+
+team:
+"Team",
+
+sync:
+"Sync",
+
+settings:
+"Settings",
+
+language:
+"Language",
+
+notifications:
+"Notifications",
+
+support:
+"Customer Support",
+
+terms:
+"Terms & Conditions",
+
+security:
+"Withdrawal Security Code",
+
+verify:
+"Identity Verification",
+
+password:
+"Change Password",
+
+logout:
+"Logout",
+
+application:
+"VALORA App",
 
 
 // ==========================================
 // ACCOUNT
 // ==========================================
 
-account: "My Account",
-username: "Username",
-email: "Email",
-phone: "Phone Number",
-uid: "UID",
+account:
+"My Account",
+
+username:
+"Username",
+
+email:
+"Email",
+
+phone:
+"Phone Number",
+
+uid:
+"UID",
 
 
 // ==========================================
 // DASHBOARD
 // ==========================================
 
-today_profit: "Today's Profit",
-markets: "Markets",
-bitcoin: "Bitcoin",
-ethereum: "Ethereum",
-tether: "Tether",
-tron: "TRON",
-ripple: "XRP",
-solana: "Solana",
+today_profit:
+"Today's Profit",
+
+markets:
+"Markets",
+
+bitcoin:
+"Bitcoin",
+
+ethereum:
+"Ethereum",
+
+tether:
+"Tether",
+
+tron:
+"TRON",
+
+ripple:
+"XRP",
+
+solana:
+"Solana",
 
 
 // ==========================================
 // LOGIN
 // ==========================================
 
-login_subtitle: "Login to your account",
-email_phone: "Email or Phone Number",
-email_phone_placeholder: "Enter Email or Phone Number",
-password: "Password",
-password_placeholder: "Enter Password",
-login_btn: "Login",
-forgot_password: "Forgot Password?",
-create_account: "Create Account",
+login_subtitle:
+"Login to your account",
+
+email_phone:
+"Email or Phone Number",
+
+email_phone_placeholder:
+"Enter Email or Phone Number",
+
+password:
+"Password",
+
+password_placeholder:
+"Enter Password",
+
+login_btn:
+"Login",
+
+forgot_password:
+"Forgot Password?",
+
+create_account:
+"Create Account",
 
 
 // ==========================================
 // WALLET
 // ==========================================
 
-wallet_title: "Wallet",
-deposit: "Deposit",
-withdraw: "Withdraw",
-transaction_history: "Transaction History",
-today: "Today's Profit",
-invite_profit: "Invitation Profit",
-team_profit: "Team Profit",
-reward_profit: "Reward Profit",
+wallet_title:
+"Wallet",
+
+deposit:
+"Deposit",
+
+withdraw:
+"Withdraw",
+
+transaction_history:
+"Transaction History",
+
+today:
+"Today's Profit",
+
+invite_profit:
+"Invitation Profit",
+
+team_profit:
+"Team Profit",
+
+reward_profit:
+"Reward Profit",
 
 
 // ==========================================
 // DEPOSIT
 // ==========================================
 
-deposit_title: "Deposit Coins",
+deposit_title:
+"Deposit Coins",
 
 deposit_subtitle:
 "Choose coin and network to display deposit address",
@@ -433,6 +519,44 @@ referral_link_copied:
 
 
 // ==========================================
+// TRADE PAGE
+// ==========================================
+
+current_price:
+"Current Price",
+
+available_balance:
+"Available Balance",
+
+amount:
+"Amount",
+
+enter_amount:
+"Enter trading amount in USDT",
+
+buy:
+"Buy",
+
+sell:
+"Sell",
+
+recent_orders:
+"Recent Orders",
+
+no_orders_trade:
+"No orders currently",
+
+buy_success:
+"Buy request submitted successfully",
+
+sell_success:
+"Sell request submitted successfully",
+
+required:
+"This field is required",
+
+
+// ==========================================
 // LANGUAGE
 // ==========================================
 
@@ -481,10 +605,7 @@ submit:
 "Submit",
 
 loading:
-"Loading...",
-
-required:
-"This field is required"
+"Loading..."
 
 },
 
@@ -971,6 +1092,44 @@ referral_link_copied:
 
 
 // ==========================================
+// TRADE PAGE
+// ==========================================
+
+current_price:
+"السعر الحالي",
+
+available_balance:
+"الرصيد المتاح",
+
+amount:
+"الكمية",
+
+enter_amount:
+"أدخل مبلغ التداول بالـ USDT",
+
+buy:
+"شراء",
+
+sell:
+"بيع",
+
+recent_orders:
+"آخر العمليات",
+
+no_orders_trade:
+"لا توجد عمليات حالياً",
+
+buy_success:
+"تم إرسال طلب الشراء بنجاح",
+
+sell_success:
+"تم إرسال طلب البيع بنجاح",
+
+required:
+"هذا الحقل مطلوب",
+
+
+// ==========================================
 // LANGUAGE
 // ==========================================
 
@@ -1019,10 +1178,7 @@ submit:
 "إرسال",
 
 loading:
-"جارٍ التحميل...",
-
-required:
-"هذا الحقل مطلوب"
+"جارٍ التحميل..."
 
 }
 
@@ -1037,10 +1193,13 @@ function getLanguage(){
 
     let lang = null;
 
+
     try {
 
         lang =
-            localStorage.getItem(STORAGE_KEY);
+            localStorage.getItem(
+                STORAGE_KEY
+            );
 
     } catch(error){
 
@@ -1079,6 +1238,7 @@ function applyLanguage(){
     const lang =
         getLanguage();
 
+
     const currentTranslations =
         translations[lang] ||
         translations[DEFAULT_LANGUAGE];
@@ -1086,6 +1246,7 @@ function applyLanguage(){
 
     document.documentElement.lang =
         lang;
+
 
     document.documentElement.dir =
         RTL_LANGUAGES.includes(lang)
@@ -1102,7 +1263,9 @@ function applyLanguage(){
     .forEach(function(el){
 
         const key =
-            el.getAttribute("data-lang");
+            el.getAttribute(
+                "data-lang"
+            );
 
 
         if(
@@ -1125,7 +1288,9 @@ function applyLanguage(){
     // ======================================
 
     document
-    .querySelectorAll("[data-lang-placeholder]")
+    .querySelectorAll(
+        "[data-lang-placeholder]"
+    )
     .forEach(function(el){
 
         const key =
@@ -1188,11 +1353,13 @@ function setLanguage(lang){
     }
 
 
-    // تطبيق اللغة فوراً قبل إعادة تحميل الصفحة
+    // تطبيق اللغة فوراً
+
     applyLanguage();
 
 
-    // إعادة تحميل الصفحة الحالية فقط
+    // إعادة تحميل الصفحة الحالية
+
     setTimeout(function(){
 
         window.location.reload();
@@ -1223,11 +1390,14 @@ document.addEventListener(
 window.setLanguage =
     setLanguage;
 
+
 window.applyLanguage =
     applyLanguage;
 
+
 window.getLanguage =
     getLanguage;
+
 
 window.VALORA_LANG = {
 
