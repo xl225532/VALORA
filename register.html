@@ -21,21 +21,28 @@
 <div class="auth-container">
 
 
-<div class="logo">
+<!-- =========================
+     LOGO
+========================= -->
 
+<div class="logo">
 
 <div class="logo-icon">
 
 <svg viewBox="0 0 64 64">
 
-<path d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
-fill="#1687FF"/>
+<path
+d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+fill="#1687FF">
+</path>
 
-<path d="M22 24 L32 44 L42 24"
+<path
+d="M22 24 L32 44 L42 24"
 stroke="#ffffff"
 stroke-width="4"
 fill="none"
-stroke-linecap="round"/>
+stroke-linecap="round">
+</path>
 
 </svg>
 
@@ -51,25 +58,40 @@ VALORA
 EXCHANGE
 </div>
 
-
 </div>
 
 
 
-<div class="auth-title">
+<!-- =========================
+     TITLE
+========================= -->
+
+<div
+class="auth-title"
+data-lang="register_title">
+
 إنشاء حساب جديد
+
 </div>
 
 
+
+<!-- =========================
+     REGISTER FORM
+========================= -->
 
 <form id="registerForm">
 
 
 
+<!-- CONTACT -->
+
 <div class="input-group">
 
-<label>
+<label data-lang="register_contact">
+
 البريد الإلكتروني أو رقم الهاتف
+
 </label>
 
 
@@ -79,6 +101,8 @@ type="text"
 
 id="contact"
 
+data-lang-placeholder="register_contact_placeholder"
+
 placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
 
 required>
@@ -87,12 +111,14 @@ required>
 
 
 
-
+<!-- VERIFICATION CODE -->
 
 <div class="input-group">
 
-<label>
+<label data-lang="verification_code">
+
 كود التحقق
+
 </label>
 
 
@@ -107,6 +133,8 @@ id="verifyCode"
 
 maxlength="6"
 
+data-lang-placeholder="verification_code_placeholder"
+
 placeholder="أدخل كود التحقق">
 
 
@@ -116,7 +144,9 @@ type="button"
 
 class="verify-btn"
 
-onclick="sendVerificationCode()">
+onclick="sendVerificationCode()"
+
+data-lang="verify">
 
 تحقق
 
@@ -125,18 +155,18 @@ onclick="sendVerificationCode()">
 
 </div>
 
-
 </div>
 
 
 
-
-
+<!-- PASSWORD -->
 
 <div class="input-group">
 
-<label>
+<label data-lang="password">
+
 كلمة المرور
+
 </label>
 
 
@@ -149,10 +179,11 @@ type="password"
 
 id="password"
 
+data-lang-placeholder="password_placeholder_register"
+
 placeholder="********"
 
 required>
-
 
 
 <button
@@ -166,28 +197,31 @@ onclick="togglePassword('password',this)">
 
 <svg viewBox="0 0 24 24">
 
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+</path>
 
-<circle cx="12" cy="12" r="3"/>
+<circle cx="12" cy="12" r="3">
+</circle>
 
 </svg>
 
 
 </button>
 
-
 </div>
 
 </div>
 
 
 
-
+<!-- CONFIRM PASSWORD -->
 
 <div class="input-group">
 
-<label>
+<label data-lang="confirm_password">
+
 تأكيد كلمة المرور
+
 </label>
 
 
@@ -200,10 +234,11 @@ type="password"
 
 id="confirmPassword"
 
+data-lang-placeholder="confirm_password_placeholder"
+
 placeholder="********"
 
 required>
-
 
 
 <button
@@ -217,30 +252,31 @@ onclick="togglePassword('confirmPassword',this)">
 
 <svg viewBox="0 0 24 24">
 
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"/>
+<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+</path>
 
-<circle cx="12" cy="12" r="3"/>
+<circle cx="12" cy="12" r="3">
+</circle>
 
 </svg>
 
 
 </button>
 
-
 </div>
 
 </div>
 
 
 
-
-
-
+<!-- INVITE CODE -->
 
 <div class="input-group">
 
-<label>
+<label data-lang="invite_code">
+
 كود الدعوة
+
 </label>
 
 
@@ -250,15 +286,15 @@ type="text"
 
 id="inviteCode"
 
-placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
+data-lang-placeholder="invite_code_placeholder"
 
+placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
 
 </div>
 
 
 
-
-
+<!-- TERMS -->
 
 <div class="checkbox-group">
 
@@ -283,10 +319,17 @@ required>
 
 <label>
 
+<span data-lang="agree_terms">
+
 أوافق على
 
+</span>
 
-<a href="terms.html" target="_blank">
+
+<a
+href="terms.html"
+target="_blank"
+data-lang="terms_privacy">
 
 الشروط والأحكام وسياسة الخصوصية
 
@@ -295,19 +338,19 @@ required>
 
 </label>
 
-
 </div>
 
 
 
-
-
+<!-- REGISTER BUTTON -->
 
 <button
 
 type="submit"
 
-class="btn-primary">
+class="btn-primary"
+
+data-lang="register_btn">
 
 إنشاء الحساب
 
@@ -319,25 +362,26 @@ class="btn-primary">
 
 
 
-
-
-
+<!-- LOGIN LINK -->
 
 <div class="bottom-link">
 
+<span data-lang="already_have_account">
+
 لديك حساب بالفعل؟
 
+</span>
 
-<a href="login.html">
+
+<a
+href="login.html"
+data-lang="login_btn">
 
 تسجيل الدخول
 
 </a>
 
-
 </div>
-
-
 
 
 
@@ -346,6 +390,25 @@ class="btn-primary">
 
 
 <script src="js/app.js"></script>
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+    if(typeof applyLanguage === "function"){
+
+        applyLanguage();
+
+    }
+
+});
+
+</script>
 
 
 </body>
