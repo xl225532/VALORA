@@ -45,6 +45,14 @@
          // CHANGE PASSWORD
        // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+deposit_history_title: "Deposit History",
+total_deposits: "Total Deposits",
+total_deposit_amount: "Total Deposit Amount",
+no_deposits: "No deposits yet",
+network: "Network",
+deposit_amount: "Amount",
+deposit_date: "Deposit Date",
+            
 change: "Change",
 
 loginCode: "Login Code",
@@ -977,6 +985,14 @@ send_message:
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+deposit_history_title: "سجل الإيداعات",
+total_deposits: "عدد الإيداعات",
+total_deposit_amount: "إجمالي الإيداعات",
+no_deposits: "لا توجد إيداعات حتى الآن",
+network: "الشبكة",
+deposit_amount: "المبلغ",
+deposit_date: "تاريخ الإيداع",
+            
 change: "تغيير",
 
 loginCode: "رمز الدخول",
