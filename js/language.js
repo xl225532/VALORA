@@ -43,7 +43,19 @@
          
             // GENERAL
          // CHANGE PASSWORD
-// IDENTITY VERIFICATION
+      // IDENTITY VERIFICATION
+security_heading:
+"Create Withdrawal Security Code",
+
+confirm_security_code:
+"Confirm Security Code",
+
+confirm_security_placeholder:
+"Re-enter security code",
+
+save_security:
+"Save Security Code",
+            
 security_title:
 "Withdrawal Security Code",
 
@@ -842,6 +854,18 @@ send_message:
          
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
+security_heading:
+"إنشاء رمز أمان للسحب",
+
+confirm_security_code:
+"تأكيد رمز الأمان",
+
+confirm_security_placeholder:
+"أعد إدخال الرمز",
+
+save_security:
+"حفظ رمز الأمان",
+            
 security_title:
 "رمز أمان السحب",
 
