@@ -45,6 +45,14 @@
          // CHANGE PASSWORD
        // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+login_code_title: "Login Code",
+change_login_code: "Change Login Code",
+login_code_description: "Use a login code to protect your account",
+current_login_code: "Current Login Code",
+new_login_code: "New Login Code",
+confirm_new_login_code: "Confirm New Login Code",
+save_login_code: "Save Changes",
+            
 deposit_history_title: "Deposit History",
 total_deposits: "Total Deposits",
 total_deposit_amount: "Total Deposit Amount",
@@ -985,6 +993,14 @@ send_message:
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+login_code_title: "رمز الدخول",
+change_login_code: "تغيير رمز الدخول",
+login_code_description: "استخدم رمز دخول لحماية حسابك",
+current_login_code: "الرمز الحالي",
+new_login_code: "الرمز الجديد",
+confirm_new_login_code: "تأكيد الرمز الجديد",
+save_login_code: "حفظ التغيير",
+            
 deposit_history_title: "سجل الإيداعات",
 total_deposits: "عدد الإيداعات",
 total_deposit_amount: "إجمالي الإيداعات",
