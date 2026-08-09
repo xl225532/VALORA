@@ -1,1255 +1,989 @@
-*{
-
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Cairo',Arial,sans-serif;
-
-}
-
-
-body{
-
-min-height:100vh;
-
-background:#050B16;
-
-color:white;
-
-display:flex;
-
-justify-content:center;
-
-align-items:center;
-
-}
-
-
-
-
-.auth-container{
-
-width:100%;
-
-max-width:390px;
-
-background:#0B1628;
-
-border:1px solid #17365C;
-
-border-radius:22px;
-
-padding:20px 18px;
-
-margin:15px;
-
-}
-
-
-
-
-
-/* الشعار */
-
-.logo{
-
-text-align:center;
-
-margin-bottom:15px;
-
-}
-
-
-
-.logo-icon svg{
-
-width:45px;
-
-height:45px;
-
-}
-
-
-
-.logo-name{
-
-font-size:27px;
-
-font-weight:800;
-
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:0 0 10px #1687FF;
-
-}
-
-
-
-.logo-sub{
-
-font-size:11px;
-
-color:#98A5B8;
-
-letter-spacing:3px;
-
-}
-
-
-
-
-
-/* العنوان */
-
-.auth-title{
-
-text-align:center;
-
-font-size:21px;
-
-font-weight:bold;
-
-margin-bottom:18px;
-
-}
-
-
-
-
-
-
-/* الحقول */
-
-.input-group{
-
-margin-bottom:12px;
-
-}
-
-
-
-.input-group label{
-
-display:block;
-
-font-size:13px;
-
-color:#C6D3E4;
-
-margin-bottom:5px;
-
-}
-
-
-
-.input-group input{
-
-width:100%;
-
-height:42px;
-
-background:#050B16;
-
-border:1px solid #17365C;
-
-border-radius:11px;
-
-padding:10px;
-
-color:white;
-
-font-size:13px;
-
-outline:none;
-
-}
-
-
-
-.input-group input:focus{
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-
-
-/* حقل التحقق */
-
-
-.verify-box{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-}
-
-
-.verify-box input{
-
-flex:1;
-
-}
-
-
-
-.verify-btn{
-
-height:36px;
-
-padding:0 12px;
-
-border:none;
-
-border-radius:10px;
-
-background:#1687FF;
-
-color:white;
-
-font-family:'Cairo',sans-serif;
-
-font-size:12px;
-
-font-weight:700;
-
-cursor:pointer;
-
-white-space:nowrap;
-
-box-shadow:0 0 10px #1687FF55;
-
-}
-
-
-
-.verify-btn:active{
-
-transform:scale(.95);
-
-}
-
-
-
-
-
-/* كلمة المرور */
-
-
-.password-box{
-
-position:relative;
-
-display:flex;
-
-align-items:center;
-
-}
-
-
-
-.password-box input{
-
-padding-left:45px;
-
-}
-
-
-
-.eye-btn{
-
-position:absolute;
-
-left:10px;
-
-top:50%;
-
-transform:translateY(-50%);
-
-background:none;
-
-border:0;
-
-cursor:pointer;
-
-padding:5px;
-
-}
-
-
-
-.eye-btn svg{
-
-width:22px;
-
-height:22px;
-
-stroke:#98A5B8;
-
-fill:none;
-
-stroke-width:2;
-
-transition:.3s;
-
-}
-
-
-
-.eye-btn.show svg{
-
-stroke:#1687FF;
-
-filter:drop-shadow(0 0 6px #1687FF);
-
-}
-/* كود التحقق */
-
-#verifyCode{
-
-text-align:center;
-
-letter-spacing:6px;
-
-font-size:18px;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-
-/* الشروط */
-
-.checkbox-group{
-
-display:flex;
-
-align-items:center;
-
-gap:8px;
-
-font-size:12px;
-
-color:#98A5B8;
-
-margin:12px 0;
-
-}
-
-
-
-.checkbox-group a{
-
-color:#1687FF;
-
-text-decoration:none;
-
-}
-
-
-
-
-
-.circle-check input{
-
-display:none;
-
-}
-
-
-
-.circle-check span{
-
-width:18px;
-
-height:18px;
-
-border:1px solid #17365C;
-
-border-radius:50%;
-
-display:block;
-
-}
-
-
-
-.circle-check input:checked + span{
-
-background:#1687FF;
-
-border-color:#1687FF;
-
-}
-
-
-
-
-
-
-
-
-/* زر التسجيل */
-
-
-.btn-primary{
-
-width:100%;
-
-height:45px;
-
-border:0;
-
-border-radius:12px;
-
-background:#1687FF;
-
-color:white;
-
-font-size:15px;
-
-font-weight:bold;
-
-cursor:pointer;
-
-margin-top:8px;
-
-box-shadow:0 0 12px #1687FF55;
-
-}
-
-
-
-.btn-primary:active{
-
-transform:scale(.98);
-
-}
-
-
-
-
-
-
-
-
-/* الرابط السفلي */
-
-
-.bottom-link{
-
-text-align:center;
-
-margin-top:15px;
-
-font-size:13px;
-
-color:#98A5B8;
-
-}
-
-
-
-.bottom-link a{
-
-color:#22C55E;
-
-text-decoration:none;
-
-font-weight:bold;
-
-}
-
-
-
-
-
-
-
-
-/* تأثيرات بسيطة */
-
-
-.auth-container{
-
-animation:showBox .5s ease;
-
-}
-
-
-
-@keyframes showBox{
-
-from{
-
-opacity:0;
-
-transform:translateY(20px);
-
-}
-
-to{
-
-opacity:1;
-
-transform:translateY(0);
-
-}
-
-}
-
-
-
-
-
-
-
-@media(max-height:700px){
-
-
-.auth-container{
-
-padding:15px;
-
-}
-
-
-
-.logo-icon svg{
-
-width:38px;
-
-height:38px;
-
-}
-
-
-
-.logo-name{
-
-font-size:24px;
-
-}
-
-
-
-.auth-title{
-
-font-size:19px;
-
-margin-bottom:12px;
-
-}
-
-
-
-.input-group{
-
-margin-bottom:9px;
-
-}
-
-
-}
-
-
-
-
-@media(max-width:400px){
-
-
-.auth-container{
-
-margin:10px;
-
-padding:18px 15px;
-
-}
-
-
-}
-/* كود التحقق */
-
-.verify-box{
-
-display:flex;
-gap:8px;
-align-items:center;
-
-}
-
-
-.verify-box input{
-
-flex:1;
-
-}
-
-
-.verify-btn{
-
-height:38px;
-padding:0 16px;
-
-border:none;
-border-radius:10px;
-
-background:#1687FF;
-color:white;
-
-font-family:'Cairo',sans-serif;
-font-size:13px;
-font-weight:bold;
-
-cursor:pointer;
-
-}
-
-
-.verify-btn:active{
-
-transform:scale(.95);
-
-}
-
-
-#verifyCode{
-
-text-align:center;
-letter-spacing:5px;
-font-weight:bold;
-
-}
-/* =========================
-   Verification Code
-========================= */
-
-.verify-box{
-    display:flex;
-    align-items:center;
-    gap:8px;
-}
-
-.verify-box input{
-    flex:1;
-}
-
-.verify-btn{
-    height:38px;
-    padding:0 15px;
-    border:none;
-    border-radius:10px;
-    background:#1687FF;
-    color:white;
-    font-family:'Cairo',sans-serif;
-    font-size:13px;
-    font-weight:bold;
-    cursor:pointer;
-}
-
-.verify-btn:active{
-    transform:scale(.95);
-}
-
-#verifyCode{
-    text-align:center;
-    letter-spacing:5px;
-    font-size:16px;
-}
 /* ==========================================
-   VALORA - FORM VALIDATION
+   VALORA REGISTER
+   REGISTER PAGE STYLE
 ========================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Cairo', Arial, sans-serif;
+}
 
 
 /* ==========================================
-   الحقل عند وجود خطأ
+   BODY
 ========================================== */
 
-.input-group.has-error input{
+body {
 
-    border-color:#EF4444 !important;
+    min-height: 100vh;
 
-    box-shadow:
-        0 0 0 1px #EF4444,
-        0 0 8px #EF444433;
+    background: #050B16;
+
+    color: white;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 15px;
 
 }
 
 
 /* ==========================================
-   الحقل عند النجاح
+   REGISTER CONTAINER
 ========================================== */
 
-.input-group.has-success input{
+.auth-container {
 
-    border-color:#22C55E !important;
+    width: 100%;
 
-    box-shadow:
-        0 0 0 1px #22C55E,
-        0 0 8px #22C55E33;
+    max-width: 390px;
+
+    background: #0B1628;
+
+    border: 1px solid #17365C;
+
+    border-radius: 22px;
+
+    padding: 20px 18px;
+
+    animation: showBox .5s ease;
 
 }
 
 
 /* ==========================================
-   رسالة الخطأ
+   LOGO
 ========================================== */
 
-.field-error{
+.logo {
 
-    display:flex;
+    text-align: center;
 
-    align-items:center;
-
-    gap:5px;
-
-    margin-top:5px;
-
-    color:#EF4444;
-
-    font-size:11px;
-
-    line-height:1.5;
-
-    animation:
-        errorAppear .2s ease;
+    margin-bottom: 15px;
 
 }
 
 
-/* أيقونة الخطأ */
+.logo-icon svg {
 
-.field-error::before{
+    width: 45px;
 
-    content:"⚠";
+    height: 45px;
 
-    font-size:11px;
+}
+
+
+.logo-name {
+
+    font-size: 27px;
+
+    font-weight: 800;
+
+    letter-spacing: 3px;
+
+    color: #EAF3FF;
+
+    text-shadow: 0 0 10px #1687FF;
+
+}
+
+
+.logo-sub {
+
+    font-size: 11px;
+
+    color: #98A5B8;
+
+    letter-spacing: 3px;
 
 }
 
 
 /* ==========================================
-   رسالة النجاح
+   TITLE
 ========================================== */
 
-.field-success{
+.auth-title {
 
-    display:flex;
+    text-align: center;
 
-    align-items:center;
+    font-size: 21px;
 
-    gap:5px;
+    font-weight: bold;
 
-    margin-top:5px;
+    margin-bottom: 18px;
 
-    color:#22C55E;
-
-    font-size:11px;
+    color: #ffffff;
 
 }
 
 
 /* ==========================================
-   الشروط عند الخطأ
+   INPUT GROUP
 ========================================== */
 
-.checkbox-group.has-error{
+.input-group {
 
-    color:#EF4444;
+    margin-bottom: 14px;
+
+    transition: .25s ease;
 
 }
 
 
-.checkbox-group.has-error .circle-check span{
+.input-group label {
 
-    border-color:#EF4444 !important;
+    display: block;
 
-    box-shadow:
-        0 0 0 2px #EF444422;
+    font-size: 13px;
+
+    color: #C6D3E4;
+
+    margin-bottom: 5px;
 
 }
 
 
 /* ==========================================
-   رسالة خطأ الشروط
+   INPUT
 ========================================== */
 
-.terms-error{
+.input-group input {
 
-    color:#EF4444;
+    width: 100%;
 
-    font-size:11px;
+    height: 42px;
 
-    margin-top:-7px;
+    background: #050B16;
 
-    margin-bottom:8px;
+    border: 1px solid #17365C;
 
-    animation:
-        errorAppear .2s ease;
+    border-radius: 11px;
+
+    padding: 10px;
+
+    color: white;
+
+    font-size: 13px;
+
+    outline: none;
+
+    transition:
+        border-color .25s ease,
+        box-shadow .25s ease,
+        background .25s ease;
+
+}
+
+
+.input-group input::placeholder {
+
+    color: #65758C;
+
+}
+
+
+.input-group input:focus {
+
+    border-color: #1687FF;
+
+    box-shadow: 0 0 0 2px #1687FF22;
 
 }
 
 
 /* ==========================================
-   إشعار عام
+   ERROR STATE
 ========================================== */
 
-.form-notice{
+.input-group.error input {
 
-    display:flex;
+    border-color: #EF4444;
 
-    align-items:center;
-
-    gap:8px;
-
-    width:100%;
-
-    padding:10px 12px;
-
-    border-radius:10px;
-
-    margin-bottom:12px;
-
-    font-size:12px;
-
-    line-height:1.5;
-
-    animation:
-        errorAppear .25s ease;
+    box-shadow: 0 0 0 2px #EF444422;
 
 }
 
 
-.form-notice.error{
+.input-group.error input:focus {
 
-    background:#EF444415;
+    border-color: #EF4444;
 
-    border:1px solid #EF444455;
-
-    color:#FF6B6B;
+    box-shadow: 0 0 0 2px #EF444433;
 
 }
 
 
-.form-notice.success{
+.input-group.error label {
 
-    background:#22C55E15;
-
-    border:1px solid #22C55E55;
-
-    color:#4ADE80;
-
-}
-
-
-.form-notice-icon{
-
-    width:20px;
-
-    height:20px;
-
-    min-width:20px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    font-weight:bold;
-
-}
-
-
-.form-notice.error
-.form-notice-icon{
-
-    background:#EF4444;
-
-    color:white;
-
-}
-
-
-.form-notice.success
-.form-notice-icon{
-
-    background:#22C55E;
-
-    color:white;
+    color: #FF6B6B;
 
 }
 
 
 /* ==========================================
-   ظهور الخطأ
+   ERROR MESSAGE
 ========================================== */
 
-@keyframes errorAppear{
+.field-error {
 
-    from{
+    min-height: 0;
 
-        opacity:0;
+    margin-top: 5px;
 
-        transform:translateY(-3px);
+    color: #FF5C5C;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+    display: block;
+
+    transition: .2s ease;
+
+}
+
+
+/* ==========================================
+   VERIFICATION CODE
+========================================== */
+
+.verify-box {
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+}
+
+
+.verify-box input {
+
+    flex: 1;
+
+    min-width: 0;
+
+}
+
+
+#verifyCode {
+
+    text-align: center;
+
+    letter-spacing: 5px;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+}
+
+
+/* ==========================================
+   VERIFICATION BUTTON
+========================================== */
+
+.verify-btn {
+
+    height: 38px;
+
+    padding: 0 15px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #1687FF;
+
+    color: white;
+
+    font-family: 'Cairo', sans-serif;
+
+    font-size: 13px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    white-space: nowrap;
+
+    box-shadow: 0 0 10px #1687FF44;
+
+    transition: .2s ease;
+
+}
+
+
+.verify-btn:hover {
+
+    background: #0F7AE5;
+
+}
+
+
+.verify-btn:active {
+
+    transform: scale(.95);
+
+}
+
+
+/* ==========================================
+   PASSWORD BOX
+========================================== */
+
+.password-box {
+
+    position: relative;
+
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+}
+
+
+.password-box input {
+
+    padding-left: 45px;
+
+}
+
+
+/* ==========================================
+   EYE BUTTON
+========================================== */
+
+.eye-btn {
+
+    position: absolute;
+
+    left: 10px;
+
+    top: 50%;
+
+    transform: translateY(-50%);
+
+    background: none;
+
+    border: 0;
+
+    cursor: pointer;
+
+    padding: 5px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+}
+
+
+.eye-btn svg {
+
+    width: 22px;
+
+    height: 22px;
+
+    stroke: #98A5B8;
+
+    fill: none;
+
+    stroke-width: 2;
+
+    transition: .3s;
+
+}
+
+
+.eye-btn:hover svg {
+
+    stroke: #1687FF;
+
+}
+
+
+.eye-btn.show svg {
+
+    stroke: #1687FF;
+
+    filter: drop-shadow(0 0 6px #1687FF);
+
+}
+
+
+/* ==========================================
+   TERMS
+========================================== */
+
+.checkbox-group {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 8px;
+
+    font-size: 12px;
+
+    color: #98A5B8;
+
+    margin: 13px 0;
+
+    padding: 7px;
+
+    border: 1px solid transparent;
+
+    border-radius: 10px;
+
+    transition: .25s ease;
+
+}
+
+
+.checkbox-group > label:last-child {
+
+    line-height: 1.7;
+
+}
+
+
+.checkbox-group a {
+
+    color: #1687FF;
+
+    text-decoration: none;
+
+    font-weight: 600;
+
+}
+
+
+.checkbox-group a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ==========================================
+   CUSTOM CHECKBOX
+========================================== */
+
+.circle-check {
+
+    flex-shrink: 0;
+
+    cursor: pointer;
+
+}
+
+
+.circle-check input {
+
+    display: none;
+
+}
+
+
+.circle-check span {
+
+    width: 18px;
+
+    height: 18px;
+
+    border: 1px solid #17365C;
+
+    border-radius: 50%;
+
+    display: block;
+
+    position: relative;
+
+    transition: .25s ease;
+
+}
+
+
+.circle-check input:checked + span {
+
+    background: #1687FF;
+
+    border-color: #1687FF;
+
+    box-shadow: 0 0 8px #1687FF55;
+
+}
+
+
+.circle-check input:checked + span::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 5px;
+
+    height: 9px;
+
+    border-right: 2px solid white;
+
+    border-bottom: 2px solid white;
+
+    left: 6px;
+
+    top: 2px;
+
+    transform: rotate(45deg);
+
+}
+
+
+/* ==========================================
+   TERMS ERROR
+========================================== */
+
+.checkbox-group.error {
+
+    border-color: #EF4444;
+
+    background: #EF44440D;
+
+}
+
+
+.checkbox-group.error .circle-check span {
+
+    border-color: #EF4444;
+
+    box-shadow: 0 0 0 2px #EF444422;
+
+}
+
+
+.checkbox-group.error > label:last-child {
+
+    color: #FF6B6B;
+
+}
+
+
+.checkbox-group.error a {
+
+    color: #FF6B6B;
+
+}
+
+
+/* ==========================================
+   TERMS ERROR MESSAGE
+========================================== */
+
+#termsError {
+
+    display: block;
+
+    margin-top: 4px;
+
+    color: #FF5C5C;
+
+    font-size: 11px;
+
+    line-height: 1.5;
+
+}
+
+
+/* ==========================================
+   REGISTER BUTTON
+========================================== */
+
+.btn-primary {
+
+    width: 100%;
+
+    height: 45px;
+
+    border: 0;
+
+    border-radius: 12px;
+
+    background: #1687FF;
+
+    color: white;
+
+    font-size: 15px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    margin-top: 8px;
+
+    box-shadow: 0 0 12px #1687FF55;
+
+    transition: .2s ease;
+
+}
+
+
+.btn-primary:hover {
+
+    background: #0F7AE5;
+
+    box-shadow: 0 0 16px #1687FF66;
+
+}
+
+
+.btn-primary:active {
+
+    transform: scale(.98);
+
+}
+
+
+/* ==========================================
+   BOTTOM LOGIN LINK
+========================================== */
+
+.bottom-link {
+
+    text-align: center;
+
+    margin-top: 15px;
+
+    font-size: 13px;
+
+    color: #98A5B8;
+
+}
+
+
+.bottom-link a {
+
+    color: #22C55E;
+
+    text-decoration: none;
+
+    font-weight: bold;
+
+}
+
+
+.bottom-link a:hover {
+
+    text-decoration: underline;
+
+}
+
+
+/* ==========================================
+   SUCCESS / ERROR ANIMATION
+========================================== */
+
+.input-group.error {
+
+    animation: fieldShake .25s ease;
+
+}
+
+
+@keyframes fieldShake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
+
+
+/* ==========================================
+   CONTAINER ANIMATION
+========================================== */
+
+@keyframes showBox {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
 
     }
 
-    to{
+    to {
 
-        opacity:1;
+        opacity: 1;
 
-        transform:translateY(0);
+        transform: translateY(0);
 
     }
 
 }
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
 
-<head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+/* ==========================================
+   MOBILE
+========================================== */
 
-<title>VALORA | إنشاء حساب</title>
+@media (max-width: 400px) {
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+    body {
 
-<link rel="stylesheet" href="css/register.css">
-<link rel="stylesheet" href="css/background.css">
-
-</head>
-
-<body>
-
-<div class="auth-container">
-
-<!-- LOGO -->
-
-<div class="logo">
-
-    <div class="logo-icon">
-
-        <svg viewBox="0 0 64 64">
-
-            <path
-                d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
-                fill="#1687FF">
-            </path>
-
-            <path
-                d="M22 24 L32 44 L42 24"
-                stroke="#ffffff"
-                stroke-width="4"
-                fill="none"
-                stroke-linecap="round">
-            </path>
-
-        </svg>
-
-    </div>
-
-    <div class="logo-name">
-        VALORA
-    </div>
-
-    <div class="logo-sub">
-        EXCHANGE
-    </div>
-
-</div>
-
-
-<!-- TITLE -->
-
-<div
-    class="auth-title"
-    data-lang="register_title">
-
-    إنشاء حساب جديد
-
-</div>
-
-
-<!-- FORM MESSAGE -->
-
-<div id="registerMessage" class="form-message"></div>
-
-
-<form id="registerForm" novalidate>
-
-
-<!-- CONTACT -->
-
-<div class="input-group" id="contactGroup">
-
-    <label data-lang="register_contact">
-        البريد الإلكتروني أو رقم الهاتف
-    </label>
-
-    <input
-        type="text"
-        id="contact"
-        data-lang-placeholder="register_contact_placeholder"
-        placeholder="أدخل البريد الإلكتروني أو رقم الهاتف">
-
-    <div
-        class="field-error"
-        id="contactError">
-    </div>
-
-</div>
-
-
-<!-- VERIFICATION CODE -->
-
-<div class="input-group" id="verificationGroup">
-
-    <label data-lang="verification_code">
-        كود التحقق
-    </label>
-
-    <div class="verify-box">
-
-        <input
-            type="text"
-            id="verifyCode"
-            maxlength="6"
-            data-lang-placeholder="verification_code_placeholder"
-            placeholder="أدخل كود التحقق">
-
-        <button
-            type="button"
-            class="verify-btn"
-            onclick="sendVerificationCode()"
-            data-lang="verify">
-
-            تحقق
-
-        </button>
-
-    </div>
-
-    <div
-        class="field-error"
-        id="verificationError">
-    </div>
-
-</div>
-
-
-<!-- PASSWORD -->
-
-<div class="input-group" id="passwordGroup">
-
-    <label data-lang="password">
-        كلمة المرور
-    </label>
-
-    <div class="password-box">
-
-        <input
-            type="password"
-            id="password"
-            data-lang-placeholder="password_placeholder_register"
-            placeholder="********">
-
-        <button
-            type="button"
-            class="eye-btn"
-            onclick="togglePassword('password',this)">
-
-            <svg viewBox="0 0 24 24">
-
-                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
-                </path>
-
-                <circle cx="12" cy="12" r="3">
-                </circle>
-
-            </svg>
-
-        </button>
-
-    </div>
-
-    <div
-        class="field-error"
-        id="passwordError">
-    </div>
-
-</div>
-
-
-<!-- CONFIRM PASSWORD -->
-
-<div class="input-group" id="confirmPasswordGroup">
-
-    <label data-lang="confirm_password">
-        تأكيد كلمة المرور
-    </label>
-
-    <div class="password-box">
-
-        <input
-            type="password"
-            id="confirmPassword"
-            data-lang-placeholder="confirm_password_placeholder"
-            placeholder="********">
-
-        <button
-            type="button"
-            class="eye-btn"
-            onclick="togglePassword('confirmPassword',this)">
-
-            <svg viewBox="0 0 24 24">
-
-                <path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
-                </path>
-
-                <circle cx="12" cy="12" r="3">
-                </circle>
-
-            </svg>
-
-        </button>
-
-    </div>
-
-    <div
-        class="field-error"
-        id="confirmPasswordError">
-    </div>
-
-</div>
-
-
-<!-- INVITE CODE -->
-
-<div class="input-group">
-
-    <label data-lang="invite_code">
-        كود الدعوة
-    </label>
-
-    <input
-        type="text"
-        id="inviteCode"
-        data-lang-placeholder="invite_code_placeholder"
-        placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
-
-</div>
-
-
-<!-- TERMS -->
-
-<div
-    class="checkbox-group"
-    id="termsGroup">
-
-    <label class="circle-check">
-
-        <input
-            type="checkbox"
-            id="agree">
-
-        <span></span>
-
-    </label>
-
-    <label>
-
-        <span data-lang="agree_terms">
-            أوافق على
-        </span>
-
-        <a
-            href="terms.html"
-            target="_blank"
-            data-lang="terms_privacy">
-
-            الشروط والأحكام وسياسة الخصوصية
-
-        </a>
-
-    </label>
-
-</div>
-
-<div
-    class="field-error"
-    id="termsError">
-</div>
-
-
-<!-- REGISTER -->
-
-<button
-    type="submit"
-    class="btn-primary"
-    data-lang="register_btn">
-
-    إنشاء الحساب
-
-</button>
-
-</form>
-
-
-<!-- LOGIN -->
-
-<div class="bottom-link">
-
-    <span data-lang="already_have_account">
-        لديك حساب بالفعل؟
-    </span>
-
-    <a
-        href="login.html"
-        data-lang="login_btn">
-
-        تسجيل الدخول
-
-    </a>
-
-</div>
-
-</div>
-
-
-<script src="js/language.js"></script>
-<script src="js/app.js"></script>
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function(){
-
-        if(typeof applyLanguage === "function"){
-            applyLanguage();
-        }
+        padding: 10px;
 
     }
-);
 
-</script>
 
-</body>
-</html>
+    .auth-container {
+
+        margin: 0;
+
+        padding: 18px 15px;
+
+        border-radius: 20px;
+
+    }
+
+
+    .logo-icon svg {
+
+        width: 40px;
+
+        height: 40px;
+
+    }
+
+
+    .logo-name {
+
+        font-size: 24px;
+
+    }
+
+
+    .auth-title {
+
+        font-size: 19px;
+
+        margin-bottom: 14px;
+
+    }
+
+
+    .input-group {
+
+        margin-bottom: 11px;
+
+    }
+
+
+    .input-group input {
+
+        height: 41px;
+
+    }
+
+
+    .verify-btn {
+
+        padding: 0 12px;
+
+        font-size: 12px;
+
+    }
+
+}
+
+
+/* ==========================================
+   SMALL HEIGHT SCREENS
+========================================== */
+
+@media (max-height: 700px) {
+
+    body {
+
+        align-items: flex-start;
+
+        padding-top: 12px;
+
+        padding-bottom: 12px;
+
+    }
+
+
+    .auth-container {
+
+        padding-top: 15px;
+
+        padding-bottom: 15px;
+
+    }
+
+
+    .logo {
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .logo-icon svg {
+
+        width: 38px;
+
+        height: 38px;
+
+    }
+
+
+    .logo-name {
+
+        font-size: 23px;
+
+    }
+
+
+    .auth-title {
+
+        font-size: 18px;
+
+        margin-bottom: 10px;
+
+    }
+
+
+    .input-group {
+
+        margin-bottom: 8px;
+
+    }
+
+
+    .checkbox-group {
+
+        margin: 8px 0;
+
+    }
+
+
+    .btn-primary {
+
+        height: 43px;
+
+    }
+
+}
+
+
+/* ==========================================
+   LTR SUPPORT
+========================================== */
+
+html[dir="ltr"] .password-box input {
+
+    padding-left: 10px;
+
+    padding-right: 45px;
+
+}
+
+
+html[dir="ltr"] .eye-btn {
+
+    left: auto;
+
+    right: 10px;
+
+}
+
+
+/* ==========================================
+   RTL SUPPORT
+========================================== */
+
+html[dir="rtl"] .password-box input {
+
+    padding-right: 10px;
+
+    padding-left: 45px;
+
+}
+
+
+html[dir="rtl"] .eye-btn {
+
+    left: 10px;
+
+    right: auto;
+
+}
+
+
+/* ==========================================
+   LTR TERMS
+========================================== */
+
+html[dir="ltr"] .checkbox-group {
+
+    text-align: left;
+
+}
+
+
+/* ==========================================
+   DISABLED / FOCUS
+========================================== */
+
+input:disabled {
+
+    opacity: .6;
+
+    cursor: not-allowed;
+
+}
+
+
+/* ==========================================
+   SELECTION
+========================================== */
+
+::selection {
+
+    background: #1687FF;
+
+    color: white;
+
+}
