@@ -26,215 +26,209 @@ rel="stylesheet">
 <div class="login-container">
 
 
-    <!-- =========================
-         VALORA LOGO
-    ========================== -->
+<!-- =========================
+     VALORA LOGO
+========================= -->
 
-    <div class="logo">
+<div class="logo">
 
-        <div class="logo-icon">
+    <div class="logo-icon">
 
-            <svg viewBox="0 0 64 64">
+        <svg viewBox="0 0 64 64">
+
+            <path
+                d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+                fill="#1687FF">
+            </path>
+
+            <path
+                d="M22 24 L32 44 L42 24"
+                stroke="#ffffff"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round">
+            </path>
+
+        </svg>
+
+    </div>
+
+
+    <div class="logo-name">
+        VALORA
+    </div>
+
+
+    <div class="logo-sub">
+        EXCHANGE
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     LOGIN TITLE
+========================= -->
+
+<div
+    class="subtitle"
+    data-lang="login_subtitle">
+
+    تسجيل الدخول إلى حسابك
+
+</div>
+
+
+
+<!-- =========================
+     LOGIN FORM
+========================= -->
+
+<form id="loginForm">
+
+
+<!-- =========================
+     EMAIL / PHONE
+========================= -->
+
+<div
+    class="input-group"
+    id="loginInputGroup">
+
+    <label data-lang="email_phone">
+
+        البريد الإلكتروني أو رقم الهاتف
+
+    </label>
+
+
+    <input
+        type="text"
+        id="loginInput"
+        autocomplete="username"
+        placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
+        data-lang-placeholder="email_phone_placeholder"
+    >
+
+
+    <div
+        class="field-error"
+        id="loginInputError">
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     PASSWORD
+========================= -->
+
+<div
+    class="input-group"
+    id="loginPasswordGroup">
+
+    <label data-lang="password">
+
+        كلمة المرور
+
+    </label>
+
+
+    <div class="login-password-box">
+
+        <input
+            type="password"
+            id="loginPassword"
+            autocomplete="current-password"
+            placeholder="أدخل كلمة المرور"
+            data-lang-placeholder="password_placeholder"
+        >
+
+
+        <button
+            type="button"
+            class="login-eye-btn"
+            onclick="togglePassword('loginPassword', this)"
+            aria-label="Show password">
+
+            <svg viewBox="0 0 24 24">
 
                 <path
-                    d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
-                    fill="#1687FF"
-                />
+                    d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
 
-                <path
-                    d="M22 24 L32 44 L42 24"
-                    stroke="#ffffff"
-                    stroke-width="4"
-                    fill="none"
-                    stroke-linecap="round"
-                />
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="3">
+                </circle>
 
             </svg>
 
-        </div>
-
-
-        <div class="logo-name">
-            VALORA
-        </div>
-
-
-        <div class="logo-sub">
-            EXCHANGE
-        </div>
-
-    </div>
-
-
-
-    <!-- =========================
-         LOGIN TITLE
-    ========================== -->
-
-    <div
-        class="subtitle"
-        data-lang="login_subtitle"
-    >
-        تسجيل الدخول إلى حسابك
-    </div>
-
-
-
-    <!-- =========================
-         LOGIN FORM
-    ========================== -->
-
-    <form id="loginForm">
-
-
-        <!-- =========================
-             EMAIL / PHONE
-        ========================== -->
-
-        <div
-            class="input-group"
-            id="loginContactGroup"
-        >
-
-            <label data-lang="email_phone">
-
-                البريد الإلكتروني أو رقم الهاتف
-
-            </label>
-
-
-            <input
-                type="text"
-                id="loginInput"
-                placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
-                data-lang-placeholder="email_phone_placeholder"
-            >
-
-
-            <!-- ERROR -->
-
-            <div
-                class="field-error"
-                id="loginContactError"
-            ></div>
-
-        </div>
-
-
-
-        <!-- =========================
-             PASSWORD
-        ========================== -->
-
-        <div
-            class="input-group"
-            id="loginPasswordGroup"
-        >
-
-            <label data-lang="password">
-
-                كلمة المرور
-
-            </label>
-
-
-            <div class="password-box">
-
-                <input
-                    type="password"
-                    id="loginPassword"
-                    placeholder="أدخل كلمة المرور"
-                    data-lang-placeholder="password_placeholder"
-                >
-
-
-                <button
-                    type="button"
-                    class="eye-btn"
-                    onclick="togglePassword('loginPassword',this)"
-                    aria-label="Show password"
-                >
-
-                    <svg viewBox="0 0 24 24">
-
-                        <path
-                            d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z"
-                        ></path>
-
-                        <circle
-                            cx="12"
-                            cy="12"
-                            r="3"
-                        ></circle>
-
-                    </svg>
-
-                </button>
-
-            </div>
-
-
-            <!-- ERROR -->
-
-            <div
-                class="field-error"
-                id="loginPasswordError"
-            ></div>
-
-        </div>
-
-
-
-        <!-- =========================
-             LOGIN BUTTON
-        ========================== -->
-
-        <button
-            class="login-btn"
-            type="submit"
-        >
-
-            <span data-lang="login_btn">
-
-                تسجيل الدخول
-
-            </span>
-
         </button>
 
-
-    </form>
-
-
-
-    <!-- =========================
-         LINKS
-    ========================== -->
-
-    <div class="links">
-
-
-        <a
-            href="forgot-password.html"
-            data-lang="forgot_password"
-        >
-
-            نسيت كلمة المرور؟
-
-        </a>
-
-
-        <a
-            href="register.html"
-            data-lang="create_account"
-        >
-
-            إنشاء حساب
-
-        </a>
-
-
     </div>
+
+
+    <div
+        class="field-error"
+        id="loginPasswordError">
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     LOGIN BUTTON
+========================= -->
+
+<button
+    class="login-btn"
+    type="submit">
+
+    <span data-lang="login_btn">
+
+        تسجيل الدخول
+
+    </span>
+
+</button>
+
+
+</form>
+
+
+
+<!-- =========================
+     LINKS
+========================= -->
+
+<div class="links">
+
+
+    <a
+        href="forgot-password.html"
+        data-lang="forgot_password">
+
+        نسيت كلمة المرور؟
+
+    </a>
+
+
+    <a
+        href="register.html"
+        data-lang="create_account">
+
+        إنشاء حساب
+
+    </a>
+
+
+</div>
+
 
 
 </div>
@@ -243,14 +237,14 @@ rel="stylesheet">
 
 <!-- =========================
      LANGUAGE SYSTEM
-========================== -->
+========================= -->
 
 <script src="js/language.js"></script>
 
 
 <!-- =========================
      VALORA APP
-========================== -->
+========================= -->
 
 <script src="js/app.js"></script>
 
