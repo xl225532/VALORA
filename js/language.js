@@ -45,7 +45,22 @@
          // CHANGE PASSWORD
        // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+change: "Change",
 
+loginCode: "Login Code",
+
+open: "Open",
+
+total_amounts: "Total Amounts",
+
+total_requests: "Total Requests",
+
+view: "View",
+
+withdrawSecurity: "Withdrawal Security Code",
+
+withdraw_history_title: "Withdrawal History",
+            
 forgot_password_description:
     "Enter the email address or phone number registered to your account.",
 
@@ -962,7 +977,22 @@ send_message:
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+change: "تغيير",
 
+loginCode: "رمز الدخول",
+
+open: "فتح",
+
+total_amounts: "إجمالي المبالغ",
+
+total_requests: "إجمالي الطلبات",
+
+view: "عرض",
+
+withdrawSecurity: "رمز أمان السحب",
+
+withdraw_history_title: "سجل طلبات السحب",
+            
 forgot_password_description:
     "أدخل البريد الإلكتروني أو رقم الهاتف المسجل في حسابك.",
 
