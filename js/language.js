@@ -44,7 +44,51 @@
             // GENERAL
          // CHANGE PASSWORD
        // IDENTITY VERIFICATION
-change_password_title:
+// FORGOT PASSWORD - ADDITIONAL
+
+forgot_password_description:
+    "Enter the email address or phone number registered to your account.",
+
+send_verification_code:
+    "Send Verification Code",
+
+verification_description:
+    "Enter the verification code that was sent to you.",
+
+verification_code_placeholder:
+    "Enter verification code",
+
+verify_code_btn:
+    "Verify Code",
+
+new_password_title:
+    "Create New Password",
+
+new_password_description:
+    "Enter your new password and confirm it.",
+
+new_password_placeholder:
+    "********",
+
+reset_password_btn:
+    "Reset Password",
+
+forgot_contact_required:
+    "Please enter your email address or phone number",
+
+verification_demo_code:
+    "Demo verification code: ",
+
+verification_invalid_format:
+    "Verification code must be 6 digits",
+
+verification_code_invalid:
+    "Incorrect verification code",
+
+password_changed_success:
+    "Password changed successfully",
+            
+    change_password_title:
     "Change Password",
 
 change_password_heading:
@@ -917,7 +961,51 @@ send_message:
          
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
-change_password_title:
+// FORGOT PASSWORD - ADDITIONAL
+
+forgot_password_description:
+    "أدخل البريد الإلكتروني أو رقم الهاتف المسجل في حسابك.",
+
+send_verification_code:
+    "إرسال رمز التحقق",
+
+verification_description:
+    "أدخل رمز التحقق الذي تم إرساله إليك.",
+
+verification_code_placeholder:
+    "أدخل رمز التحقق",
+
+verify_code_btn:
+    "تحقق من الرمز",
+
+new_password_title:
+    "إنشاء كلمة مرور جديدة",
+
+new_password_description:
+    "أدخل كلمة المرور الجديدة ثم قم بتأكيدها.",
+
+new_password_placeholder:
+    "********",
+
+reset_password_btn:
+    "إعادة تعيين كلمة المرور",
+
+forgot_contact_required:
+    "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
+
+verification_demo_code:
+    "رمز التحقق التجريبي: ",
+
+verification_invalid_format:
+    "رمز التحقق يجب أن يتكون من 6 أرقام",
+
+verification_code_invalid:
+    "رمز التحقق غير صحيح",
+
+password_changed_success:
+    "تم تغيير كلمة المرور بنجاح",
+            
+    change_password_title:
     "تغيير كلمة المرور",
 
 change_password_heading:
