@@ -43,7 +43,70 @@
          
             // GENERAL
          // CHANGE PASSWORD
-      // IDENTITY VERIFICATION
+       // IDENTITY VERIFICATION
+change_password_title:
+    "Change Password",
+
+change_password_heading:
+    "Change Password",
+
+change_password_description:
+    "A verification code will be sent to your registered email address or phone number.",
+
+change_password_method:
+    "Verification Code Delivery Method",
+
+change_password_email:
+    "Email",
+
+change_password_phone:
+    "Phone Number",
+
+change_password_code_placeholder:
+    "Enter verification code",
+
+new_password:
+    "New Password",
+
+new_password_placeholder:
+    "********",
+
+password_hint:
+    "Password must be at least 6 characters",
+
+confirm_password_placeholder:
+    "********",
+
+save_password_change:
+    "Save Changes",
+
+verification_sent_email:
+    "Verification code sent to your email",
+
+verification_sent_phone:
+    "Verification code sent to your phone",
+
+change_password_method_error:
+    "Please choose a verification code delivery method first",
+
+change_password_code_error:
+    "Please enter the verification code",
+
+change_password_code_invalid:
+    "Verification code must be 6 digits",
+
+new_password_error:
+    "Please enter your new password",
+
+new_password_length_error:
+    "Password must be at least 6 characters",
+
+confirm_password_error:
+    "Please confirm your password",
+
+password_changed_success:
+    "Password changed successfully",
+            
 security_heading:
 "Create Withdrawal Security Code",
 
@@ -854,6 +917,69 @@ send_message:
          
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
+change_password_title:
+    "تغيير كلمة المرور",
+
+change_password_heading:
+    "تغيير كلمة المرور",
+
+change_password_description:
+    "سيتم إرسال رمز تحقق إلى البريد الإلكتروني أو رقم الهاتف المسجل.",
+
+change_password_method:
+    "طريقة إرسال رمز التحقق",
+
+change_password_email:
+    "البريد الإلكتروني",
+
+change_password_phone:
+    "رقم الهاتف",
+
+change_password_code_placeholder:
+    "أدخل رمز التحقق",
+
+new_password:
+    "كلمة المرور الجديدة",
+
+new_password_placeholder:
+    "********",
+
+password_hint:
+    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+
+confirm_password_placeholder:
+    "********",
+
+save_password_change:
+    "حفظ التغيير",
+
+verification_sent_email:
+    "تم إرسال رمز التحقق إلى البريد الإلكتروني",
+
+verification_sent_phone:
+    "تم إرسال رمز التحقق إلى رقم الهاتف",
+
+change_password_method_error:
+    "اختر طريقة إرسال رمز التحقق أولاً",
+
+change_password_code_error:
+    "أدخل رمز التحقق",
+
+change_password_code_invalid:
+    "رمز التحقق يجب أن يتكون من 6 أرقام",
+
+new_password_error:
+    "أدخل كلمة المرور الجديدة",
+
+new_password_length_error:
+    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+
+confirm_password_error:
+    "أعد إدخال كلمة المرور",
+
+password_changed_success:
+    "تم تغيير كلمة المرور بنجاح",
+            
 security_heading:
 "إنشاء رمز أمان للسحب",
 
