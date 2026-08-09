@@ -4,14 +4,19 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | الشروط والأحكام</title>
+<title>VALORA | Terms & Conditions</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/register.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -21,74 +26,149 @@
 <div class="auth-container">
 
 
+<!-- =========================
+     LOGO
+========================= -->
+
 <div class="logo">
+
 VALORA
+
 </div>
 
 
-<div class="auth-title">
+
+<!-- =========================
+     TITLE
+========================= -->
+
+<div
+class="auth-title"
+data-lang="terms_title"
+>
+
 الشروط والأحكام
+
 </div>
 
 
 
-<div style="color:#C6D3E4; font-size:14px; line-height:2;">
+<!-- =========================
+     TERMS
+========================= -->
+
+<div
+class="terms-content"
+>
 
 
-<h3 style="color:#1687FF;">
+<h3
+data-lang="terms_1_title"
+>
+
 1 - قبول الشروط
+
 </h3>
 
-<p>
+
+<p
+data-lang="terms_1_text"
+>
+
 عند إنشاء حساب في منصة VALORA فإنك توافق على الالتزام بالشروط والأحكام وسياسة الاستخدام الخاصة بالمنصة.
+
 </p>
+
 
 
 <br>
 
 
-<h3 style="color:#1687FF;">
+
+<h3
+data-lang="terms_2_title"
+>
+
 2 - مسؤولية المستخدم
+
 </h3>
 
-<p>
+
+<p
+data-lang="terms_2_text"
+>
+
 يجب على المستخدم تقديم بيانات صحيحة والمحافظة على معلومات الدخول الخاصة به وعدم مشاركتها مع الآخرين.
+
 </p>
+
 
 
 <br>
 
 
-<h3 style="color:#1687FF;">
+
+<h3
+data-lang="terms_3_title"
+>
+
 3 - الحسابات
+
 </h3>
 
-<p>
+
+<p
+data-lang="terms_3_text"
+>
+
 كل مستخدم مسؤول عن حسابه واستخدامه للمنصة، ويجب عدم إنشاء حسابات مخالفة للأنظمة.
+
 </p>
+
 
 
 <br>
 
 
-<h3 style="color:#1687FF;">
+
+<h3
+data-lang="terms_4_title"
+>
+
 4 - نظام الإحالات
+
 </h3>
 
-<p>
+
+<p
+data-lang="terms_4_text"
+>
+
 يتم استخدام روابط الدعوة والأكواد الخاصة بالمستخدمين حسب النظام المحدد داخل المنصة.
+
 </p>
+
 
 
 <br>
 
 
-<h3 style="color:#1687FF;">
+
+<h3
+data-lang="terms_5_title"
+>
+
 5 - التحديثات
+
 </h3>
 
-<p>
+
+<p
+data-lang="terms_5_text"
+>
+
 تحتفظ VALORA بحق تحديث الشروط والسياسات عند الحاجة، وسيتم إعلام المستخدمين بالتغييرات المهمة.
+
 </p>
 
 
@@ -98,11 +178,22 @@ VALORA
 
 <br>
 
+
+
+<!-- =========================
+     BACK BUTTON
+========================= -->
 
 <a href="register.html">
 
-<button class="btn-primary">
+<button
+class="btn-primary"
+type="button"
+data-lang="back_to_register"
+>
+
 العودة إلى إنشاء الحساب
+
 </button>
 
 </a>
@@ -110,6 +201,34 @@ VALORA
 
 
 </div>
+
+
+
+<!-- =========================
+     LANGUAGE
+========================= -->
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        if(
+            typeof applyLanguage === "function"
+        ){
+
+            applyLanguage();
+
+        }
+
+    }
+);
+
+</script>
 
 
 </body>
