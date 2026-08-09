@@ -44,6 +44,10 @@ function appTranslate(key) {
     }
 
 
+    // ==================================
+    // FALLBACK ARABIC
+    // ==================================
+
     const fallback = {
 
         register_contact_required:
@@ -64,14 +68,32 @@ function appTranslate(key) {
         verification_required:
             "يرجى إدخال كود التحقق",
 
+        verification_sent:
+            "تم إرسال كود التحقق",
+
         register_success:
             "تم إنشاء الحساب بنجاح",
+
+        login_email_required:
+            "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
+
+        login_password_required:
+            "يرجى إدخال كلمة المرور",
+
+        login_account_not_found:
+            "الحساب غير موجود",
+
+        login_wrong_password:
+            "كلمة المرور غير صحيحة",
+
+        login_invalid_contact:
+            "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
 
         login_success:
             "تم تسجيل الدخول بنجاح",
 
         login_success_message:
-            "جاري الدخول إلى الحساب",
+            "جاري الدخول إلى حسابك",
 
         login_error:
             "بيانات تسجيل الدخول غير صحيحة"
@@ -86,13 +108,17 @@ function appTranslate(key) {
 
 
 // ======================================
-// CLEAR ERROR
+// REGISTER FIELD ERROR
 // ======================================
 
-function clearFieldError(groupId, errorId) {
+function clearFieldError(
+    groupId,
+    errorId
+) {
 
     const group =
         document.getElementById(groupId);
+
 
     const error =
         document.getElementById(errorId);
@@ -100,7 +126,9 @@ function clearFieldError(groupId, errorId) {
 
     if (group) {
 
-        group.classList.remove("error");
+        group.classList.remove(
+            "error"
+        );
 
     }
 
@@ -115,10 +143,6 @@ function clearFieldError(groupId, errorId) {
 
 
 
-// ======================================
-// SHOW FIELD ERROR
-// ======================================
-
 function showFieldError(
     groupId,
     errorId,
@@ -128,13 +152,16 @@ function showFieldError(
     const group =
         document.getElementById(groupId);
 
+
     const error =
         document.getElementById(errorId);
 
 
     if (group) {
 
-        group.classList.add("error");
+        group.classList.add(
+            "error"
+        );
 
     }
 
@@ -181,15 +208,22 @@ function clearRegisterErrors() {
 
 
     const termsGroup =
-        document.getElementById("termsGroup");
+        document.getElementById(
+            "termsGroup"
+        );
+
 
     const termsError =
-        document.getElementById("termsError");
+        document.getElementById(
+            "termsError"
+        );
 
 
     if (termsGroup) {
 
-        termsGroup.classList.remove("error");
+        termsGroup.classList.remove(
+            "error"
+        );
 
     }
 
@@ -205,7 +239,7 @@ function clearRegisterErrors() {
 
 
 // ======================================
-// CREATE REFERRAL CODE
+// GENERATE REFERRAL CODE
 // ======================================
 
 function generateReferralCode() {
@@ -228,7 +262,9 @@ function generateReferralCode() {
 // ======================================
 
 const registerForm =
-    document.getElementById("registerForm");
+    document.getElementById(
+        "registerForm"
+    );
 
 
 if (registerForm) {
@@ -243,36 +279,89 @@ if (registerForm) {
             clearRegisterErrors();
 
 
+
+            // ==================================
+            // CONTACT
+            // ==================================
+
+            const contactElement =
+                document.getElementById(
+                    "contact"
+                );
+
+
             const contact =
-                document
-                .getElementById("contact")
-                .value
-                .trim();
+                contactElement
+                ? contactElement.value.trim()
+                : "";
+
+
+
+            // ==================================
+            // PASSWORD
+            // ==================================
+
+            const passwordElement =
+                document.getElementById(
+                    "password"
+                );
 
 
             const password =
-                document
-                .getElementById("password")
-                .value;
+                passwordElement
+                ? passwordElement.value
+                : "";
+
+
+
+            // ==================================
+            // CONFIRM PASSWORD
+            // ==================================
+
+            const confirmPasswordElement =
+                document.getElementById(
+                    "confirmPassword"
+                );
 
 
             const confirmPassword =
-                document
-                .getElementById("confirmPassword")
-                .value;
+                confirmPasswordElement
+                ? confirmPasswordElement.value
+                : "";
+
+
+
+            // ==================================
+            // VERIFICATION CODE
+            // ==================================
+
+            const verifyCodeElement =
+                document.getElementById(
+                    "verifyCode"
+                );
 
 
             const verifyCode =
-                document
-                .getElementById("verifyCode")
-                ?.value
-                .trim() || "";
+                verifyCodeElement
+                ? verifyCodeElement.value.trim()
+                : "";
+
+
+
+            // ==================================
+            // TERMS
+            // ==================================
+
+            const agreeElement =
+                document.getElementById(
+                    "agree"
+                );
 
 
             const agree =
-                document
-                .getElementById("agree")
-                ?.checked || false;
+                agreeElement
+                ? agreeElement.checked
+                : false;
 
 
 
@@ -290,9 +379,13 @@ if (registerForm) {
                     )
                 );
 
-                document
-                .getElementById("contact")
-                .focus();
+
+                if (contactElement) {
+
+                    contactElement.focus();
+
+                }
+
 
                 return;
 
@@ -314,9 +407,13 @@ if (registerForm) {
                     )
                 );
 
-                document
-                .getElementById("password")
-                .focus();
+
+                if (passwordElement) {
+
+                    passwordElement.focus();
+
+                }
+
 
                 return;
 
@@ -338,9 +435,13 @@ if (registerForm) {
                     )
                 );
 
-                document
-                .getElementById("confirmPassword")
-                .focus();
+
+                if (confirmPasswordElement) {
+
+                    confirmPasswordElement.focus();
+
+                }
+
 
                 return;
 
@@ -365,9 +466,13 @@ if (registerForm) {
                     )
                 );
 
-                document
-                .getElementById("confirmPassword")
-                .focus();
+
+                if (confirmPasswordElement) {
+
+                    confirmPasswordElement.focus();
+
+                }
+
 
                 return;
 
@@ -380,7 +485,7 @@ if (registerForm) {
             // ==================================
 
             if (
-                document.getElementById("verifyCode") &&
+                verifyCodeElement &&
                 verifyCode === ""
             ) {
 
@@ -392,9 +497,8 @@ if (registerForm) {
                     )
                 );
 
-                document
-                .getElementById("verifyCode")
-                .focus();
+
+                verifyCodeElement.focus();
 
                 return;
 
@@ -412,6 +516,7 @@ if (registerForm) {
                     document.getElementById(
                         "termsGroup"
                     );
+
 
                 const termsError =
                     document.getElementById(
@@ -463,10 +568,23 @@ if (registerForm) {
 
 
 
-            localStorage.setItem(
-                "VALORA_USER",
-                JSON.stringify(user)
-            );
+            try {
+
+                localStorage.setItem(
+                    "VALORA_USER",
+                    JSON.stringify(user)
+                );
+
+            } catch (error) {
+
+                console.error(
+                    "VALORA storage error:",
+                    error
+                );
+
+                return;
+
+            }
 
 
 
@@ -492,7 +610,7 @@ if (registerForm) {
 
 
 // ======================================
-// REMOVE ERROR WHEN USER STARTS TYPING
+// REGISTER INPUT CLEAR
 // ======================================
 
 function registerInputClear() {
@@ -500,73 +618,104 @@ function registerInputClear() {
     const fields = [
 
         {
-            input: "contact",
-            group: "contactGroup",
-            error: "contactError"
+            input:
+                "contact",
+
+            group:
+                "contactGroup",
+
+            error:
+                "contactError"
         },
 
         {
-            input: "verifyCode",
-            group: "verificationGroup",
-            error: "verificationError"
+            input:
+                "verifyCode",
+
+            group:
+                "verificationGroup",
+
+            error:
+                "verificationError"
         },
 
         {
-            input: "password",
-            group: "passwordGroup",
-            error: "passwordError"
+            input:
+                "password",
+
+            group:
+                "passwordGroup",
+
+            error:
+                "passwordError"
         },
 
         {
-            input: "confirmPassword",
-            group: "confirmPasswordGroup",
-            error: "confirmPasswordError"
+            input:
+                "confirmPassword",
+
+            group:
+                "confirmPasswordGroup",
+
+            error:
+                "confirmPasswordError"
         }
 
     ];
 
 
-    fields.forEach(function(item) {
 
-        const input =
-            document.getElementById(
-                item.input
-            );
+    fields.forEach(
+        function (item) {
+
+            const input =
+                document.getElementById(
+                    item.input
+                );
 
 
-        if (input) {
+            if (input) {
 
-            input.addEventListener(
-                "input",
-                function() {
+                input.addEventListener(
+                    "input",
+                    function () {
 
-                    clearFieldError(
-                        item.group,
-                        item.error
-                    );
+                        clearFieldError(
+                            item.group,
+                            item.error
+                        );
 
-                }
-            );
+                    }
+                );
+
+            }
 
         }
+    );
 
-    });
 
+
+    // ==================================
+    // TERMS CLEAR
+    // ==================================
 
     const agree =
-        document.getElementById("agree");
+        document.getElementById(
+            "agree"
+        );
 
 
     if (agree) {
 
         agree.addEventListener(
             "change",
-            function() {
+            function () {
 
                 const termsGroup =
                     document.getElementById(
                         "termsGroup"
                     );
+
 
                 const termsError =
                     document.getElementById(
@@ -587,7 +736,8 @@ function registerInputClear() {
 
                     if (termsError) {
 
-                        termsError.textContent = "";
+                        termsError.textContent =
+                            "";
 
                     }
 
@@ -610,7 +760,9 @@ registerInputClear();
 // ======================================
 
 const loginForm =
-    document.getElementById("loginForm");
+    document.getElementById(
+        "loginForm"
+    );
 
 
 if (loginForm) {
@@ -621,6 +773,118 @@ if (loginForm) {
 
             e.preventDefault();
 
+
+
+            // ==================================
+            // CLEAR PREVIOUS ERRORS
+            // ==================================
+
+            clearLoginError(
+                "loginInputGroup",
+                "loginInputError"
+            );
+
+
+            clearLoginError(
+                "loginPasswordGroup",
+                "loginPasswordError"
+            );
+
+
+
+            // ==================================
+            // ELEMENTS
+            // ==================================
+
+            const loginInputElement =
+                document.getElementById(
+                    "loginInput"
+                );
+
+
+            const loginPasswordElement =
+                document.getElementById(
+                    "loginPassword"
+                );
+
+
+
+            // ==================================
+            // VALUES
+            // ==================================
+
+            const loginInput =
+                loginInputElement
+                ? loginInputElement.value.trim()
+                : "";
+
+
+            const loginPassword =
+                loginPasswordElement
+                ? loginPasswordElement.value
+                : "";
+
+
+
+            // ==================================
+            // EMAIL / PHONE REQUIRED
+            // ==================================
+
+            if (loginInput === "") {
+
+                showLoginError(
+                    "loginInputGroup",
+                    "loginInputError",
+                    appTranslate(
+                        "login_email_required"
+                    )
+                );
+
+
+                if (loginInputElement) {
+
+                    loginInputElement.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // PASSWORD REQUIRED
+            // ==================================
+
+            if (loginPassword === "") {
+
+                showLoginError(
+                    "loginPasswordGroup",
+                    "loginPasswordError",
+                    appTranslate(
+                        "login_password_required"
+                    )
+                );
+
+
+                if (loginPasswordElement) {
+
+                    loginPasswordElement.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // GET SAVED USER
+            // ==================================
 
             let savedUser = null;
 
@@ -641,17 +905,98 @@ if (loginForm) {
             }
 
 
-            const loginInput =
-                document
-                .getElementById("loginInput")
-                .value
-                .trim();
+
+            // ==================================
+            // ACCOUNT NOT FOUND
+            // ==================================
+
+            if (!savedUser) {
+
+                showLoginError(
+                    "loginInputGroup",
+                    "loginInputError",
+                    appTranslate(
+                        "login_account_not_found"
+                    )
+                );
 
 
-            const loginPassword =
-                document
-                .getElementById("loginPassword")
-                .value;
+                if (loginInputElement) {
+
+                    loginInputElement.focus();
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // WRONG EMAIL / PHONE
+            // ==================================
+
+            if (
+                loginInput !==
+                savedUser.contact
+            ) {
+
+                showLoginError(
+                    "loginInputGroup",
+                    "loginInputError",
+                    appTranslate(
+                        "login_invalid_contact"
+                    )
+                );
+
+
+                if (loginInputElement) {
+
+                    loginInputElement.focus();
+
+                    loginInputElement.select();
+
+                }
+
+
+                return;
+
+            }
+
+
+
+            // ==================================
+            // WRONG PASSWORD
+            // ==================================
+
+            if (
+                loginPassword !==
+                savedUser.password
+            ) {
+
+                showLoginError(
+                    "loginPasswordGroup",
+                    "loginPasswordError",
+                    appTranslate(
+                        "login_wrong_password"
+                    )
+                );
+
+
+                if (loginPasswordElement) {
+
+                    loginPasswordElement.focus();
+
+                    loginPasswordElement.select();
+
+                }
+
+
+                return;
+
+            }
 
 
 
@@ -659,46 +1004,162 @@ if (loginForm) {
             // LOGIN SUCCESS
             // ==================================
 
-            if (
-                savedUser &&
-                loginInput === savedUser.contact &&
-                loginPassword === savedUser.password
-            ) {
-
-                showLoginSuccess();
+            showLoginSuccess();
 
 
-                setTimeout(
-                    function () {
+            setTimeout(
+                function () {
 
-                        window.location.href =
-                            "dashboard.html";
+                    window.location.href =
+                        "dashboard.html";
 
-                    },
-                    1800
-                );
-
-            }
-
-
-            // ==================================
-            // LOGIN ERROR
-            // ==================================
-
-            else {
-
-                alert(
-                    appTranslate(
-                        "login_error"
-                    )
-                );
-
-            }
+                },
+                1800
+            );
 
         }
     );
 
 }
+
+
+
+// ======================================
+// LOGIN ERROR FUNCTIONS
+// ======================================
+
+function showLoginError(
+    groupId,
+    errorId,
+    message
+) {
+
+    const group =
+        document.getElementById(
+            groupId
+        );
+
+
+    const error =
+        document.getElementById(
+            errorId
+        );
+
+
+    if (group) {
+
+        group.classList.add(
+            "error"
+        );
+
+    }
+
+
+    if (error) {
+
+        error.textContent =
+            message;
+
+    }
+
+}
+
+
+
+function clearLoginError(
+    groupId,
+    errorId
+) {
+
+    const group =
+        document.getElementById(
+            groupId
+        );
+
+
+    const error =
+        document.getElementById(
+            errorId
+        );
+
+
+    if (group) {
+
+        group.classList.remove(
+            "error"
+        );
+
+    }
+
+
+    if (error) {
+
+        error.textContent =
+            "";
+
+    }
+
+}
+
+
+
+// ======================================
+// CLEAR LOGIN ERROR WHEN TYPING
+// ======================================
+
+function setupLoginErrorClear() {
+
+    const loginInput =
+        document.getElementById(
+            "loginInput"
+        );
+
+
+    const loginPassword =
+        document.getElementById(
+            "loginPassword"
+        );
+
+
+
+    if (loginInput) {
+
+        loginInput.addEventListener(
+            "input",
+            function () {
+
+                clearLoginError(
+                    "loginInputGroup",
+                    "loginInputError"
+                );
+
+            }
+        );
+
+    }
+
+
+
+    if (loginPassword) {
+
+        loginPassword.addEventListener(
+            "input",
+            function () {
+
+                clearLoginError(
+                    "loginPasswordGroup",
+                    "loginPasswordError"
+                );
+
+            }
+        );
+
+    }
+
+}
+
+
+setupLoginErrorClear();
 
 
 
@@ -712,7 +1173,9 @@ function togglePassword(
 ) {
 
     const input =
-        document.getElementById(id);
+        document.getElementById(
+            id
+        );
 
 
     if (!input) {
@@ -720,6 +1183,7 @@ function togglePassword(
         return;
 
     }
+
 
 
     if (
@@ -766,7 +1230,6 @@ function togglePassword(
 // ======================================
 
 function showLoginSuccess() {
-
 
     const box =
         document.createElement(
@@ -818,17 +1281,27 @@ function showLoginSuccess() {
 
 
 // ======================================
-// VERIFICATION BUTTON
+// VERIFICATION CODE
 // ======================================
 
 function sendVerificationCode() {
 
-    const contact =
-        document
-        .getElementById("contact")
-        ?.value
-        .trim();
+    const contactElement =
+        document.getElementById(
+            "contact"
+        );
 
+
+    const contact =
+        contactElement
+        ? contactElement.value.trim()
+        : "";
+
+
+
+    // ==================================
+    // CONTACT REQUIRED
+    // ==================================
 
     if (!contact) {
 
@@ -840,17 +1313,28 @@ function sendVerificationCode() {
             )
         );
 
-        document
-        .getElementById("contact")
-        ?.focus();
+
+        if (contactElement) {
+
+            contactElement.focus();
+
+        }
+
 
         return;
 
     }
 
 
+
+    // ==================================
+    // SUCCESS
+    // ==================================
+
     alert(
-        appTranslate("verification_sent")
+        appTranslate(
+            "verification_sent"
+        )
     );
 
 }
@@ -858,17 +1342,20 @@ function sendVerificationCode() {
 
 
 // ======================================
-// GLOBAL
+// GLOBAL FUNCTIONS
 // ======================================
 
 window.appTranslate =
     appTranslate;
 
+
 window.generateReferralCode =
     generateReferralCode;
 
+
 window.togglePassword =
     togglePassword;
+
 
 window.sendVerificationCode =
     sendVerificationCode;
