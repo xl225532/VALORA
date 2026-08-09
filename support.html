@@ -23,6 +23,10 @@
 <div class="support-page">
 
 
+<!-- ==========================================
+     HEADER
+========================================== -->
+
 <header class="page-header">
 
 <a href="javascript:history.back()">
@@ -172,6 +176,8 @@ data-lang="send_message">
 <nav class="bottom-nav">
 
 
+<!-- HOME -->
+
 <a href="dashboard.html">
 
 <svg viewBox="0 0 24 24">
@@ -194,6 +200,8 @@ data-lang="send_message">
 
 
 
+<!-- WALLET -->
+
 <a href="wallet.html">
 
 <svg viewBox="0 0 24 24">
@@ -214,6 +222,8 @@ data-lang="send_message">
 
 
 
+<!-- SYNC -->
+
 <a href="sync.html">
 
 <svg viewBox="0 0 24 24">
@@ -223,6 +233,8 @@ data-lang="send_message">
 <path d="M3 11V9C3 6.8 4.8 5 7 5H21"></path>
 
 <path d="M7 23L3 19L7 15"></path>
+
+<path d="M21 13V15C21 17.2 19.2 19 17 19H3"></path>
 
 </svg>
 
@@ -235,6 +247,8 @@ data-lang="send_message">
 </a>
 
 
+
+<!-- TEAM -->
 
 <a href="team.html">
 
@@ -271,20 +285,16 @@ data-lang="send_message">
 
 <script>
 
-if(typeof applyLanguage === "function"){
-
-    applyLanguage();
-
-}
-
 
 function sendMessage(){
 
     const input =
         document.getElementById("supportMessage");
 
+
     const chat =
         document.getElementById("chatBox");
+
 
     const text =
         input.value.trim();
@@ -292,15 +302,9 @@ function sendMessage(){
 
     if(text === ""){
 
-        const lang =
-            typeof getLanguage === "function"
-                ? getLanguage()
-                : "ar";
-
-
         alert(
-            lang === "en"
-                ? "Please write your message first"
+            typeof t === "function"
+                ? t("required_field")
                 : "اكتب رسالتك أولاً"
         );
 
@@ -331,6 +335,7 @@ function sendMessage(){
     input.value = "";
 
 }
+
 
 </script>
 
