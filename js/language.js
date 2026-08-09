@@ -637,7 +637,30 @@ en: {
     // ======================================
     // COMMON
     // ======================================
+login_email_required:
+"Please enter your email or phone number",
 
+login_password_required:
+"Please enter your password",
+
+login_account_not_found:
+"Account not found",
+
+login_wrong_password:
+"Incorrect password",
+
+login_invalid_contact:
+"Please enter a valid email or phone number",
+
+login_error:
+"Invalid login credentials",
+
+login_success:
+"Login successful",
+
+login_success_message:
+"Logging into your account"
+    
     save:
     "Save",
 
@@ -1355,7 +1378,30 @@ ar: {
     // ======================================
     // COMMON
     // ======================================
+login_email_required:
+"يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
 
+login_password_required:
+"يرجى إدخال كلمة المرور",
+
+login_account_not_found:
+"الحساب غير موجود",
+
+login_wrong_password:
+"كلمة المرور غير صحيحة",
+
+login_invalid_contact:
+"يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
+
+login_error:
+"بيانات تسجيل الدخول غير صحيحة",
+
+login_success:
+"تم تسجيل الدخول بنجاح",
+
+login_success_message:
+"جاري الدخول إلى حسابك"
+        
     save:
     "حفظ",
 
