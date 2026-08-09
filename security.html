@@ -9,10 +9,14 @@
 
 <title>VALORA | رمز أمان السحب</title>
 
+
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
+
 <link rel="stylesheet" href="css/security.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -31,8 +35,10 @@
 </a>
 
 
-<h2>
+<h2 data-lang="security_title">
+
 رمز أمان السحب
+
 </h2>
 
 
@@ -58,14 +64,18 @@
 
 
 
-<h3>
+<h3 data-lang="security_heading">
+
 إنشاء رمز أمان للسحب
+
 </h3>
 
 
 
-<p>
+<p data-lang="security_description">
+
 يستخدم هذا الرمز لحماية عمليات السحب من الحساب
+
 </p>
 
 
@@ -82,31 +92,49 @@
 
 
 
-<label>
+<label data-lang="security_code">
+
 رمز الأمان
+
 </label>
 
 
 <input
+
 type="password"
+
 id="securityCode"
+
 maxlength="6"
+
+inputmode="numeric"
+
+data-lang-placeholder="security_code_placeholder"
+
 placeholder="أدخل رمز من 6 أرقام">
 
 
 
 
+<label data-lang="confirm_security_code">
 
-
-<label>
 تأكيد رمز الأمان
+
 </label>
 
 
 <input
+
 type="password"
+
 id="confirmCode"
+
 maxlength="6"
+
+inputmode="numeric"
+
+data-lang-placeholder="confirm_security_placeholder"
+
 placeholder="أعد إدخال الرمز">
 
 
@@ -114,15 +142,22 @@ placeholder="أعد إدخال الرمز">
 
 
 
-<button onclick="saveSecurity()">
+<button onclick="saveSecurity()" data-lang="save_security">
 
-حفظ الرمز
+حفظ رمز الأمان
 
 </button>
 
 
 
 </section>
+
+
+
+
+
+
+
 <nav class="bottom-nav">
 
 
@@ -141,7 +176,9 @@ placeholder="أعد إدخال الرمز">
 
 
 <span data-lang="home">
+
 الرئيسية
+
 </span>
 
 
@@ -167,12 +204,15 @@ placeholder="أعد إدخال الرمز">
 </svg>
 
 
-<span data-lang="wallet">
+<span data-lang="assets">
+
 الأصول
+
 </span>
 
 
 </a>
+
 
 
 
@@ -196,12 +236,15 @@ placeholder="أعد إدخال الرمز">
 </svg>
 
 
-<span>
+<span data-lang="sync">
+
 التزامن
+
 </span>
 
 
 </a>
+
 
 
 
@@ -222,7 +265,9 @@ placeholder="أعد إدخال الرمز">
 
 
 <span data-lang="team">
+
 الفريق
+
 </span>
 
 
@@ -238,24 +283,64 @@ placeholder="أعد إدخال الرمز">
 
 
 
+<script src="js/language.js"></script>
+
+
 <script>
+
+
+if(typeof applyLanguage === "function"){
+
+    applyLanguage();
+
+}
+
+
+
 
 
 function saveSecurity(){
 
 
+
 let code =
-document.getElementById("securityCode").value;
 
-
-let confirm =
-document.getElementById("confirmCode").value;
+document.getElementById("securityCode").value.trim();
 
 
 
-if(code.length !== 6){
+let confirmCode =
 
-alert("أدخل رمز من 6 أرقام");
+document.getElementById("confirmCode").value.trim();
+
+
+
+
+
+
+if(
+code === "" ||
+confirmCode === "" ||
+code.length !== 6 ||
+!/^[0-9]+$/.test(code)
+
+){
+
+
+alert(
+
+typeof t === "function"
+
+?
+
+t("security_enter_error")
+
+:
+
+"أدخل رمز من 6 أرقام"
+
+);
+
 
 return;
 
@@ -263,24 +348,67 @@ return;
 
 
 
-if(code !== confirm){
 
-alert("الرمز غير متطابق");
+
+
+
+if(code !== confirmCode){
+
+
+alert(
+
+typeof t === "function"
+
+?
+
+t("security_match_error")
+
+:
+
+"الرمز غير متطابق"
+
+);
+
 
 return;
 
+
 }
+
+
+
+
 
 
 
 localStorage.setItem(
+
 "VALORA_SECURITY",
+
 code
+
 );
 
 
 
-alert("تم حفظ رمز الأمان");
+
+
+
+alert(
+
+typeof t === "function"
+
+?
+
+t("security_saved")
+
+:
+
+"تم حفظ رمز الأمان بنجاح"
+
+);
+
+
 
 
 }
