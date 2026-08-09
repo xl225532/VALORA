@@ -1,44 +1,925 @@
-/* =========================
-   TERMS & CONDITIONS
-========================= */
+/* =========================================
+   VALORA
+   REGISTER / AUTHENTICATION STYLE
+========================================= */
 
-.terms-content{
 
-color:#C6D3E4;
+/* =========================================
+   RESET
+========================================= */
 
-font-size:14px;
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
-line-height:2;
 
-text-align:inherit;
+html,
+body {
+    width: 100%;
+    min-height: 100%;
+}
+
+
+body {
+
+    font-family: "Cairo", sans-serif;
+
+    background: transparent;
+
+    color: #ffffff;
+
+    min-height: 100vh;
+
+    direction: rtl;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================
+   AUTH CONTAINER
+========================================= */
+
+.auth-container {
+
+    width: 100%;
+
+    max-width: 480px;
+
+    margin: 0 auto;
+
+    padding: 30px 20px 40px;
+
+    min-height: 100vh;
+
+    position: relative;
+
+    z-index: 2;
+}
+
+
+/* =========================================
+   LOGO
+========================================= */
+
+.logo {
+
+    text-align: center;
+
+    margin-bottom: 25px;
+
+    color: #ffffff;
+}
+
+
+.logo-icon {
+
+    width: 105px;
+
+    height: 105px;
+
+    margin: 0 auto 10px;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+
+.logo-icon svg {
+
+    width: 100%;
+
+    height: 100%;
+
+    display: block;
+}
+
+
+.logo-name {
+
+    font-size: 30px;
+
+    font-weight: 700;
+
+    letter-spacing: 3px;
+
+    line-height: 1.1;
+
+    color: #ffffff;
+}
+
+
+.logo-sub {
+
+    margin-top: 3px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    letter-spacing: 4px;
+
+    color: #9fb0c7;
+}
+
+
+/* =========================================
+   AUTH TITLE
+========================================= */
+
+.auth-title {
+
+    text-align: center;
+
+    color: #ffffff;
+
+    font-size: 24px;
+
+    font-weight: 700;
+
+    margin-bottom: 25px;
+}
+
+
+/* =========================================
+   FORM
+========================================= */
+
+#registerForm {
+
+    width: 100%;
+}
+
+
+/* =========================================
+   INPUT GROUP
+========================================= */
+
+.input-group {
+
+    width: 100%;
+
+    margin-bottom: 18px;
+
+    position: relative;
+}
+
+
+.input-group label {
+
+    display: block;
+
+    color: #dce7f5;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 7px;
+
+    line-height: 1.6;
+}
+
+
+/* =========================================
+   INPUTS
+========================================= */
+
+.input-group > input {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(198, 211, 228, 0.25);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(7, 18, 34, 0.85);
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+
+.input-group > input::placeholder {
+
+    color: #8192a8;
+
+    opacity: 1;
+}
+
+
+.input-group > input:focus {
+
+    border-color: #1687ff;
+
+    box-shadow: 0 0 0 3px rgba(22, 135, 255, 0.12);
+}
+
+
+/* =========================================
+   VERIFICATION BOX
+========================================= */
+
+.verify-box {
+
+    display: flex;
+
+    align-items: stretch;
+
+    gap: 8px;
+
+    width: 100%;
+}
+
+
+.verify-box input {
+
+    flex: 1;
+
+    min-width: 0;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    border: 1px solid rgba(198, 211, 228, 0.25);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(7, 18, 34, 0.85);
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 14px;
+}
+
+
+.verify-box input::placeholder {
+
+    color: #8192a8;
+}
+
+
+.verify-box input:focus {
+
+    border-color: #1687ff;
+
+    box-shadow: 0 0 0 3px rgba(22, 135, 255, 0.12);
+}
+
+
+/* =========================================
+   VERIFY BUTTON
+========================================= */
+
+.verify-btn {
+
+    width: 90px;
+
+    min-width: 90px;
+
+    height: 50px;
+
+    border: none;
+
+    border-radius: 10px;
+
+    background: #1687ff;
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.2s ease;
+}
+
+
+.verify-btn:hover {
+
+    background: #0d74df;
+}
+
+
+.verify-btn:active {
+
+    transform: scale(0.98);
+}
+
+
+/* =========================================
+   PASSWORD BOX
+========================================= */
+
+.password-box {
+
+    position: relative;
+
+    width: 100%;
+}
+
+
+.password-box input {
+
+    width: 100%;
+
+    height: 50px;
+
+    padding: 0 15px;
+
+    padding-left: 50px;
+
+    border: 1px solid rgba(198, 211, 228, 0.25);
+
+    border-radius: 10px;
+
+    outline: none;
+
+    background: rgba(7, 18, 34, 0.85);
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 14px;
+
+    transition: 0.2s ease;
+}
+
+
+.password-box input::placeholder {
+
+    color: #8192a8;
+}
+
+
+.password-box input:focus {
+
+    border-color: #1687ff;
+
+    box-shadow: 0 0 0 3px rgba(22, 135, 255, 0.12);
+}
+
+
+/* =========================================
+   EYE BUTTON
+========================================= */
+
+.eye-btn {
+
+    position: absolute;
+
+    left: 0;
+
+    top: 0;
+
+    width: 50px;
+
+    height: 50px;
+
+    border: none;
+
+    background: transparent;
+
+    color: #8fa2ba;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    cursor: pointer;
+
+    padding: 0;
+}
+
+
+.eye-btn svg {
+
+    width: 21px;
+
+    height: 21px;
+
+    fill: none;
+
+    stroke: currentColor;
+
+    stroke-width: 1.8;
+
+    stroke-linecap: round;
+
+    stroke-linejoin: round;
+}
+
+
+.eye-btn:hover {
+
+    color: #1687ff;
+}
+
+
+/* =========================================
+   FIELD ERROR
+========================================= */
+
+.field-error {
+
+    display: none;
+
+    color: #ff5d73;
+
+    font-size: 12px;
+
+    margin-top: 5px;
+
+    line-height: 1.5;
+}
+
+
+.input-group.error .field-error,
+.checkbox-group.error .field-error {
+
+    display: block;
+}
+
+
+.input-group.error input {
+
+    border-color: #ff5d73;
+}
+
+
+/* =========================================
+   CHECKBOX / TERMS
+========================================= */
+
+.checkbox-group {
+
+    width: 100%;
+
+    margin-top: 5px;
+
+    margin-bottom: 20px;
+}
+
+
+.terms-check {
+
+    display: flex;
+
+    align-items: flex-start;
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+.circle-check {
+
+    width: 22px;
+
+    height: 22px;
+
+    min-width: 22px;
+
+    position: relative;
+
+    display: block;
+
+    cursor: pointer;
+
+    margin-top: 2px;
+}
+
+
+.circle-check input {
+
+    position: absolute;
+
+    opacity: 0;
+
+    width: 0;
+
+    height: 0;
+}
+
+
+.circle-check span {
+
+    width: 22px;
+
+    height: 22px;
+
+    display: block;
+
+    border: 1px solid #60738b;
+
+    border-radius: 6px;
+
+    background: rgba(7, 18, 34, 0.85);
+
+    position: relative;
+
+    transition: 0.2s ease;
+}
+
+
+.circle-check input:checked + span {
+
+    background: #1687ff;
+
+    border-color: #1687ff;
+}
+
+
+.circle-check input:checked + span::after {
+
+    content: "";
+
+    position: absolute;
+
+    width: 6px;
+
+    height: 11px;
+
+    border-right: 2px solid #ffffff;
+
+    border-bottom: 2px solid #ffffff;
+
+    transform: rotate(45deg);
+
+    left: 7px;
+
+    top: 3px;
+}
+
+
+.terms-text {
+
+    flex: 1;
+
+    color: #c6d3e4;
+
+    font-size: 12px;
+
+    line-height: 1.8;
+
+    min-width: 0;
+}
+
+
+.terms-text span {
+
+    color: #c6d3e4;
+}
+
+
+.terms-text a {
+
+    color: #1687ff;
+
+    text-decoration: none;
+
+    font-weight: 600;
+}
+
+
+.terms-text a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   PRIMARY BUTTON
+========================================= */
+
+.btn-primary {
+
+    width: 100%;
+
+    height: 52px;
+
+    border: none;
+
+    border-radius: 11px;
+
+    background: #1687ff;
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 7px 20px rgba(22, 135, 255, 0.20);
+
+    transition: 0.2s ease;
+}
+
+
+.btn-primary:hover {
+
+    background: #0d74df;
+
+    box-shadow: 0 8px 24px rgba(22, 135, 255, 0.30);
+}
+
+
+.btn-primary:active {
+
+    transform: translateY(1px);
+}
+
+
+.btn-primary:disabled {
+
+    opacity: 0.6;
+
+    cursor: not-allowed;
+}
+
+
+/* =========================================
+   BOTTOM LINK
+========================================= */
+
+.bottom-link {
+
+    text-align: center;
+
+    margin-top: 20px;
+
+    color: #aebed1;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+}
+
+
+.bottom-link a {
+
+    color: #1687ff;
+
+    text-decoration: none;
+
+    font-weight: 700;
+
+    margin-right: 4px;
+}
+
+
+.bottom-link a:hover {
+
+    text-decoration: underline;
+}
+
+
+/* =========================================
+   TERMS PAGE SUPPORT
+========================================= */
+
+.terms-content {
+
+    color: #c6d3e4;
+
+    font-size: 14px;
+
+    line-height: 2;
+
+    text-align: inherit;
+}
+
+
+.terms-content h3 {
+
+    color: #1687ff;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    margin-top: 15px;
+
+    margin-bottom: 5px;
+}
+
+
+.terms-content p {
+
+    margin: 0;
+
+    color: #c6d3e4;
+}
+
+
+.terms-content br {
+
+    line-height: 1;
+}
+
+
+/* =========================================
+   TERMS PAGE BUTTON
+========================================= */
+
+.auth-container > a {
+
+    text-decoration: none;
+
+    display: block;
+
+    width: 100%;
+}
+
+
+.auth-container > a .btn-primary {
+
+    display: block;
+
+    width: 100%;
+}
+
+
+/* =========================================
+   RTL
+========================================= */
+
+html[dir="rtl"] .input-group > input,
+html[dir="rtl"] .verify-box input,
+html[dir="rtl"] .password-box input {
+
+    text-align: right;
+}
+
+
+html[dir="ltr"] .input-group > input,
+html[dir="ltr"] .verify-box input,
+html[dir="ltr"] .password-box input {
+
+    text-align: left;
+}
+
+
+html[dir="ltr"] .password-box input {
+
+    padding-left: 15px;
+
+    padding-right: 50px;
+}
+
+
+html[dir="ltr"] .eye-btn {
+
+    left: auto;
+
+    right: 0;
+}
+
+
+html[dir="ltr"] .bottom-link a {
+
+    margin-right: 0;
+
+    margin-left: 4px;
+}
+
+
+/* =========================================
+   MOBILE
+========================================= */
+
+@media (max-width: 600px) {
+
+    .auth-container {
+
+        max-width: 100%;
+
+        padding: 25px 15px 35px;
+    }
+
+
+    .logo {
+
+        margin-bottom: 20px;
+    }
+
+
+    .logo-icon {
+
+        width: 95px;
+
+        height: 95px;
+    }
+
+
+    .logo-name {
+
+        font-size: 27px;
+    }
+
+
+    .auth-title {
+
+        font-size: 21px;
+
+        margin-bottom: 22px;
+    }
+
+
+    .input-group {
+
+        margin-bottom: 16px;
+    }
+
+
+    .input-group label {
+
+        font-size: 13px;
+    }
+
+
+    .verify-btn {
+
+        width: 82px;
+
+        min-width: 82px;
+    }
+
+
+    .terms-text {
+
+        font-size: 11px;
+    }
 
 }
 
 
-.terms-content h3{
+/* =========================================
+   VERY SMALL DEVICES
+========================================= */
 
-color:#1687FF;
+@media (max-width: 360px) {
 
-font-size:16px;
+    .auth-container {
 
-font-weight:700;
+        padding-left: 12px;
 
-margin-bottom:5px;
-
-}
-
-
-.terms-content p{
-
-margin:0;
-
-color:#C6D3E4;
-
-}
+        padding-right: 12px;
+    }
 
 
-.terms-content br{
+    .verify-box {
 
-line-height:1;
+        gap: 5px;
+    }
 
-}
+
+    .verify-btn {
+
+        width: 76px;
+
+        min-width: 76px;
+
+        font-size: 12px;
+    }
+
+
+    .terms-text {
+
+        font-size: 10px;
+    }
+
+   }
