@@ -44,7 +44,42 @@
             // GENERAL
          // CHANGE PASSWORD
 // IDENTITY VERIFICATION
+security_title:
+"Withdrawal Security Code",
 
+security_create:
+"Create Withdrawal Security Code",
+
+security_description:
+"This code protects your withdrawal operations",
+
+security_code_label:
+"Security Code",
+
+security_code_placeholder:
+"Enter 6 digit code",
+
+security_confirm_label:
+"Confirm Security Code",
+
+security_confirm_placeholder:
+"Re-enter the code",
+
+security_save:
+"Save Code",
+
+security_empty:
+"Please enter security code",
+
+security_digits:
+"Security code must contain 6 numbers",
+
+security_match:
+"Security codes do not match",
+
+security_saved:
+"Security code saved successfully",
+            
 identity_confirmation:
     "Identity Confirmation",
 
@@ -807,7 +842,42 @@ send_message:
          
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
+security_title:
+"رمز أمان السحب",
 
+security_create:
+"إنشاء رمز أمان للسحب",
+
+security_description:
+"يستخدم هذا الرمز لحماية عمليات السحب من الحساب",
+
+security_code_label:
+"رمز الأمان",
+
+security_code_placeholder:
+"أدخل رمز من 6 أرقام",
+
+security_confirm_label:
+"تأكيد رمز الأمان",
+
+security_confirm_placeholder:
+"أعد إدخال الرمز",
+
+security_save:
+"حفظ الرمز",
+
+security_empty:
+"يرجى إدخال رمز الأمان",
+
+security_digits:
+"يجب أن يكون رمز الأمان 6 أرقام",
+
+security_match:
+"رمز الأمان غير متطابق",
+
+security_saved:
+"تم حفظ رمز الأمان بنجاح",
+            
 identity_confirmation:
     "تأكيد الهوية",
 
