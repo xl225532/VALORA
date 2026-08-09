@@ -1,6 +1,16 @@
 // ======================================
 // VALORA APP
 // ======================================
+// يعمل مع:
+// js/language.js
+//
+// لا يقوم هذا الملف بتغيير اللغة.
+// اللغة يتم التحكم بها فقط من language.js
+// والتخزين:
+// VALORA_LANG
+// ======================================
+
+"use strict";
 
 
 // ======================================
@@ -10,6 +20,10 @@
 function appTranslate(key) {
 
     try {
+
+        // ==================================
+        // VALORA LANGUAGE SYSTEM
+        // ==================================
 
         if (
             window.VALORA_LANG &&
@@ -23,9 +37,13 @@ function appTranslate(key) {
             const translations =
                 window.VALORA_LANG.translations;
 
+
             if (
                 translations[lang] &&
-                translations[lang][key]
+                Object.prototype.hasOwnProperty.call(
+                    translations[lang],
+                    key
+                )
             ) {
 
                 return translations[lang][key];
@@ -45,70 +63,151 @@ function appTranslate(key) {
 
 
     // ==================================
-    // FALLBACK ARABIC
+    // FALLBACK
     // ==================================
+    // لا نغيّر اللغة هنا.
+    // نستخدم اللغة الموجودة في localStorage
+    // إذا كان language.js غير جاهز مؤقتاً.
+    // ==================================
+
+    let currentLanguage = "ar";
+
+    try {
+
+        currentLanguage =
+            localStorage.getItem(
+                "VALORA_LANG"
+            ) || "ar";
+
+    } catch (error) {
+
+        currentLanguage = "ar";
+
+    }
+
 
     const fallback = {
 
-        register_contact_required:
-            "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
+        ar: {
 
-        password_required:
-            "يرجى إدخال كلمة المرور",
+            register_contact_required:
+                "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
 
-        confirm_password_required:
-            "يرجى تأكيد كلمة المرور",
+            password_required:
+                "يرجى إدخال كلمة المرور",
 
-        password_mismatch:
-            "كلمتا المرور غير متطابقتين",
+            confirm_password_required:
+                "يرجى تأكيد كلمة المرور",
 
-        agree_required:
-            "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
+            password_mismatch:
+                "كلمتا المرور غير متطابقتين",
 
-        verification_required:
-            "يرجى إدخال كود التحقق",
+            agree_required:
+                "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
 
-        verification_sent:
-            "تم إرسال كود التحقق",
+            verification_required:
+                "يرجى إدخال كود التحقق",
 
-        register_success:
-            "تم إنشاء الحساب بنجاح",
+            verification_sent:
+                "تم إرسال كود التحقق",
 
-        login_email_required:
-            "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
+            register_success:
+                "تم إنشاء الحساب بنجاح",
 
-        login_password_required:
-            "يرجى إدخال كلمة المرور",
+            login_email_required:
+                "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
 
-        login_account_not_found:
-            "الحساب غير موجود",
+            login_password_required:
+                "يرجى إدخال كلمة المرور",
 
-        login_wrong_password:
-            "كلمة المرور غير صحيحة",
+            login_account_not_found:
+                "الحساب غير موجود",
 
-        login_invalid_contact:
-            "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
+            login_wrong_password:
+                "كلمة المرور غير صحيحة",
 
-        login_success:
-            "تم تسجيل الدخول بنجاح",
+            login_invalid_contact:
+                "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
 
-        login_success_message:
-            "جاري الدخول إلى حسابك",
+            login_success:
+                "تم تسجيل الدخول بنجاح",
 
-        login_error:
-            "بيانات تسجيل الدخول غير صحيحة"
+            login_success_message:
+                "جاري الدخول إلى حسابك"
+
+        },
+
+
+        en: {
+
+            register_contact_required:
+                "Please enter your email or phone number",
+
+            password_required:
+                "Please enter your password",
+
+            confirm_password_required:
+                "Please confirm your password",
+
+            password_mismatch:
+                "Passwords do not match",
+
+            agree_required:
+                "You must agree to the Terms & Conditions and Privacy Policy",
+
+            verification_required:
+                "Please enter the verification code",
+
+            verification_sent:
+                "Verification code sent",
+
+            register_success:
+                "Account created successfully",
+
+            login_email_required:
+                "Please enter your email or phone number",
+
+            login_password_required:
+                "Please enter your password",
+
+            login_account_not_found:
+                "Account not found",
+
+            login_wrong_password:
+                "Incorrect password",
+
+            login_invalid_contact:
+                "Please enter a valid email or phone number",
+
+            login_success:
+                "Login successful",
+
+            login_success_message:
+                "Logging into your account"
+
+        }
 
     };
 
 
-    return fallback[key] || key;
+    if (
+        fallback[currentLanguage] &&
+        fallback[currentLanguage][key]
+    ) {
+
+        return fallback[currentLanguage][key];
+
+    }
+
+
+    return key;
 
 }
 
 
 
 // ======================================
-// REGISTER FIELD ERROR
+// FIELD ERROR
 // ======================================
 
 function clearFieldError(
@@ -117,11 +216,15 @@ function clearFieldError(
 ) {
 
     const group =
-        document.getElementById(groupId);
+        document.getElementById(
+            groupId
+        );
 
 
     const error =
-        document.getElementById(errorId);
+        document.getElementById(
+            errorId
+        );
 
 
     if (group) {
@@ -135,7 +238,8 @@ function clearFieldError(
 
     if (error) {
 
-        error.textContent = "";
+        error.textContent =
+            "";
 
     }
 
@@ -150,11 +254,15 @@ function showFieldError(
 ) {
 
     const group =
-        document.getElementById(groupId);
+        document.getElementById(
+            groupId
+        );
 
 
     const error =
-        document.getElementById(errorId);
+        document.getElementById(
+            errorId
+        );
 
 
     if (group) {
@@ -178,7 +286,7 @@ function showFieldError(
 
 
 // ======================================
-// CLEAR ALL REGISTER ERRORS
+// CLEAR REGISTER ERRORS
 // ======================================
 
 function clearRegisterErrors() {
@@ -230,7 +338,8 @@ function clearRegisterErrors() {
 
     if (termsError) {
 
-        termsError.textContent = "";
+        termsError.textContent =
+            "";
 
     }
 
@@ -261,13 +370,20 @@ function generateReferralCode() {
 // REGISTER
 // ======================================
 
-const registerForm =
-    document.getElementById(
-        "registerForm"
-    );
+function setupRegister() {
+
+    const registerForm =
+        document.getElementById(
+            "registerForm"
+        );
 
 
-if (registerForm) {
+    if (!registerForm) {
+
+        return;
+
+    }
+
 
     registerForm.addEventListener(
         "submit",
@@ -279,14 +395,33 @@ if (registerForm) {
             clearRegisterErrors();
 
 
-
-            // ==================================
-            // CONTACT
-            // ==================================
-
             const contactElement =
                 document.getElementById(
                     "contact"
+                );
+
+
+            const passwordElement =
+                document.getElementById(
+                    "password"
+                );
+
+
+            const confirmPasswordElement =
+                document.getElementById(
+                    "confirmPassword"
+                );
+
+
+            const verifyCodeElement =
+                document.getElementById(
+                    "verifyCode"
+                );
+
+
+            const agreeElement =
+                document.getElementById(
+                    "agree"
                 );
 
 
@@ -296,32 +431,10 @@ if (registerForm) {
                 : "";
 
 
-
-            // ==================================
-            // PASSWORD
-            // ==================================
-
-            const passwordElement =
-                document.getElementById(
-                    "password"
-                );
-
-
             const password =
                 passwordElement
                 ? passwordElement.value
                 : "";
-
-
-
-            // ==================================
-            // CONFIRM PASSWORD
-            // ==================================
-
-            const confirmPasswordElement =
-                document.getElementById(
-                    "confirmPassword"
-                );
 
 
             const confirmPassword =
@@ -330,32 +443,10 @@ if (registerForm) {
                 : "";
 
 
-
-            // ==================================
-            // VERIFICATION CODE
-            // ==================================
-
-            const verifyCodeElement =
-                document.getElementById(
-                    "verifyCode"
-                );
-
-
             const verifyCode =
                 verifyCodeElement
                 ? verifyCodeElement.value.trim()
                 : "";
-
-
-
-            // ==================================
-            // TERMS
-            // ==================================
-
-            const agreeElement =
-                document.getElementById(
-                    "agree"
-                );
 
 
             const agree =
@@ -366,7 +457,7 @@ if (registerForm) {
 
 
             // ==================================
-            // CONTACT REQUIRED
+            // CONTACT
             // ==================================
 
             if (contact === "") {
@@ -394,7 +485,7 @@ if (registerForm) {
 
 
             // ==================================
-            // PASSWORD REQUIRED
+            // PASSWORD
             // ==================================
 
             if (password === "") {
@@ -422,7 +513,7 @@ if (registerForm) {
 
 
             // ==================================
-            // CONFIRM PASSWORD REQUIRED
+            // CONFIRM PASSWORD
             // ==================================
 
             if (confirmPassword === "") {
@@ -567,7 +658,6 @@ if (registerForm) {
             };
 
 
-
             try {
 
                 localStorage.setItem(
@@ -610,59 +700,38 @@ if (registerForm) {
 
 
 // ======================================
-// REGISTER INPUT CLEAR
+// REGISTER ERROR CLEAR
 // ======================================
 
-function registerInputClear() {
+function setupRegisterErrorClear() {
 
     const fields = [
 
         {
-            input:
-                "contact",
-
-            group:
-                "contactGroup",
-
-            error:
-                "contactError"
+            input: "contact",
+            group: "contactGroup",
+            error: "contactError"
         },
 
         {
-            input:
-                "verifyCode",
-
-            group:
-                "verificationGroup",
-
-            error:
-                "verificationError"
+            input: "verifyCode",
+            group: "verificationGroup",
+            error: "verificationError"
         },
 
         {
-            input:
-                "password",
-
-            group:
-                "passwordGroup",
-
-            error:
-                "passwordError"
+            input: "password",
+            group: "passwordGroup",
+            error: "passwordError"
         },
 
         {
-            input:
-                "confirmPassword",
-
-            group:
-                "confirmPasswordGroup",
-
-            error:
-                "confirmPasswordError"
+            input: "confirmPassword",
+            group: "confirmPasswordGroup",
+            error: "confirmPasswordError"
         }
 
     ];
-
 
 
     fields.forEach(
@@ -674,30 +743,29 @@ function registerInputClear() {
                 );
 
 
-            if (input) {
+            if (!input) {
 
-                input.addEventListener(
-                    "input",
-                    function () {
-
-                        clearFieldError(
-                            item.group,
-                            item.error
-                        );
-
-                    }
-                );
+                return;
 
             }
+
+
+            input.addEventListener(
+                "input",
+                function () {
+
+                    clearFieldError(
+                        item.group,
+                        item.error
+                    );
+
+                }
+            );
 
         }
     );
 
 
-
-    // ==================================
-    // TERMS CLEAR
-    // ==================================
 
     const agree =
         document.getElementById(
@@ -711,6 +779,13 @@ function registerInputClear() {
             "change",
             function () {
 
+                if (!agree.checked) {
+
+                    return;
+
+                }
+
+
                 const termsGroup =
                     document.getElementById(
                         "termsGroup"
@@ -723,23 +798,19 @@ function registerInputClear() {
                     );
 
 
-                if (agree.checked) {
+                if (termsGroup) {
 
-                    if (termsGroup) {
+                    termsGroup.classList.remove(
+                        "error"
+                    );
 
-                        termsGroup.classList.remove(
-                            "error"
-                        );
-
-                    }
+                }
 
 
-                    if (termsError) {
+                if (termsError) {
 
-                        termsError.textContent =
-                            "";
-
-                    }
+                    termsError.textContent =
+                        "";
 
                 }
 
@@ -751,7 +822,83 @@ function registerInputClear() {
 }
 
 
-registerInputClear();
+
+// ======================================
+// LOGIN ERROR
+// ======================================
+
+function showLoginError(
+    groupId,
+    errorId,
+    message
+) {
+
+    const group =
+        document.getElementById(
+            groupId
+        );
+
+
+    const error =
+        document.getElementById(
+            errorId
+        );
+
+
+    if (group) {
+
+        group.classList.add(
+            "error"
+        );
+
+    }
+
+
+    if (error) {
+
+        error.textContent =
+            message;
+
+    }
+
+}
+
+
+
+function clearLoginError(
+    groupId,
+    errorId
+) {
+
+    const group =
+        document.getElementById(
+            groupId
+        );
+
+
+    const error =
+        document.getElementById(
+            errorId
+        );
+
+
+    if (group) {
+
+        group.classList.remove(
+            "error"
+        );
+
+    }
+
+
+    if (error) {
+
+        error.textContent =
+            "";
+
+    }
+
+}
 
 
 
@@ -759,13 +906,20 @@ registerInputClear();
 // LOGIN
 // ======================================
 
-const loginForm =
-    document.getElementById(
-        "loginForm"
-    );
+function setupLogin() {
+
+    const loginForm =
+        document.getElementById(
+            "loginForm"
+        );
 
 
-if (loginForm) {
+    if (!loginForm) {
+
+        return;
+
+    }
+
 
     loginForm.addEventListener(
         "submit",
@@ -774,9 +928,8 @@ if (loginForm) {
             e.preventDefault();
 
 
-
             // ==================================
-            // CLEAR PREVIOUS ERRORS
+            // CLEAR ERRORS
             // ==================================
 
             clearLoginError(
@@ -792,10 +945,6 @@ if (loginForm) {
 
 
 
-            // ==================================
-            // ELEMENTS
-            // ==================================
-
             const loginInputElement =
                 document.getElementById(
                     "loginInput"
@@ -808,10 +957,6 @@ if (loginForm) {
                 );
 
 
-
-            // ==================================
-            // VALUES
-            // ==================================
 
             const loginInput =
                 loginInputElement
@@ -883,7 +1028,7 @@ if (loginForm) {
 
 
             // ==================================
-            // GET SAVED USER
+            // GET USER
             // ==================================
 
             let savedUser = null;
@@ -891,12 +1036,20 @@ if (loginForm) {
 
             try {
 
-                savedUser =
-                    JSON.parse(
-                        localStorage.getItem(
-                            "VALORA_USER"
-                        )
+                const storedUser =
+                    localStorage.getItem(
+                        "VALORA_USER"
                     );
+
+
+                if (storedUser) {
+
+                    savedUser =
+                        JSON.parse(
+                            storedUser
+                        );
+
+                }
 
             } catch (error) {
 
@@ -1001,7 +1154,7 @@ if (loginForm) {
 
 
             // ==================================
-            // LOGIN SUCCESS
+            // SUCCESS
             // ==================================
 
             showLoginSuccess();
@@ -1025,86 +1178,7 @@ if (loginForm) {
 
 
 // ======================================
-// LOGIN ERROR FUNCTIONS
-// ======================================
-
-function showLoginError(
-    groupId,
-    errorId,
-    message
-) {
-
-    const group =
-        document.getElementById(
-            groupId
-        );
-
-
-    const error =
-        document.getElementById(
-            errorId
-        );
-
-
-    if (group) {
-
-        group.classList.add(
-            "error"
-        );
-
-    }
-
-
-    if (error) {
-
-        error.textContent =
-            message;
-
-    }
-
-}
-
-
-
-function clearLoginError(
-    groupId,
-    errorId
-) {
-
-    const group =
-        document.getElementById(
-            groupId
-        );
-
-
-    const error =
-        document.getElementById(
-            errorId
-        );
-
-
-    if (group) {
-
-        group.classList.remove(
-            "error"
-        );
-
-    }
-
-
-    if (error) {
-
-        error.textContent =
-            "";
-
-    }
-
-}
-
-
-
-// ======================================
-// CLEAR LOGIN ERROR WHEN TYPING
+// CLEAR LOGIN ERRORS WHILE TYPING
 // ======================================
 
 function setupLoginErrorClear() {
@@ -1119,7 +1193,6 @@ function setupLoginErrorClear() {
         document.getElementById(
             "loginPassword"
         );
-
 
 
     if (loginInput) {
@@ -1139,7 +1212,6 @@ function setupLoginErrorClear() {
     }
 
 
-
     if (loginPassword) {
 
         loginPassword.addEventListener(
@@ -1157,9 +1229,6 @@ function setupLoginErrorClear() {
     }
 
 }
-
-
-setupLoginErrorClear();
 
 
 
@@ -1185,7 +1254,6 @@ function togglePassword(
     }
 
 
-
     if (
         input.type ===
         "password"
@@ -1203,9 +1271,7 @@ function togglePassword(
 
         }
 
-    }
-
-    else {
+    } else {
 
         input.type =
             "password";
@@ -1226,7 +1292,7 @@ function togglePassword(
 
 
 // ======================================
-// LOGIN SUCCESS MESSAGE
+// LOGIN SUCCESS
 // ======================================
 
 function showLoginSuccess() {
@@ -1270,7 +1336,11 @@ function showLoginSuccess() {
     setTimeout(
         function () {
 
-            box.remove();
+            if (box) {
+
+                box.remove();
+
+            }
 
         },
         1800
@@ -1298,11 +1368,6 @@ function sendVerificationCode() {
         : "";
 
 
-
-    // ==================================
-    // CONTACT REQUIRED
-    // ==================================
-
     if (!contact) {
 
         showFieldError(
@@ -1326,11 +1391,6 @@ function sendVerificationCode() {
     }
 
 
-
-    // ==================================
-    // SUCCESS
-    // ==================================
-
     alert(
         appTranslate(
             "verification_sent"
@@ -1342,20 +1402,44 @@ function sendVerificationCode() {
 
 
 // ======================================
-// GLOBAL FUNCTIONS
+// INITIALIZE
+// ======================================
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function () {
+
+        setupRegister();
+
+        setupRegisterErrorClear();
+
+        setupLogin();
+
+        setupLoginErrorClear();
+
+    }
+);
+
+
+
+// ======================================
+// GLOBAL
 // ======================================
 
 window.appTranslate =
     appTranslate;
 
-
 window.generateReferralCode =
     generateReferralCode;
-
 
 window.togglePassword =
     togglePassword;
 
-
 window.sendVerificationCode =
     sendVerificationCode;
+
+window.showLoginError =
+    showLoginError;
+
+window.clearLoginError =
+    clearLoginError;
