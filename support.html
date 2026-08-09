@@ -13,6 +13,7 @@
 
 <link rel="stylesheet" href="css/support.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -22,7 +23,6 @@
 <div class="support-page">
 
 
-
 <header class="page-header">
 
 <a href="javascript:history.back()">
@@ -30,7 +30,7 @@
 </a>
 
 
-<h2>
+<h2 data-lang="support_title">
 خدمة العملاء
 </h2>
 
@@ -39,9 +39,9 @@
 
 
 
-
-
-
+<!-- ==========================================
+     SUPPORT CARD
+========================================== -->
 
 <section class="support-card">
 
@@ -53,12 +53,12 @@
 </div>
 
 
-<h3>
+<h3 data-lang="support_heading">
 مراسلة العملاء
 </h3>
 
 
-<p>
+<p data-lang="support_description">
 
 إذا واجهتك أي مشكلة يمكنك التواصل مع فريق دعم VALORA.
 
@@ -69,10 +69,9 @@
 
 
 
-
-
-
-
+<!-- ==========================================
+     OFFICIAL CHANNEL
+========================================== -->
 
 <section class="channel-card">
 
@@ -84,12 +83,12 @@
 </div>
 
 
-<h3>
+<h3 data-lang="official_channel">
 القناة الرسمية
 </h3>
 
 
-<p>
+<p data-lang="channel_description">
 
 تابع جميع الأخبار والتحديثات الخاصة بمنصة VALORA.
 
@@ -97,11 +96,11 @@
 
 
 
-<a class="channel-btn"
-
+<a
+class="channel-btn"
 href="https://t.me/+lf2KqUHbtII1MmJk"
-
-target="_blank">
+target="_blank"
+data-lang="join_channel">
 
 الانضمام إلى القناة
 
@@ -112,50 +111,50 @@ target="_blank">
 
 
 
-
-
-
-
-
+<!-- ==========================================
+     CHAT
+========================================== -->
 
 <section class="chat-box" id="chatBox">
 
 
-
 <div class="message admin">
 
+<span data-lang="support_welcome">
 مرحبًا بك
+</span>
 
 <br><br>
 
+<span data-lang="support_welcome_message">
 يمكنك إرسال استفسارك أو مشكلتك، وسيقوم فريق الدعم بالرد عليك في أقرب وقت.
+</span>
 
 </div>
-
 
 
 </section>
 
 
 
-
-
-
+<!-- ==========================================
+     SEND AREA
+========================================== -->
 
 <div class="send-area">
 
 
 <input
-
 type="text"
-
 id="supportMessage"
+data-lang-placeholder="support_message_placeholder"
+placeholder="اكتب رسالتك هنا..."
+>
 
-placeholder="اكتب رسالتك هنا...">
 
-
-
-<button onclick="sendMessage()">
+<button
+onclick="sendMessage()"
+data-lang="send_message">
 
 إرسال
 
@@ -163,12 +162,17 @@ placeholder="اكتب رسالتك هنا...">
 
 
 </div>
-  <nav class="bottom-nav">
 
+
+
+<!-- ==========================================
+     BOTTOM NAV
+========================================== -->
+
+<nav class="bottom-nav">
 
 
 <a href="dashboard.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -181,7 +185,7 @@ placeholder="اكتب رسالتك هنا...">
 </svg>
 
 
-<span>
+<span data-lang="home">
 الرئيسية
 </span>
 
@@ -190,11 +194,7 @@ placeholder="اكتب رسالتك هنا...">
 
 
 
-
-
-
 <a href="wallet.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -205,7 +205,7 @@ placeholder="اكتب رسالتك هنا...">
 </svg>
 
 
-<span>
+<span data-lang="assets">
 الأصول
 </span>
 
@@ -214,13 +214,7 @@ placeholder="اكتب رسالتك هنا...">
 
 
 
-
-
-
-
-
 <a href="sync.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -233,7 +227,7 @@ placeholder="اكتب رسالتك هنا...">
 </svg>
 
 
-<span>
+<span data-lang="sync">
 التزامن
 </span>
 
@@ -242,12 +236,7 @@ placeholder="اكتب رسالتك هنا...">
 
 
 
-
-
-
-
 <a href="team.html">
-
 
 <svg viewBox="0 0 24 24">
 
@@ -258,7 +247,7 @@ placeholder="اكتب رسالتك هنا...">
 </svg>
 
 
-<span>
+<span data-lang="team">
 الفريق
 </span>
 
@@ -266,97 +255,86 @@ placeholder="اكتب رسالتك هنا...">
 </a>
 
 
-
-
 </nav>
-
-
-
-
-
 
 
 </div>
 
 
 
-
-
-
-
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
 <script>
 
+if(typeof applyLanguage === "function"){
 
-if(typeof applyLanguage==="function"){
-
-applyLanguage();
+    applyLanguage();
 
 }
-
-
 
 
 function sendMessage(){
 
+    const input =
+        document.getElementById("supportMessage");
 
-const input=document.getElementById("supportMessage");
+    const chat =
+        document.getElementById("chatBox");
 
-const chat=document.getElementById("chatBox");
-
-
-const text=input.value.trim();
-
-
-
-if(text===""){
+    const text =
+        input.value.trim();
 
 
-alert("اكتب رسالتك أولاً");
+    if(text === ""){
 
-return;
+        const lang =
+            typeof getLanguage === "function"
+                ? getLanguage()
+                : "ar";
 
+
+        alert(
+            lang === "en"
+                ? "Please write your message first"
+                : "اكتب رسالتك أولاً"
+        );
+
+        return;
+
+    }
+
+
+    const msg =
+        document.createElement("div");
+
+
+    msg.className =
+        "message user";
+
+
+    msg.textContent =
+        text;
+
+
+    chat.appendChild(msg);
+
+
+    chat.scrollTop =
+        chat.scrollHeight;
+
+
+    input.value = "";
 
 }
-
-
-
-
-const msg=document.createElement("div");
-
-
-msg.className="message user";
-
-
-msg.textContent=text;
-
-
-
-chat.appendChild(msg);
-
-
-
-chat.scrollTop=chat.scrollHeight;
-
-
-
-input.value="";
-
-
-}
-
-
 
 </script>
-
-
-
 
 
 </body>
 
 </html>
-
