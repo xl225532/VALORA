@@ -9,13 +9,70 @@
 
 <title>VALORA | رمز أمان السحب</title>
 
-
 <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
 
-
 <link rel="stylesheet" href="css/security.css">
-
 <link rel="stylesheet" href="css/background.css">
+
+
+<style>
+
+/* ==========================================
+   SECURITY ERROR
+========================================== */
+
+.security-error{
+
+    display:none;
+
+    width:100%;
+
+    margin-top:12px;
+
+    padding:12px 14px;
+
+    background:rgba(255,60,60,.08);
+
+    border:1px solid #ff3b3b;
+
+    border-radius:12px;
+
+    color:#ff5c5c;
+
+    font-size:13px;
+
+    line-height:1.7;
+
+    text-align:center;
+
+}
+
+
+/* ==========================================
+   ERROR INPUT
+========================================== */
+
+.security-input-error{
+
+    border:1px solid #ff3b3b !important;
+
+    box-shadow:
+        0 0 0 2px rgba(255,59,59,.08);
+
+}
+
+
+/* ==========================================
+   SUCCESS INPUT RESET
+========================================== */
+
+.security-input-error:focus{
+
+    border-color:#ff3b3b !important;
+
+}
+
+</style>
 
 </head>
 
@@ -26,12 +83,17 @@
 <div class="security-page">
 
 
+<!-- ==========================================
+     HEADER
+========================================== -->
 
 <header class="page-header">
 
 
 <a href="javascript:history.back()">
+
 ‹
+
 </a>
 
 
@@ -47,18 +109,22 @@
 
 
 
-
+<!-- ==========================================
+     SECURITY CARD
+========================================== -->
 
 <section class="security-card">
 
 
 <div class="icon">
 
+
 <svg viewBox="0 0 24 24">
 
 <path d="M12 2L20 5V11C20 16 16.5 20 12 22C7.5 20 4 16 4 11V5Z"></path>
 
 </svg>
+
 
 </div>
 
@@ -79,24 +145,27 @@
 </p>
 
 
-
 </section>
 
 
 
 
-
-
+<!-- ==========================================
+     FORM
+========================================== -->
 
 <section class="form-card">
 
 
+
+<!-- SECURITY CODE -->
 
 <label data-lang="security_code">
 
 رمز الأمان
 
 </label>
+
 
 
 <input
@@ -109,18 +178,25 @@ maxlength="6"
 
 inputmode="numeric"
 
+autocomplete="off"
+
 data-lang-placeholder="security_code_placeholder"
 
-placeholder="أدخل رمز من 6 أرقام">
+placeholder="أدخل رمز من 6 أرقام"
+
+>
 
 
 
+
+<!-- CONFIRM SECURITY CODE -->
 
 <label data-lang="confirm_security_code">
 
 تأكيد رمز الأمان
 
 </label>
+
 
 
 <input
@@ -133,16 +209,39 @@ maxlength="6"
 
 inputmode="numeric"
 
+autocomplete="off"
+
 data-lang-placeholder="confirm_security_placeholder"
 
-placeholder="أعد إدخال الرمز">
+placeholder="أعد إدخال الرمز"
+
+>
 
 
 
 
+<!-- ERROR MESSAGE -->
+
+<div
+
+id="securityError"
+
+class="security-error">
+
+</div>
 
 
-<button onclick="saveSecurity()" data-lang="save_security">
+
+
+<!-- SAVE BUTTON -->
+
+<button
+
+type="button"
+
+onclick="saveSecurity()"
+
+data-lang="save_security">
 
 حفظ رمز الأمان
 
@@ -155,11 +254,15 @@ placeholder="أعد إدخال الرمز">
 
 
 
-
-
+<!-- ==========================================
+     BOTTOM NAVIGATION
+========================================== -->
 
 <nav class="bottom-nav">
 
+
+
+<!-- HOME -->
 
 <a href="dashboard.html">
 
@@ -187,8 +290,7 @@ placeholder="أعد إدخال الرمز">
 
 
 
-
-
+<!-- ASSETS -->
 
 <a href="wallet.html">
 
@@ -216,9 +318,7 @@ placeholder="أعد إدخال الرمز">
 
 
 
-
-
-
+<!-- SYNC -->
 
 <a href="sync.html">
 
@@ -248,9 +348,7 @@ placeholder="أعد إدخال الرمز">
 
 
 
-
-
-
+<!-- TEAM -->
 
 <a href="team.html">
 
@@ -280,14 +378,19 @@ placeholder="أعد إدخال الرمز">
 
 
 
-
-
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
 <script>
 
+
+/* ==========================================
+   APPLY LANGUAGE
+========================================== */
 
 if(typeof applyLanguage === "function"){
 
@@ -298,127 +401,319 @@ if(typeof applyLanguage === "function"){
 
 
 
+/* ==========================================
+   CLEAR ERROR
+========================================== */
+
+function clearSecurityError(){
+
+
+    const error =
+        document.getElementById(
+            "securityError"
+        );
+
+
+    const code =
+        document.getElementById(
+            "securityCode"
+        );
+
+
+    const confirmCode =
+        document.getElementById(
+            "confirmCode"
+        );
+
+
+
+    error.style.display =
+        "none";
+
+
+    error.textContent =
+        "";
+
+
+
+    code.classList.remove(
+        "security-input-error"
+    );
+
+
+    confirmCode.classList.remove(
+        "security-input-error"
+    );
+
+}
+
+
+
+
+/* ==========================================
+   SHOW ERROR
+========================================== */
+
+function showSecurityError(
+    message,
+    input
+){
+
+
+    const error =
+        document.getElementById(
+            "securityError"
+        );
+
+
+
+    clearSecurityError();
+
+
+
+    error.textContent =
+        message;
+
+
+
+    error.style.display =
+        "block";
+
+
+
+    if(input){
+
+        input.classList.add(
+            "security-input-error"
+        );
+
+
+        input.focus();
+
+    }
+
+}
+
+
+
+
+/* ==========================================
+   SAVE SECURITY CODE
+========================================== */
 
 function saveSecurity(){
 
 
-
-let code =
-
-document.getElementById("securityCode").value.trim();
-
-
-
-let confirmCode =
-
-document.getElementById("confirmCode").value.trim();
+    const code =
+        document.getElementById(
+            "securityCode"
+        );
 
 
+    const confirmCode =
+        document.getElementById(
+            "confirmCode"
+        );
 
 
 
-
-if(
-code === "" ||
-confirmCode === "" ||
-code.length !== 6 ||
-!/^[0-9]+$/.test(code)
-
-){
+    const codeValue =
+        code.value.trim();
 
 
-alert(
-
-typeof t === "function"
-
-?
-
-t("security_enter_error")
-
-:
-
-"أدخل رمز من 6 أرقام"
-
-);
+    const confirmValue =
+        confirmCode.value.trim();
 
 
-return;
+
+    /*
+    ==========================================
+    CLEAR PREVIOUS ERROR
+    ==========================================
+    */
+
+    clearSecurityError();
+
+
+
+
+    /*
+    ==========================================
+    CHECK SECURITY CODE
+    ==========================================
+    */
+
+    if(
+
+        codeValue === "" ||
+
+        codeValue.length !== 6 ||
+
+        !/^[0-9]+$/.test(codeValue)
+
+    ){
+
+
+        showSecurityError(
+
+            typeof t === "function"
+
+                ? t(
+                    "security_enter_error"
+                  )
+
+                : "أدخل رمز من 6 أرقام",
+
+            code
+
+        );
+
+
+        return;
+
+    }
+
+
+
+
+    /*
+    ==========================================
+    CHECK CONFIRM CODE
+    ==========================================
+    */
+
+    if(
+
+        confirmValue === "" ||
+
+        confirmValue !== codeValue
+
+    ){
+
+
+        showSecurityError(
+
+            typeof t === "function"
+
+                ? t(
+                    "security_match_error"
+                  )
+
+                : "الرمز غير متطابق",
+
+            confirmCode
+
+        );
+
+
+        return;
+
+    }
+
+
+
+
+    /*
+    ==========================================
+    SAVE
+    ==========================================
+    */
+
+    localStorage.setItem(
+
+        "VALORA_SECURITY",
+
+        codeValue
+
+    );
+
+
+
+
+    /*
+    ==========================================
+    SUCCESS
+    ==========================================
+    */
+
+    alert(
+
+        typeof t === "function"
+
+            ? t(
+                "security_saved"
+              )
+
+            : "تم حفظ رمز الأمان بنجاح"
+
+    );
+
+
+
+    clearSecurityError();
 
 }
 
 
 
 
+/* ==========================================
+   REMOVE ERROR WHILE TYPING
+========================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        const code =
+            document.getElementById(
+                "securityCode"
+            );
+
+
+        const confirmCode =
+            document.getElementById(
+                "confirmCode"
+            );
 
 
 
-if(code !== confirmCode){
+        if(code){
+
+            code.addEventListener(
+                "input",
+                function(){
+
+                    code.classList.remove(
+                        "security-input-error"
+                    );
+
+                }
+            );
+
+        }
 
 
-alert(
 
-typeof t === "function"
+        if(confirmCode){
 
-?
+            confirmCode.addEventListener(
+                "input",
+                function(){
 
-t("security_match_error")
+                    confirmCode.classList.remove(
+                        "security-input-error"
+                    );
 
-:
+                }
+            );
 
-"الرمز غير متطابق"
+        }
 
+    }
 );
-
-
-return;
-
-
-}
-
-
-
-
-
-
-
-localStorage.setItem(
-
-"VALORA_SECURITY",
-
-code
-
-);
-
-
-
-
-
-
-alert(
-
-typeof t === "function"
-
-?
-
-t("security_saved")
-
-:
-
-"تم حفظ رمز الأمان بنجاح"
-
-);
-
-
-
-
-}
-
-
 
 </script>
-
-
-
 
 
 </div>
