@@ -7,19 +7,32 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | الإشعارات</title>
+<title>VALORA | Notifications</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/notifications.css">
+
 <link rel="stylesheet" href="css/background.css">
+
 </head>
+
 
 <body>
 
+
 <div class="notifications-page">
 
+
+
+<!-- =========================
+     HEADER
+========================= -->
+
 <header class="page-header">
+
 
 <a href="javascript:history.back()">
 
@@ -27,15 +40,26 @@
 
 </a>
 
-<h2>
+
+<h2 data-lang="notifications">
 
 الإشعارات
 
 </h2>
 
+
 </header>
 
+
+
+
+
+<!-- =========================
+     EMPTY NOTIFICATIONS
+========================= -->
+
 <section class="notification-card">
+
 
 <div class="notification-icon">
 
@@ -43,22 +67,38 @@
 
 </div>
 
-<h3>
+
+
+<h3 data-lang="no_notifications">
 
 لا توجد إشعارات
 
 </h3>
 
-<p>
+
+
+<p data-lang="notifications_description">
 
 ستظهر هنا جميع التنبيهات الخاصة بالحساب والعمليات
 
 </p>
 
+
 </section>
-<!-- الشريط السفلي الجديد -->
+
+
+
+
+
+
+
+<!-- =========================
+     BOTTOM NAV
+========================= -->
+
 
 <nav class="bottom-nav">
+
 
 
 <a href="dashboard.html">
@@ -75,7 +115,7 @@
 </svg>
 
 
-<span>
+<span data-lang="home">
 
 الرئيسية
 
@@ -99,7 +139,8 @@
 </svg>
 
 
-<span>
+
+<span data-lang="assets">
 
 الأصول
 
@@ -107,6 +148,7 @@
 
 
 </a>
+
 
 
 
@@ -129,7 +171,8 @@
 </svg>
 
 
-<span>
+
+<span data-lang="sync">
 
 التزامن
 
@@ -156,7 +199,8 @@
 </svg>
 
 
-<span>
+
+<span data-lang="team">
 
 الفريق
 
@@ -171,9 +215,32 @@
 
 
 
-
-
 </div>
+
+
+
+
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+document.addEventListener(
+"DOMContentLoaded",
+function(){
+
+    if(typeof applyLanguage === "function"){
+
+        applyLanguage();
+
+    }
+
+});
+
+
+</script>
+
 
 </body>
 
