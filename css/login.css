@@ -645,3 +645,56 @@ transform:translate(-50%,-50%);
 }
 
 }
+/* =========================
+   LOGIN FIELD ERRORS
+========================= */
+
+.input-group.error label {
+    color: #EF4444;
+}
+
+.input-group.error input {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 1px #EF4444;
+}
+
+.input-group.error input:focus {
+    border-color: #EF4444;
+    box-shadow: 0 0 0 1px #EF4444;
+}
+
+.field-error {
+    color: #EF4444;
+    font-size: 11px;
+    margin-top: 5px;
+    padding-right: 3px;
+    line-height: 1.6;
+}
+
+.input-group.error {
+    animation: loginErrorShake .25s ease;
+}
+
+@keyframes loginErrorShake {
+
+    0% {
+        transform: translateX(0);
+    }
+
+    25% {
+        transform: translateX(-3px);
+    }
+
+    50% {
+        transform: translateX(3px);
+    }
+
+    75% {
+        transform: translateX(-2px);
+    }
+
+    100% {
+        transform: translateX(0);
+    }
+
+}
