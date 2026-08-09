@@ -9,10 +9,13 @@
 
 <title>VALORA | تطبيق VALORA</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/app-download.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -22,13 +25,17 @@
 <div class="app-page">
 
 
+<!-- ==========================================
+     HEADER
+========================================== -->
+
 <header class="page-header">
 
 <a href="dashboard.html">
 ‹
 </a>
 
-<h2>
+<h2 data-lang="application">
 تطبيق VALORA
 </h2>
 
@@ -36,22 +43,24 @@
 
 
 
-
-
+<!-- ==========================================
+     APP CARD
+========================================== -->
 
 <section class="app-card">
+
 
 <div class="app-icon">
 📱
 </div>
 
 
-<h3>
+<h3 data-lang="application">
 تطبيق VALORA
 </h3>
 
 
-<p>
+<p data-lang="app_description">
 احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي
 </p>
 
@@ -60,16 +69,16 @@
 
 
 
-
-
-
+<!-- ==========================================
+     VERSION
+========================================== -->
 
 <section class="version-card">
 
 
 <div>
 
-<span>
+<span data-lang="current_version">
 الإصدار الحالي
 </span>
 
@@ -81,10 +90,9 @@ V1.0.0
 
 
 
-
 <div>
 
-<span>
+<span data-lang="last_update">
 آخر تحديث
 </span>
 
@@ -99,15 +107,14 @@ V1.0.0
 
 
 
-
-
-
-
+<!-- ==========================================
+     DOWNLOAD
+========================================== -->
 
 <section class="download-card">
 
 
-<h3>
+<h3 data-lang="download_app">
 تحميل التطبيق
 </h3>
 
@@ -115,33 +122,42 @@ V1.0.0
 
 <button onclick="downloadAndroid()">
 
-⬇️ تحميل تطبيق Android
+⬇️
+
+<span data-lang="download_android">
+تحميل تطبيق Android
+</span>
 
 </button>
 
 
 
-<button class="ios" onclick="downloadIOS()">
+<button
+class="ios"
+onclick="downloadIOS()"
+>
 
- تحميل تطبيق iOS
+
+
+<span data-lang="download_ios">
+تحميل تطبيق iOS
+</span>
 
 </button>
-
 
 
 </section>
 
 
 
-
-
-
-
+<!-- ==========================================
+     UPDATES
+========================================== -->
 
 <section class="updates-card">
 
 
-<h3>
+<h3 data-lang="latest_updates">
 آخر التحديثات
 </h3>
 
@@ -149,21 +165,26 @@ V1.0.0
 
 <ul>
 
-<li>
+
+<li data-lang="update_speed">
 ✓ تحسين سرعة التطبيق
 </li>
 
-<li>
+
+<li data-lang="update_security">
 ✓ تحسين حماية الحساب
 </li>
 
-<li>
+
+<li data-lang="update_interface">
 ✓ تحديث واجهة VALORA
 </li>
 
-<li>
+
+<li data-lang="update_wallet">
 ✓ تحسين المحفظة والعمليات
 </li>
+
 
 </ul>
 
@@ -172,11 +193,9 @@ V1.0.0
 
 
 
-
-
-
-
-
+<!-- ==========================================
+     BOTTOM NAV
+========================================== -->
 
 <nav class="bottom-nav">
 
@@ -185,7 +204,7 @@ V1.0.0
 
 ⌂
 
-<span>
+<span data-lang="home">
 الرئيسية
 </span>
 
@@ -197,7 +216,7 @@ V1.0.0
 
 ▣
 
-<span>
+<span data-lang="assets">
 الأصول
 </span>
 
@@ -205,12 +224,11 @@ V1.0.0
 
 
 
-
 <a href="sync.html">
 
 ⇄
 
-<span>
+<span data-lang="sync">
 التزامن
 </span>
 
@@ -218,24 +236,18 @@ V1.0.0
 
 
 
-
 <a href="team.html">
 
 ♙
 
-<span>
+<span data-lang="team">
 الفريق
 </span>
 
 </a>
 
 
-
 </nav>
-
-
-
-
 
 
 
@@ -243,46 +255,64 @@ V1.0.0
 
 
 
-
-
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
+
 <script>
 
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-if(typeof applyLanguage === "function"){
+        if(
+            typeof applyLanguage === "function"
+        ){
 
-applyLanguage();
+            applyLanguage();
 
-}
+        }
+
+    }
+);
 
 
 
-
+// ==========================================
+// ANDROID
+// ==========================================
 
 function downloadAndroid(){
 
-alert("سيتم توفير تحميل تطبيق Android قريباً");
+    alert(
+        typeof appTranslate === "function"
+        ? appTranslate("android_coming_soon")
+        : "سيتم توفير تحميل تطبيق Android قريباً"
+    );
 
 }
 
 
 
+// ==========================================
+// IOS
+// ==========================================
 
 function downloadIOS(){
 
-alert("سيتم توفير تطبيق iOS قريباً");
+    alert(
+        typeof appTranslate === "function"
+        ? appTranslate("ios_coming_soon")
+        : "سيتم توفير تطبيق iOS قريباً"
+    );
 
 }
 
-
-
 </script>
-
-
-
 
 
 </body>
