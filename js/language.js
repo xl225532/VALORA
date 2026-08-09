@@ -435,6 +435,36 @@
                 "Already have an account?",
 
             // REGISTER VALIDATION
+         support_title:
+    "Customer Support",
+
+support_heading:
+    "Contact Support",
+
+support_description:
+    "If you experience any problem, you can contact the VALORA support team.",
+
+official_channel:
+    "Official Channel",
+
+channel_description:
+    "Follow all news and updates about the VALORA platform.",
+
+join_channel:
+    "Join the Channel",
+
+support_welcome:
+    "Welcome",
+
+support_welcome_message:
+    "You can send your inquiry or problem, and the support team will respond as soon as possible.",
+
+support_message_placeholder:
+    "Write your message here...",
+
+send_message:
+    "Send",
+            
             verification_sent:
                 "Verification code sent",
 
@@ -1274,6 +1304,36 @@
                 "سيتم توفير تطبيق iOS قريباً",
 
             // COMMON
+          support_title:
+    "خدمة العملاء",
+
+support_heading:
+    "مراسلة العملاء",
+
+support_description:
+    "إذا واجهتك أي مشكلة يمكنك التواصل مع فريق دعم VALORA.",
+
+official_channel:
+    "القناة الرسمية",
+
+channel_description:
+    "تابع جميع الأخبار والتحديثات الخاصة بمنصة VALORA.",
+
+join_channel:
+    "الانضمام إلى القناة",
+
+support_welcome:
+    "مرحبًا بك",
+
+support_welcome_message:
+    "يمكنك إرسال استفسارك أو مشكلتك، وسيقوم فريق الدعم بالرد عليك في أقرب وقت.",
+
+support_message_placeholder:
+    "اكتب رسالتك هنا...",
+
+send_message:
+    "إرسال",
+            
             save: "حفظ",
             cancel: "إلغاء",
             confirm: "تأكيد",
