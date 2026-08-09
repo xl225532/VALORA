@@ -9,9 +9,9 @@
 
 <title>VALORA | سجل الإيداعات</title>
 
-
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
-
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/deposit-history.css">
 <link rel="stylesheet" href="css/background.css">
@@ -25,71 +25,54 @@
 <div class="history-page">
 
 
+<!-- ==========================================
+     HEADER
+========================================== -->
 
 <header class="history-header">
 
-
 <a href="wallet.html" class="back-btn">
-
 ‹
-
 </a>
 
-
-<h2>
-
+<h2 data-lang="deposit_history_title">
 سجل الإيداعات
-
 </h2>
-
 
 </header>
 
 
 
+<!-- ==========================================
+     SUMMARY
+========================================== -->
 
 <section class="history-summary">
 
 
 <div class="summary-card">
 
-
-<span>
-
+<span data-lang="deposit_count">
 عدد الإيداعات
-
 </span>
 
-
 <strong id="totalDeposits">
-
 0
-
 </strong>
 
-
 </div>
-
-
 
 
 
 <div class="summary-card">
 
-
-<span>
-
+<span data-lang="total_deposits">
 إجمالي الإيداعات
-
 </span>
 
-
 <strong id="totalDepositAmount">
-
 0.00 USDT
-
 </strong>
-
 
 </div>
 
@@ -98,279 +81,384 @@
 
 
 
+<!-- ==========================================
+     DEPOSIT LIST
+========================================== -->
 
-
-<section class="deposit-list" id="depositList">
-
+<section
+class="deposit-list"
+id="depositList">
 
 </section>
+
+
+
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
+
+<script src="js/language.js"></script>
+
+
 <script>
 
+
+/* ==========================================
+   LANGUAGE
+========================================== */
+
+function getCurrentLanguage(){
+
+    if(typeof getLanguage === "function"){
+
+        return getLanguage();
+
+    }
+
+    return localStorage.getItem("VALORA_LANG") || "ar";
+
+}
+
+
+
+/* ==========================================
+   TRANSLATIONS
+========================================== */
+
+const depositHistoryText = {
+
+    ar: {
+
+        empty:
+        "لا توجد إيداعات حتى الآن",
+
+        network:
+        "الشبكة:",
+
+        amount:
+        "المبلغ:",
+
+        depositDate:
+        "تاريخ الإيداع:",
+
+        success:
+        "ناجحة"
+
+    },
+
+
+    en: {
+
+        empty:
+        "No deposits yet",
+
+        network:
+        "Network:",
+
+        amount:
+        "Amount:",
+
+        depositDate:
+        "Deposit date:",
+
+        success:
+        "Successful"
+
+    }
+
+};
+
+
+
+/* ==========================================
+   LOAD DEPOSIT HISTORY
+========================================== */
 
 function loadDepositHistory(){
 
 
+    let deposits =
 
-let deposits =
+        JSON.parse(
 
-JSON.parse(
+            localStorage.getItem(
+                "VALORA_DEPOSIT_HISTORY"
+            )
 
-localStorage.getItem("VALORA_DEPOSIT_HISTORY")
-
-)
-
-|| [];
-
+        ) || [];
 
 
 
+    let list =
+        document.getElementById(
+            "depositList"
+        );
 
 
-let list =
-
-document.getElementById("depositList");
-
-
-
-let totalBox =
-
-document.getElementById("totalDeposits");
+    let totalBox =
+        document.getElementById(
+            "totalDeposits"
+        );
 
 
-
-let amountBox =
-
-document.getElementById("totalDepositAmount");
-
-
+    let amountBox =
+        document.getElementById(
+            "totalDepositAmount"
+        );
 
 
 
+    let lang =
+        getCurrentLanguage();
 
 
-list.innerHTML="";
-
-
-
-let totalAmount = 0;
-
-
-
+    let t =
+        depositHistoryText[lang]
+        || depositHistoryText.ar;
 
 
 
-
-if(deposits.length === 0){
-
+    list.innerHTML = "";
 
 
-list.innerHTML = `
 
-<div class="empty-history">
-
-لا توجد إيداعات حتى الآن
-
-</div>
-
-`;
+    let totalAmount = 0;
 
 
+
+    /* ==========================================
+       EMPTY HISTORY
+    ========================================== */
+
+    if(deposits.length === 0){
+
+        list.innerHTML = `
+
+            <div class="empty-history">
+
+                ${t.empty}
+
+            </div>
+
+        `;
+
+    }
+
+
+
+    /* ==========================================
+       DEPOSITS
+    ========================================== */
+
+    deposits.forEach((item) => {
+
+
+        totalAmount +=
+            Number(item.amount) || 0;
+
+
+
+        let card =
+            document.createElement("div");
+
+
+        card.className =
+            "deposit-card";
+
+
+
+        /*
+         * لا نترجم قيمة العملة أو الشبكة
+         * لأنها بيانات حقيقية محفوظة في العملية.
+         */
+
+
+        let statusText =
+            item.status || t.success;
+
+
+
+        /*
+         * إذا كانت الحالة محفوظة بالعربية
+         * نحاول عرضها باللغة الحالية.
+         */
+
+        if(lang === "en"){
+
+            if(
+                statusText === "ناجحة" ||
+                statusText === "نجاح" ||
+                statusText === "مكتمل" ||
+                statusText === "مكتملة"
+            ){
+
+                statusText =
+                    "Successful";
+
+            }
+
+        }
+
+
+
+        if(lang === "ar"){
+
+            if(
+                statusText === "Successful" ||
+                statusText === "Success" ||
+                statusText === "Completed"
+            ){
+
+                statusText =
+                    "ناجحة";
+
+            }
+
+        }
+
+
+
+        card.innerHTML = `
+
+            <div class="deposit-top">
+
+
+                <strong>
+
+                    ${item.coin || "USDT"}
+
+                </strong>
+
+
+
+                <span class="success">
+
+                    ${statusText}
+
+                </span>
+
+
+            </div>
+
+
+
+            <div class="deposit-info">
+
+
+                <p>
+
+                    ${t.network}
+
+                    <b>
+
+                        ${item.network || "-"}
+
+                    </b>
+
+                </p>
+
+
+
+                <p>
+
+                    ${t.amount}
+
+                    <b>
+
+                        ${Number(item.amount || 0).toFixed(2)}
+
+                        ${item.coin || "USDT"}
+
+                    </b>
+
+                </p>
+
+
+
+                <p>
+
+                    ${t.depositDate}
+
+                    <b>
+
+                        ${item.date || "-"}
+
+                    </b>
+
+                </p>
+
+
+            </div>
+
+        `;
+
+
+
+        list.appendChild(card);
+
+
+    });
+
+
+
+    /* ==========================================
+       SUMMARY
+    ========================================== */
+
+    totalBox.textContent =
+        deposits.length;
+
+
+
+    amountBox.textContent =
+        totalAmount.toFixed(2) +
+        " USDT";
 
 }
 
 
 
+/* ==========================================
+   APPLY LANGUAGE
+========================================== */
 
+function refreshDepositHistoryLanguage(){
 
+    if(typeof applyLanguage === "function"){
 
+        applyLanguage();
 
-deposits.forEach((item)=>{
+    }
 
-
-
-totalAmount +=
-
-Number(item.amount);
-
-
-
-
-
-
-
-let card =
-
-document.createElement("div");
-
-
-
-
-
-card.className="deposit-card";
-
-
-
-
-
-
-
-
-card.innerHTML = `
-
-
-
-<div class="deposit-top">
-
-
-<strong>
-
-${item.coin}
-
-</strong>
-
-
-
-<span class="success">
-
-${item.status}
-
-</span>
-
-
-</div>
-
-
-
-
-
-
-
-<div class="deposit-info">
-
-
-<p>
-
-الشبكة:
-
-<b>
-
-${item.network}
-
-</b>
-
-</p>
-
-
-
-
-
-<p>
-
-المبلغ:
-
-<b>
-
-${Number(item.amount).toFixed(2)}
-
-${item.coin}
-
-</b>
-
-</p>
-
-
-
-
-
-
-<p>
-
-تاريخ الإيداع:
-
-<b>
-
-${item.date}
-
-</b>
-
-</p>
-
-
-
-</div>
-
-
-`;
-
-
-
-
-
-
-
-
-list.appendChild(card);
-
-
-
-});
-
-
-
-
-
-
-
-
-totalBox.innerHTML =
-
-deposits.length;
-
-
-
-
-
-
-
-amountBox.innerHTML =
-
-totalAmount.toFixed(2)
-
-+
-
-" USDT";
-
-
+    loadDepositHistory();
 
 }
 
 
 
-
-
-
+/* ==========================================
+   START
+========================================== */
 
 document.addEventListener(
 
-"DOMContentLoaded",
+    "DOMContentLoaded",
 
-loadDepositHistory
+    function(){
+
+        refreshDepositHistoryLanguage();
+
+    }
 
 );
 
 
-
 </script>
-
-
-
-
 
 
 </div>
 
 
 </body>
-
 
 </html>
