@@ -757,7 +757,44 @@
             // ======================================
             // COMMON
             // ======================================
+        app_description:
+"Get the best experience through the official VALORA app",
 
+current_version:
+"Current Version",
+
+last_update:
+"Last Update",
+
+download_app:
+"Download App",
+
+download_android:
+"Download Android App",
+
+download_ios:
+"Download iOS App",
+
+latest_updates:
+"Latest Updates",
+
+update_speed:
+"✓ Improved app speed",
+
+update_security:
+"✓ Improved account security",
+
+update_interface:
+"✓ Updated VALORA interface",
+
+update_wallet:
+"✓ Improved wallet and transactions",
+
+android_coming_soon:
+"Android app download will be available soon",
+
+ios_coming_soon:
+"iOS app download will be available soon",
             save:
                 "Save",
 
@@ -1509,6 +1546,44 @@
             // COMMON
             // ======================================
 
+            app_description:
+"احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي",
+
+current_version:
+"الإصدار الحالي",
+
+last_update:
+"آخر تحديث",
+
+download_app:
+"تحميل التطبيق",
+
+download_android:
+"تحميل تطبيق Android",
+
+download_ios:
+"تحميل تطبيق iOS",
+
+latest_updates:
+"آخر التحديثات",
+
+update_speed:
+"✓ تحسين سرعة التطبيق",
+
+update_security:
+"✓ تحسين حماية الحساب",
+
+update_interface:
+"✓ تحديث واجهة VALORA",
+
+update_wallet:
+"✓ تحسين المحفظة والعمليات",
+
+android_coming_soon:
+"سيتم توفير تحميل تطبيق Android قريباً",
+
+ios_coming_soon:
+"سيتم توفير تطبيق iOS قريباً",
             save:
                 "حفظ",
 
