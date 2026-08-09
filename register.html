@@ -4,16 +4,21 @@
 <head>
 
 <meta charset="UTF-8">
+
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | إنشاء حساب</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 <link rel="stylesheet" href="css/register.css">
+
 <link rel="stylesheet" href="css/background.css">
 
 </head>
+
 
 <body>
 
@@ -21,394 +26,423 @@
 <div class="auth-container">
 
 
-<!-- =========================
+<!-- ==========================================
      LOGO
-========================= -->
+========================================== -->
 
 <div class="logo">
 
-<div class="logo-icon">
+    <div class="logo-icon">
 
-<svg viewBox="0 0 64 64">
+        <svg viewBox="0 0 64 64">
 
-<path
-d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
-fill="#1687FF">
-</path>
+            <path
+                d="M32 6 L54 18 V34 C54 47 45 56 32 60 C19 56 10 47 10 34 V18 Z"
+                fill="#1687FF">
+            </path>
 
-<path
-d="M22 24 L32 44 L42 24"
-stroke="#ffffff"
-stroke-width="4"
-fill="none"
-stroke-linecap="round">
-</path>
+            <path
+                d="M22 24 L32 44 L42 24"
+                stroke="#ffffff"
+                stroke-width="4"
+                fill="none"
+                stroke-linecap="round">
+            </path>
 
-</svg>
+        </svg>
+
+    </div>
+
+
+    <div class="logo-name">
+        VALORA
+    </div>
+
+
+    <div class="logo-sub">
+        EXCHANGE
+    </div>
 
 </div>
 
 
-<div class="logo-name">
-VALORA
-</div>
 
-
-<div class="logo-sub">
-EXCHANGE
-</div>
-
-</div>
-
-
-
-<!-- =========================
+<!-- ==========================================
      TITLE
-========================= -->
+========================================== -->
 
 <div
-class="auth-title"
-data-lang="register_title">
+    class="auth-title"
+    data-lang="register_title">
 
-إنشاء حساب جديد
+    إنشاء حساب جديد
 
 </div>
 
 
 
-<!-- =========================
+<!-- ==========================================
      REGISTER FORM
-========================= -->
+========================================== -->
 
 <form id="registerForm">
 
 
+<!-- ==========================================
+     CONTACT
+========================================== -->
 
-<!-- CONTACT -->
+<div
+    class="input-group"
+    id="contactGroup">
 
-<div class="input-group">
+    <label data-lang="register_contact">
 
-<label data-lang="register_contact">
+        البريد الإلكتروني أو رقم الهاتف
 
-البريد الإلكتروني أو رقم الهاتف
-
-</label>
+    </label>
 
 
-<input
+    <input
+        type="text"
+        id="contact"
+        data-lang-placeholder="register_contact_placeholder"
+        placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
+    >
 
-type="text"
 
-id="contact"
-
-data-lang-placeholder="register_contact_placeholder"
-
-placeholder="أدخل البريد الإلكتروني أو رقم الهاتف"
-
-required>
+    <div
+        class="field-error"
+        id="contactError">
+    </div>
 
 </div>
 
 
 
-<!-- VERIFICATION CODE -->
+<!-- ==========================================
+     VERIFICATION CODE
+========================================== -->
+
+<div
+    class="input-group"
+    id="verificationGroup">
+
+    <label data-lang="verification_code">
+
+        كود التحقق
+
+    </label>
+
+
+    <div class="verify-box">
+
+
+        <input
+            type="text"
+            id="verifyCode"
+            maxlength="6"
+            data-lang-placeholder="verification_code_placeholder"
+            placeholder="أدخل كود التحقق"
+        >
+
+
+        <button
+            type="button"
+            class="verify-btn"
+            onclick="sendVerificationCode()"
+            data-lang="verify">
+
+            تحقق
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="field-error"
+        id="verificationError">
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     PASSWORD
+========================================== -->
+
+<div
+    class="input-group"
+    id="passwordGroup">
+
+    <label data-lang="password">
+
+        كلمة المرور
+
+    </label>
+
+
+    <div class="password-box">
+
+
+        <input
+            type="password"
+            id="password"
+            data-lang-placeholder="password_placeholder_register"
+            placeholder="أدخل كلمة المرور"
+        >
+
+
+        <button
+            type="button"
+            class="eye-btn"
+            onclick="togglePassword('password',this)"
+            aria-label="Show password"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="3">
+                </circle>
+
+            </svg>
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="field-error"
+        id="passwordError">
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     CONFIRM PASSWORD
+========================================== -->
+
+<div
+    class="input-group"
+    id="confirmPasswordGroup">
+
+    <label data-lang="confirm_password">
+
+        تأكيد كلمة المرور
+
+    </label>
+
+
+    <div class="password-box">
+
+
+        <input
+            type="password"
+            id="confirmPassword"
+            data-lang-placeholder="confirm_password_placeholder"
+            placeholder="أعد إدخال كلمة المرور"
+        >
+
+
+        <button
+            type="button"
+            class="eye-btn"
+            onclick="togglePassword('confirmPassword',this)"
+            aria-label="Show password"
+        >
+
+            <svg viewBox="0 0 24 24">
+
+                <path
+                    d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
+                </path>
+
+                <circle
+                    cx="12"
+                    cy="12"
+                    r="3">
+                </circle>
+
+            </svg>
+
+        </button>
+
+
+    </div>
+
+
+    <div
+        class="field-error"
+        id="confirmPasswordError">
+    </div>
+
+</div>
+
+
+
+<!-- ==========================================
+     REFERRAL CODE
+========================================== -->
 
 <div class="input-group">
 
-<label data-lang="verification_code">
+    <label data-lang="invite_code">
 
-كود التحقق
+        كود الدعوة
 
-</label>
-
-
-<div class="verify-box">
+    </label>
 
 
-<input
+    <input
+        type="text"
+        id="inviteCode"
+        data-lang-placeholder="invite_code_placeholder"
+        placeholder="يتم تعبئته تلقائياً من رابط الدعوة"
+    >
 
-type="text"
+</div>
 
-id="verifyCode"
 
-maxlength="6"
 
-data-lang-placeholder="verification_code_placeholder"
+<!-- ==========================================
+     TERMS
+========================================== -->
 
-placeholder="أدخل كود التحقق">
+<div
+    class="checkbox-group"
+    id="termsGroup">
 
+
+    <div class="terms-check">
+
+
+        <label class="circle-check">
+
+
+            <input
+                type="checkbox"
+                id="agree"
+            >
+
+
+            <span></span>
+
+
+        </label>
+
+
+        <div class="terms-text">
+
+
+            <span data-lang="agree_terms">
+
+                أوافق على
+
+            </span>
+
+
+            <a
+                href="terms.html"
+                target="_blank"
+                data-lang="terms_privacy">
+
+                الشروط والأحكام وسياسة الخصوصية
+
+            </a>
+
+
+        </div>
+
+
+    </div>
+
+
+    <div
+        class="field-error"
+        id="termsError">
+    </div>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     REGISTER BUTTON
+========================================== -->
 
 <button
+    type="submit"
+    class="btn-primary"
+    data-lang="register_btn">
 
-type="button"
-
-class="verify-btn"
-
-onclick="sendVerificationCode()"
-
-data-lang="verify">
-
-تحقق
+    إنشاء الحساب
 
 </button>
-
-
-</div>
-
-</div>
-
-
-
-<!-- PASSWORD -->
-
-<div class="input-group">
-
-<label data-lang="password">
-
-كلمة المرور
-
-</label>
-
-
-<div class="password-box">
-
-
-<input
-
-type="password"
-
-id="password"
-
-data-lang-placeholder="password_placeholder_register"
-
-placeholder="********"
-
-required>
-
-
-<button
-
-type="button"
-
-class="eye-btn"
-
-onclick="togglePassword('password',this)">
-
-
-<svg viewBox="0 0 24 24">
-
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
-</path>
-
-<circle cx="12" cy="12" r="3">
-</circle>
-
-</svg>
-
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- CONFIRM PASSWORD -->
-
-<div class="input-group">
-
-<label data-lang="confirm_password">
-
-تأكيد كلمة المرور
-
-</label>
-
-
-<div class="password-box">
-
-
-<input
-
-type="password"
-
-id="confirmPassword"
-
-data-lang-placeholder="confirm_password_placeholder"
-
-placeholder="********"
-
-required>
-
-
-<button
-
-type="button"
-
-class="eye-btn"
-
-onclick="togglePassword('confirmPassword',this)">
-
-
-<svg viewBox="0 0 24 24">
-
-<path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7S1 12 1 12z">
-</path>
-
-<circle cx="12" cy="12" r="3">
-</circle>
-
-</svg>
-
-
-</button>
-
-</div>
-
-</div>
-
-
-
-<!-- INVITE CODE -->
-
-<div class="input-group">
-
-<label data-lang="invite_code">
-
-كود الدعوة
-
-</label>
-
-
-<input
-
-type="text"
-
-id="inviteCode"
-
-data-lang-placeholder="invite_code_placeholder"
-
-placeholder="يتم تعبئته تلقائياً من رابط الدعوة">
-
-</div>
-
-
-
-<!-- TERMS -->
-
-<div class="checkbox-group">
-
-
-<label class="circle-check">
-
-
-<input
-
-type="checkbox"
-
-id="agree"
-
-required>
-
-
-<span></span>
-
-
-</label>
-
-
-<label>
-
-<span data-lang="agree_terms">
-
-أوافق على
-
-</span>
-
-
-<a
-href="terms.html"
-target="_blank"
-data-lang="terms_privacy">
-
-الشروط والأحكام وسياسة الخصوصية
-
-</a>
-
-
-</label>
-
-</div>
-
-
-
-<!-- REGISTER BUTTON -->
-
-<button
-
-type="submit"
-
-class="btn-primary"
-
-data-lang="register_btn">
-
-إنشاء الحساب
-
-</button>
-
 
 
 </form>
 
 
 
-<!-- LOGIN LINK -->
+<!-- ==========================================
+     LOGIN LINK
+========================================== -->
 
 <div class="bottom-link">
 
-<span data-lang="already_have_account">
 
-لديك حساب بالفعل؟
+    <span data-lang="already_have_account">
 
-</span>
+        لديك حساب بالفعل؟
+
+    </span>
 
 
-<a
-href="login.html"
-data-lang="login_btn">
+    <a
+        href="login.html"
+        data-lang="login_btn">
 
-تسجيل الدخول
+        تسجيل الدخول
 
-</a>
-
-</div>
-
+    </a>
 
 
 </div>
 
 
 
-<script src="js/app.js"></script>
+</div>
+
+
+
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
-<script>
 
-document.addEventListener(
-"DOMContentLoaded",
-function(){
+<!-- ==========================================
+     VALORA APP
+========================================== -->
 
-    if(typeof applyLanguage === "function"){
-
-        applyLanguage();
-
-    }
-
-});
-
-</script>
+<script src="js/app.js"></script>
 
 
 </body>
