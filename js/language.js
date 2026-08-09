@@ -756,8 +756,15 @@
 
             // ======================================
             // COMMON
-            // ======================================
-        app_description:
+           
+           // ======================================
+
+ no_notifications:
+"No Notifications",
+
+notifications_description:
+"All account and transaction alerts will appear here",           
+            app_description:
 "Get the best experience through the official VALORA app",
 
 current_version:
@@ -1545,7 +1552,12 @@ ios_coming_soon:
             // ======================================
             // COMMON
             // ======================================
+no_notifications:
+"لا توجد إشعارات",
 
+notifications_description:
+"ستظهر هنا جميع التنبيهات الخاصة بالحساب والعمليات",
+            
             app_description:
 "احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي",
 
