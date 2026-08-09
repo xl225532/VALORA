@@ -40,7 +40,49 @@
 
         en: {
 
+         
             // GENERAL
+         // CHANGE PASSWORD
+
+change_password_description:
+    "A verification code will be sent to your registered email address or phone number",
+
+verification_method:
+    "Verification Method",
+
+new_password:
+    "New Password",
+
+new_password_placeholder:
+    "Enter your new password",
+
+confirm_password_placeholder:
+    "Re-enter your password",
+
+save_password_change:
+    "Save Changes",
+
+verification_sent_email:
+    "Verification code sent to your email address",
+
+verification_sent_phone:
+    "Verification code sent to your phone number",
+
+verification_method_required:
+    "Please choose a verification method",
+
+verification_code_required:
+    "Please enter the verification code",
+
+new_password_required:
+    "Please enter your new password",
+
+new_password_too_short:
+    "Password must be at least 6 characters",
+
+password_changed_success:
+    "Password changed successfully",
+            
             home: "Home",
             dashboard: "Dashboard",
             wallet: "Wallet",
@@ -707,6 +749,46 @@ send_message:
 
         ar: {
 
+            // CHANGE PASSWORD
+
+change_password_description:
+    "سيتم إرسال رمز تحقق إلى البريد الإلكتروني أو رقم الهاتف المسجل",
+
+verification_method:
+    "طريقة إرسال الرمز",
+
+new_password:
+    "كلمة المرور الجديدة",
+
+new_password_placeholder:
+    "أدخل كلمة المرور الجديدة",
+
+confirm_password_placeholder:
+    "أعد إدخال كلمة المرور",
+
+save_password_change:
+    "حفظ التغيير",
+
+verification_sent_email:
+    "تم إرسال رمز التحقق إلى البريد الإلكتروني",
+
+verification_sent_phone:
+    "تم إرسال رمز التحقق إلى رقم الهاتف",
+
+verification_method_required:
+    "اختر طريقة إرسال الرمز",
+
+verification_code_required:
+    "يرجى إدخال رمز التحقق",
+
+new_password_required:
+    "يرجى إدخال كلمة المرور الجديدة",
+
+new_password_too_short:
+    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+
+password_changed_success:
+    "تم تغيير كلمة المرور بنجاح",
             // GENERAL
             home: "الرئيسية",
             dashboard: "الرئيسية",
@@ -725,7 +807,7 @@ send_message:
             change_password: "تغيير كلمة المرور",
             logout: "تسجيل الخروج",
             application: "تطبيق VALORA",
-
+            
             // ACCOUNT
             account: "حسابي",
             username: "اسم المستخدم",
