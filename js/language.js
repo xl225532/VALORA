@@ -43,7 +43,62 @@
          
             // GENERAL
          // CHANGE PASSWORD
+// IDENTITY VERIFICATION
 
+identity_confirmation:
+    "Identity Confirmation",
+
+identity_description:
+    "Complete verification to protect your account",
+
+verification_rules:
+    "Verification Requirements",
+
+verification_rule_1:
+    "The document must be issued by an official government authority.",
+
+verification_rule_2:
+    "Passport or identity card is accepted.",
+
+verification_rule_3:
+    "The image must be clear.",
+
+verification_rule_4:
+    "A real photo of your face must be uploaded.",
+
+id_document:
+    "ID Card or Passport Photo",
+
+upload_id:
+    "Take or Upload Document",
+
+change_image:
+    "Change Image",
+
+face_image:
+    "Face Photo",
+
+take_selfie:
+    "Take Selfie",
+
+retake_selfie:
+    "Retake Photo",
+
+submit_verification:
+    "Submit for Verification",
+
+invalid_image:
+    "Please select a valid image",
+
+id_image_required:
+    "Please upload your ID card or passport photo",
+
+face_image_required:
+    "Please upload your face photo",
+
+verification_submitted:
+    "Verification request submitted successfully",
+            
 change_password_description:
     "A verification code will be sent to your registered email address or phone number",
 
@@ -749,8 +804,64 @@ send_message:
 
         ar: {
 
-            // CHANGE PASSWORD
+         
+        // CHANGE PASSWORD
+// IDENTITY VERIFICATION
 
+identity_confirmation:
+    "تأكيد الهوية",
+
+identity_description:
+    "أكمل التحقق لحماية حسابك",
+
+verification_rules:
+    "شروط التحقق",
+
+verification_rule_1:
+    "يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.",
+
+verification_rule_2:
+    "يقبل جواز السفر أو بطاقة الهوية.",
+
+verification_rule_3:
+    "يجب أن تكون الصورة واضحة.",
+
+verification_rule_4:
+    "يجب رفع صورة الوجه الحقيقية.",
+
+id_document:
+    "صورة الهوية أو جواز السفر",
+
+upload_id:
+    "تصوير أو رفع الوثيقة",
+
+change_image:
+    "تغيير الصورة",
+
+face_image:
+    "صورة الوجه",
+
+take_selfie:
+    "تصوير السيلفي",
+
+retake_selfie:
+    "إعادة التصوير",
+
+submit_verification:
+    "إرسال للتحقق",
+
+invalid_image:
+    "يرجى اختيار صورة صحيحة",
+
+id_image_required:
+    "يرجى رفع صورة الهوية أو جواز السفر",
+
+face_image_required:
+    "يرجى رفع صورة الوجه",
+
+verification_submitted:
+    "تم إرسال طلب التحقق بنجاح",
+        
 change_password_description:
     "سيتم إرسال رمز تحقق إلى البريد الإلكتروني أو رقم الهاتف المسجل",
 
