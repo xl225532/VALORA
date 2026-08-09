@@ -758,7 +758,42 @@
             // COMMON
            
            // ======================================
+terms_title:
+"Terms & Conditions",
 
+terms_1_title:
+"1 - Acceptance of Terms",
+
+terms_1_text:
+"By creating an account on the VALORA platform, you agree to comply with the platform's Terms & Conditions and Usage Policy.",
+
+terms_2_title:
+"2 - User Responsibility",
+
+terms_2_text:
+"Users must provide accurate information, protect their login details, and must not share them with others.",
+
+terms_3_title:
+"3 - Accounts",
+
+terms_3_text:
+"Each user is responsible for their account and use of the platform. Users must not create accounts that violate the applicable rules.",
+
+terms_4_title:
+"4 - Referral System",
+
+terms_4_text:
+"Referral links and codes are used according to the system and rules specified within the platform.",
+
+terms_5_title:
+"5 - Updates",
+
+terms_5_text:
+"VALORA reserves the right to update its Terms & Conditions and policies when necessary. Users will be notified of important changes.",
+
+back_to_register:
+"Back to Create Account",
+            
  no_notifications:
 "No Notifications",
 
@@ -1551,7 +1586,45 @@ ios_coming_soon:
 
             // ======================================
             // COMMON
+
+ 
             // ======================================
+terms_title:
+"الشروط والأحكام",
+
+terms_1_title:
+"1 - قبول الشروط",
+
+terms_1_text:
+"عند إنشاء حساب في منصة VALORA فإنك توافق على الالتزام بالشروط والأحكام وسياسة الاستخدام الخاصة بالمنصة.",
+
+terms_2_title:
+"2 - مسؤولية المستخدم",
+
+terms_2_text:
+"يجب على المستخدم تقديم بيانات صحيحة والمحافظة على معلومات الدخول الخاصة به وعدم مشاركتها مع الآخرين.",
+
+terms_3_title:
+"3 - الحسابات",
+
+terms_3_text:
+"كل مستخدم مسؤول عن حسابه واستخدامه للمنصة، ويجب عدم إنشاء حسابات مخالفة للأنظمة.",
+
+terms_4_title:
+"4 - نظام الإحالات",
+
+terms_4_text:
+"يتم استخدام روابط الدعوة والأكواد الخاصة بالمستخدمين حسب النظام المحدد داخل المنصة.",
+
+terms_5_title:
+"5 - التحديثات",
+
+terms_5_text:
+"تحتفظ VALORA بحق تحديث الشروط والسياسات عند الحاجة، وسيتم إعلام المستخدمين بالتغييرات المهمة.",
+
+back_to_register:
+"العودة إلى إنشاء الحساب",
+            
 no_notifications:
 "لا توجد إشعارات",
 
