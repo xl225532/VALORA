@@ -14,186 +14,242 @@
 
 (function () {
 
-    "use strict";
+"use strict";
 
 
-    // ==========================================
-    // SETTINGS
-    // ==========================================
+// ==========================================
+// SETTINGS
+// ==========================================
 
-    const STORAGE_KEY = "VALORA_LANG";
+const STORAGE_KEY = "VALORA_LANG";
 
-    const DEFAULT_LANGUAGE = "ar";
+const DEFAULT_LANGUAGE = "ar";
 
-    const RTL_LANGUAGES = ["ar"];
+const RTL_LANGUAGES = ["ar"];
 
 
-    // ==========================================
-    // TRANSLATIONS
-    // ==========================================
+// ==========================================
+// TRANSLATIONS
+// ==========================================
 
-    const translations = {
+const translations = {
 
-        // ======================================
-        // ENGLISH
-        // ======================================
 
-        en: {
+en: {
 
-         
-            // GENERAL
-         // CHANGE PASSWORD
-       // IDENTITY VERIFICATION
-// FORGOT PASSWORD - ADDITIONAL
-login_code_title: "Login Code",
-change_login_code: "Change Login Code",
-login_code_description: "Use a login code to protect your account",
-current_login_code: "Current Login Code",
-new_login_code: "New Login Code",
-confirm_new_login_code: "Confirm New Login Code",
-save_login_code: "Save Changes",
-            
-deposit_history_title: "Deposit History",
-total_deposits: "Total Deposits",
-total_deposit_amount: "Total Deposit Amount",
-no_deposits: "No deposits yet",
-network: "Network",
-deposit_amount: "Amount",
-deposit_date: "Deposit Date",
-            
-change: "Change",
 
-loginCode: "Login Code",
+/* ==========================
+GENERAL
+========================== */
 
-open: "Open",
+home: "Home",
+dashboard: "Dashboard",
+wallet: "Wallet",
+assets: "Total Assets",
+team: "Team",
+sync: "Sync",
+settings: "Settings",
+language: "Language",
+notifications: "Notifications",
+support: "Customer Support",
+terms: "Terms & Conditions",
+security: "Withdrawal Security Code",
+verify: "Verify",
+identity_verification: "Identity Verification",
+change_password: "Change Password",
+logout: "Logout",
+application: "VALORA App",
 
-total_amounts: "Total Amounts",
 
-total_requests: "Total Requests",
 
-view: "View",
+/* ==========================
+ACCOUNT
+========================== */
 
-withdrawSecurity: "Withdrawal Security Code",
+account: "My Account",
+username: "Username",
+email: "Email",
+phone: "Phone Number",
+uid: "UID",
 
-withdraw_history_title: "Withdrawal History",
-            
-forgot_password_description:
-    "Enter the email address or phone number registered to your account.",
 
-send_verification_code:
-    "Send Verification Code",
 
-verification_description:
-    "Enter the verification code that was sent to you.",
+/* ==========================
+LOGIN
+========================== */
 
-verification_code_placeholder:
-    "Enter verification code",
+login_subtitle: "Login to your account",
 
-verify_code_btn:
-    "Verify Code",
+email_phone:
+"Email or Phone Number",
 
-new_password_title:
-    "Create New Password",
+email_phone_placeholder:
+"Enter Email or Phone Number",
 
-new_password_description:
-    "Enter your new password and confirm it.",
+password:
+"Password",
 
-new_password_placeholder:
-    "********",
+password_placeholder:
+"Enter Password",
 
-reset_password_btn:
-    "Reset Password",
+login_btn:
+"Login",
 
-forgot_contact_required:
-    "Please enter your email address or phone number",
+forgot_password:
+"Forgot Password?",
 
-verification_demo_code:
-    "Demo verification code: ",
+create_account:
+"Create Account",
 
-verification_invalid_format:
-    "Verification code must be 6 digits",
 
-verification_code_invalid:
-    "Incorrect verification code",
 
-password_changed_success:
-    "Password changed successfully",
-            
-    change_password_title:
-    "Change Password",
+login_success:
+"Login successful",
 
-change_password_heading:
-    "Change Password",
+login_error:
+"Invalid login credentials",
 
-change_password_description:
-    "A verification code will be sent to your registered email address or phone number.",
 
-change_password_method:
-    "Verification Code Delivery Method",
 
-change_password_email:
-    "Email",
+/* ==========================
+REGISTER
+========================== */
 
-change_password_phone:
-    "Phone Number",
+register_title:
+"Create New Account",
 
-change_password_code_placeholder:
-    "Enter verification code",
+register_contact:
+"Email or Phone Number",
 
-new_password:
-    "New Password",
+verification_code:
+"Verification Code",
 
-new_password_placeholder:
-    "********",
+confirm_password:
+"Confirm Password",
 
-password_hint:
-    "Password must be at least 6 characters",
+invite_code:
+"Referral Code",
 
-confirm_password_placeholder:
-    "********",
+register_btn:
+"Create Account",
 
-save_password_change:
-    "Save Changes",
+already_have_account:
+"Already have an account?",
 
-verification_sent_email:
-    "Verification code sent to your email",
 
-verification_sent_phone:
-    "Verification code sent to your phone",
 
-change_password_method_error:
-    "Please choose a verification code delivery method first",
+/* ==========================
+WALLET
+========================== */
 
-change_password_code_error:
-    "Please enter the verification code",
+wallet_title:
+"Wallet",
 
-change_password_code_invalid:
-    "Verification code must be 6 digits",
+deposit:
+"Deposit",
 
-new_password_error:
-    "Please enter your new password",
+withdraw:
+"Withdraw",
 
-new_password_length_error:
-    "Password must be at least 6 characters",
+transaction_history:
+"Transaction History",
 
-confirm_password_error:
-    "Please confirm your password",
+today:
+"Today's Profit",
 
-password_changed_success:
-    "Password changed successfully",
-            
-security_heading:
-"Create Withdrawal Security Code",
+invite_profit:
+"Invitation Profit",
 
-confirm_security_code:
-"Confirm Security Code",
+team_profit:
+"Team Profit",
 
-confirm_security_placeholder:
-"Re-enter security code",
+reward_profit:
+"Reward Profit",
 
-save_security:
-"Save Security Code",
-            
+
+
+/* ==========================
+DEPOSIT HISTORY
+========================== */
+
+deposit_history_title:
+"Deposit History",
+
+deposit_count:
+"Deposit Count",
+
+total_deposits:
+"Total Deposits",
+
+total_deposit_amount:
+"Total Deposit Amount",
+
+no_deposits:
+"No deposits yet",
+
+network:
+"Network",
+
+amount:
+"Amount",
+
+deposit_date:
+"Deposit Date",
+
+successful:
+"Successful",
+
+
+
+/* ==========================
+WITHDRAW HISTORY
+========================== */
+
+withdraw_history_title:
+"Withdrawal History",
+
+total_requests:
+"Total Requests",
+
+total_amounts:
+"Total Amounts",
+
+no_withdrawals:
+"No withdrawal requests yet",
+
+withdraw_amount:
+"Amount",
+
+withdraw_fee:
+"Fee",
+
+withdraw_receive:
+"You Receive",
+
+withdraw_network:
+"Network",
+
+withdraw_address:
+"Address",
+
+withdraw_date:
+"Date",
+
+withdraw_pending:
+"Processing",
+
+withdraw_completed:
+"Completed",
+
+withdraw_rejected:
+"Rejected",
+
+
+
+/* ==========================
+SECURITY PIN
+========================== */
+
 security_title:
 "Withdrawal Security Code",
 
@@ -218,1037 +274,619 @@ security_confirm_placeholder:
 security_save:
 "Save Code",
 
-security_empty:
-"Please enter security code",
-
-security_digits:
-"Security code must contain 6 numbers",
-
-security_match:
-"Security codes do not match",
-
 security_saved:
 "Security code saved successfully",
-            
-identity_confirmation:
-    "Identity Confirmation",
 
-identity_description:
-    "Complete verification to protect your account",
 
-verification_rules:
-    "Verification Requirements",
 
-verification_rule_1:
-    "The document must be issued by an official government authority.",
+/* ==========================
+COMMON
+========================== */
 
-verification_rule_2:
-    "Passport or identity card is accepted.",
+save:
+"Save",
 
-verification_rule_3:
-    "The image must be clear.",
+cancel:
+"Cancel",
 
-verification_rule_4:
-    "A real photo of your face must be uploaded.",
+confirm:
+"Confirm",
 
-id_document:
-    "ID Card or Passport Photo",
+close:
+"Close",
 
-upload_id:
-    "Take or Upload Document",
-
-change_image:
-    "Change Image",
-
-face_image:
-    "Face Photo",
-
-take_selfie:
-    "Take Selfie",
-
-retake_selfie:
-    "Retake Photo",
-
-submit_verification:
-    "Submit for Verification",
-
-invalid_image:
-    "Please select a valid image",
-
-id_image_required:
-    "Please upload your ID card or passport photo",
-
-face_image_required:
-    "Please upload your face photo",
-
-verification_submitted:
-    "Verification request submitted successfully",
-            
-change_password_description:
-    "A verification code will be sent to your registered email address or phone number",
-
-verification_method:
-    "Verification Method",
+back:
+"Back",
 
-new_password:
-    "New Password",
+submit:
+"Submit",
 
-new_password_placeholder:
-    "Enter your new password",
+loading:
+"Loading..."
+// ==========================================
+// ENGLISH CONTINUED
+// ==========================================
 
-confirm_password_placeholder:
-    "Re-enter your password",
-
-save_password_change:
-    "Save Changes",
-
-verification_sent_email:
-    "Verification code sent to your email address",
-
-verification_sent_phone:
-    "Verification code sent to your phone number",
-
-verification_method_required:
-    "Please choose a verification method",
-
-verification_code_required:
-    "Please enter the verification code",
-
-new_password_required:
-    "Please enter your new password",
-
-new_password_too_short:
-    "Password must be at least 6 characters",
-
-password_changed_success:
-    "Password changed successfully",
-            
-            home: "Home",
-            dashboard: "Dashboard",
-            wallet: "Wallet",
-            assets: "Total Assets",
-            team: "Team",
-            sync: "Sync",
-            settings: "Settings",
-            language: "Language",
-            notifications: "Notifications",
-            support: "Customer Support",
-            terms: "Terms & Conditions",
-            security: "Withdrawal Security Code",
-            verify: "Verify",
-            identity_verification: "Identity Verification",
-            change_password: "Change Password",
-            logout: "Logout",
-            application: "VALORA App",
-
-            // ACCOUNT
-            account: "My Account",
-            username: "Username",
-            email: "Email",
-            phone: "Phone Number",
-            uid: "UID",
-
-            // DASHBOARD
-            today_profit: "Today's Profit",
-            markets: "Markets",
-            bitcoin: "Bitcoin",
-            ethereum: "Ethereum",
-            tether: "Tether",
-            tron: "TRON",
-            ripple: "XRP",
-            solana: "Solana",
-
-            // LOGIN
-            login_subtitle: "Login to your account",
-            email_phone: "Email or Phone Number",
-            email_phone_placeholder: "Enter Email or Phone Number",
-            password: "Password",
-            password_placeholder: "Enter Password",
-            login_btn: "Login",
-            forgot_password: "Forgot Password?",
-            create_account: "Create Account",
-
-            login_email_required:
-                "Please enter your email or phone number",
-
-            login_password_required:
-                "Please enter your password",
 
-            login_account_not_found:
-                "Account not found",
+/* ==========================
+DASHBOARD
+========================== */
 
-            login_wrong_password:
-                "Incorrect password",
+today_profit:
+"Today's Profit",
 
-            login_invalid_contact:
-                "Please enter a valid email or phone number",
+markets:
+"Markets",
 
-            login_error:
-                "Invalid login credentials",
+bitcoin:
+"Bitcoin",
 
-            login_success:
-                "Login successful",
+ethereum:
+"Ethereum",
 
-            login_success_message:
-                "Logging into your account",
+tether:
+"Tether",
 
-            login_redirect:
-                "Redirecting to your account...",
+tron:
+"TRON",
 
-            // WALLET
-            wallet_title: "Wallet",
-            deposit: "Deposit",
-            withdraw: "Withdraw",
-            transaction_history: "Transaction History",
-            today: "Today's Profit",
-            invite_profit: "Invitation Profit",
-            team_profit: "Team Profit",
-            reward_profit: "Reward Profit",
+ripple:
+"XRP",
 
-            // DEPOSIT
-            deposit_title: "Deposit Coins",
+solana:
+"Solana",
 
-            deposit_subtitle:
-                "Choose coin and network to display deposit address",
 
-            deposit_network:
-                "Deposit Network",
 
-            deposit_address:
-                "Deposit Address",
+/* ==========================
+DEPOSIT
+========================== */
 
-            deposit_auto_credit:
-                "Balance will be added automatically",
+deposit_title:
+"Deposit Coins",
 
-            deposit_auto_credit_text:
-                "After sending coins to the deposit address, the transfer will be detected and your balance will be added after network confirmation.",
+deposit_subtitle:
+"Choose coin and network to display deposit address",
 
-            deposit_warning_1:
-                "Send coins only to the displayed address.",
+deposit_network:
+"Deposit Network",
 
-            deposit_warning_2:
-                "Make sure to select the same network before transferring.",
+deposit_address:
+"Deposit Address",
 
-            deposit_warning_3:
-                "Transfer through another network may result in loss of funds.",
+deposit_auto_credit:
+"Balance will be added automatically",
 
-            deposit_warning_4:
-                "After blockchain confirmation, the balance will be added automatically.",
+deposit_warning_1:
+"Send coins only to the displayed address.",
 
-            copy: "Copy",
+deposit_warning_2:
+"Make sure to select the same network before transferring.",
 
-            deposit_copied:
-                "Deposit address copied",
+deposit_warning_3:
+"Transfer through another network may result in loss of funds.",
 
-            // WITHDRAW
-            withdraw_title:
-                "Withdraw Coins",
+deposit_warning_4:
+"After confirmation the balance will be added automatically.",
 
-            withdraw_subtitle:
-                "Withdraw your assets safely",
+copy:
+"Copy",
 
-            withdraw_network:
-                "Withdrawal Network",
+deposit_copied:
+"Deposit address copied",
 
-            withdraw_address:
-                "Withdrawal Address",
 
-            withdraw_address_placeholder:
-                "Enter withdrawal address",
 
-            withdraw_amount:
-                "Withdrawal Amount",
+/* ==========================
+WITHDRAW
+========================== */
 
-            withdraw_amount_placeholder:
-                "Enter withdrawal amount",
+withdraw_title:
+"Withdraw Coins",
 
-            available_balance:
-                "Available Balance",
+withdraw_subtitle:
+"Withdraw your assets safely",
 
-            confirm_withdraw:
-                "Confirm Withdrawal",
+withdraw_network:
+"Withdrawal Network",
 
-            withdraw_success:
-                "Withdrawal request submitted successfully",
+withdraw_address:
+"Withdrawal Address",
 
-            withdraw_error:
-                "Insufficient balance",
+withdraw_address_placeholder:
+"Enter withdrawal address",
 
-            withdraw_fee:
-                "Withdrawal Fee",
+withdraw_amount:
+"Withdrawal Amount",
 
-            receive_amount:
-                "You Receive",
+withdraw_amount_placeholder:
+"Enter withdrawal amount",
 
-            security_code:
-                "Withdrawal Security Code",
+available_balance:
+"Available Balance",
 
-            security_code_placeholder:
-                "Enter security code",
+confirm_withdraw:
+"Confirm Withdrawal",
 
-            fee_note:
-                "Before doubling: 20%<br>After doubling: 5%",
+withdraw_success:
+"Withdrawal request submitted successfully",
 
-            withdraw_security_error:
-                "Incorrect security code",
+withdraw_error:
+"Insufficient balance",
 
-            withdraw_amount_error:
-                "Please complete all required information",
+receive_amount:
+"You Receive",
 
-            // SYNC
-            sync_title: "Smart Sync",
+security_code:
+"Withdrawal Security Code",
 
-            sync_subtitle:
-                "Sync your trades easily and securely",
+withdraw_security_error:
+"Incorrect security code",
 
-            smart_sync: "Smart Sync",
 
-            sync_description:
-                "Sync your trades easily and securely",
 
-            connected: "Connected",
-            last_sync: "Last Sync",
-            selected_coin: "Selected Coin",
-            server: "Server",
+/* ==========================
+TEAM
+========================== */
 
-            verify_trade: "Verify Trade",
-            check_trade: "Verify Trade",
+my_team:
+"My Team",
 
-            enter_trade_code:
-                "Enter trade code",
+team_members:
+"Team Members",
 
-            trade_code_placeholder:
-                "Enter trade code",
+referral:
+"Referral",
 
-            check: "Check",
+referral_code:
+"Referral Code",
 
-            latest_orders:
-                "Latest Orders",
+copied:
+"Copied",
 
-            last_orders:
-                "Latest Orders",
+referral_link_title:
+"Your Referral Link",
 
-            no_orders:
-                "No orders currently",
+invited_count:
+"Invited Members",
 
-            enter_trade_error:
-                "Please enter trade code",
+referral_reward:
+"Referral Reward",
 
-            invalid_trade_code:
-                "Invalid trade code",
+team_history_title:
+"Team Members History",
 
-            check_code_again:
-                "Check the code and try again",
+no_team_members:
+"No Team Members",
 
-            deposit_trade_error:
-                "This trade requires a deposit of 500 USDT or more",
+team_history_empty:
+"Share your referral link to build your team",
 
-            team_trade_error:
-                "This trade requires a team of 20 members with real deposits",
+referral_code_copied:
+"Referral code copied",
 
-            trade_running:
-                "Trade in progress",
+referral_link_copied:
+"Referral link copied",
 
-            trade_completed:
-                "Trade completed",
 
-            profit: "Profit",
-            trade_code: "Code",
-            before: "Before",
-            seconds: "seconds",
-            trade_coin: "Coin",
-            trade_status: "Status",
-            trade_time: "Time",
-            completed: "Completed",
-            pending: "Pending",
-            error: "Error",
-            success: "Success",
 
-            // TEAM
-            my_team: "My Team",
-            team_members: "Team Members",
-            referral: "Referral",
-            referral_code: "Referral Code",
-            copied: "Copied",
+/* ==========================
+TRADE
+========================== */
 
-            team_history_title:
-                "Team Members History",
+current_price:
+"Current Price",
 
-            team_history_description:
-                "View all your team members and referrals",
+enter_amount:
+"Enter trading amount in USDT",
 
-            referral_link_title:
-                "Your Referral Link",
+buy:
+"Buy",
 
-            invited_count:
-                "Invited Members",
+sell:
+"Sell",
 
-            referral_reward:
-                "Referral Reward",
+recent_orders:
+"Recent Orders",
 
-            reward_description:
-                "Invite 10 people with a deposit of 500 USDT or more to receive",
+no_orders_trade:
+"No orders currently",
 
-            referral_table:
-                "Referral Table",
+buy_success:
+"Buy request submitted successfully",
 
-            team_levels:
-                "Team Levels",
+sell_success:
+"Sell request submitted successfully",
 
-            level: "Level",
 
-            invite_count:
-                "Number of Invitations",
 
-            trades_table:
-                "Trades Table",
+/* ==========================
+SYNC
+========================== */
 
-            trade: "Trade",
+sync_title:
+"Smart Sync",
 
-            daily_return:
-                "Daily Return",
+sync_subtitle:
+"Sync your trades easily and securely",
 
-            trade_1: "Trade 1",
-            trade_2: "Trade 2",
-            trade_3: "Trade 3",
+connected:
+"Connected",
 
-            vip_trade:
-                "VIP Trade",
+last_sync:
+"Last Sync",
 
-            compensation_trade:
-                "Compensation Trade",
+selected_coin:
+"Selected Coin",
 
-            according_to_status:
-                "According to Status",
+server:
+"Server",
 
-            team_trade:
-                "Team Trade",
+verify_trade:
+"Verify Trade",
 
-            over_20_members:
-                "Over 20 Members",
+enter_trade_code:
+"Enter trade code",
 
-            total_team:
-                "Total Team",
+trade_code_placeholder:
+"Enter trade code",
 
-            team_earnings:
-                "Earnings",
+check:
+"Check",
 
-            active_members:
-                "Active",
+no_orders:
+"No orders currently",
 
-            no_team_members:
-                "No Team Members",
+profit:
+"Profit",
 
-            team_history_empty:
-                "Share your referral link to build your team",
+trade_code:
+"Code",
 
-            referral_code_copied:
-                "Referral code copied",
+trade_status:
+"Status",
 
-            referral_link_copied:
-                "Referral link copied",
+trade_time:
+"Time",
 
-            // TRADE
-            current_price:
-                "Current Price",
+completed:
+"Completed",
 
-            amount:
-                "Amount",
+pending:
+"Pending",
 
-            enter_amount:
-                "Enter trading amount in USDT",
+success:
+"Success",
 
-            buy: "Buy",
-            sell: "Sell",
+error:
+"Error",
 
-            recent_orders:
-                "Recent Orders",
 
-            no_orders_trade:
-                "No orders currently",
 
-            buy_success:
-                "Buy request submitted successfully",
+/* ==========================
+SUPPORT
+========================== */
 
-            sell_success:
-                "Sell request submitted successfully",
-
-            // REGISTER
-            register_title:
-                "Create New Account",
-
-            register_contact:
-                "Email or Phone Number",
-
-            register_contact_placeholder:
-                "Enter Email or Phone Number",
-
-            verification_code:
-                "Verification Code",
-
-            verification_code_placeholder:
-                "Enter Verification Code",
-
-            password_placeholder_register:
-                "Enter Password",
-
-            confirm_password:
-                "Confirm Password",
-
-            confirm_password_placeholder:
-                "Confirm your password",
-
-            invite_code:
-                "Referral Code",
-
-            invite_code_placeholder:
-                "Automatically filled from referral link",
-
-            agree_terms:
-                "I agree to",
-
-            terms_privacy:
-                "Terms & Conditions and Privacy Policy",
-
-            register_btn:
-                "Create Account",
-
-            already_have_account:
-                "Already have an account?",
-
-            // REGISTER VALIDATION
-         support_title:
-    "Customer Support",
+support_title:
+"Customer Support",
 
 support_heading:
-    "Contact Support",
+"Contact Support",
 
 support_description:
-    "If you experience any problem, you can contact the VALORA support team.",
+"If you experience any problem, you can contact VALORA support team.",
 
 official_channel:
-    "Official Channel",
-
-channel_description:
-    "Follow all news and updates about the VALORA platform.",
+"Official Channel",
 
 join_channel:
-    "Join the Channel",
+"Join Channel",
 
 support_welcome:
-    "Welcome",
-
-support_welcome_message:
-    "You can send your inquiry or problem, and the support team will respond as soon as possible.",
+"Welcome",
 
 support_message_placeholder:
-    "Write your message here...",
+"Write your message here...",
 
 send_message:
-    "Send",
-            
-            verification_sent:
-                "Verification code sent",
+"Send",
 
-            required_field:
-                "Please fill in this field",
 
-            field_required:
-                "This field is required",
 
-            invalid_contact:
-                "Please enter a valid email address or phone number",
+/* ==========================
+LANGUAGE
+========================== */
 
-            register_contact_required:
-                "Please enter your email or phone number",
+language_title:
+"Language",
 
-            password_required:
-                "Please enter your password",
+language_subtitle:
+"Choose your preferred language",
 
-            password_mismatch:
-                "Passwords do not match",
+english:
+"English",
 
-            password_too_short:
-                "Password must be at least 6 characters",
+arabic:
+"Arabic",
 
-            confirm_password_required:
-                "Please confirm your password",
+default_language:
+"Default Language",
 
-            verification_required:
-                "Please enter the verification code",
+save_language:
+"Language saved automatically",
 
-            invalid_verification_code:
-                "Invalid verification code",
 
-            verification_success:
-                "Verification successful",
 
-            invite_code_invalid:
-                "Invalid referral code",
+/* ==========================
+TRANSACTIONS
+========================== */
 
-            terms_required:
-                "You must agree to the Terms & Conditions and Privacy Policy",
+no_transactions:
+"No transactions currently",
 
-            agree_required:
-                "You must agree to the Terms & Conditions and Privacy Policy",
+deposit_transaction:
+"Deposit",
 
-            register_success:
-                "Account created successfully",
+withdraw_transaction:
+"Withdrawal",
 
-            account_created:
-                "Account created successfully",
+profit_transaction:
+"Profit",
 
-            register_error:
-                "Unable to create account",
 
-            redirecting_login:
-                "Redirecting to login...",
 
-            // FORGOT PASSWORD
-            forgot_password_title:
-                "Reset Password",
+/* ==========================
+FORGOT PASSWORD
+========================== */
 
-            forgot_password_subtitle:
-                "Reset your password",
+forgot_password_title:
+"Reset Password",
 
-            forgot_email_phone:
-                "Email or Phone Number",
-
-            forgot_email_phone_placeholder:
-                "Enter email or phone number",
-
-            forgot_submit:
-                "Submit Reset Request",
-
-            remember_password:
-                "Remember your password?",
-
-            reset_request_sent:
-                "Request Sent",
-
-            reset_request_message:
-                "Your information will be verified and the recovery process will be completed",
-
-            // TRANSACTIONS
-            no_transactions:
-                "No transactions currently",
-
-            deposit_transaction:
-                "Deposit",
-
-            withdraw_transaction:
-                "Withdrawal",
-
-            profit_transaction:
-                "Profit",
-
-            // LANGUAGE
-            language_title:
-                "Language",
-
-            language_subtitle:
-                "Choose your preferred language",
-
-            english:
-                "English",
-
-            arabic:
-                "Arabic",
-
-            default_language:
-                "Default Language",
-
-            save_language:
-                "Language will be saved automatically",
-
-            // TERMS
-            terms_title:
-                "Terms & Conditions",
-
-            terms_1_title:
-                "1 - Acceptance of Terms",
-
-            terms_1_text:
-                "By creating an account on the VALORA platform, you agree to comply with the platform's Terms & Conditions and Usage Policy.",
-
-            terms_2_title:
-                "2 - User Responsibility",
-
-            terms_2_text:
-                "Users must provide accurate information, protect their login details, and must not share them with others.",
-
-            terms_3_title:
-                "3 - Accounts",
-
-            terms_3_text:
-                "Each user is responsible for their account and use of the platform. Users must not create accounts that violate the applicable rules.",
-
-            terms_4_title:
-                "4 - Referral System",
-
-            terms_4_text:
-                "Referral links and codes are used according to the system and rules specified within the platform.",
-
-            terms_5_title:
-                "5 - Updates",
-
-            terms_5_text:
-                "VALORA reserves the right to update its Terms & Conditions and policies when necessary. Users will be notified of important changes.",
-
-            back_to_register:
-                "Back to Create Account",
-
-            // NOTIFICATIONS
-            no_notifications:
-                "No Notifications",
-
-            notifications_description:
-                "All account and transaction alerts will appear here",
-
-            // APPLICATION
-            app_description:
-                "Get the best experience through the official VALORA app",
-
-            current_version:
-                "Current Version",
-
-            last_update:
-                "Last Update",
-
-            download_app:
-                "Download App",
-
-            download_android:
-                "Download Android App",
-
-            download_ios:
-                "Download iOS App",
-
-            latest_updates:
-                "Latest Updates",
-
-            update_speed:
-                "✓ Improved app speed",
-
-            update_security:
-                "✓ Improved account security",
-
-            update_interface:
-                "✓ Updated VALORA interface",
-
-            update_wallet:
-                "✓ Improved wallet and transactions",
-
-            android_coming_soon:
-                "Android app download will be available soon",
-
-            ios_coming_soon:
-                "iOS app download will be available soon",
-
-            // COMMON
-            save: "Save",
-            cancel: "Cancel",
-            confirm: "Confirm",
-            close: "Close",
-            back: "Back",
-            next: "Next",
-            submit: "Submit",
-            loading: "Loading...",
-            required: "This field is required",
-
-            // DEMO TRADING
-            enter_trade_amount:
-                "Enter trading amount",
-
-            insufficient_balance:
-                "Insufficient balance",
-
-            demo_buy_success:
-                "Demo buy executed successfully",
-
-            no_transactions_trade:
-                "No transactions",
-
-            amount_label:
-                "Amount",
-
-            price_label:
-                "Price",
-
-            buy_demo_profit:
-                "Demo profit from sale: ",
-
-            usdt:
-                "USDT"
-        },
-
-
-        // ======================================
-        // ARABIC
-        // ======================================
-
-        ar: {
-
-         
-        // CHANGE PASSWORD
-// IDENTITY VERIFICATION
-// FORGOT PASSWORD - ADDITIONAL
-// WITHDRAW HISTORY
-
-withdraw_history_title:{
-    ar:"سجل السحوبات",
-    en:"Withdrawal History"
-},
-
-total_requests:{
-    ar:"إجمالي الطلبات",
-    en:"Total Requests"
-},
-
-total_amounts:{
-    ar:"إجمالي المبالغ",
-    en:"Total Amounts"
-},
-
-no_withdrawals:{
-    ar:"لا توجد طلبات سحب حتى الآن",
-    en:"No withdrawal requests yet"
-},
-
-withdraw_amount:{
-    ar:"المبلغ",
-    en:"Amount"
-},
-
-withdraw_fee:{
-    ar:"العمولة",
-    en:"Fee"
-},
-
-withdraw_receive:{
-    ar:"المستلم",
-    en:"You Receive"
-},
-
-withdraw_network:{
-    ar:"الشبكة",
-    en:"Network"
-},
-
-withdraw_address:{
-    ar:"العنوان",
-    en:"Address"
-},
-
-withdraw_date:{
-    ar:"التاريخ",
-    en:"Date"
-},
-
-withdraw_pending:{
-    ar:"قيد المعالجة",
-    en:"Processing"
-},
-
-withdraw_completed:{
-    ar:"مكتمل",
-    en:"Completed"
-},
-
-withdraw_rejected:{
-    ar:"مرفوض",
-    en:"Rejected"
-}
-            
-deposit_history_title:{
-    ar:"سجل الإيداعات",
-    en:"Deposit History"
-},
-
-deposit_count:{
-    ar:"عدد الإيداعات",
-    en:"Deposit Count"
-},
-
-total_deposits:{
-    ar:"إجمالي الإيداعات",
-    en:"Total Deposits"
-},
-
-no_deposits:{
-    ar:"لا توجد إيداعات حتى الآن",
-    en:"No deposits yet"
-},
-
-network:{
-    ar:"الشبكة:",
-    en:"Network:"
-},
-
-amount:{
-    ar:"المبلغ:",
-    en:"Amount:"
-},
-
-deposit_date:{
-    ar:"تاريخ الإيداع:",
-    en:"Deposit Date:"
-},
-
-successful:{
-    ar:"ناجحة",
-    en:"Successful"
-}
-            
-login_code_title: "رمز الدخول",
-change_login_code: "تغيير رمز الدخول",
-login_code_description: "استخدم رمز دخول لحماية حسابك",
-current_login_code: "الرمز الحالي",
-new_login_code: "الرمز الجديد",
-confirm_new_login_code: "تأكيد الرمز الجديد",
-save_login_code: "حفظ التغيير",
-            
-deposit_history_title: "سجل الإيداعات",
-total_deposits: "عدد الإيداعات",
-total_deposit_amount: "إجمالي الإيداعات",
-no_deposits: "لا توجد إيداعات حتى الآن",
-network: "الشبكة",
-deposit_amount: "المبلغ",
-deposit_date: "تاريخ الإيداع",
-            
-change: "تغيير",
-
-loginCode: "رمز الدخول",
-
-open: "فتح",
-
-total_amounts: "إجمالي المبالغ",
-
-total_requests: "إجمالي الطلبات",
-
-view: "عرض",
-
-withdrawSecurity: "رمز أمان السحب",
-
-withdraw_history_title: "سجل طلبات السحب",
-            
 forgot_password_description:
-    "أدخل البريد الإلكتروني أو رقم الهاتف المسجل في حسابك.",
+"Enter your email or phone number registered to your account.",
 
 send_verification_code:
-    "إرسال رمز التحقق",
-
-verification_description:
-    "أدخل رمز التحقق الذي تم إرساله إليك.",
+"Send Verification Code",
 
 verification_code_placeholder:
-    "أدخل رمز التحقق",
+"Enter verification code",
 
 verify_code_btn:
-    "تحقق من الرمز",
+"Verify Code",
 
 new_password_title:
-    "إنشاء كلمة مرور جديدة",
-
-new_password_description:
-    "أدخل كلمة المرور الجديدة ثم قم بتأكيدها.",
-
-new_password_placeholder:
-    "********",
+"Create New Password",
 
 reset_password_btn:
-    "إعادة تعيين كلمة المرور",
-
-forgot_contact_required:
-    "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
-
-verification_demo_code:
-    "رمز التحقق التجريبي: ",
-
-verification_invalid_format:
-    "رمز التحقق يجب أن يتكون من 6 أرقام",
-
-verification_code_invalid:
-    "رمز التحقق غير صحيح",
+"Reset Password",
 
 password_changed_success:
-    "تم تغيير كلمة المرور بنجاح",
-            
-    change_password_title:
-    "تغيير كلمة المرور",
+"Password changed successfully"
 
-change_password_heading:
-    "تغيير كلمة المرور",
 
-change_password_description:
-    "سيتم إرسال رمز تحقق إلى البريد الإلكتروني أو رقم الهاتف المسجل.",
 
-change_password_method:
-    "طريقة إرسال رمز التحقق",
+}, // END EN
+ // ==========================================
+// ARABIC
+// ==========================================
 
-change_password_email:
-    "البريد الإلكتروني",
+ar:{
 
-change_password_phone:
-    "رقم الهاتف",
 
-change_password_code_placeholder:
-    "أدخل رمز التحقق",
+/* ==========================
+GENERAL
+========================== */
 
-new_password:
-    "كلمة المرور الجديدة",
+home:
+"الرئيسية",
 
-new_password_placeholder:
-    "********",
+dashboard:
+"الرئيسية",
 
-password_hint:
-    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+wallet:
+"المحفظة",
 
-confirm_password_placeholder:
-    "********",
+assets:
+"إجمالي الأصول",
 
-save_password_change:
-    "حفظ التغيير",
+team:
+"الفريق",
 
-verification_sent_email:
-    "تم إرسال رمز التحقق إلى البريد الإلكتروني",
+sync:
+"التزامن",
 
-verification_sent_phone:
-    "تم إرسال رمز التحقق إلى رقم الهاتف",
+settings:
+"الإعدادات",
 
-change_password_method_error:
-    "اختر طريقة إرسال رمز التحقق أولاً",
+language:
+"اللغة",
 
-change_password_code_error:
-    "أدخل رمز التحقق",
+notifications:
+"الإشعارات",
 
-change_password_code_invalid:
-    "رمز التحقق يجب أن يتكون من 6 أرقام",
+support:
+"خدمة العملاء",
 
-new_password_error:
-    "أدخل كلمة المرور الجديدة",
+terms:
+"الشروط والأحكام",
 
-new_password_length_error:
-    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
+security:
+"رمز أمان السحب",
 
-confirm_password_error:
-    "أعد إدخال كلمة المرور",
+verify:
+"تحقق",
 
-password_changed_success:
-    "تم تغيير كلمة المرور بنجاح",
-            
-security_heading:
-"إنشاء رمز أمان للسحب",
+identity_verification:
+"التحقق من الهوية",
 
-confirm_security_code:
-"تأكيد رمز الأمان",
+change_password:
+"تغيير كلمة المرور",
 
-confirm_security_placeholder:
-"أعد إدخال الرمز",
+logout:
+"تسجيل الخروج",
 
-save_security:
-"حفظ رمز الأمان",
-            
+application:
+"تطبيق VALORA",
+
+
+
+/* ==========================
+ACCOUNT
+========================== */
+
+account:
+"حسابي",
+
+username:
+"اسم المستخدم",
+
+email:
+"البريد الإلكتروني",
+
+phone:
+"رقم الهاتف",
+
+uid:
+"UID",
+
+
+
+/* ==========================
+LOGIN
+========================== */
+
+login_subtitle:
+"تسجيل الدخول إلى حسابك",
+
+email_phone:
+"البريد الإلكتروني أو رقم الهاتف",
+
+password:
+"كلمة المرور",
+
+login_btn:
+"تسجيل الدخول",
+
+forgot_password:
+"نسيت كلمة المرور؟",
+
+create_account:
+"إنشاء حساب",
+
+
+
+/* ==========================
+WALLET
+========================== */
+
+wallet_title:
+"المحفظة",
+
+deposit:
+"إيداع",
+
+withdraw:
+"سحب",
+
+transaction_history:
+"سجل العمليات",
+
+today:
+"أرباح اليوم",
+
+invite_profit:
+"أرباح الدعوة",
+
+team_profit:
+"أرباح الفريق",
+
+reward_profit:
+"أرباح المكافآت",
+
+
+
+/* ==========================
+DEPOSIT HISTORY
+========================== */
+
+deposit_history_title:
+"سجل الإيداعات",
+
+deposit_count:
+"عدد الإيداعات",
+
+total_deposits:
+"إجمالي الإيداعات",
+
+total_deposit_amount:
+"إجمالي مبلغ الإيداعات",
+
+no_deposits:
+"لا توجد إيداعات حتى الآن",
+
+network:
+"الشبكة",
+
+amount:
+"المبلغ",
+
+deposit_date:
+"تاريخ الإيداع",
+
+successful:
+"ناجحة",
+
+
+
+/* ==========================
+WITHDRAW HISTORY
+========================== */
+
+withdraw_history_title:
+"سجل السحوبات",
+
+total_requests:
+"إجمالي الطلبات",
+
+total_amounts:
+"إجمالي المبالغ",
+
+no_withdrawals:
+"لا توجد طلبات سحب حتى الآن",
+
+withdraw_amount:
+"المبلغ",
+
+withdraw_fee:
+"العمولة",
+
+withdraw_receive:
+"المستلم",
+
+withdraw_network:
+"الشبكة",
+
+withdraw_address:
+"العنوان",
+
+withdraw_date:
+"التاريخ",
+
+withdraw_pending:
+"قيد المعالجة",
+
+withdraw_completed:
+"مكتمل",
+
+withdraw_rejected:
+"مرفوض",
+
+
+
+/* ==========================
+SECURITY PIN
+========================== */
+
 security_title:
 "رمز أمان السحب",
 
@@ -1256,7 +894,7 @@ security_create:
 "إنشاء رمز أمان للسحب",
 
 security_description:
-"يستخدم هذا الرمز لحماية عمليات السحب من الحساب",
+"يستخدم هذا الرمز لحماية عمليات السحب",
 
 security_code_label:
 "رمز الأمان",
@@ -1273,1313 +911,234 @@ security_confirm_placeholder:
 security_save:
 "حفظ الرمز",
 
-security_empty:
-"يرجى إدخال رمز الأمان",
-
-security_digits:
-"يجب أن يكون رمز الأمان 6 أرقام",
-
-security_match:
-"رمز الأمان غير متطابق",
-
 security_saved:
 "تم حفظ رمز الأمان بنجاح",
-            
-identity_confirmation:
-    "تأكيد الهوية",
 
-identity_description:
-    "أكمل التحقق لحماية حسابك",
 
-verification_rules:
-    "شروط التحقق",
 
-verification_rule_1:
-    "يجب أن تكون الوثيقة صادرة من جهة حكومية رسمية.",
+/* ==========================
+COMMON
+========================== */
 
-verification_rule_2:
-    "يقبل جواز السفر أو بطاقة الهوية.",
+save:
+"حفظ",
 
-verification_rule_3:
-    "يجب أن تكون الصورة واضحة.",
-
-verification_rule_4:
-    "يجب رفع صورة الوجه الحقيقية.",
-
-id_document:
-    "صورة الهوية أو جواز السفر",
-
-upload_id:
-    "تصوير أو رفع الوثيقة",
-
-change_image:
-    "تغيير الصورة",
-
-face_image:
-    "صورة الوجه",
-
-take_selfie:
-    "تصوير السيلفي",
-
-retake_selfie:
-    "إعادة التصوير",
-
-submit_verification:
-    "إرسال للتحقق",
-
-invalid_image:
-    "يرجى اختيار صورة صحيحة",
-
-id_image_required:
-    "يرجى رفع صورة الهوية أو جواز السفر",
-
-face_image_required:
-    "يرجى رفع صورة الوجه",
-
-verification_submitted:
-    "تم إرسال طلب التحقق بنجاح",
-        
-change_password_description:
-    "سيتم إرسال رمز تحقق إلى البريد الإلكتروني أو رقم الهاتف المسجل",
-
-verification_method:
-    "طريقة إرسال الرمز",
-
-new_password:
-    "كلمة المرور الجديدة",
-
-new_password_placeholder:
-    "أدخل كلمة المرور الجديدة",
-
-confirm_password_placeholder:
-    "أعد إدخال كلمة المرور",
-
-save_password_change:
-    "حفظ التغيير",
-
-verification_sent_email:
-    "تم إرسال رمز التحقق إلى البريد الإلكتروني",
-
-verification_sent_phone:
-    "تم إرسال رمز التحقق إلى رقم الهاتف",
-
-verification_method_required:
-    "اختر طريقة إرسال الرمز",
-
-verification_code_required:
-    "يرجى إدخال رمز التحقق",
-
-new_password_required:
-    "يرجى إدخال كلمة المرور الجديدة",
-
-new_password_too_short:
-    "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
-
-password_changed_success:
-    "تم تغيير كلمة المرور بنجاح",
-            // GENERAL
-            home: "الرئيسية",
-            dashboard: "الرئيسية",
-            wallet: "المحفظة",
-            assets: "إجمالي الأصول",
-            team: "الفريق",
-            sync: "التزامن",
-            settings: "الإعدادات",
-            language: "اللغة",
-            notifications: "الإشعارات",
-            support: "مراسلة العملاء",
-            terms: "الشروط والأحكام",
-            security: "رمز أمان السحب",
-            verify: "تحقق",
-            identity_verification: "التحقق من الهوية",
-            change_password: "تغيير كلمة المرور",
-            logout: "تسجيل الخروج",
-            application: "تطبيق VALORA",
-            
-            // ACCOUNT
-            account: "حسابي",
-            username: "اسم المستخدم",
-            email: "البريد الإلكتروني",
-            phone: "رقم الهاتف",
-            uid: "UID",
-
-            // DASHBOARD
-            today_profit: "أرباح اليوم",
-            markets: "الأسواق",
-            bitcoin: "Bitcoin",
-            ethereum: "Ethereum",
-            tether: "Tether",
-            tron: "TRON",
-            ripple: "XRP",
-            solana: "Solana",
-
-            // LOGIN
-            login_subtitle: "تسجيل الدخول إلى حسابك",
-            email_phone: "البريد الإلكتروني أو رقم الهاتف",
-            email_phone_placeholder: "أدخل البريد الإلكتروني أو رقم الهاتف",
-            password: "كلمة المرور",
-            password_placeholder: "أدخل كلمة المرور",
-            login_btn: "تسجيل الدخول",
-            forgot_password: "نسيت كلمة المرور؟",
-            create_account: "إنشاء حساب",
-
-            login_email_required:
-                "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
-
-            login_password_required:
-                "يرجى إدخال كلمة المرور",
+cancel:
+"إلغاء",
 
-            login_account_not_found:
-                "الحساب غير موجود",
+confirm:
+"تأكيد",
 
-            login_wrong_password:
-                "كلمة المرور غير صحيحة",
+close:
+"إغلاق",
 
-            login_invalid_contact:
-                "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
+back:
+"رجوع",
 
-            login_error:
-                "بيانات تسجيل الدخول غير صحيحة",
+submit:
+"إرسال",
 
-            login_success:
-                "تم تسجيل الدخول بنجاح",
+loading:
+"جارٍ التحميل..."
 
-            login_success_message:
-                "جاري الدخول إلى حسابك",
+}
 
-            login_redirect:
-                "جاري الدخول إلى حسابك...",
 
-            // WALLET
-            wallet_title: "المحفظة",
-            deposit: "إيداع",
-            withdraw: "سحب",
-            transaction_history: "سجل العمليات",
-            today: "أرباح اليوم",
-            invite_profit: "أرباح الدعوة",
-            team_profit: "أرباح الفريق",
-            reward_profit: "أرباح المكافآت",
+}; // END TRANSLATIONS
 
-            // DEPOSIT
-            deposit_title: "إيداع العملات",
 
-            deposit_subtitle:
-                "اختر العملة والشبكة لعرض عنوان الإيداع",
 
-            deposit_network:
-                "شبكة الإيداع",
+// ==========================================
+// LANGUAGE FUNCTIONS
+// ==========================================
 
-            deposit_address:
-                "عنوان الإيداع",
 
-            deposit_auto_credit:
-                "سيتم إضافة الرصيد تلقائياً",
+function getLanguage(){
 
-            deposit_auto_credit_text:
-                "بعد إرسال العملات إلى عنوان الإيداع سيتم اكتشاف التحويل وإضافة الرصيد بعد تأكيد الشبكة.",
+let lang =
+localStorage.getItem(STORAGE_KEY);
 
-            deposit_warning_1:
-                "أرسل العملات إلى العنوان الظاهر فقط.",
 
-            deposit_warning_2:
-                "تأكد من اختيار نفس الشبكة قبل التحويل.",
+if(
+lang &&
+translations[lang]
+){
 
-            deposit_warning_3:
-                "أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.",
+return lang;
 
-            deposit_warning_4:
-                "بعد تأكيد التحويل سيتم إضافة الرصيد تلقائياً.",
+}
 
-            copy: "نسخ",
 
-            deposit_copied:
-                "تم نسخ عنوان الإيداع",
+return DEFAULT_LANGUAGE;
 
-            // WITHDRAW
-            withdraw_title: "سحب العملات",
+}
 
-            withdraw_subtitle:
-                "اسحب أصولك بأمان",
 
-            withdraw_network:
-                "شبكة السحب",
 
-            withdraw_address:
-                "عنوان السحب",
+function saveLanguage(lang){
 
-            withdraw_address_placeholder:
-                "أدخل عنوان المحفظة",
+if(
+translations[lang]
+){
 
-            withdraw_amount:
-                "مبلغ السحب",
+localStorage.setItem(
+STORAGE_KEY,
+lang
+);
 
-            withdraw_amount_placeholder:
-                "أدخل مبلغ السحب",
+return true;
 
-            available_balance:
-                "الرصيد المتاح",
+}
 
-            confirm_withdraw:
-                "تأكيد السحب",
 
-            withdraw_success:
-                "تم إرسال طلب السحب بنجاح",
+return false;
 
-            withdraw_error:
-                "الرصيد غير كافٍ",
+}
 
-            withdraw_fee:
-                "رسوم السحب",
 
-            receive_amount:
-                "المبلغ المستلم",
 
-            security_code:
-                "رمز أمان السحب",
+function applyLanguage(){
 
-            security_code_placeholder:
-                "أدخل رمز أمان السحب",
 
-            fee_note:
-                "قبل التضعيف: 20%<br>بعد التضعيف: 5%",
+const lang =
+getLanguage();
 
-            withdraw_security_error:
-                "رمز الأمان غير صحيح",
 
-            withdraw_amount_error:
-                "يرجى إكمال جميع البيانات المطلوبة",
+const current =
+translations[lang];
 
-            // SYNC
-            sync_title: "التزامن الذكي",
 
-            sync_subtitle:
-                "قم بمزامنة صفقاتك بسهولة وأمان",
+document.documentElement.lang =
+lang;
 
-            smart_sync:
-                "التزامن الذكي",
 
-            sync_description:
-                "قم بمزامنة صفقاتك بسهولة وأمان",
+document.documentElement.dir =
+RTL_LANGUAGES.includes(lang)
+?
+"rtl"
+:
+"ltr";
 
-            connected: "متصل",
-            last_sync: "آخر مزامنة",
-            selected_coin: "العملة المختارة",
-            server: "الخادم",
 
-            verify_trade:
-                "تحقق من الصفقة",
 
-            check_trade:
-                "تحقق من الصفقة",
+document.body.dir =
+document.documentElement.dir;
 
-            enter_trade_code:
-                "أدخل كود الصفقة",
 
-            trade_code_placeholder:
-                "أدخل كود الصفقة",
 
-            check: "تحقق",
+document
+.querySelectorAll("[data-lang]")
+.forEach(function(el){
 
-            latest_orders:
-                "آخر الصفقات",
 
-            last_orders:
-                "آخر الصفقات",
+const key =
+el.dataset.lang;
 
-            no_orders:
-                "لا توجد صفقات حالياً",
 
-            enter_trade_error:
-                "يرجى إدخال كود الصفقة",
+if(
+current[key]
+){
 
-            invalid_trade_code:
-                "كود الصفقة غير صحيح",
+el.textContent =
+current[key];
 
-            check_code_again:
-                "تأكد من الكود وحاول مرة أخرى",
+}
 
-            deposit_trade_error:
-                "هذه الصفقة خاصة بمن لديه إيداع 500 USDT أو أكثر",
 
-            team_trade_error:
-                "هذه الصفقة تحتاج فريقاً من 20 عضواً بإيداعات حقيقية",
+});
 
-            trade_running:
-                "الصفقة قيد التنفيذ",
 
-            trade_completed:
-                "اكتملت الصفقة",
 
-            profit: "الربح",
-            trade_code: "الكود",
-            before: "قبل",
-            seconds: "ثانية",
-            trade_coin: "العملة",
-            trade_status: "الحالة",
-            trade_time: "الوقت",
-            completed: "مكتملة",
-            pending: "قيد التنفيذ",
-            error: "خطأ",
-            success: "نجاح",
+document
+.querySelectorAll("[data-lang-placeholder]")
+.forEach(function(el){
 
-            // TEAM
-            my_team: "فريقي",
-            team_members: "أعضاء الفريق",
-            referral: "الإحالة",
-            referral_code: "رمز الدعوة",
-            copied: "تم النسخ",
 
-            team_history_title:
-                "سجل أعضاء الفريق",
+const key =
+el.dataset.langPlaceholder;
 
-            team_history_description:
-                "عرض جميع أعضاء فريقك والدعوات",
 
-            referral_link_title:
-                "رابط الدعوة الخاص بك",
+if(
+current[key]
+){
 
-            invited_count:
-                "عدد المدعوين",
+el.placeholder =
+current[key];
 
-            referral_reward:
-                "مكافأة الدعوة",
+}
 
-            reward_description:
-                "ادعُ 10 أشخاص لديهم إيداع 500 USDT أو أكثر لتحصل على",
 
-            referral_table:
-                "جدول الدعوة",
+});
 
-            team_levels:
-                "مستويات الفريق",
 
-            level: "المستوى",
+}
 
-            invite_count:
-                "عدد الدعوات",
 
-            trades_table:
-                "جدول الصفقات",
 
-            trade: "الصفقة",
+function setLanguage(lang){
 
-            daily_return:
-                "العائد اليومي",
 
-            trade_1: "صفقة 1",
-            trade_2: "صفقة 2",
-            trade_3: "صفقة 3",
+if(
+!translations[lang]
+){
 
-            vip_trade:
-                "صفقة VIP",
+return false;
 
-            compensation_trade:
-                "صفقة التعويض",
+}
 
-            according_to_status:
-                "حسب الحالة",
 
-            team_trade:
-                "صفقة الفريق",
+saveLanguage(lang);
 
-            over_20_members:
-                "فوق 20 عضو",
+applyLanguage();
 
-            total_team:
-                "إجمالي الفريق",
 
-            team_earnings:
-                "الأرباح",
+setTimeout(function(){
 
-            active_members:
-                "النشط",
+location.reload();
 
-            no_team_members:
-                "لا يوجد أعضاء في الفريق",
+},100);
 
-            team_history_empty:
-                "شارك رابط الدعوة الخاص بك لبناء فريقك",
 
-            referral_code_copied:
-                "تم نسخ كود الدعوة",
+return true;
 
-            referral_link_copied:
-                "تم نسخ رابط الدعوة",
+}
 
-            // TRADE
-            current_price:
-                "السعر الحالي",
 
-            amount:
-                "الكمية",
 
-            enter_amount:
-                "أدخل مبلغ التداول بالـ USDT",
+// ==========================================
+// GLOBAL
+// ==========================================
 
-            buy: "شراء",
-            sell: "بيع",
+window.getLanguage =
+getLanguage;
 
-            recent_orders:
-                "آخر العمليات",
 
-            no_orders_trade:
-                "لا توجد عمليات حالياً",
+window.setLanguage =
+setLanguage;
 
-            buy_success:
-                "تم إرسال طلب الشراء بنجاح",
 
-            sell_success:
-                "تم إرسال طلب البيع بنجاح",
+window.applyLanguage =
+applyLanguage;
 
-            // REGISTER
-            register_title:
-                "إنشاء حساب جديد",
 
-            register_contact:
-                "البريد الإلكتروني أو رقم الهاتف",
+window.t =
+function(key){
 
-            register_contact_placeholder:
-                "أدخل البريد الإلكتروني أو رقم الهاتف",
+return translations[getLanguage()][key]
+||
+translations.ar[key]
+||
+key;
 
-            verification_code:
-                "كود التحقق",
+};
 
-            verification_code_placeholder:
-                "أدخل كود التحقق",
 
-            password_placeholder_register:
-                "أدخل كلمة المرور",
 
-            confirm_password:
-                "تأكيد كلمة المرور",
+document.addEventListener(
+"DOMContentLoaded",
+applyLanguage
+);
 
-            confirm_password_placeholder:
-                "أعد إدخال كلمة المرور",
-
-            invite_code:
-                "كود الدعوة",
-
-            invite_code_placeholder:
-                "يتم تعبئته تلقائياً من رابط الدعوة",
-
-            agree_terms:
-                "أوافق على",
-
-            terms_privacy:
-                "الشروط والأحكام وسياسة الخصوصية",
-
-            register_btn:
-                "إنشاء الحساب",
-
-            already_have_account:
-                "لديك حساب بالفعل؟",
-
-            // REGISTER VALIDATION
-            verification_sent:
-                "تم إرسال كود التحقق",
-
-            required_field:
-                "يرجى ملء هذا الحقل",
-
-            field_required:
-                "هذا الحقل مطلوب",
-
-            invalid_contact:
-                "يرجى إدخال بريد إلكتروني أو رقم هاتف صحيح",
-
-            register_contact_required:
-                "يرجى إدخال البريد الإلكتروني أو رقم الهاتف",
-
-            password_required:
-                "يرجى إدخال كلمة المرور",
-
-            password_mismatch:
-                "كلمة المرور غير متطابقة",
-
-            password_too_short:
-                "يجب أن تكون كلمة المرور 6 أحرف على الأقل",
-
-            confirm_password_required:
-                "يرجى تأكيد كلمة المرور",
-
-            verification_required:
-                "يرجى إدخال كود التحقق",
-
-            invalid_verification_code:
-                "كود التحقق غير صحيح",
-
-            verification_success:
-                "تم التحقق بنجاح",
-
-            invite_code_invalid:
-                "كود الدعوة غير صحيح",
-
-            terms_required:
-                "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
-
-            agree_required:
-                "يجب الموافقة على الشروط والأحكام وسياسة الخصوصية",
-
-            register_success:
-                "تم إنشاء الحساب بنجاح",
-
-            account_created:
-                "تم إنشاء الحساب بنجاح",
-
-            register_error:
-                "تعذر إنشاء الحساب",
-
-            redirecting_login:
-                "جاري تحويلك إلى تسجيل الدخول...",
-
-            // FORGOT PASSWORD
-            forgot_password_title:
-                "استرجاع كلمة المرور",
-
-            forgot_password_subtitle:
-                "استرجاع كلمة المرور",
-
-            forgot_email_phone:
-                "البريد الإلكتروني أو رقم الهاتف",
-
-            forgot_email_phone_placeholder:
-                "أدخل البريد أو رقم الهاتف",
-
-            forgot_submit:
-                "إرسال طلب الاسترجاع",
-
-            remember_password:
-                "تذكرت كلمة المرور؟",
-
-            reset_request_sent:
-                "تم إرسال الطلب",
-
-            reset_request_message:
-                "سيتم التحقق من البيانات وإكمال الاسترجاع",
-
-            // TRANSACTIONS
-            no_transactions:
-                "لا توجد عمليات حالياً",
-
-            deposit_transaction:
-                "إيداع",
-
-            withdraw_transaction:
-                "سحب",
-
-            profit_transaction:
-                "أرباح",
-
-            // LANGUAGE
-            language_title:
-                "اللغة",
-
-            language_subtitle:
-                "اختر لغتك المفضلة",
-
-            english:
-                "English",
-
-            arabic:
-                "العربية",
-
-            default_language:
-                "اللغة الافتراضية",
-
-            save_language:
-                "سيتم حفظ اللغة تلقائياً",
-
-            // TERMS
-            terms_title:
-                "الشروط والأحكام",
-
-            terms_1_title:
-                "1 - قبول الشروط",
-
-            terms_1_text:
-                "عند إنشاء حساب في منصة VALORA فإنك توافق على الالتزام بالشروط والأحكام وسياسة الاستخدام الخاصة بالمنصة.",
-
-            terms_2_title:
-                "2 - مسؤولية المستخدم",
-
-            terms_2_text:
-                "يجب على المستخدم تقديم بيانات صحيحة والمحافظة على معلومات الدخول الخاصة به وعدم مشاركتها مع الآخرين.",
-
-            terms_3_title:
-                "3 - الحسابات",
-
-            terms_3_text:
-                "كل مستخدم مسؤول عن حسابه واستخدامه للمنصة، ويجب عدم إنشاء حسابات مخالفة للأنظمة.",
-
-            terms_4_title:
-                "4 - نظام الإحالات",
-
-            terms_4_text:
-                "يتم استخدام روابط الدعوة والأكواد الخاصة بالمستخدمين حسب النظام المحدد داخل المنصة.",
-
-            terms_5_title:
-                "5 - التحديثات",
-
-            terms_5_text:
-                "تحتفظ VALORA بحق تحديث الشروط والسياسات عند الحاجة، وسيتم إعلام المستخدمين بالتغييرات المهمة.",
-
-            back_to_register:
-                "العودة إلى إنشاء الحساب",
-
-            // NOTIFICATIONS
-            no_notifications:
-                "لا توجد إشعارات",
-
-            notifications_description:
-                "ستظهر هنا جميع التنبيهات الخاصة بالحساب والعمليات",
-
-            // APPLICATION
-            app_description:
-                "احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي",
-
-            current_version:
-                "الإصدار الحالي",
-
-            last_update:
-                "آخر تحديث",
-
-            download_app:
-                "تحميل التطبيق",
-
-            download_android:
-                "تحميل تطبيق Android",
-
-            download_ios:
-                "تحميل تطبيق iOS",
-
-            latest_updates:
-                "آخر التحديثات",
-
-            update_speed:
-                "✓ تحسين سرعة التطبيق",
-
-            update_security:
-                "✓ تحسين حماية الحساب",
-
-            update_interface:
-                "✓ تحديث واجهة VALORA",
-
-            update_wallet:
-                "✓ تحسين المحفظة والعمليات",
-
-            android_coming_soon:
-                "سيتم توفير تحميل تطبيق Android قريباً",
-
-            ios_coming_soon:
-                "سيتم توفير تطبيق iOS قريباً",
-
-            // COMMON
-          support_title:
-    "خدمة العملاء",
-
-support_heading:
-    "مراسلة العملاء",
-
-support_description:
-    "إذا واجهتك أي مشكلة يمكنك التواصل مع فريق دعم VALORA.",
-
-official_channel:
-    "القناة الرسمية",
-
-channel_description:
-    "تابع جميع الأخبار والتحديثات الخاصة بمنصة VALORA.",
-
-join_channel:
-    "الانضمام إلى القناة",
-
-support_welcome:
-    "مرحبًا بك",
-
-support_welcome_message:
-    "يمكنك إرسال استفسارك أو مشكلتك، وسيقوم فريق الدعم بالرد عليك في أقرب وقت.",
-
-support_message_placeholder:
-    "اكتب رسالتك هنا...",
-
-send_message:
-    "إرسال",
-            
-            save: "حفظ",
-            cancel: "إلغاء",
-            confirm: "تأكيد",
-            close: "إغلاق",
-            back: "رجوع",
-            next: "التالي",
-            submit: "إرسال",
-            loading: "جارٍ التحميل...",
-            required: "هذا الحقل مطلوب",
-
-            // DEMO TRADING
-            enter_trade_amount:
-                "أدخل مبلغ التداول",
-
-            insufficient_balance:
-                "الرصيد غير كافٍ",
-
-            demo_buy_success:
-                "تم تنفيذ عملية الشراء التجريبية بنجاح",
-
-            no_transactions_trade:
-                "لا توجد عمليات",
-
-            amount_label:
-                "المبلغ",
-
-            price_label:
-                "السعر",
-
-            buy_demo_profit:
-                "ربحك التجريبي من البيع: ",
-
-            usdt:
-                "USDT"
-        }
-
-    };
-
-
-    // ==========================================
-    // GET LANGUAGE
-    // ==========================================
-
-    function getLanguage() {
-
-        let lang = null;
-
-        try {
-
-            lang = localStorage.getItem(STORAGE_KEY);
-
-        } catch (error) {
-
-            console.warn(
-                "VALORA localStorage error:",
-                error
-            );
-
-        }
-
-        if (
-            lang &&
-            Object.prototype.hasOwnProperty.call(
-                translations,
-                lang
-            )
-        ) {
-
-            return lang;
-
-        }
-
-        return DEFAULT_LANGUAGE;
-
-    }
-
-
-    // ==========================================
-    // SAVE LANGUAGE
-    // ==========================================
-
-    function saveLanguage(lang) {
-
-        try {
-
-            localStorage.setItem(
-                STORAGE_KEY,
-                lang
-            );
-
-            return true;
-
-        } catch (error) {
-
-            console.warn(
-                "VALORA language save error:",
-                error
-            );
-
-            return false;
-
-        }
-
-    }
-
-
-    // ==========================================
-    // SAFE TEXT TRANSLATION
-    // ==========================================
-    //
-    // IMPORTANT:
-    // لا نستخدم innerHTML هنا.
-    //
-    // هذا يمنع تخريب:
-    // - SVG
-    // - buttons
-    // - icons
-    // - child elements
-    // - CSS structure
-    //
-    // ==========================================
-
-    function setElementText(element, value) {
-
-        if (!element) {
-            return;
-        }
-
-
-        // إذا كانت الترجمة تحتوي HTML مثل <br>
-        // نسمح بها فقط إذا كان العنصر نفسه
-        // لا يحتوي على عناصر HTML داخلية.
-
-        const hasChildElements =
-            element.children &&
-            element.children.length > 0;
-
-
-        if (
-            !hasChildElements &&
-            typeof value === "string" &&
-            value.indexOf("<br>") !== -1
-        ) {
-
-            const parts =
-                value.split("<br>");
-
-            element.textContent = "";
-
-            parts.forEach(function (part, index) {
-
-                if (index > 0) {
-                    element.appendChild(
-                        document.createElement("br")
-                    );
-                }
-
-                element.appendChild(
-                    document.createTextNode(part)
-                );
-
-            });
-
-            return;
-
-        }
-
-
-        // ======================================
-        // عنصر نصي عادي
-        // ======================================
-
-        if (!hasChildElements) {
-
-            element.textContent =
-                value;
-
-            return;
-
-        }
-
-
-        // ======================================
-        // عنصر يحتوي عناصر داخلية
-        // ======================================
-        //
-        // نحاول تغيير النص المباشر فقط
-        // ونترك العناصر الداخلية كما هي.
-        //
-        // مثال:
-        //
-        // <button>
-        //    <svg>...</svg>
-        //    Verify
-        // </button>
-        //
-        // الـ SVG لن يتم حذفه.
-        //
-        // ======================================
-
-        let textNode = null;
-
-        for (
-            let i = 0;
-            i < element.childNodes.length;
-            i++
-        ) {
-
-            const node =
-                element.childNodes[i];
-
-            if (
-                node.nodeType ===
-                Node.TEXT_NODE
-            ) {
-
-                textNode = node;
-                break;
-
-            }
-
-        }
-
-
-        if (textNode) {
-
-            textNode.nodeValue =
-                " " + value + " ";
-
-        } else {
-
-            element.insertBefore(
-                document.createTextNode(
-                    value
-                ),
-                element.firstChild
-            );
-
-        }
-
-    }
-
-
-    // ==========================================
-    // APPLY LANGUAGE
-    // ==========================================
-
-    function applyLanguage() {
-
-        const lang =
-            getLanguage();
-
-
-        const currentTranslations =
-            translations[lang] ||
-            translations[DEFAULT_LANGUAGE];
-
-
-        // ======================================
-        // HTML LANG
-        // ======================================
-
-        document.documentElement.lang =
-            lang;
-
-
-        // ======================================
-        // RTL / LTR
-        // ======================================
-
-        document.documentElement.dir =
-            RTL_LANGUAGES.includes(lang)
-                ? "rtl"
-                : "ltr";
-
-
-        // ======================================
-        // BODY DIRECTION
-        // ======================================
-
-        document.body.dir =
-            RTL_LANGUAGES.includes(lang)
-                ? "rtl"
-                : "ltr";
-
-
-        // ======================================
-        // TEXT TRANSLATIONS
-        // ======================================
-
-        document
-            .querySelectorAll("[data-lang]")
-            .forEach(function (element) {
-
-                const key =
-                    element.getAttribute(
-                        "data-lang"
-                    );
-
-
-                if (
-                    Object.prototype.hasOwnProperty.call(
-                        currentTranslations,
-                        key
-                    )
-                ) {
-
-                    setElementText(
-                        element,
-                        currentTranslations[key]
-                    );
-
-                }
-
-            });
-
-
-        // ======================================
-        // PLACEHOLDERS
-        // ======================================
-
-        document
-            .querySelectorAll(
-                "[data-lang-placeholder]"
-            )
-            .forEach(function (element) {
-
-                const key =
-                    element.getAttribute(
-                        "data-lang-placeholder"
-                    );
-
-
-                if (
-                    Object.prototype.hasOwnProperty.call(
-                        currentTranslations,
-                        key
-                    )
-                ) {
-
-                    element.placeholder =
-                        currentTranslations[key];
-
-                }
-
-            });
-
-
-        // ======================================
-        // OPTIONAL TITLE TRANSLATION
-        // ======================================
-
-        document
-            .querySelectorAll(
-                "[data-lang-title]"
-            )
-            .forEach(function (element) {
-
-                const key =
-                    element.getAttribute(
-                        "data-lang-title"
-                    );
-
-
-                if (
-                    Object.prototype.hasOwnProperty.call(
-                        currentTranslations,
-                        key
-                    )
-                ) {
-
-                    element.setAttribute(
-                        "title",
-                        currentTranslations[key]
-                    );
-
-                }
-
-            });
-
-
-        // ======================================
-        // SAVE CURRENT LANGUAGE
-        // ======================================
-
-        document.documentElement
-            .setAttribute(
-                "data-language",
-                lang
-            );
-
-    }
-
-
-    // ==========================================
-    // SET LANGUAGE
-    // ==========================================
-
-    function setLanguage(lang) {
-
-        // ======================================
-        // VALIDATE
-        // ======================================
-
-        if (
-            !Object.prototype.hasOwnProperty.call(
-                translations,
-                lang
-            )
-        ) {
-
-            console.warn(
-                "VALORA: Invalid language:",
-                lang
-            );
-
-            return false;
-
-        }
-
-
-        // ======================================
-        // SAVE
-        // ======================================
-
-        if (!saveLanguage(lang)) {
-
-            return false;
-
-        }
-
-
-        // ======================================
-        // APPLY
-        // ======================================
-
-        applyLanguage();
-
-
-        // ======================================
-        // RELOAD
-        // ======================================
-        //
-        // إعادة التحميل تضمن أن جميع ملفات
-        // الصفحة التي تعتمد على اللغة تقرأ
-        // اللغة الجديدة.
-        //
-        // ======================================
-
-        setTimeout(function () {
-
-            window.location.reload();
-
-        }, 100);
-
-
-        return true;
-
-    }
-
-
-    // ==========================================
-    // DOM READY
-    // ==========================================
-
-    if (
-        document.readyState ===
-        "loading"
-    ) {
-
-        document.addEventListener(
-            "DOMContentLoaded",
-            function () {
-
-                applyLanguage();
-
-            }
-        );
-
-    } else {
-
-        applyLanguage();
-
-    }
-
-
-    // ==========================================
-    // GLOBAL FUNCTIONS
-    // ==========================================
-
-    window.setLanguage =
-        setLanguage;
-
-
-    window.applyLanguage =
-        applyLanguage;
-
-
-    window.getLanguage =
-        getLanguage;
-
-
-    // ==========================================
-    // TRANSLATION HELPER
-    // ==========================================
-    //
-    // تستخدمها ملفات JS الأخرى:
-    //
-    // t("login_error")
-    //
-    // ==========================================
-
-    window.t = function (key) {
-
-        const lang =
-            getLanguage();
-
-        const currentTranslations =
-            translations[lang] ||
-            translations[DEFAULT_LANGUAGE];
-
-
-        if (
-            Object.prototype.hasOwnProperty.call(
-                currentTranslations,
-                key
-            )
-        ) {
-
-            return currentTranslations[key];
-
-        }
-
-
-        // fallback إلى العربية
-
-        if (
-            Object.prototype.hasOwnProperty.call(
-                translations[DEFAULT_LANGUAGE],
-                key
-            )
-        ) {
-
-            return translations[DEFAULT_LANGUAGE][key];
-
-        }
-
-
-        // إذا لم يوجد المفتاح
-        return key;
-
-    };
-
-
-    // ==========================================
-    // VALORA LANGUAGE OBJECT
-    // ==========================================
-
-    window.VALORA_LANG = {
-
-        getLanguage:
-            getLanguage,
-
-        translations:
-            translations,
-
-        setLanguage:
-            setLanguage,
-
-        applyLanguage:
-            applyLanguage,
-
-        t:
-            window.t
-
-    };
 
 
 })();
