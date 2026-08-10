@@ -993,6 +993,46 @@ send_message:
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+deposit_history_title:{
+    ar:"سجل الإيداعات",
+    en:"Deposit History"
+},
+
+deposit_count:{
+    ar:"عدد الإيداعات",
+    en:"Deposit Count"
+},
+
+total_deposits:{
+    ar:"إجمالي الإيداعات",
+    en:"Total Deposits"
+},
+
+no_deposits:{
+    ar:"لا توجد إيداعات حتى الآن",
+    en:"No deposits yet"
+},
+
+network:{
+    ar:"الشبكة:",
+    en:"Network:"
+},
+
+amount:{
+    ar:"المبلغ:",
+    en:"Amount:"
+},
+
+deposit_date:{
+    ar:"تاريخ الإيداع:",
+    en:"Deposit Date:"
+},
+
+successful:{
+    ar:"ناجحة",
+    en:"Successful"
+}
+            
 login_code_title: "رمز الدخول",
 change_login_code: "تغيير رمز الدخول",
 login_code_description: "استخدم رمز دخول لحماية حسابك",
