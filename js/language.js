@@ -993,6 +993,73 @@ send_message:
         // CHANGE PASSWORD
 // IDENTITY VERIFICATION
 // FORGOT PASSWORD - ADDITIONAL
+// WITHDRAW HISTORY
+
+withdraw_history_title:{
+    ar:"سجل السحوبات",
+    en:"Withdrawal History"
+},
+
+total_requests:{
+    ar:"إجمالي الطلبات",
+    en:"Total Requests"
+},
+
+total_amounts:{
+    ar:"إجمالي المبالغ",
+    en:"Total Amounts"
+},
+
+no_withdrawals:{
+    ar:"لا توجد طلبات سحب حتى الآن",
+    en:"No withdrawal requests yet"
+},
+
+withdraw_amount:{
+    ar:"المبلغ",
+    en:"Amount"
+},
+
+withdraw_fee:{
+    ar:"العمولة",
+    en:"Fee"
+},
+
+withdraw_receive:{
+    ar:"المستلم",
+    en:"You Receive"
+},
+
+withdraw_network:{
+    ar:"الشبكة",
+    en:"Network"
+},
+
+withdraw_address:{
+    ar:"العنوان",
+    en:"Address"
+},
+
+withdraw_date:{
+    ar:"التاريخ",
+    en:"Date"
+},
+
+withdraw_pending:{
+    ar:"قيد المعالجة",
+    en:"Processing"
+},
+
+withdraw_completed:{
+    ar:"مكتمل",
+    en:"Completed"
+},
+
+withdraw_rejected:{
+    ar:"مرفوض",
+    en:"Rejected"
+}
+            
 deposit_history_title:{
     ar:"سجل الإيداعات",
     en:"Deposit History"
