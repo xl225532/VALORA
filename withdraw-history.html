@@ -25,6 +25,10 @@
 <div class="history-page">
 
 
+<!-- ==========================================
+     HEADER
+========================================== -->
+
 <header class="history-header">
 
 
@@ -43,6 +47,13 @@
 
 
 </header>
+
+
+
+
+<!-- ==========================================
+     SUMMARY
+========================================== -->
 
 
 <section class="history-summary">
@@ -68,6 +79,9 @@
 </div>
 
 
+
+
+
 <div class="summary-card">
 
 
@@ -91,529 +105,620 @@
 </section>
 
 
-<section class="withdraw-list" id="withdrawList">
+
+
+
+<!-- ==========================================
+     WITHDRAW LIST
+========================================== -->
+
+
+<section 
+class="withdraw-list"
+id="withdrawList">
+
 
 </section>
+
 
 
 </div>
 
 
+
+
+
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
+
+
 <script src="js/language.js"></script>
+
 
 
 <script>
 
 
 // ==========================================
-// WITHDRAW HISTORY TRANSLATIONS
+// GET LANGUAGE
 // ==========================================
 
-const withdrawHistoryTranslations = {
 
-    ar: {
-
-        withdraw_history_title:
-        "سجل السحوبات",
-
-        total_requests:
-        "إجمالي الطلبات",
-
-        total_amounts:
-        "إجمالي المبالغ",
-
-        no_withdrawals:
-        "لا توجد طلبات سحب حتى الآن",
-
-        pending:
-        "قيد المعالجة",
-
-        amount:
-        "المبلغ",
-
-        fee:
-        "العمولة",
-
-        receive:
-        "المستلم",
-
-        network:
-        "الشبكة",
-
-        address:
-        "العنوان",
-
-        date:
-        "التاريخ"
-
-    },
-
-    en: {
-
-        withdraw_history_title:
-        "Withdrawal History",
-
-        total_requests:
-        "Total Requests",
-
-        total_amounts:
-        "Total Amounts",
-
-        no_withdrawals:
-        "No withdrawal requests yet",
-
-        pending:
-        "Processing",
-
-        amount:
-        "Amount",
-
-        fee:
-        "Fee",
-
-        receive:
-        "You Receive",
-
-        network:
-        "Network",
-
-        address:
-        "Address",
-
-        date:
-        "Date"
-
-    }
-
-};
+function getWithdrawLanguage(){
 
 
-// ==========================================
-// GET CURRENT LANGUAGE
-// ==========================================
+    if(typeof getLanguage === "function"){
 
-function getWithdrawHistoryLanguage(){
-
-    if(
-        typeof window.getLanguage === "function"
-    ){
-
-        return window.getLanguage();
+        return getLanguage();
 
     }
 
 
-    const savedLanguage =
-        localStorage.getItem("VALORA_LANG");
+    return localStorage.getItem("VALORA_LANG") || "ar";
 
-
-    return savedLanguage === "en"
-        ? "en"
-        : "ar";
 
 }
 
 
+
+
+
+
+
 // ==========================================
-// TRANSLATE PAGE
+// STATUS TRANSLATION
 // ==========================================
 
-function translateWithdrawHistory(){
 
-    const lang =
-        getWithdrawHistoryLanguage();
-
-    const t =
-        withdrawHistoryTranslations[lang] ||
-        withdrawHistoryTranslations.ar;
+function translateWithdrawStatus(status, lang){
 
 
-    document.documentElement.lang =
-        lang;
-
-    document.documentElement.dir =
-        lang === "ar"
-        ? "rtl"
-        : "ltr";
-
-
-    document
-    .querySelectorAll("[data-lang]")
-    .forEach(function(el){
-
-        const key =
-            el.getAttribute("data-lang");
+    if(lang === "en"){
 
 
         if(
-            Object.prototype.hasOwnProperty.call(
-                t,
-                key
-            )
+            status === "pending" ||
+            status === "قيد المعالجة"
         ){
 
-            el.textContent =
-                t[key];
+            return "Processing";
 
         }
 
-    });
+
+        if(
+            status === "completed" ||
+            status === "مكتمل" ||
+            status === "ناجح"
+        ){
+
+            return "Completed";
+
+        }
+
+
+        if(
+            status === "rejected" ||
+            status === "مرفوض"
+        ){
+
+            return "Rejected";
+
+        }
+
+
+    }else{
+
+
+        if(
+            status === "pending" ||
+            status === "Processing"
+        ){
+
+            return "قيد المعالجة";
+
+        }
+
+
+        if(
+            status === "completed" ||
+            status === "Completed"
+        ){
+
+            return "مكتمل";
+
+        }
+
+
+        if(
+            status === "rejected" ||
+            status === "Rejected"
+        ){
+
+            return "مرفوض";
+
+        }
+
+
+    }
+
+
+
+    return status;
+
 
 }
+
+
 
 
 // ==========================================
 // LOAD WITHDRAW HISTORY
 // ==========================================
 
+
 function loadWithdrawHistory(){
 
 
-    let withdrawals =
+let withdrawals =
 
-        JSON.parse(
+JSON.parse(
 
-            localStorage.getItem(
-                "withdrawals"
-            )
+localStorage.getItem(
+"withdrawals"
+)
 
-        ) || [];
+)
 
+|| [];
 
-    let list =
-        document.getElementById(
-            "withdrawList"
-        );
 
 
-    let totalBox =
-        document.getElementById(
-            "totalWithdrawals"
-        );
+let list =
+document.getElementById(
+"withdrawList"
+);
 
 
-    let amountBox =
-        document.getElementById(
-            "totalAmount"
-        );
 
+let totalBox =
+document.getElementById(
+"totalWithdrawals"
+);
 
-    const lang =
-        getWithdrawHistoryLanguage();
 
 
-    const t =
-        withdrawHistoryTranslations[lang] ||
-        withdrawHistoryTranslations.ar;
+let amountBox =
+document.getElementById(
+"totalAmount"
+);
 
 
-    list.innerHTML = "";
 
 
-    let totalAmount = 0;
+let lang =
+getWithdrawLanguage();
 
 
-    // ======================================
-    // EMPTY HISTORY
-    // ======================================
 
-    if(withdrawals.length === 0){
 
 
-        list.innerHTML = `
+let text = {
 
-            <div class="empty-history">
 
-                <svg viewBox="0 0 24 24">
+ar:{
 
-                    <path d="M6 3H18V21H6Z"></path>
 
-                    <path d="M9 8H15"></path>
+empty:
+"لا توجد طلبات سحب حتى الآن",
 
-                    <path d="M9 12H15"></path>
 
-                    <path d="M9 16H13"></path>
+amount:
+"المبلغ",
 
-                </svg>
 
+fee:
+"العمولة",
 
-                <p>
 
-                    ${t.no_withdrawals}
+receive:
+"المستلم",
 
-                </p>
 
-            </div>
+network:
+"الشبكة",
 
-        `;
 
-    }
+address:
+"العنوان",
 
 
-    // ======================================
-    // WITHDRAWALS
-    // ======================================
+date:
+"التاريخ"
 
-    withdrawals
-    .reverse()
-    .forEach(function(item){
 
+},
 
-        totalAmount +=
-            Number(item.amount);
 
+en:{
 
-        let status =
 
-            item.status === "pending"
+empty:
+"No withdrawal requests yet",
 
-            ?
 
-            t.pending
+amount:
+"Amount",
 
-            :
 
-            item.status;
+fee:
+"Fee",
 
 
-        let card =
-            document.createElement("div");
+receive:
+"You Receive",
 
 
-        card.className =
-            "withdraw-card";
+network:
+"Network",
 
 
-        card.innerHTML = `
+address:
+"Address",
 
 
-            <div class="withdraw-top">
-
-
-                <div class="coin-title">
-
-
-                    <div class="mini-coin">
-
-                        ${item.coin.charAt(0)}
-
-                    </div>
-
-
-                    <strong>
-
-                        ${item.coin}
-
-                    </strong>
-
-
-                </div>
-
-
-                <span class="status pending">
-
-                    ${status}
-
-                </span>
-
-
-            </div>
-
-
-
-            <div class="withdraw-info">
-
-
-                <div>
-
-                    <span>
-
-                        ${t.amount}
-
-                    </span>
-
-
-                    <b>
-
-                        ${Number(item.amount).toFixed(2)}
-
-                        ${item.coin}
-
-                    </b>
-
-                </div>
-
-
-
-                <div>
-
-                    <span>
-
-                        ${t.fee}
-
-                    </span>
-
-
-                    <b class="fee">
-
-                        ${Number(item.fee).toFixed(2)}
-
-                        ${item.coin}
-
-                        (${item.feePercent}%)
-
-                    </b>
-
-                </div>
-
-
-
-                <div>
-
-                    <span>
-
-                        ${t.receive}
-
-                    </span>
-
-
-                    <b class="receive">
-
-                        ${Number(item.receive).toFixed(2)}
-
-                        ${item.coin}
-
-                    </b>
-
-                </div>
-
-
-
-                <div>
-
-                    <span>
-
-                        ${t.network}
-
-                    </span>
-
-
-                    <b>
-
-                        ${item.network}
-
-                    </b>
-
-                </div>
-
-
-
-                <div>
-
-                    <span>
-
-                        ${t.address}
-
-                    </span>
-
-
-                    <b class="address">
-
-                        ${item.address}
-
-                    </b>
-
-                </div>
-
-
-
-                <div>
-
-                    <span>
-
-                        ${t.date}
-
-                    </span>
-
-
-                    <b>
-
-                        ${item.date}
-
-                    </b>
-
-                </div>
-
-
-            </div>
-
-        `;
-
-
-        list.appendChild(card);
-
-
-    });
-
-
-    // ======================================
-    // TOTALS
-    // ======================================
-
-    totalBox.innerHTML =
-        withdrawals.length;
-
-
-    amountBox.innerHTML =
-        totalAmount.toFixed(2)
-        +
-        " USDT";
+date:
+"Date"
 
 
 }
 
 
+};
+
+
+
+let t =
+text[lang] || text.ar;
+
+
+
+list.innerHTML="";
+
+
+
+let totalAmount=0;
+
+
+
+
+if(withdrawals.length===0){
+
+
+list.innerHTML = `
+
+<div class="empty-history">
+
+${t.empty}
+
+</div>
+
+`;
+
+
+}
 // ==========================================
-// INITIALIZE
+// DISPLAY WITHDRAWALS
 // ==========================================
+
+
+withdrawals.forEach(function(item){
+
+
+    totalAmount +=
+    Number(item.amount) || 0;
+
+
+
+    let status =
+    translateWithdrawStatus(
+        item.status,
+        lang
+    );
+
+
+
+    let card =
+    document.createElement("div");
+
+
+
+    card.className =
+    "withdraw-card";
+
+
+
+    card.innerHTML = `
+
+
+<div class="withdraw-top">
+
+
+<div class="coin-title">
+
+
+<div class="mini-coin">
+
+${(item.coin || "USDT").charAt(0)}
+
+</div>
+
+
+<strong>
+
+${item.coin || "USDT"}
+
+</strong>
+
+
+</div>
+
+
+
+
+<span class="status pending">
+
+${status}
+
+</span>
+
+
+
+</div>
+
+
+
+
+
+<div class="withdraw-info">
+
+
+<div>
+
+<span>
+
+${t.amount}
+
+</span>
+
+
+<b>
+
+${Number(item.amount || 0).toFixed(2)}
+
+${item.coin || "USDT"}
+
+</b>
+
+</div>
+
+
+
+
+
+<div>
+
+<span>
+
+${t.fee}
+
+</span>
+
+
+<b class="fee">
+
+${Number(item.fee || 0).toFixed(2)}
+
+${item.coin || "USDT"}
+
+${item.feePercent ? "(" + item.feePercent + "%)" : ""}
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<span>
+
+${t.receive}
+
+</span>
+
+
+<b class="receive">
+
+${Number(item.receive || 0).toFixed(2)}
+
+${item.coin || "USDT"}
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<span>
+
+${t.network}
+
+</span>
+
+
+<b>
+
+${item.network || "-"}
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<span>
+
+${t.address}
+
+</span>
+
+
+<b class="address">
+
+${item.address || "-"}
+
+</b>
+
+
+</div>
+
+
+
+
+
+<div>
+
+<span>
+
+${t.date}
+
+</span>
+
+
+<b>
+
+${item.date || "-"}
+
+</b>
+
+
+</div>
+
+
+</div>
+
+
+`;
+
+
+
+list.appendChild(card);
+
+
+
+});
+
+
+
+
+
+// ==========================================
+// TOTALS
+// ==========================================
+
+
+totalBox.textContent =
+withdrawals.length;
+
+
+
+amountBox.textContent =
+totalAmount.toFixed(2)
++
+" USDT";
+
+
+
+}
+
+
+
+
+// ==========================================
+// START
+// ==========================================
+
 
 document.addEventListener(
-    "DOMContentLoaded",
-    function(){
+"DOMContentLoaded",
+function(){
 
-        translateWithdrawHistory();
 
-        loadWithdrawHistory();
+if(typeof applyLanguage === "function"){
 
-    }
-);
+applyLanguage();
+
+}
+
+
+loadWithdrawHistory();
+
+
+});
+
+
+
 
 
 // ==========================================
-// LANGUAGE CHANGE SUPPORT
+// LANGUAGE CHANGE
 // ==========================================
+
 
 window.addEventListener(
-    "storage",
-    function(event){
+"storage",
+function(e){
 
-        if(
-            event.key === "VALORA_LANG"
-        ){
 
-            translateWithdrawHistory();
+if(e.key === "VALORA_LANG"){
 
-            loadWithdrawHistory();
 
-        }
+loadWithdrawHistory();
 
-    }
-);
+
+if(typeof applyLanguage === "function"){
+
+applyLanguage();
+
+}
+
+
+}
+
+
+});
+
 
 
 </script>
 
 
+
 </body>
 
-</html>
+</html>    
