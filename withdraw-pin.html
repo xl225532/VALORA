@@ -13,6 +13,7 @@
 
 <link rel="stylesheet" href="css/pin.css">
 <link rel="stylesheet" href="css/background.css">
+
 </head>
 
 
@@ -32,7 +33,7 @@
 </a>
 
 
-<h2>
+<h2 data-lang="withdraw_security_title">
 
 رمز أمان السحب
 
@@ -40,7 +41,6 @@
 
 
 </header>
-
 
 
 
@@ -58,14 +58,14 @@
 </div>
 
 
-<h3>
+<h3 data-lang="withdraw_security_protect">
 
 حماية عمليات السحب
 
 </h3>
 
 
-<p>
+<p data-lang="withdraw_security_description">
 
 يُستخدم هذا الرمز عند تنفيذ أي عملية سحب من الحساب
 
@@ -84,7 +84,7 @@
 <section class="form-card">
 
 
-<label>
+<label data-lang="current_security_pin">
 
 رمز أمان السحب الحالي
 
@@ -93,14 +93,20 @@
 
 <input 
 type="password"
+id="currentSecurity"
 maxlength="6"
-placeholder="••••••">
+inputmode="numeric"
+data-lang-placeholder="current_security_placeholder"
+placeholder="أدخل الرمز الحالي">
+
+
+<div class="field-error" id="currentSecurityError"></div>
 
 
 
 
 
-<label>
+<label data-lang="new_security_pin">
 
 رمز أمان جديد
 
@@ -109,14 +115,21 @@ placeholder="••••••">
 
 <input 
 type="password"
+id="newSecurity"
 maxlength="6"
-placeholder="••••••">
+inputmode="numeric"
+data-lang-placeholder="new_security_placeholder"
+placeholder="أدخل الرمز الجديد">
+
+
+<div class="field-error" id="newSecurityError"></div>
 
 
 
 
 
-<label>
+
+<label data-lang="confirm_security_pin">
 
 تأكيد الرمز الجديد
 
@@ -125,14 +138,20 @@ placeholder="••••••">
 
 <input 
 type="password"
+id="confirmSecurity"
 maxlength="6"
-placeholder="••••••">
+inputmode="numeric"
+data-lang-placeholder="confirm_security_placeholder"
+placeholder="أعد إدخال الرمز الجديد">
+
+
+<div class="field-error" id="confirmSecurityError"></div>
 
 
 
 
 
-<button>
+<button onclick="saveSecurity()" data-lang="save_security_pin">
 
 حفظ الرمز
 
@@ -149,6 +168,231 @@ placeholder="••••••">
 
 
 </div>
+
+
+
+<script src="js/language.js"></script>
+
+
+<script>
+
+
+if(typeof applyLanguage === "function"){
+
+    applyLanguage();
+
+}
+
+
+
+
+function saveSecurity(){
+
+
+let current =
+document.getElementById("currentSecurity").value.trim();
+
+
+let code =
+document.getElementById("newSecurity").value.trim();
+
+
+let confirm =
+document.getElementById("confirmSecurity").value.trim();
+
+
+
+let currentError =
+document.getElementById("currentSecurityError");
+
+
+let codeError =
+document.getElementById("newSecurityError");
+
+
+let confirmError =
+document.getElementById("confirmSecurityError");
+
+
+
+currentError.textContent="";
+codeError.textContent="";
+confirmError.textContent="";
+
+
+document.querySelectorAll("input").forEach(function(input){
+
+    input.classList.remove("error");
+
+});
+
+
+
+let lang =
+typeof getLanguage === "function"
+? getLanguage()
+: "ar";
+
+
+
+let text = {
+
+
+ar:{
+
+
+required:
+"أدخل رمز الأمان",
+
+length:
+"يجب أن يتكون الرمز من 6 أرقام",
+
+match:
+"الرمز غير متطابق",
+
+wrong:
+"رمز الأمان الحالي غير صحيح",
+
+success:
+"تم حفظ رمز الأمان بنجاح"
+
+
+},
+
+
+en:{
+
+
+required:
+"Enter security code",
+
+length:
+"The code must contain 6 digits",
+
+match:
+"The security codes do not match",
+
+wrong:
+"The current security code is incorrect",
+
+success:
+"Security code saved successfully"
+
+
+}
+
+
+};
+
+
+
+let t=text[lang] || text.ar;
+
+
+
+let saved =
+localStorage.getItem("VALORA_SECURITY_PIN");
+
+
+
+if(saved && current !== saved){
+
+
+currentError.textContent=t.wrong;
+
+document.getElementById("currentSecurity")
+.classList.add("error");
+
+return;
+
+}
+
+
+
+
+
+if(!code){
+
+
+codeError.textContent=t.required;
+
+document.getElementById("newSecurity")
+.classList.add("error");
+
+return;
+
+}
+
+
+
+
+
+if(!/^\d{6}$/.test(code)){
+
+
+codeError.textContent=t.length;
+
+document.getElementById("newSecurity")
+.classList.add("error");
+
+return;
+
+}
+
+
+
+
+
+if(!confirm){
+
+
+confirmError.textContent=t.required;
+
+document.getElementById("confirmSecurity")
+.classList.add("error");
+
+return;
+
+}
+
+
+
+
+
+if(code !== confirm){
+
+
+confirmError.textContent=t.match;
+
+document.getElementById("confirmSecurity")
+.classList.add("error");
+
+return;
+
+}
+
+
+
+
+
+localStorage.setItem(
+"VALORA_SECURITY_PIN",
+code
+);
+
+
+
+alert(t.success);
+
+
+window.location.href="settings.html";
+
+
+}
+
+
+
+</script>
 
 
 </body>
