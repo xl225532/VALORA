@@ -1,1330 +1,1203 @@
-*{
+/* ==========================================
+   VALORA WITHDRAW
+========================================== */
 
-margin:0;
-padding:0;
-box-sizing:border-box;
+* {
 
-font-family:'Cairo',Arial,sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 
-}
+    font-family:
+        'Cairo',
+        Arial,
+        sans-serif;
 
+}
 
 
-body{
+html,
+body {
 
-background:#050B16;
+    width: 100%;
+    min-height: 100%;
 
-color:white;
+    background: #050B16;
 
-min-height:100vh;
+    color: #FFFFFF;
 
 }
-
 
 
+body {
 
-.valora-withdraw{
+    min-height: 100vh;
 
-background:#050B16;
-
 }
-
-
-
 
-.withdraw-container{
 
-max-width:480px;
+.valora-withdraw {
 
-margin:auto;
+    min-height: 100vh;
 
-padding:18px 15px 100px;
+    background: #050B16;
 
 }
 
 
+.withdraw-container {
 
+    width: 100%;
+    max-width: 480px;
 
+    min-height: 100vh;
 
+    margin: auto;
 
-/* HEADER */
+    padding:
+        18px
+        15px
+        100px;
 
+    overflow-x: hidden;
 
-.withdraw-header{
-
-text-align:center;
-
-margin-bottom:20px;
-
 }
 
 
+/* ==========================================
+   HEADER
+========================================== */
 
-.withdraw-logo{
+.withdraw-header {
 
-font-size:32px;
+    text-align: center;
 
-font-weight:800;
+    margin-bottom: 20px;
 
-letter-spacing:3px;
-
-color:#EAF3FF;
-
-text-shadow:0 0 12px #1687FF;
-
 }
-
 
 
+.withdraw-logo {
 
+    font-size: 32px;
 
+    font-weight: 800;
 
+    letter-spacing: 3px;
 
-/* TITLE */
+    color: #EAF3FF;
 
+    text-shadow:
+        0 0 12px #1687FF;
 
-.withdraw-title{
-
-text-align:center;
-
-margin-bottom:20px;
-
 }
 
 
+/* ==========================================
+   TITLE
+========================================== */
 
-.withdraw-icon{
+.withdraw-title {
 
-width:55px;
+    text-align: center;
 
-height:55px;
+    margin-bottom: 20px;
 
-border-radius:50%;
-
-background:#1687FF;
-
-display:flex;
+}
 
-align-items:center;
 
-justify-content:center;
+.withdraw-icon {
 
-margin:auto;
+    width: 55px;
+    height: 55px;
 
-font-size:30px;
+    margin: auto;
 
-box-shadow:0 0 15px #1687FF;
+    border-radius: 50%;
 
-}
+    background: #1687FF;
 
+    display: flex;
 
+    align-items: center;
+    justify-content: center;
 
-.withdraw-title h2{
+    font-size: 30px;
 
-margin-top:12px;
+    color: #FFFFFF;
 
-font-size:24px;
+    box-shadow:
+        0 0 15px #1687FF;
 
 }
 
 
+.withdraw-title h2 {
 
-.withdraw-title p{
+    margin-top: 12px;
 
-color:#98A5B8;
+    font-size: 24px;
 
-font-size:13px;
+    color: #FFFFFF;
 
 }
 
 
+.withdraw-title p {
 
+    margin-top: 4px;
 
+    color: #98A5B8;
 
+    font-size: 13px;
 
+}
 
-/* العملات */
 
+/* ==========================================
+   BALANCES
+========================================== */
 
-.withdraw-coins{
+.withdraw-balances {
 
-display:grid;
+    display: grid;
 
-grid-template-columns:repeat(4,1fr);
+    grid-template-columns:
+        1fr 1fr;
 
-gap:10px;
+    gap: 10px;
 
-margin-bottom:20px;
+    margin-bottom: 12px;
 
 }
-
-
-
-.withdraw-coin{
 
-background:#0B1628;
 
-border:1px solid #17365C;
+.balance-card {
 
-border-radius:18px;
+    background: #0B1628;
 
-padding:12px 5px;
+    border:
+        1px solid
+        #17365C;
 
-color:white;
+    border-radius: 20px;
 
-display:flex;
+    padding: 17px 10px;
 
-flex-direction:column;
+    text-align: center;
 
-align-items:center;
+    transition: .25s;
 
-cursor:pointer;
-
-transition:.3s;
-
 }
 
 
+.balance-card span {
 
-.withdraw-coin.active{
+    display: block;
 
-border-color:#1687FF;
+    color: #98A5B8;
 
-box-shadow:0 0 15px #1687FF66;
+    font-size: 13px;
 
-transform:translateY(-3px);
-
 }
-
 
 
+.balance-card h2 {
 
+    margin-top: 8px;
 
-.coin-circle{
+    font-size: 19px;
 
-width:48px;
+    color: #EAF3FF;
 
-height:48px;
+    word-break: break-word;
 
-border-radius:50%;
+}
 
-display:flex;
 
-align-items:center;
+.main-balance-card {
 
-justify-content:center;
+    border-color: #17365C;
 
-font-size:22px;
+}
 
-font-weight:bold;
 
-color:white;
+.profit-balance-card {
 
-margin-bottom:8px;
+    border-color: #17365C;
 
 }
 
 
+/* ==========================================
+   PROFIT DETAILS
+========================================== */
 
+.profit-details-card {
 
+    background: #0B1628;
 
+    border:
+        1px solid
+        #17365C;
 
-.usdt-circle{
+    border-radius: 18px;
 
-background:#26A17B;
+    padding: 15px;
 
-box-shadow:0 0 12px #26A17B;
+    margin-bottom: 15px;
 
 }
 
 
+.profit-detail-title {
 
+    color: #EAF3FF;
 
-.btc-circle{
+    font-size: 15px;
 
-background:#F7931A;
+    font-weight: 700;
 
-box-shadow:0 0 12px #F7931A;
+    margin-bottom: 13px;
 
 }
-
-
-
-
-.eth-circle{
-
-background:#627EEA;
 
-box-shadow:0 0 12px #627EEA;
 
-}
+.profit-detail-row {
 
+    display: flex;
 
+    align-items: center;
 
+    justify-content: space-between;
 
-.trx-circle{
+    gap: 10px;
 
-background:#EF0027;
+    padding: 9px 0;
 
-box-shadow:0 0 12px #EF0027;
+    border-bottom:
+        1px solid
+        #17365C;
 
 }
-
 
 
+.profit-detail-row:last-child {
 
-.withdraw-coin strong{
+    border-bottom: 0;
 
-font-size:15px;
+    padding-bottom: 0;
 
 }
 
 
+.profit-detail-row span {
 
-.withdraw-coin small{
+    color: #98A5B8;
 
-font-size:11px;
+    font-size: 13px;
 
-color:#98A5B8;
-
 }
-/* بطاقة السحب */
-
 
-.withdraw-card{
 
-background:#0B1628;
+.profit-detail-row strong {
 
-border:1px solid #17365C;
+    color: #EAF3FF;
 
-border-radius:22px;
+    font-size: 13px;
 
-padding:20px;
-
 }
 
 
+/* ==========================================
+   WITHDRAW SOURCE
+========================================== */
 
+.withdraw-source-card {
 
+    background: #0B1628;
 
-.withdraw-card h3{
+    border:
+        1px solid
+        #17365C;
 
-color:#EAF3FF;
+    border-radius: 20px;
 
-font-size:16px;
+    padding: 17px;
 
-margin:18px 0 12px;
+    margin-bottom: 18px;
 
 }
-
-
-
 
 
+.withdraw-source-card h3 {
 
+    color: #EAF3FF;
 
-/* الشبكات */
+    font-size: 16px;
 
+    margin-bottom: 12px;
 
-.network-buttons{
-
-display:flex;
-
-flex-direction:column;
-
-gap:12px;
-
-margin-bottom:20px;
-
 }
-
-
 
-.network{
 
-width:100%;
+.withdraw-source-buttons {
 
-height:55px;
+    display: grid;
 
-background:#071426;
+    grid-template-columns:
+        1fr 1fr;
 
-border:1px solid #17365C;
+    gap: 10px;
 
-border-radius:16px;
+}
 
-color:white;
 
-font-size:16px;
+.withdraw-source-btn {
 
-font-weight:600;
+    min-height: 58px;
 
-display:flex;
+    border:
+        1px solid
+        #17365C;
 
-align-items:center;
+    border-radius: 15px;
 
-justify-content:center;
+    background: #071426;
 
-cursor:pointer;
+    color: #98A5B8;
 
-}
+    display: flex;
 
+    align-items: center;
 
+    justify-content: center;
 
-.network.active{
+    gap: 8px;
 
-background:#1687FF;
+    padding: 8px;
 
-border-color:#1687FF;
+    cursor: pointer;
 
-box-shadow:0 0 15px #1687FF88;
+    transition:
+        background .2s,
+        border-color .2s,
+        color .2s,
+        box-shadow .2s,
+        transform .2s;
 
 }
-
-
-
-
-
-
 
-/* الحقول */
 
+.withdraw-source-btn:hover {
 
-.withdraw-input{
+    border-color: #1687FF;
 
-margin-top:15px;
+    color: #FFFFFF;
 
 }
 
 
+.withdraw-source-btn.active {
 
-.withdraw-input label{
+    background:
+        linear-gradient(
+            135deg,
+            #1687FF,
+            #1269C7
+        );
 
-display:block;
+    border-color: #1687FF;
 
-margin-bottom:8px;
+    color: #FFFFFF;
 
-font-size:14px;
+    box-shadow:
+        0 0 15px
+        #1687FF55;
 
-color:#EAF3FF;
+    transform:
+        translateY(-2px);
 
 }
 
 
+.source-icon {
 
+    width: 30px;
+    height: 30px;
 
-.withdraw-input input{
+    border-radius: 50%;
 
-width:100%;
+    background: #FFFFFF22;
 
-height:55px;
+    display: flex;
 
-background:#071426;
+    align-items: center;
+    justify-content: center;
 
-border:1px solid #17365C;
+    color: #FFFFFF;
 
-border-radius:15px;
+    font-weight: 700;
 
-color:white;
-
-padding:0 15px;
-
-font-size:15px;
-
-outline:none;
-
 }
 
 
+.source-text {
 
-.withdraw-input input::placeholder{
+    font-size: 13px;
 
-color:#98A5B8;
+    font-weight: 700;
 
 }
 
 
+.selected-withdraw-balance {
 
+    margin-top: 12px;
 
+    padding: 13px;
 
+    background: #071426;
 
+    border:
+        1px solid
+        #17365C;
 
-.fee-note{
+    border-radius: 14px;
 
-margin-top:10px;
+    display: flex;
 
-font-size:12px;
+    justify-content: space-between;
 
-color:#98A5B8;
+    align-items: center;
 
-line-height:1.8;
+    gap: 10px;
 
 }
-
-
-
-
-
-
-
-
-/* معلومات السحب */
-
-
-.withdraw-info{
 
-margin-top:20px;
 
-background:#071426;
+.selected-withdraw-balance span {
 
-border:1px solid #17365C;
+    color: #98A5B8;
 
-border-radius:16px;
+    font-size: 13px;
 
-padding:15px;
-
 }
 
 
+.selected-withdraw-balance strong {
 
-.withdraw-info div{
+    color: #22C55E;
 
-display:flex;
+    font-size: 15px;
 
-justify-content:space-between;
+    word-break: break-word;
 
-margin-bottom:12px;
-
 }
-
 
 
-.withdraw-info div:last-child{
+/* ==========================================
+   COINS
+========================================== */
 
-margin-bottom:0;
+.withdraw-coins {
 
-}
-
+    display: grid;
 
+    grid-template-columns:
+        repeat(4, 1fr);
 
-.withdraw-info span{
+    gap: 8px;
 
-color:#98A5B8;
+    margin-bottom: 18px;
 
 }
-
-
 
-.withdraw-info strong{
 
-color:#EAF3FF;
+.withdraw-coin {
 
-}
+    min-height: 94px;
 
+    background: #0B1628;
 
+    border:
+        1px solid
+        #17365C;
 
+    border-radius: 17px;
 
+    padding: 10px 4px;
 
+    color: #FFFFFF;
 
+    display: flex;
 
+    flex-direction: column;
 
-/* زر السحب */
+    align-items: center;
 
+    justify-content: center;
 
-.withdraw-button{
+    cursor: pointer;
 
-width:100%;
+    transition: .25s;
 
-height:55px;
+}
 
-margin-top:20px;
 
-background:#1687FF;
+.withdraw-coin:hover {
 
-border:0;
+    border-color: #1687FF;
 
-border-radius:16px;
+}
 
-color:white;
 
-font-size:17px;
+.withdraw-coin.active {
 
-font-weight:bold;
+    border:
+        2px solid
+        #1687FF;
 
-cursor:pointer;
+    box-shadow:
+        0 0 15px
+        #1687FF55;
 
-box-shadow:0 0 15px #1687FF55;
+    transform:
+        translateY(-2px);
 
 }
-
-
-
-
-
 
 
+.coin-icon {
 
-/* رسائل الحالة */
+    width: 42px;
+    height: 42px;
 
+    margin-bottom: 6px;
 
-.withdraw-status{
+    border-radius: 50%;
 
-display:none;
+    display: flex;
 
-margin-top:15px;
+    align-items: center;
+    justify-content: center;
 
-padding:15px;
+    color: #FFFFFF;
 
-border-radius:15px;
+    font-size: 19px;
 
-text-align:center;
+    font-weight: 700;
 
 }
 
 
+.coin-icon.usdt {
 
-.success{
+    background: #26A17B;
 
-background:#052E1B;
+    box-shadow:
+        0 0 10px
+        #26A17B88;
 
-border:1px solid #22C55E;
-
 }
 
 
+.coin-icon.btc {
 
-.reject{
+    background: #F7931A;
 
-background:#3B0A0A;
+    box-shadow:
+        0 0 10px
+        #F7931A88;
 
-border:1px solid #EF4444;
-
 }
-
-
-
-
-
 
 
-/* سجل السحوبات */
+.coin-icon.eth {
 
+    background: #627EEA;
 
-.withdraw-history{
+    box-shadow:
+        0 0 10px
+        #627EEA88;
 
-display:block;
-
-margin-top:18px;
-
-text-align:center;
-
-color:#1687FF;
-
-text-decoration:none;
-
-font-weight:bold;
-
 }
-
-
-
-
-
-
-
-
-/* الشريط السفلي */
-
-
-.withdraw-nav{
-
-position:fixed;
-
-bottom:0;
-
-left:0;
-
-width:100%;
-
-height:80px;
-
-background:#0B1628;
-
-border-top:1px solid #17365C;
 
-display:flex;
 
-justify-content:space-around;
+.coin-icon.trx {
 
-align-items:center;
+    background: #EF0027;
 
-z-index:99;
+    box-shadow:
+        0 0 10px
+        #EF002788;
 
 }
 
 
+.withdraw-coin strong {
 
-.withdraw-nav a{
+    font-size: 13px;
 
-color:#98A5B8;
-
-text-decoration:none;
-
-font-size:12px;
-
-text-align:center;
-
 }
-
 
 
-.withdraw-nav a:hover{
+.withdraw-coin small {
 
-color:#1687FF;
-
-}
-/* تعديل خانة عنوان محفظة السحب */
+    margin-top: 2px;
 
-.address-area{
+    color: #98A5B8;
 
-margin-top:10px;
+    font-size: 10px;
 
 }
-
-
-
-.address-area input{
-
-width:100%;
-
-height:60px;
-
-background:#071426 !important;
-
-border:1px solid #17365C !important;
 
-border-radius:16px;
 
-color:white !important;
+/* ==========================================
+   WITHDRAW CARD
+========================================== */
 
-font-size:16px;
+.withdraw-card {
 
-text-align:center;
+    background: #0B1628;
 
-padding:0 15px;
+    border:
+        1px solid
+        #17365C;
 
-outline:none;
+    border-radius: 22px;
 
-}
-
-
+    padding: 18px;
 
-.address-area input::placeholder{
-
-color:#98A5B8;
-
 }
 
 
+.withdraw-card h3 {
 
-.address-area input:focus{
+    color: #EAF3FF;
 
-border-color:#1687FF !important;
+    font-size: 16px;
 
-box-shadow:0 0 12px #1687FF66;
+    margin:
+        16px
+        0
+        9px;
 
 }
-/* ==================================
-   VALORA ENGLISH LANGUAGE FIX
-================================== */
 
 
-html[dir="ltr"] .withdraw-container{
+.withdraw-card h3:first-child {
 
-direction:ltr;
+    margin-top: 0;
 
 }
-
-
 
-html[dir="ltr"] .withdraw-title h2{
 
-font-size:26px;
+/* ==========================================
+   NETWORK
+========================================== */
 
-}
-
+.network-buttons {
 
+    display: flex;
 
+    flex-direction: column;
 
-html[dir="ltr"] .withdraw-title p{
+    gap: 9px;
 
-font-size:14px;
+    margin-bottom: 8px;
 
 }
-
-
 
 
-html[dir="ltr"] .withdraw-card{
+.network {
 
-direction:ltr;
+    width: 100%;
 
-}
-
+    min-height: 48px;
 
+    background: #071426;
 
+    border:
+        1px solid
+        #17365C;
 
-html[dir="ltr"] .withdraw-card h3{
+    border-radius: 14px;
 
-font-size:17px;
+    color: #FFFFFF;
 
-text-align:left;
+    font-size: 14px;
 
-}
+    font-weight: 700;
 
+    display: flex;
 
+    align-items: center;
 
+    justify-content: center;
 
-html[dir="ltr"] .withdraw-coin strong{
+    cursor: pointer;
 
-font-size:16px;
+    transition: .2s;
 
 }
-
 
 
+.network:hover {
 
-html[dir="ltr"] .withdraw-coin small{
+    border-color: #1687FF;
 
-font-size:13px;
-
 }
 
 
+.network.active {
 
+    background: #1687FF;
 
-html[dir="ltr"] .withdraw-input label{
+    border-color: #1687FF;
 
-font-size:15px;
+    box-shadow:
+        0 0 15px
+        #1687FF66;
 
 }
 
 
+/* ==========================================
+   INPUTS
+========================================== */
 
+.input-area {
 
-html[dir="ltr"] .withdraw-input input{
+    margin-top: 8px;
 
-font-size:16px;
-
 }
-
-
-
-
-html[dir="ltr"] .network{
-
-font-size:17px;
 
-}
 
+.input-area input {
 
+    width: 100%;
 
+    height: 55px;
 
-html[dir="ltr"] .withdraw-button{
+    background: #071426;
 
-font-size:18px;
+    border:
+        1px solid
+        #17365C;
 
-}
+    border-radius: 15px;
 
+    color: #FFFFFF;
 
+    padding:
+        0 15px;
 
+    font-size: 15px;
 
-html[dir="ltr"] .withdraw-nav a{
+    outline: none;
 
-font-size:13px;
+    transition: .2s;
 
 }
-
-
 
 
-html[dir="ltr"] .withdraw-logo{
+.input-area input::placeholder {
 
-letter-spacing:4px;
+    color: #68778C;
 
 }
-/* ==================================
-   FIX HTML CLASSES
-================================== */
-
-
-/* العملات */
-
-.coin-icon{
-
-width:48px;
-height:48px;
-border-radius:50%;
 
-display:flex;
-align-items:center;
-justify-content:center;
 
-font-size:22px;
-font-weight:bold;
+.input-area input:focus {
 
-color:white;
+    border-color: #1687FF;
 
-margin-bottom:8px;
+    box-shadow:
+        0 0 12px
+        #1687FF55;
 
 }
 
 
-.coin-icon.usdt{
+.input-area input[type="number"] {
 
-background:#26A17B;
-box-shadow:0 0 12px #26A17B;
+    direction: ltr;
 
-}
-
-
-.coin-icon.btc{
+    text-align: left;
 
-background:#F7931A;
-box-shadow:0 0 12px #F7931A;
-
 }
 
 
-.coin-icon.eth{
+#withdrawSecurityCode {
 
-background:#627EEA;
-box-shadow:0 0 12px #627EEA;
+    letter-spacing: 2px;
 
 }
-
-
-
 
-/* الرصيد */
 
-.balance-card{
+/* ==========================================
+   WITHDRAW INFO
+========================================== */
 
-background:#0B1628;
+.withdraw-info {
 
-border:1px solid #17365C;
+    margin-top: 18px;
 
-border-radius:22px;
+    background: #071426;
 
-padding:18px;
+    border:
+        1px solid
+        #17365C;
 
-text-align:center;
+    border-radius: 16px;
 
-margin-bottom:20px;
+    padding: 14px;
 
 }
 
 
-.balance-card span{
+.withdraw-info div {
 
-color:#98A5B8;
+    display: flex;
 
-font-size:14px;
+    justify-content: space-between;
 
-}
-
+    align-items: center;
 
-.balance-card h2{
+    gap: 10px;
 
-margin-top:10px;
+    margin-bottom: 11px;
 
-font-size:24px;
-
 }
-
 
 
+.withdraw-info div:last-child {
 
-/* الحقول */
+    margin-bottom: 0;
 
-.input-area{
-
-margin-top:10px;
-
 }
-
-
-.input-area input{
 
-width:100%;
 
-height:55px;
+.withdraw-info span {
 
-background:#071426;
+    color: #98A5B8;
 
-border:1px solid #17365C;
+    font-size: 13px;
 
-border-radius:15px;
+}
 
-color:white;
 
-padding:0 15px;
+.withdraw-info strong {
 
-font-size:15px;
+    color: #EAF3FF;
 
-outline:none;
+    font-size: 14px;
 
 }
-
-
 
 
-/* زر السحب */
+/* ==========================================
+   FEE NOTE
+========================================== */
 
-.withdraw-btn{
+.fee-note {
 
-width:100%;
+    margin-top: 12px;
 
-height:55px;
+    padding: 12px;
 
-margin-top:20px;
+    background: #071426;
 
-background:#1687FF;
+    border:
+        1px solid
+        #17365C;
 
-border:0;
+    border-radius: 14px;
 
-border-radius:16px;
+    color: #98A5B8;
 
-color:white;
+    font-size: 12px;
 
-font-size:17px;
+    line-height: 1.9;
 
-font-weight:bold;
+    text-align: center;
 
-cursor:pointer;
-
-box-shadow:0 0 15px #1687FF55;
-
 }
-
-
 
-/* رسالة */
 
-.withdraw-message{
+.fee-note span {
 
-margin-top:15px;
+    display: block;
 
-padding:15px;
-
-border-radius:15px;
-
-text-align:center;
-
-display:none;
-
 }
-/* ==================================
-   VALORA WITHDRAW UPDATE
-================================== */
 
 
-/* TRX ICON */
+/* ==========================================
+   BUTTON
+========================================== */
 
-.coin-icon{
+.withdraw-btn {
 
-width:48px;
-height:48px;
+    width: 100%;
 
-border-radius:50%;
+    min-height: 55px;
 
-display:flex;
-align-items:center;
-justify-content:center;
+    margin-top: 18px;
 
-font-size:22px;
-font-weight:bold;
+    background: #1687FF;
 
-color:white;
+    border: 0;
 
-margin-bottom:8px;
+    border-radius: 16px;
 
-}
-
+    color: #FFFFFF;
 
-.coin-icon.usdt{
+    font-size: 17px;
 
-background:#26A17B;
+    font-weight: 700;
 
-box-shadow:0 0 12px #26A17B;
+    cursor: pointer;
 
-}
+    box-shadow:
+        0 0 15px
+        #1687FF55;
 
+    transition: .2s;
 
+}
 
-.coin-icon.btc{
 
-background:#F7931A;
+.withdraw-btn:hover {
 
-box-shadow:0 0 12px #F7931A;
+    background: #0F76E8;
 
 }
 
 
+.withdraw-btn:active {
 
-.coin-icon.eth{
+    transform:
+        scale(.98);
 
-background:#627EEA;
-
-box-shadow:0 0 12px #627EEA;
-
 }
 
 
+.withdraw-btn:disabled {
 
-.coin-icon.trx{
+    opacity: .6;
 
-background:#EF0027;
+    cursor: not-allowed;
 
-box-shadow:0 0 12px #EF0027;
+    box-shadow: none;
 
 }
-
 
 
+/* ==========================================
+   MESSAGE
+========================================== */
 
+.withdraw-message {
 
-/* BALANCE */
+    display: none;
 
-.balance-card{
+    margin-top: 15px;
 
-background:#0B1628;
+    padding: 14px;
 
-border:1px solid #17365C;
+    border-radius: 15px;
 
-border-radius:22px;
+    text-align: center;
 
-padding:18px;
+    font-size: 13px;
 
-text-align:center;
+    line-height: 1.7;
 
-margin-bottom:20px;
-
 }
-
-
-.balance-card span{
-
-color:#98A5B8;
 
-font-size:14px;
 
-}
+.withdraw-message.success {
 
+    display: block;
 
-.balance-card h2{
+    background: #052E1B;
 
-margin-top:10px;
+    border:
+        1px solid
+        #22C55E;
 
-font-size:25px;
+    color: #86EFAC;
 
 }
-
 
 
+.withdraw-message.reject {
 
+    display: block;
 
+    background: #3B0A0A;
 
-/* INPUT */
+    border:
+        1px solid
+        #EF4444;
 
-.input-area{
+    color: #FCA5A5;
 
-margin-top:10px;
-
 }
-
-
-
-.input-area input{
-
-width:100%;
-
-height:55px;
 
-background:#071426;
 
-border:1px solid #17365C;
+/* ==========================================
+   ENGLISH / LTR
+========================================== */
 
-border-radius:15px;
+html[dir="ltr"] .withdraw-container {
 
-color:white;
+    direction: ltr;
 
-padding:0 15px;
-
-font-size:15px;
-
-outline:none;
-
 }
 
 
+html[dir="ltr"] .withdraw-card,
+html[dir="ltr"] .withdraw-source-card,
+html[dir="ltr"] .profit-details-card {
 
-.input-area input:focus{
+    direction: ltr;
 
-border-color:#1687FF;
-
-box-shadow:0 0 12px #1687FF66;
-
 }
-
-
 
 
+html[dir="ltr"] .withdraw-card h3,
+html[dir="ltr"] .withdraw-source-card h3 {
 
+    text-align: left;
 
-/* INFO */
-
-.withdraw-info{
-
-margin-top:20px;
-
-background:#071426;
-
-border:1px solid #17365C;
-
-border-radius:16px;
-
-padding:15px;
-
 }
-
 
 
-.withdraw-info div{
+html[dir="ltr"] .withdraw-info div,
+html[dir="ltr"] .profit-detail-row,
+html[dir="ltr"] .selected-withdraw-balance {
 
-display:flex;
+    direction: ltr;
 
-justify-content:space-between;
-
-margin-bottom:12px;
-
 }
 
 
-.withdraw-info span{
+html[dir="ltr"] .input-area input {
 
-color:#98A5B8;
+    text-align: left;
 
 }
-
 
 
-.withdraw-info strong{
+html[dir="ltr"] #withdrawSecurityCode {
 
-color:#EAF3FF;
+    text-align: left;
 
 }
-
-
-
-
 
 
+html[dir="ltr"] .withdraw-logo {
 
-/* FEE NOTE */
+    letter-spacing: 4px;
 
-.fee-note{
-
-margin-top:15px;
-
-padding:12px;
+}
 
-background:#071426;
 
-border-radius:15px;
+/* ==========================================
+   MOBILE
+========================================== */
 
-border:1px solid #17365C;
+@media (max-width: 400px) {
 
-color:#98A5B8;
+    .withdraw-container {
 
-font-size:13px;
+        padding-left: 12px;
+        padding-right: 12px;
 
-line-height:1.8;
+    }
 
-}
 
+    .withdraw-logo {
 
+        font-size: 28px;
 
+    }
 
 
+    .withdraw-title h2 {
 
-/* BUTTON */
+        font-size: 21px;
 
-.withdraw-btn{
+    }
 
-width:100%;
 
-height:55px;
+    .withdraw-balances {
 
-margin-top:20px;
+        gap: 7px;
 
-background:#1687FF;
+    }
 
-border:0;
 
-border-radius:16px;
+    .balance-card {
 
-color:white;
+        padding:
+            15px
+            7px;
 
-font-size:17px;
+    }
 
-font-weight:bold;
 
-cursor:pointer;
+    .balance-card h2 {
 
-box-shadow:0 0 15px #1687FF55;
+        font-size: 17px;
 
-}
+    }
 
 
+    .withdraw-coins {
 
+        gap: 6px;
 
+    }
 
-/* MESSAGE */
 
-.withdraw-message{
+    .withdraw-coin {
 
-display:none;
+        min-height: 88px;
 
-margin-top:15px;
+    }
 
-padding:15px;
 
-border-radius:15px;
+    .coin-icon {
 
-text-align:center;
+        width: 38px;
+        height: 38px;
 
-}
+        font-size: 17px;
 
+    }
 
 
-.withdraw-message.success{
+    .withdraw-source-btn {
 
-display:block;
+        min-height: 54px;
 
-background:#052E1B;
+    }
 
-border:1px solid #22C55E;
 
-}
+    .source-text {
 
+        font-size: 11px;
 
+    }
 
-.withdraw-message.reject{
 
-display:block;
+    .withdraw-card {
 
-background:#3B0A0A;
+        padding: 15px;
 
-border:1px solid #EF4444;
+    }
 
-}
+   }
