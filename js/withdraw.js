@@ -45,12 +45,93 @@ const withdrawNetworks = {
 
 
 // ==========================================
-// WITHDRAW MESSAGES
+// TRANSLATIONS
 // ==========================================
 
-const withdrawMessages = {
+const withdrawTranslations = {
 
     ar: {
+
+        withdraw_title:
+            "سحب العملات",
+
+        withdraw_subtitle:
+            "اسحب أصولك بأمان",
+
+        main_balance:
+            "الرصيد الأساسي",
+
+        profit_balance:
+            "رصيد الأرباح",
+
+        available_balance:
+            "الرصيد المتاح",
+
+        profit_details:
+            "تفاصيل الأرباح",
+
+        trading_profit:
+            "أرباح التداول",
+
+        bonus_profit:
+            "أرباح المكافآت",
+
+        referral_profit:
+            "أرباح الدعوة",
+
+        team_profit:
+            "أرباح الفريق",
+
+        withdraw_source:
+            "مصدر السحب",
+
+        withdraw_network:
+            "شبكة السحب",
+
+        withdraw_address:
+            "عنوان السحب",
+
+        withdraw_amount:
+            "مبلغ السحب",
+
+        security_code:
+            "رمز أمان السحب",
+
+        withdraw_fee:
+            "رسوم السحب",
+
+        receive_amount:
+            "المبلغ المستلم",
+
+        withdraw_before_doubling:
+            "السحب قبل التضعيف: 20%",
+
+        withdraw_after_doubling:
+            "السحب بعد التضعيف: 5%",
+
+        confirm_withdraw:
+            "تأكيد السحب",
+
+        tether:
+            "Tether",
+
+        bitcoin:
+            "Bitcoin",
+
+        ethereum:
+            "Ethereum",
+
+        tron:
+            "TRON",
+
+        withdraw_address_placeholder:
+            "أدخل عنوان المحفظة",
+
+        withdraw_amount_placeholder:
+            "أدخل مبلغ السحب",
+
+        security_code_placeholder:
+            "أدخل رمز أمان السحب",
 
         withdraw_security_error:
             "رمز أمان السحب غير صحيح.",
@@ -80,6 +161,87 @@ const withdrawMessages = {
 
 
     en: {
+
+        withdraw_title:
+            "Withdraw",
+
+        withdraw_subtitle:
+            "Withdraw your assets securely",
+
+        main_balance:
+            "Main Balance",
+
+        profit_balance:
+            "Profit Balance",
+
+        available_balance:
+            "Available Balance",
+
+        profit_details:
+            "Profit Details",
+
+        trading_profit:
+            "Trading Profit",
+
+        bonus_profit:
+            "Bonus Profit",
+
+        referral_profit:
+            "Referral Profit",
+
+        team_profit:
+            "Team Profit",
+
+        withdraw_source:
+            "Withdrawal Source",
+
+        withdraw_network:
+            "Withdrawal Network",
+
+        withdraw_address:
+            "Withdrawal Address",
+
+        withdraw_amount:
+            "Withdrawal Amount",
+
+        security_code:
+            "Withdrawal Security Code",
+
+        withdraw_fee:
+            "Withdrawal Fee",
+
+        receive_amount:
+            "Amount to Receive",
+
+        withdraw_before_doubling:
+            "Withdrawal before doubling: 20%",
+
+        withdraw_after_doubling:
+            "Withdrawal after doubling: 5%",
+
+        confirm_withdraw:
+            "Confirm Withdrawal",
+
+        tether:
+            "Tether",
+
+        bitcoin:
+            "Bitcoin",
+
+        ethereum:
+            "Ethereum",
+
+        tron:
+            "TRON",
+
+        withdraw_address_placeholder:
+            "Enter wallet address",
+
+        withdraw_amount_placeholder:
+            "Enter withdrawal amount",
+
+        security_code_placeholder:
+            "Enter withdrawal security code",
 
         withdraw_security_error:
             "Invalid withdrawal security code.",
@@ -117,25 +279,21 @@ const withdrawMessages = {
 
 function getWithdrawLanguage() {
 
-    let lang =
-        localStorage.getItem("VALORA_LANG");
+    const lang =
+        localStorage.getItem(
+            "VALORA_LANG"
+        );
 
-
-    if (lang === "en") {
-
-        return "en";
-
-    }
-
-
-    return "ar";
+    return lang === "en"
+        ? "en"
+        : "ar";
 
 }
 
 
 
 // ==========================================
-// TRANSLATE WITHDRAW MESSAGE
+// TRANSLATE
 // ==========================================
 
 function withdrawTranslate(key) {
@@ -143,16 +301,20 @@ function withdrawTranslate(key) {
     const lang =
         getWithdrawLanguage();
 
+    const translations =
+        withdrawTranslations[lang];
 
     if (
-        withdrawMessages[lang] &&
-        withdrawMessages[lang][key]
+        translations &&
+        Object.prototype.hasOwnProperty.call(
+            translations,
+            key
+        )
     ) {
 
-        return withdrawMessages[lang][key];
+        return translations[key];
 
     }
-
 
     return key;
 
@@ -161,7 +323,156 @@ function withdrawTranslate(key) {
 
 
 // ==========================================
-// FORMAT BALANCE
+// APPLY WITHDRAW LANGUAGE
+// ==========================================
+
+function applyWithdrawLanguage() {
+
+    const lang =
+        getWithdrawLanguage();
+
+
+    const html =
+        document.documentElement;
+
+
+    if (lang === "en") {
+
+        html.lang = "en";
+
+        html.dir = "ltr";
+
+        document.title =
+            "VALORA | Withdraw";
+
+    }
+
+    else {
+
+        html.lang = "ar";
+
+        html.dir = "rtl";
+
+        document.title =
+            "VALORA | سحب العملات";
+
+    }
+
+
+
+    // ======================================
+    // TEXT ELEMENTS
+    // ======================================
+
+    document
+        .querySelectorAll("[data-lang]")
+        .forEach(function (element) {
+
+            const key =
+                element.getAttribute(
+                    "data-lang"
+                );
+
+
+            const text =
+                withdrawTranslate(key);
+
+
+            if (text) {
+
+                element.textContent =
+                    text;
+
+            }
+
+        });
+
+
+
+    // ======================================
+    // PLACEHOLDERS
+    // ======================================
+
+    document
+        .querySelectorAll(
+            "[data-lang-placeholder]"
+        )
+        .forEach(function (element) {
+
+            const key =
+                element.getAttribute(
+                    "data-lang-placeholder"
+                );
+
+
+            const text =
+                withdrawTranslate(key);
+
+
+            if (text) {
+
+                element.placeholder =
+                    text;
+
+            }
+
+        });
+
+
+
+    updateWithdrawButtonLanguage();
+
+}
+
+
+
+// ==========================================
+// UPDATE BUTTON LANGUAGE
+// ==========================================
+
+function updateWithdrawButtonLanguage() {
+
+    const button =
+        document.getElementById(
+            "withdrawButton"
+        );
+
+
+    if (!button) {
+
+        return;
+
+    }
+
+
+    if (button.disabled) {
+
+        return;
+
+    }
+
+
+    const span =
+        button.querySelector(
+            "[data-lang]"
+        );
+
+
+    if (span) {
+
+        span.textContent =
+            withdrawTranslate(
+                "confirm_withdraw"
+            );
+
+    }
+
+}
+
+
+
+// ==========================================
+// FORMAT AMOUNT
 // ==========================================
 
 function formatWithdrawAmount(value) {
@@ -273,7 +584,7 @@ function getTeamProfit() {
 
 
 // ==========================================
-// GET TOTAL PROFIT BALANCE
+// GET TOTAL PROFIT
 // ==========================================
 
 function getProfitBalance() {
@@ -300,7 +611,9 @@ function getProfitBalance() {
 
 function getSelectedWithdrawBalance() {
 
-    if (withdrawSource === "profit") {
+    if (
+        withdrawSource === "profit"
+    ) {
 
         return getProfitBalance();
 
@@ -394,7 +707,9 @@ function updateBalanceDisplay() {
     if (mainBalanceBox) {
 
         mainBalanceBox.textContent =
-            formatWithdrawAmount(mainBalance)
+            formatWithdrawAmount(
+                mainBalance
+            )
             + " "
             + withdrawCoin;
 
@@ -404,7 +719,9 @@ function updateBalanceDisplay() {
     if (profitBalanceBox) {
 
         profitBalanceBox.textContent =
-            formatWithdrawAmount(profitBalance)
+            formatWithdrawAmount(
+                profitBalance
+            )
             + " "
             + withdrawCoin;
 
@@ -414,7 +731,9 @@ function updateBalanceDisplay() {
     if (tradingProfitBox) {
 
         tradingProfitBox.textContent =
-            formatWithdrawAmount(tradingProfit)
+            formatWithdrawAmount(
+                tradingProfit
+            )
             + " "
             + withdrawCoin;
 
@@ -424,7 +743,9 @@ function updateBalanceDisplay() {
     if (bonusProfitBox) {
 
         bonusProfitBox.textContent =
-            formatWithdrawAmount(bonusProfit)
+            formatWithdrawAmount(
+                bonusProfit
+            )
             + " "
             + withdrawCoin;
 
@@ -434,7 +755,9 @@ function updateBalanceDisplay() {
     if (referralProfitBox) {
 
         referralProfitBox.textContent =
-            formatWithdrawAmount(referralProfit)
+            formatWithdrawAmount(
+                referralProfit
+            )
             + " "
             + withdrawCoin;
 
@@ -444,7 +767,9 @@ function updateBalanceDisplay() {
     if (teamProfitBox) {
 
         teamProfitBox.textContent =
-            formatWithdrawAmount(teamProfit)
+            formatWithdrawAmount(
+                teamProfit
+            )
             + " "
             + withdrawCoin;
 
@@ -454,7 +779,9 @@ function updateBalanceDisplay() {
     if (availableBalanceBox) {
 
         availableBalanceBox.textContent =
-            formatWithdrawAmount(availableBalance)
+            formatWithdrawAmount(
+                availableBalance
+            )
             + " "
             + withdrawCoin;
 
@@ -471,7 +798,10 @@ function updateBalanceDisplay() {
 // SELECT WITHDRAW SOURCE
 // ==========================================
 
-function selectWithdrawSource(source, button) {
+function selectWithdrawSource(
+    source,
+    button
+) {
 
     if (
         source !== "main" &&
@@ -487,25 +817,52 @@ function selectWithdrawSource(source, button) {
         source;
 
 
+
     document
         .querySelectorAll(
             ".withdraw-source-btn"
         )
         .forEach(function (btn) {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
+
     if (button) {
 
-        button.classList.add("active");
+        button.classList.add(
+            "active"
+        );
 
     }
 
 
+
     updateBalanceDisplay();
+
+
+
+    // تنظيف الرسالة القديمة
+
+    const message =
+        document.getElementById(
+            "withdrawMessage"
+        );
+
+
+    if (message) {
+
+        message.style.display =
+            "none";
+
+        message.textContent =
+            "";
+
+    }
 
 }
 
@@ -533,6 +890,7 @@ function selectWithdrawCoin(
         coin;
 
 
+
     document
         .querySelectorAll(
             ".withdraw-coin"
@@ -546,6 +904,7 @@ function selectWithdrawCoin(
         });
 
 
+
     if (button) {
 
         button.classList.add(
@@ -555,11 +914,10 @@ function selectWithdrawCoin(
     }
 
 
+
     loadWithdrawNetworks();
 
     updateBalanceDisplay();
-
-    calculateWithdraw();
 
 }
 
@@ -587,35 +945,42 @@ function loadWithdrawNetworks() {
     box.innerHTML = "";
 
 
+
     const networks =
-        withdrawNetworks[withdrawCoin] ||
-        [];
+        withdrawNetworks[
+            withdrawCoin
+        ] || [];
+
 
 
     networks.forEach(
-        function (network, index) {
+        function (
+            network,
+            index
+        ) {
 
-            const btn =
+            const button =
                 document.createElement(
                     "button"
                 );
 
 
-            btn.type =
+            button.type =
                 "button";
 
 
-            btn.className =
+            button.className =
                 "network";
 
 
-            btn.innerText =
+            button.textContent =
                 network;
+
 
 
             if (index === 0) {
 
-                btn.classList.add(
+                button.classList.add(
                     "active"
                 );
 
@@ -626,18 +991,24 @@ function loadWithdrawNetworks() {
             }
 
 
-            btn.onclick =
+
+            button.addEventListener(
+                "click",
                 function () {
 
                     selectWithdrawNetwork(
-                        this,
+                        button,
                         network
                     );
 
-                };
+                }
+            );
 
 
-            box.appendChild(btn);
+
+            box.appendChild(
+                button
+            );
 
         }
     );
@@ -659,9 +1030,10 @@ function selectWithdrawNetwork(
         network;
 
 
+
     document
         .querySelectorAll(
-            ".network"
+            "#withdrawNetwork .network"
         )
         .forEach(function (btn) {
 
@@ -670,6 +1042,7 @@ function selectWithdrawNetwork(
             );
 
         });
+
 
 
     if (button) {
@@ -685,7 +1058,7 @@ function selectWithdrawNetwork(
 
 
 // ==========================================
-// WITHDRAW FEE SYSTEM
+// WITHDRAW FEE
 // ==========================================
 
 function getWithdrawFee() {
@@ -693,13 +1066,12 @@ function getWithdrawFee() {
     /*
     ==========================================
     FEE STATUS
-    ==========================================
 
     قبل التضعيف = 20%
 
     بعد التضعيف = 5%
 
-    النظام الحالي مضبوط على
+    النظام الحالي يعمل على
     مرحلة ما بعد التضعيف.
     ==========================================
     */
@@ -755,6 +1127,7 @@ function calculateWithdraw() {
         );
 
 
+
     const feeBox =
         document.getElementById(
             "withdrawFee"
@@ -767,20 +1140,26 @@ function calculateWithdraw() {
         );
 
 
+
     if (feeBox) {
 
         feeBox.textContent =
-            formatWithdrawAmount(fee)
+            formatWithdrawAmount(
+                fee
+            )
             + " "
             + withdrawCoin;
 
     }
 
 
+
     if (receiveBox) {
 
         receiveBox.textContent =
-            formatWithdrawAmount(receive)
+            formatWithdrawAmount(
+                receive
+            )
             + " "
             + withdrawCoin;
 
@@ -797,15 +1176,13 @@ function calculateWithdraw() {
 function getSecurityCode() {
 
     /*
-    ==========================================
-    IMPORTANT
+    نفس رمز الأمان يستخدم
+    للسحب من الرصيد الأساسي
+    ورصيد الأرباح.
 
-    لا يوجد رمز أمان تجريبي هنا.
-
-    عند الربط الحقيقي مع السيرفر،
-    سيتم التحقق من الرمز من الحساب
-    عبر API.
-    ==========================================
+    عند ربط السيرفر الحقيقي
+    يجب استبدال هذا التحقق
+    بطلب API آمن.
     */
 
     return localStorage.getItem(
@@ -817,7 +1194,7 @@ function getSecurityCode() {
 
 
 // ==========================================
-// VALIDATE SECURITY CODE
+// VALIDATE SECURITY
 // ==========================================
 
 function validateSecurityCode() {
@@ -841,6 +1218,7 @@ function validateSecurityCode() {
 
     const savedSecurity =
         getSecurityCode();
+
 
 
     if (
@@ -901,30 +1279,12 @@ function submitWithdraw() {
 
 
     // ======================================
-    // SOURCE
-    // ======================================
-
-    if (
-        withdrawSource !== "main" &&
-        withdrawSource !== "profit"
-    ) {
-
-        showWithdrawMessage(
-            "withdraw_source_error",
-            false
-        );
-
-        return;
-
-    }
-
-
-
-    // ======================================
     // SECURITY
     // ======================================
 
-    if (!validateSecurityCode()) {
+    if (
+        !validateSecurityCode()
+    ) {
 
         return;
 
@@ -986,11 +1346,12 @@ function submitWithdraw() {
 
 
     // ======================================
-    // BALANCE
+    // AVAILABLE BALANCE
     // ======================================
 
     const availableBalance =
         getSelectedWithdrawBalance();
+
 
 
     if (
@@ -1036,7 +1397,7 @@ function submitWithdraw() {
 
 
     // ======================================
-    // UPDATE LOCAL BALANCE
+    // UPDATE BALANCE
     // ======================================
 
     if (
@@ -1050,30 +1411,21 @@ function submitWithdraw() {
 
         localStorage.setItem(
             "VALORA_MAIN_BALANCE",
-            String(newBalance)
+            String(
+                Math.max(
+                    0,
+                    newBalance
+                )
+            )
         );
 
     }
 
-
     else {
 
-        /*
-        --------------------------------------
-        خصم الأرباح من مصادرها بالترتيب:
-
-        1. أرباح التداول
-        2. أرباح المكافآت
-        3. أرباح الدعوة
-        4. أرباح الفريق
-
-        لاحقًا في السيرفر سيتم تنفيذ
-        عملية الخصم بطريقة ذرية داخل قاعدة
-        البيانات.
-        --------------------------------------
-        */
-
-        deductProfitBalance(amount);
+        deductProfitBalance(
+            amount
+        );
 
     }
 
@@ -1104,12 +1456,13 @@ function submitWithdraw() {
 
 
     // ======================================
-    // RESET FORM
+    // RESET
     // ======================================
 
     if (amountElement) {
 
-        amountElement.value = "";
+        amountElement.value =
+            "";
 
     }
 
@@ -1122,9 +1475,11 @@ function submitWithdraw() {
 
     if (securityElement) {
 
-        securityElement.value = "";
+        securityElement.value =
+            "";
 
     }
+
 
 
     updateBalanceDisplay();
@@ -1137,7 +1492,9 @@ function submitWithdraw() {
 // DEDUCT PROFIT BALANCE
 // ==========================================
 
-function deductProfitBalance(amount) {
+function deductProfitBalance(
+    amount
+) {
 
     let remaining =
         Number(amount) || 0;
@@ -1161,11 +1518,14 @@ function deductProfitBalance(amount) {
     profitKeys.forEach(
         function (key) {
 
-            if (remaining <= 0) {
+            if (
+                remaining <= 0
+            ) {
 
                 return;
 
             }
+
 
 
             const current =
@@ -1176,6 +1536,7 @@ function deductProfitBalance(amount) {
                 ) || 0;
 
 
+
             const deduction =
                 Math.min(
                     current,
@@ -1183,15 +1544,23 @@ function deductProfitBalance(amount) {
                 );
 
 
+
             const newValue =
                 current -
                 deduction;
 
 
+
             localStorage.setItem(
                 key,
-                String(newValue)
+                String(
+                    Math.max(
+                        0,
+                        newValue
+                    )
+                )
             );
+
 
 
             remaining -=
@@ -1220,7 +1589,8 @@ function saveWithdrawHistory(
 
 ) {
 
-    let history;
+    let history = [];
+
 
 
     try {
@@ -1249,8 +1619,8 @@ function saveWithdrawHistory(
 
         sourceLabel:
             withdrawSource === "profit"
-                ? "رصيد الأرباح"
-                : "الرصيد الأساسي",
+                ? "Profit Balance"
+                : "Main Balance",
 
         coin:
             withdrawCoin,
@@ -1287,7 +1657,9 @@ function saveWithdrawHistory(
 
         "VALORA_WITHDRAW_HISTORY",
 
-        JSON.stringify(history)
+        JSON.stringify(
+            history
+        )
 
     );
 
@@ -1317,8 +1689,12 @@ function showWithdrawMessage(
     }
 
 
+
     const message =
-        withdrawTranslate(key);
+        withdrawTranslate(
+            key
+        );
+
 
 
     box.style.display =
@@ -1334,6 +1710,18 @@ function showWithdrawMessage(
             ? "withdraw-message success"
             : "withdraw-message reject";
 
+
+
+    box.scrollIntoView({
+
+        behavior:
+            "smooth",
+
+        block:
+            "nearest"
+
+    });
+
 }
 
 
@@ -1348,12 +1736,41 @@ document.addEventListener(
 
     function () {
 
+        /*
+        --------------------------------------
+        تطبيق اللغة
+        --------------------------------------
+        */
+
+        applyWithdrawLanguage();
+
+
+
+        /*
+        --------------------------------------
+        تحميل الشبكات
+        --------------------------------------
+        */
+
         loadWithdrawNetworks();
+
+
+
+        /*
+        --------------------------------------
+        تحديث الأرصدة
+        --------------------------------------
+        */
 
         updateBalanceDisplay();
 
-        calculateWithdraw();
 
+
+        /*
+        --------------------------------------
+        إدخال المبلغ
+        --------------------------------------
+        */
 
         const amount =
             document.getElementById(
@@ -1369,6 +1786,80 @@ document.addEventListener(
             );
 
         }
+
+
+
+        /*
+        --------------------------------------
+        مراقبة تغيير اللغة
+        --------------------------------------
+
+        إذا كان language.js يغير
+        VALORA_LANG عند الضغط على
+        زر اللغة، سيتم تحديث الصفحة
+        تلقائيًا.
+        --------------------------------------
+        */
+
+        window.addEventListener(
+            "storage",
+            function (event) {
+
+                if (
+                    event.key ===
+                    "VALORA_LANG"
+                ) {
+
+                    applyWithdrawLanguage();
+
+                    updateBalanceDisplay();
+
+                }
+
+            }
+        );
+
+
+
+        /*
+        --------------------------------------
+        فحص اللغة بشكل دوري
+        --------------------------------------
+
+        مفيد إذا كان language.js
+        يغير localStorage في نفس الصفحة.
+        --------------------------------------
+        */
+
+        let lastLanguage =
+            getWithdrawLanguage();
+
+
+        setInterval(
+            function () {
+
+                const currentLanguage =
+                    getWithdrawLanguage();
+
+
+                if (
+                    currentLanguage !==
+                    lastLanguage
+                ) {
+
+                    lastLanguage =
+                        currentLanguage;
+
+
+                    applyWithdrawLanguage();
+
+                    updateBalanceDisplay();
+
+                }
+
+            },
+            300
+        );
 
     }
 
