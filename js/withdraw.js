@@ -2,6 +2,8 @@
 // VALORA WITHDRAW SYSTEM
 // ==========================================
 
+"use strict";
+
 
 // ==========================================
 // VARIABLES
@@ -11,6 +13,7 @@ let withdrawCoin = "USDT";
 
 let withdrawNetwork = "TRC20";
 
+let withdrawSource = "main";
 
 
 
@@ -41,7 +44,6 @@ const withdrawNetworks = {
 
 
 
-
 // ==========================================
 // WITHDRAW MESSAGES
 // ==========================================
@@ -51,16 +53,28 @@ const withdrawMessages = {
     ar: {
 
         withdraw_security_error:
-            "رمز الأمان غير صحيح",
+            "رمز أمان السحب غير صحيح.",
 
         withdraw_amount_error:
-            "أكمل جميع البيانات",
+            "أكمل جميع البيانات المطلوبة.",
 
-        withdraw_error:
-            "الرصيد غير كافي",
+        withdraw_balance_error:
+            "الرصيد المتاح غير كافٍ.",
+
+        withdraw_amount_limit:
+            "مبلغ السحب أكبر من الرصيد المتاح.",
+
+        withdraw_address_error:
+            "يرجى إدخال عنوان السحب.",
 
         withdraw_success:
-            "تم إرسال طلب السحب"
+            "تم إرسال طلب السحب بنجاح.",
+
+        withdraw_invalid_amount:
+            "يرجى إدخال مبلغ سحب صحيح.",
+
+        withdraw_source_error:
+            "يرجى اختيار مصدر السحب."
 
     },
 
@@ -68,16 +82,28 @@ const withdrawMessages = {
     en: {
 
         withdraw_security_error:
-            "Invalid withdrawal security code",
+            "Invalid withdrawal security code.",
 
         withdraw_amount_error:
-            "Please complete all required fields",
+            "Please complete all required fields.",
 
-        withdraw_error:
-            "Insufficient balance",
+        withdraw_balance_error:
+            "Insufficient available balance.",
+
+        withdraw_amount_limit:
+            "The withdrawal amount exceeds the available balance.",
+
+        withdraw_address_error:
+            "Please enter a withdrawal address.",
 
         withdraw_success:
-            "Withdrawal request submitted successfully"
+            "Withdrawal request submitted successfully.",
+
+        withdraw_invalid_amount:
+            "Please enter a valid withdrawal amount.",
+
+        withdraw_source_error:
+            "Please select a withdrawal source."
 
     }
 
@@ -85,21 +111,22 @@ const withdrawMessages = {
 
 
 
-
 // ==========================================
 // GET CURRENT LANGUAGE
 // ==========================================
 
-function getWithdrawLanguage(){
+function getWithdrawLanguage() {
 
     let lang =
         localStorage.getItem("VALORA_LANG");
 
-    if(lang === "en"){
+
+    if (lang === "en") {
 
         return "en";
 
     }
+
 
     return "ar";
 
@@ -107,21 +134,20 @@ function getWithdrawLanguage(){
 
 
 
-
 // ==========================================
 // TRANSLATE WITHDRAW MESSAGE
 // ==========================================
 
-function withdrawTranslate(key){
+function withdrawTranslate(key) {
 
-    let lang =
+    const lang =
         getWithdrawLanguage();
 
 
-    if(
+    if (
         withdrawMessages[lang] &&
         withdrawMessages[lang][key]
-    ){
+    ) {
 
         return withdrawMessages[lang][key];
 
@@ -134,139 +160,38 @@ function withdrawTranslate(key){
 
 
 
-
 // ==========================================
-// SELECT COIN
-// ==========================================
-
-function selectWithdrawCoin(coin, button){
-
-    if(!withdrawNetworks[coin]) return;
-
-
-    withdrawCoin = coin;
-
-
-    document
-    .querySelectorAll(".withdraw-coin")
-    .forEach(function(btn){
-
-        btn.classList.remove("active");
-
-    });
-
-
-    if(button){
-
-        button.classList.add("active");
-
-    }
-
-
-    loadWithdrawNetworks();
-
-    calculateWithdraw();
-
-}
-
-
-
-
-// ==========================================
-// LOAD NETWORKS
+// FORMAT BALANCE
 // ==========================================
 
-function loadWithdrawNetworks(){
+function formatWithdrawAmount(value) {
 
-    let box =
-        document.getElementById(
-            "withdrawNetwork"
-        );
+    const number =
+        Number(value) || 0;
 
 
-    if(!box) return;
-
-
-    box.innerHTML = "";
-
-
-    withdrawNetworks[withdrawCoin]
-    .forEach(function(network, index){
-
-        let btn =
-            document.createElement("button");
-
-
-        btn.type = "button";
-
-        btn.className = "network";
-
-        btn.innerText = network;
-
-
-        if(index === 0){
-
-            btn.classList.add("active");
-
-            withdrawNetwork = network;
-
+    return number.toLocaleString(
+        "en-US",
+        {
+            minimumFractionDigits: 2,
+            maximumFractionDigits: 8
         }
-
-
-        btn.onclick = function(){
-
-            selectWithdrawNetwork(
-                this,
-                network
-            );
-
-        };
-
-
-        box.appendChild(btn);
-
-    });
+    );
 
 }
 
 
 
-
 // ==========================================
-// SELECT NETWORK
-// ==========================================
-
-function selectWithdrawNetwork(button, network){
-
-    withdrawNetwork = network;
-
-
-    document
-    .querySelectorAll(".network")
-    .forEach(function(btn){
-
-        btn.classList.remove("active");
-
-    });
-
-
-    button.classList.add("active");
-
-}
-
-
-
-
-// ==========================================
-// GET BALANCE
+// GET MAIN BALANCE
 // ==========================================
 
-function getBalance(){
+function getMainBalance() {
 
     return Number(
 
         localStorage.getItem(
-            "VALORA_BALANCE"
+            "VALORA_MAIN_BALANCE"
         )
 
     ) || 0;
@@ -275,28 +200,515 @@ function getBalance(){
 
 
 
+// ==========================================
+// GET TRADING PROFIT
+// ==========================================
+
+function getTradingProfit() {
+
+    return Number(
+
+        localStorage.getItem(
+            "VALORA_TRADING_PROFIT"
+        )
+
+    ) || 0;
+
+}
+
+
+
+// ==========================================
+// GET BONUS PROFIT
+// ==========================================
+
+function getBonusProfit() {
+
+    return Number(
+
+        localStorage.getItem(
+            "VALORA_BONUS_PROFIT"
+        )
+
+    ) || 0;
+
+}
+
+
+
+// ==========================================
+// GET REFERRAL PROFIT
+// ==========================================
+
+function getReferralProfit() {
+
+    return Number(
+
+        localStorage.getItem(
+            "VALORA_REFERRAL_PROFIT"
+        )
+
+    ) || 0;
+
+}
+
+
+
+// ==========================================
+// GET TEAM PROFIT
+// ==========================================
+
+function getTeamProfit() {
+
+    return Number(
+
+        localStorage.getItem(
+            "VALORA_TEAM_PROFIT"
+        )
+
+    ) || 0;
+
+}
+
+
+
+// ==========================================
+// GET TOTAL PROFIT BALANCE
+// ==========================================
+
+function getProfitBalance() {
+
+    return (
+
+        getTradingProfit() +
+
+        getBonusProfit() +
+
+        getReferralProfit() +
+
+        getTeamProfit()
+
+    );
+
+}
+
+
+
+// ==========================================
+// GET SELECTED BALANCE
+// ==========================================
+
+function getSelectedWithdrawBalance() {
+
+    if (withdrawSource === "profit") {
+
+        return getProfitBalance();
+
+    }
+
+
+    return getMainBalance();
+
+}
+
+
+
+// ==========================================
+// UPDATE BALANCE DISPLAY
+// ==========================================
+
+function updateBalanceDisplay() {
+
+    const mainBalanceBox =
+        document.getElementById(
+            "mainBalance"
+        );
+
+
+    const profitBalanceBox =
+        document.getElementById(
+            "profitBalance"
+        );
+
+
+    const tradingProfitBox =
+        document.getElementById(
+            "tradingProfit"
+        );
+
+
+    const bonusProfitBox =
+        document.getElementById(
+            "bonusProfit"
+        );
+
+
+    const referralProfitBox =
+        document.getElementById(
+            "referralProfit"
+        );
+
+
+    const teamProfitBox =
+        document.getElementById(
+            "teamProfit"
+        );
+
+
+    const availableBalanceBox =
+        document.getElementById(
+            "availableBalance"
+        );
+
+
+
+    const mainBalance =
+        getMainBalance();
+
+
+    const tradingProfit =
+        getTradingProfit();
+
+
+    const bonusProfit =
+        getBonusProfit();
+
+
+    const referralProfit =
+        getReferralProfit();
+
+
+    const teamProfit =
+        getTeamProfit();
+
+
+    const profitBalance =
+        getProfitBalance();
+
+
+    const availableBalance =
+        getSelectedWithdrawBalance();
+
+
+
+    if (mainBalanceBox) {
+
+        mainBalanceBox.textContent =
+            formatWithdrawAmount(mainBalance)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (profitBalanceBox) {
+
+        profitBalanceBox.textContent =
+            formatWithdrawAmount(profitBalance)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (tradingProfitBox) {
+
+        tradingProfitBox.textContent =
+            formatWithdrawAmount(tradingProfit)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (bonusProfitBox) {
+
+        bonusProfitBox.textContent =
+            formatWithdrawAmount(bonusProfit)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (referralProfitBox) {
+
+        referralProfitBox.textContent =
+            formatWithdrawAmount(referralProfit)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (teamProfitBox) {
+
+        teamProfitBox.textContent =
+            formatWithdrawAmount(teamProfit)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    if (availableBalanceBox) {
+
+        availableBalanceBox.textContent =
+            formatWithdrawAmount(availableBalance)
+            + " "
+            + withdrawCoin;
+
+    }
+
+
+    calculateWithdraw();
+
+}
+
+
+
+// ==========================================
+// SELECT WITHDRAW SOURCE
+// ==========================================
+
+function selectWithdrawSource(source, button) {
+
+    if (
+        source !== "main" &&
+        source !== "profit"
+    ) {
+
+        return;
+
+    }
+
+
+    withdrawSource =
+        source;
+
+
+    document
+        .querySelectorAll(
+            ".withdraw-source-btn"
+        )
+        .forEach(function (btn) {
+
+            btn.classList.remove("active");
+
+        });
+
+
+    if (button) {
+
+        button.classList.add("active");
+
+    }
+
+
+    updateBalanceDisplay();
+
+}
+
+
+
+// ==========================================
+// SELECT COIN
+// ==========================================
+
+function selectWithdrawCoin(
+    coin,
+    button
+) {
+
+    if (
+        !withdrawNetworks[coin]
+    ) {
+
+        return;
+
+    }
+
+
+    withdrawCoin =
+        coin;
+
+
+    document
+        .querySelectorAll(
+            ".withdraw-coin"
+        )
+        .forEach(function (btn) {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    if (button) {
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+    loadWithdrawNetworks();
+
+    updateBalanceDisplay();
+
+    calculateWithdraw();
+
+}
+
+
+
+// ==========================================
+// LOAD NETWORKS
+// ==========================================
+
+function loadWithdrawNetworks() {
+
+    const box =
+        document.getElementById(
+            "withdrawNetwork"
+        );
+
+
+    if (!box) {
+
+        return;
+
+    }
+
+
+    box.innerHTML = "";
+
+
+    const networks =
+        withdrawNetworks[withdrawCoin] ||
+        [];
+
+
+    networks.forEach(
+        function (network, index) {
+
+            const btn =
+                document.createElement(
+                    "button"
+                );
+
+
+            btn.type =
+                "button";
+
+
+            btn.className =
+                "network";
+
+
+            btn.innerText =
+                network;
+
+
+            if (index === 0) {
+
+                btn.classList.add(
+                    "active"
+                );
+
+
+                withdrawNetwork =
+                    network;
+
+            }
+
+
+            btn.onclick =
+                function () {
+
+                    selectWithdrawNetwork(
+                        this,
+                        network
+                    );
+
+                };
+
+
+            box.appendChild(btn);
+
+        }
+    );
+
+}
+
+
+
+// ==========================================
+// SELECT NETWORK
+// ==========================================
+
+function selectWithdrawNetwork(
+    button,
+    network
+) {
+
+    withdrawNetwork =
+        network;
+
+
+    document
+        .querySelectorAll(
+            ".network"
+        )
+        .forEach(function (btn) {
+
+            btn.classList.remove(
+                "active"
+            );
+
+        });
+
+
+    if (button) {
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+}
+
+
 
 // ==========================================
 // WITHDRAW FEE SYSTEM
 // ==========================================
 
-function getWithdrawFee(){
+function getWithdrawFee() {
 
     /*
-        نظام التضعيف:
+    ==========================================
+    FEE STATUS
+    ==========================================
 
-        قبل التضعيف = 20%
-        بعد التضعيف = 5%
+    قبل التضعيف = 20%
 
-        حالياً مضبوط على مرحلة
-        ما بعد التضعيف.
+    بعد التضعيف = 5%
+
+    النظام الحالي مضبوط على
+    مرحلة ما بعد التضعيف.
+    ==========================================
     */
 
+    const doubled =
+        true;
 
-    let doubled = "true";
 
-
-    if(doubled === "true"){
+    if (doubled) {
 
         return 5;
 
@@ -309,63 +721,68 @@ function getWithdrawFee(){
 
 
 
-
 // ==========================================
 // CALCULATE WITHDRAW
 // ==========================================
 
-function calculateWithdraw(){
+function calculateWithdraw() {
 
-    let amount =
+    const amountInput =
+        document.getElementById(
+            "withdrawAmount"
+        );
 
+
+    const amount =
         Number(
-
-            document.getElementById(
-                "withdrawAmount"
-            )?.value
-
+            amountInput?.value
         ) || 0;
 
 
-    let feePercent =
+    const feePercent =
         getWithdrawFee();
 
 
-    let fee =
+    const fee =
         amount *
         (feePercent / 100);
 
 
-    let receive =
-        amount - fee;
+    const receive =
+        Math.max(
+            0,
+            amount - fee
+        );
 
 
-    let feeBox =
+    const feeBox =
         document.getElementById(
             "withdrawFee"
         );
 
 
-    let receiveBox =
+    const receiveBox =
         document.getElementById(
             "receiveAmount"
         );
 
 
-    if(feeBox){
+    if (feeBox) {
 
-        feeBox.innerHTML =
-            fee.toFixed(2)
-            + " USDT";
+        feeBox.textContent =
+            formatWithdrawAmount(fee)
+            + " "
+            + withdrawCoin;
 
     }
 
 
-    if(receiveBox){
+    if (receiveBox) {
 
-        receiveBox.innerHTML =
-            receive.toFixed(2)
-            + " USDT";
+        receiveBox.textContent =
+            formatWithdrawAmount(receive)
+            + " "
+            + withdrawCoin;
 
     }
 
@@ -373,89 +790,127 @@ function calculateWithdraw(){
 
 
 
+// ==========================================
+// GET SECURITY CODE
+// ==========================================
+
+function getSecurityCode() {
+
+    /*
+    ==========================================
+    IMPORTANT
+
+    لا يوجد رمز أمان تجريبي هنا.
+
+    عند الربط الحقيقي مع السيرفر،
+    سيتم التحقق من الرمز من الحساب
+    عبر API.
+    ==========================================
+    */
+
+    return localStorage.getItem(
+        "VALORA_SECURITY_CODE"
+    ) || "";
+
+}
+
+
 
 // ==========================================
-// SUBMIT WITHDRAW
+// VALIDATE SECURITY CODE
 // ==========================================
 
-function submitWithdraw(){
+function validateSecurityCode() {
 
-    let amount =
-
-        Number(
-
-            document.getElementById(
-                "withdrawAmount"
-            )?.value
-
-        ) || 0;
-
-
-    let addressElement =
-        document.getElementById(
-            "withdrawAddress"
-        );
-
-
-    let securityElement =
+    const securityElement =
         document.getElementById(
             "withdrawSecurityCode"
         );
 
 
-    let address =
-        addressElement
-        ? addressElement.value.trim()
-        : "";
+    if (!securityElement) {
+
+        return false;
+
+    }
 
 
-    let security =
-        securityElement
-        ? securityElement.value.trim()
-        : "";
+    const enteredSecurity =
+        securityElement.value.trim();
 
 
+    const savedSecurity =
+        getSecurityCode();
 
 
-    // ======================================
-    // SAVED SECURITY CODE
-    // ======================================
-
-    let savedSecurity =
-
-        localStorage.getItem(
-            "VALORA_SECURITY_CODE"
-        ) || "123456";
-
-
-
-
-    // ======================================
-    // SECURITY ERROR
-    // ======================================
-
-    if(security !== savedSecurity){
+    if (
+        !enteredSecurity ||
+        !savedSecurity ||
+        enteredSecurity !== savedSecurity
+    ) {
 
         showWithdrawMessage(
             "withdraw_security_error",
             false
         );
 
-        return;
+
+        securityElement.focus();
+
+
+        return false;
 
     }
 
 
+    return true;
+
+}
+
+
+
+// ==========================================
+// SUBMIT WITHDRAW
+// ==========================================
+
+function submitWithdraw() {
+
+    const amountElement =
+        document.getElementById(
+            "withdrawAmount"
+        );
+
+
+    const addressElement =
+        document.getElementById(
+            "withdrawAddress"
+        );
+
+
+    const amount =
+        Number(
+            amountElement?.value
+        ) || 0;
+
+
+    const address =
+        addressElement
+            ? addressElement.value.trim()
+            : "";
+
 
 
     // ======================================
-    // EMPTY DATA
+    // SOURCE
     // ======================================
 
-    if(!amount || !address){
+    if (
+        withdrawSource !== "main" &&
+        withdrawSource !== "profit"
+    ) {
 
         showWithdrawMessage(
-            "withdraw_amount_error",
+            "withdraw_source_error",
             false
         );
 
@@ -463,6 +918,70 @@ function submitWithdraw(){
 
     }
 
+
+
+    // ======================================
+    // SECURITY
+    // ======================================
+
+    if (!validateSecurityCode()) {
+
+        return;
+
+    }
+
+
+
+    // ======================================
+    // AMOUNT
+    // ======================================
+
+    if (
+        !Number.isFinite(amount) ||
+        amount <= 0
+    ) {
+
+        showWithdrawMessage(
+            "withdraw_invalid_amount",
+            false
+        );
+
+
+        if (amountElement) {
+
+            amountElement.focus();
+
+        }
+
+
+        return;
+
+    }
+
+
+
+    // ======================================
+    // ADDRESS
+    // ======================================
+
+    if (!address) {
+
+        showWithdrawMessage(
+            "withdraw_address_error",
+            false
+        );
+
+
+        if (addressElement) {
+
+            addressElement.focus();
+
+        }
+
+
+        return;
+
+    }
 
 
 
@@ -470,16 +989,27 @@ function submitWithdraw(){
     // BALANCE
     // ======================================
 
-    let balance =
-        getBalance();
+    const availableBalance =
+        getSelectedWithdrawBalance();
 
 
-    if(amount > balance){
+    if (
+        amount >
+        availableBalance
+    ) {
 
         showWithdrawMessage(
-            "withdraw_error",
+            "withdraw_amount_limit",
             false
         );
+
+
+        if (amountElement) {
+
+            amountElement.focus();
+
+        }
+
 
         return;
 
@@ -487,36 +1017,65 @@ function submitWithdraw(){
 
 
 
-
     // ======================================
-    // CALCULATE FEE
+    // FEE
     // ======================================
 
-    let fee =
+    const feePercent =
+        getWithdrawFee();
 
+
+    const fee =
         amount *
-        (getWithdrawFee() / 100);
+        (feePercent / 100);
 
 
-    let receive =
-
+    const receive =
         amount - fee;
 
 
 
-
     // ======================================
-    // UPDATE BALANCE
+    // UPDATE LOCAL BALANCE
     // ======================================
 
-    localStorage.setItem(
+    if (
+        withdrawSource === "main"
+    ) {
 
-        "VALORA_BALANCE",
+        const newBalance =
+            getMainBalance() -
+            amount;
 
-        balance - amount
 
-    );
+        localStorage.setItem(
+            "VALORA_MAIN_BALANCE",
+            String(newBalance)
+        );
 
+    }
+
+
+    else {
+
+        /*
+        --------------------------------------
+        خصم الأرباح من مصادرها بالترتيب:
+
+        1. أرباح التداول
+        2. أرباح المكافآت
+        3. أرباح الدعوة
+        4. أرباح الفريق
+
+        لاحقًا في السيرفر سيتم تنفيذ
+        عملية الخصم بطريقة ذرية داخل قاعدة
+        البيانات.
+        --------------------------------------
+        */
+
+        deductProfitBalance(amount);
+
+    }
 
 
 
@@ -525,17 +1084,11 @@ function submitWithdraw(){
     // ======================================
 
     saveWithdrawHistory(
-
         amount,
-
         fee,
-
         receive,
-
         address
-
     );
-
 
 
 
@@ -548,8 +1101,106 @@ function submitWithdraw(){
         true
     );
 
+
+
+    // ======================================
+    // RESET FORM
+    // ======================================
+
+    if (amountElement) {
+
+        amountElement.value = "";
+
+    }
+
+
+    const securityElement =
+        document.getElementById(
+            "withdrawSecurityCode"
+        );
+
+
+    if (securityElement) {
+
+        securityElement.value = "";
+
+    }
+
+
+    updateBalanceDisplay();
+
 }
 
+
+
+// ==========================================
+// DEDUCT PROFIT BALANCE
+// ==========================================
+
+function deductProfitBalance(amount) {
+
+    let remaining =
+        Number(amount) || 0;
+
+
+
+    const profitKeys = [
+
+        "VALORA_TRADING_PROFIT",
+
+        "VALORA_BONUS_PROFIT",
+
+        "VALORA_REFERRAL_PROFIT",
+
+        "VALORA_TEAM_PROFIT"
+
+    ];
+
+
+
+    profitKeys.forEach(
+        function (key) {
+
+            if (remaining <= 0) {
+
+                return;
+
+            }
+
+
+            const current =
+                Number(
+                    localStorage.getItem(
+                        key
+                    )
+                ) || 0;
+
+
+            const deduction =
+                Math.min(
+                    current,
+                    remaining
+                );
+
+
+            const newValue =
+                current -
+                deduction;
+
+
+            localStorage.setItem(
+                key,
+                String(newValue)
+            );
+
+
+            remaining -=
+                deduction;
+
+        }
+    );
+
+}
 
 
 
@@ -567,20 +1218,39 @@ function saveWithdrawHistory(
 
     address
 
-){
+) {
 
-    let history =
+    let history;
 
-        JSON.parse(
 
-            localStorage.getItem(
-                "VALORA_WITHDRAW_HISTORY"
-            )
+    try {
 
-        ) || [];
+        history =
+            JSON.parse(
+                localStorage.getItem(
+                    "VALORA_WITHDRAW_HISTORY"
+                )
+            ) || [];
+
+    }
+
+    catch (error) {
+
+        history = [];
+
+    }
+
 
 
     history.push({
+
+        source:
+            withdrawSource,
+
+        sourceLabel:
+            withdrawSource === "profit"
+                ? "رصيد الأرباح"
+                : "الرصيد الأساسي",
 
         coin:
             withdrawCoin,
@@ -594,6 +1264,9 @@ function saveWithdrawHistory(
         fee:
             fee,
 
+        feePercent:
+            getWithdrawFee(),
+
         receive:
             receive,
 
@@ -601,9 +1274,13 @@ function saveWithdrawHistory(
             address,
 
         date:
-            new Date().toLocaleString()
+            new Date().toISOString(),
+
+        status:
+            "pending"
 
     });
+
 
 
     localStorage.setItem(
@@ -618,7 +1295,6 @@ function saveWithdrawHistory(
 
 
 
-
 // ==========================================
 // MESSAGE
 // ==========================================
@@ -626,75 +1302,70 @@ function saveWithdrawHistory(
 function showWithdrawMessage(
     key,
     success
-){
+) {
 
-    let box =
-
+    const box =
         document.getElementById(
             "withdrawMessage"
         );
 
 
-    if(!box) return;
+    if (!box) {
+
+        return;
+
+    }
 
 
-    let message =
+    const message =
         withdrawTranslate(key);
 
 
-    box.style.display = "block";
+    box.style.display =
+        "block";
 
 
-    box.innerHTML = message;
+    box.textContent =
+        message;
 
 
     box.className =
-
         success
-
-        ?
-
-        "withdraw-message success"
-
-        :
-
-        "withdraw-message reject";
+            ? "withdraw-message success"
+            : "withdraw-message reject";
 
 }
 
 
 
-
 // ==========================================
-// START
+// INITIALIZE
 // ==========================================
 
 document.addEventListener(
 
     "DOMContentLoaded",
 
-    function(){
+    function () {
 
         loadWithdrawNetworks();
+
+        updateBalanceDisplay();
 
         calculateWithdraw();
 
 
-        let amount =
-
+        const amount =
             document.getElementById(
                 "withdrawAmount"
             );
 
 
-        if(amount){
+        if (amount) {
 
             amount.addEventListener(
-
                 "input",
-
                 calculateWithdraw
-
             );
 
         }
