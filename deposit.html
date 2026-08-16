@@ -5,27 +5,409 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>VALORA | الإيداع</title>
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
-    rel="stylesheet"
->
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
-<link
-    rel="stylesheet"
-    href="css/deposit.css"
->
+<link rel="stylesheet" href="css/deposit.css">
 
-<link
-    rel="stylesheet"
-    href="css/background.css"
->
+<link rel="stylesheet" href="css/background.css">
+
+
+<style>
+
+/* =========================================================
+   VALORA — DEPOSIT CONFIRMATION
+   إضافات تأكيد التحويل
+========================================================= */
+
+.deposit-confirm-button {
+
+    width: 100%;
+
+    min-height: 56px;
+
+    margin-top: 14px;
+
+    border: none;
+
+    border-radius: 16px;
+
+    background: #22c55e;
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 17px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s ease,
+        opacity 0.2s ease,
+        box-shadow 0.2s ease;
+
+    box-shadow:
+        0 8px 24px rgba(34, 197, 94, 0.18);
+
+}
+
+
+.deposit-confirm-button:hover {
+
+    opacity: 0.94;
+
+    transform: translateY(-1px);
+
+}
+
+
+.deposit-confirm-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+.deposit-confirm-button:disabled {
+
+    opacity: 0.55;
+
+    cursor: not-allowed;
+
+    transform: none;
+
+    box-shadow: none;
+
+}
+
+
+/* =========================================================
+   TXID SECTION
+========================================================= */
+
+.txid-section {
+
+    display: none;
+
+    margin-top: 18px;
+
+    padding: 20px;
+
+    border-radius: 18px;
+
+    background: #0b1629;
+
+    border: 1px solid #1d3557;
+
+}
+
+
+.txid-section.visible {
+
+    display: block;
+
+}
+
+
+.txid-title {
+
+    margin: 0 0 8px;
+
+    color: #ffffff;
+
+    font-size: 18px;
+
+    font-weight: 700;
+
+}
+
+
+.txid-description {
+
+    margin: 0 0 16px;
+
+    color: #9ca9bd;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+
+}
+
+
+.txid-label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    color: #ffffff;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+}
+
+
+.txid-input {
+
+    width: 100%;
+
+    box-sizing: border-box;
+
+    min-height: 54px;
+
+    padding: 12px 14px;
+
+    border-radius: 14px;
+
+    border: 1px solid #263d5f;
+
+    outline: none;
+
+    background: #050d1b;
+
+    color: #ffffff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 14px;
+
+    direction: ltr;
+
+    text-align: left;
+
+    transition:
+        border-color 0.2s ease,
+        box-shadow 0.2s ease;
+
+}
+
+
+.txid-input::placeholder {
+
+    color: #66758c;
+
+}
+
+
+.txid-input:focus {
+
+    border-color: #2388f5;
+
+    box-shadow:
+        0 0 0 3px rgba(35, 136, 245, 0.12);
+
+}
+
+
+.txid-submit-button {
+
+    width: 100%;
+
+    min-height: 54px;
+
+    margin-top: 14px;
+
+    border: none;
+
+    border-radius: 14px;
+
+    background: #2388f5;
+
+    color: #ffffff;
+
+    font-family: "Cairo", sans-serif;
+
+    font-size: 16px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        opacity 0.2s ease,
+        transform 0.2s ease;
+
+}
+
+
+.txid-submit-button:hover {
+
+    opacity: 0.94;
+
+    transform: translateY(-1px);
+
+}
+
+
+.txid-submit-button:active {
+
+    transform: translateY(0);
+
+}
+
+
+.txid-message {
+
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    font-size: 13px;
+
+    line-height: 1.8;
+
+}
+
+
+.txid-message.visible {
+
+    display: block;
+
+}
+
+
+.txid-message.info {
+
+    background: rgba(35, 136, 245, 0.10);
+
+    border: 1px solid rgba(35, 136, 245, 0.25);
+
+    color: #9ecbff;
+
+}
+
+
+.txid-message.error {
+
+    background: rgba(239, 68, 68, 0.10);
+
+    border: 1px solid rgba(239, 68, 68, 0.25);
+
+    color: #ff9b9b;
+
+}
+
+
+.txid-message.success {
+
+    background: rgba(34, 197, 94, 0.10);
+
+    border: 1px solid rgba(34, 197, 94, 0.25);
+
+    color: #8ff0ae;
+
+}
+
+
+/* =========================================================
+   DEPOSIT META
+========================================================= */
+
+.deposit-confirm-meta {
+
+    display: none;
+
+    margin-top: 14px;
+
+    padding: 12px 14px;
+
+    border-radius: 12px;
+
+    background: #101d32;
+
+    border: 1px solid #203756;
+
+}
+
+
+.deposit-confirm-meta.visible {
+
+    display: block;
+
+}
+
+
+.deposit-confirm-meta-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 5px 0;
+
+}
+
+
+.deposit-confirm-meta-row span:first-child {
+
+    color: #8f9db1;
+
+    font-size: 13px;
+
+}
+
+
+.deposit-confirm-meta-row span:last-child {
+
+    color: #ffffff;
+
+    font-size: 13px;
+
+    font-weight: 700;
+
+}
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    .txid-section {
+
+        padding: 16px;
+
+        border-radius: 16px;
+
+    }
+
+
+    .txid-title {
+
+        font-size: 17px;
+
+    }
+
+
+    .deposit-confirm-button {
+
+        min-height: 54px;
+
+    }
+
+}
+
+</style>
 
 </head>
 
@@ -42,9 +424,11 @@
 
 <header class="deposit-header">
 
-    <div class="deposit-logo">
-        VALORA
-    </div>
+<div class="deposit-logo">
+
+VALORA
+
+</div>
 
 </header>
 
@@ -56,17 +440,27 @@
 
 <section class="deposit-title">
 
-    <div class="deposit-icon">
-        ↓
-    </div>
 
-    <h2 data-lang="deposit_title">
-        إيداع العملات
-    </h2>
+<div class="deposit-icon">
 
-    <p data-lang="deposit_subtitle">
-        اختر العملة والشبكة لعرض عنوان الإيداع
-    </p>
+↓
+
+</div>
+
+
+<h2 data-lang="deposit_title">
+
+إيداع العملات
+
+</h2>
+
+
+<p data-lang="deposit_subtitle">
+
+اختر العملة والشبكة لعرض عنوان الإيداع
+
+</p>
+
 
 </section>
 
@@ -79,115 +473,155 @@
 <section class="deposit-coins">
 
 
-    <!-- USDT -->
+<!-- USDT -->
 
-    <button
-        class="deposit-coin active"
-        type="button"
-        onclick="selectCoin('USDT', this)"
-    >
-
-        <div class="deposit-coin-icon usdt">
-            ₮
-        </div>
-
-        <div>
-
-            <strong>
-                USDT
-            </strong>
-
-            <small data-lang="tether">
-                Tether
-            </small>
-
-        </div>
-
-    </button>
+<button
+class="deposit-coin active"
+type="button"
+onclick="selectCoin('USDT',this)"
+>
 
 
+<div class="deposit-coin-icon usdt">
 
-    <!-- BTC -->
+₮
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('BTC', this)"
-    >
+</div>
 
-        <div class="deposit-coin-icon btc">
-            ₿
-        </div>
 
-        <div>
+<div>
 
-            <strong>
-                BTC
-            </strong>
+<strong>
 
-            <small data-lang="bitcoin">
-                Bitcoin
-            </small>
+USDT
 
-        </div>
+</strong>
 
-    </button>
+
+<small data-lang="tether">
+
+Tether
+
+</small>
+
+</div>
+
+
+</button>
 
 
 
-    <!-- ETH -->
+<!-- BTC -->
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('ETH', this)"
-    >
-
-        <div class="deposit-coin-icon eth">
-            ◆
-        </div>
-
-        <div>
-
-            <strong>
-                ETH
-            </strong>
-
-            <small data-lang="ethereum">
-                Ethereum
-            </small>
-
-        </div>
-
-    </button>
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('BTC',this)"
+>
 
 
+<div class="deposit-coin-icon btc">
 
-    <!-- TRX -->
+₿
 
-    <button
-        class="deposit-coin"
-        type="button"
-        onclick="selectCoin('TRX', this)"
-    >
+</div>
 
-        <div class="deposit-coin-icon trx">
-            TRX
-        </div>
 
-        <div>
+<div>
 
-            <strong>
-                TRX
-            </strong>
+<strong>
 
-            <small data-lang="tron">
-                TRON
-            </small>
+BTC
 
-        </div>
+</strong>
 
-    </button>
+
+<small data-lang="bitcoin">
+
+Bitcoin
+
+</small>
+
+</div>
+
+
+</button>
+
+
+
+<!-- ETH -->
+
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('ETH',this)"
+>
+
+
+<div class="deposit-coin-icon eth">
+
+◆
+
+</div>
+
+
+<div>
+
+<strong>
+
+ETH
+
+</strong>
+
+
+<small data-lang="ethereum">
+
+Ethereum
+
+</small>
+
+</div>
+
+
+</button>
+
+
+
+<!-- TRX -->
+
+<button
+class="deposit-coin"
+type="button"
+onclick="selectCoin('TRX',this)"
+>
+
+
+<div class="deposit-coin-icon trx">
+
+TRX
+
+</div>
+
+
+<div>
+
+<strong>
+
+TRX
+
+</strong>
+
+
+<small data-lang="tron">
+
+TRON
+
+</small>
+
+</div>
+
+
+</button>
 
 
 </section>
@@ -201,162 +635,274 @@
 <section class="deposit-card">
 
 
-    <!-- ======================================
-         NETWORK
-    ====================================== -->
+<!-- NETWORK -->
 
-    <h3 data-lang="deposit_network">
-        شبكة الإيداع
-    </h3>
+<h3 data-lang="deposit_network">
 
+شبكة الإيداع
 
-    <div
-        class="network-buttons"
-        id="networkBox"
-    >
-    </div>
+</h3>
 
 
+<div
+class="network-buttons"
+id="networkBox"
+>
 
-    <!-- ======================================
-         ADDRESS
-    ====================================== -->
+</div>
 
-    <h3 data-lang="deposit_address">
-        عنوان الإيداع
-    </h3>
 
 
-    <div class="address-area">
+<!-- ADDRESS -->
 
+<h3 data-lang="deposit_address">
 
-        <input
-            type="text"
-            id="depositAddress"
-            readonly
-        >
+عنوان الإيداع
 
+</h3>
 
-        <button
-            type="button"
-            onclick="copyDeposit()"
-            data-lang="copy"
-        >
-            نسخ
-        </button>
 
+<div class="address-area">
 
-    </div>
 
+<input
+type="text"
+id="depositAddress"
+readonly
+>
 
 
-    <!-- ======================================
-         AUTO CREDIT
-    ====================================== -->
+<button
+type="button"
+onclick="copyDeposit()"
+data-lang="copy"
+>
 
-    <div class="deposit-info">
+نسخ
 
+</button>
 
-        <div class="info-card">
 
+</div>
 
-            <h3 data-lang="deposit_auto_credit">
-                سيتم إضافة الرصيد تلقائياً
-            </h3>
 
 
-            <p data-lang="deposit_auto_credit_text">
-                بعد إرسال العملات إلى عنوان الإيداع،
-                سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
-                بعد تأكيد الشبكة.
-            </p>
+<!-- ==========================================
+     CONFIRM TRANSFER BUTTON
+========================================== -->
 
+<button
+type="button"
+id="showTxidButton"
+class="deposit-confirm-button"
+>
 
-        </div>
+تأكيد التحويل
 
+</button>
 
-    </div>
 
 
+<!-- ==========================================
+     TXID
+========================================== -->
 
-    <!-- ======================================
-         WARNING
-    ====================================== -->
+<div
+id="txidSection"
+class="txid-section"
+>
 
-    <div class="deposit-warning">
 
+<h3 class="txid-title">
 
-        ⚠️
+تأكيد التحويل
 
+</h3>
 
-        <span data-lang="deposit_warning_1">
-            أرسل العملات إلى العنوان الظاهر فقط.
-        </span>
 
+<p class="txid-description">
 
-        <br><br>
+بعد إتمام التحويل من محفظتك، أدخل رمز المعاملة
+TXID / Transaction Hash لإرسال طلب التحقق.
 
+</p>
 
-        <span data-lang="deposit_warning_2">
-            تأكد من اختيار نفس الشبكة قبل التحويل.
-        </span>
 
+<label
+for="txidInput"
+class="txid-label"
+>
 
-        <br><br>
+رمز المعاملة TXID
 
+</label>
 
-        <span data-lang="deposit_warning_3">
-            أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
-        </span>
 
+<input
+type="text"
+id="txidInput"
+class="txid-input"
+placeholder="أدخل Transaction Hash"
+autocomplete="off"
+spellcheck="false"
+>
 
-        <br><br>
 
+<div
+id="depositConfirmMeta"
+class="deposit-confirm-meta"
+>
 
-        <span data-lang="deposit_warning_4">
-            بعد تأكيد التحويل على البلوكشين
-            سيتم إضافة الرصيد تلقائياً.
-        </span>
 
+<div class="deposit-confirm-meta-row">
 
-    </div>
+<span>
+العملة
+</span>
 
+<span id="confirmCoin">
+USDT
+</span>
 
+</div>
 
-    <!-- ======================================
-         CONFIRM DEPOSIT
-    ====================================== -->
 
-    <div class="deposit-confirm-area">
+<div class="deposit-confirm-meta-row">
 
+<span>
+الشبكة
+</span>
 
-        <button
-            type="button"
-            class="deposit-confirm-button"
-            id="confirmDepositButton"
-        >
+<span id="confirmNetwork">
+TRC20
+</span>
 
-            <span>
-                ✓
-            </span>
+</div>
 
-            <span data-lang="deposit_confirm_button">
-                تم التحويل — تأكيد الإيداع
-            </span>
 
-        </button>
+<div class="deposit-confirm-meta-row">
 
+<span>
+العنوان
+</span>
 
-        <p
-            class="deposit-confirm-note"
-            data-lang="deposit_confirm_note"
-        >
-            بعد إتمام التحويل، اضغط هنا لإدخال رمز التحويل
-            (TXID) وإرسال الطلب للتحقق.
-        </p>
+<span
+id="confirmAddress"
+dir="ltr"
+>
+—
+</span>
 
+</div>
 
-    </div>
+
+</div>
+
+
+<button
+type="button"
+id="submitTxidButton"
+class="txid-submit-button"
+>
+
+إرسال رمز المعاملة
+
+</button>
+
+
+<div
+id="txidMessage"
+class="txid-message"
+>
+</div>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     AUTO CREDIT
+========================================== -->
+
+<div class="deposit-info">
+
+
+<div class="info-card">
+
+
+<h3 data-lang="deposit_auto_credit">
+
+سيتم إضافة الرصيد تلقائياً
+
+</h3>
+
+
+<p data-lang="deposit_auto_credit_text">
+
+بعد إرسال العملات إلى عنوان الإيداع،
+سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
+بعد تأكيد الشبكة.
+
+</p>
+
+
+</div>
+
+
+</div>
+
+
+
+<!-- ==========================================
+     WARNING
+========================================== -->
+
+<div class="deposit-warning">
+
+
+⚠️
+
+
+<span data-lang="deposit_warning_1">
+
+أرسل العملات إلى العنوان الظاهر فقط.
+
+</span>
+
+
+<br><br>
+
+
+<span data-lang="deposit_warning_2">
+
+تأكد من اختيار نفس الشبكة قبل التحويل.
+
+</span>
+
+
+<br><br>
+
+
+<span data-lang="deposit_warning_3">
+
+أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
+
+</span>
+
+
+<br><br>
+
+
+<span data-lang="deposit_warning_4">
+
+بعد تأكيد التحويل على البلوكشين
+سيتم إضافة الرصيد تلقائياً.
+
+</span>
+
+
+</div>
 
 
 </section>
@@ -380,10 +926,12 @@
 
 <script>
 
+"use strict";
 
-// ==========================================
-// VALORA DEPOSIT SYSTEM
-// ==========================================
+
+/* =========================================================
+   VALORA DEPOSIT
+========================================================= */
 
 let currentCoin = "USDT";
 
@@ -391,9 +939,9 @@ let currentNetwork = "TRC20";
 
 
 
-// ==========================================
-// COIN NETWORKS
-// ==========================================
+/* =========================================================
+   COIN NETWORKS
+========================================================= */
 
 const coinNetworks = {
 
@@ -418,42 +966,40 @@ const coinNetworks = {
 
 
 
-// ==========================================
-// DEPOSIT ADDRESSES
-// ==========================================
-// مؤقتة للتصميم فقط.
-// سيتم نقلها إلى السيرفر عند الربط الحقيقي.
+/* =========================================================
+   DEPOSIT ADDRESSES
+========================================================= */
 
 const addresses = {
 
     USDT: {
 
         TRC20:
-            "TXXXXXXXXXXXXXXXXXXXXXXXX",
+            "TWKLhGUE9BFU5Qg35ds6jGR1ktoGKnjx9o",
 
         ERC20:
-            "0xUSDTXXXXXXXXXXXXXXXX"
+            "0x4e1ce75f0e2d1e448e2bcb95a9a01e0390e7683b"
 
     },
 
     BTC: {
 
         Bitcoin:
-            "bc1BTCXXXXXXXXXXXXXXXX"
+            "bc1q8298k8cnlv4txuejd3frdggpxda42kf2ft23qn"
 
     },
 
     ETH: {
 
         ERC20:
-            "0xETHXXXXXXXXXXXXXXXX"
+            "0x4e1ce75f0e2d1e448e2bcb95a9a01e0390e7683b"
 
     },
 
     TRX: {
 
         TRC20:
-            "TXTRONXXXXXXXXXXXXXXXX"
+            "TWKLhGUE9BFU5Qg35ds6jGR1ktoGKnjx9o"
 
     }
 
@@ -461,12 +1007,52 @@ const addresses = {
 
 
 
-// ==========================================
-// SELECT COIN
-// ==========================================
+/* =========================================================
+   ELEMENTS
+========================================================= */
+
+const txidSection =
+    document.getElementById("txidSection");
+
+
+const showTxidButton =
+    document.getElementById("showTxidButton");
+
+
+const txidInput =
+    document.getElementById("txidInput");
+
+
+const submitTxidButton =
+    document.getElementById("submitTxidButton");
+
+
+const txidMessage =
+    document.getElementById("txidMessage");
+
+
+const confirmCoin =
+    document.getElementById("confirmCoin");
+
+
+const confirmNetwork =
+    document.getElementById("confirmNetwork");
+
+
+const confirmAddress =
+    document.getElementById("confirmAddress");
+
+
+const depositConfirmMeta =
+    document.getElementById("depositConfirmMeta");
+
+
+
+/* =========================================================
+   SELECT COIN
+========================================================= */
 
 function selectCoin(coin, button) {
-
 
     if (!coinNetworks[coin]) {
 
@@ -475,12 +1061,13 @@ function selectCoin(coin, button) {
     }
 
 
-    currentCoin = coin;
+    currentCoin =
+        coin;
 
 
     document
         .querySelectorAll(".deposit-coin")
-        .forEach(function(btn) {
+        .forEach(function (btn) {
 
             btn.classList.remove("active");
 
@@ -494,18 +1081,19 @@ function selectCoin(coin, button) {
     }
 
 
+    hideTxidSection();
+
     loadNetworks();
 
 }
 
 
 
-// ==========================================
-// LOAD NETWORKS
-// ==========================================
+/* =========================================================
+   LOAD NETWORKS
+========================================================= */
 
 function loadNetworks() {
-
 
     const box =
         document.getElementById("networkBox");
@@ -555,7 +1143,7 @@ function loadNetworks() {
 
 
         button.onclick =
-            function() {
+            function () {
 
                 selectNetwork(
                     this,
@@ -565,7 +1153,9 @@ function loadNetworks() {
             };
 
 
-        box.appendChild(button);
+        box.appendChild(
+            button
+        );
 
     });
 
@@ -576,12 +1166,11 @@ function loadNetworks() {
 
 
 
-// ==========================================
-// SELECT NETWORK
-// ==========================================
+/* =========================================================
+   SELECT NETWORK
+========================================================= */
 
 function selectNetwork(button, network) {
-
 
     currentNetwork =
         network;
@@ -603,18 +1192,19 @@ function selectNetwork(button, network) {
     );
 
 
+    hideTxidSection();
+
     updateAddress();
 
 }
 
 
 
-// ==========================================
-// UPDATE ADDRESS
-// ==========================================
+/* =========================================================
+   UPDATE ADDRESS
+========================================================= */
 
 function updateAddress() {
-
 
     const input =
         document.getElementById(
@@ -629,13 +1219,14 @@ function updateAddress() {
     }
 
 
-    if (
-        !addresses[currentCoin] ||
-        !addresses[currentCoin][currentNetwork]
-    ) {
+    const address =
+        addresses[currentCoin] &&
+        addresses[currentCoin][currentNetwork];
 
-        input.value =
-            "";
+
+    if (!address) {
+
+        input.value = "";
 
         return;
 
@@ -643,18 +1234,17 @@ function updateAddress() {
 
 
     input.value =
-        addresses[currentCoin][currentNetwork];
+        address;
 
 }
 
 
 
-// ==========================================
-// COPY ADDRESS
-// ==========================================
+/* =========================================================
+   COPY ADDRESS
+========================================================= */
 
 function copyDeposit() {
-
 
     const input =
         document.getElementById(
@@ -662,10 +1252,7 @@ function copyDeposit() {
         );
 
 
-    if (
-        !input ||
-        !input.value
-    ) {
+    if (!input || !input.value) {
 
         return;
 
@@ -680,7 +1267,6 @@ function copyDeposit() {
         navigator.clipboard &&
         window.isSecureContext
     ) {
-
 
         navigator.clipboard
             .writeText(address)
@@ -707,34 +1293,27 @@ function copyDeposit() {
 
 
 
-// ==========================================
-// FALLBACK COPY
-// ==========================================
+/* =========================================================
+   FALLBACK COPY
+========================================================= */
 
 function fallbackCopy(input) {
 
-
     try {
-
 
         input.focus();
 
         input.select();
 
-        document.execCommand(
-            "copy"
-        );
+        document.execCommand("copy");
 
         input.blur();
 
-
         showCopyMessage();
-
 
     }
 
     catch(error) {
-
 
         alert(
             getDepositText(
@@ -749,12 +1328,11 @@ function fallbackCopy(input) {
 
 
 
-// ==========================================
-// COPY MESSAGE
-// ==========================================
+/* =========================================================
+   COPY MESSAGE
+========================================================= */
 
 function showCopyMessage() {
-
 
     alert(
         getDepositText(
@@ -767,18 +1345,236 @@ function showCopyMessage() {
 
 
 
-// ==========================================
-// GET LANGUAGE TEXT
-// ==========================================
+/* =========================================================
+   SHOW TXID
+========================================================= */
+
+if (showTxidButton) {
+
+    showTxidButton.addEventListener(
+        "click",
+        function() {
+
+            const address =
+                addresses[currentCoin] &&
+                addresses[currentCoin][currentNetwork];
+
+
+            if (!address) {
+
+                return;
+
+            }
+
+
+            confirmCoin.textContent =
+                currentCoin;
+
+
+            confirmNetwork.textContent =
+                currentNetwork;
+
+
+            confirmAddress.textContent =
+                address;
+
+
+            txidSection.classList.add(
+                "visible"
+            );
+
+
+            depositConfirmMeta.classList.add(
+                "visible"
+            );
+
+
+            txidInput.focus();
+
+
+            txidSection.scrollIntoView({
+
+                behavior: "smooth",
+
+                block: "center"
+
+            });
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   HIDE TXID
+========================================================= */
+
+function hideTxidSection() {
+
+    if (!txidSection) {
+
+        return;
+
+    }
+
+
+    txidSection.classList.remove(
+        "visible"
+    );
+
+
+    if (txidInput) {
+
+        txidInput.value = "";
+
+    }
+
+
+    if (txidMessage) {
+
+        txidMessage.textContent = "";
+
+        txidMessage.className =
+            "txid-message";
+
+    }
+
+}
+
+
+
+/* =========================================================
+   TXID VALIDATION
+========================================================= */
+
+function validateTxid(txid) {
+
+    if (!txid) {
+
+        return false;
+
+    }
+
+
+    const value =
+        txid.trim();
+
+
+    if (value.length < 20) {
+
+        return false;
+
+    }
+
+
+    if (value.length > 200) {
+
+        return false;
+
+    }
+
+
+    return true;
+
+}
+
+
+
+/* =========================================================
+   TXID SUBMIT
+========================================================= */
+
+if (submitTxidButton) {
+
+    submitTxidButton.addEventListener(
+        "click",
+        function() {
+
+
+            const txid =
+                txidInput
+                    ? txidInput.value.trim()
+                    : "";
+
+
+            if (!validateTxid(txid)) {
+
+                showTxidMessage(
+                    "error",
+                    "يرجى إدخال رمز المعاملة TXID بشكل صحيح."
+                );
+
+                return;
+
+            }
+
+
+            /*
+            -------------------------------------------------
+            لا يتم إضافة الرصيد من المتصفح.
+            لا يتم إنشاء معاملة وهمية.
+            لا يتم حفظ TXID محليًا.
+            
+            عند ربط السيرفر سيتم إرسال:
+            
+            coin
+            network
+            address
+            txid
+            
+            إلى API التحقق الحقيقي.
+            -------------------------------------------------
+            */
+
+            showTxidMessage(
+                "info",
+                "تم استلام رمز المعاملة. سيتم التحقق منه على الشبكة قبل اعتماد الإيداع."
+            );
+
+        }
+    );
+
+}
+
+
+
+/* =========================================================
+   TXID MESSAGE
+========================================================= */
+
+function showTxidMessage(type, message) {
+
+    if (!txidMessage) {
+
+        return;
+
+    }
+
+
+    txidMessage.className =
+        "txid-message visible " +
+        type;
+
+
+    txidMessage.textContent =
+        message;
+
+}
+
+
+
+/* =========================================================
+   LANGUAGE TEXT
+========================================================= */
 
 function getDepositText(
     key,
     fallback
 ) {
 
-
     try {
-
 
         if (
             window.VALORA_LANG &&
@@ -792,9 +1588,8 @@ function getDepositText(
 
 
             const data =
-                window.VALORA_LANG.translations[
-                    lang
-                ];
+                window.VALORA_LANG
+                    .translations[lang];
 
 
             if (
@@ -829,112 +1624,9 @@ function getDepositText(
 
 
 
-// ==========================================
-// CONFIRM DEPOSIT
-// ==========================================
-
-function confirmDeposit() {
-
-
-    /*
-    ------------------------------------------
-    التأكد من وجود عنوان
-    ------------------------------------------
-    */
-
-    const addressInput =
-        document.getElementById(
-            "depositAddress"
-        );
-
-
-    if (
-        !addressInput ||
-        !addressInput.value
-    ) {
-
-        alert(
-            getDepositText(
-                "deposit_address_unavailable",
-                "عنوان الإيداع غير متوفر."
-            )
-        );
-
-        return;
-
-    }
-
-
-
-    /*
-    ------------------------------------------
-    حفظ معلومات العملية مؤقتًا
-    ------------------------------------------
-
-    هذا ليس رصيدًا ولا إثباتًا للتحويل.
-    فقط نمرر العملة والشبكة والعنوان
-    إلى صفحة إدخال TXID.
-
-    لاحقًا سيتم أخذ هذه البيانات
-    والتحقق منها عن طريق السيرفر.
-    ------------------------------------------
-    */
-
-    const params =
-        new URLSearchParams({
-
-            coin:
-                currentCoin,
-
-            network:
-                currentNetwork,
-
-            address:
-                addressInput.value
-
-        });
-
-
-
-    /*
-    ------------------------------------------
-    الانتقال إلى صفحة التأكيد
-    ------------------------------------------
-    */
-
-    window.location.href =
-        "deposit-confirm.html?" +
-        params.toString();
-
-}
-
-
-
-// ==========================================
-// CONFIRM BUTTON
-// ==========================================
-
-const confirmDepositButton =
-    document.getElementById(
-        "confirmDepositButton"
-    );
-
-
-if (confirmDepositButton) {
-
-
-    confirmDepositButton.addEventListener(
-        "click",
-        confirmDeposit
-    );
-
-}
-
-
-
-// ==========================================
-// INITIALIZE
-// ==========================================
+/* =========================================================
+   INITIALIZE
+========================================================= */
 
 document.addEventListener(
     "DOMContentLoaded",
