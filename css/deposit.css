@@ -471,3 +471,393 @@ padding:14px;
 
 
 }
+/* =========================================================
+   NEW DEPOSIT FIELDS
+   AMOUNT / TXID / CONFIRM TXID
+========================================================= */
+
+.deposit-input-area{
+
+    display:flex;
+
+    align-items:center;
+
+    width:100%;
+
+    min-height:46px;
+
+    margin-bottom:16px;
+
+    background:#050B16;
+
+    border:1px solid #17365C;
+
+    border-radius:12px;
+
+    overflow:hidden;
+
+}
+
+
+.deposit-input-area input{
+
+    flex:1;
+
+    width:100%;
+
+    height:46px;
+
+    background:transparent;
+
+    border:none;
+
+    outline:none;
+
+    color:#FFFFFF;
+
+    padding:9px 12px;
+
+    font-size:14px;
+
+    font-family:'Cairo',Arial,sans-serif;
+
+}
+
+
+.deposit-input-area input::placeholder{
+
+    color:#68778D;
+
+}
+
+
+.deposit-input-area input:focus{
+
+    box-shadow:0 0 0 1px #1687FF;
+
+}
+
+
+.deposit-currency-label{
+
+    min-width:60px;
+
+    padding:0 12px;
+
+    color:#1687FF;
+
+    font-weight:700;
+
+    font-size:13px;
+
+    text-align:center;
+
+    border-right:1px solid #17365C;
+
+}
+
+
+
+/* =========================================================
+   TXID INPUT
+========================================================= */
+
+#transactionId,
+#confirmTransactionId{
+
+    direction:ltr;
+
+    text-align:left;
+
+    letter-spacing:.3px;
+
+}
+
+
+
+/* =========================================================
+   INFORMATION CARD
+========================================================= */
+
+.deposit-info{
+
+    margin:4px 0 16px;
+
+}
+
+
+.info-card{
+
+    background:#111D32;
+
+    border:1px solid #17365C;
+
+    border-radius:14px;
+
+    padding:13px;
+
+}
+
+
+.info-card h3{
+
+    margin-bottom:6px;
+
+    color:#EAF3FF;
+
+    font-size:15px;
+
+}
+
+
+.info-card p{
+
+    color:#98A5B8;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =========================================================
+   CONFIRM DEPOSIT BUTTON
+========================================================= */
+
+.deposit-confirm-btn{
+
+    width:100%;
+
+    height:48px;
+
+    margin:4px 0 18px;
+
+    border:1px solid #1687FF;
+
+    border-radius:13px;
+
+    background:#1687FF;
+
+    color:#FFFFFF;
+
+    font-family:'Cairo',Arial,sans-serif;
+
+    font-size:15px;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:
+
+        background .2s ease,
+
+        border-color .2s ease,
+
+        transform .2s ease,
+
+        box-shadow .2s ease;
+
+}
+
+
+.deposit-confirm-btn:hover{
+
+    background:#0F78E5;
+
+    border-color:#0F78E5;
+
+    box-shadow:0 0 14px rgba(22,135,255,.25);
+
+}
+
+
+.deposit-confirm-btn:active{
+
+    transform:scale(.98);
+
+}
+
+
+.deposit-confirm-btn:disabled{
+
+    background:#17365C;
+
+    border-color:#17365C;
+
+    color:#7F8DA1;
+
+    cursor:not-allowed;
+
+    box-shadow:none;
+
+    transform:none;
+
+}
+
+
+
+/* =========================================================
+   SUCCESS MESSAGE
+========================================================= */
+
+.deposit-success-message{
+
+    width:100%;
+
+    max-width:600px;
+
+    margin:18px auto;
+
+    padding:18px;
+
+    background:#0B1628;
+
+    border:1px solid #22C55E;
+
+    border-radius:18px;
+
+    text-align:center;
+
+}
+
+
+.deposit-success-icon{
+
+    width:46px;
+
+    height:46px;
+
+    margin:0 auto 10px;
+
+    border-radius:50%;
+
+    background:#22C55E;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:25px;
+
+    font-weight:700;
+
+}
+
+
+.deposit-success-message h3{
+
+    margin-bottom:7px;
+
+    color:#EAF3FF;
+
+    font-size:17px;
+
+}
+
+
+.deposit-success-message p{
+
+    color:#98A5B8;
+
+    font-size:13px;
+
+    line-height:1.8;
+
+}
+
+
+
+/* =========================================================
+   INPUT VALIDATION
+========================================================= */
+
+.deposit-input-area input:invalid{
+
+    box-shadow:none;
+
+}
+
+
+.deposit-input-area:focus-within{
+
+    border-color:#1687FF;
+
+}
+
+
+
+/* =========================================================
+   ENGLISH / LTR SUPPORT
+========================================================= */
+
+html[dir="ltr"] .deposit-currency-label{
+
+    border-right:none;
+
+    border-left:1px solid #17365C;
+
+}
+
+
+html[dir="ltr"] .deposit-input-area input{
+
+    text-align:left;
+
+}
+
+
+
+/* =========================================================
+   MOBILE
+========================================================= */
+
+@media(max-width:400px){
+
+    .deposit-input-area{
+
+        min-height:44px;
+
+    }
+
+
+    .deposit-input-area input{
+
+        height:44px;
+
+        font-size:13px;
+
+    }
+
+
+    .deposit-currency-label{
+
+        min-width:55px;
+
+        padding:0 9px;
+
+    }
+
+
+    .deposit-confirm-btn{
+
+        height:46px;
+
+        font-size:14px;
+
+    }
+
+
+    .info-card{
+
+        padding:12px;
+
+    }
+
+}
