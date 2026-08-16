@@ -7,17 +7,22 @@
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-
 <title>VALORA | Withdraw</title>
 
+<link
+    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+    rel="stylesheet"
+>
 
-<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+<link
+    rel="stylesheet"
+    href="css/withdraw.css"
+>
 
-
-<link rel="stylesheet" href="css/withdraw.css">
-
-<link rel="stylesheet" href="css/background.css">
-
+<link
+    rel="stylesheet"
+    href="css/background.css"
+>
 
 </head>
 
@@ -29,235 +34,315 @@
 
 
 
-<!-- HEADER -->
+<!-- ==========================================
+     HEADER
+========================================== -->
 
 <header class="withdraw-header">
 
-
-<div class="withdraw-logo">
-
-VALORA
-
-</div>
-
+    <div class="withdraw-logo">
+        VALORA
+    </div>
 
 </header>
 
 
 
-
-
-<!-- TITLE -->
+<!-- ==========================================
+     TITLE
+========================================== -->
 
 <section class="withdraw-title">
 
+    <div class="withdraw-icon">
+        ↑
+    </div>
 
-<div class="withdraw-icon">
+    <h2 data-lang="withdraw_title">
+        سحب العملات
+    </h2>
 
-↑
+    <p data-lang="withdraw_subtitle">
+        اسحب أصولك بأمان
+    </p>
 
-</div>
-
-
-
-<h2 data-lang="withdraw_title">
-
-سحب العملات
-
-</h2>
-
+</section>
 
 
-<p data-lang="withdraw_subtitle">
 
-اسحب أصولك بأمان
+<!-- ==========================================
+     BALANCES
+========================================== -->
 
-</p>
+<section class="withdraw-balances">
+
+
+    <!-- MAIN BALANCE -->
+
+    <div class="balance-card">
+
+        <span data-lang="main_balance">
+            الرصيد الأساسي
+        </span>
+
+        <h2 id="mainBalance">
+            0.00 USDT
+        </h2>
+
+    </div>
+
+
+
+    <!-- PROFIT BALANCE -->
+
+    <div class="balance-card">
+
+        <span data-lang="profit_balance">
+            رصيد الأرباح
+        </span>
+
+        <h2 id="profitBalance">
+            0.00 USDT
+        </h2>
+
+    </div>
 
 
 </section>
 
 
 
+<!-- ==========================================
+     PROFIT DETAILS
+========================================== -->
+
+<section class="profit-details-card">
+
+    <div class="profit-detail-row">
+
+        <span data-lang="trading_profit">
+            أرباح التداول
+        </span>
+
+        <strong id="tradingProfit">
+            0.00 USDT
+        </strong>
+
+    </div>
 
 
+    <div class="profit-detail-row">
+
+        <span data-lang="bonus_profit">
+            أرباح المكافآت
+        </span>
+
+        <strong id="bonusProfit">
+            0.00 USDT
+        </strong>
+
+    </div>
 
 
-<!-- BALANCE -->
+    <div class="profit-detail-row">
+
+        <span data-lang="referral_profit">
+            أرباح الدعوة
+        </span>
+
+        <strong id="referralProfit">
+            0.00 USDT
+        </strong>
+
+    </div>
 
 
-<section class="balance-card">
+    <div class="profit-detail-row">
 
+        <span data-lang="team_profit">
+            أرباح الفريق
+        </span>
 
-<span data-lang="available_balance">
+        <strong id="teamProfit">
+            0.00 USDT
+        </strong>
 
-الرصيد المتاح
-
-</span>
-
-
-
-<h2 id="availableBalance">
-
-0.00 USDT
-
-</h2>
-
+    </div>
 
 </section>
 
 
 
+<!-- ==========================================
+     WITHDRAW SOURCE
+========================================== -->
+
+<section class="withdraw-source-card">
+
+    <h3 data-lang="withdraw_source">
+        مصدر السحب
+    </h3>
+
+
+    <div class="withdraw-source-buttons">
+
+
+        <button
+            type="button"
+            id="mainBalanceSource"
+            class="withdraw-source-btn active"
+            onclick="selectWithdrawSource('main', this)"
+        >
+
+            <span data-lang="main_balance">
+                الرصيد الأساسي
+            </span>
+
+        </button>
+
+
+        <button
+            type="button"
+            id="profitBalanceSource"
+            class="withdraw-source-btn"
+            onclick="selectWithdrawSource('profit', this)"
+        >
+
+            <span data-lang="profit_balance">
+                رصيد الأرباح
+            </span>
+
+        </button>
+
+
+    </div>
+
+
+    <div class="selected-withdraw-balance">
+
+        <span data-lang="available_balance">
+            الرصيد المتاح
+        </span>
+
+        <strong id="availableBalance">
+            0.00 USDT
+        </strong>
+
+    </div>
+
+</section>
 
 
 
-
-<!-- COINS -->
+<!-- ==========================================
+     COINS
+========================================== -->
 
 <section class="withdraw-coins">
 
 
+    <!-- USDT -->
 
-<!-- USDT -->
+    <button
+        type="button"
+        class="withdraw-coin active"
+        onclick="selectWithdrawCoin('USDT', this)"
+    >
 
-<button 
-class="withdraw-coin active"
-onclick="selectWithdrawCoin('USDT',this)"
->
+        <div class="coin-icon usdt">
+            ₮
+        </div>
 
+        <strong>
+            USDT
+        </strong>
 
-<div class="coin-icon usdt">
+        <small data-lang="tether">
+            Tether
+        </small>
 
-₮
+    </button>
 
-</div>
 
 
-<strong>
+    <!-- BTC -->
 
-USDT
+    <button
+        type="button"
+        class="withdraw-coin"
+        onclick="selectWithdrawCoin('BTC', this)"
+    >
 
-</strong>
+        <div class="coin-icon btc">
+            ₿
+        </div>
 
+        <strong>
+            BTC
+        </strong>
 
-<small data-lang="tether">
+        <small data-lang="bitcoin">
+            Bitcoin
+        </small>
 
-Tether
+    </button>
 
-</small>
 
 
-</button>
+    <!-- ETH -->
 
+    <button
+        type="button"
+        class="withdraw-coin"
+        onclick="selectWithdrawCoin('ETH', this)"
+    >
 
+        <div class="coin-icon eth">
+            ◆
+        </div>
 
+        <strong>
+            ETH
+        </strong>
 
+        <small data-lang="ethereum">
+            Ethereum
+        </small>
 
-<!-- BTC -->
+    </button>
 
-<button 
-class="withdraw-coin"
-onclick="selectWithdrawCoin('BTC',this)"
->
 
 
-<div class="coin-icon btc">
+    <!-- TRX -->
 
-₿
+    <button
+        type="button"
+        class="withdraw-coin"
+        onclick="selectWithdrawCoin('TRX', this)"
+    >
 
-</div>
+        <div class="coin-icon trx">
+            TRX
+        </div>
 
+        <strong>
+            TRX
+        </strong>
 
-<strong>
+        <small data-lang="tron">
+            TRON
+        </small>
 
-BTC
-
-</strong>
-
-
-<small data-lang="bitcoin">
-
-Bitcoin
-
-</small>
-
-
-</button>
-
-
-
-
-
-<!-- ETH -->
-
-<button 
-class="withdraw-coin"
-onclick="selectWithdrawCoin('ETH',this)"
->
-
-
-<div class="coin-icon eth">
-
-◆
-
-</div>
-
-
-<strong>
-
-ETH
-
-</strong>
-
-
-<small data-lang="ethereum">
-
-Ethereum
-
-</small>
-
-
-</button>
-
-
-
-
-
-<!-- TRX -->
-
-<button 
-class="withdraw-coin"
-onclick="selectWithdrawCoin('TRX',this)"
->
-
-
-<div class="coin-icon trx">
-
-TRX
-
-</div>
-
-
-<strong>
-
-TRX
-
-</strong>
-
-
-<small data-lang="tron">
-
-TRON
-
-</small>
-
-
-</button>
-
+    </button>
 
 
 </section>
-<!-- WITHDRAW FORM -->
+
+
+
+<!-- ==========================================
+     WITHDRAW FORM
+========================================== -->
 
 <section class="withdraw-card">
 
@@ -266,291 +351,207 @@ TRON
 <!-- NETWORK -->
 
 <h3 data-lang="withdraw_network">
-
-شبكة السحب
-
+    شبكة السحب
 </h3>
 
 
-
-<div 
-class="network-buttons" 
-id="withdrawNetwork">
-
+<div
+    class="network-buttons"
+    id="withdrawNetwork"
+>
 </div>
-
-
-
-
 
 
 
 <!-- ADDRESS -->
 
 <h3 data-lang="withdraw_address">
-
-عنوان السحب
-
+    عنوان السحب
 </h3>
-
 
 
 <div class="input-area">
 
-
-<input
-
-type="text"
-
-id="withdrawAddress"
-
-data-lang-placeholder="withdraw_address_placeholder"
-
-placeholder="أدخل عنوان المحفظة"
-
->
-
+    <input
+        type="text"
+        id="withdrawAddress"
+        data-lang-placeholder="withdraw_address_placeholder"
+        placeholder="أدخل عنوان المحفظة"
+        autocomplete="off"
+        spellcheck="false"
+        dir="ltr"
+    >
 
 </div>
-
-
-
-
 
 
 
 <!-- AMOUNT -->
 
 <h3 data-lang="withdraw_amount">
-
-مبلغ السحب
-
+    مبلغ السحب
 </h3>
-
 
 
 <div class="input-area">
 
-
-<input
-
-type="number"
-
-id="withdrawAmount"
-
-oninput="calculateWithdraw()"
-
-data-lang-placeholder="withdraw_amount_placeholder"
-
-placeholder="أدخل مبلغ السحب"
-
->
-
+    <input
+        type="number"
+        id="withdrawAmount"
+        oninput="calculateWithdraw()"
+        data-lang-placeholder="withdraw_amount_placeholder"
+        placeholder="أدخل مبلغ السحب"
+        min="0"
+        step="any"
+        inputmode="decimal"
+        autocomplete="off"
+    >
 
 </div>
-
-
-
-
-
 
 
 
 <!-- SECURITY CODE -->
 
 <h3 data-lang="security_code">
-
-رمز أمان السحب
-
+    رمز أمان السحب
 </h3>
-
 
 
 <div class="input-area">
 
-
-<input
-
-type="password"
-
-id="withdrawSecurityCode"
-
-data-lang-placeholder="security_code_placeholder"
-
-placeholder="أدخل رمز أمان السحب"
-
->
-
+    <input
+        type="password"
+        id="withdrawSecurityCode"
+        data-lang-placeholder="security_code_placeholder"
+        placeholder="أدخل رمز أمان السحب"
+        autocomplete="off"
+        inputmode="numeric"
+    >
 
 </div>
-
-
-
-
 
 
 
 <!-- WITHDRAW INFO -->
 
-
 <div class="withdraw-info">
 
 
+    <div>
 
-<div>
+        <span data-lang="withdraw_fee">
+            رسوم السحب
+        </span>
 
+        <strong id="withdrawFee">
+            0.00 USDT
+        </strong>
 
-<span data-lang="withdraw_fee">
-
-رسوم السحب
-
-</span>
-
-
-<strong id="withdrawFee">
-
-0.00 USDT
-
-</strong>
+    </div>
 
 
-</div>
+    <div>
 
+        <span data-lang="receive_amount">
+            المبلغ المستلم
+        </span>
 
+        <strong id="receiveAmount">
+            0.00 USDT
+        </strong>
 
-
-
-<div>
-
-
-<span data-lang="receive_amount">
-
-المبلغ المستلم
-
-</span>
-
-
-<strong id="receiveAmount">
-
-0.00 USDT
-
-</strong>
+    </div>
 
 
 </div>
 
 
 
-</div>
+<!-- ==========================================
+     FEE NOTE
+========================================== -->
 
+<div class="fee-note">
 
+    <span data-lang="withdraw_before_doubling">
+        السحب قبل التضعيف: 20%
+    </span>
 
+    <br>
 
-
-
-
-<!-- FEE NOTE -->
-
-
-<div 
-class="fee-note"
-data-lang="fee_note"
->
-
-
-قبل التضعيف: 20%
-
+    <span data-lang="withdraw_after_doubling">
+        السحب بعد التضعيف: 5%
+    </span>
 
 </div>
-
-
-
-
 
 
 
 <!-- BUTTON -->
 
-
 <button
-
-class="withdraw-btn"
-
-onclick="submitWithdraw()"
-
+    type="button"
+    class="withdraw-btn"
+    onclick="submitWithdraw()"
 >
 
-
-<span data-lang="confirm_withdraw">
-
-تأكيد السحب
-
-</span>
-
+    <span data-lang="confirm_withdraw">
+        تأكيد السحب
+    </span>
 
 </button>
 
 
 
-
-
-
-
 <!-- MESSAGE -->
 
-
 <div
-
-id="withdrawMessage"
-
-class="withdraw-message"
-
+    id="withdrawMessage"
+    class="withdraw-message"
 >
-
 </div>
-
-
 
 
 </section>
+
+
 </div>
 
 
 
-<!-- LANGUAGE SYSTEM -->
+<!-- ==========================================
+     LANGUAGE SYSTEM
+========================================== -->
 
 <script src="js/language.js"></script>
 
 
-
-<!-- WITHDRAW SYSTEM -->
+<!-- ==========================================
+     WITHDRAW SYSTEM
+========================================== -->
 
 <script src="js/withdraw.js"></script>
-
-
-
 
 
 <script>
 
 document.addEventListener(
-"DOMContentLoaded",
-function(){
+    "DOMContentLoaded",
+    function () {
 
+        if (
+            typeof applyLanguage === "function"
+        ) {
 
-if(typeof applyLanguage === "function"){
+            applyLanguage();
 
-applyLanguage();
+        }
 
-}
-
-
-}
-
+    }
 );
 
 </script>
-
 
 
 </body>
