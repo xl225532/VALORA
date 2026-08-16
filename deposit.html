@@ -251,7 +251,7 @@
          AMOUNT
     ====================================== -->
 
-    <h3>
+    <h3 data-lang="deposit_amount_title">
         مبلغ الإيداع
     </h3>
 
@@ -265,6 +265,7 @@
             min="0"
             step="any"
             placeholder="أدخل المبلغ الذي أرسلته"
+            data-lang-placeholder="deposit_amount_placeholder"
             autocomplete="off"
         >
 
@@ -283,7 +284,7 @@
          TXID
     ====================================== -->
 
-    <h3>
+    <h3 data-lang="deposit_txid_title">
         رمز التحويل TXID
     </h3>
 
@@ -294,6 +295,7 @@
             type="text"
             id="transactionId"
             placeholder="أدخل رمز التحويل TXID"
+            data-lang-placeholder="deposit_txid_placeholder"
             autocomplete="off"
             spellcheck="false"
             dir="ltr"
@@ -307,7 +309,7 @@
          CONFIRM TXID
     ====================================== -->
 
-    <h3>
+    <h3 data-lang="deposit_confirm_txid_title">
         تأكيد رمز التحويل TXID
     </h3>
 
@@ -318,6 +320,7 @@
             type="text"
             id="confirmTransactionId"
             placeholder="أعد إدخال رمز التحويل TXID"
+            data-lang-placeholder="deposit_confirm_txid_placeholder"
             autocomplete="off"
             spellcheck="false"
             dir="ltr"
@@ -328,18 +331,18 @@
 
 
     <!-- ======================================
-         TXID WARNING
+         TXID INFO
     ====================================== -->
 
     <div class="deposit-info">
 
         <div class="info-card">
 
-            <h3>
+            <h3 data-lang="deposit_confirmation_title">
                 تأكيد التحويل
             </h3>
 
-            <p>
+            <p data-lang="deposit_confirmation_text">
                 أدخل المبلغ الذي أرسلته ورمز التحويل
                 TXID كما يظهر في شبكة البلوكشين.
                 يجب أن يكون رمز التحويل مطابقاً في الخانتين.
@@ -359,6 +362,7 @@
         type="button"
         id="confirmDepositButton"
         class="deposit-confirm-btn"
+        data-lang="deposit_confirm_button"
     >
 
         تأكيد التحويل
@@ -443,11 +447,11 @@
         ✓
     </div>
 
-    <h3>
+    <h3 data-lang="deposit_success_title">
         تم إرسال طلب الإيداع
     </h3>
 
-    <p>
+    <p data-lang="deposit_success_text">
         تم تسجيل بيانات التحويل بنجاح.
         سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.
     </p>
@@ -483,6 +487,315 @@
 let currentCoin = "USDT";
 
 let currentNetwork = "TRC20";
+
+
+
+// ==========================================
+// DEPOSIT TRANSLATIONS
+// ==========================================
+
+const depositTranslations = {
+
+    ar: {
+
+        deposit_amount_title:
+            "مبلغ الإيداع",
+
+        deposit_amount_placeholder:
+            "أدخل المبلغ الذي أرسلته",
+
+        deposit_txid_title:
+            "رمز التحويل TXID",
+
+        deposit_txid_placeholder:
+            "أدخل رمز التحويل TXID",
+
+        deposit_confirm_txid_title:
+            "تأكيد رمز التحويل TXID",
+
+        deposit_confirm_txid_placeholder:
+            "أعد إدخال رمز التحويل TXID",
+
+        deposit_confirmation_title:
+            "تأكيد التحويل",
+
+        deposit_confirmation_text:
+            "أدخل المبلغ الذي أرسلته ورمز التحويل TXID كما يظهر في شبكة البلوكشين. يجب أن يكون رمز التحويل مطابقاً في الخانتين.",
+
+        deposit_confirm_button:
+            "تأكيد التحويل",
+
+        deposit_success_title:
+            "تم إرسال طلب الإيداع",
+
+        deposit_success_text:
+            "تم تسجيل بيانات التحويل بنجاح. سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.",
+
+        copy_failed:
+            "فشل نسخ العنوان",
+
+        deposit_copied:
+            "تم نسخ عنوان الإيداع",
+
+        invalid_amount:
+            "يرجى إدخال مبلغ إيداع صحيح.",
+
+        enter_txid:
+            "يرجى إدخال رمز التحويل TXID.",
+
+        confirm_txid:
+            "يرجى تأكيد رمز التحويل TXID.",
+
+        txid_mismatch:
+            "رمز التحويل وتأكيد الرمز غير متطابقين.",
+
+        request_sent:
+            "تم إرسال الطلب",
+
+        network_erc20:
+            "ERC20",
+
+        network_trc20:
+            "TRC20",
+
+        network_bitcoin:
+            "Bitcoin"
+
+    },
+
+
+    en: {
+
+        deposit_amount_title:
+            "Deposit Amount",
+
+        deposit_amount_placeholder:
+            "Enter the amount you sent",
+
+        deposit_txid_title:
+            "Transaction ID (TXID)",
+
+        deposit_txid_placeholder:
+            "Enter the transaction TXID",
+
+        deposit_confirm_txid_title:
+            "Confirm Transaction TXID",
+
+        deposit_confirm_txid_placeholder:
+            "Re-enter the transaction TXID",
+
+        deposit_confirmation_title:
+            "Confirm Transfer",
+
+        deposit_confirmation_text:
+            "Enter the amount you sent and the transaction TXID exactly as shown on the blockchain. The TXID must match in both fields.",
+
+        deposit_confirm_button:
+            "Confirm Transfer",
+
+        deposit_success_title:
+            "Deposit Request Submitted",
+
+        deposit_success_text:
+            "Your transfer details have been successfully submitted. The transaction will be verified and your balance will be credited after confirmation.",
+
+        copy_failed:
+            "Failed to copy the deposit address",
+
+        deposit_copied:
+            "Deposit address copied",
+
+        invalid_amount:
+            "Please enter a valid deposit amount.",
+
+        enter_txid:
+            "Please enter the transaction TXID.",
+
+        confirm_txid:
+            "Please confirm the transaction TXID.",
+
+        txid_mismatch:
+            "The transaction TXID and confirmation do not match.",
+
+        request_sent:
+            "Request Submitted",
+
+        network_erc20:
+            "ERC20",
+
+        network_trc20:
+            "TRC20",
+
+        network_bitcoin:
+            "Bitcoin"
+
+    }
+
+};
+
+
+
+// ==========================================
+// GET CURRENT LANGUAGE
+// ==========================================
+
+function getCurrentDepositLanguage() {
+
+    try {
+
+        if (
+            window.VALORA_LANG &&
+            typeof window.VALORA_LANG.getLanguage ===
+            "function"
+        ) {
+
+            const lang =
+                window.VALORA_LANG.getLanguage();
+
+            if (
+                depositTranslations[lang]
+            ) {
+
+                return lang;
+
+            }
+
+        }
+
+    }
+
+    catch(error) {
+
+        console.warn(
+            "VALORA language detection error:",
+            error
+        );
+
+    }
+
+
+    const htmlLang =
+        document.documentElement.lang;
+
+
+    if (
+        htmlLang &&
+        depositTranslations[htmlLang]
+    ) {
+
+        return htmlLang;
+
+    }
+
+
+    return "ar";
+
+}
+
+
+
+// ==========================================
+// GET DEPOSIT TEXT
+// ==========================================
+
+function getDepositText(key, fallback) {
+
+    const lang =
+        getCurrentDepositLanguage();
+
+
+    if (
+        depositTranslations[lang] &&
+        depositTranslations[lang][key]
+    ) {
+
+        return depositTranslations[lang][key];
+
+    }
+
+
+    return fallback;
+
+}
+
+
+
+// ==========================================
+// APPLY DEPOSIT LANGUAGE
+// ==========================================
+
+function applyDepositLanguage() {
+
+    const lang =
+        getCurrentDepositLanguage();
+
+
+    const translations =
+        depositTranslations[lang];
+
+
+    if (!translations) {
+
+        return;
+
+    }
+
+
+    document
+        .querySelectorAll("[data-lang]")
+        .forEach(function(element) {
+
+            const key =
+                element.getAttribute("data-lang");
+
+
+            if (
+                translations[key]
+            ) {
+
+                element.textContent =
+                    translations[key];
+
+            }
+
+        });
+
+
+    document
+        .querySelectorAll("[data-lang-placeholder]")
+        .forEach(function(element) {
+
+            const key =
+                element.getAttribute(
+                    "data-lang-placeholder"
+                );
+
+
+            if (
+                translations[key]
+            ) {
+
+                element.placeholder =
+                    translations[key];
+
+            }
+
+        });
+
+
+    document.documentElement.lang =
+        lang;
+
+
+    document.documentElement.dir =
+        lang === "ar"
+            ? "rtl"
+            : "ltr";
+
+
+    updateNetworkLabels();
+
+}
 
 
 
@@ -576,21 +889,26 @@ function selectCoin(coin, button) {
     }
 
 
-    currentCoin = coin;
+    currentCoin =
+        coin;
 
 
     document
         .querySelectorAll(".deposit-coin")
         .forEach(function(btn) {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
     if (button) {
 
-        button.classList.add("active");
+        button.classList.add(
+            "active"
+        );
 
     }
 
@@ -608,7 +926,9 @@ function selectCoin(coin, button) {
 function loadNetworks() {
 
     const box =
-        document.getElementById("networkBox");
+        document.getElementById(
+            "networkBox"
+        );
 
 
     if (!box) {
@@ -625,46 +945,136 @@ function loadNetworks() {
         coinNetworks[currentCoin] || [];
 
 
-    networks.forEach(function(network, index) {
+    networks.forEach(
+        function(network, index) {
 
-        const button =
-            document.createElement("button");
-
-
-        button.type = "button";
-
-        button.className = "network";
-
-        button.innerText = network;
+            const button =
+                document.createElement(
+                    "button"
+                );
 
 
-        if (index === 0) {
-
-            button.classList.add("active");
-
-            currentNetwork = network;
-
-        }
+            button.type =
+                "button";
 
 
-        button.onclick = function() {
+            button.className =
+                "network";
 
-            selectNetwork(
-                this,
-                network
+
+            button.dataset.network =
+                network;
+
+
+            if (index === 0) {
+
+                button.classList.add(
+                    "active"
+                );
+
+                currentNetwork =
+                    network;
+
+            }
+
+
+            button.onclick =
+                function() {
+
+                    selectNetwork(
+                        this,
+                        network
+                    );
+
+                };
+
+
+            box.appendChild(
+                button
             );
 
-        };
-
-
-        box.appendChild(button);
-
-    });
+        }
+    );
 
 
     updateCurrencyLabel();
 
     updateAddress();
+
+    updateNetworkLabels();
+
+}
+
+
+
+// ==========================================
+// NETWORK LABEL
+// ==========================================
+
+function getNetworkText(network) {
+
+    switch(network) {
+
+        case "ERC20":
+
+            return getDepositText(
+                "network_erc20",
+                "ERC20"
+            );
+
+
+        case "TRC20":
+
+            return getDepositText(
+                "network_trc20",
+                "TRC20"
+            );
+
+
+        case "Bitcoin":
+
+            return getDepositText(
+                "network_bitcoin",
+                "Bitcoin"
+            );
+
+
+        default:
+
+            return network;
+
+    }
+
+}
+
+
+
+// ==========================================
+// UPDATE NETWORK LABELS
+// ==========================================
+
+function updateNetworkLabels() {
+
+    document
+        .querySelectorAll(
+            "#networkBox .network"
+        )
+        .forEach(function(button) {
+
+            const network =
+                button.dataset.network;
+
+
+            if (network) {
+
+                button.textContent =
+                    getNetworkText(
+                        network
+                    );
+
+            }
+
+        });
 
 }
 
@@ -674,21 +1084,29 @@ function loadNetworks() {
 // SELECT NETWORK
 // ==========================================
 
-function selectNetwork(button, network) {
+function selectNetwork(
+    button,
+    network
+) {
 
-    currentNetwork = network;
+    currentNetwork =
+        network;
 
 
     document
         .querySelectorAll(".network")
         .forEach(function(btn) {
 
-            btn.classList.remove("active");
+            btn.classList.remove(
+                "active"
+            );
 
         });
 
 
-    button.classList.add("active");
+    button.classList.add(
+        "active"
+    );
 
 
     updateAddress();
@@ -704,7 +1122,9 @@ function selectNetwork(button, network) {
 function updateAddress() {
 
     const input =
-        document.getElementById("depositAddress");
+        document.getElementById(
+            "depositAddress"
+        );
 
 
     if (!input) {
@@ -766,10 +1186,15 @@ function updateCurrencyLabel() {
 function copyDeposit() {
 
     const input =
-        document.getElementById("depositAddress");
+        document.getElementById(
+            "depositAddress"
+        );
 
 
-    if (!input || !input.value) {
+    if (
+        !input ||
+        !input.value
+    ) {
 
         return;
 
@@ -794,7 +1219,9 @@ function copyDeposit() {
             })
             .catch(function() {
 
-                fallbackCopy(input);
+                fallbackCopy(
+                    input
+                );
 
             });
 
@@ -802,7 +1229,9 @@ function copyDeposit() {
 
     else {
 
-        fallbackCopy(input);
+        fallbackCopy(
+            input
+        );
 
     }
 
@@ -822,7 +1251,9 @@ function fallbackCopy(input) {
 
         input.select();
 
-        document.execCommand("copy");
+        document.execCommand(
+            "copy"
+        );
 
         input.blur();
 
@@ -863,60 +1294,6 @@ function showCopyMessage() {
 
 
 // ==========================================
-// GET LANGUAGE TEXT
-// ==========================================
-
-function getDepositText(key, fallback) {
-
-    try {
-
-        if (
-            window.VALORA_LANG &&
-            window.VALORA_LANG.getLanguage &&
-            window.VALORA_LANG.translations
-        ) {
-
-            const lang =
-                window.VALORA_LANG.getLanguage();
-
-
-            const data =
-                window.VALORA_LANG.translations[lang];
-
-
-            if (
-                data &&
-                Object.prototype.hasOwnProperty.call(
-                    data,
-                    key
-                )
-            ) {
-
-                return data[key];
-
-            }
-
-        }
-
-    }
-
-    catch(error) {
-
-        console.warn(
-            "VALORA language error:",
-            error
-        );
-
-    }
-
-
-    return fallback;
-
-}
-
-
-
-// ==========================================
 // VALIDATE AMOUNT
 // ==========================================
 
@@ -947,10 +1324,15 @@ function validateDepositAmount() {
     ) {
 
         alert(
-            "يرجى إدخال مبلغ إيداع صحيح."
+            getDepositText(
+                "invalid_amount",
+                "يرجى إدخال مبلغ إيداع صحيح."
+            )
         );
 
+
         amountInput.focus();
+
 
         return false;
 
@@ -981,7 +1363,10 @@ function validateTransactionId() {
         );
 
 
-    if (!txidInput || !confirmInput) {
+    if (
+        !txidInput ||
+        !confirmInput
+    ) {
 
         return false;
 
@@ -999,10 +1384,15 @@ function validateTransactionId() {
     if (!txid) {
 
         alert(
-            "يرجى إدخال رمز التحويل TXID."
+            getDepositText(
+                "enter_txid",
+                "يرجى إدخال رمز التحويل TXID."
+            )
         );
 
+
         txidInput.focus();
+
 
         return false;
 
@@ -1012,23 +1402,35 @@ function validateTransactionId() {
     if (!confirmTxid) {
 
         alert(
-            "يرجى تأكيد رمز التحويل TXID."
+            getDepositText(
+                "confirm_txid",
+                "يرجى تأكيد رمز التحويل TXID."
+            )
         );
 
+
         confirmInput.focus();
+
 
         return false;
 
     }
 
 
-    if (txid !== confirmTxid) {
+    if (
+        txid !== confirmTxid
+    ) {
 
         alert(
-            "رمز التحويل وتأكيد الرمز غير متطابقين."
+            getDepositText(
+                "txid_mismatch",
+                "رمز التحويل وتأكيد الرمز غير متطابقين."
+            )
         );
 
+
         confirmInput.focus();
+
 
         return false;
 
@@ -1047,14 +1449,18 @@ function validateTransactionId() {
 
 function submitDeposit() {
 
-    if (!validateDepositAmount()) {
+    if (
+        !validateDepositAmount()
+    ) {
 
         return;
 
     }
 
 
-    if (!validateTransactionId()) {
+    if (
+        !validateTransactionId()
+    ) {
 
         return;
 
@@ -1088,28 +1494,39 @@ function submitDeposit() {
     TEMPORARY LOCAL REQUEST RECORD
     ==========================================
 
-    هذا السجل مؤقت فقط في مرحلة التصميم.
-    عند ربط السيرفر سيتم استبداله بطلب API حقيقي.
+    ملاحظة:
+    هذا الجزء سيُستبدل لاحقًا
+    بطلب API حقيقي عند ربط السيرفر.
     ==========================================
     */
 
     const depositRequest = {
 
-        coin: currentCoin,
+        coin:
+            currentCoin,
 
-        network: currentNetwork,
+        network:
+            currentNetwork,
 
         address:
-            addresses[currentCoin][currentNetwork],
+            addresses[
+                currentCoin
+            ][
+                currentNetwork
+            ],
 
-        amount: amount,
+        amount:
+            amount,
 
-        txid: txid,
+        txid:
+            txid,
 
-        status: "pending",
+        status:
+            "pending",
 
         createdAt:
-            new Date().toISOString()
+            new Date()
+                .toISOString()
 
     };
 
@@ -1136,13 +1553,17 @@ function submitDeposit() {
 
     if (successMessage) {
 
-        successMessage.hidden = false;
+        successMessage.hidden =
+            false;
+
 
         successMessage.scrollIntoView({
 
-            behavior: "smooth",
+            behavior:
+                "smooth",
 
-            block: "center"
+            block:
+                "center"
 
         });
 
@@ -1150,7 +1571,9 @@ function submitDeposit() {
 
 
     /*
-    تعطيل الزر بعد الإرسال
+    ==========================================
+    DISABLE BUTTON
+    ==========================================
     */
 
     const button =
@@ -1161,10 +1584,15 @@ function submitDeposit() {
 
     if (button) {
 
-        button.disabled = true;
+        button.disabled =
+            true;
+
 
         button.textContent =
-            "تم إرسال الطلب";
+            getDepositText(
+                "request_sent",
+                "تم إرسال الطلب"
+            );
 
     }
 
@@ -1173,12 +1601,13 @@ function submitDeposit() {
 
 
 // ==========================================
-// CONFIRM BUTTON
+// INITIALIZE
 // ==========================================
 
 document.addEventListener(
     "DOMContentLoaded",
     function() {
+
 
         if (
             typeof applyLanguage ===
@@ -1190,9 +1619,14 @@ document.addEventListener(
         }
 
 
+        applyDepositLanguage();
+
+
         loadNetworks();
 
+
         updateAddress();
+
 
         updateCurrencyLabel();
 
@@ -1212,7 +1646,42 @@ document.addEventListener(
 
         }
 
+
     }
+);
+
+
+
+// ==========================================
+// LANGUAGE CHANGE OBSERVER
+// ==========================================
+
+let lastDepositLanguage =
+    getCurrentDepositLanguage();
+
+
+setInterval(
+    function() {
+
+        const currentLanguage =
+            getCurrentDepositLanguage();
+
+
+        if (
+            currentLanguage !==
+            lastDepositLanguage
+        ) {
+
+            lastDepositLanguage =
+                currentLanguage;
+
+
+            applyDepositLanguage();
+
+        }
+
+    },
+    300
 );
 
 </script>
@@ -1220,4 +1689,4 @@ document.addEventListener(
 
 </body>
 
-   </html>
+</html>
