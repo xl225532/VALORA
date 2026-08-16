@@ -5,7 +5,10 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
 <title>VALORA | Withdraw</title>
 
@@ -31,7 +34,6 @@
 
 
 <div class="withdraw-container">
-
 
 
 <!-- ==========================================
@@ -79,7 +81,7 @@
 
     <!-- MAIN BALANCE -->
 
-    <div class="balance-card">
+    <div class="balance-card main-balance-card">
 
         <span data-lang="main_balance">
             الرصيد الأساسي
@@ -95,7 +97,7 @@
 
     <!-- PROFIT BALANCE -->
 
-    <div class="balance-card">
+    <div class="balance-card profit-balance-card">
 
         <span data-lang="profit_balance">
             رصيد الأرباح
@@ -117,6 +119,11 @@
 ========================================== -->
 
 <section class="profit-details-card">
+
+    <div class="profit-detail-title" data-lang="profit_details">
+        تفاصيل الأرباح
+    </div>
+
 
     <div class="profit-detail-row">
 
@@ -187,6 +194,8 @@
     <div class="withdraw-source-buttons">
 
 
+        <!-- MAIN -->
+
         <button
             type="button"
             id="mainBalanceSource"
@@ -194,12 +203,22 @@
             onclick="selectWithdrawSource('main', this)"
         >
 
-            <span data-lang="main_balance">
+            <span class="source-icon">
+                $
+            </span>
+
+            <span
+                class="source-text"
+                data-lang="main_balance"
+            >
                 الرصيد الأساسي
             </span>
 
         </button>
 
+
+
+        <!-- PROFIT -->
 
         <button
             type="button"
@@ -208,7 +227,14 @@
             onclick="selectWithdrawSource('profit', this)"
         >
 
-            <span data-lang="profit_balance">
+            <span class="source-icon">
+                %
+            </span>
+
+            <span
+                class="source-text"
+                data-lang="profit_balance"
+            >
                 رصيد الأرباح
             </span>
 
@@ -347,170 +373,175 @@
 <section class="withdraw-card">
 
 
+    <!-- NETWORK -->
 
-<!-- NETWORK -->
-
-<h3 data-lang="withdraw_network">
-    شبكة السحب
-</h3>
-
-
-<div
-    class="network-buttons"
-    id="withdrawNetwork"
->
-</div>
+    <h3 data-lang="withdraw_network">
+        شبكة السحب
+    </h3>
 
 
-
-<!-- ADDRESS -->
-
-<h3 data-lang="withdraw_address">
-    عنوان السحب
-</h3>
-
-
-<div class="input-area">
-
-    <input
-        type="text"
-        id="withdrawAddress"
-        data-lang-placeholder="withdraw_address_placeholder"
-        placeholder="أدخل عنوان المحفظة"
-        autocomplete="off"
-        spellcheck="false"
-        dir="ltr"
+    <div
+        class="network-buttons"
+        id="withdrawNetwork"
     >
-
-</div>
-
-
-
-<!-- AMOUNT -->
-
-<h3 data-lang="withdraw_amount">
-    مبلغ السحب
-</h3>
-
-
-<div class="input-area">
-
-    <input
-        type="number"
-        id="withdrawAmount"
-        oninput="calculateWithdraw()"
-        data-lang-placeholder="withdraw_amount_placeholder"
-        placeholder="أدخل مبلغ السحب"
-        min="0"
-        step="any"
-        inputmode="decimal"
-        autocomplete="off"
-    >
-
-</div>
+    </div>
 
 
 
-<!-- SECURITY CODE -->
+    <!-- ADDRESS -->
 
-<h3 data-lang="security_code">
-    رمز أمان السحب
-</h3>
-
-
-<div class="input-area">
-
-    <input
-        type="password"
-        id="withdrawSecurityCode"
-        data-lang-placeholder="security_code_placeholder"
-        placeholder="أدخل رمز أمان السحب"
-        autocomplete="off"
-        inputmode="numeric"
-    >
-
-</div>
+    <h3 data-lang="withdraw_address">
+        عنوان السحب
+    </h3>
 
 
+    <div class="input-area">
 
-<!-- WITHDRAW INFO -->
-
-<div class="withdraw-info">
-
-
-    <div>
-
-        <span data-lang="withdraw_fee">
-            رسوم السحب
-        </span>
-
-        <strong id="withdrawFee">
-            0.00 USDT
-        </strong>
+        <input
+            type="text"
+            id="withdrawAddress"
+            data-lang-placeholder="withdraw_address_placeholder"
+            placeholder="أدخل عنوان المحفظة"
+            autocomplete="off"
+            spellcheck="false"
+            dir="ltr"
+        >
 
     </div>
 
 
-    <div>
 
-        <span data-lang="receive_amount">
-            المبلغ المستلم
-        </span>
+    <!-- AMOUNT -->
 
-        <strong id="receiveAmount">
-            0.00 USDT
-        </strong>
+    <h3 data-lang="withdraw_amount">
+        مبلغ السحب
+    </h3>
+
+
+    <div class="input-area">
+
+        <input
+            type="number"
+            id="withdrawAmount"
+            data-lang-placeholder="withdraw_amount_placeholder"
+            placeholder="أدخل مبلغ السحب"
+            min="0"
+            step="any"
+            inputmode="decimal"
+            autocomplete="off"
+        >
 
     </div>
 
 
-</div>
+
+    <!-- SECURITY -->
+
+    <h3 data-lang="security_code">
+        رمز أمان السحب
+    </h3>
+
+
+    <div class="input-area">
+
+        <input
+            type="password"
+            id="withdrawSecurityCode"
+            data-lang-placeholder="security_code_placeholder"
+            placeholder="أدخل رمز أمان السحب"
+            autocomplete="off"
+            inputmode="numeric"
+        >
+
+    </div>
 
 
 
-<!-- ==========================================
-     FEE NOTE
-========================================== -->
+    <!-- WITHDRAW INFO -->
 
-<div class="fee-note">
-
-    <span data-lang="withdraw_before_doubling">
-        السحب قبل التضعيف: 20%
-    </span>
-
-    <br>
-
-    <span data-lang="withdraw_after_doubling">
-        السحب بعد التضعيف: 5%
-    </span>
-
-</div>
+    <div class="withdraw-info">
 
 
+        <div>
 
-<!-- BUTTON -->
+            <span data-lang="withdraw_fee">
+                رسوم السحب
+            </span>
 
-<button
-    type="button"
-    class="withdraw-btn"
-    onclick="submitWithdraw()"
->
+            <strong id="withdrawFee">
+                0.00 USDT
+            </strong>
 
-    <span data-lang="confirm_withdraw">
-        تأكيد السحب
-    </span>
-
-</button>
+        </div>
 
 
+        <div>
 
-<!-- MESSAGE -->
+            <span data-lang="receive_amount">
+                المبلغ المستلم
+            </span>
 
-<div
-    id="withdrawMessage"
-    class="withdraw-message"
->
-</div>
+            <strong id="receiveAmount">
+                0.00 USDT
+            </strong>
+
+        </div>
+
+
+    </div>
+
+
+
+    <!-- ======================================
+         FEE NOTE
+    ====================================== -->
+
+    <div class="fee-note">
+
+        <div>
+            <span data-lang="withdraw_before_doubling">
+                السحب قبل التضعيف: 20%
+            </span>
+        </div>
+
+        <div>
+            <span data-lang="withdraw_after_doubling">
+                السحب بعد التضعيف: 5%
+            </span>
+        </div>
+
+    </div>
+
+
+
+    <!-- ======================================
+         BUTTON
+    ====================================== -->
+
+    <button
+        type="button"
+        id="withdrawButton"
+        class="withdraw-btn"
+        onclick="submitWithdraw()"
+    >
+
+        <span data-lang="confirm_withdraw">
+            تأكيد السحب
+        </span>
+
+    </button>
+
+
+
+    <!-- ======================================
+         MESSAGE
+    ====================================== -->
+
+    <div
+        id="withdrawMessage"
+        class="withdraw-message"
+    >
+    </div>
 
 
 </section>
@@ -527,31 +558,12 @@
 <script src="js/language.js"></script>
 
 
+
 <!-- ==========================================
      WITHDRAW SYSTEM
 ========================================== -->
 
 <script src="js/withdraw.js"></script>
-
-
-<script>
-
-document.addEventListener(
-    "DOMContentLoaded",
-    function () {
-
-        if (
-            typeof applyLanguage === "function"
-        ) {
-
-            applyLanguage();
-
-        }
-
-    }
-);
-
-</script>
 
 
 </body>
