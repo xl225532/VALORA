@@ -5,30 +5,19 @@
 
 <meta charset="UTF-8">
 
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>VALORA | الإيداع</title>
+<title>VALORA | Deposit</title>
 
 
 <link
-    href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
-    rel="stylesheet"
->
+href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap"
+rel="stylesheet">
 
 
-<link
-    rel="stylesheet"
-    href="css/deposit.css"
->
+<link rel="stylesheet" href="css/deposit.css">
 
-
-<link
-    rel="stylesheet"
-    href="css/background.css"
->
+<link rel="stylesheet" href="css/background.css">
 
 
 </head>
@@ -43,9 +32,9 @@
 
 <header class="deposit-header">
 
-    <div class="deposit-logo">
-        VALORA
-    </div>
+<div class="deposit-logo">
+VALORA
+</div>
 
 </header>
 
@@ -55,22 +44,25 @@
 <section class="deposit-title">
 
 
-    <div class="deposit-icon">
-        ↓
-    </div>
+<div class="deposit-icon">
+↓
+</div>
 
 
-    <h2 data-lang="deposit_title">
-        إيداع العملات
-    </h2>
+
+<h2 data-lang="deposit_title">
+إيداع العملات
+</h2>
 
 
-    <p data-lang="deposit_subtitle">
-        اختر العملة والشبكة لعرض عنوان الإيداع
-    </p>
+<p data-lang="deposit_subtitle">
+اختر العملة والشبكة لعرض عنوان الإيداع
+</p>
+
 
 
 </section>
+
 
 
 
@@ -210,7 +202,13 @@ TRON
 
 
 </section>
+
+
+
+
+
 <section class="deposit-card">
+
 
 
 <h3 data-lang="deposit_network">
@@ -220,9 +218,9 @@ TRON
 
 <div
 class="network-buttons"
-id="networkBox"
->
+id="networkBox">
 </div>
+
 
 
 
@@ -230,6 +228,7 @@ id="networkBox"
 <h3 data-lang="deposit_address">
 عنوان الإيداع
 </h3>
+
 
 
 
@@ -243,26 +242,23 @@ readonly
 >
 
 
+
 <button
 type="button"
 onclick="copyDeposit()"
-data-lang="copy"
->
+data-lang="copy">
+
 نسخ
+
 </button>
 
 
 </div>
-
-
-
-
-
+<!-- AMOUNT -->
 
 <h3 data-lang="deposit_amount_title">
 مبلغ الإيداع
 </h3>
-
 
 
 <div class="deposit-input-area">
@@ -274,6 +270,7 @@ id="depositAmount"
 inputmode="decimal"
 min="0"
 step="any"
+data-lang-placeholder="deposit_amount_placeholder"
 placeholder="أدخل المبلغ الذي أرسلته"
 autocomplete="off"
 >
@@ -281,8 +278,7 @@ autocomplete="off"
 
 <span
 id="depositCurrencyLabel"
-class="deposit-currency-label"
->
+class="deposit-currency-label">
 USDT
 </span>
 
@@ -296,6 +292,7 @@ USDT
 
 
 
+<!-- TXID -->
 
 
 <h3 data-lang="deposit_txid_title">
@@ -310,6 +307,7 @@ USDT
 <input
 type="text"
 id="transactionId"
+data-lang-placeholder="deposit_txid_placeholder"
 placeholder="أدخل رمز التحويل TXID"
 autocomplete="off"
 spellcheck="false"
@@ -328,9 +326,13 @@ dir="ltr"
 
 
 
+<!-- CONFIRM TXID -->
+
+
 <h3 data-lang="deposit_confirm_txid_title">
 تأكيد رمز التحويل TXID
 </h3>
+
 
 
 
@@ -340,6 +342,7 @@ dir="ltr"
 <input
 type="text"
 id="confirmTransactionId"
+data-lang-placeholder="deposit_confirm_txid_placeholder"
 placeholder="أعد إدخال رمز التحويل TXID"
 autocomplete="off"
 spellcheck="false"
@@ -347,52 +350,70 @@ dir="ltr"
 >
 
 
-<button
-type="button"
-id="confirmDepositButton"
-class="deposit-confirm-btn"
-data-lang="deposit_confirm_button"
->
-تأكيد التحويل
-</button>
-    
-<!-- DEPOSIT MESSAGE -->
+</div>
+
+
+<div class="field-error"></div>
+
+
+
+
+
+
+<!-- MESSAGE -->
+
 
 <div
 id="depositMessage"
 class="deposit-message"
-style="display:none;"
-></div>
-
-<p>
-أدخل المبلغ الذي أرسلته ورمز التحويل TXID كما يظهر في شبكة البلوكشين.
-يجب أن يكون رمز التحويل مطابقاً في الخانتين.
-</p>
-
-
-</div>
-
-
+style="display:none;">
 </div>
 
 
 
+
+
+<!-- CONFIRM BUTTON -->
 
 
 <button
 type="button"
 id="confirmDepositButton"
 class="deposit-confirm-btn"
->
+data-lang="deposit_confirm_button">
 
 تأكيد التحويل
 
 </button>
+
+
+
+
+
+<!-- NOTE -->
+
+
+<p
+class="deposit-note"
+data-lang="deposit_note">
+
+أدخل المبلغ الذي أرسلته ورمز التحويل TXID كما يظهر في شبكة البلوكشين.
+يجب أن يكون رمز التحويل مطابقاً في الخانتين.
+
+</p>
+
+
+
+
+
+<!-- SUCCESS MESSAGE -->
+
+
 <div
 id="depositSuccessMessage"
 class="deposit-success-message"
-hidden
->
+hidden>
+
 
 
 <div class="deposit-success-icon">
@@ -401,13 +422,13 @@ hidden
 
 
 
-<h3>
+<h3 data-lang="deposit_request_sent">
 تم إرسال طلب الإيداع
 </h3>
 
 
 
-<p>
+<p data-lang="deposit_request_text">
 تم تسجيل بيانات التحويل بنجاح.
 سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.
 </p>
@@ -421,22 +442,28 @@ hidden
 
 
 
+<!-- AUTO CREDIT -->
+
+
 <div class="deposit-info">
 
 
 <div class="info-card">
 
 
-<h3>
+<h3 data-lang="deposit_auto_title">
+
 سيتم إضافة الرصيد تلقائياً
+
 </h3>
 
 
 
-<p>
-بعد إرسال العملات إلى عنوان الإيداع،
-سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك
-بعد تأكيد الشبكة.
+
+<p data-lang="deposit_auto_text">
+
+بعد إرسال العملات إلى عنوان الإيداع سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك بعد تأكيد الشبكة.
+
 </p>
 
 
@@ -445,50 +472,53 @@ hidden
 
 
 </div>
-
-
-
-
+<!-- WARNING -->
 
 
 <div class="deposit-warning">
 
 
+<div class="warning-icon">
 ⚠️
+</div>
 
 
-<span>
+
+<p data-lang="deposit_warning_1">
+
 أرسل العملات إلى العنوان الظاهر فقط.
-</span>
+
+</p>
 
 
-<br><br>
 
+<p data-lang="deposit_warning_2">
 
-<span>
 تأكد من اختيار نفس الشبكة قبل التحويل.
-</span>
+
+</p>
 
 
-<br><br>
 
+<p data-lang="deposit_warning_3">
 
-<span>
 أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
-</span>
+
+</p>
 
 
-<br><br>
 
+<p data-lang="deposit_warning_4">
 
-<span>
-بعد تأكيد التحويل على البلوكشين
-سيتم إضافة الرصيد تلقائياً.
-</span>
+بعد تأكيد التحويل على البلوكشين سيتم إضافة الرصيد تلقائياً.
+
+</p>
 
 
 
 </div>
+
+
 
 
 
@@ -496,6 +526,7 @@ hidden
 
 
 </div>
+
 
 
 
@@ -512,4 +543,3 @@ hidden
 </body>
 
 </html>
- 
