@@ -37,7 +37,8 @@ const RTL_LANGUAGES = [
 const translations = {
 
 en: {
-
+wallet_load_error:
+"Unable to load deposit addresses",
 deposit_amount_placeholder:
 "Enter the amount sent",
 
@@ -1484,6 +1485,8 @@ reward_profit:
 
 
 // DEPOSIT
+wallet_load_error:
+"تعذر تحميل عناوين الإيداع",
 deposit_amount_placeholder:
 "أدخل المبلغ الذي أرسلته",
 
