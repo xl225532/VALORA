@@ -1024,3 +1024,80 @@ html[dir="ltr"] .deposit-input-area input{
 
 
 }
+/* ==============================
+   DEPOSIT MESSAGE
+============================== */
+
+.deposit-message{
+
+    display:none;
+
+    margin:15px 0;
+
+    padding:14px;
+
+    border-radius:12px;
+
+    text-align:center;
+
+    font-size:15px;
+
+    font-weight:600;
+
+}
+
+
+
+.deposit-message.error{
+
+    display:block;
+
+    background:#ffe5e5;
+
+    color:#c00000;
+
+    border:1px solid #ff0000;
+
+}
+
+
+
+.deposit-message.success{
+
+    display:block;
+
+    background:#e6ffe9;
+
+    color:#008000;
+
+    border:1px solid #00aa00;
+
+}
+
+
+
+/* FIELD ERRORS */
+
+.field-error{
+
+    margin-top:8px;
+
+    padding:10px;
+
+    border-radius:8px;
+
+    background:#ffe5e5;
+
+    color:#c00000;
+
+    font-size:13px;
+
+}
+
+
+
+.deposit-input-area.error input{
+
+    border:1px solid red;
+
+}
