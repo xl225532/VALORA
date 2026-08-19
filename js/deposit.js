@@ -665,7 +665,7 @@ catch(error){
 
 showDepositMessage(
 "error",
-t("server_error")
+t("server_connection_error")
 );
 
 
