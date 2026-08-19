@@ -29,7 +29,6 @@ rel="stylesheet">
 <div class="deposit-container">
 
 
-
 <header class="deposit-header">
 
 <div class="deposit-logo">
@@ -39,15 +38,12 @@ VALORA
 </header>
 
 
-
-
 <section class="deposit-title">
 
 
 <div class="deposit-icon">
 ↓
 </div>
-
 
 
 <h2 data-lang="deposit_title">
@@ -60,22 +56,16 @@ VALORA
 </p>
 
 
-
 </section>
-
-
-
 
 
 <section class="deposit-coins">
 
 
-
 <button
 class="deposit-coin active"
 type="button"
-onclick="selectCoin('USDT',this)"
->
+data-coin="USDT">
 
 
 <div class="deposit-coin-icon usdt">
@@ -101,14 +91,10 @@ Tether
 </button>
 
 
-
-
-
 <button
 class="deposit-coin"
 type="button"
-onclick="selectCoin('BTC',this)"
->
+data-coin="BTC">
 
 
 <div class="deposit-coin-icon btc">
@@ -134,14 +120,10 @@ Bitcoin
 </button>
 
 
-
-
-
 <button
 class="deposit-coin"
 type="button"
-onclick="selectCoin('ETH',this)"
->
+data-coin="ETH">
 
 
 <div class="deposit-coin-icon eth">
@@ -167,14 +149,10 @@ Ethereum
 </button>
 
 
-
-
-
 <button
 class="deposit-coin"
 type="button"
-onclick="selectCoin('TRX',this)"
->
+data-coin="TRX">
 
 
 <div class="deposit-coin-icon trx">
@@ -200,15 +178,10 @@ TRON
 </button>
 
 
-
 </section>
 
 
-
-
-
 <section class="deposit-card">
-
 
 
 <h3 data-lang="deposit_network">
@@ -222,14 +195,9 @@ id="networkBox">
 </div>
 
 
-
-
-
 <h3 data-lang="deposit_address">
 عنوان الإيداع
 </h3>
-
-
 
 
 <div class="address-area">
@@ -242,10 +210,9 @@ readonly
 >
 
 
-
 <button
 type="button"
-onclick="copyDeposit()"
+id="copyDepositButton"
 data-lang="copy">
 
 نسخ
@@ -279,7 +246,9 @@ autocomplete="off"
 <span
 id="depositCurrencyLabel"
 class="deposit-currency-label">
+
 USDT
+
 </span>
 
 
@@ -287,8 +256,6 @@ USDT
 
 
 <div class="field-error"></div>
-
-
 
 
 
@@ -323,16 +290,12 @@ dir="ltr"
 
 
 
-
-
-
 <!-- CONFIRM TXID -->
 
 
 <h3 data-lang="deposit_confirm_txid_title">
 تأكيد رمز التحويل TXID
 </h3>
-
 
 
 
@@ -358,17 +321,14 @@ dir="ltr"
 
 
 
-
-
 <!-- MESSAGE -->
 
 
 <div
 id="depositMessage"
-class="deposit-message"
-style="display:none;">
-</div>
+class="deposit-message">
 
+</div>
 
 
 
@@ -382,10 +342,9 @@ id="confirmDepositButton"
 class="deposit-confirm-btn"
 data-lang="deposit_confirm_button">
 
-تأكيد التحويل
+تأكيد الإيداع
 
 </button>
-
 
 
 
@@ -405,7 +364,6 @@ data-lang="deposit_note">
 
 
 
-
 <!-- SUCCESS MESSAGE -->
 
 
@@ -415,33 +373,28 @@ class="deposit-success-message"
 hidden>
 
 
-
 <div class="deposit-success-icon">
-✓
-</div>
 
+✓
+
+</div>
 
 
 <h3 data-lang="deposit_request_sent">
+
 تم إرسال طلب الإيداع
+
 </h3>
 
 
-
 <p data-lang="deposit_request_text">
+
 تم تسجيل بيانات التحويل بنجاح.
-سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.
+
 </p>
 
 
-
 </div>
-
-
-
-
-
-
 <!-- AUTO CREDIT -->
 
 
@@ -458,8 +411,6 @@ hidden>
 </h3>
 
 
-
-
 <p data-lang="deposit_auto_credit_text">
 
 بعد إرسال العملات إلى عنوان الإيداع سيتم اكتشاف التحويل وإضافة الرصيد إلى حسابك بعد تأكيد الشبكة.
@@ -467,11 +418,14 @@ hidden>
 </p>
 
 
-
 </div>
 
 
 </div>
+
+
+
+
 <!-- WARNING -->
 
 
@@ -483,13 +437,11 @@ hidden>
 </div>
 
 
-
 <p data-lang="deposit_warning_1">
 
 أرسل العملات إلى العنوان الظاهر فقط.
 
 </p>
-
 
 
 <p data-lang="deposit_warning_2">
@@ -499,13 +451,11 @@ hidden>
 </p>
 
 
-
 <p data-lang="deposit_warning_3">
 
 أي تحويل عبر شبكة مختلفة قد يؤدي إلى فقدان الأموال.
 
 </p>
-
 
 
 <p data-lang="deposit_warning_4">
@@ -515,10 +465,7 @@ hidden>
 </p>
 
 
-
 </div>
-
-
 
 
 
@@ -526,18 +473,9 @@ hidden>
 
 
 </div>
-
-
-
-
-
-
-
 <script src="js/language.js"></script>
 
-
 <script src="js/deposit.js"></script>
-
 
 
 </body>
