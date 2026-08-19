@@ -6,11 +6,7 @@
 // ==================================
 
 
-// حاليا محلي
-// لاحقا يتم تغيير هذا الرابط فقط
-
 const SERVER_URL = "http://localhost:3000";
-
 
 
 let currentCoin = "USDT";
@@ -22,48 +18,34 @@ let wallets = {};
 
 
 
-
 // ==================================
 // MESSAGE SYSTEM
 // ==================================
 
-function showDepositMessage(
-    type,
-    message
-){
+function showDepositMessage(type, message){
 
-    const box =
-    document.getElementById(
+    const box = document.getElementById(
         "depositMessage"
     );
 
 
     if(!box){
-
         return;
-
     }
 
 
-
     box.className =
-    "deposit-message " + type;
-
+        "deposit-message " + type;
 
 
     box.textContent =
-    message;
-
+        message;
 
 
     box.style.display =
-    "block";
-
+        "block";
 
 }
-
-
-
 
 
 
@@ -80,7 +62,6 @@ function clearDepositMessage(){
         box.style.display =
         "none";
 
-
         box.textContent =
         "";
 
@@ -91,16 +72,11 @@ function clearDepositMessage(){
 
 
 
-
-
 // ==================================
 // FIELD ERROR
 // ==================================
 
-function showFieldError(
-    input,
-    message
-){
+function showFieldError(input,message){
 
     const area =
     input.closest(
@@ -117,10 +93,8 @@ function showFieldError(
     }
 
 
-
     let error =
     area.nextElementSibling;
-
 
 
     if(
@@ -145,10 +119,8 @@ function showFieldError(
     }
 
 
-
     error.textContent =
     message;
-
 
 
     error.style.display =
@@ -159,9 +131,7 @@ function showFieldError(
 
 
 
-
 function clearFieldError(input){
-
 
     const area =
     input.closest(
@@ -178,10 +148,8 @@ function clearFieldError(input){
     }
 
 
-
     const error =
     area.nextElementSibling;
-
 
 
     if(
@@ -197,6 +165,10 @@ function clearFieldError(input){
     }
 
 }
+
+
+
+
 // ==================================
 // LOAD WALLETS FROM SERVER
 // ==================================
@@ -213,51 +185,228 @@ async function loadWallets(){
         );
 
 
-
         if(!response.ok){
 
             throw new Error(
-                "Wallets error"
+                "Wallet loading failed"
             );
 
         }
-
-
 
 
         wallets =
         await response.json();
 
 
-
-
         loadNetworks();
-
 
         updateAddress();
 
 
-
     }
+
 
     catch(error){
 
 
         showDepositMessage(
-
             "error",
-
             "تعذر تحميل عناوين الإيداع من السيرفر"
-
         );
 
 
-        console.error(
-            error
-        );
-
+        console.error(error);
 
     }
+
+}
+
+
+
+
+// ==================================
+// COINS
+// ==================================
+
+const coinNetworks = {
+
+
+    USDT:[
+        "TRC20",
+        "ERC20"
+    ],
+
+
+    BTC:[
+        "Bitcoin"
+    ],
+
+
+    ETH:[
+        "ERC20"
+    ],
+
+
+    TRX:[
+        "TRC20"
+    ]
+
+
+};
+// ==================================
+// SELECT COIN
+// ==================================
+
+function selectCoin(coin, button){
+
+
+    if(!coinNetworks[coin]){
+
+        return;
+
+    }
+
+
+    currentCoin = coin;
+
+
+
+    document
+    .querySelectorAll(
+        ".deposit-coin"
+    )
+    .forEach(btn=>{
+
+        btn.classList.remove(
+            "active"
+        );
+
+    });
+
+
+
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
+
+
+
+    loadNetworks();
+
+
+}
+
+
+
+
+
+// ==================================
+// LOAD NETWORKS
+// ==================================
+
+function loadNetworks(){
+
+
+    const box =
+    document.getElementById(
+        "networkBox"
+    );
+
+
+
+    if(!box){
+
+        return;
+
+    }
+
+
+
+    box.innerHTML = "";
+
+
+
+    const networks =
+    coinNetworks[currentCoin] || [];
+
+
+
+    networks.forEach(
+        (network,index)=>{
+
+
+            const btn =
+            document.createElement(
+                "button"
+            );
+
+
+
+            btn.type =
+            "button";
+
+
+
+            btn.className =
+            "network";
+
+
+
+            btn.textContent =
+            network;
+
+
+
+            btn.dataset.network =
+            network;
+
+
+
+            if(index === 0){
+
+
+                btn.classList.add(
+                    "active"
+                );
+
+
+                currentNetwork =
+                network;
+
+
+            }
+
+
+
+            btn.onclick =
+            function(){
+
+
+                selectNetwork(
+                    this,
+                    network
+                );
+
+
+            };
+
+
+
+            box.appendChild(
+                btn
+            );
+
+
+        }
+    );
+
+
+
+    updateAddress();
 
 
 }
@@ -268,82 +417,11 @@ async function loadWallets(){
 
 
 // ==================================
-// COINS NETWORKS
-// ==================================
-
-const coinNetworks = {
-
-
-    USDT:[
-
-        "TRC20",
-
-        "ERC20"
-
-    ],
-
-
-
-    BTC:[
-
-        "Bitcoin"
-
-    ],
-
-
-
-    ETH:[
-
-        "ERC20"
-
-    ],
-
-
-
-    TRX:[
-
-        "TRC20"
-
-    ]
-
-
-};
-
-
-
-
-
-
-
-// ==================================
-// SELECT COIN
-// ==================================
-
-function selectCoin(
-    coin,
-    button
-){
-
-
-    currentCoin =
-    coin;
-
-
-
-
-    document
-    .querySelectorAll(
-        ".deposit-coin"
-    )
-    .forEach(
-// ==================================
 // SELECT NETWORK
 // ==================================
 
-function selectNetwork(
-    button,
-    network
-){
+function selectNetwork(button,network){
+
 
     currentNetwork =
     network;
@@ -354,15 +432,15 @@ function selectNetwork(
     .querySelectorAll(
         ".network"
     )
-    .forEach(
-        btn=>{
+    .forEach(btn=>{
 
-            btn.classList.remove(
-                "active"
-            );
 
-        }
-    );
+        btn.classList.remove(
+            "active"
+        );
+
+
+    });
 
 
 
@@ -374,9 +452,8 @@ function selectNetwork(
 
     updateAddress();
 
+
 }
-
-
 
 
 
@@ -406,12 +483,10 @@ function updateAddress(){
 
 
     if(
-
         wallets[currentCoin] &&
-
         wallets[currentCoin][currentNetwork]
-
     ){
+
 
         input.value =
         wallets[currentCoin][currentNetwork];
@@ -430,8 +505,6 @@ function updateAddress(){
 
 
 }
-
-
 
 
 
@@ -463,34 +536,29 @@ function copyDeposit(){
 
 
 
-
     navigator.clipboard
     .writeText(
         input.value
     )
+
     .then(()=>{
 
 
         showDepositMessage(
-
             "success",
-
             "تم نسخ عنوان الإيداع"
-
         );
 
 
     })
 
+
     .catch(()=>{
 
 
         showDepositMessage(
-
             "error",
-
             "فشل نسخ العنوان"
-
         );
 
 
@@ -498,17 +566,8 @@ function copyDeposit(){
 
 
 }
-
-
-
-
-
-
-
-
-
 // ==================================
-// VALIDATE FORM
+// VALIDATE DEPOSIT
 // ==================================
 
 function validateDeposit(){
@@ -524,12 +583,10 @@ function validateDeposit(){
     );
 
 
-
     const txid =
     document.getElementById(
         "transactionId"
     );
-
 
 
     const confirmTxid =
@@ -539,24 +596,14 @@ function validateDeposit(){
 
 
 
-
-
-
     if(
-
         !amount.value ||
-
-        Number(amount.value)<=0
-
+        Number(amount.value) <= 0
     ){
 
-
         showFieldError(
-
             amount,
-
             "أدخل المبلغ الصحيح"
-
         );
 
 
@@ -568,23 +615,18 @@ function validateDeposit(){
     }
 
 
-
     clearFieldError(amount);
 
 
 
 
-
-
-    if(!txid.value.trim()){
-
+    if(
+        !txid.value.trim()
+    ){
 
         showFieldError(
-
             txid,
-
             "أدخل رمز التحويل TXID"
-
         );
 
 
@@ -592,7 +634,6 @@ function validateDeposit(){
 
 
         return false;
-
 
     }
 
@@ -602,18 +643,13 @@ function validateDeposit(){
 
 
 
-
-
-
-    if(!confirmTxid.value.trim()){
-
+    if(
+        !confirmTxid.value.trim()
+    ){
 
         showFieldError(
-
             confirmTxid,
-
             "أكد رمز التحويل"
-
         );
 
 
@@ -622,9 +658,7 @@ function validateDeposit(){
 
         return false;
 
-
     }
-
 
 
     clearFieldError(confirmTxid);
@@ -633,24 +667,15 @@ function validateDeposit(){
 
 
 
-
     if(
-
         txid.value.trim()
-
         !==
-
         confirmTxid.value.trim()
-
     ){
 
-
         showFieldError(
-
             confirmTxid,
-
             "رمز التحويل غير مطابق"
-
         );
 
 
@@ -658,7 +683,6 @@ function validateDeposit(){
 
 
         return false;
-
 
     }
 
@@ -668,20 +692,26 @@ function validateDeposit(){
 
 
 }
-    // ==================================
+
+
+
+
+
+
+// ==================================
 // SEND DEPOSIT TO SERVER
 // ==================================
 
 async function submitDeposit(){
 
 
-    if(!validateDeposit()){
+    if(
+        !validateDeposit()
+    ){
 
         return;
 
     }
-
-
 
 
 
@@ -697,16 +727,18 @@ async function submitDeposit(){
     const txid =
     document.getElementById(
         "transactionId"
-    ).value.trim();
+    )
+    .value
+    .trim();
 
 
 
     const confirmTxid =
     document.getElementById(
         "confirmTransactionId"
-    ).value.trim();
-
-
+    )
+    .value
+    .trim();
 
 
 
@@ -719,7 +751,6 @@ async function submitDeposit(){
         localStorage.getItem(
             "VALORA_TOKEN"
         );
-
 
 
 
@@ -783,17 +814,13 @@ async function submitDeposit(){
 
 
 
-
         if(!response.ok){
 
 
             showDepositMessage(
-
                 "error",
-
                 data.message ||
                 "فشل تأكيد الإيداع"
-
             );
 
 
@@ -806,15 +833,10 @@ async function submitDeposit(){
 
 
 
-
         showDepositMessage(
-
             "success",
-
             "تم تأكيد الإيداع وإضافة الرصيد"
-
         );
-
 
 
 
@@ -835,7 +857,6 @@ async function submitDeposit(){
             true;
 
 
-
             button.textContent =
             "تم التأكيد";
 
@@ -845,54 +866,43 @@ async function submitDeposit(){
 
 
 
-
-
     }
+
 
     catch(error){
 
 
         showDepositMessage(
-
             "error",
-
             "تعذر الاتصال بالسيرفر"
-
         );
 
 
-        console.error(
-            error
-        );
+        console.error(error);
 
 
     }
 
 
 }
-
-
-
-
-
-
-
+ 
 // ==================================
-// START
+// START SYSTEM
 // ==================================
 
 document.addEventListener(
-
 "DOMContentLoaded",
-
 function(){
 
 
+    // تحميل المحافظ من السيرفر
 
     loadWallets();
 
 
 
+
+    // زر التأكيد
 
     const button =
     document.getElementById(
