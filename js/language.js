@@ -1477,7 +1477,38 @@ reward_profit:
 
 
 // DEPOSIT
+deposit_server_error:
+"تعذر تحميل عنوان الإيداع",
 
+copy_error:
+"فشل نسخ العنوان",
+
+deposit_amount_error:
+"أدخل مبلغ إيداع صحيح",
+
+deposit_txid_error:
+"أدخل رمز التحويل TXID",
+
+deposit_confirm_txid_error:
+"أكد رمز التحويل TXID",
+
+deposit_txid_match_error:
+"رمز التحويل غير مطابق",
+
+deposit_error:
+"فشل تأكيد الإيداع",
+
+deposit_success:
+"تم إرسال طلب الإيداع بنجاح",
+
+server_connection_error:
+"تعذر الاتصال بالسيرفر",
+
+deposit_request_sent:
+"تم إرسال طلب الإيداع",
+
+deposit_request_text:
+"تم تسجيل بيانات التحويل بنجاح. سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها."
 deposit_title:
 "إيداع العملات",
 
