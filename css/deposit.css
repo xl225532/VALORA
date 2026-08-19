@@ -882,3 +882,145 @@ html[dir="ltr"] .deposit-input-area input{
     }
 
 }
+/* ==========================================
+   FIELD VALIDATION
+========================================== */
+
+
+.deposit-input-area.error{
+
+    border-color:#EF4444;
+
+    box-shadow:
+    0 0 0 1px rgba(239,68,68,.35);
+
+}
+
+
+
+.deposit-input-area.success{
+
+    border-color:#22C55E;
+
+    box-shadow:
+    0 0 0 1px rgba(34,197,94,.35);
+
+}
+
+
+
+
+.field-error{
+
+    display:none;
+
+    color:#EF4444;
+
+    font-size:12px;
+
+    margin-top:-10px;
+
+    margin-bottom:12px;
+
+    padding-right:5px;
+
+    text-align:right;
+
+}
+
+
+
+.field-error::before{
+
+    content:"●";
+
+    font-size:10px;
+
+    margin-left:5px;
+
+}
+
+
+
+
+
+/* ==========================================
+   CONFIRM BUTTON FIX
+========================================== */
+
+
+.deposit-confirm-btn{
+
+    width:100% !important;
+
+    height:48px !important;
+
+    background:#1687FF !important;
+
+    border:1px solid #1687FF !important;
+
+    color:#FFFFFF !important;
+
+    border-radius:13px !important;
+
+    font-family:'Cairo',Arial,sans-serif !important;
+
+    font-size:15px !important;
+
+    font-weight:700 !important;
+
+    cursor:pointer;
+
+}
+
+
+
+.deposit-confirm-btn:hover{
+
+    background:#0F78E5 !important;
+
+    border-color:#0F78E5 !important;
+
+}
+
+
+
+.deposit-confirm-btn:disabled{
+
+    background:#17365C !important;
+
+    border-color:#17365C !important;
+
+    color:#7F8DA1 !important;
+
+}
+
+
+
+
+/* ==========================================
+   SMALL SUCCESS MESSAGE
+========================================== */
+
+
+.deposit-success-message{
+
+    border-color:#22C55E;
+
+}
+
+
+
+@media(max-width:400px){
+
+
+.deposit-confirm-btn{
+
+    height:46px !important;
+
+    font-size:14px !important;
+
+}
+
+
+}
