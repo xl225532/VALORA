@@ -36,100 +36,145 @@ const RTL_LANGUAGES = [
 
 const translations = {
 
+
 en: {
-wallet_load_error:
-"Unable to load deposit addresses",
-deposit_amount_placeholder:
-"Enter the amount sent",
-
-deposit_txid_placeholder:
-"Enter TXID",
-
-deposit_confirm_txid_placeholder:
-"Re-enter TXID",
-// GENERAL
-deposit_server_error:
-"Unable to load deposit address",
-
-copy_error:
-"Failed to copy address",
-
-deposit_amount_error:
-"Please enter a valid deposit amount",
-
-deposit_txid_error:
-"Please enter TXID",
-
-deposit_confirm_txid_error:
-"Please confirm TXID",
-
-deposit_txid_match_error:
-"TXID does not match",
-
-deposit_error:
-"Deposit confirmation failed",
-
-deposit_success:
-"Deposit request submitted successfully",
-
-server_connection_error:
-"Unable to connect to server",
-
-deposit_request_sent:
-"Deposit Request Sent",
-
-deposit_request_text:
-"Your transfer details have been recorded. The transaction will be verified and balance will be added after confirmation."
-home: "Home",
-dashboard: "Dashboard",
-wallet: "Wallet",
-assets: "Total Assets",
-team: "Team",
-sync: "Sync",
-settings: "Settings",
-language: "Language",
-notifications: "Notifications",
-support: "Customer Support",
-terms: "Terms & Conditions",
-security: "Withdrawal Security Code",
-verify: "Verify",
-identity_verification: "Identity Verification",
-change_password: "Change Password",
-logout: "Logout",
-application: "VALORA App",
 
 
-// ACCOUNT
+/* =========================
+   GENERAL
+========================= */
 
-account: "My Account",
-username: "Username",
-email: "Email",
-phone: "Phone Number",
-uid: "UID",
+home:
+"Home",
+
+dashboard:
+"Dashboard",
+
+wallet:
+"Wallet",
+
+assets:
+"Total Assets",
+
+team:
+"Team",
+
+sync:
+"Sync",
+
+settings:
+"Settings",
+
+language:
+"Language",
+
+notifications:
+"Notifications",
+
+support:
+"Customer Support",
+
+terms:
+"Terms & Conditions",
+
+security:
+"Withdrawal Security Code",
+
+verify:
+"Verify",
+
+identity_verification:
+"Identity Verification",
+
+change_password:
+"Change Password",
+
+logout:
+"Logout",
+
+application:
+"VALORA App",
 
 
-// DASHBOARD
 
-today_profit: "Today's Profit",
-markets: "Markets",
-bitcoin: "Bitcoin",
-ethereum: "Ethereum",
-tether: "Tether",
-tron: "TRON",
-ripple: "XRP",
-solana: "Solana",
+/* =========================
+   ACCOUNT
+========================= */
+
+account:
+"My Account",
+
+username:
+"Username",
+
+email:
+"Email",
+
+phone:
+"Phone Number",
+
+uid:
+"UID",
 
 
-// LOGIN
 
-login_subtitle: "Login to your account",
-email_phone: "Email or Phone Number",
-email_phone_placeholder: "Enter Email or Phone Number",
-password: "Password",
-password_placeholder: "Enter Password",
-login_btn: "Login",
-forgot_password: "Forgot Password?",
-create_account: "Create Account",
+/* =========================
+   DASHBOARD
+========================= */
+
+today_profit:
+"Today's Profit",
+
+markets:
+"Markets",
+
+bitcoin:
+"Bitcoin",
+
+ethereum:
+"Ethereum",
+
+tether:
+"Tether",
+
+tron:
+"TRON",
+
+ripple:
+"XRP",
+
+solana:
+"Solana",
+
+
+
+/* =========================
+   LOGIN
+========================= */
+
+login_subtitle:
+"Login to your account",
+
+email_phone:
+"Email or Phone Number",
+
+email_phone_placeholder:
+"Enter Email or Phone Number",
+
+password:
+"Password",
+
+password_placeholder:
+"Enter Password",
+
+login_btn:
+"Login",
+
+forgot_password:
+"Forgot Password?",
+
+create_account:
+"Create Account",
 
 login_email_required:
 "Please enter your email or phone number",
@@ -159,7 +204,10 @@ login_redirect:
 "Redirecting to your account...",
 
 
-// REGISTER
+
+/* =========================
+   REGISTER
+========================= */
 
 register_title:
 "Create New Account",
@@ -261,7 +309,10 @@ redirecting_login:
 "Redirecting to login...",
 
 
-// WALLET
+
+/* =========================
+   WALLET
+========================= */
 
 wallet_title:
 "Wallet",
@@ -288,7 +339,55 @@ reward_profit:
 "Reward Profit",
 
 
-// DEPOSIT
+
+/* =========================
+   DEPOSIT
+========================= */
+
+wallet_load_error:
+"Unable to load deposit addresses",
+
+deposit_amount_placeholder:
+"Enter the amount sent",
+
+deposit_txid_placeholder:
+"Enter TXID",
+
+deposit_confirm_txid_placeholder:
+"Re-enter TXID",
+
+deposit_server_error:
+"Unable to load deposit address",
+
+copy_error:
+"Failed to copy address",
+
+deposit_amount_error:
+"Please enter a valid deposit amount",
+
+deposit_txid_error:
+"Please enter TXID",
+
+deposit_confirm_txid_error:
+"Please confirm TXID",
+
+deposit_txid_match_error:
+"TXID does not match",
+
+deposit_error:
+"Deposit confirmation failed",
+
+deposit_success:
+"Deposit request submitted successfully",
+
+server_connection_error:
+"Unable to connect to server",
+
+deposit_request_sent:
+"Deposit Request Sent",
+
+deposit_request_text:
+"Your transfer details have been recorded. The transaction will be verified and balance will be added after confirmation.",
 
 deposit_title:
 "Deposit Coins",
@@ -325,9 +424,9 @@ copy:
 
 deposit_copied:
 "Deposit address copied",
-
-
+    // ==========================================
 // DEPOSIT HISTORY
+// ==========================================
 
 deposit_history_title:
 "Deposit History",
@@ -357,7 +456,10 @@ successful:
 "Successful",
 
 
+
+// ==========================================
 // WITHDRAW
+// ==========================================
 
 withdraw_title:
 "Withdraw Coins",
@@ -414,7 +516,10 @@ withdraw_amount_error:
 "Please complete all required information",
 
 
+
+// ==========================================
 // WITHDRAW HISTORY
+// ==========================================
 
 withdraw_history_title:
 "Withdrawal History",
@@ -428,20 +533,8 @@ total_amounts:
 no_withdrawals:
 "No withdrawal requests yet",
 
-withdraw_amount:
-"Amount",
-
-withdraw_fee:
-"Fee",
-
 withdraw_receive:
 "You Receive",
-
-withdraw_network:
-"Network",
-
-withdraw_address:
-"Address",
 
 withdraw_date:
 "Date",
@@ -456,7 +549,10 @@ withdraw_rejected:
 "Rejected",
 
 
+
+// ==========================================
 // SECURITY
+// ==========================================
 
 security_title:
 "Withdrawal Security Code",
@@ -507,7 +603,10 @@ save_security:
 "Save Security Code",
 
 
+
+// ==========================================
 // LOGIN CODE
+// ==========================================
 
 login_code_title:
 "Login Code",
@@ -546,7 +645,10 @@ withdrawSecurity:
 "Withdrawal Security Code",
 
 
+
+// ==========================================
 // CHANGE PASSWORD
+// ==========================================
 
 change_password_title:
 "Change Password",
@@ -585,106 +687,10 @@ verification_sent_email:
 "Verification code sent to your email address",
 
 verification_sent_phone:
-"Verification code sent to your phone number",
-
-change_password_method_error:
-"Please choose a verification code delivery method first",
-
-change_password_code_error:
-"Please enter the verification code",
-
-change_password_code_invalid:
-"Verification code must be 6 digits",
-
-new_password_error:
-"Please enter your new password",
-
-new_password_length_error:
-"Password must be at least 6 characters",
-
-confirm_password_error:
-"Please confirm your password",
-
-verification_method:
-"Verification Method",
-
-verification_method_required:
-"Please choose a verification method",
-
-verification_code_required:
-"Please enter the verification code",
-
-new_password_required:
-"Please enter your new password",
-
-new_password_too_short:
-"Password must be at least 6 characters",
-
-password_changed_success:
-"Password changed successfully",
-
-
-// FORGOT PASSWORD
-
-forgot_password_title:
-"Reset Password",
-
-forgot_password_subtitle:
-"Reset your password",
-
-forgot_email_phone:
-"Email or Phone Number",
-
-forgot_email_phone_placeholder:
-"Enter email or phone number",
-
-forgot_password_description:
-"Enter the email address or phone number registered to your account.",
-
-send_verification_code:
-"Send Verification Code",
-
-verification_description:
-"Enter the verification code that was sent to you.",
-
-verification_code_placeholder:
-"Enter verification code",
-
-verify_code_btn:
-"Verify Code",
-
-new_password_title:
-"Create New Password",
-
-new_password_description:
-"Enter your new password and confirm it.",
-
-reset_password_btn:
-"Reset Password",
-
-forgot_contact_required:
-"Please enter your email address or phone number",
-
-verification_demo_code:
-"Demo verification code: ",
-
-verification_invalid_format:
-"Verification code must be 6 digits",
-
-verification_code_invalid:
-"Incorrect verification code",
-
-remember_password:
-"Remember your password?",
-
-reset_request_sent:
-"Request Sent",
-
-reset_request_message:
-"Your information will be verified and the recovery process will be completed",
-
-
+"Verification code
+    // ==========================================
 // IDENTITY VERIFICATION
+// ==========================================
 
 identity_confirmation:
 "Identity Confirmation",
@@ -741,7 +747,10 @@ verification_submitted:
 "Verification request submitted successfully",
 
 
-// SYNC
+
+// ==========================================
+// SMART SYNC
+// ==========================================
 
 sync_title:
 "Smart Sync",
@@ -846,7 +855,10 @@ success:
 "Success",
 
 
+
+// ==========================================
 // TEAM
+// ==========================================
 
 my_team:
 "My Team",
@@ -948,7 +960,10 @@ referral_link_copied:
 "Referral link copied",
 
 
+
+// ==========================================
 // TRADE
+// ==========================================
 
 current_price:
 "Current Price",
@@ -978,7 +993,10 @@ sell_success:
 "Sell request submitted successfully",
 
 
+
+// ==========================================
 // SUPPORT
+// ==========================================
 
 support_title:
 "Customer Support",
@@ -1011,7 +1029,10 @@ send_message:
 "Send",
 
 
+
+// ==========================================
 // LANGUAGE
+// ==========================================
 
 language_title:
 "Language",
@@ -1030,9 +1051,9 @@ default_language:
 
 save_language:
 "Language will be saved automatically",
-
-
+    // ==========================================
 // TRANSACTIONS
+// ==========================================
 
 no_transactions:
 "No transactions currently",
@@ -1047,7 +1068,10 @@ profit_transaction:
 "Profit",
 
 
+
+// ==========================================
 // TERMS
+// ==========================================
 
 terms_title:
 "Terms & Conditions",
@@ -1086,7 +1110,10 @@ back_to_register:
 "Back to Create Account",
 
 
+
+// ==========================================
 // NOTIFICATIONS
+// ==========================================
 
 no_notifications:
 "No Notifications",
@@ -1095,7 +1122,10 @@ notifications_description:
 "All account and transaction alerts will appear here",
 
 
+
+// ==========================================
 // APPLICATION
+// ==========================================
 
 app_description:
 "Get the best experience through the official VALORA app",
@@ -1137,7 +1167,10 @@ ios_coming_soon:
 "iOS app download will be available soon",
 
 
+
+// ==========================================
 // DEMO TRADING
+// ==========================================
 
 enter_trade_amount:
 "Enter trading amount",
@@ -1164,7 +1197,10 @@ usdt:
 "USDT",
 
 
+
+// ==========================================
 // COMMON
+// ==========================================
 
 save:
 "Save",
@@ -1193,16 +1229,19 @@ loading:
 required:
 "This field is required"
 
+
 },
 
 // ==========================================
-// ARABIC
+// END ENGLISH
+// START ARABIC
 // ==========================================
 
 ar: {
 
-
+// ==========================================
 // GENERAL
+// ==========================================
 
 home:
 "الرئيسية",
@@ -1256,7 +1295,10 @@ application:
 "تطبيق VALORA",
 
 
+
+// ==========================================
 // ACCOUNT
+// ==========================================
 
 account:
 "حسابي",
@@ -1274,7 +1316,10 @@ uid:
 "UID",
 
 
+
+// ==========================================
 // DASHBOARD
+// ==========================================
 
 today_profit:
 "أرباح اليوم",
@@ -1301,7 +1346,10 @@ solana:
 "Solana",
 
 
+
+// ==========================================
 // LOGIN
+// ==========================================
 
 login_subtitle:
 "تسجيل الدخول إلى حسابك",
@@ -1355,7 +1403,10 @@ login_redirect:
 "جاري الدخول إلى حسابك...",
 
 
+
+// ==========================================
 // REGISTER
+// ==========================================
 
 register_title:
 "إنشاء حساب جديد",
@@ -1455,9 +1506,10 @@ register_error:
 
 redirecting_login:
 "جاري تحويلك إلى تسجيل الدخول...",
-
-
+    
+// ==========================================
 // WALLET
+// ==========================================
 
 wallet_title:
 "المحفظة",
@@ -1484,9 +1536,14 @@ reward_profit:
 "أرباح المكافآت",
 
 
+
+// ==========================================
 // DEPOSIT
+// ==========================================
+
 wallet_load_error:
 "تعذر تحميل عناوين الإيداع",
+
 deposit_amount_placeholder:
 "أدخل المبلغ الذي أرسلته",
 
@@ -1495,7 +1552,8 @@ deposit_txid_placeholder:
 
 deposit_confirm_txid_placeholder:
 "أعد إدخال رمز التحويل TXID",
-    deposit_server_error:
+
+deposit_server_error:
 "تعذر تحميل عنوان الإيداع",
 
 copy_error:
@@ -1526,7 +1584,8 @@ deposit_request_sent:
 "تم إرسال طلب الإيداع",
 
 deposit_request_text:
-"تم تسجيل بيانات التحويل بنجاح. سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.", 
+"تم تسجيل بيانات التحويل بنجاح. سيتم التحقق من المعاملة وإضافة الرصيد بعد تأكيدها.",
+
 deposit_title:
 "إيداع العملات",
 
@@ -1564,7 +1623,10 @@ deposit_copied:
 "تم نسخ عنوان الإيداع",
 
 
+
+// ==========================================
 // DEPOSIT HISTORY
+// ==========================================
 
 deposit_history_title:
 "سجل الإيداعات",
@@ -1594,7 +1656,10 @@ successful:
 "ناجحة",
 
 
+
+// ==========================================
 // WITHDRAW
+// ==========================================
 
 withdraw_title:
 "سحب العملات",
@@ -1651,7 +1716,10 @@ withdraw_amount_error:
 "يرجى إكمال جميع البيانات المطلوبة",
 
 
+
+// ==========================================
 // WITHDRAW HISTORY
+// ==========================================
 
 withdraw_history_title:
 "سجل السحوبات",
@@ -1665,35 +1733,23 @@ total_amounts:
 no_withdrawals:
 "لا توجد طلبات سحب حتى الآن",
 
-withdraw_amount:
-"المبلغ",
-
-withdraw_fee:
-"العمولة",
-
 withdraw_receive:
 "المستلم",
-
-withdraw_network:
-"الشبكة",
-
-withdraw_address:
-"العنوان",
 
 withdraw_date:
 "التاريخ",
 
 withdraw_pending:
 "قيد المعالجة",
-
+withdraw_rejected:
+"مرفوض",
 withdraw_completed:
 "مكتمل",
 
-withdraw_rejected:
-"مرفوض",
-
-
+withdraw
+    // ==========================================
 // SECURITY
+// ==========================================
 
 security_title:
 "رمز أمان السحب",
@@ -1744,7 +1800,10 @@ save_security:
 "حفظ رمز الأمان",
 
 
+
+// ==========================================
 // LOGIN CODE
+// ==========================================
 
 login_code_title:
 "رمز الدخول",
@@ -1783,7 +1842,10 @@ withdrawSecurity:
 "رمز أمان السحب",
 
 
+
+// ==========================================
 // CHANGE PASSWORD
+// ==========================================
 
 change_password_title:
 "تغيير كلمة المرور",
@@ -1861,7 +1923,10 @@ password_changed_success:
 "تم تغيير كلمة المرور بنجاح",
 
 
+
+// ==========================================
 // FORGOT PASSWORD
+// ==========================================
 
 forgot_password_title:
 "استرجاع كلمة المرور",
@@ -1883,9 +1948,6 @@ send_verification_code:
 
 verification_description:
 "أدخل رمز التحقق الذي تم إرساله إليك.",
-
-verification_code_placeholder:
-"أدخل رمز التحقق",
 
 verify_code_btn:
 "تحقق من الرمز",
@@ -1919,9 +1981,10 @@ reset_request_sent:
 
 reset_request_message:
 "سيتم التحقق من البيانات وإكمال الاسترجاع",
-
-
+ 
+// ==========================================
 // IDENTITY VERIFICATION
+// ==========================================
 
 identity_confirmation:
 "تأكيد الهوية",
@@ -1978,7 +2041,10 @@ verification_submitted:
 "تم إرسال طلب التحقق بنجاح",
 
 
-// SYNC
+
+// ==========================================
+// SMART SYNC
+// ==========================================
 
 sync_title:
 "التزامن الذكي",
@@ -2038,7 +2104,7 @@ check_code_again:
 "تأكد من الكود وحاول مرة أخرى",
 
 deposit_trade_error:
-"هذه الصفقة خاصة بمن لديه إيداع 500 USDT أو أكثر",
+"هذه الصفقة تحتاج إلى إيداع 500 USDT أو أكثر",
 
 team_trade_error:
 "هذه الصفقة تحتاج فريقاً من 20 عضواً بإيداعات حقيقية",
@@ -2083,7 +2149,10 @@ success:
 "نجاح",
 
 
+
+// ==========================================
 // TEAM
+// ==========================================
 
 my_team:
 "فريقي",
@@ -2183,18 +2252,19 @@ referral_code_copied:
 
 referral_link_copied:
 "تم نسخ رابط الدعوة",
-
-
+    
+// ==========================================
 // TRADE
+// ==========================================
 
 current_price:
 "السعر الحالي",
 
-amount:
-"الكمية",
-
 enter_amount:
 "أدخل مبلغ التداول بالـ USDT",
+
+amount:
+"المبلغ",
 
 buy:
 "شراء",
@@ -2215,13 +2285,16 @@ sell_success:
 "تم إرسال طلب البيع بنجاح",
 
 
+
+// ==========================================
 // SUPPORT
+// ==========================================
 
 support_title:
 "خدمة العملاء",
 
 support_heading:
-"مراسلة العملاء",
+"مراسلة الدعم",
 
 support_description:
 "إذا واجهتك أي مشكلة يمكنك التواصل مع فريق دعم VALORA.",
@@ -2236,10 +2309,10 @@ join_channel:
 "الانضمام إلى القناة",
 
 support_welcome:
-"مرحبًا بك",
+"مرحباً بك",
 
 support_welcome_message:
-"يمكنك إرسال استفسارك أو مشكلتك، وسيقوم فريق الدعم بالرد عليك في أقرب وقت.",
+"يمكنك إرسال استفسارك أو مشكلتك وسيقوم فريق الدعم بالرد عليك في أقرب وقت.",
 
 support_message_placeholder:
 "اكتب رسالتك هنا...",
@@ -2248,7 +2321,10 @@ send_message:
 "إرسال",
 
 
+
+// ==========================================
 // LANGUAGE
+// ==========================================
 
 language_title:
 "اللغة",
@@ -2269,7 +2345,10 @@ save_language:
 "سيتم حفظ اللغة تلقائياً",
 
 
+
+// ==========================================
 // TRANSACTIONS
+// ==========================================
 
 no_transactions:
 "لا توجد عمليات حالياً",
@@ -2284,7 +2363,10 @@ profit_transaction:
 "أرباح",
 
 
+
+// ==========================================
 // TERMS
+// ==========================================
 
 terms_title:
 "الشروط والأحكام",
@@ -2305,7 +2387,7 @@ terms_3_title:
 "3 - الحسابات",
 
 terms_3_text:
-"كل مستخدم مسؤول عن حسابه واستخدامه للمنصة، ويجب عدم إنشاء حسابات مخالفة للأنظمة.",
+"كل مستخدم مسؤول عن حسابه واستخدامه للمنصة ويجب عدم إنشاء حسابات مخالفة للأنظمة.",
 
 terms_4_title:
 "4 - نظام الإحالات",
@@ -2317,13 +2399,16 @@ terms_5_title:
 "5 - التحديثات",
 
 terms_5_text:
-"تحتفظ VALORA بحق تحديث الشروط والسياسات عند الحاجة، وسيتم إعلام المستخدمين بالتغييرات المهمة.",
+"تحتفظ VALORA بحق تحديث الشروط والسياسات عند الحاجة وسيتم إعلام المستخدمين بالتغييرات المهمة.",
 
 back_to_register:
 "العودة إلى إنشاء الحساب",
 
 
+
+// ==========================================
 // NOTIFICATIONS
+// ==========================================
 
 no_notifications:
 "لا توجد إشعارات",
@@ -2332,7 +2417,10 @@ notifications_description:
 "ستظهر هنا جميع التنبيهات الخاصة بالحساب والعمليات",
 
 
+
+// ==========================================
 // APPLICATION
+// ==========================================
 
 app_description:
 "احصل على أفضل تجربة من خلال تطبيق VALORA الرسمي",
@@ -2374,7 +2462,10 @@ ios_coming_soon:
 "سيتم توفير تطبيق iOS قريباً",
 
 
+
+// ==========================================
 // DEMO TRADING
+// ==========================================
 
 enter_trade_amount:
 "أدخل مبلغ التداول",
@@ -2401,7 +2492,10 @@ usdt:
 "USDT",
 
 
+
+// ==========================================
 // COMMON
+// ==========================================
 
 save:
 "حفظ",
@@ -2434,24 +2528,40 @@ required:
 
 };
 
+// ==========================================
+// LANGUAGE CORE FUNCTIONS
+// ==========================================
+
+const STORAGE_KEY = "VALORA_LANG";
+
+const DEFAULT_LANGUAGE = "ar";
+
+const RTL_LANGUAGES = [
+    "ar"
+];
+
 
 // ==========================================
-// LANGUAGE FUNCTIONS
+// GET CURRENT LANGUAGE
 // ==========================================
 
 function getLanguage(){
 
-    let lang = null;
+    let lang = DEFAULT_LANGUAGE;
+
 
     try {
 
         lang =
-            localStorage.getItem(STORAGE_KEY);
+            localStorage.getItem(
+                STORAGE_KEY
+            ) || DEFAULT_LANGUAGE;
+
 
     } catch(error){
 
         console.warn(
-            "VALORA language storage error:",
+            "VALORA language read error:",
             error
         );
 
@@ -2459,11 +2569,7 @@ function getLanguage(){
 
 
     if(
-        lang &&
-        Object.prototype.hasOwnProperty.call(
-            translations,
-            lang
-        )
+        translations[lang]
     ){
 
         return lang;
@@ -2476,17 +2582,16 @@ function getLanguage(){
 }
 
 
+
 // ==========================================
 // SAVE LANGUAGE
 // ==========================================
 
 function saveLanguage(lang){
 
+
     if(
-        !Object.prototype.hasOwnProperty.call(
-            translations,
-            lang
-        )
+        !translations[lang]
     ){
 
         return false;
@@ -2501,14 +2606,18 @@ function saveLanguage(lang){
             lang
         );
 
+
         return true;
 
-    } catch(error){
+
+    }catch(error){
+
 
         console.warn(
             "VALORA language save error:",
             error
         );
+
 
         return false;
 
@@ -2517,101 +2626,94 @@ function saveLanguage(lang){
 }
 
 
+
 // ==========================================
-// SET ELEMENT TEXT
+// CHANGE LANGUAGE
 // ==========================================
 
-function setElementText(element,value){
-
-    if(!element){
-        return;
-    }
+function setLanguage(lang){
 
 
-    const hasChildren =
-        element.children &&
-        element.children.length > 0;
-
-
-    if(!hasChildren){
-
-        if(
-            typeof value === "string" &&
-            value.includes("<br>")
-        ){
-
-            const parts =
-                value.split("<br>");
-
-            element.textContent = "";
-
-            parts.forEach(
-                function(part,index){
-
-                    if(index > 0){
-
-                        element.appendChild(
-                            document.createElement("br")
-                        );
-
-                    }
-
-                    element.appendChild(
-                        document.createTextNode(part)
-                    );
-
-                }
-            );
-
-        }else{
-
-            element.textContent =
-                value;
-
-        }
-
-        return;
-
-    }
-
-
-    let directTextNode = null;
-
-    for(
-        let i = 0;
-        i < element.childNodes.length;
-        i++
+    if(
+        !translations[lang]
     ){
 
-        if(
-            element.childNodes[i].nodeType ===
-            Node.TEXT_NODE
-        ){
-
-            directTextNode =
-                element.childNodes[i];
-
-            break;
-
-        }
-
-    }
-
-
-    if(directTextNode){
-
-        directTextNode.nodeValue =
-            value;
-
-    }else{
-
-        element.appendChild(
-            document.createTextNode(value)
+        console.warn(
+            "Invalid language:",
+            lang
         );
 
+
+        return false;
+
     }
 
+
+
+    saveLanguage(lang);
+
+
+
+    applyLanguage();
+
+
+
+    window.dispatchEvent(
+        new CustomEvent(
+            "VALORA_LANGUAGE_CHANGED",
+            {
+                detail:{
+                    language:lang
+                }
+            }
+        )
+    );
+
+
+
+    return true;
+
 }
+
+
+
+// ==========================================
+// TRANSLATE
+// ==========================================
+
+function translate(key){
+
+
+    const lang =
+        getLanguage();
+
+
+
+    if(
+        translations[lang] &&
+        translations[lang][key]
+    ){
+
+        return translations[lang][key];
+
+    }
+
+
+
+    if(
+        translations[DEFAULT_LANGUAGE][key]
+    ){
+
+        return translations[DEFAULT_LANGUAGE][key];
+
+    }
+
+
+
+    return key;
+
+}
+
 
 
 // ==========================================
@@ -2620,233 +2722,101 @@ function setElementText(element,value){
 
 function applyLanguage(){
 
+
     const lang =
         getLanguage();
 
 
+
     const current =
-        translations[lang] ||
-        translations[DEFAULT_LANGUAGE];
+        translations[lang];
 
-
-    const direction =
-        RTL_LANGUAGES.includes(lang)
-        ? "rtl"
-        : "ltr";
 
 
     document.documentElement.lang =
         lang;
 
+
+
     document.documentElement.dir =
-        direction;
+        RTL_LANGUAGES.includes(lang)
+        ? "rtl"
+        : "ltr";
+
 
 
     if(document.body){
 
         document.body.dir =
-            direction;
+            document.documentElement.dir;
 
     }
 
 
-    document.documentElement
-        .setAttribute(
-            "data-language",
-            lang
-        );
-
 
     document
-        .querySelectorAll("[data-lang]")
-        .forEach(
-            function(element){
-
-                const key =
-                    element.getAttribute(
-                        "data-lang"
-                    );
+    .querySelectorAll(
+        "[data-lang]"
+    )
+    .forEach(
+        function(element){
 
 
-                if(
-                    Object.prototype.hasOwnProperty.call(
-                        current,
-                        key
-                    )
-                ){
+            const key =
+                element.dataset.lang;
 
-                    setElementText(
-                        element,
-                        current[key]
-                    );
 
-                }
+
+            if(
+                current[key] !== undefined
+            ){
+
+
+                element.textContent =
+                    current[key];
+
 
             }
-        );
 
 
-    document
-        .querySelectorAll(
-            "[data-lang-placeholder]"
-        )
-        .forEach(
-            function(element){
-
-                const key =
-                    element.getAttribute(
-                        "data-lang-placeholder"
-                    );
-
-
-                if(
-                    Object.prototype.hasOwnProperty.call(
-                        current,
-                        key
-                    )
-                ){
-
-                    element.placeholder =
-                        current[key];
-
-                }
-
-            }
-        );
-
-
-    document
-        .querySelectorAll(
-            "[data-lang-title]"
-        )
-        .forEach(
-            function(element){
-
-                const key =
-                    element.getAttribute(
-                        "data-lang-title"
-                    );
-
-
-                if(
-                    Object.prototype.hasOwnProperty.call(
-                        current,
-                        key
-                    )
-                ){
-
-                    element.setAttribute(
-                        "title",
-                        current[key]
-                    );
-
-                }
-
-            }
-        );
-
-}
-
-
-// ==========================================
-// SET LANGUAGE
-// ==========================================
-
-function setLanguage(lang){
-
-    if(
-        !Object.prototype.hasOwnProperty.call(
-            translations,
-            lang
-        )
-    ){
-
-        console.warn(
-            "VALORA: invalid language",
-            lang
-        );
-
-        return false;
-
-    }
-
-
-    if(!saveLanguage(lang)){
-
-        return false;
-
-    }
-
-
-    applyLanguage();
-
-
-    // لا نعيد تحميل الصفحة.
-    // تغيير اللغة يتم مباشرة.
-
-    window.dispatchEvent(
-        new CustomEvent(
-            "VALORA_LANGUAGE_CHANGED",
-            {
-                detail:{
-                    language: lang
-                }
-            }
-        )
+        }
     );
 
 
-    return true;
+
+    document
+    .querySelectorAll(
+        "[data-lang-placeholder]"
+    )
+    .forEach(
+        function(element){
+
+
+            const key =
+                element.dataset.langPlaceholder;
+
+
+
+            if(
+                current[key] !== undefined
+            ){
+
+                element.placeholder =
+                    current[key];
+
+            }
+
+        }
+    );
+
+
 
 }
 
 
-// ==========================================
-// TRANSLATION HELPER
-// ==========================================
-
-function translate(key){
-
-    const lang =
-        getLanguage();
-
-
-    const current =
-        translations[lang] ||
-        translations[DEFAULT_LANGUAGE];
-
-
-    if(
-        Object.prototype.hasOwnProperty.call(
-            current,
-            key
-        )
-    ){
-
-        return current[key];
-
-    }
-
-
-    if(
-        Object.prototype.hasOwnProperty.call(
-            translations[DEFAULT_LANGUAGE],
-            key
-        )
-    ){
-
-        return translations[DEFAULT_LANGUAGE][key];
-
-    }
-
-
-    return key;
-
-}
-
 
 // ==========================================
-// GLOBAL FUNCTIONS
+// GLOBAL
 // ==========================================
 
 window.getLanguage =
@@ -2869,22 +2839,29 @@ window.t =
     translate;
 
 
+
 window.VALORA_LANG = {
+
 
     getLanguage:
         getLanguage,
 
+
     saveLanguage:
         saveLanguage,
+
 
     setLanguage:
         setLanguage,
 
+
     applyLanguage:
         applyLanguage,
 
+
     translations:
         translations,
+
 
     t:
         translate
@@ -2892,57 +2869,13 @@ window.VALORA_LANG = {
 };
 
 
-// ==========================================
-// INITIALIZE
-// ==========================================
-
-function initializeLanguage(){
-
-    applyLanguage();
-
-}
-
-
-if(
-    document.readyState ===
-    "loading"
-){
-
-    document.addEventListener(
-        "DOMContentLoaded",
-        initializeLanguage
-    );
-
-}else{
-
-    initializeLanguage();
-
-}
-
 
 // ==========================================
-// SUPPORT OTHER VALORA FILES
+// AUTO START
 // ==========================================
 
-window.addEventListener(
-    "storage",
-    function(event){
-
-        if(
-            event.key ===
-            STORAGE_KEY
-        ){
-
-            applyLanguage();
-
-        }
-
-    }
-);
-
-
-window.addEventListener(
-    "VALORA_LANGUAGE_CHANGED",
+document.addEventListener(
+    "DOMContentLoaded",
     function(){
 
         applyLanguage();
@@ -2951,4 +2884,24 @@ window.addEventListener(
 );
 
 
-})();
+
+// ==========================================
+// SYNC BETWEEN PAGES
+// ==========================================
+
+window.addEventListener(
+    "storage",
+    function(event){
+
+
+        if(
+            event.key === STORAGE_KEY
+        ){
+
+            applyLanguage();
+
+        }
+
+
+    }
+);
