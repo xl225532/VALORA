@@ -40,7 +40,38 @@ en: {
 
 
 // GENERAL
+deposit_server_error:
+"Unable to load deposit address",
 
+copy_error:
+"Failed to copy address",
+
+deposit_amount_error:
+"Please enter a valid deposit amount",
+
+deposit_txid_error:
+"Please enter TXID",
+
+deposit_confirm_txid_error:
+"Please confirm TXID",
+
+deposit_txid_match_error:
+"TXID does not match",
+
+deposit_error:
+"Deposit confirmation failed",
+
+deposit_success:
+"Deposit request submitted successfully",
+
+server_connection_error:
+"Unable to connect to server",
+
+deposit_request_sent:
+"Deposit Request Sent",
+
+deposit_request_text:
+"Your transfer details have been recorded. The transaction will be verified and balance will be added after confirmation."
 home: "Home",
 dashboard: "Dashboard",
 wallet: "Wallet",
