@@ -16,18 +16,39 @@ let wallets = {};
 
 
 
+// ==================================
+// SAFE TRANSLATION
+// ==================================
+
+function tr(key, fallback){
+
+    if(typeof t === "function"){
+
+        return t(key);
+
+    }
+
+    return fallback;
+
+}
+
+
 
 // ==================================
 // MESSAGE SYSTEM
 // ==================================
 
-function showDepositMessage(type,message){
+function showDepositMessage(type, message){
 
     const box =
     document.getElementById("depositMessage");
 
 
-    if(!box) return;
+    if(!box){
+
+        return;
+
+    }
 
 
     box.className =
@@ -53,9 +74,11 @@ function clearDepositMessage(){
 
     if(box){
 
-        box.style.display="none";
+        box.style.display =
+        "none";
 
-        box.textContent="";
+        box.textContent =
+        "";
 
     }
 
@@ -71,8 +94,16 @@ function clearDepositMessage(){
 function showFieldError(input,message){
 
 
+    if(!input){
+
+        return;
+
+    }
+
+
     const area =
     input.closest(".deposit-input-area");
+
 
 
     if(area){
@@ -82,8 +113,12 @@ function showFieldError(input,message){
     }
 
 
+
     let error =
-    area.nextElementSibling;
+    area ?
+    area.nextElementSibling :
+    null;
+
 
 
     if(
@@ -91,20 +126,34 @@ function showFieldError(input,message){
         !error.classList.contains("field-error")
     ){
 
-        error=document.createElement("div");
+        error =
+        document.createElement("div");
 
-        error.className="field-error";
 
-        area.after(error);
+        error.className =
+        "field-error";
+
+
+        if(area){
+
+            area.after(error);
+
+        }
 
     }
 
 
-    error.textContent=message;
 
-    error.style.display="block";
+    error.textContent =
+    message;
+
+
+    error.style.display =
+    "block";
+
 
 }
+
 
 
 
@@ -112,8 +161,17 @@ function showFieldError(input,message){
 function clearFieldError(input){
 
 
+    if(!input){
+
+        return;
+
+    }
+
+
+
     const area =
     input.closest(".deposit-input-area");
+
 
 
     if(area){
@@ -123,8 +181,12 @@ function clearFieldError(input){
     }
 
 
+
     const error =
-    area.nextElementSibling;
+    area ?
+    area.nextElementSibling :
+    null;
+
 
 
     if(
@@ -132,7 +194,8 @@ function clearFieldError(input){
         error.classList.contains("field-error")
     ){
 
-        error.style.display="none";
+        error.style.display =
+        "none";
 
     }
 
@@ -149,51 +212,54 @@ function clearFieldError(input){
 async function loadWallets(){
 
 
-try{
+    try{
 
 
-const response =
-await fetch(
-SERVER_URL + "/wallets"
-);
-
-
-
-if(!response.ok){
-
-throw new Error();
-
-}
+        const response =
+        await fetch(
+            SERVER_URL + "/wallets"
+        );
 
 
 
-wallets =
-await response.json();
+        if(!response.ok){
+
+            throw new Error(
+                "Wallet loading failed"
+            );
+
+        }
 
 
 
-loadNetworks();
-
-
-updateAddress();
+        wallets =
+        await response.json();
 
 
 
-}
+        loadNetworks();
 
-catch(error){
-
-
-showDepositMessage(
-"error",
-t("wallet_load_error") || "تعذر تحميل عناوين الإيداع"
-);
+        updateAddress();
 
 
-console.error(error);
+
+    }
+    catch(error){
 
 
-}
+        showDepositMessage(
+            "error",
+            tr(
+                "wallet_load_error",
+                "تعذر تحميل عناوين الإيداع"
+            )
+        );
+
+
+        console.error(error);
+
+
+    }
 
 
 }
@@ -208,25 +274,25 @@ console.error(error);
 const coinNetworks = {
 
 
-USDT:[
-"TRC20",
-"ERC20"
-],
+    USDT:[
+        "TRC20",
+        "ERC20"
+    ],
 
 
-BTC:[
-"Bitcoin"
-],
+    BTC:[
+        "Bitcoin"
+    ],
 
 
-ETH:[
-"ERC20"
-],
+    ETH:[
+        "ERC20"
+    ],
 
 
-TRX:[
-"TRC20"
-]
+    TRX:[
+        "TRC20"
+    ]
 
 
 };
@@ -241,28 +307,37 @@ TRX:[
 function selectCoin(coin,button){
 
 
-currentCoin=coin;
+    currentCoin =
+    coin;
 
 
 
-document
-.querySelectorAll(".deposit-coin")
-.forEach(btn=>{
+    document
+    .querySelectorAll(".deposit-coin")
+    .forEach(btn=>{
 
-btn.classList.remove("active");
+        btn.classList.remove(
+            "active"
+        );
 
-});
-
-
-
-button.classList.add("active");
+    });
 
 
 
-loadNetworks();
+    if(button){
+
+        button.classList.add(
+            "active"
+        );
+
+    }
 
 
-updateAddress();
+
+    loadNetworks();
+
+
+    updateAddress();
 
 
 }
@@ -277,89 +352,114 @@ updateAddress();
 function loadNetworks(){
 
 
-const box =
-document.getElementById("networkBox");
+    const box =
+    document.getElementById(
+        "networkBox"
+    );
 
 
-if(!box)return;
+    if(!box){
 
+        return;
 
-
-box.innerHTML="";
-
-
-
-coinNetworks[currentCoin]
-.forEach(network=>{
-
-
-let btn =
-document.createElement("button");
+    }
 
 
 
-btn.className="network";
-
-btn.type="button";
-
-
-btn.textContent=network;
+    box.innerHTML =
+    "";
 
 
 
-if(network===currentNetwork){
+    coinNetworks[currentCoin]
+    .forEach(network=>{
 
-btn.classList.add("active");
+
+        const btn =
+        document.createElement(
+            "button"
+        );
+
+
+        btn.className =
+        "network";
+
+
+        btn.type =
+        "button";
+
+
+        btn.textContent =
+        network;
+
+
+
+        if(network === currentNetwork){
+
+            btn.classList.add(
+                "active"
+            );
+
+        }
+
+
+
+        btn.onclick =
+        function(){
+
+            selectNetwork(
+                btn,
+                network
+            );
+
+        };
+
+
+
+        box.appendChild(btn);
+
+
+    });
+
+
+
+    currentNetwork =
+    coinNetworks[currentCoin][0];
+
+
 
 }
+// ==================================
+// SELECT NETWORK
+// ==================================
+
+function selectNetwork(button, network){
+
+
+    currentNetwork =
+    network;
 
 
 
-btn.onclick=function(){
+    document
+    .querySelectorAll(".network")
+    .forEach(btn=>{
 
-selectNetwork(btn,network);
+        btn.classList.remove(
+            "active"
+        );
 
-};
-
-
-
-box.appendChild(btn);
-
-
-
-});
+    });
 
 
 
-currentNetwork =
-coinNetworks[currentCoin][0];
+    button.classList.add(
+        "active"
+    );
 
 
 
-}
-
-
-
-
-function selectNetwork(button,network){
-
-
-currentNetwork=network;
-
-
-document
-.querySelectorAll(".network")
-.forEach(btn=>{
-
-btn.classList.remove("active");
-
-});
-
-
-button.classList.add("active");
-
-
-updateAddress();
+    updateAddress();
 
 
 }
@@ -374,29 +474,36 @@ updateAddress();
 function updateAddress(){
 
 
-const input =
-document.getElementById("depositAddress");
+    const input =
+    document.getElementById(
+        "depositAddress"
+    );
 
 
-if(!input)return;
+
+    if(!input){
+
+        return;
+
+    }
 
 
 
-if(
-wallets[currentCoin] &&
-wallets[currentCoin][currentNetwork]
-){
+    if(
+        wallets[currentCoin] &&
+        wallets[currentCoin][currentNetwork]
+    ){
 
-input.value =
-wallets[currentCoin][currentNetwork];
+        input.value =
+        wallets[currentCoin][currentNetwork];
 
-}
+    }
+    else{
 
-else{
+        input.value =
+        "";
 
-input.value="";
-
-}
+    }
 
 
 }
@@ -405,35 +512,64 @@ input.value="";
 
 
 // ==================================
-// COPY
+// COPY ADDRESS
 // ==================================
 
 function copyDeposit(){
 
 
-const input =
-document.getElementById("depositAddress");
-
-
-if(!input.value)return;
-
-
-
-navigator.clipboard
-.writeText(input.value)
-.then(()=>{
-
-
-showDepositMessage(
-"success",
-t("deposit_copied")
-);
+    const input =
+    document.getElementById(
+        "depositAddress"
+    );
 
 
 
-});
+    if(
+        !input ||
+        !input.value
+    ){
+
+        return;
+
+    }
+
+
+
+    navigator.clipboard
+    .writeText(
+        input.value
+    )
+    .then(()=>{
+
+
+        showDepositMessage(
+            "success",
+            tr(
+                "deposit_copied",
+                "تم نسخ عنوان الإيداع"
+            )
+        );
+
+
+    })
+    .catch(()=>{
+
+
+        showDepositMessage(
+            "error",
+            tr(
+                "copy_error",
+                "فشل نسخ العنوان"
+            )
+        );
+
+
+    });
+
 
 }
+
 
 
 
@@ -445,105 +581,134 @@ t("deposit_copied")
 function validateDeposit(){
 
 
-clearDepositMessage();
+    clearDepositMessage();
 
 
 
-const amount =
-document.getElementById("depositAmount");
+    const amount =
+    document.getElementById(
+        "depositAmount"
+    );
 
 
-const txid =
-document.getElementById("transactionId");
+    const txid =
+    document.getElementById(
+        "transactionId"
+    );
 
 
-const confirmTxid =
-document.getElementById("confirmTransactionId");
-
-
-
-
-if(
-!amount.value ||
-Number(amount.value)<=0
-){
-
-showFieldError(
-amount,
-t("deposit_amount_error") || "أدخل المبلغ الصحيح"
-);
-
-
-return false;
-
-}
-
-
-
-clearFieldError(amount);
+    const confirmTxid =
+    document.getElementById(
+        "confirmTransactionId"
+    );
 
 
 
 
-if(!txid.value.trim()){
+
+    if(
+        !amount ||
+        !amount.value ||
+        Number(amount.value) <= 0
+    ){
+
+        showFieldError(
+            amount,
+            tr(
+                "deposit_amount_error",
+                "أدخل مبلغ الإيداع الصحيح"
+            )
+        );
 
 
-showFieldError(
-txid,
-t("deposit_txid_error") || "أدخل رمز التحويل TXID"
-);
+        return false;
 
-
-return false;
-
-}
-
-
-clearFieldError(txid);
+    }
 
 
 
-
-if(!confirmTxid.value.trim()){
-
-
-showFieldError(
-confirmTxid,
-t("deposit_confirm_txid_error") || "أكد رمز التحويل"
-);
-
-
-return false;
-
-}
-
-
-clearFieldError(confirmTxid);
+    clearFieldError(amount);
 
 
 
 
-if(
-txid.value.trim()
-!== 
-confirmTxid.value.trim()
-){
+
+    if(
+        !txid.value.trim()
+    ){
 
 
-showFieldError(
-confirmTxid,
-t("deposit_txid_match_error") || "رمز التحويل غير مطابق"
-);
+        showFieldError(
+            txid,
+            tr(
+                "deposit_txid_error",
+                "أدخل رمز التحويل TXID"
+            )
+        );
+
+
+        return false;
+
+    }
 
 
 
-return false;
-
-}
+    clearFieldError(txid);
 
 
 
-return true;
+
+
+    if(
+        !confirmTxid.value.trim()
+    ){
+
+
+        showFieldError(
+            confirmTxid,
+            tr(
+                "deposit_confirm_txid_error",
+                "أكد رمز التحويل TXID"
+            )
+        );
+
+
+        return false;
+
+    }
+
+
+
+    clearFieldError(confirmTxid);
+
+
+
+
+
+    if(
+        txid.value.trim()
+        !==
+        confirmTxid.value.trim()
+    ){
+
+
+        showFieldError(
+            confirmTxid,
+            tr(
+                "deposit_txid_match_error",
+                "رمز التحويل غير مطابق"
+            )
+        );
+
+
+        return false;
+
+    }
+
+
+
+
+    return true;
 
 
 }
@@ -559,119 +724,148 @@ return true;
 async function submitDeposit(){
 
 
-if(!validateDeposit())return;
+    if(
+        !validateDeposit()
+    ){
 
+        return;
 
+    }
 
-const token =
-localStorage.getItem("VALORA_TOKEN");
 
 
 
-const body={
+    const token =
+    localStorage.getItem(
+        "VALORA_TOKEN"
+    );
 
 
-coin:currentCoin,
 
-network:currentNetwork,
+    const body = {
 
 
-amount:Number(
-document.getElementById("depositAmount").value
-),
+        coin:
+        currentCoin,
 
 
-txid:
-document.getElementById("transactionId").value.trim()
+        network:
+        currentNetwork,
 
 
-};
+        amount:
+        Number(
+            document.getElementById(
+                "depositAmount"
+            ).value
+        ),
 
 
+        txid:
+        document.getElementById(
+            "transactionId"
+        ).value.trim()
 
 
-try{
+    };
 
 
-const response =
-await fetch(
-SERVER_URL+"/deposit/check",
-{
 
 
-method:"POST",
+    try{
 
 
-headers:{
+        const response =
+        await fetch(
+            SERVER_URL + "/deposit/check",
+            {
 
 
-"Content-Type":"application/json",
+                method:
+                "POST",
 
 
-"Authorization":
-"Bearer "+token
+                headers:{
 
 
-},
+                    "Content-Type":
+                    "application/json",
 
 
-body:JSON.stringify(body)
+                    "Authorization":
+                    "Bearer " + token
 
 
-});
+                },
 
 
+                body:
+                JSON.stringify(body)
 
 
+            }
+        );
 
-const data =
-await response.json();
 
 
 
 
+        const data =
+        await response.json();
 
-if(!response.ok){
 
 
-showDepositMessage(
-"error",
-data.message ||
-t("deposit_error")
-);
 
 
+        if(!response.ok){
 
-return;
 
+            showDepositMessage(
+                "error",
+                data.message ||
+                tr(
+                    "deposit_error",
+                    "فشل تأكيد الإيداع"
+                )
+            );
 
-}
 
+            return;
 
 
+        }
 
-showDepositMessage(
-"success",
-t("deposit_success")
-);
 
 
 
-}
 
+        showDepositMessage(
+            "success",
+            tr(
+                "deposit_success",
+                "تم إرسال طلب الإيداع"
+            )
+        );
 
-catch(error){
 
 
-showDepositMessage(
-"error",
-t("server_connection_error")
-);
+    }
+    catch(error){
 
 
+        showDepositMessage(
+            "error",
+            tr(
+                "server_connection_error",
+                "تعذر الاتصال بالسيرفر"
+            )
+        );
 
-}
 
+        console.error(error);
+
+
+    }
 
 
 }
@@ -689,26 +883,79 @@ document.addEventListener(
 ()=>{
 
 
-loadWallets();
+    if(typeof applyLanguage === "function"){
 
+        applyLanguage();
 
-const btn =
-document.getElementById(
-"confirmDepositButton"
-);
-
-
-
-if(btn){
-
-btn.addEventListener(
-"click",
-submitDeposit
-);
-
-}
+    }
 
 
 
-}
-);
+    loadWallets();
+
+
+
+
+    const btn =
+    document.getElementById(
+        "confirmDepositButton"
+    );
+
+
+    if(btn){
+
+        btn.addEventListener(
+            "click",
+            submitDeposit
+        );
+
+    }
+
+
+
+
+
+    const copyBtn =
+    document.getElementById(
+        "copyDepositButton"
+    );
+
+
+    if(copyBtn){
+
+        copyBtn.addEventListener(
+            "click",
+            copyDeposit
+        );
+
+    }
+
+
+
+
+
+    document
+    .querySelectorAll(".deposit-coin")
+    .forEach(button=>{
+
+
+        button.addEventListener(
+            "click",
+            ()=>{
+
+
+                selectCoin(
+                    button.dataset.coin,
+                    button
+                );
+
+
+            }
+        );
+
+
+    });
+
+
+
+});
