@@ -38,7 +38,14 @@ const translations = {
 
 en: {
 
+deposit_amount_placeholder:
+"Enter the amount sent",
 
+deposit_txid_placeholder:
+"Enter TXID",
+
+deposit_confirm_txid_placeholder:
+"Re-enter TXID",
 // GENERAL
 deposit_server_error:
 "Unable to load deposit address",
@@ -1477,7 +1484,15 @@ reward_profit:
 
 
 // DEPOSIT
-deposit_server_error:
+deposit_amount_placeholder:
+"أدخل المبلغ الذي أرسلته",
+
+deposit_txid_placeholder:
+"أدخل رمز التحويل TXID",
+
+deposit_confirm_txid_placeholder:
+"أعد إدخال رمز التحويل TXID",
+    deposit_server_error:
 "تعذر تحميل عنوان الإيداع",
 
 copy_error:
