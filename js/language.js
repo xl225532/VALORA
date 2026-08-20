@@ -40,7 +40,25 @@ en: {
 
 
 // GENERAL
+// ENGLISH
 
+deposit_confirm_title:
+"Confirm Deposit",
+
+deposit_confirm_description:
+"Enter the amount you sent and the TXID as shown on the blockchain network. The TXID must match in both fields.",
+
+deposit_amount_placeholder:
+"Enter the amount you sent",
+
+deposit_txid_placeholder:
+"Enter TXID",
+
+deposit_confirm_txid_placeholder:
+"Re-enter TXID",
+
+confirm_deposit:
+"Confirm Deposit",
 home: "Home",
 dashboard: "Dashboard",
 wallet: "Wallet",
@@ -1446,7 +1464,26 @@ reward_profit:
 
 
 // DEPOSIT
+// ARABIC
 
+deposit_confirm_title:
+"تأكيد الإيداع",
+
+deposit_confirm_description:
+"أدخل المبلغ الذي أرسلته ورمز التحويل TXID كما يظهر في شبكة البلوكشين. يجب أن يكون رمز التحويل مطابقاً في الخانتين.",
+
+deposit_amount_placeholder:
+"أدخل المبلغ الذي أرسلته",
+
+deposit_txid_placeholder:
+"أدخل رمز التحويل TXID",
+
+deposit_confirm_txid_placeholder:
+"أعد إدخال رمز التحويل TXID",
+
+confirm_deposit:
+"تأكيد الإيداع",
+    
 deposit_title:
 "إيداع العملات",
 
